@@ -1,0 +1,4308 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="通过python解决算法和数据结构问题">
+      
+      
+      
+      
+        <link rel="prev" href="../s9/">
+      
+      
+        <link rel="next" href="../s11/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.4">
+    
+    
+      
+        <title>1.10. 控制结构 - python数据结构和算法 - 中文版</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bd3936ea.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="blue">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#110-控制结构" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="python数据结构和算法 - 中文版" class="md-header__button md-logo" aria-label="python数据结构和算法 - 中文版" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            python数据结构和算法 - 中文版
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1.10. 控制结构
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/hellowac/pythonds-zh-cn/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    python数据结构和算法 - 中文版
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  1. 引言
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../c2/" class="md-tabs__link">
+          
+  
+    
+  
+  2. 算法分析
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../c3/" class="md-tabs__link">
+          
+  
+    
+  
+  3. 基本数据结构
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../c4/" class="md-tabs__link">
+          
+  
+    
+  
+  4. 递归
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../c5/" class="md-tabs__link">
+          
+  
+    
+  
+  5. 搜索与排序
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../c6/" class="md-tabs__link">
+          
+  
+    
+  
+  6. 树和树算法
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../c7/" class="md-tabs__link">
+          
+  
+    
+  
+  7. 图和图算法
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../c8/" class="md-tabs__link">
+          
+  
+    
+  
+  8. 高级主题
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="python数据结构和算法 - 中文版" class="md-nav__button md-logo" aria-label="python数据结构和算法 - 中文版" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    python数据结构和算法 - 中文版
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/hellowac/pythonds-zh-cn/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    python数据结构和算法 - 中文版
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    首页
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    1. 引言
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            1. 引言
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.1. 目标
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.2. 入门
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.3. 什么是计算机科学？
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.4. 什么是编程？
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.5. 为什么学习数据结构和抽象数据类型？
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.6. 为什么学习算法？
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.7. Python基础回顾
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.8. 数据入门
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.9. 输入和输出
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    1.10. 控制结构
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.11. 异常处理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.12. 定义函数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s13/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.13. Python中的面向对象编程：定义类
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s14/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.14. 总结
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s15/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.15. 关键术语
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s16/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.16. 练习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../c2/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    2. 算法分析
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            2. 算法分析
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c2/s1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.1. 目标
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c2/s2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.2. 什么是算法分析？
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c2/s3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.3. 大O表示法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c2/s4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.4. 一个字谜检测例子
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c2/s5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.5. Python数据结构的性能
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c2/s6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.6. 列表
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c2/s7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.7. 字典
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c2/s8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.8. 总结
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c2/s9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.9. 关键术语
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c2/s10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.10. 练习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../c3/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    3. 基本数据结构
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            3. 基本数据结构
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c3/s1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.1. 目标
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c3/s2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.2. 什么是线性结构？
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c3/s3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.3. 栈
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c3/s4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.4. 栈的抽象数据类型
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c3/s5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.5. 用Python实现栈
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c3/s6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.6. 简单的括号匹配
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c3/s7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.7. 符号匹配（一般情况）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c3/s8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.8. 将十进制数转换为二进制数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c3/s9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.9. 中缀、前缀和后缀表达式
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c3/s10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.10. 队列
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c3/s11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.11. 队列的抽象数据类型
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c3/s12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.12. 用Python实现队列
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c3/s13/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.13. 队列模拟：烫手山芋游戏
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c3/s14/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.14. 队列模拟：打印任务
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c3/s15/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.15. 双端队列
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c3/s16/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.16. 双端队列的抽象数据类型
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c3/s17/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.17. 用Python实现双端队列
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c3/s18/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.18. 回文检测器
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c3/s19/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.19. 列表
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c3/s20/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.20. 无序列表的抽象数据类型
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c3/s21/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.21. 用链表实现无序列表
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c3/s22/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.22. 有序列表的抽象数据类型
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c3/s23/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.23. 实现有序列表
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c3/s24/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.24. 总结
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c3/s25/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.25. 关键词术语
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c3/s26/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.26. 练习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../c4/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    4. 递归
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            4. 递归
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c4/s1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c4/s2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c4/s3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c4/s4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c4/s5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c4/s6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S6
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c4/s7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S7
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c4/s8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S8
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c4/s9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S9
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c4/s10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S10
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c4/s11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S11
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c4/s12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S12
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c4/s13/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S13
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c4/s14/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S14
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c4/s15/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S15
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../c5/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    5. 搜索与排序
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            5. 搜索与排序
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c5/s1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c5/s2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c5/s3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c5/s4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c5/s5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c5/s6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S6
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c5/s7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S7
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c5/s8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S8
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c5/s9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S9
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c5/s10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S10
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c5/s11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S11
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c5/s12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S12
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c5/s13/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S13
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c5/s14/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S14
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c5/s15/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S15
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../c6/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    6. 树和树算法
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            6. 树和树算法
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c6/s1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c6/s2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c6/s3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c6/s4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c6/s5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c6/s6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S6
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c6/s7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S7
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c6/s8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S8
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c6/s9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S9
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c6/s10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S10
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c6/s11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S11
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c6/s12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S12
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c6/s13/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S13
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c6/s14/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S14
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c6/s15/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S15
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c6/s16/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S16
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c6/s17/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S17
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c6/s18/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S18
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c6/s19/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S19
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c6/s20/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S20
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c6/s21/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S21
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c6/s22/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S22
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../c7/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    7. 图和图算法
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            7. 图和图算法
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c7/s1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c7/s2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c7/s3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c7/s4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c7/s5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c7/s6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S6
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c7/s7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S7
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c7/s8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S8
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c7/s9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S9
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c7/s10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S10
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c7/s11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S11
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c7/s12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S12
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c7/s13/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S13
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c7/s14/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S14
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c7/s15/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S15
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c7/s16/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S16
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c7/s17/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S17
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c7/s18/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S18
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c7/s19/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S19
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c7/s20/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S20
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c7/s21/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S21
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c7/s22/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S22
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c7/s23/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S23
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c7/s24/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S24
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c7/s25/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S25
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../c8/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    8. 高级主题
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            8. 高级主题
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c8/s1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c8/s2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c8/s3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c8/s4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c8/s5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c8/s6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S6
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="110-控制结构">1.10. 控制结构<a class="headerlink" href="#110-控制结构" title="Permanent link">&para;</a></h1>
+<p><strong>1.10. Control Structures</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>正如我们之前提到的，算法需要两个重要的控制结构：迭代(iteration)和选择(selection)。 Python 以各种形式支持这两者。 程序员可以选择对于给定情况最有用的语句。</p>
+<p>对于迭代，Python 提供了一个标准的<code>while</code>语句和一个非常强大的<code>for</code>语句。 只要条件计算结果为<code>True</code>，while 语句就会重复一段代码。 例如，</p>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">counter</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">while</span> <span class="n">counter</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, world&quot;</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="n">counter</span> <span class="o">=</span> <span class="n">counter</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="gp">... </span>
+<span class="go">Hello, world</span>
+<span class="go">Hello, world</span>
+<span class="go">Hello, world</span>
+<span class="go">Hello, world</span>
+<span class="go">Hello, world</span>
+</code></pre></div>
+<p>打印出五次<code>Hello, world</code>短语。 <code>while</code> 语句上的条件在每次重复开始时进行评估。 如果条件计算结果为<code>True</code>，则语句的主体将执行。 由于 Python 语言强制执行强制缩进模式，因此很容易看到 Python while 语句的结构。</p>
+<p>while 语句是一种非常通用的迭代结构，我们将在许多不同的算法中使用它。 在许多情况下，复合条件将控制迭代。 一个片段如</p>
+<div class="highlight"><pre><span></span><code><span class="go">while counter &lt;= 10 and not done:</span>
+<span class="go">...</span>
+</code></pre></div>
+<p>只会在条件的两个部分都满足的情况下才执行语句主体。 变量<code>counter</code>的值需要小于或等于10，并且变量<code>done</code>的值需要为<code>False</code>（<code>not False</code>是 <code>True</code>），这样<code>True and True</code> 就会得到<code>True</code>。</p>
+<p>尽管这种类型的构造在多种情况下都非常有用，但另一种迭代结构<code>for</code>语句可以与许多 Python 集合结合使用。 <code>for</code> 语句可用于迭代集合的成员，只要集合是一个序列。 所以，举例来说，</p>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">]:</span>
+<span class="gp">... </span>   <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">1</span>
+<span class="go">3</span>
+<span class="go">6</span>
+<span class="go">2</span>
+<span class="go">5</span>
+</code></pre></div>
+<p>将变量<code>item</code>指定为列表 <code>[1, 3, 6, 2, 5]</code> 中的每个连续值。 然后执行迭代的主体。 这适用于任何序列集合（列表、元组和字符串）。</p>
+<p><code>for</code> 语句的常见用途是在一系列值上实现明确的迭代。 该声明</p>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+<span class="gp">... </span>   <span class="nb">print</span><span class="p">(</span><span class="n">item</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">0</span>
+<span class="go">1</span>
+<span class="go">4</span>
+<span class="go">9</span>
+<span class="go">16</span>
+</code></pre></div>
+<p>将执行<code>print</code>函数五次。 <code>range</code>函数将返回一个表示序列 0、1、2、3、4 的范围对象，每个值将分配给变量<code>item</code>。 然后对该值进行平方并打印。</p>
+<p>此迭代结构的另一个有用版本用于处理字符串的每个字符。 以下代码片段迭代字符串列表，并通过将每个字符串附加到列表来处理每个字符串。 结果是所有单词中所有字母的列表。</p>
+<div class="highlight"><span class="filename">处理字符串列表中的每个字符(Activecode 8)</span><pre><span></span><code><span class="n">word_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="s2">&quot;dog&quot;</span><span class="p">,</span> <span class="s2">&quot;rabbit&quot;</span><span class="p">]</span>
+<span class="n">letter_list</span> <span class="o">=</span> <span class="p">[</span> <span class="p">]</span>
+<span class="k">for</span> <span class="n">a_word</span> <span class="ow">in</span> <span class="n">word_list</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">a_letter</span> <span class="ow">in</span> <span class="n">a_word</span><span class="p">:</span>
+        <span class="n">letter_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a_letter</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">letter_list</span><span class="p">)</span>
+</code></pre></div>
+<p>选择语句允许程序员提出问题，然后根据结果执行不同的操作。 大多数编程语言提供了这个有用结构的两个版本：<code>if...else</code>和<code>if</code>。 二进制选择的一个简单示例使用<code>if...else</code>语句。</p>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">math</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+<span class="gp">... </span>  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sorry, value is negative&quot;</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">else</span><span class="p">:</span>
+<span class="gp">... </span>  <span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<span class="gp">... </span>
+<span class="go">4.0</span>
+</code></pre></div>
+<p>在此示例中，检查<code>n</code>引用的对象以查看它是否小于零。 如果是，则会打印一条消息，指出结果是否定的。 如果不是，则该语句执行<code>else</code>子句并计算平方根。</p>
+<p>与任何控制结构一样，选择结构可以嵌套，以便一个问题的结果有助于决定是否询问下一个问题。 例如，假设<code>score</code>是一个变量，保存对计算机科学测试分数的引用。</p>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">else</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">if</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">else</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">if</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">70</span><span class="p">:</span>
+<span class="gp">... </span>            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>
+<span class="gp">... </span>        <span class="k">else</span><span class="p">:</span>
+<span class="gp">... </span>            <span class="k">if</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>
+<span class="gp">... </span>                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;D&quot;</span><span class="p">)</span>
+<span class="gp">... </span>            <span class="k">else</span><span class="p">:</span>
+<span class="gp">... </span>                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;F&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>该片段将通过打印获得的字母等级来对称为“分数(score)”的值进行分类。 如果分数大于或等于 90，则语句将打印“A”。 如果不是（<code>else</code>），则询问下一个问题。 如果分数大于或等于 80，那么它必须在 80 到 89 之间，因为第一个问题的答案是错误的。 在这种情况下，打印“B”。 您可以看到，Python 缩进模式有助于理解<code>if</code>和<code>else</code>之间的关联，而不需要任何额外的语法元素。</p>
+<p>这种类型的嵌套选择的替代语法使用<code>elif</code>关键字。 将<code>else</code>和下一个<code>if</code>组合起来，以便消除额外嵌套级别的需要。 请注意，如果所有其他条件均失败，最后的<code>else</code>仍然需要提供默认情况。</p>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">elif</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">elif</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">70</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">elif</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;D&quot;</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">else</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;F&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Python 还有一个单向选择结构，即<code>if</code>语句。 使用此语句，如果条件为真，则执行操作。 在条件为假的情况下，处理简单地继续到<code>if</code>之后的下一个语句。 例如，以下片段将首先检查变量“n”的值是否为负数。 如果是，则通过绝对值函数对其进行修改。 无论如何，下一步是计算平方根。</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">自检</p>
+<p>通过尝试以下练习来测试您对我们迄今为止所涵盖内容的理解。 修改 Activecode 8 中的代码，以便最终列表仅包含每个字母的一个副本。</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># the answer is: [&#39;c&#39;, &#39;a&#39;, &#39;t&#39;, &#39;d&#39;, &#39;o&#39;, &#39;g&#39;, &#39;r&#39;, &#39;b&#39;, &#39;i&#39;]</span>
+</code></pre></div>
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/vJ_KDaJZ4f4" title="list unique" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></p>
+</div>
+<p>回到列表，还有一种创建列表的替代方法，该方法使用迭代和选择结构，称为<strong>列表推导式(list comprehension)</strong>。 列表推导式允许您根据某些处理或选择标准轻松创建列表。 例如，如果我们想创建前 10 个完全平方数的列表，我们可以使用<code>for</code>语句：</p>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">sq_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">sq_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
+<span class="gp">... </span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sq_list</span>
+<span class="go">[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</span>
+</code></pre></div>
+<p>使用列表推导式，我们可以一步完成此操作，如下所示</p>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">sq_list</span><span class="o">=</span><span class="p">[</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sq_list</span>
+<span class="go">[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</span>
+</code></pre></div>
+<p>变量<code>x</code>采用由<code>for</code>结构指定的从1到10的值。 然后计算<code>x * x</code>的值并将其添加到正在构造的列表中。</p>
+<p>列表推导式的通用语法还允许添加选择标准，以便仅添加某些项目。 例如，</p>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">sq_list</span><span class="o">=</span><span class="p">[</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sq_list</span>
+<span class="go">[1, 9, 25, 49, 81]</span>
+</code></pre></div>
+<p>此列表推导式构造一个仅包含 1 到 10 范围内的奇数的平方的列表。任何支持迭代的序列都可以在列表推导式中使用来构造新列表。</p>
+<div class="highlight"><pre><span></span><code><span class="go">&gt;&gt;&gt;[ch.upper() for ch in &#39;comprehension&#39; if ch not in &#39;aeiou&#39;]</span>
+<span class="go">[&#39;C&#39;, &#39;M&#39;, &#39;P&#39;, &#39;R&#39;, &#39;H&#39;, &#39;N&#39;, &#39;S&#39;, &#39;N&#39;]</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">自检</p>
+<p>通过使用列表推导式重做 Activecode 1 来测试您对列表推导式的理解。 对于额外的挑战，看看您是否能弄清楚如何删除重复项。</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># the answer is: [&#39;c&#39;, &#39;a&#39;, &#39;t&#39;, &#39;d&#39;, &#39;o&#39;, &#39;g&#39;, &#39;r&#39;, &#39;a&#39;, &#39;b&#39;, &#39;b&#39;, &#39;i&#39;, &#39;t&#39;]</span>
+</code></pre></div>
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/pcrcYy9UlVM" title="listcomp" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>As we noted earlier, algorithms require two important control structures: iteration and selection. Both of these are supported by Python in various forms. The programmer can choose the statement that is most useful for the given circumstance.</p>
+<p>For iteration, Python provides a standard <code>while</code> statement and a very powerful <code>for</code> statement. The while statement repeats a body of code as long as a condition evaluates to <code>True</code>. For example,</p>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">counter</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">while</span> <span class="n">counter</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, world&quot;</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="n">counter</span> <span class="o">=</span> <span class="n">counter</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="gp">... </span>
+<span class="go">Hello, world</span>
+<span class="go">Hello, world</span>
+<span class="go">Hello, world</span>
+<span class="go">Hello, world</span>
+<span class="go">Hello, world</span>
+</code></pre></div>
+<p>prints out the phrase <code>Hello, world</code> five times. The condition on the <code>while</code> statement is evaluated at the start of each repetition. If the condition evaluates to <code>True</code>, the body of the statement will execute. It is easy to see the structure of a Python <code>while</code> statement due to the mandatory indentation pattern that the language enforces.</p>
+<p>The <code>while</code> statement is a very general-purpose iterative structure that we will use in a number of different algorithms. In many cases, a compound condition will control the iteration. A fragment such as</p>
+<div class="highlight"><pre><span></span><code><span class="go">while counter &lt;= 10 and not done:</span>
+<span class="go">...</span>
+</code></pre></div>
+<p>would cause the body of the statement to be executed only in the case where both parts of the condition are satisfied. The value of the variable <code>counter</code> would need to be less than or equal to 10, and the value of the variable <code>done</code> would need to be <code>False</code> (<code>not False</code> is <code>True</code>) so that <code>True and True</code> results in <code>True</code>.</p>
+<p>Even though this type of construct is very useful in a wide variety of situations, another iterative structure, the <code>for</code> statement, can be used in conjunction with many of the Python collections. The <code>for</code> statement can be used to iterate over the members of a collection, so long as the collection is a sequence. So, for example,</p>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">]:</span>
+<span class="gp">... </span>   <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">1</span>
+<span class="go">3</span>
+<span class="go">6</span>
+<span class="go">2</span>
+<span class="go">5</span>
+</code></pre></div>
+<p>assigns the variable <code>item</code> to be each successive value in the list [1, 3, 6, 2, 5]. The body of the iteration is then executed. This works for any collection that is a sequence (lists, tuples, and strings).</p>
+<p>A common use of the <code>for</code> statement is to implement definite iteration over a range of values. The statement</p>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+<span class="gp">... </span>   <span class="nb">print</span><span class="p">(</span><span class="n">item</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">0</span>
+<span class="go">1</span>
+<span class="go">4</span>
+<span class="go">9</span>
+<span class="go">16</span>
+</code></pre></div>
+<p>will perform the <code>print</code> function five times. The <code>range</code> function will return a range object representing the sequence 0, 1, 2, 3, 4 and each value will be assigned to the variable <code>item</code>. This value is then squared and printed.</p>
+<p>Another useful version of this iteration structure is used to process each character of a string. The following code fragment iterates over a list of strings and for each string processes each character by appending it to a list. The result is a list of all the letters in all of the words.</p>
+<div class="highlight"><span class="filename">Processing Each Character in a List of Strings</span><pre><span></span><code><span class="n">word_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="s2">&quot;dog&quot;</span><span class="p">,</span> <span class="s2">&quot;rabbit&quot;</span><span class="p">]</span>
+<span class="n">letter_list</span> <span class="o">=</span> <span class="p">[</span> <span class="p">]</span>
+<span class="k">for</span> <span class="n">a_word</span> <span class="ow">in</span> <span class="n">word_list</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">a_letter</span> <span class="ow">in</span> <span class="n">a_word</span><span class="p">:</span>
+        <span class="n">letter_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a_letter</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">letter_list</span><span class="p">)</span>
+</code></pre></div>
+<p>Selection statements allow programmers to ask questions and then, based on the result, perform different actions. Most programming languages provide two versions of this useful construct: the <code>if...else</code> and the <code>if</code>. A simple example of a binary selection uses the <code>if...else</code> statement.</p>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">math</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+<span class="gp">... </span>  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sorry, value is negative&quot;</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">else</span><span class="p">:</span>
+<span class="gp">... </span>  <span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<span class="gp">... </span>
+<span class="go">4.0</span>
+</code></pre></div>
+<p>In this example, the object referred to by <code>n</code> is checked to see if it is less than zero. If it is, a message is printed stating that it is negative. If it is not, the statement performs the <code>else</code> clause and computes the square root.</p>
+<p>Selection constructs, as with any control construct, can be nested so that the result of one question helps decide whether to ask the next. For example, assume that <code>score</code> is a variable holding a reference to a score for a computer science test.</p>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">else</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">if</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">else</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">if</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">70</span><span class="p">:</span>
+<span class="gp">... </span>            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>
+<span class="gp">... </span>        <span class="k">else</span><span class="p">:</span>
+<span class="gp">... </span>            <span class="k">if</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>
+<span class="gp">... </span>                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;D&quot;</span><span class="p">)</span>
+<span class="gp">... </span>            <span class="k">else</span><span class="p">:</span>
+<span class="gp">... </span>                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;F&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>This fragment will classify a value called <code>score</code> by printing the letter grade earned. If the score is greater than or equal to 90, the statement will print <code>A</code>. If it is not (<code>else</code>), the next question is asked. If the score is greater than or equal to 80, then it must be between 80 and 89 since the answer to the first question was false. In this case print <code>B</code> is printed. You can see that the Python indentation pattern helps to make sense of the association between <code>if</code> and <code>else</code> without requiring any additional syntactic elements.</p>
+<p>An alternative syntax for this type of nested selection uses the <code>elif</code> keyword. The <code>else</code> and the next <code>if</code> are combined so as to eliminate the need for additional nesting levels. Note that the final <code>else</code> is still necessary to provide the default case if all other conditions fail.</p>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">elif</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">elif</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">70</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">elif</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;D&quot;</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">else</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;F&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Python also has a single-way selection construct, the <code>if</code> statement. With this statement, if the condition is true, an action is performed. In the case where the condition is false, processing simply continues on to the next statement after the <code>if</code>. For example, the following fragment will first check to see if the value of a variable <code>n</code> is negative. If it is, then it is modified by the absolute value function. Regardless, the next action is to compute the square root.</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Self Check</p>
+<p>Test your understanding of what we have covered so far by trying the following exercise.  Modify the code from Activecode 8 so that the final list only contains a single copy of each letter.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># the answer is: [&#39;c&#39;, &#39;a&#39;, &#39;t&#39;, &#39;d&#39;, &#39;o&#39;, &#39;g&#39;, &#39;r&#39;, &#39;b&#39;, &#39;i&#39;]</span>
+</code></pre></div>
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/vJ_KDaJZ4f4" title="list unique" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></p>
+</div>
+<p>Returning to lists, there is an alternative method for creating a list that uses iteration and selection constructs known as a <strong>list comprehension</strong>. A list comprehension allows you to easily create a list based on some processing or selection criteria. For example, if we would like to create a list of the first 10 perfect squares, we could use a <code>for</code> statement:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">sq_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">sq_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
+<span class="gp">... </span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sq_list</span>
+<span class="go">[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</span>
+</code></pre></div>
+<p>Using a list comprehension, we can do this in one step as</p>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">sq_list</span><span class="o">=</span><span class="p">[</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sq_list</span>
+<span class="go">[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</span>
+</code></pre></div>
+<p>The variable <code>x</code> takes on the values 1 through 10 as specified by the
+<code>for</code> construct. The value of <code>x * x</code> is then computed and added to
+the list that is being constructed.</p>
+<p>The general syntax for a list
+comprehension also allows a selection criteria to be added so that only
+certain items get added. For example,</p>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">sq_list</span><span class="o">=</span><span class="p">[</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sq_list</span>
+<span class="go">[1, 9, 25, 49, 81]</span>
+</code></pre></div>
+<p>This list comprehension constructs a list that contains the
+squares of only the odd numbers in the range from 1 to 10. Any sequence that
+supports iteration can be used within a list comprehension to construct
+a new list.</p>
+<div class="highlight"><pre><span></span><code><span class="go">&gt;&gt;&gt;[ch.upper() for ch in &#39;comprehension&#39; if ch not in &#39;aeiou&#39;]</span>
+<span class="go">[&#39;C&#39;, &#39;M&#39;, &#39;P&#39;, &#39;R&#39;, &#39;H&#39;, &#39;N&#39;, &#39;S&#39;, &#39;N&#39;]</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Self Check</p>
+<p>Test your understanding of list comprehensions by redoing Activecode 1 using list comprehensions.  For an extra challenge, see if you can figure out how to remove the duplicates.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># the answer is: [&#39;c&#39;, &#39;a&#39;, &#39;t&#39;, &#39;d&#39;, &#39;o&#39;, &#39;g&#39;, &#39;r&#39;, &#39;a&#39;, &#39;b&#39;, &#39;b&#39;, &#39;i&#39;, &#39;t&#39;]</span>
+</code></pre></div>
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/pcrcYy9UlVM" title="listcomp" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></p>
+</div>
+</div>
+</div>
+</div>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      最后更新:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月9日</span>
+      
+        <br>
+        创建日期:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月9日</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.tabs.link", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "toc.follow"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.94c44541.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js"></script>
+      
+    
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>

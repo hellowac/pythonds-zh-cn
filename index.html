@@ -1,0 +1,4744 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="通过python解决算法和数据结构问题">
+      
+      
+      
+      
+      
+        <link rel="next" href="c1/">
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.4">
+    
+    
+      
+        <title>python数据结构和算法 - 中文版</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.bd3936ea.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="blue">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#通过python解决算法和数据结构问题" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="." title="python数据结构和算法 - 中文版" class="md-header__button md-logo" aria-label="python数据结构和算法 - 中文版" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            python数据结构和算法 - 中文版
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              首页
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/hellowac/pythonds-zh-cn/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    python数据结构和算法 - 中文版
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="." class="md-tabs__link">
+        
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="c1/" class="md-tabs__link">
+          
+  
+    
+  
+  1. 引言
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="c2/" class="md-tabs__link">
+          
+  
+    
+  
+  2. 算法分析
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="c3/" class="md-tabs__link">
+          
+  
+    
+  
+  3. 基本数据结构
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="c4/" class="md-tabs__link">
+          
+  
+    
+  
+  4. 递归
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="c5/" class="md-tabs__link">
+          
+  
+    
+  
+  5. 搜索与排序
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="c6/" class="md-tabs__link">
+          
+  
+    
+  
+  6. 树和树算法
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="c7/" class="md-tabs__link">
+          
+  
+    
+  
+  7. 图和图算法
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="c8/" class="md-tabs__link">
+          
+  
+    
+  
+  8. 高级主题
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="python数据结构和算法 - 中文版" class="md-nav__button md-logo" aria-label="python数据结构和算法 - 中文版" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    python数据结构和算法 - 中文版
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/hellowac/pythonds-zh-cn/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    python数据结构和算法 - 中文版
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    首页
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    首页
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-引言" class="md-nav__link">
+    1. 引言
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-算法分析" class="md-nav__link">
+    2. 算法分析
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-基本数据结构" class="md-nav__link">
+    3. 基本数据结构
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-递归" class="md-nav__link">
+    4. 递归
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-搜索与排序" class="md-nav__link">
+    5. 搜索与排序
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-树和树算法" class="md-nav__link">
+    6. 树和树算法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-图和图算法" class="md-nav__link">
+    7. 图和图算法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-高级主题" class="md-nav__link">
+    8. 高级主题
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#致谢" class="md-nav__link">
+    致谢
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="c1/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    1. 引言
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            1. 引言
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c1/s1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.1. 目标
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c1/s2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.2. 入门
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c1/s3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.3. 什么是计算机科学？
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c1/s4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.4. 什么是编程？
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c1/s5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.5. 为什么学习数据结构和抽象数据类型？
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c1/s6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.6. 为什么学习算法？
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c1/s7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.7. Python基础回顾
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c1/s8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.8. 数据入门
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c1/s9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.9. 输入和输出
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c1/s10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.10. 控制结构
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c1/s11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.11. 异常处理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c1/s12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.12. 定义函数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c1/s13/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.13. Python中的面向对象编程：定义类
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c1/s14/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.14. 总结
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c1/s15/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.15. 关键术语
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c1/s16/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.16. 练习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="c2/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    2. 算法分析
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            2. 算法分析
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c2/s1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.1. 目标
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c2/s2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.2. 什么是算法分析？
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c2/s3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.3. 大O表示法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c2/s4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.4. 一个字谜检测例子
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c2/s5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.5. Python数据结构的性能
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c2/s6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.6. 列表
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c2/s7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.7. 字典
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c2/s8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.8. 总结
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c2/s9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.9. 关键术语
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c2/s10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.10. 练习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="c3/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    3. 基本数据结构
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            3. 基本数据结构
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c3/s1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.1. 目标
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c3/s2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.2. 什么是线性结构？
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c3/s3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.3. 栈
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c3/s4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.4. 栈的抽象数据类型
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c3/s5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.5. 用Python实现栈
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c3/s6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.6. 简单的括号匹配
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c3/s7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.7. 符号匹配（一般情况）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c3/s8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.8. 将十进制数转换为二进制数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c3/s9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.9. 中缀、前缀和后缀表达式
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c3/s10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.10. 队列
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c3/s11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.11. 队列的抽象数据类型
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c3/s12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.12. 用Python实现队列
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c3/s13/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.13. 队列模拟：烫手山芋游戏
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c3/s14/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.14. 队列模拟：打印任务
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c3/s15/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.15. 双端队列
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c3/s16/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.16. 双端队列的抽象数据类型
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c3/s17/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.17. 用Python实现双端队列
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c3/s18/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.18. 回文检测器
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c3/s19/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.19. 列表
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c3/s20/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.20. 无序列表的抽象数据类型
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c3/s21/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.21. 用链表实现无序列表
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c3/s22/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.22. 有序列表的抽象数据类型
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c3/s23/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.23. 实现有序列表
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c3/s24/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.24. 总结
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c3/s25/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.25. 关键词术语
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c3/s26/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.26. 练习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="c4/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    4. 递归
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            4. 递归
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c4/s1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c4/s2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c4/s3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c4/s4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c4/s5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c4/s6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S6
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c4/s7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S7
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c4/s8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S8
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c4/s9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S9
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c4/s10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S10
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c4/s11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S11
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c4/s12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S12
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c4/s13/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S13
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c4/s14/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S14
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c4/s15/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S15
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="c5/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    5. 搜索与排序
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            5. 搜索与排序
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c5/s1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c5/s2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c5/s3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c5/s4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c5/s5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c5/s6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S6
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c5/s7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S7
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c5/s8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S8
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c5/s9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S9
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c5/s10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S10
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c5/s11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S11
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c5/s12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S12
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c5/s13/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S13
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c5/s14/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S14
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c5/s15/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S15
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="c6/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    6. 树和树算法
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            6. 树和树算法
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c6/s1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c6/s2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c6/s3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c6/s4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c6/s5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c6/s6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S6
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c6/s7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S7
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c6/s8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S8
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c6/s9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S9
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c6/s10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S10
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c6/s11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S11
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c6/s12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S12
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c6/s13/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S13
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c6/s14/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S14
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c6/s15/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S15
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c6/s16/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S16
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c6/s17/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S17
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c6/s18/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S18
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c6/s19/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S19
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c6/s20/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S20
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c6/s21/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S21
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c6/s22/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S22
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="c7/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    7. 图和图算法
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            7. 图和图算法
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c7/s1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c7/s2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c7/s3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c7/s4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c7/s5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c7/s6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S6
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c7/s7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S7
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c7/s8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S8
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c7/s9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S9
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c7/s10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S10
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c7/s11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S11
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c7/s12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S12
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c7/s13/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S13
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c7/s14/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S14
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c7/s15/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S15
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c7/s16/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S16
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c7/s17/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S17
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c7/s18/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S18
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c7/s19/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S19
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c7/s20/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S20
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c7/s21/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S21
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c7/s22/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S22
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c7/s23/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S23
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c7/s24/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S24
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c7/s25/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S25
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="c8/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    8. 高级主题
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            8. 高级主题
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c8/s1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c8/s2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c8/s3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c8/s4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c8/s5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c8/s6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S6
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-引言" class="md-nav__link">
+    1. 引言
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-算法分析" class="md-nav__link">
+    2. 算法分析
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-基本数据结构" class="md-nav__link">
+    3. 基本数据结构
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-递归" class="md-nav__link">
+    4. 递归
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-搜索与排序" class="md-nav__link">
+    5. 搜索与排序
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-树和树算法" class="md-nav__link">
+    6. 树和树算法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-图和图算法" class="md-nav__link">
+    7. 图和图算法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-高级主题" class="md-nav__link">
+    8. 高级主题
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#致谢" class="md-nav__link">
+    致谢
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="通过python解决算法和数据结构问题">通过python解决算法和数据结构问题<a class="headerlink" href="#通过python解决算法和数据结构问题" title="Permanent link">&para;</a></h1>
+<p><strong>Problem Solving with Algorithms and Data Structures using Python</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>由Brad Miller和David Ranum撰写，来自Luther College</p>
+<p><a href="https://runestone.academy/runestone/assignments/chooseAssignment.html"><strong>作业</strong></a></p>
+<p>Gerry Jenkins录制了<a href="https://www.youtube.com/user/gjenkinslbcc">一系列精彩的YouTube视频</a>，支持本书中所有章节的学习。</p>
+</div>
+<div class="tabbed-block">
+<p>By Brad Miller and David Ranum, Luther College</p>
+<ul>
+<li><a href="https://runestone.academy/runestone/assignments/chooseAssignment.html">Assignments</a></li>
+</ul>
+<p>There is a wonderful <a href="https://www.youtube.com/user/gjenkinslbcc">collection of YouTube videos</a> recorded by Gerry Jenkins to support all of the chapters in this text.</p>
+</div>
+</div>
+</div>
+<h2 id="1-引言"><a href="c1/">1. 引言</a><a class="headerlink" href="#1-引言" title="Permanent link">&para;</a></h2>
+<p><a href="c1/"><strong>1.Introduction</strong></a></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">中文</label><label for="__tabbed_2_2">英文</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li><a href="c1/s1/">1.1. 目标</a>  </li>
+<li><a href="c1/s2/">1.2. 入门</a>  </li>
+<li><a href="c1/s3/">1.3. 什么是计算机科学？</a>  </li>
+<li><a href="c1/s4/">1.4. 什么是编程？</a>  </li>
+<li><a href="c1/s5/">1.5. 为什么学习数据结构和抽象数据类型？</a>  </li>
+<li><a href="c1/s6/">1.6. 为什么学习算法？</a>  </li>
+<li><a href="c1/s7/">1.7. Python基础回顾</a>  </li>
+<li><a href="c1/s8/">1.8. 数据入门</a>  <ul>
+<li><a href="c1/s8/#内建的原子数据类型">1.8.1. 内建的原子数据类型</a>  </li>
+<li><a href="c1/s8/#内建的集合数据类型">1.8.2. 内建的集合数据类型</a>  </li>
+</ul>
+</li>
+<li><a href="c1/s9/">1.9. 输入和输出</a>  <ul>
+<li><a href="c1/s9/#字符串格式化">1.9.1. 字符串格式化</a>  </li>
+</ul>
+</li>
+<li><a href="c1/s10/">1.10. 控制结构</a>  </li>
+<li><a href="c1/s11/">1.11. 异常处理</a>  </li>
+<li><a href="c1/s12/">1.12. 定义函数</a>  </li>
+<li><a href="c1/s13/">1.13. Python中的面向对象编程：定义类</a>  <ul>
+<li><a href="c1/s13/#一个分数类">1.13.1. 一个分数类</a>  </li>
+<li><a href="c1/s13/#继承逻辑门和电路">1.13.2. 继承：逻辑门和电路</a>  </li>
+</ul>
+</li>
+<li><a href="c1/s14/">1.14. 总结</a></li>
+<li><a href="c1/s15/">1.15. 关键术语</a>  </li>
+<li><a href="c1/s16/">1.16. 练习</a></li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li><a href="c1/s1/">1.1. Objectives</a></li>
+<li><a href="c1/s2/">1.2. Getting Started</a></li>
+<li><a href="c1/s3/">1.3. What Is Computer Science?</a></li>
+<li><a href="c1/s4/">1.4. What Is Programming?</a></li>
+<li><a href="c1/s5/">1.5. Why Study Data Structures and Abstract Data Types?</a></li>
+<li><a href="c1/s6/">1.6. Why Study Algorithms?</a></li>
+<li><a href="c1/s7/">1.7. Review of Basic Python</a></li>
+<li><a href="c1/s8/">1.8. Getting Started with Data</a><ul>
+<li><a href="c1/s8/">1.8.1. Built-in Atomic Data Types</a></li>
+<li><a href="c1/s8/">1.8.2. Built-in Collection Data Types</a></li>
+</ul>
+</li>
+<li><a href="c1/s9/">1.9. Input and Output</a><ul>
+<li><a href="c1/s9/">1.9.1. String Formatting</a></li>
+</ul>
+</li>
+<li><a href="c1/s10/">1.10. Control Structures</a></li>
+<li><a href="c1/s11/">1.11. Exception Handling</a></li>
+<li><a href="c1/s12/">1.12. Defining Functions</a></li>
+<li><a href="c1/s13/">1.13. Object-Oriented Programming in Python: Defining Classes</a><ul>
+<li><a href="c1/s13/">1.13.1. A Fraction Class</a></li>
+<li><a href="c1/s13/">1.13.2. Inheritance: Logic Gates and Circuits</a></li>
+</ul>
+</li>
+<li><a href="c1/s14/">1.14. Summary</a></li>
+<li><a href="c1/s15/">1.15. Key Terms</a></li>
+<li><a href="c1/s16/">1.16. Exercises</a></li>
+</ul>
+</div>
+</div>
+</div>
+<h2 id="2-算法分析"><a href="c2/">2. 算法分析</a><a class="headerlink" href="#2-算法分析" title="Permanent link">&para;</a></h2>
+<p><a href="c2/">2. Algorithm Analysis</a></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">中文</label><label for="__tabbed_3_2">英文</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li><a href="c2/s1/">2.1. 目标</a>  </li>
+<li><a href="c2/s2/">2.2. 什么是算法分析？</a>  </li>
+<li><a href="c2/s3/">2.3. 大O符号</a>  </li>
+<li><a href="c2/s4/">2.4. 一个字谜检测例子</a>  <ul>
+<li><a href="c2/s4/">2.4.1. 解决方案1：字谜检测逐一检查</a>  </li>
+<li><a href="c2/s4/">2.4.2. 解决方案2：排序和比较</a>  </li>
+<li><a href="c2/s4/">2.4.3. 解决方案3：暴力破解</a>  </li>
+<li><a href="c2/s4/">2.4.4. 解决方案4：计数和比较</a>  </li>
+</ul>
+</li>
+<li><a href="c2/s5/">2.5. Python数据结构的性能</a>  </li>
+<li><a href="c2/s6/">2.6. 列表</a>  </li>
+<li><a href="c2/s7/">2.7. 字典</a>  </li>
+<li><a href="c2/s8/">2.8. 总结</a>  </li>
+<li><a href="c2/s9/">2.9. 关键术语</a>  </li>
+<li><a href="c2/s10/">2.10. 练习</a></li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li><a href="c2/s1/">2.1. Objectives</a></li>
+<li><a href="c2/s2/">2.2. What Is Algorithm Analysis?</a></li>
+<li><a href="c2/s3/">2.3. Big O Notation</a></li>
+<li><a href="c2/s4/">2.4. An Anagram Detection Example</a><ul>
+<li><a href="c2/s4/">2.4.1. Solution 1: Anagram Detection Checking Off</a></li>
+<li><a href="c2/s4/">2.4.2. Anagram Detection Solution 2: Sort and Compare</a></li>
+<li><a href="c2/s4/">2.4.3. Anagram Detection Solution 3: Brute Force</a></li>
+<li><a href="c2/s4/">2.4.4. Anagram Detection Solution 4: Count and Compare</a></li>
+</ul>
+</li>
+<li><a href="c2/s5/">2.5. Performance of Python Data Structures</a></li>
+<li><a href="c2/s6/">2.6. Lists</a></li>
+<li><a href="c2/s7/">2.7. Dictionaries</a></li>
+<li><a href="c2/s8/">2.8. Summary</a></li>
+<li><a href="c2/s9/">2.9. Key Terms</a></li>
+<li><a href="c2/s10/">2.10. Exercises</a></li>
+</ul>
+</div>
+</div>
+</div>
+<h2 id="3-基本数据结构"><a href="c3/">3. 基本数据结构</a><a class="headerlink" href="#3-基本数据结构" title="Permanent link">&para;</a></h2>
+<p><a href="c3/">3. Basic Data Structures</a></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">中文</label><label for="__tabbed_4_2">英文</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li><a href="c3/s1/">3.1. 目标</a>  </li>
+<li><a href="c3/s2/">3.2. 什么是线性结构？</a>  </li>
+<li><a href="c3/s3/">3.3. 栈</a>  </li>
+<li><a href="c3/s4/">3.4. 栈的抽象数据类型</a>  </li>
+<li><a href="c3/s5/">3.5. 用Python实现栈</a>  </li>
+<li><a href="c3/s6/">3.6. 简单的括号匹配</a>  </li>
+<li><a href="c3/s7/">3.7. 符号匹配（一般情况）</a>  </li>
+<li><a href="c3/s8/">3.8. 将十进制数转换为二进制数</a>  </li>
+<li><a href="c3/s9/">3.9. 中缀、前缀和后缀表达式</a>  <ul>
+<li><a href="c3/s9/">3.9.1. 中缀表达式转换为前缀和后缀</a>  </li>
+<li><a href="c3/s9/">3.9.2. 一般的中缀转后缀转换</a>  </li>
+<li><a href="c3/s9/">3.9.3. 后缀表达式求值</a>  </li>
+</ul>
+</li>
+<li><a href="c3/s10/">3.10. 队列</a>  </li>
+<li><a href="c3/s11/">3.11. 队列的抽象数据类型</a>  </li>
+<li><a href="c3/s12/">3.12. 用Python实现队列</a>  </li>
+<li><a href="c3/s13/">3.13. 队列模拟：烫手山芋游戏</a>  </li>
+<li><a href="c3/s14/">3.14. 队列模拟：打印任务</a>  <ul>
+<li><a href="c3/s14/">3.14.1. 主要模拟步骤</a>  </li>
+<li><a href="c3/s14/">3.14.2. Python实现</a>  </li>
+<li><a href="c3/s14/">3.14.3. 讨论</a>  </li>
+</ul>
+</li>
+<li><a href="c3/s15/">3.15. 双端队列</a>  </li>
+<li><a href="c3/s16/">3.16. 双端队列的抽象数据类型</a>  </li>
+<li><a href="c3/s17/">3.17. 用Python实现双端队列</a>  </li>
+<li><a href="c3/s18/">3.18. 回文检测器</a>  </li>
+<li><a href="c3/s19/">3.19. 列表</a>  </li>
+<li><a href="c3/s20/">3.20. 无序列表的抽象数据类型</a>  </li>
+<li><a href="c3/s21/">3.21. 用链表实现无序列表</a>  <ul>
+<li><a href="c3/s21/">3.21.1. 节点类</a>  </li>
+<li><a href="c3/s21/">3.21.2. 无序列表类</a>  </li>
+</ul>
+</li>
+<li><a href="c3/s22/">3.22. 有序列表的抽象数据类型</a>  </li>
+<li><a href="c3/s23/">3.23. 实现有序列表</a>  <ul>
+<li><a href="c3/s23/">3.23.1. 链表分析</a>  </li>
+</ul>
+</li>
+<li><a href="c3/s24/">3.24. 总结</a>  </li>
+<li><a href="c3/s25/">3.25. 关键术语</a>  </li>
+<li><a href="c3/s26/">3.26. 练习</a></li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li><a href="c3/s1/">3.1. Objectives</a></li>
+<li><a href="c3/s2/">3.2. What Are Linear Structures?</a></li>
+<li><a href="c3/s3/">3.3. Stacks</a></li>
+<li><a href="c3/s4/">3.4. The Stack Abstract Data Type</a></li>
+<li><a href="c3/s5/">3.5. Implementing a Stack in Python</a></li>
+<li><a href="c3/s6/">3.6. Simple Balanced Parentheses</a></li>
+<li><a href="c3/s7/">3.7. Balanced Symbols (A General Case)</a></li>
+<li><a href="c3/s8/">3.8. Converting Decimal Numbers to Binary Numbers</a></li>
+<li><a href="c3/s9/">3.9. Infix, Prefix, and Postfix Expressions</a><ul>
+<li><a href="c3/s9/">3.9.1. Conversion of Infix Expressions to Prefix and Postfix</a></li>
+<li><a href="c3/s9/">3.9.2. General Infix-to-Postfix Conversion</a></li>
+<li><a href="c3/s9/">3.9.3. Postfix Evaluation</a></li>
+</ul>
+</li>
+<li><a href="c3/s10/">3.10. Queues</a></li>
+<li><a href="c3/s11/">3.11. The Queue Abstract Data Type</a></li>
+<li><a href="c3/s12/">3.12. Implementing a Queue in Python</a></li>
+<li><a href="c3/s13/">3.13. Queue Simulation: Hot Potato</a></li>
+<li><a href="c3/s14/">3.14. Queue Simulation: Printing Tasks</a><ul>
+<li><a href="c3/s14/">3.14.1. Main Simulation Steps</a></li>
+<li><a href="c3/s14/">3.14.2. Python Implementation</a></li>
+<li><a href="c3/s14/">3.14.3. Discussion</a></li>
+</ul>
+</li>
+<li><a href="c3/s15/">3.15. Deques</a></li>
+<li><a href="c3/s16/">3.16. The Deque Abstract Data Type</a></li>
+<li><a href="c3/s17/">3.17. Implementing a Deque in Python</a></li>
+<li><a href="c3/s18/">3.18. Palindrome Checker</a></li>
+<li><a href="c3/s19/">3.19. Lists</a></li>
+<li><a href="c3/s20/">3.20. The Unordered List Abstract Data Type</a></li>
+<li><a href="c3/s21/">3.21. Implementing an Unordered List: Linked Lists</a><ul>
+<li><a href="c3/s21/">3.21.1. The Node Class</a></li>
+<li><a href="c3/s21/">3.21.2. The UnorderedList Class</a></li>
+</ul>
+</li>
+<li><a href="c3/s22/">3.22. The Ordered List Abstract Data Type</a></li>
+<li><a href="c3/s23/">3.23. Implementing an Ordered List</a><ul>
+<li><a href="c3/s23/">3.23.1. Analysis of Linked Lists</a></li>
+</ul>
+</li>
+<li><a href="c3/s24/">3.24. Summary</a></li>
+<li><a href="c3/s25/">3.25. Key Terms</a></li>
+<li><a href="c3/s26/">3.26. Exercises</a></li>
+</ul>
+</div>
+</div>
+</div>
+<h2 id="4-递归"><a href="c4/">4. 递归</a><a class="headerlink" href="#4-递归" title="Permanent link">&para;</a></h2>
+<p><a href="c4/">4. Recursion</a></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">中文</label><label for="__tabbed_5_2">英文</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li><a href="c4/s1/">4.1. 目标</a>  </li>
+<li><a href="c4/s2/">4.2. 什么是递归？</a>  </li>
+<li><a href="c4/s3/">4.3. 计算一个数列的和</a>  </li>
+<li><a href="c4/s4/">4.4. 递归的三条法则</a>  </li>
+<li><a href="c4/s5/">4.5. 将整数转换为任意进制的字符串</a>  </li>
+<li><a href="c4/s6/">4.6. 栈帧：实现递归</a>  </li>
+<li><a href="c4/s7/">4.7. 递归的可视化</a>  </li>
+<li><a href="c4/s8/">4.8. 谢尔宾斯基三角形</a>  </li>
+<li><a href="c4/s9/">4.9. 复杂的递归问题</a>  </li>
+<li><a href="c4/1s10.md">4.10. 汉诺塔问题</a>  </li>
+<li><a href="c4/1s11.md">4.11. 迷宫探索</a>  </li>
+<li><a href="c4/1s12.md">4.12. 动态规划</a>  </li>
+<li><a href="c4/1s13.md">4.13. 总结</a>  </li>
+<li><a href="c4/1s14.md">4.14. 关键术语</a>  </li>
+<li><a href="c4/1s15.md">4.15. 练习</a></li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li><a href="c4/s1/">4.1. Objectives</a></li>
+<li><a href="c4/s2/">4.2. What Is Recursion?</a></li>
+<li><a href="c4/s3/">4.3. Calculating the Sum of a List of Numbers</a></li>
+<li><a href="c4/s4/">4.4. The Three Laws of Recursion</a></li>
+<li><a href="c4/s5/">4.5. Converting an Integer to a String in Any Base</a></li>
+<li><a href="c4/s6/">4.6. Stack Frames: Implementing Recursion</a></li>
+<li><a href="c4/s7/">4.7. Visualizing Recursion</a></li>
+<li><a href="c4/s8/">4.8. Sierpinski Triangle</a></li>
+<li><a href="c4/s9/">4.9. Complex Recursive Problems</a></li>
+<li><a href="c4/s10/">4.10. Tower of Hanoi</a></li>
+<li><a href="c4/s11/">4.11. Exploring a Maze</a></li>
+<li><a href="c4/s12/">4.12. Dynamic Programming</a></li>
+<li><a href="c4/s13/">4.13. Summary</a></li>
+<li><a href="c4/s14/">4.14. Key Terms</a></li>
+<li><a href="c4/s15/">4.15. Exercises</a></li>
+</ul>
+</div>
+</div>
+</div>
+<h2 id="5-搜索与排序"><a href="c5/">5. 搜索与排序</a><a class="headerlink" href="#5-搜索与排序" title="Permanent link">&para;</a></h2>
+<p><a href="c5/">5. Searching and Sorting</a></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">中文</label><label for="__tabbed_6_2">英文</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li><a href="c5/s1/">5.1. 目标</a></li>
+<li><a href="c5/s2/">5.2. 搜索</a></li>
+<li><a href="c5/s3/">5.3. 顺序搜索</a><ul>
+<li><a href="c5/s3/">5.3.1. 顺序搜索的分析</a></li>
+</ul>
+</li>
+<li><a href="c5/s4/">5.4. 二分搜索</a><ul>
+<li><a href="c5/s4/">5.4.1. 二分搜索的分析</a></li>
+</ul>
+</li>
+<li><a href="c5/s5/">5.5. 哈希</a><ul>
+<li><a href="c5/s5/">5.5.1. 哈希函数</a></li>
+<li><a href="c5/s5/">5.5.2. 碰撞解决</a></li>
+<li><a href="c5/s5/">5.5.3. 实现Map抽象数据类型</a></li>
+<li><a href="c5/s5/">5.5.4. 哈希分析</a></li>
+</ul>
+</li>
+<li><a href="c5/s6/">5.6. 排序</a></li>
+<li><a href="c5/s7/">5.7. 冒泡排序</a></li>
+<li><a href="c5/s8/">5.8. 选择排序</a></li>
+<li><a href="c5/s9/">5.9. 插入排序</a></li>
+<li><a href="c5/s10/">5.10. 希尔排序</a></li>
+<li><a href="c5/s11/">5.11. 归并排序</a></li>
+<li><a href="c5/s12/">5.12. 快速排序</a></li>
+<li><a href="c5/s13/">5.13. 总结</a></li>
+<li><a href="c5/s14/">5.14. 关键术语</a></li>
+<li><a href="c5/s15/">5.15. 练习</a></li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li><a href="c5/s1/">5.1. Objectives</a></li>
+<li><a href="c5/s2/">5.2. Searching</a></li>
+<li><a href="c5/s3/">5.3. The Sequential Search</a><ul>
+<li><a href="c5/s3/">5.3.1. Analysis of Sequential Search</a></li>
+</ul>
+</li>
+<li><a href="c5/s4/">5.4. The Binary Search</a><ul>
+<li><a href="c5/s4/">5.4.1. Analysis of Binary Search</a></li>
+</ul>
+</li>
+<li><a href="c5/s5/">5.5. Hashing</a><ul>
+<li><a href="c5/s5/">5.5.1. Hash Functions</a></li>
+<li><a href="c5/s5/">5.5.2. Collision Resolution</a></li>
+<li><a href="c5/s5/">5.5.3. Implementing the Map Abstract Data Type</a></li>
+<li><a href="c5/s5/">5.5.4. Analysis of Hashing</a></li>
+</ul>
+</li>
+<li><a href="c5/s6/">5.6. Sorting</a></li>
+<li><a href="c5/s7/">5.7. The Bubble Sort</a></li>
+<li><a href="c5/s8/">5.8. The Selection Sort</a></li>
+<li><a href="c5/s9/">5.9. The Insertion Sort</a></li>
+<li><a href="c5/s10/">5.10. The Shell Sort</a></li>
+<li><a href="c5/s11/">5.11. The Merge Sort</a></li>
+<li><a href="c5/s12/">5.12. The Quicksort</a></li>
+<li><a href="c5/s13/">5.13. Summary</a></li>
+<li><a href="c5/s14/">5.14. Key Terms</a></li>
+<li><a href="c5/s15/">5.15. Exercises</a></li>
+</ul>
+</div>
+</div>
+</div>
+<h2 id="6-树和树算法"><a href="c6/">6. 树和树算法</a><a class="headerlink" href="#6-树和树算法" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">中文</label><label for="__tabbed_7_2">英文</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li><a href="c6/s1/">6.1. 目标</a></li>
+<li><a href="c6/s2/">6.2. 树的示例</a></li>
+<li><a href="c6/s3/">6.3. 词汇和定义</a></li>
+<li><a href="c6/s4/">6.4. 实现</a></li>
+<li><a href="c6/s5/">6.5. 列表表示法</a></li>
+<li><a href="c6/s6/">6.6. 节点与引用</a></li>
+<li><a href="c6/s7/">6.7. 解析树</a></li>
+<li><a href="c6/s8/">6.8. 树遍历</a></li>
+<li><a href="c6/s9/">6.9. 使用二叉堆的优先队列</a></li>
+<li><a href="c6/s10/">6.10. 二叉堆操作</a></li>
+<li><a href="c6/s11/">6.11. 二叉堆实现</a><ul>
+<li><a href="c6/s11/">6.11.1. 结构属性</a></li>
+<li><a href="c6/s11/">6.11.2. 堆序属性</a></li>
+<li><a href="c6/s11/">6.11.3. 堆操作</a></li>
+</ul>
+</li>
+<li><a href="c6/s12/">6.12. 二叉搜索树</a></li>
+<li><a href="c6/s13/">6.13. 搜索树操作</a></li>
+<li><a href="c6/s14/">6.14. 搜索树实现</a></li>
+<li><a href="c6/s15/">6.15. 搜索树分析</a></li>
+<li><a href="c6/s16/">6.16. 平衡二叉搜索树</a></li>
+<li><a href="c6/s17/">6.17. AVL树性能</a></li>
+<li><a href="c6/s18/">6.18. AVL树实现</a></li>
+<li><a href="c6/s19/">6.19. Map ADT实现总结</a></li>
+<li><a href="c6/s20/">6.20. 总结</a></li>
+<li><a href="c6/s21/">6.21. 关键术语</a></li>
+<li><a href="c6/s22/">6.22. 练习</a></li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li><a href="c6/s1/">6.1. Objectives</a></li>
+<li><a href="c6/s2/">6.2. Examples of Trees</a></li>
+<li><a href="c6/s3/">6.3. Vocabulary and Definitions</a></li>
+<li><a href="c6/s4/">6.4. Implementation</a></li>
+<li><a href="c6/s5/">6.5. List of Lists Representation</a></li>
+<li><a href="c6/s6/">6.6. Nodes and References</a></li>
+<li><a href="c6/s7/">6.7. Parse Tree</a></li>
+<li><a href="c6/s8/">6.8. Tree Traversals</a></li>
+<li><a href="c6/s9/">6.9. Priority Queues with Binary Heaps</a></li>
+<li><a href="c6/s10/">6.10. Binary Heap Operations</a></li>
+<li><a href="c6/s11/">6.11. Binary Heap Implementation</a><ul>
+<li><a href="c6/s11/">6.11.1. The Structure Property</a></li>
+<li><a href="c6/s11/">6.11.2. The Heap Order Property</a></li>
+<li><a href="c6/s11/">6.11.3. Heap Operations</a></li>
+</ul>
+</li>
+<li><a href="c6/s12/">6.12. Binary Search Trees</a></li>
+<li><a href="c6/s13/">6.13. Search Tree Operations</a></li>
+<li><a href="c6/s14/">6.14. Search Tree Implementation</a></li>
+<li><a href="c6/s15/">6.15. Search Tree Analysis</a></li>
+<li><a href="c6/s16/">6.16. Balanced Binary Search Trees</a></li>
+<li><a href="c6/s17/">6.17. AVL Tree Performance</a></li>
+<li><a href="c6/s18/">6.18. AVL Tree Implementation</a></li>
+<li><a href="c6/s19/">6.19. Summary of Map ADT Implementations</a></li>
+<li><a href="c6/s20/">6.20. Summary</a></li>
+<li><a href="c6/s21/">6.21. Key Terms</a></li>
+<li><a href="c6/s22/">6.22. Exercises</a></li>
+</ul>
+</div>
+</div>
+</div>
+<h2 id="7-图和图算法"><a href="c7/">7. 图和图算法</a><a class="headerlink" href="#7-图和图算法" title="Permanent link">&para;</a></h2>
+<p><a href="c7/">7. Graphs and Graphing Algorithms</a></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">中文</label><label for="__tabbed_8_2">英文</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><a href="c7/s1/">7.1. 目标</a><br />
+<a href="c7/s2/">7.2. 词汇和定义</a><br />
+<a href="c7/s3/">7.3. 图的抽象数据类型</a><br />
+<a href="c7/s4/">7.4. 邻接矩阵</a><br />
+<a href="c7/s5/">7.5. 邻接表</a><br />
+<a href="c7/s6/">7.6. 实现</a><br />
+<a href="c7/s7/">7.7. 字梯问题</a><br />
+<a href="c7/s8/">7.8. 构建字梯图</a><br />
+<a href="c7/s9/">7.9. 实现广度优先搜索</a><br />
+<a href="c7/s10/">7.10. 广度优先搜索分析</a><br />
+<a href="c7/s11/">7.11. 骑士巡游问题</a><br />
+<a href="c7/s12/">7.12. 构建骑士巡游图</a><br />
+<a href="c7/s13/">7.13. 实现骑士巡游</a><br />
+<a href="c7/s14/">7.14. 骑士巡游分析</a><br />
+<a href="c7/s15/">7.15. 一般的深度优先搜索</a><br />
+<a href="c7/s16/">7.16. 深度优先搜索分析</a><br />
+<a href="c7/s17/">7.17. 拓扑排序</a><br />
+<a href="c7/s18/">7.18. 强连通分量</a><br />
+<a href="c7/s19/">7.19. 最短路径问题</a><br />
+<a href="c7/s20/">7.20. Dijkstra算法</a><br />
+<a href="c7/s21/">7.21. Dijkstra算法分析</a><br />
+<a href="c7/s22/">7.22. Prim生成树算法</a><br />
+<a href="c7/s23/">7.23. 总结</a><br />
+<a href="c7/s24/">7.24. 关键术语</a><br />
+<a href="c7/s25/">7.25. 练习</a></p>
+</div>
+<div class="tabbed-block">
+<ul>
+<li><a href="c7/s1/">7.1. Objectives</a></li>
+<li><a href="c7/s2/">7.2. Vocabulary and Definitions</a></li>
+<li><a href="c7/s3/">7.3. The Graph Abstract Data Type</a></li>
+<li><a href="c7/s4/">7.4. An Adjacency Matrix</a></li>
+<li><a href="c7/s5/">7.5. An Adjacency List</a></li>
+<li><a href="c7/s6/">7.6. Implementation</a></li>
+<li><a href="c7/s7/">7.7. The Word Ladder Problem</a></li>
+<li><a href="c7/s8/">7.8. Building the Word Ladder Graph</a></li>
+<li><a href="c7/s9/">7.9. Implementing Breadth-First Search</a></li>
+<li><a href="c7/s10/">7.10. Breadth-First Search Analysis</a></li>
+<li><a href="c7/s11/">7.11. The Knight’s Tour Problem</a></li>
+<li><a href="c7/s12/">7.12. Building the Knight’s Tour Graph</a></li>
+<li><a href="c7/s13/">7.13. Implementing Knight’s Tour</a></li>
+<li><a href="c7/s14/">7.14. Knight’s Tour Analysis</a></li>
+<li><a href="c7/s15/">7.15. General Depth-First Search</a></li>
+<li><a href="c7/s16/">7.16. Depth-First Search Analysis</a></li>
+<li><a href="c7/s17/">7.17. Topological Sorting</a></li>
+<li><a href="c7/s18/">7.18. Strongly Connected Components</a></li>
+<li><a href="c7/s19/">7.19. Shortest Path Problems</a></li>
+<li><a href="c7/s20/">7.20. Dijkstra’s Algorithm</a></li>
+<li><a href="c7/s21/">7.21. Analysis of Dijkstra’s Algorithm</a></li>
+<li><a href="c7/s22/">7.22. Prim’s Spanning Tree Algorithm</a></li>
+<li><a href="c7/s23/">7.23. Summary</a></li>
+<li><a href="c7/s24/">7.24. Key Terms</a></li>
+<li><a href="c7/s25/">7.25. Exercises</a></li>
+</ul>
+</div>
+</div>
+</div>
+<h2 id="8-高级主题"><a href="c8/">8. 高级主题</a><a class="headerlink" href="#8-高级主题" title="Permanent link">&para;</a></h2>
+<p><a href="c8/">8. Advanced Topics</a></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:2"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">中文</label><label for="__tabbed_9_2">英文</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li><a href="c8/s1/">8.1. 目标</a></li>
+<li><a href="c8/s2/">8.2. Python列表再探</a></li>
+<li><a href="c8/s3/">8.3. 递归再探</a><ul>
+<li><a href="c8/s3/">8.3.1. 模运算定理</a></li>
+<li><a href="c8/s3/">8.3.2. 模幂运算</a></li>
+<li><a href="c8/s3/">8.3.3. 最大公约数与乘法逆元</a></li>
+<li><a href="c8/s3/">8.3.4. RSA算法</a></li>
+</ul>
+</li>
+<li><a href="c8/s4/">8.4. 字典再探：跳表</a><ul>
+<li><a href="c8/s4/">8.4.1. Map抽象数据类型</a></li>
+<li><a href="c8/s4/">8.4.2. 用Python实现字典</a></li>
+</ul>
+</li>
+<li><a href="c8/s5/">8.5. 树再探：图像量化</a><ul>
+<li><a href="c8/s5/">8.5.1. 数字图像快速回顾</a></li>
+<li><a href="c8/s5/">8.5.2. 图像量化</a></li>
+<li><a href="c8/s5/">8.5.3. 使用八叉树的改进量化算法</a></li>
+</ul>
+</li>
+<li><a href="c8/s6/">8.6. 图再探：模式匹配</a><ul>
+<li><a href="c8/s6/">8.6.1. 生物字符串</a></li>
+<li><a href="c8/s6/">8.6.2. 简单比较</a></li>
+<li><a href="c8/s6/">8.6.3. 使用图：有限状态自动机</a></li>
+<li><a href="c8/s6/">8.6.4. 使用图：Knuth-Morris-Pratt算法</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li><a href="c8/s1/">8.1. Objectives</a></li>
+<li><a href="c8/s2/">8.2. Python Lists Revisited</a></li>
+<li><a href="c8/s3/">8.3. Recursion Revisited</a><ul>
+<li><a href="c8/s3/">8.3.1. Modular Arithmetic Theorems</a></li>
+<li><a href="c8/s3/">8.3.2. Modular Exponentiation</a></li>
+<li><a href="c8/s3/">8.3.3. The Greatest Common Divisor and Multiplicative Inverses</a></li>
+<li><a href="c8/s3/">8.3.4. RSA Algorithm</a></li>
+</ul>
+</li>
+<li><a href="c8/s4/">8.4. Dictionaries Revisited: Skip Lists</a><ul>
+<li><a href="c8/s4/">8.4.1. The Map Abstract Data Type</a></li>
+<li><a href="c8/s4/">8.4.2. Implementing a Dictionary in Python</a></li>
+</ul>
+</li>
+<li><a href="c8/s5/">8.5. Trees Revisited: Quantizing Images</a><ul>
+<li><a href="c8/s5/">8.5.1. A Quick Review of Digital Images</a></li>
+<li><a href="c8/s5/">8.5.2. Quantizing an Image</a></li>
+<li><a href="c8/s5/">8.5.3. An Improved Quantization Algorithm Using Octrees</a></li>
+</ul>
+</li>
+<li><a href="c8/s6/">8.6. Graphs Revisited: Pattern Matching</a><ul>
+<li><a href="c8/s6/">8.6.1. Biological Strings</a></li>
+<li><a href="c8/s6/">8.6.2. Simple Comparison</a></li>
+<li><a href="c8/s6/">8.6.3. Using Graphs: Finite State Automata</a></li>
+<li><a href="c8/s6/">8.6.4. Using Graphs: Knuth-Morris-Pratt</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<h2 id="致谢">致谢<a class="headerlink" href="#致谢" title="Permanent link">&para;</a></h2>
+<p><strong>Acknowledgements</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:2"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">中文</label><label for="__tabbed_10_2">英文</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>我们非常感谢Franklin Beedle Publishers允许我们免费提供这本互动教材的在线版本。这个版本献给我们的第一位编辑Jim Leisy，他希望我们“改变世界”。</p>
+</div>
+<div class="tabbed-block">
+<p>We are very grateful to Franklin Beedle Publishers for allowing us to make this interactive textbook freely available. This online version is dedicated to the memory of our first editor, Jim Leisy, who wanted us to “change the world.”</p>
+</div>
+</div>
+</div>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      最后更新:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月9日</span>
+      
+        <br>
+        创建日期:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月9日</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["content.code.copy", "content.tabs.link", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "toc.follow"], "search": "assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.94c44541.min.js"></script>
+      
+        <script src="javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js"></script>
+      
+    
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>
