@@ -1,0 +1,48 @@
+
+# [8. 高级主题](./index.md)
+
+[8. Advanced Topics](./index.md)
+
+=== "中文"
+
+    - [8.1. 目标](./s1.md)
+    - [8.2. Python列表再探](./s2.md)
+    - [8.3. 递归再探](./s3.md)
+        - [8.3.1. 模运算定理](./s3.md)
+        - [8.3.2. 模幂运算](./s3.md)
+        - [8.3.3. 最大公约数与乘法逆元](./s3.md)
+        - [8.3.4. RSA算法](./s3.md)
+    - [8.4. 字典再探：跳表](./s4.md)
+        - [8.4.1. Map抽象数据类型](./s4.md)
+        - [8.4.2. 用Python实现字典](./s4.md)
+    - [8.5. 树再探：图像量化](./s5.md)
+        - [8.5.1. 数字图像快速回顾](./s5.md)
+        - [8.5.2. 图像量化](./s5.md)
+        - [8.5.3. 使用八叉树的改进量化算法](./s5.md)
+    - [8.6. 图再探：模式匹配](./s6.md)
+        - [8.6.1. 生物字符串](./s6.md)
+        - [8.6.2. 简单比较](./s6.md)
+        - [8.6.3. 使用图：有限状态自动机](./s6.md)
+        - [8.6.4. 使用图：Knuth-Morris-Pratt算法](./s6.md)
+
+=== "英文"
+
+    - [8.1. Objectives](./s1.md)
+    - [8.2. Python Lists Revisited](./s2.md)
+    - [8.3. Recursion Revisited](./s3.md)
+        - [8.3.1. Modular Arithmetic Theorems](./s3.md)
+        - [8.3.2. Modular Exponentiation](./s3.md)
+        - [8.3.3. The Greatest Common Divisor and Multiplicative Inverses](./s3.md)
+        - [8.3.4. RSA Algorithm](./s3.md)
+    - [8.4. Dictionaries Revisited: Skip Lists](./s4.md)
+        - [8.4.1. The Map Abstract Data Type](./s4.md)
+        - [8.4.2. Implementing a Dictionary in Python](./s4.md)
+    - [8.5. Trees Revisited: Quantizing Images](./s5.md)
+        - [8.5.1. A Quick Review of Digital Images](./s5.md)
+        - [8.5.2. Quantizing an Image](./s5.md)
+        - [8.5.3. An Improved Quantization Algorithm Using Octrees](./s5.md)
+    - [8.6. Graphs Revisited: Pattern Matching](./s6.md)
+        - [8.6.1. Biological Strings](./s6.md)
+        - [8.6.2. Simple Comparison](./s6.md)
+        - [8.6.3. Using Graphs: Finite State Automata](./s6.md)
+        - [8.6.4. Using Graphs: Knuth-Morris-Pratt](./s6.md)
