@@ -82,6 +82,7 @@ markdown_extensions:
   - def_list # 指定定义列表, 就是名称冒号内容的方式
   - attr_list # 支持标签里面的 属性定义
   - footnotes # 脚注支持
+  - md_in_html
   - pymdownx.caret # 插入符支持
   - pymdownx.mark # 标记支持
   - pymdownx.tilde # 代字号支持
