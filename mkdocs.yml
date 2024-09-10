@@ -3,80 +3,120 @@ repo_name: python数据结构和算法 - 中文版
 repo_url: https://github.com/hellowac/pythonds-zh-cn/
 site_description: 通过python解决算法和数据结构问题
 
-# 配置主题，在mkdocs.yml文件下
+# 主题配置
 theme:
-  name: material
-  language: zh
+  name: material # 主题
+  language: zh # 主题语言: 中文简体
+  custom_dir: overrides # 自定义文件夹
   palette:
     primary: teal # 主题色
     accent: blue # 提示颜色
   features:
-    - content.code.copy # 代码支持拷贝
-    - content.tabs.link # 内容tabs支持
-    - navigation.tabs # 顶部导航
-    - navigation.tabs.sticky # 顶部导航粘连
-    - navigation.indexes # 导航index页面支持
-    # - navigation.sections # 全部展开(非折叠状态)
-    # - navigation.expand # 子目录展开
-    - navigation.top # 返回顶部按钮
-    - toc.follow # 页面目录支持
+    - header.autohide # 顶部导航栏自动隐藏
+    - navigation.top # 回到顶部按钮
+    - navigation.tabs # 导航栏顶部tab化
+    - navigation.tabs.sticky # 顶部导航栏始终显示
+    - navigation.path # 路径导航支持
+    - content.tabs.link # 支持tab内容标题的锚点
+    - content.code.copy # 代码块支持拷贝
+    - content.tooltips # 工具提示
+    - navigation.indexes # 分组标题导航到index页面
+    - navigation.prune # 导航修剪
+    - navigation.instant # 即时加载
 
 # 插件
 plugins:
-  - glightbox
-  - search:
-      separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - search # 搜索支持
+  - mike # 支持文档版本化
+  - autorefs # 锚点跨md文档支持
+  - glightbox # 照片点击放大支持, 依赖Python包: mkdocs-glightbox
+  # - mkdocstrings: # 支持从项目中生成文档, 依赖python包: mkdocstrings , https://github.com/mkdocstrings/mkdocstrings
+  #           default_handler: python # 默认处理语言, 更多选项参考: https://mkdocstrings.github.io/usage/
+  #           handlers:
+  #                   python:
+  #                           paths: [..] # 查找的模块，在上一级目录
+  #                           options:
+  #                                   show_bases: true # 显示继承的类
+  #                                   show_root_heading: true # 显示顶级标题
+  #                                   show_root_members_full_path: true # 显示顶级下面成员的全路径
+  #                                   show_symbol_type_heading: true # 显示不同类标识符号
+  #                                   members_order: "source" # 按成员在源文件中出现的顺序排序成员。
+  #                                   merge_init_into_class: true # 是否将__init__方法合并到类的签名和文档字符串中
+  #                                   show_if_no_docstring: false # 显示对象标题，即使它没有文档字符串或带有文档字符串的子项。
+  #                                   show_signature: true # 显示方法和函数签名。
+  #                                   show_signature_annotations: True # 在方法和函数签名中显示类型注释。
+  #                                   separate_signature: True # 是否将整个签名放在标题下方的代码块中。
+  #                                   docstring_section_style: table # 显示文档注释时的样式, list, https://mkdocstrings.github.io/python/usage/configuration/docstrings/#docstring_section_style
+  #                                   docstring_style: google
+
   - git-revision-date-localized: # 支持文档创建时间显示， https://github.com/timvink/mkdocs-git-revision-date-localized-plugin
       locale: zh
       enable_creation_date: true
       type: date
 
-# markdown解析扩展
-markdown_extensions:
-  - tables
-  - admonition
-  - attr_list
-  - footnotes # 引用支持            https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/#footnotes
-  - def_list # 键-值组合的list     https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/#footnotes
-  - toc: # 页面目录支持         https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/#table-of-contents
-      permalink: true # 标题锚点支持
-      slugify:
-        !!python/object/apply:pymdownx.slugs.slugify # 区分大小写的显示标题
-        kwds:
-          case: lower # 全小写支持
-  - md_in_html # https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/#footnotes
-  # pymdownx 扩展，参考：https://facelessuser.github.io/pymdown-extensions/
-  - pymdownx.inlinehilite # 单行高亮, 参考: https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#highlighting-specific-lines
-  - pymdownx.critic # 支持部分字段格式化，参考：https://squidfunk.github.io/mkdocs-material/reference/formatting/
-  - pymdownx.highlight # 支持代码块高亮显示
-  - pymdownx.snippets
-  - pymdownx.details
-  - pymdownx.tasklist:
-      custom_checkbox: true # checkbox 支持
-  - pymdownx.superfences: # 注释 :
-      # preserve_tabs: true
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
-  - pymdownx.tabbed: # 支持内容tab, https://squidfunk.github.io/mkdocs-material/reference/content-tabs/
-      alternate_style: true
-  - pymdownx.caret # 下划线, 上标 : https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/?h=caret#caret-mark-tilde
-    #               https://facelessuser.github.io/pymdown-extensions/extensions/caret/
-  - pymdownx.mark # 标记 :https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/?h=caret#caret-mark-tilde
-    #      https://facelessuser.github.io/pymdown-extensions/extensions/mark/
-  - pymdownx.tilde # 删除线, 下标  参考: https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/?h=caret#caret-mark-tilde
-    #                   https://facelessuser.github.io/pymdown-extensions/extensions/tilde/
-  - pymdownx.arithmatex:
-      generic: true
+# 监听文件变动的目录 https://mkdocstrings.github.io/usage/#watch-directories
+watch:
+  - . # 包含父级源码目录
+
+# 扩展
+extra:
+  version: # 支持文档版本化
+    provider: mike # mike 部署支持
+
+extra_css:
+  - stylesheets/extra.css
 
 # 扩展支持， 支持数学符号
+# extra_javascript:
+#   - https://unpkg.com/mermaid@10.2.0/dist/mermaid.min.js
 extra_javascript:
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-  - https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js
-  # - https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs
+
+# markdown内部扩展配置
+markdown_extensions:
+  - abbr # 工具提示 支持
+  - admonition # 忠告 支持
+  - codehilite
+  - def_list # 指定定义列表, 就是名称冒号内容的方式
+  - attr_list # 支持标签里面的 属性定义
+  - footnotes # 脚注支持
+  - pymdownx.caret # 插入符支持
+  - pymdownx.mark # 标记支持
+  - pymdownx.tilde # 代字号支持
+  - pymdownx.details # 详情可折叠，支持, 依赖 admonition
+  - pymdownx.inlinehilite # 行内高亮显示
+  - pymdownx.snippets
+  - markdown.extensions.toc: # https://facelessuser.github.io/pymdown-extensions/faq/#function-references-in-yaml
+      slugify:
+        !!python/object/apply:pymdownx.slugs.slugify {kwds: {case: lower}}
+      permalink: true
+  - pymdownx.highlight: # 高亮显示代码块  https://facelessuser.github.io/pymdown-extensions/extensions/highlight/
+      use_pygments: true
+      pygments_lang_class: true
+      noclasses: true
+      pygments_style: default
+  - pymdownx.superfences: # 一些扩展功能的基础定义
+      custom_fences: # 代码块自定义
+        - name: mermaid # mermaid图表支持
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tasklist: # 任务列表支持
+      custom_checkbox: true
+  - pymdownx.tabbed: # 支持内容tab， 依赖 pymdownx.superfences
+      alternate_style: true
+  - pymdownx.critic: # 突出显示内容
+      mode: view
+  - pymdownx.keys # 键盘快捷键支持
+  - pymdownx.smartsymbols # 智能符号
+  - pymdownx.emoji: # emoji 表情支持  https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/#emoji
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg # 页面导航
+
+
+  - pymdownx.arithmatex: # https://squidfunk.github.io/mkdocs-material/reference/math/#mathjax-mkdocsyml
+      generic: true
 
 # 页面导航
 nav:
