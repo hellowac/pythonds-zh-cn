@@ -1893,7 +1893,7 @@
         
   
   <span class="md-ellipsis">
-    S1
+    4.1. 目标
   </span>
   
 
@@ -1913,7 +1913,7 @@
         
   
   <span class="md-ellipsis">
-    S2
+    4.2. 什么是递归？
   </span>
   
 
@@ -1933,7 +1933,7 @@
         
   
   <span class="md-ellipsis">
-    S3
+    4.3. 计算一个数列的和
   </span>
   
 
@@ -1953,7 +1953,7 @@
         
   
   <span class="md-ellipsis">
-    S4
+    4.4. 递归的三条法则
   </span>
   
 
@@ -1973,7 +1973,7 @@
         
   
   <span class="md-ellipsis">
-    S5
+    4.5. 将整数转换为任意进制的字符串
   </span>
   
 
@@ -1993,7 +1993,7 @@
         
   
   <span class="md-ellipsis">
-    S6
+    4.6. 栈帧：实现递归
   </span>
   
 
@@ -2013,7 +2013,7 @@
         
   
   <span class="md-ellipsis">
-    S7
+    4.7. 递归的可视化
   </span>
   
 
@@ -2033,7 +2033,7 @@
         
   
   <span class="md-ellipsis">
-    S8
+    4.8. 谢尔宾斯基三角形
   </span>
   
 
@@ -2053,7 +2053,7 @@
         
   
   <span class="md-ellipsis">
-    S9
+    4.9. 复杂的递归问题
   </span>
   
 
@@ -2073,7 +2073,7 @@
         
   
   <span class="md-ellipsis">
-    S10
+    4.10. 汉诺塔问题
   </span>
   
 
@@ -2093,7 +2093,7 @@
         
   
   <span class="md-ellipsis">
-    S11
+    4.11. 迷宫探索
   </span>
   
 
@@ -2113,7 +2113,7 @@
         
   
   <span class="md-ellipsis">
-    S12
+    4.12. 动态规划
   </span>
   
 
@@ -2133,7 +2133,7 @@
         
   
   <span class="md-ellipsis">
-    S13
+    4.13. 总结
   </span>
   
 
@@ -2153,7 +2153,7 @@
         
   
   <span class="md-ellipsis">
-    S14
+    4.14. 关键术语
   </span>
   
 
@@ -2173,7 +2173,7 @@
         
   
   <span class="md-ellipsis">
-    S15
+    4.15. 练习
   </span>
   
 
@@ -2285,7 +2285,7 @@
         
   
   <span class="md-ellipsis">
-    S1
+    5.1. 目标
   </span>
   
 
@@ -2305,7 +2305,7 @@
         
   
   <span class="md-ellipsis">
-    S2
+    5.2. 搜索
   </span>
   
 
@@ -2325,7 +2325,7 @@
         
   
   <span class="md-ellipsis">
-    S3
+    5.3. 顺序搜索
   </span>
   
 
@@ -2345,7 +2345,7 @@
         
   
   <span class="md-ellipsis">
-    S4
+    5.4. 二分搜索
   </span>
   
 
@@ -2365,7 +2365,7 @@
         
   
   <span class="md-ellipsis">
-    S5
+    5.5. 哈希
   </span>
   
 
@@ -2385,7 +2385,7 @@
         
   
   <span class="md-ellipsis">
-    S6
+    5.6. 排序
   </span>
   
 
@@ -2405,7 +2405,7 @@
         
   
   <span class="md-ellipsis">
-    S7
+    5.7. 冒泡排序
   </span>
   
 
@@ -2425,7 +2425,7 @@
         
   
   <span class="md-ellipsis">
-    S8
+    5.8. 选择排序
   </span>
   
 
@@ -2445,7 +2445,7 @@
         
   
   <span class="md-ellipsis">
-    S9
+    5.9. 插入排序
   </span>
   
 
@@ -2465,7 +2465,7 @@
         
   
   <span class="md-ellipsis">
-    S10
+    5.10. 希尔排序
   </span>
   
 
@@ -2485,7 +2485,7 @@
         
   
   <span class="md-ellipsis">
-    S11
+    5.11. 归并排序
   </span>
   
 
@@ -2505,7 +2505,7 @@
         
   
   <span class="md-ellipsis">
-    S12
+    5.12. 快速排序
   </span>
   
 
@@ -2525,7 +2525,7 @@
         
   
   <span class="md-ellipsis">
-    S13
+    5.13. 总结
   </span>
   
 
@@ -2545,7 +2545,7 @@
         
   
   <span class="md-ellipsis">
-    S14
+    5.14. 关键术语
   </span>
   
 
@@ -2565,7 +2565,7 @@
         
   
   <span class="md-ellipsis">
-    S15
+    5.15. 练习
   </span>
   
 
@@ -4002,11 +4002,10 @@
 </code></pre></div>
 <p>The ability to differentiate between parentheses that are correctly balanced and those that are unbalanced is an important part of recognizing many programming language structures.</p>
 <p>The challenge then is to write an algorithm that will read a string of parentheses from left to right and decide whether the symbols are balanced. To solve this problem we need to make an important observation. As you process symbols from left to right, the most recent opening parenthesis must match the next closing symbol (see <code>Figure 4</code>). Also, the first opening symbol processed may have to wait until the very last symbol for its match. Closing symbols match opening symbols in the reverse order of their appearance; they match from the inside out. This is a clue that stacks can be used to solve the problem.</p>
-<figure markdown="span">
-  ![Image title](./imgs/simpleparcheck.png)
+<figure>
+  <a class="glightbox" href="../imgs/simpleparcheck.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/simpleparcheck.png" /></a>
   <figcaption>Figure 4: Matching Parentheses</figcaption>
 </figure>
-
 <p>Once you agree that a stack is the appropriate data structure for keeping the parentheses, the statement of the algorithm is straightforward. Starting with an empty stack, process the parenthesis strings from left to right. If a symbol is an opening parenthesis, push it on the stack as a signal that a corresponding closing symbol needs to appear later. If, on the other hand, a symbol is a closing parenthesis, pop the stack. As long as it is possible to pop the stack to match every closing symbol, the parentheses remain balanced. If at any time there is no opening symbol on the stack to match a closing symbol, the string is not balanced properly. At the end of the string, when all symbols have been processed, the stack should be empty. The Python code to implement this algorithm is shown in <code>ActiveCode 1</code>.</p>
 <div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 3.6.1 Solving the Balanced Parentheses Problem</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
