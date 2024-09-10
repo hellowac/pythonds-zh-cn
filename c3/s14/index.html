@@ -48,6 +48,8 @@
       
     
     
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -92,6 +94,22 @@
     <div data-md-component="announce">
       
     </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+你当前浏览的版本已不是最新版本，
+<a href="../../..">
+    <strong>点击这里</strong>
+</a>查看最新版本的文档
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
     
     
       
@@ -4034,34 +4052,1091 @@
 
 <h1 id="314-队列模拟打印任务">3.14. 队列模拟：打印任务<a class="headerlink" href="#314-队列模拟打印任务" title="Permanent link">&para;</a></h1>
 <p><strong>3.14. Queue Simulation: Printing Tasks</strong></p>
+<p>原文: <a href="https://runestone.academy/ns/books/published/pythonds3/BasicDS/SimulationPrintingTasks.html?mode=browsing">https://runestone.academy/ns/books/published/pythonds3/BasicDS/SimulationPrintingTasks.html?mode=browsing</a></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
-<div class="tabbed-block"></div>
-<div class="tabbed-block"></div>
+<div class="tabbed-block">
+<p>A more interesting simulation allows us to study the behavior of the printing queue described earlier in this section. Recall that as students send printing tasks to the shared printer, the tasks are placed in a queue to be processed in a first come, first served manner. Many questions arise with this configuration. The most important of these might be whether the printer is capable of handling a certain amount of work. If it cannot, students will be waiting too long for printing and may miss their next class.</p>
+<p>Consider the following situation in a computer science laboratory. On any average day about 10 students are working in the lab at any given hour. These students typically print up to twice during that time, and the length of these tasks ranges from 1 to 20 pages. The printer in the lab is older, capable of processing 10 pages per minute of draft quality. The printer could be switched to give better quality, but then it would produce only five pages per minute. The slower printing speed could make students wait too long. What page rate should be used?</p>
+<p>We could decide by building a simulation that models the laboratory. We will need to construct representations for students, printing tasks, and the printer (<code>Figure 4</code>). As students submit printing tasks, we will add them to a waiting list, a queue of print tasks attached to the printer. When the printer completes a task, it will look at the queue to see if there are any remaining tasks to process. Of interest for us is the average amount of time students will wait for their papers to be printed. This is equal to the average amount of time a task waits in the queue.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/simulationsetup.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/simulationsetup.png" /></a>
+    <figcaption>Figure 4: Computer Science Laboratory Printing Queue</figcaption>
+</figure></p>
+<p>To model this situation we need to use some probabilities. For example, students may print a paper from 1 to 20 pages in length. If each length from 1 to 20 is equally likely, the actual length for a print task can be simulated by using a random number between 1 and 20 inclusive. This means that there is equal chance of any length from 1 to 20 appearing. </p>
+<p>If there are 10 students in the lab and each prints twice, then there are 20 print tasks per hour on average. What is the chance that at any given second, a print task is going to be created? The way to answer this is to consider the ratio of tasks to time. Twenty tasks per hour means that on average there will be one task every 180 seconds:</p>
+<p><span class="arithmatex">\(\frac {20\ tasks}{1\ hour} \times \frac {1\ hour}  {60\ minutes} \times \frac {1\ minute} {60\ seconds}=\frac {1\ task} {180\ seconds}\)</span></p>
+<p>For every second we can simulate the chance that a print task occurs by generating a random number between 1 and 180 inclusive. If the number is 180, we say a task has been created. Note that it is possible that many tasks could be created in a row or we may wait quite a while for a task to appear. That is the nature of simulation. You want to simulate the real situation as closely as possible given that you know general parameters.</p>
+</div>
+<div class="tabbed-block">
+<p>A more interesting simulation allows us to study the behavior of the printing queue described earlier in this section. Recall that as students send printing tasks to the shared printer, the tasks are placed in a queue to be processed in a first come, first served manner. Many questions arise with this configuration. The most important of these might be whether the printer is capable of handling a certain amount of work. If it cannot, students will be waiting too long for printing and may miss their next class.</p>
+<p>Consider the following situation in a computer science laboratory. On any average day about 10 students are working in the lab at any given hour. These students typically print up to twice during that time, and the length of these tasks ranges from 1 to 20 pages. The printer in the lab is older, capable of processing 10 pages per minute of draft quality. The printer could be switched to give better quality, but then it would produce only five pages per minute. The slower printing speed could make students wait too long. What page rate should be used?</p>
+<p>We could decide by building a simulation that models the laboratory. We will need to construct representations for students, printing tasks, and the printer (<code>Figure 4</code>). As students submit printing tasks, we will add them to a waiting list, a queue of print tasks attached to the printer. When the printer completes a task, it will look at the queue to see if there are any remaining tasks to process. Of interest for us is the average amount of time students will wait for their papers to be printed. This is equal to the average amount of time a task waits in the queue.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/simulationsetup.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/simulationsetup.png" /></a>
+    <figcaption>Figure 4: Computer Science Laboratory Printing Queue</figcaption>
+</figure></p>
+<p>To model this situation we need to use some probabilities. For example, students may print a paper from 1 to 20 pages in length. If each length from 1 to 20 is equally likely, the actual length for a print task can be simulated by using a random number between 1 and 20 inclusive. This means that there is equal chance of any length from 1 to 20 appearing. </p>
+<p>If there are 10 students in the lab and each prints twice, then there are 20 print tasks per hour on average. What is the chance that at any given second, a print task is going to be created? The way to answer this is to consider the ratio of tasks to time. Twenty tasks per hour means that on average there will be one task every 180 seconds:</p>
+<p><span class="arithmatex">\(\frac {20\ tasks}{1\ hour} \times \frac {1\ hour}  {60\ minutes} \times \frac {1\ minute} {60\ seconds}=\frac {1\ task} {180\ seconds}\)</span></p>
+<p>For every second we can simulate the chance that a print task occurs by generating a random number between 1 and 180 inclusive. If the number is 180, we say a task has been created. Note that it is possible that many tasks could be created in a row or we may wait quite a while for a task to appear. That is the nature of simulation. You want to simulate the real situation as closely as possible given that you know general parameters.</p>
+</div>
 </div>
 </div>
 <h2 id="3141-主要模拟步骤">3.14.1. 主要模拟步骤<a class="headerlink" href="#3141-主要模拟步骤" title="Permanent link">&para;</a></h2>
 <p><strong>3.14.1. Main Simulation Steps</strong></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">中文</label><label for="__tabbed_2_2">英文</label></div>
 <div class="tabbed-content">
-<div class="tabbed-block"></div>
-<div class="tabbed-block"></div>
+<div class="tabbed-block">
+<p>Here is the main simulation.</p>
+<ol>
+<li>
+<p>Create a queue of print tasks. Each task will be given a timestamp upon its arrival. The queue is empty to start.</p>
+</li>
+<li>
+<p>For each second (<code>current_second</code>):</p>
+<ul>
+<li>
+<p>Does a new print task get created? If so, add it to the queue with the <code>current_second</code> as the timestamp.</p>
+</li>
+<li>
+<p>If the printer is not busy and if a task is waiting,</p>
+<ul>
+<li>
+<p>Remove the next task from the print queue and assign it to the printer.</p>
+</li>
+<li>
+<p>Subtract the timestamp from the <code>current_second</code> to compute the waiting time for that task.</p>
+</li>
+<li>
+<p>Append the waiting time for that task to a list for later processing.</p>
+</li>
+<li>
+<p>Based on the number of pages in the print task, figure out how much time will be required.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>The printer now does one second of printing if necessary. It also subtracts one second from the time required for that task.</p>
+</li>
+<li>
+<p>If the task has been completed, in other words the time required has reached zero, the printer is no longer busy.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>After the simulation is complete, compute the average waiting time from the list of waiting times generated.</p>
+</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<p>Here is the main simulation.</p>
+<ol>
+<li>
+<p>Create a queue of print tasks. Each task will be given a timestamp upon its arrival. The queue is empty to start.</p>
+</li>
+<li>
+<p>For each second (<code>current_second</code>):</p>
+<ul>
+<li>
+<p>Does a new print task get created? If so, add it to the queue with the <code>current_second</code> as the timestamp.</p>
+</li>
+<li>
+<p>If the printer is not busy and if a task is waiting,</p>
+<ul>
+<li>
+<p>Remove the next task from the print queue and assign it to the printer.</p>
+</li>
+<li>
+<p>Subtract the timestamp from the <code>current_second</code> to compute the waiting time for that task.</p>
+</li>
+<li>
+<p>Append the waiting time for that task to a list for later processing.</p>
+</li>
+<li>
+<p>Based on the number of pages in the print task, figure out how much time will be required.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>The printer now does one second of printing if necessary. It also subtracts one second from the time required for that task.</p>
+</li>
+<li>
+<p>If the task has been completed, in other words the time required has reached zero, the printer is no longer busy.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>After the simulation is complete, compute the average waiting time from the list of waiting times generated.</p>
+</li>
+</ol>
+</div>
 </div>
 </div>
 <h2 id="3142-python实现">3.14.2. Python实现<a class="headerlink" href="#3142-python实现" title="Permanent link">&para;</a></h2>
 <p><strong>3.14.2. Python Implementation</strong></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">中文</label><label for="__tabbed_3_2">英文</label></div>
 <div class="tabbed-content">
-<div class="tabbed-block"></div>
-<div class="tabbed-block"></div>
+<div class="tabbed-block">
+<p>To design this simulation we will create classes for the three real-world objects described above: <code>Printer</code>, <code>Task</code>, and <code>PrintQueue</code>.</p>
+<p>The <code>Printer</code> class (<code>Listing 2</code>) will need to track whether it has a current task. If it does, then it is busy (lines 13–17) and the amount of time needed can be computed from the number of pages in the task. The constructor will also allow the pages-per-minute setting to be initialized. The <code>tick</code> method decrements the internal timer and sets the printer to idle (line 11) if the task is completed.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Listing 2</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Printer</span>:
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>, ppm):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>page_rate <span style="color: #666666">=</span> ppm
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>current_task <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>time_remaining <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">tick</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>current_task <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #AA22FF; font-weight: bold">not</span> <span style="color: #008000; font-weight: bold">None</span>:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>time_remaining <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>time_remaining <span style="color: #666666">-</span> <span style="color: #666666">1</span>
+            <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>time_remaining <span style="color: #666666">&lt;=</span> <span style="color: #666666">0</span>:
+                <span style="color: #008000">self</span><span style="color: #666666">.</span>current_task <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">busy</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>current_task <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #AA22FF; font-weight: bold">not</span> <span style="color: #008000; font-weight: bold">None</span>
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">start_next</span>(<span style="color: #008000">self</span>, new_task):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>current_task <span style="color: #666666">=</span> new_task
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>time_remaining <span style="color: #666666">=</span> new_task<span style="color: #666666">.</span>get_pages() <span style="color: #666666">*</span> <span style="color: #666666">60</span> <span style="color: #666666">/</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>page_rate
+</code></pre></div></td></tr></table></div>
+<p>The <code>Task</code> class (<code>Listing 3</code>) will represent a single printing task. When the task is created, a random number generator will provide a length from 1 to 20 pages. We have chosen to use the <code>randrange</code> function from the <code>random</code> module.</p>
+<div class="language-pycon highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">random</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>random<span style="color: #666666">.</span>randrange(<span style="color: #666666">1</span>,<span style="color: #666666">21</span>)
+<span style="color: #717171">18</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>random<span style="color: #666666">.</span>randrange(<span style="color: #666666">1</span>,<span style="color: #666666">21</span>)
+<span style="color: #717171">8</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt;</span>
+</code></pre></div>
+<p>Each task will also need to keep a timestamp to be used for computing waiting time. This timestamp will represent the time that the task was created and placed in the printer queue. The <code>wait_time</code> method can then be used to retrieve the amount of time spent in the queue before printing begins.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Listing 3</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">random</span>
+
+
+<span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Task</span>:
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>, time):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>timestamp <span style="color: #666666">=</span> time
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>pages <span style="color: #666666">=</span> random<span style="color: #666666">.</span>randrange(<span style="color: #666666">1</span>, <span style="color: #666666">21</span>)
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_stamp</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>timestamp
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_pages</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>pages
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">wait_time</span>(<span style="color: #008000">self</span>, current_time):
+        <span style="color: #008000; font-weight: bold">return</span> current_time <span style="color: #666666">-</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>timestamp
+</code></pre></div></td></tr></table></div>
+<p>The main simulation (<code>Listing 4</code>) implements the algorithm described above. The <code>print_queue</code> object is an instance of our existing queue ADT. A boolean helper function, <code>new_print_task</code>, decides whether a new printing task has been created. We have again chosen to use the <code>randrange</code> function from the <code>random</code> module to return a random integer between 1 and 180. Print tasks arrive once every 180 seconds. By arbitrarily choosing 180 from the range of random integers (line 31), we can simulate this random event. The simulation function allows us to set the total time and the pages per minute for the printer.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Listing 4</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">29</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">30</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">31</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">32</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">33</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">34</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">35</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">random</span>
+<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pythonds3.basic.queue</span> Queue
+
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">simulation</span>(num_seconds, pages_per_minute):
+    lab_printer <span style="color: #666666">=</span> Printer(pages_per_minute)
+    print_queue <span style="color: #666666">=</span> Queue()
+    waiting_times <span style="color: #666666">=</span> []
+
+    <span style="color: #008000; font-weight: bold">for</span> current_second <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(num_seconds):
+        <span style="color: #008000; font-weight: bold">if</span> new_print_task():
+            task <span style="color: #666666">=</span> Task(current_second)
+            print_queue<span style="color: #666666">.</span>enqueue(task)
+
+        <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #AA22FF; font-weight: bold">not</span> lab_printer<span style="color: #666666">.</span>busy()) <span style="color: #AA22FF; font-weight: bold">and</span> (<span style="color: #AA22FF; font-weight: bold">not</span> print_queue<span style="color: #666666">.</span>is_empty()):
+            nexttask <span style="color: #666666">=</span> print_queue<span style="color: #666666">.</span>dequeue()
+            waiting_times<span style="color: #666666">.</span>append(nexttask<span style="color: #666666">.</span>wait_time(current_second))
+            lab_printer<span style="color: #666666">.</span>start_next(nexttask)
+
+        lab_printer<span style="color: #666666">.</span>tick()
+
+    average_wait <span style="color: #666666">=</span> <span style="color: #008000">sum</span>(waiting_times) <span style="color: #666666">/</span> <span style="color: #008000">len</span>(waiting_times)
+    <span style="color: #008000">print</span>(
+        <span style="color: #BA2121">f&quot;Average Wait </span><span style="color: #A45A77; font-weight: bold">{</span>average_wait<span style="color: #A45A77; font-weight: bold">:</span><span style="color: #BA2121">6.2f</span><span style="color: #A45A77; font-weight: bold">}</span><span style="color: #BA2121"> secs&quot;</span> \
+        <span style="color: #666666">+</span> <span style="color: #BA2121">f&quot;</span><span style="color: #A45A77; font-weight: bold">{</span>print_queue<span style="color: #666666">.</span>size()<span style="color: #A45A77; font-weight: bold">:</span><span style="color: #BA2121">3d</span><span style="color: #A45A77; font-weight: bold">}</span><span style="color: #BA2121"> tasks remaining.&quot;</span>
+    )
+
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">new_print_task</span>():
+    num <span style="color: #666666">=</span> random<span style="color: #666666">.</span>randrange(<span style="color: #666666">1</span>, <span style="color: #666666">181</span>)
+    <span style="color: #008000; font-weight: bold">return</span> num <span style="color: #666666">==</span> <span style="color: #666666">180</span>
+
+
+<span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">10</span>):
+    simulation(<span style="color: #666666">3600</span>, <span style="color: #666666">5</span>)
+</code></pre></div></td></tr></table></div>
+<p>When we run the simulation, we should not be concerned that the results are different each time. This is due to the probabilistic nature of the random numbers. We are interested in the trends that may be occurring as the parameters to the simulation are adjusted. Here are some results.</p>
+<p>First, we will run the simulation for a period of 60 minutes (3,600 seconds) using a page rate of five pages per minute. In addition, we will run 10 independent trials. Remember that because the simulation works with random numbers each run will return different results.</p>
+<div class="language-pycon highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span><span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">10</span>):
+<span style="color: #000080; font-weight: bold">... </span>    simulation(<span style="color: #666666">3600</span>, <span style="color: #666666">5</span>)
+<span style="color: #000080; font-weight: bold">... </span>
+<span style="color: #717171">Average Wait 165.38 secs 2 tasks remaining.</span>
+<span style="color: #717171">Average Wait  95.07 secs 1 tasks remaining.</span>
+<span style="color: #717171">Average Wait  65.05 secs 2 tasks remaining.</span>
+<span style="color: #717171">Average Wait  99.74 secs 1 tasks remaining.</span>
+<span style="color: #717171">Average Wait  17.27 secs 0 tasks remaining.</span>
+<span style="color: #717171">Average Wait 239.61 secs 5 tasks remaining.</span>
+<span style="color: #717171">Average Wait  75.11 secs 1 tasks remaining.</span>
+<span style="color: #717171">Average Wait  48.33 secs 0 tasks remaining.</span>
+<span style="color: #717171">Average Wait  39.31 secs 3 tasks remaining.</span>
+<span style="color: #717171">Average Wait 376.05 secs 1 tasks remaining.</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>
+</code></pre></div>
+<p>After running our 10 trials we can see that the mean average wait time is (165.38 + 95.07 + 65.05 + 99.74 + 17.27 + 239.61 + 75.11 + 48.33 + 39.31 + 376.05) / 10 = 122.09 seconds. You can also see that there is a large variation in the average wait time with a minimum average of 17.27 seconds and a maximum of 376.05 seconds. You may also notice that in only two of the cases were all the tasks completed.</p>
+<p>Now we will adjust the page rate to 10 pages per minute and run the 10 trials again. With a faster page rate, our hope would be that more tasks would be completed in the one-hour time frame.</p>
+<div class="language-pycon highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span><span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">10</span>):
+<span style="color: #000080; font-weight: bold">... </span>    simulation(<span style="color: #666666">3600</span>, <span style="color: #666666">10</span>)
+<span style="color: #000080; font-weight: bold">... </span>
+<span style="color: #717171">Average Wait   1.29 secs 0 tasks remaining.</span>
+<span style="color: #717171">Average Wait   7.00 secs 0 tasks remaining.</span>
+<span style="color: #717171">Average Wait  28.96 secs 1 tasks remaining.</span>
+<span style="color: #717171">Average Wait  13.55 secs 0 tasks remaining.</span>
+<span style="color: #717171">Average Wait  12.67 secs 0 tasks remaining.</span>
+<span style="color: #717171">Average Wait   6.46 secs 0 tasks remaining.</span>
+<span style="color: #717171">Average Wait  22.33 secs 0 tasks remaining.</span>
+<span style="color: #717171">Average Wait  12.39 secs 0 tasks remaining.</span>
+<span style="color: #717171">Average Wait   7.27 secs 0 tasks remaining.</span>
+<span style="color: #717171">Average Wait  18.17 secs 0 tasks remaining.</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>
+</code></pre></div>
+<p>You can run the simulation for yourself in ActiveCode 2.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 3.14.2.1 Printer Queue Simulation</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">29</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">30</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">31</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">32</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">33</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">34</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">35</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">36</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">37</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">38</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">39</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">40</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">41</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">42</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">43</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">44</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">45</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">46</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">47</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">48</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">49</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">50</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">51</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">52</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">53</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">54</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">55</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">56</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">57</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">58</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">59</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">60</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">61</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">62</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">63</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">64</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">65</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">66</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">67</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">random</span>
+<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pythonds3.basic</span> <span style="color: #008000; font-weight: bold">import</span> Queue
+
+
+<span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Printer</span>:
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>, ppm):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>page_rate <span style="color: #666666">=</span> ppm
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>current_task <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>time_remaining <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">tick</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>current_task <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #AA22FF; font-weight: bold">not</span> <span style="color: #008000; font-weight: bold">None</span>:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>time_remaining <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>time_remaining <span style="color: #666666">-</span> <span style="color: #666666">1</span>
+            <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>time_remaining <span style="color: #666666">&lt;=</span> <span style="color: #666666">0</span>:
+                <span style="color: #008000">self</span><span style="color: #666666">.</span>current_task <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">busy</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>current_task <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #AA22FF; font-weight: bold">not</span> <span style="color: #008000; font-weight: bold">None</span>
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">start_next</span>(<span style="color: #008000">self</span>, new_task):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>current_task <span style="color: #666666">=</span> new_task
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>time_remaining <span style="color: #666666">=</span> new_task<span style="color: #666666">.</span>get_pages() <span style="color: #666666">*</span> <span style="color: #666666">60</span> <span style="color: #666666">/</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>page_rate
+
+
+<span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Task</span>:
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>, time):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>timestamp <span style="color: #666666">=</span> time
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>pages <span style="color: #666666">=</span> random<span style="color: #666666">.</span>randrange(<span style="color: #666666">1</span>, <span style="color: #666666">21</span>)
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_stamp</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>timestamp
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_pages</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>pages
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">wait_time</span>(<span style="color: #008000">self</span>, current_time):
+        <span style="color: #008000; font-weight: bold">return</span> current_time <span style="color: #666666">-</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>timestamp
+
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">simulation</span>(num_seconds, pages_per_minute):
+    lab_printer <span style="color: #666666">=</span> Printer(pages_per_minute)
+    print_queue <span style="color: #666666">=</span> Queue()
+    waiting_times <span style="color: #666666">=</span> []
+
+    <span style="color: #008000; font-weight: bold">for</span> current_second <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(num_seconds):
+        <span style="color: #008000; font-weight: bold">if</span> new_print_task():
+            task <span style="color: #666666">=</span> Task(current_second)
+            print_queue<span style="color: #666666">.</span>enqueue(task)
+
+        <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #AA22FF; font-weight: bold">not</span> lab_printer<span style="color: #666666">.</span>busy()) <span style="color: #AA22FF; font-weight: bold">and</span> (<span style="color: #AA22FF; font-weight: bold">not</span> print_queue<span style="color: #666666">.</span>is_empty()):
+            nexttask <span style="color: #666666">=</span> print_queue<span style="color: #666666">.</span>dequeue()
+            waiting_times<span style="color: #666666">.</span>append(nexttask<span style="color: #666666">.</span>wait_time(current_second))
+            lab_printer<span style="color: #666666">.</span>start_next(nexttask)
+
+        lab_printer<span style="color: #666666">.</span>tick()
+
+    average_wait <span style="color: #666666">=</span> <span style="color: #008000">sum</span>(waiting_times) <span style="color: #666666">/</span> <span style="color: #008000">len</span>(waiting_times)
+    <span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;Average Wait </span><span style="color: #A45A77; font-weight: bold">%6.2f</span><span style="color: #BA2121"> secs </span><span style="color: #A45A77; font-weight: bold">%3d</span><span style="color: #BA2121"> tasks remaining.&quot;</span> <span style="color: #666666">%</span> (average_wait, print_queue<span style="color: #666666">.</span>size()))
+
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">new_print_task</span>():
+    num <span style="color: #666666">=</span> random<span style="color: #666666">.</span>randrange(<span style="color: #666666">1</span>, <span style="color: #666666">181</span>)
+    <span style="color: #008000; font-weight: bold">return</span> num <span style="color: #666666">==</span> <span style="color: #666666">180</span>
+
+
+<span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">10</span>):
+    simulation(<span style="color: #666666">3600</span>, <span style="color: #666666">5</span>)
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<p>To design this simulation we will create classes for the three real-world objects described above: <code>Printer</code>, <code>Task</code>, and <code>PrintQueue</code>.</p>
+<p>The <code>Printer</code> class (<code>Listing 2</code>) will need to track whether it has a current task. If it does, then it is busy (lines 13–17) and the amount of time needed can be computed from the number of pages in the task. The constructor will also allow the pages-per-minute setting to be initialized. The <code>tick</code> method decrements the internal timer and sets the printer to idle (line 11) if the task is completed.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Listing 2</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Printer</span>:
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>, ppm):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>page_rate <span style="color: #666666">=</span> ppm
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>current_task <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>time_remaining <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">tick</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>current_task <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #AA22FF; font-weight: bold">not</span> <span style="color: #008000; font-weight: bold">None</span>:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>time_remaining <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>time_remaining <span style="color: #666666">-</span> <span style="color: #666666">1</span>
+            <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>time_remaining <span style="color: #666666">&lt;=</span> <span style="color: #666666">0</span>:
+                <span style="color: #008000">self</span><span style="color: #666666">.</span>current_task <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">busy</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>current_task <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #AA22FF; font-weight: bold">not</span> <span style="color: #008000; font-weight: bold">None</span>
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">start_next</span>(<span style="color: #008000">self</span>, new_task):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>current_task <span style="color: #666666">=</span> new_task
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>time_remaining <span style="color: #666666">=</span> new_task<span style="color: #666666">.</span>get_pages() <span style="color: #666666">*</span> <span style="color: #666666">60</span> <span style="color: #666666">/</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>page_rate
+</code></pre></div></td></tr></table></div>
+<p>The <code>Task</code> class (<code>Listing 3</code>) will represent a single printing task. When the task is created, a random number generator will provide a length from 1 to 20 pages. We have chosen to use the <code>randrange</code> function from the <code>random</code> module.</p>
+<div class="language-pycon highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">random</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>random<span style="color: #666666">.</span>randrange(<span style="color: #666666">1</span>,<span style="color: #666666">21</span>)
+<span style="color: #717171">18</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>random<span style="color: #666666">.</span>randrange(<span style="color: #666666">1</span>,<span style="color: #666666">21</span>)
+<span style="color: #717171">8</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt;</span>
+</code></pre></div>
+<p>Each task will also need to keep a timestamp to be used for computing waiting time. This timestamp will represent the time that the task was created and placed in the printer queue. The <code>wait_time</code> method can then be used to retrieve the amount of time spent in the queue before printing begins.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Listing 3</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">random</span>
+
+
+<span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Task</span>:
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>, time):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>timestamp <span style="color: #666666">=</span> time
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>pages <span style="color: #666666">=</span> random<span style="color: #666666">.</span>randrange(<span style="color: #666666">1</span>, <span style="color: #666666">21</span>)
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_stamp</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>timestamp
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_pages</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>pages
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">wait_time</span>(<span style="color: #008000">self</span>, current_time):
+        <span style="color: #008000; font-weight: bold">return</span> current_time <span style="color: #666666">-</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>timestamp
+</code></pre></div></td></tr></table></div>
+<p>The main simulation (<code>Listing 4</code>) implements the algorithm described above. The <code>print_queue</code> object is an instance of our existing queue ADT. A boolean helper function, <code>new_print_task</code>, decides whether a new printing task has been created. We have again chosen to use the <code>randrange</code> function from the <code>random</code> module to return a random integer between 1 and 180. Print tasks arrive once every 180 seconds. By arbitrarily choosing 180 from the range of random integers (line 31), we can simulate this random event. The simulation function allows us to set the total time and the pages per minute for the printer.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Listing 4</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">29</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">30</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">31</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">32</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">33</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">34</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">35</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">random</span>
+<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pythonds3.basic.queue</span> Queue
+
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">simulation</span>(num_seconds, pages_per_minute):
+    lab_printer <span style="color: #666666">=</span> Printer(pages_per_minute)
+    print_queue <span style="color: #666666">=</span> Queue()
+    waiting_times <span style="color: #666666">=</span> []
+
+    <span style="color: #008000; font-weight: bold">for</span> current_second <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(num_seconds):
+        <span style="color: #008000; font-weight: bold">if</span> new_print_task():
+            task <span style="color: #666666">=</span> Task(current_second)
+            print_queue<span style="color: #666666">.</span>enqueue(task)
+
+        <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #AA22FF; font-weight: bold">not</span> lab_printer<span style="color: #666666">.</span>busy()) <span style="color: #AA22FF; font-weight: bold">and</span> (<span style="color: #AA22FF; font-weight: bold">not</span> print_queue<span style="color: #666666">.</span>is_empty()):
+            nexttask <span style="color: #666666">=</span> print_queue<span style="color: #666666">.</span>dequeue()
+            waiting_times<span style="color: #666666">.</span>append(nexttask<span style="color: #666666">.</span>wait_time(current_second))
+            lab_printer<span style="color: #666666">.</span>start_next(nexttask)
+
+        lab_printer<span style="color: #666666">.</span>tick()
+
+    average_wait <span style="color: #666666">=</span> <span style="color: #008000">sum</span>(waiting_times) <span style="color: #666666">/</span> <span style="color: #008000">len</span>(waiting_times)
+    <span style="color: #008000">print</span>(
+        <span style="color: #BA2121">f&quot;Average Wait </span><span style="color: #A45A77; font-weight: bold">{</span>average_wait<span style="color: #A45A77; font-weight: bold">:</span><span style="color: #BA2121">6.2f</span><span style="color: #A45A77; font-weight: bold">}</span><span style="color: #BA2121"> secs&quot;</span> \
+        <span style="color: #666666">+</span> <span style="color: #BA2121">f&quot;</span><span style="color: #A45A77; font-weight: bold">{</span>print_queue<span style="color: #666666">.</span>size()<span style="color: #A45A77; font-weight: bold">:</span><span style="color: #BA2121">3d</span><span style="color: #A45A77; font-weight: bold">}</span><span style="color: #BA2121"> tasks remaining.&quot;</span>
+    )
+
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">new_print_task</span>():
+    num <span style="color: #666666">=</span> random<span style="color: #666666">.</span>randrange(<span style="color: #666666">1</span>, <span style="color: #666666">181</span>)
+    <span style="color: #008000; font-weight: bold">return</span> num <span style="color: #666666">==</span> <span style="color: #666666">180</span>
+
+
+<span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">10</span>):
+    simulation(<span style="color: #666666">3600</span>, <span style="color: #666666">5</span>)
+</code></pre></div></td></tr></table></div>
+<p>When we run the simulation, we should not be concerned that the results are different each time. This is due to the probabilistic nature of the random numbers. We are interested in the trends that may be occurring as the parameters to the simulation are adjusted. Here are some results.</p>
+<p>First, we will run the simulation for a period of 60 minutes (3,600 seconds) using a page rate of five pages per minute. In addition, we will run 10 independent trials. Remember that because the simulation works with random numbers each run will return different results.</p>
+<div class="language-pycon highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span><span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">10</span>):
+<span style="color: #000080; font-weight: bold">... </span>    simulation(<span style="color: #666666">3600</span>, <span style="color: #666666">5</span>)
+<span style="color: #000080; font-weight: bold">... </span>
+<span style="color: #717171">Average Wait 165.38 secs 2 tasks remaining.</span>
+<span style="color: #717171">Average Wait  95.07 secs 1 tasks remaining.</span>
+<span style="color: #717171">Average Wait  65.05 secs 2 tasks remaining.</span>
+<span style="color: #717171">Average Wait  99.74 secs 1 tasks remaining.</span>
+<span style="color: #717171">Average Wait  17.27 secs 0 tasks remaining.</span>
+<span style="color: #717171">Average Wait 239.61 secs 5 tasks remaining.</span>
+<span style="color: #717171">Average Wait  75.11 secs 1 tasks remaining.</span>
+<span style="color: #717171">Average Wait  48.33 secs 0 tasks remaining.</span>
+<span style="color: #717171">Average Wait  39.31 secs 3 tasks remaining.</span>
+<span style="color: #717171">Average Wait 376.05 secs 1 tasks remaining.</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>
+</code></pre></div>
+<p>After running our 10 trials we can see that the mean average wait time is (165.38 + 95.07 + 65.05 + 99.74 + 17.27 + 239.61 + 75.11 + 48.33 + 39.31 + 376.05) / 10 = 122.09 seconds. You can also see that there is a large variation in the average wait time with a minimum average of 17.27 seconds and a maximum of 376.05 seconds. You may also notice that in only two of the cases were all the tasks completed.</p>
+<p>Now we will adjust the page rate to 10 pages per minute and run the 10 trials again. With a faster page rate, our hope would be that more tasks would be completed in the one-hour time frame.</p>
+<div class="language-pycon highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span><span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">10</span>):
+<span style="color: #000080; font-weight: bold">... </span>    simulation(<span style="color: #666666">3600</span>, <span style="color: #666666">10</span>)
+<span style="color: #000080; font-weight: bold">... </span>
+<span style="color: #717171">Average Wait   1.29 secs 0 tasks remaining.</span>
+<span style="color: #717171">Average Wait   7.00 secs 0 tasks remaining.</span>
+<span style="color: #717171">Average Wait  28.96 secs 1 tasks remaining.</span>
+<span style="color: #717171">Average Wait  13.55 secs 0 tasks remaining.</span>
+<span style="color: #717171">Average Wait  12.67 secs 0 tasks remaining.</span>
+<span style="color: #717171">Average Wait   6.46 secs 0 tasks remaining.</span>
+<span style="color: #717171">Average Wait  22.33 secs 0 tasks remaining.</span>
+<span style="color: #717171">Average Wait  12.39 secs 0 tasks remaining.</span>
+<span style="color: #717171">Average Wait   7.27 secs 0 tasks remaining.</span>
+<span style="color: #717171">Average Wait  18.17 secs 0 tasks remaining.</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>
+</code></pre></div>
+<p>You can run the simulation for yourself in ActiveCode 2.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 3.14.2.1 Printer Queue Simulation</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">29</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">30</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">31</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">32</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">33</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">34</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">35</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">36</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">37</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">38</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">39</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">40</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">41</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">42</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">43</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">44</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">45</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">46</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">47</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">48</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">49</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">50</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">51</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">52</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">53</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">54</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">55</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">56</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">57</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">58</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">59</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">60</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">61</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">62</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">63</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">64</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">65</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">66</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">67</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">random</span>
+<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pythonds3.basic</span> <span style="color: #008000; font-weight: bold">import</span> Queue
+
+
+<span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Printer</span>:
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>, ppm):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>page_rate <span style="color: #666666">=</span> ppm
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>current_task <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>time_remaining <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">tick</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>current_task <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #AA22FF; font-weight: bold">not</span> <span style="color: #008000; font-weight: bold">None</span>:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>time_remaining <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>time_remaining <span style="color: #666666">-</span> <span style="color: #666666">1</span>
+            <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>time_remaining <span style="color: #666666">&lt;=</span> <span style="color: #666666">0</span>:
+                <span style="color: #008000">self</span><span style="color: #666666">.</span>current_task <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">busy</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>current_task <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #AA22FF; font-weight: bold">not</span> <span style="color: #008000; font-weight: bold">None</span>
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">start_next</span>(<span style="color: #008000">self</span>, new_task):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>current_task <span style="color: #666666">=</span> new_task
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>time_remaining <span style="color: #666666">=</span> new_task<span style="color: #666666">.</span>get_pages() <span style="color: #666666">*</span> <span style="color: #666666">60</span> <span style="color: #666666">/</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>page_rate
+
+
+<span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Task</span>:
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>, time):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>timestamp <span style="color: #666666">=</span> time
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>pages <span style="color: #666666">=</span> random<span style="color: #666666">.</span>randrange(<span style="color: #666666">1</span>, <span style="color: #666666">21</span>)
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_stamp</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>timestamp
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_pages</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>pages
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">wait_time</span>(<span style="color: #008000">self</span>, current_time):
+        <span style="color: #008000; font-weight: bold">return</span> current_time <span style="color: #666666">-</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>timestamp
+
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">simulation</span>(num_seconds, pages_per_minute):
+    lab_printer <span style="color: #666666">=</span> Printer(pages_per_minute)
+    print_queue <span style="color: #666666">=</span> Queue()
+    waiting_times <span style="color: #666666">=</span> []
+
+    <span style="color: #008000; font-weight: bold">for</span> current_second <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(num_seconds):
+        <span style="color: #008000; font-weight: bold">if</span> new_print_task():
+            task <span style="color: #666666">=</span> Task(current_second)
+            print_queue<span style="color: #666666">.</span>enqueue(task)
+
+        <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #AA22FF; font-weight: bold">not</span> lab_printer<span style="color: #666666">.</span>busy()) <span style="color: #AA22FF; font-weight: bold">and</span> (<span style="color: #AA22FF; font-weight: bold">not</span> print_queue<span style="color: #666666">.</span>is_empty()):
+            nexttask <span style="color: #666666">=</span> print_queue<span style="color: #666666">.</span>dequeue()
+            waiting_times<span style="color: #666666">.</span>append(nexttask<span style="color: #666666">.</span>wait_time(current_second))
+            lab_printer<span style="color: #666666">.</span>start_next(nexttask)
+
+        lab_printer<span style="color: #666666">.</span>tick()
+
+    average_wait <span style="color: #666666">=</span> <span style="color: #008000">sum</span>(waiting_times) <span style="color: #666666">/</span> <span style="color: #008000">len</span>(waiting_times)
+    <span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;Average Wait </span><span style="color: #A45A77; font-weight: bold">%6.2f</span><span style="color: #BA2121"> secs </span><span style="color: #A45A77; font-weight: bold">%3d</span><span style="color: #BA2121"> tasks remaining.&quot;</span> <span style="color: #666666">%</span> (average_wait, print_queue<span style="color: #666666">.</span>size()))
+
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">new_print_task</span>():
+    num <span style="color: #666666">=</span> random<span style="color: #666666">.</span>randrange(<span style="color: #666666">1</span>, <span style="color: #666666">181</span>)
+    <span style="color: #008000; font-weight: bold">return</span> num <span style="color: #666666">==</span> <span style="color: #666666">180</span>
+
+
+<span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">10</span>):
+    simulation(<span style="color: #666666">3600</span>, <span style="color: #666666">5</span>)
+</code></pre></div></td></tr></table></div>
+</div>
 </div>
 </div>
 <h2 id="3143-讨论">3.14.3. 讨论<a class="headerlink" href="#3143-讨论" title="Permanent link">&para;</a></h2>
 <p><strong>3.14.3. Discussion</strong></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">中文</label><label for="__tabbed_4_2">英文</label></div>
 <div class="tabbed-content">
-<div class="tabbed-block"></div>
-<div class="tabbed-block"></div>
+<div class="tabbed-block">
+<p>We were trying to answer a question about whether the current printer could handle the task load if it were set to print with a better quality but slower page rate. The approach we took was to write a simulation that modeled the printing tasks as random events of various lengths and arrival times.</p>
+<p>The output above shows that with 5 pages per minute printing, the average waiting time varied from a low of 17 seconds to a high of 376 seconds (about 6 minutes). With a faster printing rate, the low value was 1 second with a high of only 28. In addition, in 8 out of 10 runs at 5 pages per minute there were print tasks still waiting in the queue at the end of the hour.</p>
+<p>Therefore, we are perhaps persuaded that slowing the printer down to get better quality may not be a good idea. Students cannot afford to wait that long for their papers, especially when they need to be getting on to their next class. A six-minute wait would simply be too long.</p>
+<p>This type of simulation analysis allows us to answer many questions, commonly known as what-if questions. All we need to do is vary the parameters used by the simulation and we can simulate any number of interesting behaviors. For example,</p>
+<ul>
+<li>
+<p>What if enrollment goes up and the average number of students increases by 20?</p>
+</li>
+<li>
+<p>What if it is Saturday and students do not need to get to class? Can they afford to wait?</p>
+</li>
+<li>
+<p>What if the size of the average print task decreases since Python is such a powerful language and programs tend to be much shorter?</p>
+</li>
+</ul>
+<p>These questions could all be answered by modifying the above simulation. However, it is important to remember that the simulation is only as good as the assumptions that are used to build it. Real data about the number of print tasks per hour and the number of students per hour was necessary to construct a robust simulation.</p>
+<div class="admonition info">
+<p class="admonition-title">Self Check</p>
+<p>How would you modify the printer simulation to reflect a larger number of students?  Suppose that the number of students was doubled.  You make need to make some reasonable assumptions about how this simulation was put together but what would you change?  Modify the code.  Also suppose that the length of the average print task was cut in half.  Change the code to reflect that change.  Finally How would you parametertize the number of students, rather than changing the code we would like to make the number of students a parameter of the simulation.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 3.14.3.1 ActiveCode</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">29</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">30</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">31</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">32</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">33</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">34</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">35</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">36</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">37</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">38</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">39</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">40</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">41</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">42</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">43</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">44</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">45</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">46</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">47</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">48</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">49</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">50</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">51</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">52</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">53</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">54</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">55</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">56</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">57</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">58</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">59</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">60</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">61</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">62</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">63</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">64</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">65</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">66</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">67</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">random</span>
+<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pythonds3.basic</span> <span style="color: #008000; font-weight: bold">import</span> Queue
+
+
+<span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Printer</span>:
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>, ppm):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>page_rate <span style="color: #666666">=</span> ppm
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>current_task <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>time_remaining <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">tick</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>current_task <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #AA22FF; font-weight: bold">not</span> <span style="color: #008000; font-weight: bold">None</span>:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>time_remaining <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>time_remaining <span style="color: #666666">-</span> <span style="color: #666666">1</span>
+            <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>time_remaining <span style="color: #666666">&lt;=</span> <span style="color: #666666">0</span>:
+                <span style="color: #008000">self</span><span style="color: #666666">.</span>current_task <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">busy</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>current_task <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #AA22FF; font-weight: bold">not</span> <span style="color: #008000; font-weight: bold">None</span>
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">start_next</span>(<span style="color: #008000">self</span>, new_task):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>current_task <span style="color: #666666">=</span> new_task
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>time_remaining <span style="color: #666666">=</span> new_task<span style="color: #666666">.</span>get_pages() <span style="color: #666666">*</span> <span style="color: #666666">60</span> <span style="color: #666666">/</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>page_rate
+
+
+<span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Task</span>:
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>, time):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>timestamp <span style="color: #666666">=</span> time
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>pages <span style="color: #666666">=</span> random<span style="color: #666666">.</span>randrange(<span style="color: #666666">1</span>, <span style="color: #666666">21</span>)
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_stamp</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>timestamp
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_pages</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>pages
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">wait_time</span>(<span style="color: #008000">self</span>, current_time):
+        <span style="color: #008000; font-weight: bold">return</span> current_time <span style="color: #666666">-</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>timestamp
+
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">simulation</span>(num_seconds, pages_per_minute):
+    lab_printer <span style="color: #666666">=</span> Printer(pages_per_minute)
+    print_queue <span style="color: #666666">=</span> Queue()
+    waiting_times <span style="color: #666666">=</span> []
+
+    <span style="color: #008000; font-weight: bold">for</span> current_second <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(num_seconds):
+        <span style="color: #008000; font-weight: bold">if</span> new_print_task():
+            task <span style="color: #666666">=</span> Task(current_second)
+            print_queue<span style="color: #666666">.</span>enqueue(task)
+
+        <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #AA22FF; font-weight: bold">not</span> lab_printer<span style="color: #666666">.</span>busy()) <span style="color: #AA22FF; font-weight: bold">and</span> (<span style="color: #AA22FF; font-weight: bold">not</span> print_queue<span style="color: #666666">.</span>is_empty()):
+            nexttask <span style="color: #666666">=</span> print_queue<span style="color: #666666">.</span>dequeue()
+            waiting_times<span style="color: #666666">.</span>append(nexttask<span style="color: #666666">.</span>wait_time(current_second))
+            lab_printer<span style="color: #666666">.</span>start_next(nexttask)
+
+        lab_printer<span style="color: #666666">.</span>tick()
+
+    average_wait <span style="color: #666666">=</span> <span style="color: #008000">sum</span>(waiting_times) <span style="color: #666666">/</span> <span style="color: #008000">len</span>(waiting_times)
+    <span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;Average Wait </span><span style="color: #A45A77; font-weight: bold">%6.2f</span><span style="color: #BA2121"> secs </span><span style="color: #A45A77; font-weight: bold">%3d</span><span style="color: #BA2121"> tasks remaining.&quot;</span> <span style="color: #666666">%</span> (average_wait, print_queue<span style="color: #666666">.</span>size()))
+
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">new_print_task</span>():
+    num <span style="color: #666666">=</span> random<span style="color: #666666">.</span>randrange(<span style="color: #666666">1</span>, <span style="color: #666666">181</span>)
+    <span style="color: #008000; font-weight: bold">return</span> num <span style="color: #666666">==</span> <span style="color: #666666">180</span>
+
+
+<span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">10</span>):
+    simulation(<span style="color: #666666">3600</span>, <span style="color: #666666">5</span>)
+</code></pre></div></td></tr></table></div>
+</div>
+</div>
+<div class="tabbed-block">
+<p>We were trying to answer a question about whether the current printer could handle the task load if it were set to print with a better quality but slower page rate. The approach we took was to write a simulation that modeled the printing tasks as random events of various lengths and arrival times.</p>
+<p>The output above shows that with 5 pages per minute printing, the average waiting time varied from a low of 17 seconds to a high of 376 seconds (about 6 minutes). With a faster printing rate, the low value was 1 second with a high of only 28. In addition, in 8 out of 10 runs at 5 pages per minute there were print tasks still waiting in the queue at the end of the hour.</p>
+<p>Therefore, we are perhaps persuaded that slowing the printer down to get better quality may not be a good idea. Students cannot afford to wait that long for their papers, especially when they need to be getting on to their next class. A six-minute wait would simply be too long.</p>
+<p>This type of simulation analysis allows us to answer many questions, commonly known as what-if questions. All we need to do is vary the parameters used by the simulation and we can simulate any number of interesting behaviors. For example,</p>
+<ul>
+<li>
+<p>What if enrollment goes up and the average number of students increases by 20?</p>
+</li>
+<li>
+<p>What if it is Saturday and students do not need to get to class? Can they afford to wait?</p>
+</li>
+<li>
+<p>What if the size of the average print task decreases since Python is such a powerful language and programs tend to be much shorter?</p>
+</li>
+</ul>
+<p>These questions could all be answered by modifying the above simulation. However, it is important to remember that the simulation is only as good as the assumptions that are used to build it. Real data about the number of print tasks per hour and the number of students per hour was necessary to construct a robust simulation.</p>
+<div class="admonition info">
+<p class="admonition-title">Self Check</p>
+<p>How would you modify the printer simulation to reflect a larger number of students?  Suppose that the number of students was doubled.  You make need to make some reasonable assumptions about how this simulation was put together but what would you change?  Modify the code.  Also suppose that the length of the average print task was cut in half.  Change the code to reflect that change.  Finally How would you parametertize the number of students, rather than changing the code we would like to make the number of students a parameter of the simulation.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 3.14.3.1 ActiveCode</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">29</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">30</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">31</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">32</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">33</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">34</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">35</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">36</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">37</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">38</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">39</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">40</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">41</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">42</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">43</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">44</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">45</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">46</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">47</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">48</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">49</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">50</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">51</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">52</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">53</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">54</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">55</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">56</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">57</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">58</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">59</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">60</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">61</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">62</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">63</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">64</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">65</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">66</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">67</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">random</span>
+<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pythonds3.basic</span> <span style="color: #008000; font-weight: bold">import</span> Queue
+
+
+<span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Printer</span>:
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>, ppm):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>page_rate <span style="color: #666666">=</span> ppm
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>current_task <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>time_remaining <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">tick</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>current_task <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #AA22FF; font-weight: bold">not</span> <span style="color: #008000; font-weight: bold">None</span>:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>time_remaining <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>time_remaining <span style="color: #666666">-</span> <span style="color: #666666">1</span>
+            <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>time_remaining <span style="color: #666666">&lt;=</span> <span style="color: #666666">0</span>:
+                <span style="color: #008000">self</span><span style="color: #666666">.</span>current_task <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">busy</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>current_task <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #AA22FF; font-weight: bold">not</span> <span style="color: #008000; font-weight: bold">None</span>
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">start_next</span>(<span style="color: #008000">self</span>, new_task):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>current_task <span style="color: #666666">=</span> new_task
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>time_remaining <span style="color: #666666">=</span> new_task<span style="color: #666666">.</span>get_pages() <span style="color: #666666">*</span> <span style="color: #666666">60</span> <span style="color: #666666">/</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>page_rate
+
+
+<span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Task</span>:
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>, time):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>timestamp <span style="color: #666666">=</span> time
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>pages <span style="color: #666666">=</span> random<span style="color: #666666">.</span>randrange(<span style="color: #666666">1</span>, <span style="color: #666666">21</span>)
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_stamp</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>timestamp
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_pages</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>pages
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">wait_time</span>(<span style="color: #008000">self</span>, current_time):
+        <span style="color: #008000; font-weight: bold">return</span> current_time <span style="color: #666666">-</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>timestamp
+
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">simulation</span>(num_seconds, pages_per_minute):
+    lab_printer <span style="color: #666666">=</span> Printer(pages_per_minute)
+    print_queue <span style="color: #666666">=</span> Queue()
+    waiting_times <span style="color: #666666">=</span> []
+
+    <span style="color: #008000; font-weight: bold">for</span> current_second <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(num_seconds):
+        <span style="color: #008000; font-weight: bold">if</span> new_print_task():
+            task <span style="color: #666666">=</span> Task(current_second)
+            print_queue<span style="color: #666666">.</span>enqueue(task)
+
+        <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #AA22FF; font-weight: bold">not</span> lab_printer<span style="color: #666666">.</span>busy()) <span style="color: #AA22FF; font-weight: bold">and</span> (<span style="color: #AA22FF; font-weight: bold">not</span> print_queue<span style="color: #666666">.</span>is_empty()):
+            nexttask <span style="color: #666666">=</span> print_queue<span style="color: #666666">.</span>dequeue()
+            waiting_times<span style="color: #666666">.</span>append(nexttask<span style="color: #666666">.</span>wait_time(current_second))
+            lab_printer<span style="color: #666666">.</span>start_next(nexttask)
+
+        lab_printer<span style="color: #666666">.</span>tick()
+
+    average_wait <span style="color: #666666">=</span> <span style="color: #008000">sum</span>(waiting_times) <span style="color: #666666">/</span> <span style="color: #008000">len</span>(waiting_times)
+    <span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;Average Wait </span><span style="color: #A45A77; font-weight: bold">%6.2f</span><span style="color: #BA2121"> secs </span><span style="color: #A45A77; font-weight: bold">%3d</span><span style="color: #BA2121"> tasks remaining.&quot;</span> <span style="color: #666666">%</span> (average_wait, print_queue<span style="color: #666666">.</span>size()))
+
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">new_print_task</span>():
+    num <span style="color: #666666">=</span> random<span style="color: #666666">.</span>randrange(<span style="color: #666666">1</span>, <span style="color: #666666">181</span>)
+    <span style="color: #008000; font-weight: bold">return</span> num <span style="color: #666666">==</span> <span style="color: #666666">180</span>
+
+
+<span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">10</span>):
+    simulation(<span style="color: #666666">3600</span>, <span style="color: #666666">5</span>)
+</code></pre></div></td></tr></table></div>
+</div>
+</div>
 </div>
 </div>
 
@@ -4070,7 +5145,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月9日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月10日</span>
       
         <br>
         创建日期:
@@ -4125,7 +5200,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.tabs.link", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "toc.follow"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["header.autohide", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "content.tabs.link", "content.code.copy", "content.tooltips", "navigation.indexes", "navigation.prune", "navigation.instant"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.94c44541.min.js"></script>
@@ -4135,8 +5210,6 @@
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-      
-        <script src="https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js"></script>
       
     
   <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>

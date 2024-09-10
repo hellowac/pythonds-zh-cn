@@ -48,6 +48,8 @@
       
     
     
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -92,6 +94,22 @@
     <div data-md-component="announce">
       
     </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+你当前浏览的版本已不是最新版本，
+<a href="../../..">
+    <strong>点击这里</strong>
+</a>查看最新版本的文档
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
     
     
       
@@ -4011,18 +4029,18 @@
 </figure></p>
 <p>作为最后一个示例，假设我们有“清单 2”中所示的 Python 代码片段。 尽管这个程序实际上并没有做任何事情，但了解我们如何获取实际代码并分析性能还是很有启发性的。</p>
 <p><strong>清单 2</strong></p>
-<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="n">b</span> <span class="o">=</span> <span class="mi">6</span>
-<span class="n">c</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">i</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">j</span> <span class="o">*</span> <span class="n">j</span>
-        <span class="n">z</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">j</span>
-<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">w</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">45</span>
-    <span class="n">v</span> <span class="o">=</span> <span class="n">b</span> <span class="o">*</span> <span class="n">b</span>
-<span class="n">d</span> <span class="o">=</span> <span class="mi">33</span>
+<div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>a <span style="color: #666666">=</span> <span style="color: #666666">5</span>
+b <span style="color: #666666">=</span> <span style="color: #666666">6</span>
+c <span style="color: #666666">=</span> <span style="color: #666666">10</span>
+<span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n):
+    <span style="color: #008000; font-weight: bold">for</span> j <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n):
+        x <span style="color: #666666">=</span> i <span style="color: #666666">*</span> i
+        y <span style="color: #666666">=</span> j <span style="color: #666666">*</span> j
+        z <span style="color: #666666">=</span> i <span style="color: #666666">*</span> j
+<span style="color: #008000; font-weight: bold">for</span> k <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n):
+    w <span style="color: #666666">=</span> a <span style="color: #666666">*</span> k <span style="color: #666666">+</span> <span style="color: #666666">45</span>
+    v <span style="color: #666666">=</span> b <span style="color: #666666">*</span> b
+d <span style="color: #666666">=</span> <span style="color: #666666">33</span>
 </code></pre></div>
 <p>赋值运算的次数是四项之和。 第一项是常量 3，代表片段开头的三个赋值语句。 第二项是 <span class="arithmatex">\(3n^{2}\)</span>，因为由于嵌套迭代，语有 3 个句被执行了 <span class="arithmatex">\(n^{2}\)</span> 次。 第三项是 <span class="arithmatex">\(2n\)</span>，两条语句迭代 <em>n</em> 次。 最后，第四项是常数1，代表最终的赋值语句。 这给我们<span class="arithmatex">\(T(n) = 3 + 3n^{2} + 2n + 1 = 3n^{2} + 2n + 4\)</span>。 通过查看指数，我们可以很容易地看出 <span class="arithmatex">\(n^{2}\)</span> 项将占主导地位，因此这段代码是 <span class="arithmatex">\(O(n^{2})\)</span>。 请注意，随着 <em>n</em> 变大，所有其他项以及主项的系数都可以忽略。</p>
 <p><figure markdown>
@@ -4092,18 +4110,18 @@
 </figure></p>
 <p>As a final example, suppose that we have the fragment of Python code shown in <code>Listing 2</code>. Although this program does not really do anything, it is instructive to see how we can take actual code and analyze performance.</p>
 <p><strong>Listing 2</strong></p>
-<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="n">b</span> <span class="o">=</span> <span class="mi">6</span>
-<span class="n">c</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">i</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">j</span> <span class="o">*</span> <span class="n">j</span>
-        <span class="n">z</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">j</span>
-<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">w</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">45</span>
-    <span class="n">v</span> <span class="o">=</span> <span class="n">b</span> <span class="o">*</span> <span class="n">b</span>
-<span class="n">d</span> <span class="o">=</span> <span class="mi">33</span>
+<div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>a <span style="color: #666666">=</span> <span style="color: #666666">5</span>
+b <span style="color: #666666">=</span> <span style="color: #666666">6</span>
+c <span style="color: #666666">=</span> <span style="color: #666666">10</span>
+<span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n):
+    <span style="color: #008000; font-weight: bold">for</span> j <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n):
+        x <span style="color: #666666">=</span> i <span style="color: #666666">*</span> i
+        y <span style="color: #666666">=</span> j <span style="color: #666666">*</span> j
+        z <span style="color: #666666">=</span> i <span style="color: #666666">*</span> j
+<span style="color: #008000; font-weight: bold">for</span> k <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n):
+    w <span style="color: #666666">=</span> a <span style="color: #666666">*</span> k <span style="color: #666666">+</span> <span style="color: #666666">45</span>
+    v <span style="color: #666666">=</span> b <span style="color: #666666">*</span> b
+d <span style="color: #666666">=</span> <span style="color: #666666">33</span>
 </code></pre></div>
 <p>The number of assignment operations is the sum of four terms. The first term is the constant 3, representing the three assignment statements at the start of the fragment. The second term is <span class="arithmatex">\(3n^{2}\)</span>, since there are three statements that are performed <span class="arithmatex">\(n^{2}\)</span> times due to the nested iteration. The third term is <span class="arithmatex">\(2n\)</span>, two statements iterated <em>n</em> times. Finally, the fourth term is the constant 1, representing the final assignment statement. This gives us <span class="arithmatex">\(T(n) = 3 + 3n^{2} + 2n + 1 = 3n^{2} + 2n + 4\)</span>. By looking at the exponents, we can easily see that the <span class="arithmatex">\(n^{2}\)</span> term will be dominant and therefore this fragment of code is <span class="arithmatex">\(O(n^{2})\)</span>. Note that all of the other terms as well as the coefficient on the dominant term can be ignored as <em>n</em> grows larger.</p>
 <p><figure markdown>
@@ -4180,7 +4198,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.tabs.link", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "toc.follow"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["header.autohide", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "content.tabs.link", "content.code.copy", "content.tooltips", "navigation.indexes", "navigation.prune", "navigation.instant"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.94c44541.min.js"></script>
@@ -4190,8 +4208,6 @@
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-      
-        <script src="https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js"></script>
       
     
   <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>

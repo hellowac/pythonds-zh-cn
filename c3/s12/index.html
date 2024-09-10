@@ -48,6 +48,8 @@
       
     
     
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -92,6 +94,22 @@
     <div data-md-component="announce">
       
     </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+你当前浏览的版本已不是最新版本，
+<a href="../../..">
+    <strong>点击这里</strong>
+</a>查看最新版本的文档
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
     
     
       
@@ -3954,9 +3972,103 @@
 
 <h1 id="312-用python实现队列">3.12. 用Python实现队列<a class="headerlink" href="#312-用python实现队列" title="Permanent link">&para;</a></h1>
 <p><strong>3.12. Implementing a Queue in Python</strong></p>
+<p>原文: <a href="https://runestone.academy/ns/books/published/pythonds3/BasicDS/ImplementingaQueueinPython.html?mode=browsing">https://runestone.academy/ns/books/published/pythonds3/BasicDS/ImplementingaQueueinPython.html?mode=browsing</a></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
-<div class="tabbed-block"></div>
+<div class="tabbed-block">
+<p>It is again appropriate to create a new class for the implementation of the abstract data type queue. As before, we will use the power and simplicity of the list collection to build the internal representation of the queue.</p>
+<p>We need to decide which end of the list to use as the rear and which to use as the front. The implementation shown in <code>Listing 1</code> assumes that the rear is at position 0 in the list. This allows us to use the <code>insert</code> function on lists to add new elements to the rear of the queue. The <code>pop</code> operation can be used to remove the front element (the last element of the list). Recall that this also means that <code>enqueue</code> will be <span class="arithmatex">\(O(n)\)</span> and <code>dequeue</code> will be <span class="arithmatex">\(O(1)\)</span>. </p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 1</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Queue</span>:
+<span style="color: #bbbbbb">    </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Queue implementation as a list&quot;&quot;&quot;</span>
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>):
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Create new queue&quot;&quot;&quot;</span>
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_items <span style="color: #666666">=</span> []
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">is_empty</span>(<span style="color: #008000">self</span>):
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Check if the queue is empty&quot;&quot;&quot;</span>
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #AA22FF; font-weight: bold">not</span> <span style="color: #008000">bool</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_items)
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">enqueue</span>(<span style="color: #008000">self</span>, item):
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Add an item to the queue&quot;&quot;&quot;</span>
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_items<span style="color: #666666">.</span>insert(<span style="color: #666666">0</span>, item)
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">dequeue</span>(<span style="color: #008000">self</span>):
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Remove an item from the queue&quot;&quot;&quot;</span>
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_items<span style="color: #666666">.</span>pop()
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">size</span>(<span style="color: #008000">self</span>):
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Get the number of items in the queue&quot;&quot;&quot;</span>
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_items)
+</code></pre></div>
+<p>CodeLens 1 shows the <code>Queue</code> class in action as we perform the sequence of operations from <code>Table 1</code>.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Activity: CodeLens Example Queue Operations (ququeuetest)</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Queue</span>:
+<span style="color: #bbbbbb">    </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Queue implementation as a list&quot;&quot;&quot;</span>
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>):
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Create new queue&quot;&quot;&quot;</span>
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_items <span style="color: #666666">=</span> []
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">is_empty</span>(<span style="color: #008000">self</span>):
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Check if the queue is empty&quot;&quot;&quot;</span>
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #AA22FF; font-weight: bold">not</span> <span style="color: #008000">bool</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_items)
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">enqueue</span>(<span style="color: #008000">self</span>, item):
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Add an item to the queue&quot;&quot;&quot;</span>
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_items<span style="color: #666666">.</span>insert(<span style="color: #666666">0</span>, item)
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">dequeue</span>(<span style="color: #008000">self</span>):
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Remove an item from the queue&quot;&quot;&quot;</span>
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_items<span style="color: #666666">.</span>pop()
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">size</span>(<span style="color: #008000">self</span>):
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Get the number of items in the queue&quot;&quot;&quot;</span>
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_items)
+
+q <span style="color: #666666">=</span> Queue()
+q<span style="color: #666666">.</span>enqueue(<span style="color: #666666">4</span>)
+q<span style="color: #666666">.</span>enqueue(<span style="color: #BA2121">&quot;dog&quot;</span>)
+q<span style="color: #666666">.</span>enqueue(<span style="color: #008000; font-weight: bold">True</span>)
+<span style="color: #008000">print</span>(q<span style="color: #666666">.</span>size())
+</code></pre></div>
+<p>Further manipulation of this queue would give the following results:</p>
+<div class="language-pycon highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>q<span style="color: #666666">.</span>size()
+<span style="color: #717171">3</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>q<span style="color: #666666">.</span>is_empty()
+<span style="color: #717171">False</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>q<span style="color: #666666">.</span>enqueue(<span style="color: #666666">8.4</span>)
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>q<span style="color: #666666">.</span>dequeue()
+<span style="color: #717171">4</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>q<span style="color: #666666">.</span>dequeue()
+<span style="color: #717171">&#39;dog&#39;</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>q<span style="color: #666666">.</span>size()
+<span style="color: #717171">2</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Self Check</p>
+<p>Suppose you have the following series of queue operations.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>q <span style="color: #666666">=</span> Queue()
+q<span style="color: #666666">.</span>enqueue(<span style="color: #BA2121">&quot;hello&quot;</span>)
+q<span style="color: #666666">.</span>enqueue(<span style="color: #BA2121">&quot;dog&quot;</span>)
+q<span style="color: #666666">.</span>enqueue(<span style="color: #666666">3</span>)
+q<span style="color: #666666">.</span>dequeue()
+</code></pre></div>
+<p>What items are left on the queue?</p>
+<ul>
+<li>answer a: 'hello', 'dog'</li>
+<li>answer b: 'dog', 3</li>
+<li>answer c: 'hello', 3</li>
+<li>answer d: 'hello', 'dog', 3</li>
+</ul>
+<p>correct: b</p>
+<ul>
+<li>feedback a: Remember the first thing added to the queue is the first thing removed.  FIFO</li>
+<li>feedback b: Yes, first in first out means that hello is gone</li>
+<li>feedback c: Queues, and Stacks are both data structures where you can only access the first and the last thing.</li>
+<li>feedback d: Ooops, maybe you missed the dequeue call at the end?</li>
+</ul>
+</div>
+</div>
 <div class="tabbed-block"></div>
 </div>
 </div>
@@ -3966,7 +4078,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月9日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月10日</span>
       
         <br>
         创建日期:
@@ -4021,7 +4133,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.tabs.link", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "toc.follow"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["header.autohide", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "content.tabs.link", "content.code.copy", "content.tooltips", "navigation.indexes", "navigation.prune", "navigation.instant"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.94c44541.min.js"></script>
@@ -4031,8 +4143,6 @@
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-      
-        <script src="https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js"></script>
       
     
   <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>

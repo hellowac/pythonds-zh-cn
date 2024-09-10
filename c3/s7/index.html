@@ -48,6 +48,8 @@
       
     
     
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -92,6 +94,22 @@
     <div data-md-component="announce">
       
     </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+你当前浏览的版本已不是最新版本，
+<a href="../../..">
+    <strong>点击这里</strong>
+</a>查看最新版本的文档
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
     
     
       
@@ -3954,10 +3972,149 @@
 
 <h1 id="37-符号匹配一般情况">3.7. 符号匹配（一般情况）<a class="headerlink" href="#37-符号匹配一般情况" title="Permanent link">&para;</a></h1>
 <p><strong>3.7. Balanced Symbols (A General Case)</strong></p>
+<p>原文: <a href="https://runestone.academy/ns/books/published/pythonds3/BasicDS/BalancedSymbolsAGeneralCase.html?mode=browsing">https://runestone.academy/ns/books/published/pythonds3/BasicDS/BalancedSymbolsAGeneralCase.html?mode=browsing</a></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
-<div class="tabbed-block"></div>
-<div class="tabbed-block"></div>
+<div class="tabbed-block">
+<p>The balanced parentheses problem shown above is a specific case of a more general situation that arises in many programming languages. The general problem of balancing and nesting different kinds of opening and closing symbols occurs frequently. For example, in Python square brackets, <code>[</code> and <code>]</code>, are used for lists; curly braces, <code>{</code> and <code>}</code>, are used for sets and dictionaries; and parentheses, <code>(</code> and <code>)</code>, are used for tuples and arithmetic expressions. It is possible to mix symbols as long as each maintains its own open and close relationship. Strings of symbols such as</p>
+<div class="language-text highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{ { ( [ ] [ ] ) } ( ) }
+
+[ [ { { ( ( ) ) } } ] ]
+
+[ ] [ ] [ ] ( ) { }
+</code></pre></div>
+<p>are properly balanced in that not only does each opening symbol have a corresponding closing symbol, but the types of symbols match as well.</p>
+<p>Compare those with the following strings that are not balanced:</p>
+<div class="language-text highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>( [ ) ]
+
+( ( ( ) ] ) )
+
+[ { ( ) ]
+</code></pre></div>
+<p>The simple parentheses checker from the previous section can easily be extended to handle these new types of symbols. Recall that each opening symbol is simply pushed on the stack to wait for the matching closing symbol to appear later in the sequence. When a closing symbol does appear, the only difference is that we must check to be sure that it correctly matches the type of the opening symbol on top of the stack. If the two symbols do not match, the string is not balanced. Once again, if the entire string is processed and nothing is left on the stack, the string is correctly balanced.</p>
+<p>The Python program to implement this is shown in <code>ActiveCode 1</code>. The only change appears in line 13 where we call a helper function, <code>matches</code>, to assist with symbol-matching. Each symbol that is removed from the stack must be checked to see that it matches the current closing symbol. If a mismatch occurs, the balance checker returns <code>False</code> immediately.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 3.7.1 Solving the General Balanced Symbol Problem</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pythonds3.basic</span> <span style="color: #008000; font-weight: bold">import</span> Stack
+
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">balance_checker</span>(symbol_string):
+    s <span style="color: #666666">=</span> Stack()
+    <span style="color: #008000; font-weight: bold">for</span> symbol <span style="color: #AA22FF; font-weight: bold">in</span> symbol_string:
+        <span style="color: #008000; font-weight: bold">if</span> symbol <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #BA2121">&quot;([{&quot;</span>:
+            s<span style="color: #666666">.</span>push(symbol)
+        <span style="color: #008000; font-weight: bold">else</span>:
+            <span style="color: #008000; font-weight: bold">if</span> s<span style="color: #666666">.</span>is_empty():
+                <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">False</span>
+            <span style="color: #008000; font-weight: bold">else</span>:
+                <span style="color: #008000; font-weight: bold">if</span> <span style="color: #AA22FF; font-weight: bold">not</span> matches(s<span style="color: #666666">.</span>pop(), symbol):
+                    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">False</span>
+
+    <span style="color: #008000; font-weight: bold">return</span> s<span style="color: #666666">.</span>is_empty()
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">matches</span>(sym_left, sym_right):
+    all_lefts <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;([{&quot;</span>
+    all_rights <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;)]}&quot;</span>
+    <span style="color: #008000; font-weight: bold">return</span> all_lefts<span style="color: #666666">.</span>index(sym_left) <span style="color: #666666">==</span> all_rights<span style="color: #666666">.</span>index(sym_right)
+
+
+<span style="color: #008000">print</span>(balance_checker(<span style="color: #BA2121">&#39;{({([][])}())}&#39;</span>))
+<span style="color: #008000">print</span>(balance_checker(<span style="color: #BA2121">&#39;[{()]&#39;</span>))
+</code></pre></div></td></tr></table></div>
+<p>These two examples show that stacks are very important data structures for the processing of language constructs in computer science. Almost any notation you can think of has some type of nested symbol that must be matched in a balanced order. There are a number of other important uses for stacks in computer science. We will continue to explore them in the next sections.</p>
+</div>
+<div class="tabbed-block">
+<p>The balanced parentheses problem shown above is a specific case of a more general situation that arises in many programming languages. The general problem of balancing and nesting different kinds of opening and closing symbols occurs frequently. For example, in Python square brackets, <code>[</code> and <code>]</code>, are used for lists; curly braces, <code>{</code> and <code>}</code>, are used for sets and dictionaries; and parentheses, <code>(</code> and <code>)</code>, are used for tuples and arithmetic expressions. It is possible to mix symbols as long as each maintains its own open and close relationship. Strings of symbols such as</p>
+<div class="language-text highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{ { ( [ ] [ ] ) } ( ) }
+
+[ [ { { ( ( ) ) } } ] ]
+
+[ ] [ ] [ ] ( ) { }
+</code></pre></div>
+<p>are properly balanced in that not only does each opening symbol have a corresponding closing symbol, but the types of symbols match as well.</p>
+<p>Compare those with the following strings that are not balanced:</p>
+<div class="language-text highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>( [ ) ]
+
+( ( ( ) ] ) )
+
+[ { ( ) ]
+</code></pre></div>
+<p>The simple parentheses checker from the previous section can easily be extended to handle these new types of symbols. Recall that each opening symbol is simply pushed on the stack to wait for the matching closing symbol to appear later in the sequence. When a closing symbol does appear, the only difference is that we must check to be sure that it correctly matches the type of the opening symbol on top of the stack. If the two symbols do not match, the string is not balanced. Once again, if the entire string is processed and nothing is left on the stack, the string is correctly balanced.</p>
+<p>The Python program to implement this is shown in <code>ActiveCode 1</code>. The only change appears in line 13 where we call a helper function, <code>matches</code>, to assist with symbol-matching. Each symbol that is removed from the stack must be checked to see that it matches the current closing symbol. If a mismatch occurs, the balance checker returns <code>False</code> immediately.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 3.7.1 Solving the General Balanced Symbol Problem</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pythonds3.basic</span> <span style="color: #008000; font-weight: bold">import</span> Stack
+
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">balance_checker</span>(symbol_string):
+    s <span style="color: #666666">=</span> Stack()
+    <span style="color: #008000; font-weight: bold">for</span> symbol <span style="color: #AA22FF; font-weight: bold">in</span> symbol_string:
+        <span style="color: #008000; font-weight: bold">if</span> symbol <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #BA2121">&quot;([{&quot;</span>:
+            s<span style="color: #666666">.</span>push(symbol)
+        <span style="color: #008000; font-weight: bold">else</span>:
+            <span style="color: #008000; font-weight: bold">if</span> s<span style="color: #666666">.</span>is_empty():
+                <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">False</span>
+            <span style="color: #008000; font-weight: bold">else</span>:
+                <span style="color: #008000; font-weight: bold">if</span> <span style="color: #AA22FF; font-weight: bold">not</span> matches(s<span style="color: #666666">.</span>pop(), symbol):
+                    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">False</span>
+
+    <span style="color: #008000; font-weight: bold">return</span> s<span style="color: #666666">.</span>is_empty()
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">matches</span>(sym_left, sym_right):
+    all_lefts <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;([{&quot;</span>
+    all_rights <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;)]}&quot;</span>
+    <span style="color: #008000; font-weight: bold">return</span> all_lefts<span style="color: #666666">.</span>index(sym_left) <span style="color: #666666">==</span> all_rights<span style="color: #666666">.</span>index(sym_right)
+
+
+<span style="color: #008000">print</span>(balance_checker(<span style="color: #BA2121">&#39;{({([][])}())}&#39;</span>))
+<span style="color: #008000">print</span>(balance_checker(<span style="color: #BA2121">&#39;[{()]&#39;</span>))
+</code></pre></div></td></tr></table></div>
+<p>These two examples show that stacks are very important data structures for the processing of language constructs in computer science. Almost any notation you can think of has some type of nested symbol that must be matched in a balanced order. There are a number of other important uses for stacks in computer science. We will continue to explore them in the next sections.</p>
+</div>
 </div>
 </div>
 
@@ -3966,7 +4123,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月9日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月10日</span>
       
         <br>
         创建日期:
@@ -4021,7 +4178,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.tabs.link", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "toc.follow"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["header.autohide", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "content.tabs.link", "content.code.copy", "content.tooltips", "navigation.indexes", "navigation.prune", "navigation.instant"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.94c44541.min.js"></script>
@@ -4031,8 +4188,6 @@
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-      
-        <script src="https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js"></script>
       
     
   <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>

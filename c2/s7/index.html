@@ -48,6 +48,8 @@
       
     
     
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -92,6 +94,22 @@
     <div data-md-component="announce">
       
     </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+你当前浏览的版本已不是最新版本，
+<a href="../../..">
+    <strong>点击这里</strong>
+</a>查看最新版本的文档
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
     
     
       
@@ -3996,29 +4014,29 @@
 <p>For our last performance experiment we will compare the performance of the contains operation between lists and dictionaries. In the process we will confirm that the contains operator for lists is <span class="arithmatex">\(O(n)\)</span> and the contains operator for dictionaries is <span class="arithmatex">\(O(1)\)</span>. The experiment we will use to compare the two is simple: we’ll make a list with a range of numbers in it, then we will pick numbers at random and check to see if the numbers are in the list. If our performance tables are correct, the bigger the list, the longer it should take to determine if any one number is contained in the list.</p>
 <p>We will repeat the same experiment for a dictionary that contains numbers as the keys. In this experiment we should see that determining whether or not a number is in the dictionary is not only much faster, but the time it takes to check should remain constant even as the dictionary grows larger.</p>
 <p><code>Listing 6</code> implements this comparison. Notice that we are performing exactly the same operation, <code>number in container</code>. The difference is that on line 8 <code>x</code> is a list, and on line 10 <code>x</code> is a dictionary.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Listing 6</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span> <span class="nn">timeit</span>
-<span class="kn">import</span> <span class="nn">random</span>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Listing 6</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">timeit</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">random</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;n&#39;</span><span class="si">:</span><span class="s2">10s</span><span class="si">}{</span><span class="s1">&#39;list&#39;</span><span class="si">:</span><span class="s2">&gt;10s</span><span class="si">}{</span><span class="s1">&#39;dict&#39;</span><span class="si">:</span><span class="s2">&gt;10s</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10_000</span><span class="p">,</span> <span class="mi">1_000_001</span><span class="p">,</span> <span class="mi">20_000</span><span class="p">):</span>
-    <span class="n">t</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;random.randrange(</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">) in x&quot;</span><span class="p">,</span> 
-    <span class="s2">&quot;from __main__ import random, x&quot;</span><span class="p">)</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
-    <span class="n">lst_time</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="n">number</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="n">j</span><span class="p">:</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">)}</span>
-    <span class="n">dict_time</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="n">number</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s2">&lt;10,</span><span class="si">}{</span><span class="n">lst_time</span><span class="si">:</span><span class="s2">&gt;10.3f</span><span class="si">}{</span><span class="n">dict_time</span><span class="si">:</span><span class="s2">&gt;10.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span style="color: #008000">print</span>(<span style="color: #BA2121">f&quot;</span><span style="color: #A45A77; font-weight: bold">{</span><span style="color: #BA2121">&#39;n&#39;</span><span style="color: #A45A77; font-weight: bold">:</span><span style="color: #BA2121">10s</span><span style="color: #A45A77; font-weight: bold">}{</span><span style="color: #BA2121">&#39;list&#39;</span><span style="color: #A45A77; font-weight: bold">:</span><span style="color: #BA2121">&gt;10s</span><span style="color: #A45A77; font-weight: bold">}{</span><span style="color: #BA2121">&#39;dict&#39;</span><span style="color: #A45A77; font-weight: bold">:</span><span style="color: #BA2121">&gt;10s</span><span style="color: #A45A77; font-weight: bold">}</span><span style="color: #BA2121">&quot;</span>)
+<span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">10_000</span>, <span style="color: #666666">1_000_001</span>, <span style="color: #666666">20_000</span>):
+    t <span style="color: #666666">=</span> timeit<span style="color: #666666">.</span>Timer(<span style="color: #BA2121">f&quot;random.randrange(</span><span style="color: #A45A77; font-weight: bold">{</span>i<span style="color: #A45A77; font-weight: bold">}</span><span style="color: #BA2121">) in x&quot;</span>, 
+    <span style="color: #BA2121">&quot;from __main__ import random, x&quot;</span>)
+    x <span style="color: #666666">=</span> <span style="color: #008000">list</span>(<span style="color: #008000">range</span>(i))
+    lst_time <span style="color: #666666">=</span> t<span style="color: #666666">.</span>timeit(number<span style="color: #666666">=1000</span>)
+    x <span style="color: #666666">=</span> {j: <span style="color: #008000; font-weight: bold">None</span> <span style="color: #008000; font-weight: bold">for</span> j <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(i)}
+    dict_time <span style="color: #666666">=</span> t<span style="color: #666666">.</span>timeit(number<span style="color: #666666">=1000</span>)
+    <span style="color: #008000">print</span>(<span style="color: #BA2121">f&quot;</span><span style="color: #A45A77; font-weight: bold">{</span>i<span style="color: #A45A77; font-weight: bold">:</span><span style="color: #BA2121">&lt;10,</span><span style="color: #A45A77; font-weight: bold">}{</span>lst_time<span style="color: #A45A77; font-weight: bold">:</span><span style="color: #BA2121">&gt;10.3f</span><span style="color: #A45A77; font-weight: bold">}{</span>dict_time<span style="color: #A45A77; font-weight: bold">:</span><span style="color: #BA2121">&gt;10.3f</span><span style="color: #A45A77; font-weight: bold">}</span><span style="color: #BA2121">&quot;</span>)
 </code></pre></div></td></tr></table></div>
 <p><code>Figure 4</code> summarizes the results of running <code>Listing 6</code>. You can see that the dictionary is consistently faster. For the smallest list size of 10,000 elements a dictionary is 89.4 times faster than a list. For the largest list size of 990,000 elements the dictionary is 11,603 times faster! You can also see that the time it takes for the <code>contains</code> operator on the list grows linearly with the size of the list. This verifies the assertion that the <code>contains</code> operator on a list is :math:<code>O(n)</code>. It can also be seen that the time for the <code>contains</code> operator on a dictionary is constant even as the dictionary size grows. In fact, for a dictionary size of 10,000 the <code>contains</code> operation took 0.004 milliseconds, and for the dictionary size of 990,000 it also took 0.004 milliseconds.</p>
 <p><figure markdown="span">
@@ -4111,29 +4129,29 @@
 <p>For our last performance experiment we will compare the performance of the contains operation between lists and dictionaries. In the process we will confirm that the contains operator for lists is <span class="arithmatex">\(O(n)\)</span> and the contains operator for dictionaries is <span class="arithmatex">\(O(1)\)</span>. The experiment we will use to compare the two is simple: we’ll make a list with a range of numbers in it, then we will pick numbers at random and check to see if the numbers are in the list. If our performance tables are correct, the bigger the list, the longer it should take to determine if any one number is contained in the list.</p>
 <p>We will repeat the same experiment for a dictionary that contains numbers as the keys. In this experiment we should see that determining whether or not a number is in the dictionary is not only much faster, but the time it takes to check should remain constant even as the dictionary grows larger.</p>
 <p><code>Listing 6</code> implements this comparison. Notice that we are performing exactly the same operation, <code>number in container</code>. The difference is that on line 8 <code>x</code> is a list, and on line 10 <code>x</code> is a dictionary.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Listing 6</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span> <span class="nn">timeit</span>
-<span class="kn">import</span> <span class="nn">random</span>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Listing 6</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">timeit</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">random</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;n&#39;</span><span class="si">:</span><span class="s2">10s</span><span class="si">}{</span><span class="s1">&#39;list&#39;</span><span class="si">:</span><span class="s2">&gt;10s</span><span class="si">}{</span><span class="s1">&#39;dict&#39;</span><span class="si">:</span><span class="s2">&gt;10s</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10_000</span><span class="p">,</span> <span class="mi">1_000_001</span><span class="p">,</span> <span class="mi">20_000</span><span class="p">):</span>
-    <span class="n">t</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;random.randrange(</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">) in x&quot;</span><span class="p">,</span> 
-    <span class="s2">&quot;from __main__ import random, x&quot;</span><span class="p">)</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
-    <span class="n">lst_time</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="n">number</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="n">j</span><span class="p">:</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">)}</span>
-    <span class="n">dict_time</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="n">number</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s2">&lt;10,</span><span class="si">}{</span><span class="n">lst_time</span><span class="si">:</span><span class="s2">&gt;10.3f</span><span class="si">}{</span><span class="n">dict_time</span><span class="si">:</span><span class="s2">&gt;10.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span style="color: #008000">print</span>(<span style="color: #BA2121">f&quot;</span><span style="color: #A45A77; font-weight: bold">{</span><span style="color: #BA2121">&#39;n&#39;</span><span style="color: #A45A77; font-weight: bold">:</span><span style="color: #BA2121">10s</span><span style="color: #A45A77; font-weight: bold">}{</span><span style="color: #BA2121">&#39;list&#39;</span><span style="color: #A45A77; font-weight: bold">:</span><span style="color: #BA2121">&gt;10s</span><span style="color: #A45A77; font-weight: bold">}{</span><span style="color: #BA2121">&#39;dict&#39;</span><span style="color: #A45A77; font-weight: bold">:</span><span style="color: #BA2121">&gt;10s</span><span style="color: #A45A77; font-weight: bold">}</span><span style="color: #BA2121">&quot;</span>)
+<span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">10_000</span>, <span style="color: #666666">1_000_001</span>, <span style="color: #666666">20_000</span>):
+    t <span style="color: #666666">=</span> timeit<span style="color: #666666">.</span>Timer(<span style="color: #BA2121">f&quot;random.randrange(</span><span style="color: #A45A77; font-weight: bold">{</span>i<span style="color: #A45A77; font-weight: bold">}</span><span style="color: #BA2121">) in x&quot;</span>, 
+    <span style="color: #BA2121">&quot;from __main__ import random, x&quot;</span>)
+    x <span style="color: #666666">=</span> <span style="color: #008000">list</span>(<span style="color: #008000">range</span>(i))
+    lst_time <span style="color: #666666">=</span> t<span style="color: #666666">.</span>timeit(number<span style="color: #666666">=1000</span>)
+    x <span style="color: #666666">=</span> {j: <span style="color: #008000; font-weight: bold">None</span> <span style="color: #008000; font-weight: bold">for</span> j <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(i)}
+    dict_time <span style="color: #666666">=</span> t<span style="color: #666666">.</span>timeit(number<span style="color: #666666">=1000</span>)
+    <span style="color: #008000">print</span>(<span style="color: #BA2121">f&quot;</span><span style="color: #A45A77; font-weight: bold">{</span>i<span style="color: #A45A77; font-weight: bold">:</span><span style="color: #BA2121">&lt;10,</span><span style="color: #A45A77; font-weight: bold">}{</span>lst_time<span style="color: #A45A77; font-weight: bold">:</span><span style="color: #BA2121">&gt;10.3f</span><span style="color: #A45A77; font-weight: bold">}{</span>dict_time<span style="color: #A45A77; font-weight: bold">:</span><span style="color: #BA2121">&gt;10.3f</span><span style="color: #A45A77; font-weight: bold">}</span><span style="color: #BA2121">&quot;</span>)
 </code></pre></div></td></tr></table></div>
 <p><code>Figure 4</code> summarizes the results of running <code>Listing 6</code>. You can see that the dictionary is consistently faster. For the smallest list size of 10,000 elements a dictionary is 89.4 times faster than a list. For the largest list size of 990,000 elements the dictionary is 11,603 times faster! You can also see that the time it takes for the <code>contains</code> operator on the list grows linearly with the size of the list. This verifies the assertion that the <code>contains</code> operator on a list is :math:<code>O(n)</code>. It can also be seen that the time for the <code>contains</code> operator on a dictionary is constant even as the dictionary size grows. In fact, for a dictionary size of 10,000 the <code>contains</code> operation took 0.004 milliseconds, and for the dictionary size of 990,000 it also took 0.004 milliseconds.</p>
 <p><figure markdown="span">
@@ -4249,7 +4267,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.tabs.link", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "toc.follow"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["header.autohide", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "content.tabs.link", "content.code.copy", "content.tooltips", "navigation.indexes", "navigation.prune", "navigation.instant"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.94c44541.min.js"></script>
@@ -4259,8 +4277,6 @@
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-      
-        <script src="https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js"></script>
       
     
   <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>

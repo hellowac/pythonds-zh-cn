@@ -48,6 +48,8 @@
       
     
     
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -92,6 +94,22 @@
     <div data-md-component="announce">
       
     </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+你当前浏览的版本已不是最新版本，
+<a href="../../..">
+    <strong>点击这里</strong>
+</a>查看最新版本的文档
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
     
     
       
@@ -3962,57 +3980,57 @@
 <p>As we described in Chapter 1, in Python, as in any object-oriented programming language, the implementation of choice for an abstract data type such as a stack is the creation of a new class. The stack operations are implemented as methods. Further, to implement a stack, which is a collection of elements, it makes sense to utilize the power and simplicity of the primitive collections provided by Python. We will use a list.</p>
 <p>Recall that the list class in Python provides an ordered collection mechanism and a set of methods. For example, if we have the list [2, 5, 3, 6, 7, 4], we need only to decide which end of the list will be considered the top of the stack and which will be the base. Once that decision is made, the operations can be implemented using the list methods such as <code>append</code> and <code>pop</code>.</p>
 <p>The following stack implementation (<code>ActiveCode 1</code>) assumes that the end of the list will hold the top element of the stack. As the stack grows (as <code>push</code> operations occur), new items will be added on the end of the list. <code>pop</code> operations will manipulate that same end. </p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 3.5.1 Implementing a Stack class using Python lists</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Stack</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Stack implementation as a list&quot;&quot;&quot;</span>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 3.5.1 Implementing a Stack class using Python lists</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Stack</span>:
+<span style="color: #bbbbbb">    </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Stack implementation as a list&quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create new stack&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_items</span> <span class="o">=</span> <span class="p">[]</span>
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>):
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Create new stack&quot;&quot;&quot;</span>
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_items <span style="color: #666666">=</span> []
 
-    <span class="k">def</span> <span class="nf">is_empty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check if the stack is empty&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="ow">not</span> <span class="nb">bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_items</span><span class="p">)</span>
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">is_empty</span>(<span style="color: #008000">self</span>):
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Check if the stack is empty&quot;&quot;&quot;</span>
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #AA22FF; font-weight: bold">not</span> <span style="color: #008000">bool</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_items)
 
-    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add an item to the stack&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">push</span>(<span style="color: #008000">self</span>, item):
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Add an item to the stack&quot;&quot;&quot;</span>
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_items<span style="color: #666666">.</span>append(item)
 
-    <span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove an item from the stack&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_items</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">pop</span>(<span style="color: #008000">self</span>):
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Remove an item from the stack&quot;&quot;&quot;</span>
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_items<span style="color: #666666">.</span>pop()
 
-    <span class="k">def</span> <span class="nf">peek</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the value of the top item in the stack&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_items</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">peek</span>(<span style="color: #008000">self</span>):
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Get the value of the top item in the stack&quot;&quot;&quot;</span>
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_items[<span style="color: #666666">-1</span>]
 
-    <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the number of items in the stack&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_items</span><span class="p">)</span>
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">size</span>(<span style="color: #008000">self</span>):
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Get the number of items in the stack&quot;&quot;&quot;</span>
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_items)
 </code></pre></div></td></tr></table></div>
 <p>Remember that nothing happens when we click the <code>run</code> button other than the definition of the class.  We must create a <code>Stack</code> object and then use it. <code>ActiveCode 2</code> shows the <code>Stack</code> class in action as we perform the sequence of operations from <code>Table 1</code>.  Notice that the definition of the <code>Stack</code> class is imported from the <code>pythonds3</code> module  that is included with the materials for this book or can be downloaded from the <a href="https://pypi.org/">Python Package Index</a>.</p>
 <div class="admonition info">
@@ -4020,82 +4038,82 @@
 <p>The <code>pythonds3</code> module contains implementations of all data structures discussed in this book. It is structured according to the sections: basic, trees, and graphs. The module can be downloaded from <a href="https://github.com/psads/pythonds3">GitHub</a> or installed from the command line as follows:</p>
 <p><code>python3 -m pip install -U pythonds3</code></p>
 </div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 3.5.2 ActiveCode</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">pythonds3.basic</span> <span class="kn">import</span> <span class="n">Stack</span>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 3.5.2 ActiveCode</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pythonds3.basic</span> <span style="color: #008000; font-weight: bold">import</span> Stack
 
-<span class="n">s</span> <span class="o">=</span> <span class="n">Stack</span><span class="p">()</span>
+s <span style="color: #666666">=</span> Stack()
 
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">is_empty</span><span class="p">())</span>
-<span class="n">s</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">s</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s2">&quot;dog&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">peek</span><span class="p">())</span>
-<span class="n">s</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">size</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">is_empty</span><span class="p">())</span>
-<span class="n">s</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="mf">8.4</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">size</span><span class="p">())</span>
+<span style="color: #008000">print</span>(s<span style="color: #666666">.</span>is_empty())
+s<span style="color: #666666">.</span>push(<span style="color: #666666">4</span>)
+s<span style="color: #666666">.</span>push(<span style="color: #BA2121">&quot;dog&quot;</span>)
+<span style="color: #008000">print</span>(s<span style="color: #666666">.</span>peek())
+s<span style="color: #666666">.</span>push(<span style="color: #008000; font-weight: bold">True</span>)
+<span style="color: #008000">print</span>(s<span style="color: #666666">.</span>size())
+<span style="color: #008000">print</span>(s<span style="color: #666666">.</span>is_empty())
+s<span style="color: #666666">.</span>push(<span style="color: #666666">8.4</span>)
+<span style="color: #008000">print</span>(s<span style="color: #666666">.</span>pop())
+<span style="color: #008000">print</span>(s<span style="color: #666666">.</span>pop())
+<span style="color: #008000">print</span>(s<span style="color: #666666">.</span>size())
 </code></pre></div></td></tr></table></div>
 <p>It is important to note that we could have chosen to implement the stack using a list where the top is at the beginning instead of at the end. In this case, the previous <code>pop</code> and <code>append</code> methods would no longer work and we would have to index position 0 (the first item in the list) explicitly using <code>pop</code> and <code>insert</code>. The implementation is shown in <code>CodeLens 1</code>.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: CodeLens Alternative Implementation of the Stack class (stack_cl_1)</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Stack</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">items</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: CodeLens Alternative Implementation of the Stack class (stack_cl_1)</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Stack</span>:
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>items <span style="color: #666666">=</span> []
 
-    <span class="k">def</span> <span class="nf">is_empty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span> <span class="o">==</span> <span class="p">[]</span>
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">is_empty</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>items <span style="color: #666666">==</span> []
 
-    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">push</span>(<span style="color: #008000">self</span>, item):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>items<span style="color: #666666">.</span>insert(<span style="color: #666666">0</span>, item)
 
-    <span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">pop</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>items<span style="color: #666666">.</span>pop(<span style="color: #666666">0</span>)
 
-    <span class="k">def</span> <span class="nf">peek</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">peek</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>items[<span style="color: #666666">0</span>]
 
-    <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">)</span>
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">size</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>items)
 
-<span class="n">s</span> <span class="o">=</span> <span class="n">Stack</span><span class="p">()</span>
-<span class="n">s</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
-<span class="n">s</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s2">&quot;true&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span>
+s <span style="color: #666666">=</span> Stack()
+s<span style="color: #666666">.</span>push(<span style="color: #BA2121">&quot;hello&quot;</span>)
+s<span style="color: #666666">.</span>push(<span style="color: #BA2121">&quot;true&quot;</span>)
+<span style="color: #008000">print</span>(s<span style="color: #666666">.</span>pop())
 </code></pre></div></td></tr></table></div>
 <p>This ability to change the physical implementation of an abstract data type while maintaining the logical characteristics is an example of abstraction at work. However, even though the stack will work either way, if we consider the performance of the two implementations, there is definitely a difference. Recall that the <code>append()</code> and <code>pop()</code> operations were both <span class="arithmatex">\(O(1)\)</span>. This means that the first implementation will perform <code>push</code> and <code>pop</code> in constant time no matter how many items are on the stack. The performance of the second implementation suffers in that the <code>insert(0)</code> and <code>pop(0)</code> operations will both require <span class="arithmatex">\(O(n)\)</span> for a stack of size <code>n</code>. Clearly, even though the implementations are logically equivalent, they would have very different timings when performing benchmark testing.</p>
 <div class="admonition info">
@@ -4116,12 +4134,12 @@
 </div>
 <div class="tabbed-block">
 <p>Given the following sequence of stack operations, what is the top item on the stack when the sequence is complete?</p>
-<div class="highlight"><pre><span></span><code><span class="n">m</span> <span class="o">=</span> <span class="n">Stack</span><span class="p">()</span>
-<span class="n">m</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
-<span class="n">m</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
-<span class="n">m</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-<span class="n">m</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s2">&quot;z&quot;</span><span class="p">)</span>
-<span class="n">m</span><span class="o">.</span><span class="n">peek</span><span class="p">()</span>
+<div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>m <span style="color: #666666">=</span> Stack()
+m<span style="color: #666666">.</span>push(<span style="color: #BA2121">&quot;x&quot;</span>)
+m<span style="color: #666666">.</span>push(<span style="color: #BA2121">&quot;y&quot;</span>)
+m<span style="color: #666666">.</span>pop()
+m<span style="color: #666666">.</span>push(<span style="color: #BA2121">&quot;z&quot;</span>)
+m<span style="color: #666666">.</span>peek()
 </code></pre></div>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> a: "x"</li>
@@ -4136,24 +4154,24 @@
 <li>feedback c: Good Job.</li>
 <li>feedback d: You may want to check out the docs for isEmpty</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="n">m</span> <span class="o">=</span> <span class="n">Stack</span><span class="p">()</span>
-<span class="n">m</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
-<span class="n">m</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
-<span class="n">m</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s2">&quot;z&quot;</span><span class="p">)</span>
-<span class="k">while</span> <span class="ow">not</span> <span class="n">m</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
-    <span class="n">m</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-    <span class="n">m</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>m <span style="color: #666666">=</span> Stack()
+m<span style="color: #666666">.</span>push(<span style="color: #BA2121">&quot;x&quot;</span>)
+m<span style="color: #666666">.</span>push(<span style="color: #BA2121">&quot;y&quot;</span>)
+m<span style="color: #666666">.</span>push(<span style="color: #BA2121">&quot;z&quot;</span>)
+<span style="color: #008000; font-weight: bold">while</span> <span style="color: #AA22FF; font-weight: bold">not</span> m<span style="color: #666666">.</span>is_empty():
+    m<span style="color: #666666">.</span>pop()
+    m<span style="color: #666666">.</span>pop()
 </code></pre></div>
 <p>Write a function <code>rev_string(my_str)</code> that uses a stack to reverse the characters in a string.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">test</span> <span class="kn">import</span> <span class="n">testEqual</span>
-<span class="kn">from</span> <span class="nn">pythonds3.basic</span> <span class="kn">import</span> <span class="n">Stack</span>
+<div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">test</span> <span style="color: #008000; font-weight: bold">import</span> testEqual
+<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pythonds3.basic</span> <span style="color: #008000; font-weight: bold">import</span> Stack
 
-<span class="k">def</span> <span class="nf">rev_string</span><span class="p">(</span><span class="n">my_str</span><span class="p">):</span>
-    <span class="c1"># your code here</span>
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">rev_string</span>(my_str):
+    <span style="color: #3D7B7B; font-style: italic"># your code here</span>
 
-<span class="n">testEqual</span><span class="p">(</span><span class="n">rev_string</span><span class="p">(</span><span class="s2">&quot;apple&quot;</span><span class="p">),</span> <span class="s2">&quot;elppa&quot;</span><span class="p">)</span>
-<span class="n">testEqual</span><span class="p">(</span><span class="n">rev_string</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">),</span> <span class="s2">&quot;x&quot;</span><span class="p">)</span>
-<span class="n">testEqual</span><span class="p">(</span><span class="n">rev_string</span><span class="p">(</span><span class="s2">&quot;1234567890&quot;</span><span class="p">),</span> <span class="s2">&quot;0987654321&quot;</span><span class="p">)</span>
+testEqual(rev_string(<span style="color: #BA2121">&quot;apple&quot;</span>), <span style="color: #BA2121">&quot;elppa&quot;</span>)
+testEqual(rev_string(<span style="color: #BA2121">&quot;x&quot;</span>), <span style="color: #BA2121">&quot;x&quot;</span>)
+testEqual(rev_string(<span style="color: #BA2121">&quot;1234567890&quot;</span>), <span style="color: #BA2121">&quot;0987654321&quot;</span>)
 </code></pre></div>
 </div>
 </div>
@@ -4165,57 +4183,57 @@
 <p>As we described in Chapter 1, in Python, as in any object-oriented programming language, the implementation of choice for an abstract data type such as a stack is the creation of a new class. The stack operations are implemented as methods. Further, to implement a stack, which is a collection of elements, it makes sense to utilize the power and simplicity of the primitive collections provided by Python. We will use a list.</p>
 <p>Recall that the list class in Python provides an ordered collection mechanism and a set of methods. For example, if we have the list [2, 5, 3, 6, 7, 4], we need only to decide which end of the list will be considered the top of the stack and which will be the base. Once that decision is made, the operations can be implemented using the list methods such as <code>append</code> and <code>pop</code>.</p>
 <p>The following stack implementation (<code>ActiveCode 1</code>) assumes that the end of the list will hold the top element of the stack. As the stack grows (as <code>push</code> operations occur), new items will be added on the end of the list. <code>pop</code> operations will manipulate that same end. </p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 3.5.1 Implementing a Stack class using Python lists</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Stack</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Stack implementation as a list&quot;&quot;&quot;</span>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 3.5.1 Implementing a Stack class using Python lists</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Stack</span>:
+<span style="color: #bbbbbb">    </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Stack implementation as a list&quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create new stack&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_items</span> <span class="o">=</span> <span class="p">[]</span>
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>):
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Create new stack&quot;&quot;&quot;</span>
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_items <span style="color: #666666">=</span> []
 
-    <span class="k">def</span> <span class="nf">is_empty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check if the stack is empty&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="ow">not</span> <span class="nb">bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_items</span><span class="p">)</span>
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">is_empty</span>(<span style="color: #008000">self</span>):
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Check if the stack is empty&quot;&quot;&quot;</span>
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #AA22FF; font-weight: bold">not</span> <span style="color: #008000">bool</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_items)
 
-    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add an item to the stack&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">push</span>(<span style="color: #008000">self</span>, item):
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Add an item to the stack&quot;&quot;&quot;</span>
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_items<span style="color: #666666">.</span>append(item)
 
-    <span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove an item from the stack&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_items</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">pop</span>(<span style="color: #008000">self</span>):
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Remove an item from the stack&quot;&quot;&quot;</span>
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_items<span style="color: #666666">.</span>pop()
 
-    <span class="k">def</span> <span class="nf">peek</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the value of the top item in the stack&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_items</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">peek</span>(<span style="color: #008000">self</span>):
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Get the value of the top item in the stack&quot;&quot;&quot;</span>
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_items[<span style="color: #666666">-1</span>]
 
-    <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the number of items in the stack&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_items</span><span class="p">)</span>
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">size</span>(<span style="color: #008000">self</span>):
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Get the number of items in the stack&quot;&quot;&quot;</span>
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_items)
 </code></pre></div></td></tr></table></div>
 <p>Remember that nothing happens when we click the <code>run</code> button other than the definition of the class.  We must create a <code>Stack</code> object and then use it. <code>ActiveCode 2</code> shows the <code>Stack</code> class in action as we perform the sequence of operations from <code>Table 1</code>.  Notice that the definition of the <code>Stack</code> class is imported from the <code>pythonds3</code> module  that is included with the materials for this book or can be downloaded from the <a href="https://pypi.org/">Python Package Index</a>.</p>
 <div class="admonition info">
@@ -4223,82 +4241,82 @@
 <p>The <code>pythonds3</code> module contains implementations of all data structures discussed in this book. It is structured according to the sections: basic, trees, and graphs. The module can be downloaded from <a href="https://github.com/psads/pythonds3">GitHub</a> or installed from the command line as follows:</p>
 <p><code>python3 -m pip install -U pythonds3</code></p>
 </div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 3.5.2 ActiveCode</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">pythonds3.basic</span> <span class="kn">import</span> <span class="n">Stack</span>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 3.5.2 ActiveCode</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pythonds3.basic</span> <span style="color: #008000; font-weight: bold">import</span> Stack
 
-<span class="n">s</span> <span class="o">=</span> <span class="n">Stack</span><span class="p">()</span>
+s <span style="color: #666666">=</span> Stack()
 
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">is_empty</span><span class="p">())</span>
-<span class="n">s</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">s</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s2">&quot;dog&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">peek</span><span class="p">())</span>
-<span class="n">s</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">size</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">is_empty</span><span class="p">())</span>
-<span class="n">s</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="mf">8.4</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">size</span><span class="p">())</span>
+<span style="color: #008000">print</span>(s<span style="color: #666666">.</span>is_empty())
+s<span style="color: #666666">.</span>push(<span style="color: #666666">4</span>)
+s<span style="color: #666666">.</span>push(<span style="color: #BA2121">&quot;dog&quot;</span>)
+<span style="color: #008000">print</span>(s<span style="color: #666666">.</span>peek())
+s<span style="color: #666666">.</span>push(<span style="color: #008000; font-weight: bold">True</span>)
+<span style="color: #008000">print</span>(s<span style="color: #666666">.</span>size())
+<span style="color: #008000">print</span>(s<span style="color: #666666">.</span>is_empty())
+s<span style="color: #666666">.</span>push(<span style="color: #666666">8.4</span>)
+<span style="color: #008000">print</span>(s<span style="color: #666666">.</span>pop())
+<span style="color: #008000">print</span>(s<span style="color: #666666">.</span>pop())
+<span style="color: #008000">print</span>(s<span style="color: #666666">.</span>size())
 </code></pre></div></td></tr></table></div>
 <p>It is important to note that we could have chosen to implement the stack using a list where the top is at the beginning instead of at the end. In this case, the previous <code>pop</code> and <code>append</code> methods would no longer work and we would have to index position 0 (the first item in the list) explicitly using <code>pop</code> and <code>insert</code>. The implementation is shown in <code>CodeLens 1</code>.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: CodeLens Alternative Implementation of the Stack class (stack_cl_1)</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Stack</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">items</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: CodeLens Alternative Implementation of the Stack class (stack_cl_1)</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Stack</span>:
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>items <span style="color: #666666">=</span> []
 
-    <span class="k">def</span> <span class="nf">is_empty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span> <span class="o">==</span> <span class="p">[]</span>
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">is_empty</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>items <span style="color: #666666">==</span> []
 
-    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">push</span>(<span style="color: #008000">self</span>, item):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>items<span style="color: #666666">.</span>insert(<span style="color: #666666">0</span>, item)
 
-    <span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">pop</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>items<span style="color: #666666">.</span>pop(<span style="color: #666666">0</span>)
 
-    <span class="k">def</span> <span class="nf">peek</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">peek</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>items[<span style="color: #666666">0</span>]
 
-    <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">)</span>
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">size</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>items)
 
-<span class="n">s</span> <span class="o">=</span> <span class="n">Stack</span><span class="p">()</span>
-<span class="n">s</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
-<span class="n">s</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s2">&quot;true&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span>
+s <span style="color: #666666">=</span> Stack()
+s<span style="color: #666666">.</span>push(<span style="color: #BA2121">&quot;hello&quot;</span>)
+s<span style="color: #666666">.</span>push(<span style="color: #BA2121">&quot;true&quot;</span>)
+<span style="color: #008000">print</span>(s<span style="color: #666666">.</span>pop())
 </code></pre></div></td></tr></table></div>
 <p>This ability to change the physical implementation of an abstract data type while maintaining the logical characteristics is an example of abstraction at work. However, even though the stack will work either way, if we consider the performance of the two implementations, there is definitely a difference. Recall that the <code>append()</code> and <code>pop()</code> operations were both <span class="arithmatex">\(O(1)\)</span>. This means that the first implementation will perform <code>push</code> and <code>pop</code> in constant time no matter how many items are on the stack. The performance of the second implementation suffers in that the <code>insert(0)</code> and <code>pop(0)</code> operations will both require <span class="arithmatex">\(O(n)\)</span> for a stack of size <code>n</code>. Clearly, even though the implementations are logically equivalent, they would have very different timings when performing benchmark testing.</p>
 <div class="admonition info">
@@ -4319,12 +4337,12 @@
 </div>
 <div class="tabbed-block">
 <p>Given the following sequence of stack operations, what is the top item on the stack when the sequence is complete?</p>
-<div class="highlight"><pre><span></span><code><span class="n">m</span> <span class="o">=</span> <span class="n">Stack</span><span class="p">()</span>
-<span class="n">m</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
-<span class="n">m</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
-<span class="n">m</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-<span class="n">m</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s2">&quot;z&quot;</span><span class="p">)</span>
-<span class="n">m</span><span class="o">.</span><span class="n">peek</span><span class="p">()</span>
+<div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>m <span style="color: #666666">=</span> Stack()
+m<span style="color: #666666">.</span>push(<span style="color: #BA2121">&quot;x&quot;</span>)
+m<span style="color: #666666">.</span>push(<span style="color: #BA2121">&quot;y&quot;</span>)
+m<span style="color: #666666">.</span>pop()
+m<span style="color: #666666">.</span>push(<span style="color: #BA2121">&quot;z&quot;</span>)
+m<span style="color: #666666">.</span>peek()
 </code></pre></div>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> a: "x"</li>
@@ -4339,24 +4357,24 @@
 <li>feedback c: Good Job.</li>
 <li>feedback d: You may want to check out the docs for isEmpty</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="n">m</span> <span class="o">=</span> <span class="n">Stack</span><span class="p">()</span>
-<span class="n">m</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
-<span class="n">m</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
-<span class="n">m</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s2">&quot;z&quot;</span><span class="p">)</span>
-<span class="k">while</span> <span class="ow">not</span> <span class="n">m</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
-    <span class="n">m</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-    <span class="n">m</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>m <span style="color: #666666">=</span> Stack()
+m<span style="color: #666666">.</span>push(<span style="color: #BA2121">&quot;x&quot;</span>)
+m<span style="color: #666666">.</span>push(<span style="color: #BA2121">&quot;y&quot;</span>)
+m<span style="color: #666666">.</span>push(<span style="color: #BA2121">&quot;z&quot;</span>)
+<span style="color: #008000; font-weight: bold">while</span> <span style="color: #AA22FF; font-weight: bold">not</span> m<span style="color: #666666">.</span>is_empty():
+    m<span style="color: #666666">.</span>pop()
+    m<span style="color: #666666">.</span>pop()
 </code></pre></div>
 <p>Write a function <code>rev_string(my_str)</code> that uses a stack to reverse the characters in a string.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">test</span> <span class="kn">import</span> <span class="n">testEqual</span>
-<span class="kn">from</span> <span class="nn">pythonds3.basic</span> <span class="kn">import</span> <span class="n">Stack</span>
+<div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">test</span> <span style="color: #008000; font-weight: bold">import</span> testEqual
+<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pythonds3.basic</span> <span style="color: #008000; font-weight: bold">import</span> Stack
 
-<span class="k">def</span> <span class="nf">rev_string</span><span class="p">(</span><span class="n">my_str</span><span class="p">):</span>
-    <span class="c1"># your code here</span>
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">rev_string</span>(my_str):
+    <span style="color: #3D7B7B; font-style: italic"># your code here</span>
 
-<span class="n">testEqual</span><span class="p">(</span><span class="n">rev_string</span><span class="p">(</span><span class="s2">&quot;apple&quot;</span><span class="p">),</span> <span class="s2">&quot;elppa&quot;</span><span class="p">)</span>
-<span class="n">testEqual</span><span class="p">(</span><span class="n">rev_string</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">),</span> <span class="s2">&quot;x&quot;</span><span class="p">)</span>
-<span class="n">testEqual</span><span class="p">(</span><span class="n">rev_string</span><span class="p">(</span><span class="s2">&quot;1234567890&quot;</span><span class="p">),</span> <span class="s2">&quot;0987654321&quot;</span><span class="p">)</span>
+testEqual(rev_string(<span style="color: #BA2121">&quot;apple&quot;</span>), <span style="color: #BA2121">&quot;elppa&quot;</span>)
+testEqual(rev_string(<span style="color: #BA2121">&quot;x&quot;</span>), <span style="color: #BA2121">&quot;x&quot;</span>)
+testEqual(rev_string(<span style="color: #BA2121">&quot;1234567890&quot;</span>), <span style="color: #BA2121">&quot;0987654321&quot;</span>)
 </code></pre></div>
 </div>
 </div>
@@ -4427,7 +4445,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.tabs.link", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "toc.follow"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["header.autohide", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "content.tabs.link", "content.code.copy", "content.tooltips", "navigation.indexes", "navigation.prune", "navigation.instant"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.94c44541.min.js"></script>
@@ -4437,8 +4455,6 @@
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-      
-        <script src="https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js"></script>
       
     
   <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>

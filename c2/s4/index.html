@@ -48,6 +48,8 @@
       
     
     
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -92,6 +94,22 @@
     <div data-md-component="announce">
       
     </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+你当前浏览的版本已不是最新版本，
+<a href="../../..">
+    <strong>点击这里</strong>
+</a>查看最新版本的文档
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
     
     
       
@@ -4064,61 +4082,61 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Our first solution to the anagram problem will check the lengths of the strings and then check to see that each character in the first string actually occurs in the second. If it is possible to check off each character, then the two strings must be anagrams. <strong>Checking off</strong> a character will be accomplished by replacing it with the special Python value <code>None</code>. However, since strings in Python are immutable, the first step in the process will be to convert the second string to a list. Each character from the first string can be checked against the characters in the list and if found, checked off by replacement. <code>ActiveCode 1</code> shows this function.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 2.4.1.1 Checking Off</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">anagram_solution_1</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">):</span>
-    <span class="n">still_ok</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s2</span><span class="p">):</span>
-        <span class="n">still_ok</span> <span class="o">=</span> <span class="kc">False</span>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 2.4.1.1 Checking Off</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">anagram_solution_1</span>(s1, s2):
+    still_ok <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">True</span>
+    <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">len</span>(s1) <span style="color: #666666">!=</span> <span style="color: #008000">len</span>(s2):
+        still_ok <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">False</span>
 
-    <span class="n">a_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
-    <span class="n">pos_1</span> <span class="o">=</span> <span class="mi">0</span>
+    a_list <span style="color: #666666">=</span> <span style="color: #008000">list</span>(s2)
+    pos_1 <span style="color: #666666">=</span> <span style="color: #666666">0</span>
 
-    <span class="k">while</span> <span class="n">pos_1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span> <span class="ow">and</span> <span class="n">still_ok</span><span class="p">:</span>
-        <span class="n">pos_2</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">found</span> <span class="o">=</span> <span class="kc">False</span>
-        <span class="k">while</span> <span class="n">pos_2</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">found</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">s1</span><span class="p">[</span><span class="n">pos_1</span><span class="p">]</span> <span class="o">==</span> <span class="n">a_list</span><span class="p">[</span><span class="n">pos_2</span><span class="p">]:</span>
-                <span class="n">found</span> <span class="o">=</span> <span class="kc">True</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">pos_2</span> <span class="o">=</span> <span class="n">pos_2</span> <span class="o">+</span> <span class="mi">1</span>
-        <span class="k">if</span> <span class="n">found</span><span class="p">:</span>
-            <span class="n">a_list</span><span class="p">[</span><span class="n">pos_2</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">still_ok</span> <span class="o">=</span> <span class="kc">False</span>
-        <span class="n">pos_1</span> <span class="o">=</span> <span class="n">pos_1</span> <span class="o">+</span> <span class="mi">1</span>
+    <span style="color: #008000; font-weight: bold">while</span> pos_1 <span style="color: #666666">&lt;</span> <span style="color: #008000">len</span>(s1) <span style="color: #AA22FF; font-weight: bold">and</span> still_ok:
+        pos_2 <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+        found <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">False</span>
+        <span style="color: #008000; font-weight: bold">while</span> pos_2 <span style="color: #666666">&lt;</span> <span style="color: #008000">len</span>(a_list) <span style="color: #AA22FF; font-weight: bold">and</span> <span style="color: #AA22FF; font-weight: bold">not</span> found:
+            <span style="color: #008000; font-weight: bold">if</span> s1[pos_1] <span style="color: #666666">==</span> a_list[pos_2]:
+                found <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">True</span>
+            <span style="color: #008000; font-weight: bold">else</span>:
+                pos_2 <span style="color: #666666">=</span> pos_2 <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+        <span style="color: #008000; font-weight: bold">if</span> found:
+            a_list[pos_2] <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
+        <span style="color: #008000; font-weight: bold">else</span>:
+            still_ok <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">False</span>
+        pos_1 <span style="color: #666666">=</span> pos_1 <span style="color: #666666">+</span> <span style="color: #666666">1</span>
 
-    <span class="k">return</span> <span class="n">still_ok</span>
+    <span style="color: #008000; font-weight: bold">return</span> still_ok
 
 
-<span class="nb">print</span><span class="p">(</span><span class="n">anagram_solution_1</span><span class="p">(</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;pleap&quot;</span><span class="p">))</span>  <span class="c1"># expected: True</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">anagram_solution_1</span><span class="p">(</span><span class="s2">&quot;abcd&quot;</span><span class="p">,</span> <span class="s2">&quot;dcba&quot;</span><span class="p">))</span>  <span class="c1"># expected: True</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">anagram_solution_1</span><span class="p">(</span><span class="s2">&quot;abcd&quot;</span><span class="p">,</span> <span class="s2">&quot;dcda&quot;</span><span class="p">))</span>  <span class="c1"># expected: False</span>
+<span style="color: #008000">print</span>(anagram_solution_1(<span style="color: #BA2121">&quot;apple&quot;</span>, <span style="color: #BA2121">&quot;pleap&quot;</span>))  <span style="color: #3D7B7B; font-style: italic"># expected: True</span>
+<span style="color: #008000">print</span>(anagram_solution_1(<span style="color: #BA2121">&quot;abcd&quot;</span>, <span style="color: #BA2121">&quot;dcba&quot;</span>))  <span style="color: #3D7B7B; font-style: italic"># expected: True</span>
+<span style="color: #008000">print</span>(anagram_solution_1(<span style="color: #BA2121">&quot;abcd&quot;</span>, <span style="color: #BA2121">&quot;dcda&quot;</span>))  <span style="color: #3D7B7B; font-style: italic"># expected: False</span>
 </code></pre></div></td></tr></table></div>
 <p>To analyze this algorithm, we need to note that each of the <em>n</em> characters in <code>s1</code> will cause an iteration through up to n characters in the list from <code>s2</code>. Each of the <em>n</em> positions in the list will be visited once to match a character from s1. The number of visits then becomes the sum of the integers from 1 to n. We stated earlier that this can be written as</p>
 <div class="arithmatex">\[\begin{align} 
@@ -4128,61 +4146,61 @@
 </div>
 <div class="tabbed-block">
 <p>Our first solution to the anagram problem will check the lengths of the strings and then check to see that each character in the first string actually occurs in the second. If it is possible to check off each character, then the two strings must be anagrams. <strong>Checking off</strong> a character will be accomplished by replacing it with the special Python value <code>None</code>. However, since strings in Python are immutable, the first step in the process will be to convert the second string to a list. Each character from the first string can be checked against the characters in the list and if found, checked off by replacement. <code>ActiveCode 1</code> shows this function.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 2.4.1.1 Checking Off</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">anagram_solution_1</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">):</span>
-    <span class="n">still_ok</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s2</span><span class="p">):</span>
-        <span class="n">still_ok</span> <span class="o">=</span> <span class="kc">False</span>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 2.4.1.1 Checking Off</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">anagram_solution_1</span>(s1, s2):
+    still_ok <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">True</span>
+    <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">len</span>(s1) <span style="color: #666666">!=</span> <span style="color: #008000">len</span>(s2):
+        still_ok <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">False</span>
 
-    <span class="n">a_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
-    <span class="n">pos_1</span> <span class="o">=</span> <span class="mi">0</span>
+    a_list <span style="color: #666666">=</span> <span style="color: #008000">list</span>(s2)
+    pos_1 <span style="color: #666666">=</span> <span style="color: #666666">0</span>
 
-    <span class="k">while</span> <span class="n">pos_1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span> <span class="ow">and</span> <span class="n">still_ok</span><span class="p">:</span>
-        <span class="n">pos_2</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">found</span> <span class="o">=</span> <span class="kc">False</span>
-        <span class="k">while</span> <span class="n">pos_2</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">found</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">s1</span><span class="p">[</span><span class="n">pos_1</span><span class="p">]</span> <span class="o">==</span> <span class="n">a_list</span><span class="p">[</span><span class="n">pos_2</span><span class="p">]:</span>
-                <span class="n">found</span> <span class="o">=</span> <span class="kc">True</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">pos_2</span> <span class="o">=</span> <span class="n">pos_2</span> <span class="o">+</span> <span class="mi">1</span>
-        <span class="k">if</span> <span class="n">found</span><span class="p">:</span>
-            <span class="n">a_list</span><span class="p">[</span><span class="n">pos_2</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">still_ok</span> <span class="o">=</span> <span class="kc">False</span>
-        <span class="n">pos_1</span> <span class="o">=</span> <span class="n">pos_1</span> <span class="o">+</span> <span class="mi">1</span>
+    <span style="color: #008000; font-weight: bold">while</span> pos_1 <span style="color: #666666">&lt;</span> <span style="color: #008000">len</span>(s1) <span style="color: #AA22FF; font-weight: bold">and</span> still_ok:
+        pos_2 <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+        found <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">False</span>
+        <span style="color: #008000; font-weight: bold">while</span> pos_2 <span style="color: #666666">&lt;</span> <span style="color: #008000">len</span>(a_list) <span style="color: #AA22FF; font-weight: bold">and</span> <span style="color: #AA22FF; font-weight: bold">not</span> found:
+            <span style="color: #008000; font-weight: bold">if</span> s1[pos_1] <span style="color: #666666">==</span> a_list[pos_2]:
+                found <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">True</span>
+            <span style="color: #008000; font-weight: bold">else</span>:
+                pos_2 <span style="color: #666666">=</span> pos_2 <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+        <span style="color: #008000; font-weight: bold">if</span> found:
+            a_list[pos_2] <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
+        <span style="color: #008000; font-weight: bold">else</span>:
+            still_ok <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">False</span>
+        pos_1 <span style="color: #666666">=</span> pos_1 <span style="color: #666666">+</span> <span style="color: #666666">1</span>
 
-    <span class="k">return</span> <span class="n">still_ok</span>
+    <span style="color: #008000; font-weight: bold">return</span> still_ok
 
 
-<span class="nb">print</span><span class="p">(</span><span class="n">anagram_solution_1</span><span class="p">(</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;pleap&quot;</span><span class="p">))</span>  <span class="c1"># expected: True</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">anagram_solution_1</span><span class="p">(</span><span class="s2">&quot;abcd&quot;</span><span class="p">,</span> <span class="s2">&quot;dcba&quot;</span><span class="p">))</span>  <span class="c1"># expected: True</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">anagram_solution_1</span><span class="p">(</span><span class="s2">&quot;abcd&quot;</span><span class="p">,</span> <span class="s2">&quot;dcda&quot;</span><span class="p">))</span>  <span class="c1"># expected: False</span>
+<span style="color: #008000">print</span>(anagram_solution_1(<span style="color: #BA2121">&quot;apple&quot;</span>, <span style="color: #BA2121">&quot;pleap&quot;</span>))  <span style="color: #3D7B7B; font-style: italic"># expected: True</span>
+<span style="color: #008000">print</span>(anagram_solution_1(<span style="color: #BA2121">&quot;abcd&quot;</span>, <span style="color: #BA2121">&quot;dcba&quot;</span>))  <span style="color: #3D7B7B; font-style: italic"># expected: True</span>
+<span style="color: #008000">print</span>(anagram_solution_1(<span style="color: #BA2121">&quot;abcd&quot;</span>, <span style="color: #BA2121">&quot;dcda&quot;</span>))  <span style="color: #3D7B7B; font-style: italic"># expected: False</span>
 </code></pre></div></td></tr></table></div>
 <p>To analyze this algorithm, we need to note that each of the <em>n</em> characters in <code>s1</code> will cause an iteration through up to n characters in the list from <code>s2</code>. Each of the <em>n</em> positions in the list will be visited once to match a character from s1. The number of visits then becomes the sum of the integers from 1 to n. We stated earlier that this can be written as</p>
 <div class="arithmatex">\[\begin{align} 
@@ -4198,97 +4216,97 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Another solution to the anagram problem will make use of the fact that even though <code>s1</code> and <code>s2</code> are different, they are anagrams only if they consist of exactly the same characters. So if we begin by sorting each string alphabetically from a to z, we will end up with the same string if the original two strings are anagrams. <code>ActiveCode 2</code> shows this solution. Again, in Python we can use the built-in <code>sort</code> method on lists by simply converting each string to a list at the start.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 2.4.2.1 Sort and Compare</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">anagram_solution_2</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">):</span>
-    <span class="n">a_list_1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span>
-    <span class="n">a_list_2</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 2.4.2.1 Sort and Compare</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">anagram_solution_2</span>(s1, s2):
+    a_list_1 <span style="color: #666666">=</span> <span style="color: #008000">list</span>(s1)
+    a_list_2 <span style="color: #666666">=</span> <span style="color: #008000">list</span>(s2)
 
-    <span class="n">a_list_1</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-    <span class="n">a_list_2</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    a_list_1<span style="color: #666666">.</span>sort()
+    a_list_2<span style="color: #666666">.</span>sort()
 
-    <span class="n">pos</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">matches</span> <span class="o">=</span> <span class="kc">True</span>
+    pos <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+    matches <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">True</span>
 
-    <span class="k">while</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span> <span class="ow">and</span> <span class="n">matches</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">a_list_1</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">==</span> <span class="n">a_list_2</span><span class="p">[</span><span class="n">pos</span><span class="p">]:</span>
-            <span class="n">pos</span> <span class="o">=</span> <span class="n">pos</span> <span class="o">+</span> <span class="mi">1</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">matches</span> <span class="o">=</span> <span class="kc">False</span>
+    <span style="color: #008000; font-weight: bold">while</span> pos <span style="color: #666666">&lt;</span> <span style="color: #008000">len</span>(s1) <span style="color: #AA22FF; font-weight: bold">and</span> matches:
+        <span style="color: #008000; font-weight: bold">if</span> a_list_1[pos] <span style="color: #666666">==</span> a_list_2[pos]:
+            pos <span style="color: #666666">=</span> pos <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+        <span style="color: #008000; font-weight: bold">else</span>:
+            matches <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">False</span>
 
-    <span class="k">return</span> <span class="n">matches</span>
+    <span style="color: #008000; font-weight: bold">return</span> matches
 
 
-<span class="nb">print</span><span class="p">(</span><span class="n">anagram_solution_2</span><span class="p">(</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;pleap&quot;</span><span class="p">))</span>  <span class="c1"># expected: True</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">anagram_solution_2</span><span class="p">(</span><span class="s2">&quot;abcd&quot;</span><span class="p">,</span> <span class="s2">&quot;dcba&quot;</span><span class="p">))</span>  <span class="c1"># expected: True</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">anagram_solution_2</span><span class="p">(</span><span class="s2">&quot;abcd&quot;</span><span class="p">,</span> <span class="s2">&quot;dcda&quot;</span><span class="p">))</span>  <span class="c1"># expected: False</span>
+<span style="color: #008000">print</span>(anagram_solution_2(<span style="color: #BA2121">&quot;apple&quot;</span>, <span style="color: #BA2121">&quot;pleap&quot;</span>))  <span style="color: #3D7B7B; font-style: italic"># expected: True</span>
+<span style="color: #008000">print</span>(anagram_solution_2(<span style="color: #BA2121">&quot;abcd&quot;</span>, <span style="color: #BA2121">&quot;dcba&quot;</span>))  <span style="color: #3D7B7B; font-style: italic"># expected: True</span>
+<span style="color: #008000">print</span>(anagram_solution_2(<span style="color: #BA2121">&quot;abcd&quot;</span>, <span style="color: #BA2121">&quot;dcda&quot;</span>))  <span style="color: #3D7B7B; font-style: italic"># expected: False</span>
 </code></pre></div></td></tr></table></div>
 <p>At first glance you may be tempted to think that this algorithm is <span class="arithmatex">\(O(n)\)</span>, since there is one simple iteration to compare the n characters after the sorting process. However, the two calls to the Python <code>sort</code> method are not without their own cost. As we will see in Chapter 5, sorting is typically either <span class="arithmatex">\(O(n^{2})\)</span> or <span class="arithmatex">\(O(n\log n)\)</span>, so the sorting operations dominate the iteration. In the end, this algorithm will have the same order of magnitude as that of the sorting process.</p>
 </div>
 <div class="tabbed-block">
 <p>Another solution to the anagram problem will make use of the fact that even though <code>s1</code> and <code>s2</code> are different, they are anagrams only if they consist of exactly the same characters. So if we begin by sorting each string alphabetically from a to z, we will end up with the same string if the original two strings are anagrams. <code>ActiveCode 2</code> shows this solution. Again, in Python we can use the built-in <code>sort</code> method on lists by simply converting each string to a list at the start.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 2.4.2.1 Sort and Compare</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">anagram_solution_2</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">):</span>
-    <span class="n">a_list_1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span>
-    <span class="n">a_list_2</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 2.4.2.1 Sort and Compare</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">anagram_solution_2</span>(s1, s2):
+    a_list_1 <span style="color: #666666">=</span> <span style="color: #008000">list</span>(s1)
+    a_list_2 <span style="color: #666666">=</span> <span style="color: #008000">list</span>(s2)
 
-    <span class="n">a_list_1</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-    <span class="n">a_list_2</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    a_list_1<span style="color: #666666">.</span>sort()
+    a_list_2<span style="color: #666666">.</span>sort()
 
-    <span class="n">pos</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">matches</span> <span class="o">=</span> <span class="kc">True</span>
+    pos <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+    matches <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">True</span>
 
-    <span class="k">while</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span> <span class="ow">and</span> <span class="n">matches</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">a_list_1</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">==</span> <span class="n">a_list_2</span><span class="p">[</span><span class="n">pos</span><span class="p">]:</span>
-            <span class="n">pos</span> <span class="o">=</span> <span class="n">pos</span> <span class="o">+</span> <span class="mi">1</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">matches</span> <span class="o">=</span> <span class="kc">False</span>
+    <span style="color: #008000; font-weight: bold">while</span> pos <span style="color: #666666">&lt;</span> <span style="color: #008000">len</span>(s1) <span style="color: #AA22FF; font-weight: bold">and</span> matches:
+        <span style="color: #008000; font-weight: bold">if</span> a_list_1[pos] <span style="color: #666666">==</span> a_list_2[pos]:
+            pos <span style="color: #666666">=</span> pos <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+        <span style="color: #008000; font-weight: bold">else</span>:
+            matches <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">False</span>
 
-    <span class="k">return</span> <span class="n">matches</span>
+    <span style="color: #008000; font-weight: bold">return</span> matches
 
 
-<span class="nb">print</span><span class="p">(</span><span class="n">anagram_solution_2</span><span class="p">(</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;pleap&quot;</span><span class="p">))</span>  <span class="c1"># expected: True</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">anagram_solution_2</span><span class="p">(</span><span class="s2">&quot;abcd&quot;</span><span class="p">,</span> <span class="s2">&quot;dcba&quot;</span><span class="p">))</span>  <span class="c1"># expected: True</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">anagram_solution_2</span><span class="p">(</span><span class="s2">&quot;abcd&quot;</span><span class="p">,</span> <span class="s2">&quot;dcda&quot;</span><span class="p">))</span>  <span class="c1"># expected: False</span>
+<span style="color: #008000">print</span>(anagram_solution_2(<span style="color: #BA2121">&quot;apple&quot;</span>, <span style="color: #BA2121">&quot;pleap&quot;</span>))  <span style="color: #3D7B7B; font-style: italic"># expected: True</span>
+<span style="color: #008000">print</span>(anagram_solution_2(<span style="color: #BA2121">&quot;abcd&quot;</span>, <span style="color: #BA2121">&quot;dcba&quot;</span>))  <span style="color: #3D7B7B; font-style: italic"># expected: True</span>
+<span style="color: #008000">print</span>(anagram_solution_2(<span style="color: #BA2121">&quot;abcd&quot;</span>, <span style="color: #BA2121">&quot;dcda&quot;</span>))  <span style="color: #3D7B7B; font-style: italic"># expected: False</span>
 </code></pre></div></td></tr></table></div>
 <p>At first glance you may be tempted to think that this algorithm is <span class="arithmatex">\(O(n)\)</span>, since there is one simple iteration to compare the n characters after the sorting process. However, the two calls to the Python <code>sort</code> method are not without their own cost. As we will see in Chapter 5, sorting is typically either <span class="arithmatex">\(O(n^{2})\)</span> or <span class="arithmatex">\(O(n\log n)\)</span>, so the sorting operations dominate the iteration. In the end, this algorithm will have the same order of magnitude as that of the sorting process.</p>
 </div>
@@ -4314,57 +4332,57 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Our final solution to the anagram problem takes advantage of the fact that any two anagrams will have the same number of a’s, the same number of b’s, the same number of c’s, and so on. In order to decide whether two strings are anagrams, we will first count the number of times each character occurs. Since there are 26 possible characters, we can use a list of 26 counters, one for each possible character. Each time we see a particular character, we will increment the counter at that position. In the end, if the two lists of counters are identical, the strings must be anagrams. <code>ActiveCode 3</code> shows this solution.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 2.4.4.1 Count and Compare</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">anagram_solution_4</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">):</span>
-    <span class="n">c1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">26</span>
-    <span class="n">c2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">26</span>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 2.4.4.1 Count and Compare</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">anagram_solution_4</span>(s1, s2):
+    c1 <span style="color: #666666">=</span> [<span style="color: #666666">0</span>] <span style="color: #666666">*</span> <span style="color: #666666">26</span>
+    c2 <span style="color: #666666">=</span> [<span style="color: #666666">0</span>] <span style="color: #666666">*</span> <span style="color: #666666">26</span>
 
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s1</span><span class="p">)):</span>
-        <span class="n">pos</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="n">s1</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">-</span> <span class="nb">ord</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
-        <span class="n">c1</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="n">c1</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+    <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #008000">len</span>(s1)):
+        pos <span style="color: #666666">=</span> <span style="color: #008000">ord</span>(s1[i]) <span style="color: #666666">-</span> <span style="color: #008000">ord</span>(<span style="color: #BA2121">&quot;a&quot;</span>)
+        c1[pos] <span style="color: #666666">=</span> c1[pos] <span style="color: #666666">+</span> <span style="color: #666666">1</span>
 
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s2</span><span class="p">)):</span>
-        <span class="n">pos</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="n">s2</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">-</span> <span class="nb">ord</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
-        <span class="n">c2</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="n">c2</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+    <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #008000">len</span>(s2)):
+        pos <span style="color: #666666">=</span> <span style="color: #008000">ord</span>(s2[i]) <span style="color: #666666">-</span> <span style="color: #008000">ord</span>(<span style="color: #BA2121">&quot;a&quot;</span>)
+        c2[pos] <span style="color: #666666">=</span> c2[pos] <span style="color: #666666">+</span> <span style="color: #666666">1</span>
 
-    <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">still_ok</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="k">while</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">26</span> <span class="ow">and</span> <span class="n">still_ok</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">c1</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">c2</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
-            <span class="n">j</span> <span class="o">=</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">still_ok</span> <span class="o">=</span> <span class="kc">False</span>
+    j <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+    still_ok <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">True</span>
+    <span style="color: #008000; font-weight: bold">while</span> j <span style="color: #666666">&lt;</span> <span style="color: #666666">26</span> <span style="color: #AA22FF; font-weight: bold">and</span> still_ok:
+        <span style="color: #008000; font-weight: bold">if</span> c1[j] <span style="color: #666666">==</span> c2[j]:
+            j <span style="color: #666666">=</span> j <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+        <span style="color: #008000; font-weight: bold">else</span>:
+            still_ok <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">False</span>
 
-    <span class="k">return</span> <span class="n">still_ok</span>
+    <span style="color: #008000; font-weight: bold">return</span> still_ok
 
 
-<span class="nb">print</span><span class="p">(</span><span class="n">anagram_solution_4</span><span class="p">(</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;pleap&quot;</span><span class="p">))</span>  <span class="c1"># expected: True</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">anagram_solution_4</span><span class="p">(</span><span class="s2">&quot;abcd&quot;</span><span class="p">,</span> <span class="s2">&quot;dcba&quot;</span><span class="p">))</span>  <span class="c1"># expected: True</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">anagram_solution_4</span><span class="p">(</span><span class="s2">&quot;abcd&quot;</span><span class="p">,</span> <span class="s2">&quot;dcda&quot;</span><span class="p">))</span>  <span class="c1"># expected: False</span>
+<span style="color: #008000">print</span>(anagram_solution_4(<span style="color: #BA2121">&quot;apple&quot;</span>, <span style="color: #BA2121">&quot;pleap&quot;</span>))  <span style="color: #3D7B7B; font-style: italic"># expected: True</span>
+<span style="color: #008000">print</span>(anagram_solution_4(<span style="color: #BA2121">&quot;abcd&quot;</span>, <span style="color: #BA2121">&quot;dcba&quot;</span>))  <span style="color: #3D7B7B; font-style: italic"># expected: True</span>
+<span style="color: #008000">print</span>(anagram_solution_4(<span style="color: #BA2121">&quot;abcd&quot;</span>, <span style="color: #BA2121">&quot;dcda&quot;</span>))  <span style="color: #3D7B7B; font-style: italic"># expected: False</span>
 </code></pre></div></td></tr></table></div>
 <p>Again, the solution has a number of iterations. However, unlike the first solution, none of them are nested. The first two iterations used to count the characters are both based on n. The third iteration, comparing the two lists of counts, always takes 26 steps since there are 26 possible characters in the strings. Adding it all up gives us <span class="arithmatex">\(T(n)=2n+26\)</span> steps. That is <span class="arithmatex">\(O(n)\)</span>. We have found a linear order of magnitude algorithm for solving this problem.</p>
 <p>Before leaving this example, we need to say something about space requirements. Although the last solution was able to run in linear time, it could only do so by using additional storage to keep the two lists of character counts. In other words, this algorithm sacrificed space in order to gain time.</p>
@@ -4372,10 +4390,10 @@
 <div class="admonition info">
 <p class="admonition-title">Self Check [Activity: 2.4.4.2 Multiple Choice]</p>
 <p>Q-4: Given the following code fragment, what is its Big O running time?</p>
-<div class="highlight"><pre><span></span><code><span class="n">test</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-   <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-      <span class="n">test</span> <span class="o">=</span> <span class="n">test</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="n">j</span>
+<div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>test <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+<span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n):
+   <span style="color: #008000; font-weight: bold">for</span> j <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n):
+      test <span style="color: #666666">=</span> test <span style="color: #666666">+</span> i <span style="color: #666666">*</span> j
 </code></pre></div>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>A. O(n)</strong></li>
@@ -4387,12 +4405,12 @@
 <div class="admonition info">
 <p class="admonition-title">Self Check [Activity: 2.4.4.3 Multiple Choice]</p>
 <p>Q-5: Given the following code fragment what is its Big O running time?</p>
-<div class="highlight"><pre><span></span><code><span class="n">test</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-   <span class="n">test</span> <span class="o">=</span> <span class="n">test</span> <span class="o">+</span> <span class="mi">1</span>
+<div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>test <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+<span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n):
+   test <span style="color: #666666">=</span> test <span style="color: #666666">+</span> <span style="color: #666666">1</span>
 
-<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-   <span class="n">test</span> <span class="o">=</span> <span class="n">test</span> <span class="o">-</span> <span class="mi">1</span>
+<span style="color: #008000; font-weight: bold">for</span> j <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n):
+   test <span style="color: #666666">=</span> test <span style="color: #666666">-</span> <span style="color: #666666">1</span>
 </code></pre></div>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>A. O(n)</strong></li>
@@ -4404,10 +4422,10 @@
 <div class="admonition info">
 <p class="admonition-title">Self Check [Activity: 2.4.4.4 Multiple Choice]</p>
 <p>Q-6: Given the following code fragment what is its Big O running time?</p>
-<div class="highlight"><pre><span></span><code><span class="n">i</span> <span class="o">=</span> <span class="n">n</span>
-<span class="k">while</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-   <span class="n">k</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span>
-   <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">//</span> <span class="mi">2</span>
+<div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>i <span style="color: #666666">=</span> n
+<span style="color: #008000; font-weight: bold">while</span> i <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span>:
+   k <span style="color: #666666">=</span> <span style="color: #666666">2</span> <span style="color: #666666">+</span> <span style="color: #666666">2</span>
+   i <span style="color: #666666">=</span> i <span style="color: #666666">//</span> <span style="color: #666666">2</span>
 </code></pre></div>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>A. O(n)</strong></li>
@@ -4419,57 +4437,57 @@
 </div>
 <div class="tabbed-block">
 <p>Our final solution to the anagram problem takes advantage of the fact that any two anagrams will have the same number of a’s, the same number of b’s, the same number of c’s, and so on. In order to decide whether two strings are anagrams, we will first count the number of times each character occurs. Since there are 26 possible characters, we can use a list of 26 counters, one for each possible character. Each time we see a particular character, we will increment the counter at that position. In the end, if the two lists of counters are identical, the strings must be anagrams. <code>ActiveCode 3</code> shows this solution.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 2.4.4.1 Count and Compare</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">anagram_solution_4</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">):</span>
-    <span class="n">c1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">26</span>
-    <span class="n">c2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">26</span>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 2.4.4.1 Count and Compare</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">anagram_solution_4</span>(s1, s2):
+    c1 <span style="color: #666666">=</span> [<span style="color: #666666">0</span>] <span style="color: #666666">*</span> <span style="color: #666666">26</span>
+    c2 <span style="color: #666666">=</span> [<span style="color: #666666">0</span>] <span style="color: #666666">*</span> <span style="color: #666666">26</span>
 
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s1</span><span class="p">)):</span>
-        <span class="n">pos</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="n">s1</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">-</span> <span class="nb">ord</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
-        <span class="n">c1</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="n">c1</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+    <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #008000">len</span>(s1)):
+        pos <span style="color: #666666">=</span> <span style="color: #008000">ord</span>(s1[i]) <span style="color: #666666">-</span> <span style="color: #008000">ord</span>(<span style="color: #BA2121">&quot;a&quot;</span>)
+        c1[pos] <span style="color: #666666">=</span> c1[pos] <span style="color: #666666">+</span> <span style="color: #666666">1</span>
 
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s2</span><span class="p">)):</span>
-        <span class="n">pos</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="n">s2</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">-</span> <span class="nb">ord</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
-        <span class="n">c2</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="n">c2</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+    <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #008000">len</span>(s2)):
+        pos <span style="color: #666666">=</span> <span style="color: #008000">ord</span>(s2[i]) <span style="color: #666666">-</span> <span style="color: #008000">ord</span>(<span style="color: #BA2121">&quot;a&quot;</span>)
+        c2[pos] <span style="color: #666666">=</span> c2[pos] <span style="color: #666666">+</span> <span style="color: #666666">1</span>
 
-    <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">still_ok</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="k">while</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">26</span> <span class="ow">and</span> <span class="n">still_ok</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">c1</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">c2</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
-            <span class="n">j</span> <span class="o">=</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">still_ok</span> <span class="o">=</span> <span class="kc">False</span>
+    j <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+    still_ok <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">True</span>
+    <span style="color: #008000; font-weight: bold">while</span> j <span style="color: #666666">&lt;</span> <span style="color: #666666">26</span> <span style="color: #AA22FF; font-weight: bold">and</span> still_ok:
+        <span style="color: #008000; font-weight: bold">if</span> c1[j] <span style="color: #666666">==</span> c2[j]:
+            j <span style="color: #666666">=</span> j <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+        <span style="color: #008000; font-weight: bold">else</span>:
+            still_ok <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">False</span>
 
-    <span class="k">return</span> <span class="n">still_ok</span>
+    <span style="color: #008000; font-weight: bold">return</span> still_ok
 
 
-<span class="nb">print</span><span class="p">(</span><span class="n">anagram_solution_4</span><span class="p">(</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;pleap&quot;</span><span class="p">))</span>  <span class="c1"># expected: True</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">anagram_solution_4</span><span class="p">(</span><span class="s2">&quot;abcd&quot;</span><span class="p">,</span> <span class="s2">&quot;dcba&quot;</span><span class="p">))</span>  <span class="c1"># expected: True</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">anagram_solution_4</span><span class="p">(</span><span class="s2">&quot;abcd&quot;</span><span class="p">,</span> <span class="s2">&quot;dcda&quot;</span><span class="p">))</span>  <span class="c1"># expected: False</span>
+<span style="color: #008000">print</span>(anagram_solution_4(<span style="color: #BA2121">&quot;apple&quot;</span>, <span style="color: #BA2121">&quot;pleap&quot;</span>))  <span style="color: #3D7B7B; font-style: italic"># expected: True</span>
+<span style="color: #008000">print</span>(anagram_solution_4(<span style="color: #BA2121">&quot;abcd&quot;</span>, <span style="color: #BA2121">&quot;dcba&quot;</span>))  <span style="color: #3D7B7B; font-style: italic"># expected: True</span>
+<span style="color: #008000">print</span>(anagram_solution_4(<span style="color: #BA2121">&quot;abcd&quot;</span>, <span style="color: #BA2121">&quot;dcda&quot;</span>))  <span style="color: #3D7B7B; font-style: italic"># expected: False</span>
 </code></pre></div></td></tr></table></div>
 <p>Again, the solution has a number of iterations. However, unlike the first solution, none of them are nested. The first two iterations used to count the characters are both based on n. The third iteration, comparing the two lists of counts, always takes 26 steps since there are 26 possible characters in the strings. Adding it all up gives us <span class="arithmatex">\(T(n)=2n+26\)</span> steps. That is <span class="arithmatex">\(O(n)\)</span>. We have found a linear order of magnitude algorithm for solving this problem.</p>
 <p>Before leaving this example, we need to say something about space requirements. Although the last solution was able to run in linear time, it could only do so by using additional storage to keep the two lists of character counts. In other words, this algorithm sacrificed space in order to gain time.</p>
@@ -4477,10 +4495,10 @@
 <div class="admonition info">
 <p class="admonition-title">Self Check [Activity: 2.4.4.2 Multiple Choice]</p>
 <p>Q-4: Given the following code fragment, what is its Big O running time?</p>
-<div class="highlight"><pre><span></span><code><span class="n">test</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-   <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-      <span class="n">test</span> <span class="o">=</span> <span class="n">test</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="n">j</span>
+<div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>test <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+<span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n):
+   <span style="color: #008000; font-weight: bold">for</span> j <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n):
+      test <span style="color: #666666">=</span> test <span style="color: #666666">+</span> i <span style="color: #666666">*</span> j
 </code></pre></div>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>A. O(n)</strong></li>
@@ -4492,12 +4510,12 @@
 <div class="admonition info">
 <p class="admonition-title">Self Check [Activity: 2.4.4.3 Multiple Choice]</p>
 <p>Q-5: Given the following code fragment what is its Big O running time?</p>
-<div class="highlight"><pre><span></span><code><span class="n">test</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-   <span class="n">test</span> <span class="o">=</span> <span class="n">test</span> <span class="o">+</span> <span class="mi">1</span>
+<div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>test <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+<span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n):
+   test <span style="color: #666666">=</span> test <span style="color: #666666">+</span> <span style="color: #666666">1</span>
 
-<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-   <span class="n">test</span> <span class="o">=</span> <span class="n">test</span> <span class="o">-</span> <span class="mi">1</span>
+<span style="color: #008000; font-weight: bold">for</span> j <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n):
+   test <span style="color: #666666">=</span> test <span style="color: #666666">-</span> <span style="color: #666666">1</span>
 </code></pre></div>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>A. O(n)</strong></li>
@@ -4509,10 +4527,10 @@
 <div class="admonition info">
 <p class="admonition-title">Self Check [Activity: 2.4.4.4 Multiple Choice]</p>
 <p>Q-6: Given the following code fragment what is its Big O running time?</p>
-<div class="highlight"><pre><span></span><code><span class="n">i</span> <span class="o">=</span> <span class="n">n</span>
-<span class="k">while</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-   <span class="n">k</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span>
-   <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">//</span> <span class="mi">2</span>
+<div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>i <span style="color: #666666">=</span> n
+<span style="color: #008000; font-weight: bold">while</span> i <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span>:
+   k <span style="color: #666666">=</span> <span style="color: #666666">2</span> <span style="color: #666666">+</span> <span style="color: #666666">2</span>
+   i <span style="color: #666666">=</span> i <span style="color: #666666">//</span> <span style="color: #666666">2</span>
 </code></pre></div>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>A. O(n)</strong></li>
@@ -4585,7 +4603,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.tabs.link", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "toc.follow"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["header.autohide", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "content.tabs.link", "content.code.copy", "content.tooltips", "navigation.indexes", "navigation.prune", "navigation.instant"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.94c44541.min.js"></script>
@@ -4595,8 +4613,6 @@
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-      
-        <script src="https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js"></script>
       
     
   <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>

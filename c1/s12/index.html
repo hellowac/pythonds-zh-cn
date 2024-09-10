@@ -48,6 +48,8 @@
       
     
     
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -92,6 +94,22 @@
     <div data-md-component="announce">
       
     </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+你当前浏览的版本已不是最新版本，
+<a href="../../..">
+    <strong>点击这里</strong>
+</a>查看最新版本的文档
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
     
     
       
@@ -3958,28 +3976,28 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>前面的过程抽象示例调用数学模块中名为<code>sqrt</code>的 Python 函数来计算平方根。 一般来说，我们可以通过定义函数来隐藏任何计算的细节。 函数定义需要一个名称、一组参数和一个函数体。 它还可以显式返回一个值。 例如，下面定义的简单函数返回传递给它的值的平方。</p>
-<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-<span class="gp">... </span>   <span class="k">return</span> <span class="n">n</span> <span class="o">**</span> <span class="mi">2</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">square</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="go">9</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">square</span><span class="p">(</span><span class="n">square</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
-<span class="go">81</span>
+<div class="language-pycon highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">square</span>(n):
+<span style="color: #000080; font-weight: bold">... </span>   <span style="color: #008000; font-weight: bold">return</span> n <span style="color: #666666">**</span> <span style="color: #666666">2</span>
+<span style="color: #000080; font-weight: bold">...</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>square(<span style="color: #666666">3</span>)
+<span style="color: #717171">9</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>square(square(<span style="color: #666666">3</span>))
+<span style="color: #717171">81</span>
 </code></pre></div>
 <p>该函数定义的语法包括名称<code>square</code>和带括号的形式参数列表。 对于这个函数，<code>n</code>是唯一的形式参数，这表明<code>square</code>只需要一个数据来完成它的工作。 隐藏在“盒子内(inside the box)”的细节只是简单地计算<code>n**2</code>的结果并返回它。 我们可以通过要求 Python 环境评估它并传递实际参数值（在本例中为<code>3</code>）来调用<code>square</code>函数。 请注意，对<code>square</code>的调用返回一个整数，该整数可以传递给另一个调用。</p>
 <p>我们可以通过使用一种名为牛顿法或牛顿-拉夫森法（以艾萨克·牛顿和约瑟夫·拉夫森命名）的众所周知的技术来实现我们自己的平方根函数。 用于近似平方根的牛顿-拉夫森方法执行迭代计算，收敛于正确值。 方程 <span class="arithmatex">\(newguess = \frac {1}{2} * (oldguess + \frac {n}{oldguess})\)</span> 取值 <span class="arithmatex">\(n\)</span> 并通过将每个 <span class="arithmatex">\(newguess\)</span> 设为 <span class="arithmatex">\(oldguess\)</span> 来重复猜测平方根 随后的迭代。 这里使用的初始猜测是<span class="arithmatex">\(\frac {n}{2}\)</span>。 “Listing 1”显示了一个函数定义，它接受值 <span class="arithmatex">\(n\)</span> 并在进行 20 次猜测后返回 <span class="arithmatex">\(n\)</span> 的平方根。 同样，牛顿-拉夫森方法的细节隐藏在函数定义中，用户无需了解有关实现的任何信息即可使用该函数达到其预期目的。 “Listing 1”还显示了使用<code>#</code>字符作为注释标记。 一行中<code>#</code>后面的任何字符都将被忽略。</p>
 <p><strong>Listing 1</strong></p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">square_root</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">root</span> <span class="o">=</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># initial guess will be 1/2 of n</span>
-    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
-        <span class="n">root</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">root</span> <span class="o">+</span> <span class="p">(</span><span class="n">n</span> <span class="o">/</span> <span class="n">root</span><span class="p">))</span>
+<div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">square_root</span>(n):
+    root <span style="color: #666666">=</span> n <span style="color: #666666">/</span> <span style="color: #666666">2</span>  <span style="color: #3D7B7B; font-style: italic"># initial guess will be 1/2 of n</span>
+    <span style="color: #008000; font-weight: bold">for</span> k <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">20</span>):
+        root <span style="color: #666666">=</span> (<span style="color: #666666">1</span> <span style="color: #666666">/</span> <span style="color: #666666">2</span>) <span style="color: #666666">*</span> (root <span style="color: #666666">+</span> (n <span style="color: #666666">/</span> root))
 
-    <span class="k">return</span> <span class="n">root</span>
+    <span style="color: #008000; font-weight: bold">return</span> root
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">square_root</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
-<span class="go">3.0</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">square_root</span><span class="p">(</span><span class="mi">4563</span><span class="p">)</span>
-<span class="go">67.54998149518622</span>
+<div class="language-pycon highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>square_root(<span style="color: #666666">9</span>)
+<span style="color: #717171">3.0</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>square_root(<span style="color: #666666">4563</span>)
+<span style="color: #717171">67.54998149518622</span>
 </code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">自检</p>
@@ -3995,28 +4013,28 @@
 </div>
 <div class="tabbed-block">
 <p>The earlier example of procedural abstraction called upon a Python function called <code>sqrt</code> from the math module to compute the square root. In general, we can hide the details of any computation by defining a function. A function definition requires a name, a group of parameters, and a body. It may also explicitly return a value. For example, the simple function defined below returns the square of the value you pass into it.</p>
-<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-<span class="gp">... </span>   <span class="k">return</span> <span class="n">n</span> <span class="o">**</span> <span class="mi">2</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">square</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="go">9</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">square</span><span class="p">(</span><span class="n">square</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
-<span class="go">81</span>
+<div class="language-pycon highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">square</span>(n):
+<span style="color: #000080; font-weight: bold">... </span>   <span style="color: #008000; font-weight: bold">return</span> n <span style="color: #666666">**</span> <span style="color: #666666">2</span>
+<span style="color: #000080; font-weight: bold">...</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>square(<span style="color: #666666">3</span>)
+<span style="color: #717171">9</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>square(square(<span style="color: #666666">3</span>))
+<span style="color: #717171">81</span>
 </code></pre></div>
 <p>The syntax for this function definition includes the name, <code>square</code>, and a parenthesized list of formal parameters. For this function, <code>n</code> is the only formal parameter, which suggests that <code>square</code> needs only one piece of data to do its work. The details, hidden “inside the box,” simply compute the result of <code>n**2</code> and return it. We can invoke or call the <code>square</code> function by asking the Python environment to evaluate it, passing an actual parameter value, in this case, <code>3</code>. Note that the call to <code>square</code> returns an integer that can in turn be passed to another invocation.</p>
 <p>We could implement our own square root function by using a well-known technique called Newton's method or the Newton–Raphson method, named after Isaac Newton and Joseph Raphson. The Newton–Raphson method for approximating square roots performs an iterative computation that converges on the correct value. The equation <span class="arithmatex">\(newguess = \frac {1}{2} * (oldguess + \frac {n}{oldguess})\)</span> takes a value <span class="arithmatex">\(n\)</span> and repeatedly guesses the square root by making each <span class="arithmatex">\(newguess\)</span> the <span class="arithmatex">\(oldguess\)</span> in the subsequent iteration. The initial guess used here is <span class="arithmatex">\(\frac {n}{2}\)</span>. <code>Listing 1</code> shows a function definition that accepts a value <span class="arithmatex">\(n\)</span> and returns the square root of <span class="arithmatex">\(n\)</span> after making 20 guesses. Again, the details of the Newton–Raphson method are hidden inside the function definition and the user does not have to know anything about the implementation to use the function for its intended purpose. <code>Listing 1</code> also shows the use of the <code>#</code> character as a comment marker. Any characters that follow the <code>#</code> on a line are ignored.</p>
 <p><strong>Listing 1</strong></p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">square_root</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">root</span> <span class="o">=</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># initial guess will be 1/2 of n</span>
-    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
-        <span class="n">root</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">root</span> <span class="o">+</span> <span class="p">(</span><span class="n">n</span> <span class="o">/</span> <span class="n">root</span><span class="p">))</span>
+<div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">square_root</span>(n):
+    root <span style="color: #666666">=</span> n <span style="color: #666666">/</span> <span style="color: #666666">2</span>  <span style="color: #3D7B7B; font-style: italic"># initial guess will be 1/2 of n</span>
+    <span style="color: #008000; font-weight: bold">for</span> k <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">20</span>):
+        root <span style="color: #666666">=</span> (<span style="color: #666666">1</span> <span style="color: #666666">/</span> <span style="color: #666666">2</span>) <span style="color: #666666">*</span> (root <span style="color: #666666">+</span> (n <span style="color: #666666">/</span> root))
 
-    <span class="k">return</span> <span class="n">root</span>
+    <span style="color: #008000; font-weight: bold">return</span> root
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">square_root</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
-<span class="go">3.0</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">square_root</span><span class="p">(</span><span class="mi">4563</span><span class="p">)</span>
-<span class="go">67.54998149518622</span>
+<div class="language-pycon highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>square_root(<span style="color: #666666">9</span>)
+<span style="color: #717171">3.0</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>square_root(<span style="color: #666666">4563</span>)
+<span style="color: #717171">67.54998149518622</span>
 </code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Self Check</p>
@@ -4093,7 +4111,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.tabs.link", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "toc.follow"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["header.autohide", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "content.tabs.link", "content.code.copy", "content.tooltips", "navigation.indexes", "navigation.prune", "navigation.instant"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.94c44541.min.js"></script>
@@ -4103,8 +4121,6 @@
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-      
-        <script src="https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js"></script>
       
     
   <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>

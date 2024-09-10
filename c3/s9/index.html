@@ -48,6 +48,8 @@
       
     
     
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -92,6 +94,22 @@
     <div data-md-component="announce">
       
     </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+你当前浏览的版本已不是最新版本，
+<a href="../../..">
+    <strong>点击这里</strong>
+</a>查看最新版本的文档
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
     
     
       
@@ -4034,43 +4052,729 @@
 
 <h1 id="39-中缀前缀和后缀表达式">3.9. 中缀、前缀和后缀表达式<a class="headerlink" href="#39-中缀前缀和后缀表达式" title="Permanent link">&para;</a></h1>
 <p><strong>3.9. Infix, Prefix, and Postfix Expressions</strong></p>
+<p>原文: <a href="https://runestone.academy/ns/books/published/pythonds3/BasicDS/InfixPrefixandPostfixExpressions.html?mode=browsing">https://runestone.academy/ns/books/published/pythonds3/BasicDS/InfixPrefixandPostfixExpressions.html?mode=browsing</a></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
-<div class="tabbed-block"></div>
-<div class="tabbed-block"></div>
+<div class="tabbed-block">
+<p>When you write an arithmetic expression such as B · C, the form of the expression provides you with information so that you can interpret it correctly. In this case we know that the variable B is being multiplied by the variable C since the multiplication operator · appears between them in the expression. This type of notation is referred to as <strong>infix</strong> since the operator is <em>in between</em> the two operands that it is working on.</p>
+<p>Consider another infix example, A + B · C. The operators + and · still appear between the operands, but there is a problem. Which operands do they work on? Does the + work on A and B, or does the · take B and C? The expression seems ambiguous.</p>
+<p>In fact, you have been reading and writing these types of expressions for a long time and they do not cause you any problem. The reason for this is that you know something about the operators + and ·. Each operator has a <strong>precedence</strong> level. Operators of higher precedence are used before operators of lower precedence. The only thing that can change that order is the presence of parentheses. The precedence order for arithmetic operators places multiplication and division above addition and subtraction. If two operators of equal precedence appear, then a left-to-right ordering or associativity is used.</p>
+<p>Let’s interpret the troublesome expression A + B · C using operator precedence. B and C are multiplied first, and A is then added to that result. (A + B) · C would force the addition of A and B to be done first before the multiplication. In the expression A + B + C, by precedence (via associativity), the leftmost + would be done first.</p>
+<p>Although all this may be obvious to you, remember that computers need to know exactly what operations to perform and in what order. One way to write an expression that guarantees there will be no confusion with respect to the order of operations is to create what is called a <strong>fully parenthesized</strong> expression. This type of expression uses one pair of parentheses for each operator. The parentheses dictate the order of operations; there is no ambiguity. There is also no need to remember any precedence rules.</p>
+<p>The expression A + B · C + D can be rewritten as ((A + (B · C)) + D) to show that the multiplication happens first, followed by the leftmost addition. A + B + C + D can be written as (((A + B) + C) + D) since the addition operations associate from left to right.</p>
+<p>There are two other very important expression formats that may not seem obvious to you at first. Consider the infix expression A + B. What would happen if we moved the operator before the two operands? The resulting expression would be + A B. Likewise, we could move the operator to the end, resulting in A B +. These look a bit strange.</p>
+<p>These changes to the position of the operator with respect to the operands create two new expression formats, <strong>prefix</strong> and <strong>postfix</strong>. Prefix expression notation requires that all operators precede the two operands that they work on. Postfix, on the other hand, requires that its operators come after the corresponding operands. A few more examples should help to make this a bit clearer (see <code>Table 2</code>).</p>
+<p>A + B · C would be written as + A · B C in prefix. The multiplication operator comes immediately before the operands B and C, denoting that · has precedence over +. The addition operator then appears before the A and the result of the multiplication.</p>
+<p>In postfix, the expression would be A B C · +. Again, the order of operations is preserved since the · appears immediately after the B and the C, denoting that · has precedence, with + coming after. Although the operators moved and now appear either before or after their respective operands, the order of the operands stayed exactly the same relative to one another.</p>
+<p><strong>Table 2: Examples of Infix, Prefix, and Postfix Expressions</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Infix Expression</strong></th>
+<th><strong>Prefix Expression</strong></th>
+<th><strong>Postfix Expression</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A + B</td>
+<td>+ A B</td>
+<td>A B +</td>
+</tr>
+<tr>
+<td>A + B · C</td>
+<td>+ A · B C</td>
+<td>A B C · +</td>
+</tr>
+</tbody>
+</table>
+<p>Now consider the infix expression (A + B) · C. Recall that in this case, infix requires the parentheses to force the performance of the addition before the multiplication. However, when A + B was written in prefix, the addition operator was simply moved before the operands, + A B. The result of this operation becomes the first operand for the multiplication. The multiplication operator is moved in front of the entire expression, giving us · + A B C. Likewise, in postfix A B + forces the addition to happen first. The multiplication can be done to that result and the remaining operand C. The proper postfix expression is then A B + C ·.</p>
+<p>Consider these three expressions again (see <code>Table 3</code>). Something very important has happened. Where did the parentheses go? Why don’t we need them in prefix and postfix? The answer is that the operators are no longer ambiguous with respect to the operands that they work on. Only infix notation requires the additional symbols. The order of operations within prefix and postfix expressions is completely determined by the position of the operator and nothing else. In many ways, this makes infix the least desirable notation to use.</p>
+<p><strong>Table 3: Comparison of Infix, Prefix, and Postfix Expressions</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Infix Expression</strong></th>
+<th><strong>Prefix Expression</strong></th>
+<th><strong>Postfix Expression</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(A + B) · C</td>
+<td>· + A B C</td>
+<td>A B + C ·</td>
+</tr>
+</tbody>
+</table>
+<p><code>Table 4</code> shows some additional examples of infix expressions and the equivalent prefix and postfix expressions. Be sure that you understand how they are equivalent in terms of the order of the operations being performed.</p>
+<p><strong>Table 4: Additional Examples of Infix, Prefix, and Postfix Expressions</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Infix Expression</strong></th>
+<th><strong>Prefix Expression</strong></th>
+<th><strong>Postfix Expression</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A + B · C + D</td>
+<td>+ + A · B C D</td>
+<td>A B C · + D +</td>
+</tr>
+<tr>
+<td>(A + B) · (C + D)</td>
+<td>· + A B + C D</td>
+<td>A B + C D + ·</td>
+</tr>
+<tr>
+<td>A · B + C · D</td>
+<td>+ · A B · C D</td>
+<td>A B · C D · +</td>
+</tr>
+<tr>
+<td>A + B + C + D</td>
+<td>+ + + A B C D</td>
+<td>A B + C + D +</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When you write an arithmetic expression such as B · C, the form of the expression provides you with information so that you can interpret it correctly. In this case we know that the variable B is being multiplied by the variable C since the multiplication operator · appears between them in the expression. This type of notation is referred to as <strong>infix</strong> since the operator is <em>in between</em> the two operands that it is working on.</p>
+<p>Consider another infix example, A + B · C. The operators + and · still appear between the operands, but there is a problem. Which operands do they work on? Does the + work on A and B, or does the · take B and C? The expression seems ambiguous.</p>
+<p>In fact, you have been reading and writing these types of expressions for a long time and they do not cause you any problem. The reason for this is that you know something about the operators + and ·. Each operator has a <strong>precedence</strong> level. Operators of higher precedence are used before operators of lower precedence. The only thing that can change that order is the presence of parentheses. The precedence order for arithmetic operators places multiplication and division above addition and subtraction. If two operators of equal precedence appear, then a left-to-right ordering or associativity is used.</p>
+<p>Let’s interpret the troublesome expression A + B · C using operator precedence. B and C are multiplied first, and A is then added to that result. (A + B) · C would force the addition of A and B to be done first before the multiplication. In the expression A + B + C, by precedence (via associativity), the leftmost + would be done first.</p>
+<p>Although all this may be obvious to you, remember that computers need to know exactly what operations to perform and in what order. One way to write an expression that guarantees there will be no confusion with respect to the order of operations is to create what is called a <strong>fully parenthesized</strong> expression. This type of expression uses one pair of parentheses for each operator. The parentheses dictate the order of operations; there is no ambiguity. There is also no need to remember any precedence rules.</p>
+<p>The expression A + B · C + D can be rewritten as ((A + (B · C)) + D) to show that the multiplication happens first, followed by the leftmost addition. A + B + C + D can be written as (((A + B) + C) + D) since the addition operations associate from left to right.</p>
+<p>There are two other very important expression formats that may not seem obvious to you at first. Consider the infix expression A + B. What would happen if we moved the operator before the two operands? The resulting expression would be + A B. Likewise, we could move the operator to the end, resulting in A B +. These look a bit strange.</p>
+<p>These changes to the position of the operator with respect to the operands create two new expression formats, <strong>prefix</strong> and <strong>postfix</strong>. Prefix expression notation requires that all operators precede the two operands that they work on. Postfix, on the other hand, requires that its operators come after the corresponding operands. A few more examples should help to make this a bit clearer (see <code>Table 2</code>).</p>
+<p>A + B · C would be written as + A · B C in prefix. The multiplication operator comes immediately before the operands B and C, denoting that · has precedence over +. The addition operator then appears before the A and the result of the multiplication.</p>
+<p>In postfix, the expression would be A B C · +. Again, the order of operations is preserved since the · appears immediately after the B and the C, denoting that · has precedence, with + coming after. Although the operators moved and now appear either before or after their respective operands, the order of the operands stayed exactly the same relative to one another.</p>
+<p><strong>Table 2: Examples of Infix, Prefix, and Postfix Expressions</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Infix Expression</strong></th>
+<th><strong>Prefix Expression</strong></th>
+<th><strong>Postfix Expression</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A + B</td>
+<td>+ A B</td>
+<td>A B +</td>
+</tr>
+<tr>
+<td>A + B · C</td>
+<td>+ A · B C</td>
+<td>A B C · +</td>
+</tr>
+</tbody>
+</table>
+<p>Now consider the infix expression (A + B) · C. Recall that in this case, infix requires the parentheses to force the performance of the addition before the multiplication. However, when A + B was written in prefix, the addition operator was simply moved before the operands, + A B. The result of this operation becomes the first operand for the multiplication. The multiplication operator is moved in front of the entire expression, giving us · + A B C. Likewise, in postfix A B + forces the addition to happen first. The multiplication can be done to that result and the remaining operand C. The proper postfix expression is then A B + C ·.</p>
+<p>Consider these three expressions again (see <code>Table 3</code>). Something very important has happened. Where did the parentheses go? Why don’t we need them in prefix and postfix? The answer is that the operators are no longer ambiguous with respect to the operands that they work on. Only infix notation requires the additional symbols. The order of operations within prefix and postfix expressions is completely determined by the position of the operator and nothing else. In many ways, this makes infix the least desirable notation to use.</p>
+<p><strong>Table 3: Comparison of Infix, Prefix, and Postfix Expressions</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Infix Expression</strong></th>
+<th><strong>Prefix Expression</strong></th>
+<th><strong>Postfix Expression</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(A + B) · C</td>
+<td>· + A B C</td>
+<td>A B + C ·</td>
+</tr>
+</tbody>
+</table>
+<p><code>Table 4</code> shows some additional examples of infix expressions and the equivalent prefix and postfix expressions. Be sure that you understand how they are equivalent in terms of the order of the operations being performed.</p>
+<p><strong>Table 4: Additional Examples of Infix, Prefix, and Postfix Expressions</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Infix Expression</strong></th>
+<th><strong>Prefix Expression</strong></th>
+<th><strong>Postfix Expression</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A + B · C + D</td>
+<td>+ + A · B C D</td>
+<td>A B C · + D +</td>
+</tr>
+<tr>
+<td>(A + B) · (C + D)</td>
+<td>· + A B + C D</td>
+<td>A B + C D + ·</td>
+</tr>
+<tr>
+<td>A · B + C · D</td>
+<td>+ · A B · C D</td>
+<td>A B · C D · +</td>
+</tr>
+<tr>
+<td>A + B + C + D</td>
+<td>+ + + A B C D</td>
+<td>A B + C + D +</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 <h2 id="391-中缀表达式转换为前缀和后缀">3.9.1. 中缀表达式转换为前缀和后缀<a class="headerlink" href="#391-中缀表达式转换为前缀和后缀" title="Permanent link">&para;</a></h2>
 <p><strong>3.9.1. Conversion of Infix Expressions to Prefix and Postfix</strong></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">中文</label><label for="__tabbed_2_2">英文</label></div>
 <div class="tabbed-content">
-<div class="tabbed-block"></div>
-<div class="tabbed-block"></div>
+<div class="tabbed-block">
+<p>So far, we have used ad hoc methods to convert between infix expressions and the equivalent prefix and postfix expression notations. As you might expect, there are algorithmic ways to perform the conversion that allow any expression of any complexity to be correctly transformed.</p>
+<p>The first technique that we will consider uses the notion of a fully parenthesized expression that was discussed earlier. Recall that A + B · C can be written as (A + (B · C)) to show explicitly that the multiplication has precedence over the addition. On closer observation, however, you can see that each parenthesis pair also denotes the beginning and the end of an operand pair with the corresponding operator in the middle.</p>
+<p>Look at the right parenthesis in the subexpression (B · C) above. If we were to move the multiplication symbol to that position and remove the matching left parenthesis, giving us B C ·, we would in effect have converted the subexpression to postfix notation. If the addition operator were also moved to its corresponding right parenthesis position and the matching left parenthesis were removed, the complete postfix expression would result (see <code>Figure 6</code>).</p>
+<p><figure markdown="span">
+  <a class="glightbox" href="../imgs/moveright.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/moveright.png" /></a>
+  <figcaption>Figure 6: Moving Operators to the Right for Postfix Notation</figcaption>
+</figure></p>
+<p>If we do the same thing but instead of moving the symbol to the position of the right parenthesis, we move it to the left, we get prefix notation (see <code>Figure 7</code>). The position of the parenthesis pair is actually a clue to the final position of the enclosed operator.</p>
+<p><figure markdown="span">
+  <a class="glightbox" href="../imgs/moveleft.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/moveleft.png" /></a>
+  <figcaption>Figure 7: Moving Operators to the Left for Prefix Notation</figcaption>
+</figure></p>
+<p>So in order to convert an expression, no matter how complex, to either prefix or postfix notation, fully parenthesize the expression using the order of operations. Then move the enclosed operator to the position of either the left or the right parenthesis depending on whether you want prefix or postfix notation.</p>
+<p>Here is a more complex expression: (A + B) · C - (D - E) · (F + G). <code>Figure 8</code> shows the conversion to prefix and postfix notations.</p>
+<p><figure markdown="span">
+  <a class="glightbox" href="../imgs/complexmove.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/complexmove.png" /></a>
+  <figcaption>Figure 8: Converting a Complex Expression to Prefix and Postfix Notations</figcaption>
+</figure></p>
+</div>
+<div class="tabbed-block">
+<p>So far, we have used ad hoc methods to convert between infix expressions and the equivalent prefix and postfix expression notations. As you might expect, there are algorithmic ways to perform the conversion that allow any expression of any complexity to be correctly transformed.</p>
+<p>The first technique that we will consider uses the notion of a fully parenthesized expression that was discussed earlier. Recall that A + B · C can be written as (A + (B · C)) to show explicitly that the multiplication has precedence over the addition. On closer observation, however, you can see that each parenthesis pair also denotes the beginning and the end of an operand pair with the corresponding operator in the middle.</p>
+<p>Look at the right parenthesis in the subexpression (B · C) above. If we were to move the multiplication symbol to that position and remove the matching left parenthesis, giving us B C ·, we would in effect have converted the subexpression to postfix notation. If the addition operator were also moved to its corresponding right parenthesis position and the matching left parenthesis were removed, the complete postfix expression would result (see <code>Figure 6</code>).</p>
+<p><figure markdown="span">
+  <a class="glightbox" href="../imgs/moveright.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/moveright.png" /></a>
+  <figcaption>Figure 6: Moving Operators to the Right for Postfix Notation</figcaption>
+</figure></p>
+<p>If we do the same thing but instead of moving the symbol to the position of the right parenthesis, we move it to the left, we get prefix notation (see <code>Figure 7</code>). The position of the parenthesis pair is actually a clue to the final position of the enclosed operator.</p>
+<p><figure markdown="span">
+  <a class="glightbox" href="../imgs/moveleft.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/moveleft.png" /></a>
+  <figcaption>Figure 7: Moving Operators to the Left for Prefix Notation</figcaption>
+</figure></p>
+<p>So in order to convert an expression, no matter how complex, to either prefix or postfix notation, fully parenthesize the expression using the order of operations. Then move the enclosed operator to the position of either the left or the right parenthesis depending on whether you want prefix or postfix notation.</p>
+<p>Here is a more complex expression: (A + B) · C - (D - E) · (F + G). <code>Figure 8</code> shows the conversion to prefix and postfix notations.</p>
+<p><figure markdown="span">
+  <a class="glightbox" href="../imgs/complexmove.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/complexmove.png" /></a>
+  <figcaption>Figure 8: Converting a Complex Expression to Prefix and Postfix Notations</figcaption>
+</figure></p>
+</div>
 </div>
 </div>
 <h2 id="392-一般的中缀转后缀转换">3.9.2. 一般的中缀转后缀转换<a class="headerlink" href="#392-一般的中缀转后缀转换" title="Permanent link">&para;</a></h2>
 <p><strong>3.9.2. General Infix-to-Postfix Conversion</strong></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">中文</label><label for="__tabbed_3_2">英文</label></div>
 <div class="tabbed-content">
-<div class="tabbed-block"></div>
-<div class="tabbed-block"></div>
+<div class="tabbed-block">
+<p>We need to develop an algorithm to convert any infix expression to a postfix expression. To do this we will look closer at the conversion process.</p>
+<p>Consider once again the expression A + B · C. As shown above, A B C · + is the postfix equivalent. We have already noted that the operands A, B, and C stay in their relative positions. It is only the operators that change position. Let’s look again at the operators in the infix expression. The first operator that appears from left to right is +. However, in the postfix expression, + is at the end since the next operator, ·, has precedence over addition. The order of the operators in the original expression is reversed in the resulting postfix expression.</p>
+<p>As we process the expression, the operators have to be saved somewhere since their corresponding right operands are not seen yet. Also, the order of these saved operators may need to be reversed due to their precedence. This is the case with the addition and the multiplication in this example. Since the addition operator comes before the multiplication operator and has lower precedence, it needs to appear after the multiplication operator is used. Because of this reversal of order, it makes sense to consider using a stack to keep the operators until they are needed.</p>
+<p>What about (A + B) · C? Recall that A B + C · is the postfix equivalent. Again, processing this infix expression from left to right, we see + first. In this case, when we see ·, + has already been placed in the result expression because it has precedence over · by virtue of the parentheses. We can now start to see how the conversion algorithm will work. When we see a left parenthesis, we will save it to denote that another operator of high precedence will be coming. That operator will need to wait until the corresponding right parenthesis appears to denote its position (recall the fully parenthesized technique). When that right parenthesis does appear, the operator can be popped from the stack.</p>
+<p>As we scan the infix expression from left to right, we will use a stack to keep the operators. This will provide the reversal that we noted in the first example. The top of the stack will always be the most recently saved operator. Whenever we read a new operator, we will need to consider how that operator compares in precedence with the operators, if any, already on the stack.</p>
+<p>Assume the infix expression is a string of tokens delimited by spaces. The operator tokens are ·, /, +, and -, along with the left and right parentheses, ( and ). The operand tokens are the single-character identifiers A, B, C, and so on. The following steps will produce a string of tokens in postfix order.</p>
+<ol>
+<li>Create an empty stack called <code>op_stack</code> for keeping operators. Create an empty list for output.</li>
+<li>Convert the input infix string to a list by using the string method <code>split</code>.</li>
+<li>
+<p>Scan the token list from left to right.</p>
+</li>
+<li>
+<p>If the token is an operand, append it to the end of the output list.</p>
+</li>
+<li>
+<p>If the token is a left parenthesis, push it on the <code>op_stack</code>.</p>
+</li>
+<li>
+<p>If the token is a right parenthesis, pop the <code>op_stack</code> until the corresponding left parenthesis is removed. Append each operator to the end of the output list.</p>
+</li>
+<li>
+<p>If the token is an operator, ·, /, +, or -, push it on the <code>op_stack</code>. However, first remove any operators already on the <code>op_stack</code> that have higher or equal precedence and append them to the output list.</p>
+</li>
+<li>
+<p>When the input expression has been completely processed, check the <code>op_stack</code>. Any operators still on the stack can be removed and appended to the end of the output list.</p>
+</li>
+</ol>
+<p><code>Figure 9</code> shows the conversion algorithm working on the expression A · B + C · D. Note that the first · operator is removed upon seeing the + operator. Also, + stays on the stack when the second · occurs, since multiplication has precedence over addition. At the end of the infix expression the stack is popped twice, removing both operators and placing + as the last operator in the postfix expression.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/intopost.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/intopost.png" /></a>
+    <figcaption>Figure 9: Converting A · B + C · D to Postfix Notation</figcaption>
+</figure></p>
+<p>In order to code the algorithm in Python, we will use a dictionary called <code>prec</code> to hold the precedence values for the operators, as seen in in <code>ActiveCode 1</code>. This dictionary will map each operator to an integer that can be compared against the precedence levels of other operators (we have arbitrarily used the integers 3, 2, and 1). The left parenthesis will receive the lowest value possible. This way any operator that is compared against it will have higher precedence and will be placed on top of it. Line 15 defines the operands to be any upper-case character or digit.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 3.9.2.1 Converting Infix Expressions to Postfix Expressions</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">29</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">30</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">31</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">32</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">33</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">34</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">35</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pythonds3.basic</span> <span style="color: #008000; font-weight: bold">import</span> Stack
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">infix_to_postfix</span>(infix_expr):
+    prec <span style="color: #666666">=</span> {}
+    prec[<span style="color: #BA2121">&quot;*&quot;</span>] <span style="color: #666666">=</span> <span style="color: #666666">3</span>
+    prec[<span style="color: #BA2121">&quot;/&quot;</span>] <span style="color: #666666">=</span> <span style="color: #666666">3</span>
+    prec[<span style="color: #BA2121">&quot;+&quot;</span>] <span style="color: #666666">=</span> <span style="color: #666666">2</span>
+    prec[<span style="color: #BA2121">&quot;-&quot;</span>] <span style="color: #666666">=</span> <span style="color: #666666">2</span>
+    prec[<span style="color: #BA2121">&quot;(&quot;</span>] <span style="color: #666666">=</span> <span style="color: #666666">1</span>
+    op_stack <span style="color: #666666">=</span> Stack()
+    postfix_list <span style="color: #666666">=</span> []
+    token_list <span style="color: #666666">=</span> infix_expr<span style="color: #666666">.</span>split()
+
+    <span style="color: #008000; font-weight: bold">for</span> token <span style="color: #AA22FF; font-weight: bold">in</span> token_list:
+        <span style="color: #008000; font-weight: bold">if</span> token <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #BA2121">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;</span> <span style="color: #AA22FF; font-weight: bold">or</span> token <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #BA2121">&quot;0123456789&quot;</span>:
+            postfix_list<span style="color: #666666">.</span>append(token)
+        <span style="color: #008000; font-weight: bold">elif</span> token <span style="color: #666666">==</span> <span style="color: #BA2121">&quot;(&quot;</span>:
+            op_stack<span style="color: #666666">.</span>push(token)
+        <span style="color: #008000; font-weight: bold">elif</span> token <span style="color: #666666">==</span> <span style="color: #BA2121">&quot;)&quot;</span>:
+            top_token <span style="color: #666666">=</span> op_stack<span style="color: #666666">.</span>pop()
+            <span style="color: #008000; font-weight: bold">while</span> top_token <span style="color: #666666">!=</span> <span style="color: #BA2121">&quot;(&quot;</span>:
+                postfix_list<span style="color: #666666">.</span>append(top_token)
+                top_token <span style="color: #666666">=</span> op_stack<span style="color: #666666">.</span>pop()
+        <span style="color: #008000; font-weight: bold">else</span>:
+            <span style="color: #008000; font-weight: bold">while</span> (<span style="color: #AA22FF; font-weight: bold">not</span> op_stack<span style="color: #666666">.</span>is_empty()) <span style="color: #AA22FF; font-weight: bold">and</span> (prec[op_stack<span style="color: #666666">.</span>peek()] <span style="color: #666666">&gt;=</span> prec[token]):
+                postfix_list<span style="color: #666666">.</span>append(op_stack<span style="color: #666666">.</span>pop())
+            op_stack<span style="color: #666666">.</span>push(token)
+
+    <span style="color: #008000; font-weight: bold">while</span> <span style="color: #AA22FF; font-weight: bold">not</span> op_stack<span style="color: #666666">.</span>is_empty():
+        postfix_list<span style="color: #666666">.</span>append(op_stack<span style="color: #666666">.</span>pop())
+
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #BA2121">&quot; &quot;</span><span style="color: #666666">.</span>join(postfix_list)
+
+<span style="color: #008000">print</span>(infix_to_postfix(<span style="color: #BA2121">&quot;A * B + C * D&quot;</span>))
+<span style="color: #008000">print</span>(infix_to_postfix(<span style="color: #BA2121">&quot;( A + B ) * C - ( D - E ) * ( F + G )&quot;</span>))
+</code></pre></div></td></tr></table></div>
+<hr />
+<p>A few more examples of execution in the Python shell are shown below.</p>
+<div class="language-pycon highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>infix_to_postfix(<span style="color: #BA2121">&quot;( A + B ) * ( C + D )&quot;</span>)
+<span style="color: #717171">&#39;A B + C D + *&#39;</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>infix_to_postfix(<span style="color: #BA2121">&quot;( A + B ) * C&quot;</span>)
+<span style="color: #717171">&#39;A B + C *&#39;</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>infix_to_postfix(<span style="color: #BA2121">&quot;A + B * C&quot;</span>)
+<span style="color: #717171">&#39;A B C * +&#39;</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>We need to develop an algorithm to convert any infix expression to a postfix expression. To do this we will look closer at the conversion process.</p>
+<p>Consider once again the expression A + B · C. As shown above, A B C · + is the postfix equivalent. We have already noted that the operands A, B, and C stay in their relative positions. It is only the operators that change position. Let’s look again at the operators in the infix expression. The first operator that appears from left to right is +. However, in the postfix expression, + is at the end since the next operator, ·, has precedence over addition. The order of the operators in the original expression is reversed in the resulting postfix expression.</p>
+<p>As we process the expression, the operators have to be saved somewhere since their corresponding right operands are not seen yet. Also, the order of these saved operators may need to be reversed due to their precedence. This is the case with the addition and the multiplication in this example. Since the addition operator comes before the multiplication operator and has lower precedence, it needs to appear after the multiplication operator is used. Because of this reversal of order, it makes sense to consider using a stack to keep the operators until they are needed.</p>
+<p>What about (A + B) · C? Recall that A B + C · is the postfix equivalent. Again, processing this infix expression from left to right, we see + first. In this case, when we see ·, + has already been placed in the result expression because it has precedence over · by virtue of the parentheses. We can now start to see how the conversion algorithm will work. When we see a left parenthesis, we will save it to denote that another operator of high precedence will be coming. That operator will need to wait until the corresponding right parenthesis appears to denote its position (recall the fully parenthesized technique). When that right parenthesis does appear, the operator can be popped from the stack.</p>
+<p>As we scan the infix expression from left to right, we will use a stack to keep the operators. This will provide the reversal that we noted in the first example. The top of the stack will always be the most recently saved operator. Whenever we read a new operator, we will need to consider how that operator compares in precedence with the operators, if any, already on the stack.</p>
+<p>Assume the infix expression is a string of tokens delimited by spaces. The operator tokens are ·, /, +, and -, along with the left and right parentheses, ( and ). The operand tokens are the single-character identifiers A, B, C, and so on. The following steps will produce a string of tokens in postfix order.</p>
+<ol>
+<li>Create an empty stack called <code>op_stack</code> for keeping operators. Create an empty list for output.</li>
+<li>Convert the input infix string to a list by using the string method <code>split</code>.</li>
+<li>
+<p>Scan the token list from left to right.</p>
+</li>
+<li>
+<p>If the token is an operand, append it to the end of the output list.</p>
+</li>
+<li>
+<p>If the token is a left parenthesis, push it on the <code>op_stack</code>.</p>
+</li>
+<li>
+<p>If the token is a right parenthesis, pop the <code>op_stack</code> until the corresponding left parenthesis is removed. Append each operator to the end of the output list.</p>
+</li>
+<li>
+<p>If the token is an operator, ·, /, +, or -, push it on the <code>op_stack</code>. However, first remove any operators already on the <code>op_stack</code> that have higher or equal precedence and append them to the output list.</p>
+</li>
+<li>
+<p>When the input expression has been completely processed, check the <code>op_stack</code>. Any operators still on the stack can be removed and appended to the end of the output list.</p>
+</li>
+</ol>
+<p><code>Figure 9</code> shows the conversion algorithm working on the expression A · B + C · D. Note that the first · operator is removed upon seeing the + operator. Also, + stays on the stack when the second · occurs, since multiplication has precedence over addition. At the end of the infix expression the stack is popped twice, removing both operators and placing + as the last operator in the postfix expression.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/intopost.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/intopost.png" /></a>
+    <figcaption>Figure 9: Converting A · B + C · D to Postfix Notation</figcaption>
+</figure></p>
+<p>In order to code the algorithm in Python, we will use a dictionary called <code>prec</code> to hold the precedence values for the operators, as seen in in <code>ActiveCode 1</code>. This dictionary will map each operator to an integer that can be compared against the precedence levels of other operators (we have arbitrarily used the integers 3, 2, and 1). The left parenthesis will receive the lowest value possible. This way any operator that is compared against it will have higher precedence and will be placed on top of it. Line 15 defines the operands to be any upper-case character or digit.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 3.9.2.1 Converting Infix Expressions to Postfix Expressions</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">29</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">30</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">31</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">32</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">33</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">34</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">35</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pythonds3.basic</span> <span style="color: #008000; font-weight: bold">import</span> Stack
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">infix_to_postfix</span>(infix_expr):
+    prec <span style="color: #666666">=</span> {}
+    prec[<span style="color: #BA2121">&quot;*&quot;</span>] <span style="color: #666666">=</span> <span style="color: #666666">3</span>
+    prec[<span style="color: #BA2121">&quot;/&quot;</span>] <span style="color: #666666">=</span> <span style="color: #666666">3</span>
+    prec[<span style="color: #BA2121">&quot;+&quot;</span>] <span style="color: #666666">=</span> <span style="color: #666666">2</span>
+    prec[<span style="color: #BA2121">&quot;-&quot;</span>] <span style="color: #666666">=</span> <span style="color: #666666">2</span>
+    prec[<span style="color: #BA2121">&quot;(&quot;</span>] <span style="color: #666666">=</span> <span style="color: #666666">1</span>
+    op_stack <span style="color: #666666">=</span> Stack()
+    postfix_list <span style="color: #666666">=</span> []
+    token_list <span style="color: #666666">=</span> infix_expr<span style="color: #666666">.</span>split()
+
+    <span style="color: #008000; font-weight: bold">for</span> token <span style="color: #AA22FF; font-weight: bold">in</span> token_list:
+        <span style="color: #008000; font-weight: bold">if</span> token <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #BA2121">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;</span> <span style="color: #AA22FF; font-weight: bold">or</span> token <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #BA2121">&quot;0123456789&quot;</span>:
+            postfix_list<span style="color: #666666">.</span>append(token)
+        <span style="color: #008000; font-weight: bold">elif</span> token <span style="color: #666666">==</span> <span style="color: #BA2121">&quot;(&quot;</span>:
+            op_stack<span style="color: #666666">.</span>push(token)
+        <span style="color: #008000; font-weight: bold">elif</span> token <span style="color: #666666">==</span> <span style="color: #BA2121">&quot;)&quot;</span>:
+            top_token <span style="color: #666666">=</span> op_stack<span style="color: #666666">.</span>pop()
+            <span style="color: #008000; font-weight: bold">while</span> top_token <span style="color: #666666">!=</span> <span style="color: #BA2121">&quot;(&quot;</span>:
+                postfix_list<span style="color: #666666">.</span>append(top_token)
+                top_token <span style="color: #666666">=</span> op_stack<span style="color: #666666">.</span>pop()
+        <span style="color: #008000; font-weight: bold">else</span>:
+            <span style="color: #008000; font-weight: bold">while</span> (<span style="color: #AA22FF; font-weight: bold">not</span> op_stack<span style="color: #666666">.</span>is_empty()) <span style="color: #AA22FF; font-weight: bold">and</span> (prec[op_stack<span style="color: #666666">.</span>peek()] <span style="color: #666666">&gt;=</span> prec[token]):
+                postfix_list<span style="color: #666666">.</span>append(op_stack<span style="color: #666666">.</span>pop())
+            op_stack<span style="color: #666666">.</span>push(token)
+
+    <span style="color: #008000; font-weight: bold">while</span> <span style="color: #AA22FF; font-weight: bold">not</span> op_stack<span style="color: #666666">.</span>is_empty():
+        postfix_list<span style="color: #666666">.</span>append(op_stack<span style="color: #666666">.</span>pop())
+
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #BA2121">&quot; &quot;</span><span style="color: #666666">.</span>join(postfix_list)
+
+<span style="color: #008000">print</span>(infix_to_postfix(<span style="color: #BA2121">&quot;A * B + C * D&quot;</span>))
+<span style="color: #008000">print</span>(infix_to_postfix(<span style="color: #BA2121">&quot;( A + B ) * C - ( D - E ) * ( F + G )&quot;</span>))
+</code></pre></div></td></tr></table></div>
+<hr />
+<p>A few more examples of execution in the Python shell are shown below.</p>
+<div class="language-pycon highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>infix_to_postfix(<span style="color: #BA2121">&quot;( A + B ) * ( C + D )&quot;</span>)
+<span style="color: #717171">&#39;A B + C D + *&#39;</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>infix_to_postfix(<span style="color: #BA2121">&quot;( A + B ) * C&quot;</span>)
+<span style="color: #717171">&#39;A B + C *&#39;</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>infix_to_postfix(<span style="color: #BA2121">&quot;A + B * C&quot;</span>)
+<span style="color: #717171">&#39;A B C * +&#39;</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt;</span>
+</code></pre></div>
+</div>
 </div>
 </div>
 <h2 id="393-后缀表达式求值">3.9.3. 后缀表达式求值<a class="headerlink" href="#393-后缀表达式求值" title="Permanent link">&para;</a></h2>
 <p><strong>3.9.3. Postfix Evaluation</strong></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">中文</label><label for="__tabbed_4_2">英文</label></div>
 <div class="tabbed-content">
-<div class="tabbed-block"></div>
-<div class="tabbed-block"></div>
+<div class="tabbed-block">
+<p>As a final stack example, we will consider the evaluation of an expression that is already in postfix notation. In this case, a stack is again the data structure of choice. However, as you scan the postfix expression, it is the operands that must wait, not the operators as in the conversion algorithm above. Another way to think about the solution is that whenever an operator is seen on the input, the two most recent operands will be used in the evaluation.</p>
+<p>To see this in more detail, consider the postfix expression 4 5 6 · +. As you scan the expression from left to right, you first encounter the operands 4 and 5. At this point, you are still unsure what to do with them until you see the next symbol. Placing each on the stack ensures that they are available if an operator comes next.</p>
+<p>In this case, the next symbol is another operand. So, as before, push it and check the next symbol. Now we see an operator, ·. This means that the two most recent operands need to be used in a multiplication operation. By popping the stack twice, we can get the proper operands and then perform the multiplication (in this case getting the result 30).</p>
+<p>We can now handle this result by placing it back on the stack so that it can be used as an operand for the later operators in the expression. When the final operator is processed, there will be only one value left on the stack. Pop and return it as the result of the expression. <code>Figure 10</code> shows the stack contents as this entire example expression is being processed.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/evalpostfix1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/evalpostfix1.png" /></a>
+    <figcaption>Figure 10: Stack Contents During Evaluation</figcaption>
+</figure></p>
+<p><code>Figure 11</code> shows a slightly more complex example, 7 8 + 3 2 + /. There are two things to note in this example. First, the stack size grows, shrinks, and then grows again as the subexpressions are evaluated. Second, the division operation needs to be handled carefully. Recall that the operands in the postfix expression are in their original order since postfix changes only the placement of operators. When the operands for the division are popped from the stack, they are reversed. Since division is <em>not</em> a commutative operator, in other words <span class="arithmatex">\(15/5\)</span> is not the same as <span class="arithmatex">\(5/15\)</span>, we must be sure that the order of the operands is not switched.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/evalpostfix2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/evalpostfix2.png" /></a>
+    <figcaption>Figure 11: A More Complex Example of Evaluation</figcaption>
+</figure></p>
+<p>Assume the postfix expression is a string of tokens delimited by spaces. The operators are ·, /, +, and - and the operands are assumed to be single-digit integer values. The output will be an integer result.</p>
+<ol>
+<li>Create an empty stack called <code>operand_stack</code>.</li>
+<li>Convert the string to a list by using the string method <code>split</code>.</li>
+<li>
+<p>Scan the token list from left to right.</p>
+</li>
+<li>
+<p>If the token is an operand, convert it from a string to an integer and push the value onto the <code>operand_stack</code>.</p>
+</li>
+<li>
+<p>If the token is an operator, ·, /, +, or -, it will need two operands. Pop the <code>operand_stack</code> twice. The first pop is the second operand and the second pop is the first operand. Perform the arithmetic operation. Push the result back on the <code>operand_stack</code>.</p>
+</li>
+<li>
+<p>When the input expression has been completely processed, the result is on the stack. Pop the <code>operand_stack</code> and return the value.</p>
+</li>
+</ol>
+<p>The complete function for the evaluation of postfix expressions is shown in <code>ActiveCode 2</code>. To assist with the arithmetic, a helper function <code>do_math</code> is defined. It will take two operands and an operator and then perform the proper arithmetic operation.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 3.9.3.1 Postfix Evaluation</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">29</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pythonds3.basic</span> <span style="color: #008000; font-weight: bold">import</span> Stack
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">postfix_eval</span>(postfix_expr):
+    operand_stack <span style="color: #666666">=</span> Stack()
+    token_list <span style="color: #666666">=</span> postfix_expr<span style="color: #666666">.</span>split()
+
+    <span style="color: #008000; font-weight: bold">for</span> token <span style="color: #AA22FF; font-weight: bold">in</span> token_list:
+        <span style="color: #008000; font-weight: bold">if</span> token <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #BA2121">&quot;0123456789&quot;</span>:
+            operand_stack<span style="color: #666666">.</span>push(<span style="color: #008000">int</span>(token))
+        <span style="color: #008000; font-weight: bold">else</span>:
+            operand2 <span style="color: #666666">=</span> operand_stack<span style="color: #666666">.</span>pop()
+            operand1 <span style="color: #666666">=</span> operand_stack<span style="color: #666666">.</span>pop()
+            result <span style="color: #666666">=</span> do_math(token, operand1, operand2)
+            operand_stack<span style="color: #666666">.</span>push(result)
+    <span style="color: #008000; font-weight: bold">return</span> operand_stack<span style="color: #666666">.</span>pop()
+
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">do_math</span>(op, op1, op2):
+    <span style="color: #008000; font-weight: bold">if</span> op <span style="color: #666666">==</span> <span style="color: #BA2121">&quot;*&quot;</span>:
+        <span style="color: #008000; font-weight: bold">return</span> op1 <span style="color: #666666">*</span> op2
+    <span style="color: #008000; font-weight: bold">elif</span> op <span style="color: #666666">==</span> <span style="color: #BA2121">&quot;/&quot;</span>:
+        <span style="color: #008000; font-weight: bold">return</span> op1 <span style="color: #666666">/</span> op2
+    <span style="color: #008000; font-weight: bold">elif</span> op <span style="color: #666666">==</span> <span style="color: #BA2121">&quot;+&quot;</span>:
+        <span style="color: #008000; font-weight: bold">return</span> op1 <span style="color: #666666">+</span> op2
+    <span style="color: #008000; font-weight: bold">else</span>:
+        <span style="color: #008000; font-weight: bold">return</span> op1 <span style="color: #666666">-</span> op2
+
+
+<span style="color: #008000">print</span>(postfix_eval(<span style="color: #BA2121">&quot;7 8 + 3 2 + /&quot;</span>))
+</code></pre></div></td></tr></table></div>
+<p>It is important to note that in both the postfix conversion and the postfix evaluation programs we assumed that there were no errors in the input expression. Using these programs as a starting point, you can easily see how error detection and reporting can be included. We leave this as an exercise at the end of the chapter.</p>
+<div class="admonition info">
+<p class="admonition-title">Self Check</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Activity: 3.9.3.2 Fill in the Blank</label><label for="__tabbed_5_2">Activity: 3.9.3.3 Fill in the Blank</label><label for="__tabbed_5_3">Activity: 3.9.3.4 Fill in the Blank</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Without using the activecode <code>infix_to_postfix</code> function, convert the following expression to postfix  <code>10 + 3 * 5 / (16 - 4)</code> .</p>
+<p>|blank|</p>
+<ul>
+<li>:10\s+3\s+5\s<em>*\s</em>16\s+4\s<em>-\s</em>/\s*+: Correct.</li>
+<li>:10.<em>3.</em>5.<em>16.</em>4\s+[ /+<em>-]</em>: The numbers appear to be in the correct order check your operators</li>
+<li><img alt="❌" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/274c.svg" title=":x:" /> Remember the numbers will be in the same order as the original equation</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p>What is the result of evaluating the following: <code>17 10 + 3 * 9 / ==</code> ?</p>
+<p>|blank|</p>
+<ul>
+<li>:9: Correct.</li>
+<li><img alt="❌" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/274c.svg" title=":x:" /> Remember to push each intermediate result back on the stack</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p>Modify the <code>infix_to_postfix</code> function so that it can convert the following expression:  <code>5 * 3 ^ (4 - 2)</code>. Run the function on the expression and paste the answer here:</p>
+<p>|blank|</p>
+<ul>
+<li>:5\s+3\s+4\s+2\s<em>-\s</em>**\s**: Correct.</li>
+<li><img alt="❌" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/274c.svg" title=":x:" /> Hint: You only need to add one line to the function!!</li>
+</ul>
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="tabbed-block">
+<p>As a final stack example, we will consider the evaluation of an expression that is already in postfix notation. In this case, a stack is again the data structure of choice. However, as you scan the postfix expression, it is the operands that must wait, not the operators as in the conversion algorithm above. Another way to think about the solution is that whenever an operator is seen on the input, the two most recent operands will be used in the evaluation.</p>
+<p>To see this in more detail, consider the postfix expression 4 5 6 · +. As you scan the expression from left to right, you first encounter the operands 4 and 5. At this point, you are still unsure what to do with them until you see the next symbol. Placing each on the stack ensures that they are available if an operator comes next.</p>
+<p>In this case, the next symbol is another operand. So, as before, push it and check the next symbol. Now we see an operator, ·. This means that the two most recent operands need to be used in a multiplication operation. By popping the stack twice, we can get the proper operands and then perform the multiplication (in this case getting the result 30).</p>
+<p>We can now handle this result by placing it back on the stack so that it can be used as an operand for the later operators in the expression. When the final operator is processed, there will be only one value left on the stack. Pop and return it as the result of the expression. <code>Figure 10</code> shows the stack contents as this entire example expression is being processed.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/evalpostfix1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/evalpostfix1.png" /></a>
+    <figcaption>Figure 10: Stack Contents During Evaluation</figcaption>
+</figure></p>
+<p><code>Figure 11</code> shows a slightly more complex example, 7 8 + 3 2 + /. There are two things to note in this example. First, the stack size grows, shrinks, and then grows again as the subexpressions are evaluated. Second, the division operation needs to be handled carefully. Recall that the operands in the postfix expression are in their original order since postfix changes only the placement of operators. When the operands for the division are popped from the stack, they are reversed. Since division is <em>not</em> a commutative operator, in other words <span class="arithmatex">\(15/5\)</span> is not the same as <span class="arithmatex">\(5/15\)</span>, we must be sure that the order of the operands is not switched.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/evalpostfix2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/evalpostfix2.png" /></a>
+    <figcaption>Figure 11: A More Complex Example of Evaluation</figcaption>
+</figure></p>
+<p>Assume the postfix expression is a string of tokens delimited by spaces. The operators are ·, /, +, and - and the operands are assumed to be single-digit integer values. The output will be an integer result.</p>
+<ol>
+<li>Create an empty stack called <code>operand_stack</code>.</li>
+<li>Convert the string to a list by using the string method <code>split</code>.</li>
+<li>
+<p>Scan the token list from left to right.</p>
+</li>
+<li>
+<p>If the token is an operand, convert it from a string to an integer and push the value onto the <code>operand_stack</code>.</p>
+</li>
+<li>
+<p>If the token is an operator, ·, /, +, or -, it will need two operands. Pop the <code>operand_stack</code> twice. The first pop is the second operand and the second pop is the first operand. Perform the arithmetic operation. Push the result back on the <code>operand_stack</code>.</p>
+</li>
+<li>
+<p>When the input expression has been completely processed, the result is on the stack. Pop the <code>operand_stack</code> and return the value.</p>
+</li>
+</ol>
+<p>The complete function for the evaluation of postfix expressions is shown in <code>ActiveCode 2</code>. To assist with the arithmetic, a helper function <code>do_math</code> is defined. It will take two operands and an operator and then perform the proper arithmetic operation.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 3.9.3.1 Postfix Evaluation</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">29</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pythonds3.basic</span> <span style="color: #008000; font-weight: bold">import</span> Stack
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">postfix_eval</span>(postfix_expr):
+    operand_stack <span style="color: #666666">=</span> Stack()
+    token_list <span style="color: #666666">=</span> postfix_expr<span style="color: #666666">.</span>split()
+
+    <span style="color: #008000; font-weight: bold">for</span> token <span style="color: #AA22FF; font-weight: bold">in</span> token_list:
+        <span style="color: #008000; font-weight: bold">if</span> token <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #BA2121">&quot;0123456789&quot;</span>:
+            operand_stack<span style="color: #666666">.</span>push(<span style="color: #008000">int</span>(token))
+        <span style="color: #008000; font-weight: bold">else</span>:
+            operand2 <span style="color: #666666">=</span> operand_stack<span style="color: #666666">.</span>pop()
+            operand1 <span style="color: #666666">=</span> operand_stack<span style="color: #666666">.</span>pop()
+            result <span style="color: #666666">=</span> do_math(token, operand1, operand2)
+            operand_stack<span style="color: #666666">.</span>push(result)
+    <span style="color: #008000; font-weight: bold">return</span> operand_stack<span style="color: #666666">.</span>pop()
+
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">do_math</span>(op, op1, op2):
+    <span style="color: #008000; font-weight: bold">if</span> op <span style="color: #666666">==</span> <span style="color: #BA2121">&quot;*&quot;</span>:
+        <span style="color: #008000; font-weight: bold">return</span> op1 <span style="color: #666666">*</span> op2
+    <span style="color: #008000; font-weight: bold">elif</span> op <span style="color: #666666">==</span> <span style="color: #BA2121">&quot;/&quot;</span>:
+        <span style="color: #008000; font-weight: bold">return</span> op1 <span style="color: #666666">/</span> op2
+    <span style="color: #008000; font-weight: bold">elif</span> op <span style="color: #666666">==</span> <span style="color: #BA2121">&quot;+&quot;</span>:
+        <span style="color: #008000; font-weight: bold">return</span> op1 <span style="color: #666666">+</span> op2
+    <span style="color: #008000; font-weight: bold">else</span>:
+        <span style="color: #008000; font-weight: bold">return</span> op1 <span style="color: #666666">-</span> op2
+
+
+<span style="color: #008000">print</span>(postfix_eval(<span style="color: #BA2121">&quot;7 8 + 3 2 + /&quot;</span>))
+</code></pre></div></td></tr></table></div>
+<p>It is important to note that in both the postfix conversion and the postfix evaluation programs we assumed that there were no errors in the input expression. Using these programs as a starting point, you can easily see how error detection and reporting can be included. We leave this as an exercise at the end of the chapter.</p>
+<div class="admonition info">
+<p class="admonition-title">Self Check</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Activity: 3.9.3.2 Fill in the Blank</label><label for="__tabbed_6_2">Activity: 3.9.3.3 Fill in the Blank</label><label for="__tabbed_6_3">Activity: 3.9.3.4 Fill in the Blank</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Without using the activecode <code>infix_to_postfix</code> function, convert the following expression to postfix  <code>10 + 3 * 5 / (16 - 4)</code> .</p>
+<p>|blank|</p>
+<ul>
+<li>:10\s+3\s+5\s<em>*\s</em>16\s+4\s<em>-\s</em>/\s*+: Correct.</li>
+<li>:10.<em>3.</em>5.<em>16.</em>4\s+[ /+<em>-]</em>: The numbers appear to be in the correct order check your operators</li>
+<li><img alt="❌" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/274c.svg" title=":x:" /> Remember the numbers will be in the same order as the original equation</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p>What is the result of evaluating the following: <code>17 10 + 3 * 9 / ==</code> ?</p>
+<p>|blank|</p>
+<ul>
+<li>:9: Correct.</li>
+<li><img alt="❌" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/274c.svg" title=":x:" /> Remember to push each intermediate result back on the stack</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p>Modify the <code>infix_to_postfix</code> function so that it can convert the following expression:  <code>5 * 3 ^ (4 - 2)</code>. Run the function on the expression and paste the answer here:</p>
+<p>|blank|</p>
+<ul>
+<li>:5\s+3\s+4\s+2\s<em>-\s</em>**\s**: Correct.</li>
+<li><img alt="❌" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/274c.svg" title=":x:" /> Hint: You only need to add one line to the function!!</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<iframe id="video_Stack3" data-component="youtube" class="align-left youtube-video" data-video-height="315" data-question_label="3.9.3.5" data-video-width="560" data-video-videoid="LO-2q4pSsdM" data-video-divid="video_Stack3" data-video-start="0" data-video-end="-1" frameborder="0" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Stack3" width="560" height="315" src="https://www.youtube.com/embed/LO-2q4pSsdM?start=0&amp;enablejsapi=1&amp;origin=https%3A%2F%2Frunestone.academy&amp;widgetid=1"></iframe>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月9日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月10日</span>
       
         <br>
         创建日期:
@@ -4125,7 +4829,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.tabs.link", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "toc.follow"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["header.autohide", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "content.tabs.link", "content.code.copy", "content.tooltips", "navigation.indexes", "navigation.prune", "navigation.instant"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.94c44541.min.js"></script>
@@ -4135,8 +4839,6 @@
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-      
-        <script src="https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js"></script>
       
     
   <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
