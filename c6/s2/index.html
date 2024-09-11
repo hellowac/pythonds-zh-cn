@@ -22,7 +22,7 @@
     
     
       
-        <title>S2 - python数据结构和算法 - 中文版</title>
+        <title>6.2. 树的示例 - python数据结构和算法 - 中文版</title>
       
     
     
@@ -85,6 +85,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#62-树的示例" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -133,7 +138,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              S2
+              6.2. 树的示例
             
           </span>
         </div>
@@ -2676,7 +2681,7 @@
         
   
   <span class="md-ellipsis">
-    S1
+    6.1. 目标
   </span>
   
 
@@ -2698,12 +2703,14 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    S2
+    6.2. 树的示例
   </span>
   
 
@@ -2724,7 +2731,7 @@
         
   
   <span class="md-ellipsis">
-    S3
+    6.3. 词汇和定义
   </span>
   
 
@@ -2744,7 +2751,7 @@
         
   
   <span class="md-ellipsis">
-    S4
+    6.4. 实现
   </span>
   
 
@@ -2764,7 +2771,7 @@
         
   
   <span class="md-ellipsis">
-    S5
+    6.5. 列表表示法
   </span>
   
 
@@ -2784,7 +2791,7 @@
         
   
   <span class="md-ellipsis">
-    S6
+    6.6. 节点与引用
   </span>
   
 
@@ -2804,7 +2811,7 @@
         
   
   <span class="md-ellipsis">
-    S7
+    6.7. 解析树
   </span>
   
 
@@ -2824,7 +2831,7 @@
         
   
   <span class="md-ellipsis">
-    S8
+    6.8. 树遍历
   </span>
   
 
@@ -2844,7 +2851,7 @@
         
   
   <span class="md-ellipsis">
-    S9
+    6.9. 使用二叉堆的优先队列
   </span>
   
 
@@ -2864,7 +2871,7 @@
         
   
   <span class="md-ellipsis">
-    S10
+    6.10. 二叉堆操作
   </span>
   
 
@@ -2884,7 +2891,7 @@
         
   
   <span class="md-ellipsis">
-    S11
+    6.11. 二叉堆实现
   </span>
   
 
@@ -2904,7 +2911,7 @@
         
   
   <span class="md-ellipsis">
-    S12
+    6.12. 二叉搜索树
   </span>
   
 
@@ -2924,7 +2931,7 @@
         
   
   <span class="md-ellipsis">
-    S13
+    6.13. 搜索树操作
   </span>
   
 
@@ -2944,7 +2951,7 @@
         
   
   <span class="md-ellipsis">
-    S14
+    6.14. 搜索树实现
   </span>
   
 
@@ -2964,7 +2971,7 @@
         
   
   <span class="md-ellipsis">
-    S15
+    6.15. 搜索树分析
   </span>
   
 
@@ -2984,7 +2991,7 @@
         
   
   <span class="md-ellipsis">
-    S16
+    6.16. 平衡二叉搜索树
   </span>
   
 
@@ -3004,7 +3011,7 @@
         
   
   <span class="md-ellipsis">
-    S17
+    6.17. AVL树性能
   </span>
   
 
@@ -3024,7 +3031,7 @@
         
   
   <span class="md-ellipsis">
-    S18
+    6.18. AVL树实现
   </span>
   
 
@@ -3044,7 +3051,7 @@
         
   
   <span class="md-ellipsis">
-    S19
+    6.19. Map ADT实现总结
   </span>
   
 
@@ -3064,7 +3071,7 @@
         
   
   <span class="md-ellipsis">
-    S20
+    6.20. 总结
   </span>
   
 
@@ -3084,7 +3091,7 @@
         
   
   <span class="md-ellipsis">
-    S21
+    6.21. 关键术语
   </span>
   
 
@@ -3104,7 +3111,7 @@
         
   
   <span class="md-ellipsis">
-    S22
+    6.22. 练习
   </span>
   
 
@@ -3944,6 +3951,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -3961,16 +3970,95 @@
   
 
 
-  <h1>S2</h1>
-
-
+<h1 id="62-树的示例">6.2. 树的示例<a class="headerlink" href="#62-树的示例" title="Permanent link">&para;</a></h1>
+<p><strong>6.2. Examples of Trees</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Now that we have studied linear data structures like stacks and queues and have some experience with recursion, we will look at a common data structure called the <strong>tree</strong>. Trees are used in many areas of computer science, including operating systems, graphics, database systems, and computer networking. Tree data structures have many things in common with their botanical cousins. A tree data structure has a root, branches, and leaves. The difference between a tree in nature and a tree in computer science is that a tree data structure has its root at the top and its leaves on the bottom.</p>
+<p>Before we begin our study of tree data structures, let’s look at a few common examples. Our first example of a tree is a classification tree from biology. <code>Figure 1</code> shows an example of the biological classification of some animals. From this simple example, we can learn about several properties of trees. The first property this example demonstrates is that trees are hierarchical. By hierarchical, we mean that trees are structured in layers with the more general things near the top and the more specific things near the bottom. The top of the hierarchy is the kingdom, the next layer of the tree (the “children” of the layer above) is the phylum, then the class, and so on. However, no matter how deep we go in the classification tree, all the organisms are still animals.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/biology.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/biology.png" /></a>
+    <figcaption markdown="span">Figure 1: Taxonomy of Some Common Animals Shown as a Tree</figcaption>
+</figure></p>
+<p>Notice that you can start at the top of the tree and follow a path made of circles and arrows all the way to the bottom. At each level of the tree we might ask ourselves a question and then follow the path that agrees with our answer. For example we might ask, “Is this animal a chordate or an arthropod?” If the answer is “chordate,” then we follow that path and ask, “Is this chordate a mammal?” If not, we are stuck (but only in this simplified example). When we are at the mammal level we ask, “Is this mammal a primate or a carnivore?” We can keep following paths until we get to the very bottom of the tree where we have the common name.</p>
+<p>A second property of trees is that all of the children of one node are independent of the children of another node. For example, the genus <em>Thermobia</em> has a children <em>domestica</em>. The genus <em>Musca</em> also has a child named <em>domestica</em>, but it is a different node and is independent of the <em>domestica</em> child of <em>Thermobia</em>. This means that we can change the node that is the child of <em>Musca</em> without affecting the child of <em>Thermobia</em>.</p>
+<p>A third property is that each leaf node is unique. We can specify a path from the root of the tree to a leaf that uniquely identifies each species in the animal kingdom, for example Animalia <span class="arithmatex">\(\rightarrow\)</span> Chordata <span class="arithmatex">\(\rightarrow\)</span> Mammalia <span class="arithmatex">\(\rightarrow\)</span> Carnivora <span class="arithmatex">\(\rightarrow\)</span> Felidae <span class="arithmatex">\(\rightarrow\)</span> <em>Felis</em> <span class="arithmatex">\(\rightarrow\)</span> <em>catus</em>.</p>
+<p>Another example of a tree structure that you probably use every day is a file system. In a file system, directories, or folders, are structured as a tree. <code>Figure 2 &lt;fig_filetree&gt;</code> illustrates a small part of a Unix file system hierarchy.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/directory.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/directory.png" /></a>
+    <figcaption markdown="span">Figure 2: A Small Part of the Unix File System Hierarchy</figcaption>
+</figure></p>
+<p>Like the biological classification tree, the file system tree enables you to follow a path from the root to any directory. That path will  uniquely identify that subdirectory (and all the files in it). Another important property of trees, derived from their hierarchical nature, is that you can move entire sections of a tree (called a subtree) to a different position in the tree without affecting the lower levels of the hierarchy. For example, we could take the entire subtree staring with /etc/, detach etc/ from the root and reattach it under usr/. This would change the unique pathname to httpd from /etc/httpd to /usr/etc/httpd, but would not affect the contents or any children of the httpd directory.</p>
+<p>A final example of a tree is a web page. The code that precedes <code>Figure 3</code> is an example of a simple web page using HTML; <code>Figure 3</code> shows the tree  that corresponds to each of the HTML tags used to create the page.</p>
+<div class="language-html highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>&lt;<span style="color: #008000; font-weight: bold">html</span> <span style="color: #687822">lang</span><span style="color: #666666">=</span><span style="color: #BA2121">&quot;en&quot;</span>&gt;
+    &lt;<span style="color: #008000; font-weight: bold">head</span>&gt;
+        &lt;<span style="color: #008000; font-weight: bold">meta</span> <span style="color: #687822">charset</span><span style="color: #666666">=</span><span style="color: #BA2121">utf-8&quot;</span> /&gt;
+        &lt;<span style="color: #008000; font-weight: bold">title</span>&gt;simple&lt;/<span style="color: #008000; font-weight: bold">title</span>&gt;
+    &lt;/<span style="color: #008000; font-weight: bold">head</span>&gt;
+    &lt;<span style="color: #008000; font-weight: bold">body</span>&gt;
+        &lt;<span style="color: #008000; font-weight: bold">h1</span>&gt;A simple web page&lt;/<span style="color: #008000; font-weight: bold">h1</span>&gt;
+        &lt;<span style="color: #008000; font-weight: bold">ul</span>&gt;
+            &lt;<span style="color: #008000; font-weight: bold">li</span>&gt;List item one&lt;/<span style="color: #008000; font-weight: bold">li</span>&gt;
+            &lt;<span style="color: #008000; font-weight: bold">li</span>&gt;List item two&lt;/<span style="color: #008000; font-weight: bold">li</span>&gt;
+        &lt;/<span style="color: #008000; font-weight: bold">ul</span>&gt;
+        &lt;<span style="color: #008000; font-weight: bold">h2</span>&gt;&lt;<span style="color: #008000; font-weight: bold">a</span> <span style="color: #687822">href</span><span style="color: #666666">=</span><span style="color: #BA2121">&quot;https://www.luther.edu&quot;</span>&gt;Luther College&lt;/<span style="color: #008000; font-weight: bold">a</span>&gt;&lt;<span style="color: #008000; font-weight: bold">h2</span>&gt;
+    &lt;/<span style="color: #008000; font-weight: bold">body</span>&gt;
+&lt;/<span style="color: #008000; font-weight: bold">html</span>&gt;
+</code></pre></div>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/biology.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/biology.png" /></a>
+    <figcaption markdown="span">Figure 3: A Tree Corresponding to the Markup Elements of a Web Page</figcaption>
+</figure></p>
+<p>The HTML source code and the tree accompanying the source illustrate another hierarchy. Notice that each level of the tree corresponds to a level of nesting inside the HTML tags. The first tag in the source is <code>&lt;html&gt;</code> and the last is <code>&lt;/html&gt;</code>. All the rest of the tags in the page are inside the pair. If you check, you will see that this nesting property is true at all levels of the tree.</p>
+</div>
+<div class="tabbed-block">
+<p>Now that we have studied linear data structures like stacks and queues and have some experience with recursion, we will look at a common data structure called the <strong>tree</strong>. Trees are used in many areas of computer science, including operating systems, graphics, database systems, and computer networking. Tree data structures have many things in common with their botanical cousins. A tree data structure has a root, branches, and leaves. The difference between a tree in nature and a tree in computer science is that a tree data structure has its root at the top and its leaves on the bottom.</p>
+<p>Before we begin our study of tree data structures, let’s look at a few common examples. Our first example of a tree is a classification tree from biology. <code>Figure 1</code> shows an example of the biological classification of some animals. From this simple example, we can learn about several properties of trees. The first property this example demonstrates is that trees are hierarchical. By hierarchical, we mean that trees are structured in layers with the more general things near the top and the more specific things near the bottom. The top of the hierarchy is the kingdom, the next layer of the tree (the “children” of the layer above) is the phylum, then the class, and so on. However, no matter how deep we go in the classification tree, all the organisms are still animals.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/biology.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/biology.png" /></a>
+    <figcaption markdown="span">Figure 1: Taxonomy of Some Common Animals Shown as a Tree</figcaption>
+</figure></p>
+<p>Notice that you can start at the top of the tree and follow a path made of circles and arrows all the way to the bottom. At each level of the tree we might ask ourselves a question and then follow the path that agrees with our answer. For example we might ask, “Is this animal a chordate or an arthropod?” If the answer is “chordate,” then we follow that path and ask, “Is this chordate a mammal?” If not, we are stuck (but only in this simplified example). When we are at the mammal level we ask, “Is this mammal a primate or a carnivore?” We can keep following paths until we get to the very bottom of the tree where we have the common name.</p>
+<p>A second property of trees is that all of the children of one node are independent of the children of another node. For example, the genus <em>Thermobia</em> has a children <em>domestica</em>. The genus <em>Musca</em> also has a child named <em>domestica</em>, but it is a different node and is independent of the <em>domestica</em> child of <em>Thermobia</em>. This means that we can change the node that is the child of <em>Musca</em> without affecting the child of <em>Thermobia</em>.</p>
+<p>A third property is that each leaf node is unique. We can specify a path from the root of the tree to a leaf that uniquely identifies each species in the animal kingdom, for example Animalia <span class="arithmatex">\(\rightarrow\)</span> Chordata <span class="arithmatex">\(\rightarrow\)</span> Mammalia <span class="arithmatex">\(\rightarrow\)</span> Carnivora <span class="arithmatex">\(\rightarrow\)</span> Felidae <span class="arithmatex">\(\rightarrow\)</span> <em>Felis</em> <span class="arithmatex">\(\rightarrow\)</span> <em>catus</em>.</p>
+<p>Another example of a tree structure that you probably use every day is a file system. In a file system, directories, or folders, are structured as a tree. <code>Figure 2 &lt;fig_filetree&gt;</code> illustrates a small part of a Unix file system hierarchy.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/directory.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/directory.png" /></a>
+    <figcaption markdown="span">Figure 2: A Small Part of the Unix File System Hierarchy</figcaption>
+</figure></p>
+<p>Like the biological classification tree, the file system tree enables you to follow a path from the root to any directory. That path will  uniquely identify that subdirectory (and all the files in it). Another important property of trees, derived from their hierarchical nature, is that you can move entire sections of a tree (called a subtree) to a different position in the tree without affecting the lower levels of the hierarchy. For example, we could take the entire subtree staring with /etc/, detach etc/ from the root and reattach it under usr/. This would change the unique pathname to httpd from /etc/httpd to /usr/etc/httpd, but would not affect the contents or any children of the httpd directory.</p>
+<p>A final example of a tree is a web page. The code that precedes <code>Figure 3</code> is an example of a simple web page using HTML; <code>Figure 3</code> shows the tree  that corresponds to each of the HTML tags used to create the page.</p>
+<div class="language-html highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>&lt;<span style="color: #008000; font-weight: bold">html</span> <span style="color: #687822">lang</span><span style="color: #666666">=</span><span style="color: #BA2121">&quot;en&quot;</span>&gt;
+    &lt;<span style="color: #008000; font-weight: bold">head</span>&gt;
+        &lt;<span style="color: #008000; font-weight: bold">meta</span> <span style="color: #687822">charset</span><span style="color: #666666">=</span><span style="color: #BA2121">utf-8&quot;</span> /&gt;
+        &lt;<span style="color: #008000; font-weight: bold">title</span>&gt;simple&lt;/<span style="color: #008000; font-weight: bold">title</span>&gt;
+    &lt;/<span style="color: #008000; font-weight: bold">head</span>&gt;
+    &lt;<span style="color: #008000; font-weight: bold">body</span>&gt;
+        &lt;<span style="color: #008000; font-weight: bold">h1</span>&gt;A simple web page&lt;/<span style="color: #008000; font-weight: bold">h1</span>&gt;
+        &lt;<span style="color: #008000; font-weight: bold">ul</span>&gt;
+            &lt;<span style="color: #008000; font-weight: bold">li</span>&gt;List item one&lt;/<span style="color: #008000; font-weight: bold">li</span>&gt;
+            &lt;<span style="color: #008000; font-weight: bold">li</span>&gt;List item two&lt;/<span style="color: #008000; font-weight: bold">li</span>&gt;
+        &lt;/<span style="color: #008000; font-weight: bold">ul</span>&gt;
+        &lt;<span style="color: #008000; font-weight: bold">h2</span>&gt;&lt;<span style="color: #008000; font-weight: bold">a</span> <span style="color: #687822">href</span><span style="color: #666666">=</span><span style="color: #BA2121">&quot;https://www.luther.edu&quot;</span>&gt;Luther College&lt;/<span style="color: #008000; font-weight: bold">a</span>&gt;&lt;<span style="color: #008000; font-weight: bold">h2</span>&gt;
+    &lt;/<span style="color: #008000; font-weight: bold">body</span>&gt;
+&lt;/<span style="color: #008000; font-weight: bold">html</span>&gt;
+</code></pre></div>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/biology.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/biology.png" /></a>
+    <figcaption markdown="span">Figure 3: A Tree Corresponding to the Markup Elements of a Web Page</figcaption>
+</figure></p>
+<p>The HTML source code and the tree accompanying the source illustrate another hierarchy. Notice that each level of the tree corresponds to a level of nesting inside the HTML tags. The first tag in the source is <code>&lt;html&gt;</code> and the last is <code>&lt;/html&gt;</code>. All the rest of the tags in the page are inside the pair. If you check, you will see that this nesting property is true at all levels of the tree.</p>
+</div>
+</div>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月9日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月11日</span>
       
         <br>
         创建日期:

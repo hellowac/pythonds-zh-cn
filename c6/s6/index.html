@@ -22,7 +22,7 @@
     
     
       
-        <title>S6 - python数据结构和算法 - 中文版</title>
+        <title>6.6. 节点与引用 - python数据结构和算法 - 中文版</title>
       
     
     
@@ -85,6 +85,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#66-节点与引用" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -133,7 +138,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              S6
+              6.6. 节点与引用
             
           </span>
         </div>
@@ -2676,7 +2681,7 @@
         
   
   <span class="md-ellipsis">
-    S1
+    6.1. 目标
   </span>
   
 
@@ -2696,7 +2701,7 @@
         
   
   <span class="md-ellipsis">
-    S2
+    6.2. 树的示例
   </span>
   
 
@@ -2716,7 +2721,7 @@
         
   
   <span class="md-ellipsis">
-    S3
+    6.3. 词汇和定义
   </span>
   
 
@@ -2736,7 +2741,7 @@
         
   
   <span class="md-ellipsis">
-    S4
+    6.4. 实现
   </span>
   
 
@@ -2756,7 +2761,7 @@
         
   
   <span class="md-ellipsis">
-    S5
+    6.5. 列表表示法
   </span>
   
 
@@ -2778,12 +2783,14 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    S6
+    6.6. 节点与引用
   </span>
   
 
@@ -2804,7 +2811,7 @@
         
   
   <span class="md-ellipsis">
-    S7
+    6.7. 解析树
   </span>
   
 
@@ -2824,7 +2831,7 @@
         
   
   <span class="md-ellipsis">
-    S8
+    6.8. 树遍历
   </span>
   
 
@@ -2844,7 +2851,7 @@
         
   
   <span class="md-ellipsis">
-    S9
+    6.9. 使用二叉堆的优先队列
   </span>
   
 
@@ -2864,7 +2871,7 @@
         
   
   <span class="md-ellipsis">
-    S10
+    6.10. 二叉堆操作
   </span>
   
 
@@ -2884,7 +2891,7 @@
         
   
   <span class="md-ellipsis">
-    S11
+    6.11. 二叉堆实现
   </span>
   
 
@@ -2904,7 +2911,7 @@
         
   
   <span class="md-ellipsis">
-    S12
+    6.12. 二叉搜索树
   </span>
   
 
@@ -2924,7 +2931,7 @@
         
   
   <span class="md-ellipsis">
-    S13
+    6.13. 搜索树操作
   </span>
   
 
@@ -2944,7 +2951,7 @@
         
   
   <span class="md-ellipsis">
-    S14
+    6.14. 搜索树实现
   </span>
   
 
@@ -2964,7 +2971,7 @@
         
   
   <span class="md-ellipsis">
-    S15
+    6.15. 搜索树分析
   </span>
   
 
@@ -2984,7 +2991,7 @@
         
   
   <span class="md-ellipsis">
-    S16
+    6.16. 平衡二叉搜索树
   </span>
   
 
@@ -3004,7 +3011,7 @@
         
   
   <span class="md-ellipsis">
-    S17
+    6.17. AVL树性能
   </span>
   
 
@@ -3024,7 +3031,7 @@
         
   
   <span class="md-ellipsis">
-    S18
+    6.18. AVL树实现
   </span>
   
 
@@ -3044,7 +3051,7 @@
         
   
   <span class="md-ellipsis">
-    S19
+    6.19. Map ADT实现总结
   </span>
   
 
@@ -3064,7 +3071,7 @@
         
   
   <span class="md-ellipsis">
-    S20
+    6.20. 总结
   </span>
   
 
@@ -3084,7 +3091,7 @@
         
   
   <span class="md-ellipsis">
-    S21
+    6.21. 关键术语
   </span>
   
 
@@ -3104,7 +3111,7 @@
         
   
   <span class="md-ellipsis">
-    S22
+    6.22. 练习
   </span>
   
 
@@ -3944,6 +3951,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -3961,16 +3970,353 @@
   
 
 
-  <h1>S6</h1>
+<h1 id="66-节点与引用">6.6. 节点与引用<a class="headerlink" href="#66-节点与引用" title="Permanent link">&para;</a></h1>
+<p><strong>6.6. Nodes and References</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Our second method to represent a tree uses nodes and references. In this case we will define a class that has attributes for the root value as well as the left and right subtrees. Using nodes and references, we might think of the tree as being structured like the one shown in <code>Figure 2</code>. Since this representation more closely follows the object-oriented programming paradigm, we will continue to use this representation for the remainder of the chapter.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/treerecs.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/treerecs.png" /></a>
+    <figcaption markdown="span">Figure 2: A Simple Tree Using a Nodes and References Approach</figcaption>
+</figure>   </p>
+<p>We will start out with a simple class definition for the nodes and references approach as shown in <code>Listing 4</code>. The important thing to remember about this representation is that the attributes <code>left_child</code> and <code>right_child</code> will become references to other instances of the <code>BinaryTree</code> class. For example, when we insert a new left child into the tree, we create another instance of <code>BinaryTree</code> and modify <code>self.left_child</code> in the root to reference the new tree.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">**Listing 4**</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">BinaryTree</span>:
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>, root_obj):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>key <span style="color: #666666">=</span> root_obj
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>left_child <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>right_child <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
+</code></pre></div>
+<p>Notice that in <code>Listing 4</code>, the constructor function expects to get some kind of object to store in the root. Just as you can store any object you like in a list, the root object of a tree can be a reference to any object. For our early examples, we will store the name of the node as the root value. Using nodes and references to represent the tree in <code>Figure 2</code>, we would create six instances of the <code>BinaryTree</code> class.</p>
+<p>Next let’s look at the functions we need to build the tree beyond the root node. To add a left child to the tree, we will create a new binary tree object and set the <code>left_child</code> attribute of the root to refer to this new object. The code for <code>insert_left</code> is shown in <code>Listing 5</code>.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">**Listing 5**</span><pre style="line-height: 125%;"><span></span><code>    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">insert_left</span>(<span style="color: #008000">self</span>, new_node):
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>left_child <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #008000; font-weight: bold">None</span>:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>left_child <span style="color: #666666">=</span> BinaryTree(new_node)
+        <span style="color: #008000; font-weight: bold">else</span>:
+            new_child <span style="color: #666666">=</span> BinaryTree(new_node)
+            new_child<span style="color: #666666">.</span>left_child <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>left_child
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>left_child <span style="color: #666666">=</span> new_child
+</code></pre></div>
+<p>We must consider two cases for insertion. The first case is characterized by a node with no existing left child. When there is no left child, simply add a node to the tree. The second case is characterized by a node with an existing left child. In the second case, we insert a node and push the existing child down one level in the tree. The second case is handled by the <code>else</code> statement on line 4 of <code>Listing 5</code>.</p>
+<p>The code for <code>insert_right</code> must consider a symmetric set of cases. There will either be no right child, or we must insert the node between the root and an existing right child. The insertion code is shown in <code>Listing 6</code>.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">**Listing 6**</span><pre style="line-height: 125%;"><span></span><code>    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">insert_right</span>(<span style="color: #008000">self</span>, new_node):
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>right_child <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">None</span>:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>right_child <span style="color: #666666">=</span> BinaryTree(new_node)
+        <span style="color: #008000; font-weight: bold">else</span>:
+            new_child <span style="color: #666666">=</span> BinaryTree(new_node)
+            new_child<span style="color: #666666">.</span>right_child <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>right_child
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>right_child <span style="color: #666666">=</span> new_child
+</code></pre></div>
+<p>To round out the definition for a simple binary tree data structure, we will write accessor methods for the left and right children and for the root values (see <code>Listing 7</code>) .</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">**Listing 7**</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_root_val</span>(<span style="color: #008000">self</span>):
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>key
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">set_root_val</span>(<span style="color: #008000">self</span>, new_obj):
+    <span style="color: #008000">self</span><span style="color: #666666">.</span>key <span style="color: #666666">=</span> new_obj
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_left_child</span>(<span style="color: #008000">self</span>):
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>left_child
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_right_child</span>(<span style="color: #008000">self</span>):
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>right_child
+</code></pre></div>
+<p>Now that we have all the pieces to create and manipulate a binary tree, let’s use them to check on the structure a bit more. Let’s make a simple tree with node a as the root, and add nodes "b" and "c" as children. <code>ActiveCode 1</code> creates the tree and looks at the some of the values stored in <code>key</code>, <code>left_child</code>, and <code>right_child</code>. Notice that both the left and right children of the root are themselves distinct instances of the <code>BinaryTree</code> class. As we said in our original recursive definition for a tree, this allows us to treat any child of a binary tree as a binary tree itself.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 6.6.1 Exercising the Node and Reference Implementation</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">29</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">30</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">31</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">32</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">33</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">34</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">35</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">36</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">37</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">38</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">39</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">40</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">41</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">42</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">43</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">44</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">45</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">46</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">BinaryTree</span>:
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>, root_obj):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>key <span style="color: #666666">=</span> root_obj
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>left_child <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>right_child <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">insert_left</span>(<span style="color: #008000">self</span>, new_node):
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>left_child <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #008000; font-weight: bold">None</span>:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>left_child <span style="color: #666666">=</span> BinaryTree(new_node)
+        <span style="color: #008000; font-weight: bold">else</span>:
+            new_child <span style="color: #666666">=</span> BinaryTree(new_node)
+            new_child<span style="color: #666666">.</span>left_child <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>left_child
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>left_child <span style="color: #666666">=</span> new_child
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">insert_right</span>(<span style="color: #008000">self</span>, new_node):
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>right_child <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">None</span>:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>right_child <span style="color: #666666">=</span> BinaryTree(new_node)
+        <span style="color: #008000; font-weight: bold">else</span>:
+            new_child <span style="color: #666666">=</span> BinaryTree(new_node)
+            new_child<span style="color: #666666">.</span>right_child <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>right_child
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>right_child <span style="color: #666666">=</span> new_child
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_root_val</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>key
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">set_root_val</span>(<span style="color: #008000">self</span>, new_obj):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>key <span style="color: #666666">=</span> new_obj
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_left_child</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>left_child
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_right_child</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>right_child             
 
 
+a_tree <span style="color: #666666">=</span> BinaryTree(<span style="color: #BA2121">&quot;a&quot;</span>)
+<span style="color: #008000">print</span>(a_tree<span style="color: #666666">.</span>get_root_val())
+<span style="color: #008000">print</span>(a_tree<span style="color: #666666">.</span>get_left_child())
+a_tree<span style="color: #666666">.</span>insert_left(<span style="color: #BA2121">&quot;b&quot;</span>)
+<span style="color: #008000">print</span>(a_tree<span style="color: #666666">.</span>get_left_child())
+<span style="color: #008000">print</span>(a_tree<span style="color: #666666">.</span>get_left_child()<span style="color: #666666">.</span>get_root_val())
+a_tree<span style="color: #666666">.</span>insert_right(<span style="color: #BA2121">&quot;c&quot;</span>)
+<span style="color: #008000">print</span>(a_tree<span style="color: #666666">.</span>get_right_child())
+<span style="color: #008000">print</span>(a_tree<span style="color: #666666">.</span>get_right_child()<span style="color: #666666">.</span>get_root_val())
+a_tree<span style="color: #666666">.</span>get_right_child()<span style="color: #666666">.</span>set_root_val(<span style="color: #BA2121">&quot;hello&quot;</span>)
+<span style="color: #008000">print</span>(a_tree<span style="color: #666666">.</span>get_right_child()<span style="color: #666666">.</span>get_root_val())
+</code></pre></div></td></tr></table></div>
+<div class="admonition info">
+<p class="admonition-title">Self Check</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">mctree_3</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Write a function <code>build_tree</code> that returns a tree using the nodes and references implementation that looks like this:</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/tree_ex.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/tree_ex.png" /></a>
+</figure></p>
+<details class="- tip">
+<summary>Tip</summary>
+<div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">test</span> <span style="color: #008000; font-weight: bold">import</span> testEqual
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">build_tree</span>():
+    <span style="color: #008000; font-weight: bold">pass</span>
+
+ttree <span style="color: #666666">=</span> build_tree()
+
+testEqual(ttree<span style="color: #666666">.</span>get_right_child()<span style="color: #666666">.</span>get_root_val(), <span style="color: #BA2121">&quot;c&quot;</span>)
+testEqual(ttree<span style="color: #666666">.</span>get_left_child()<span style="color: #666666">.</span>get_right_child()<span style="color: #666666">.</span>get_root_val(), <span style="color: #BA2121">&quot;d&quot;</span>)
+testEqual(ttree<span style="color: #666666">.</span>get_right_child()<span style="color: #666666">.</span>get_left_child()<span style="color: #666666">.</span>get_root_val(), <span style="color: #BA2121">&quot;e&quot;</span>)
+</code></pre></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Our second method to represent a tree uses nodes and references. In this case we will define a class that has attributes for the root value as well as the left and right subtrees. Using nodes and references, we might think of the tree as being structured like the one shown in <code>Figure 2</code>. Since this representation more closely follows the object-oriented programming paradigm, we will continue to use this representation for the remainder of the chapter.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/treerecs.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/treerecs.png" /></a>
+    <figcaption markdown="span">Figure 2: A Simple Tree Using a Nodes and References Approach</figcaption>
+</figure>   </p>
+<p>We will start out with a simple class definition for the nodes and references approach as shown in <code>Listing 4</code>. The important thing to remember about this representation is that the attributes <code>left_child</code> and <code>right_child</code> will become references to other instances of the <code>BinaryTree</code> class. For example, when we insert a new left child into the tree, we create another instance of <code>BinaryTree</code> and modify <code>self.left_child</code> in the root to reference the new tree.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">**Listing 4**</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">BinaryTree</span>:
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>, root_obj):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>key <span style="color: #666666">=</span> root_obj
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>left_child <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>right_child <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
+</code></pre></div>
+<p>Notice that in <code>Listing 4</code>, the constructor function expects to get some kind of object to store in the root. Just as you can store any object you like in a list, the root object of a tree can be a reference to any object. For our early examples, we will store the name of the node as the root value. Using nodes and references to represent the tree in <code>Figure 2</code>, we would create six instances of the <code>BinaryTree</code> class.</p>
+<p>Next let’s look at the functions we need to build the tree beyond the root node. To add a left child to the tree, we will create a new binary tree object and set the <code>left_child</code> attribute of the root to refer to this new object. The code for <code>insert_left</code> is shown in <code>Listing 5</code>.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">**Listing 5**</span><pre style="line-height: 125%;"><span></span><code>    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">insert_left</span>(<span style="color: #008000">self</span>, new_node):
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>left_child <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #008000; font-weight: bold">None</span>:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>left_child <span style="color: #666666">=</span> BinaryTree(new_node)
+        <span style="color: #008000; font-weight: bold">else</span>:
+            new_child <span style="color: #666666">=</span> BinaryTree(new_node)
+            new_child<span style="color: #666666">.</span>left_child <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>left_child
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>left_child <span style="color: #666666">=</span> new_child
+</code></pre></div>
+<p>We must consider two cases for insertion. The first case is characterized by a node with no existing left child. When there is no left child, simply add a node to the tree. The second case is characterized by a node with an existing left child. In the second case, we insert a node and push the existing child down one level in the tree. The second case is handled by the <code>else</code> statement on line 4 of <code>Listing 5</code>.</p>
+<p>The code for <code>insert_right</code> must consider a symmetric set of cases. There will either be no right child, or we must insert the node between the root and an existing right child. The insertion code is shown in <code>Listing 6</code>.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">**Listing 6**</span><pre style="line-height: 125%;"><span></span><code>    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">insert_right</span>(<span style="color: #008000">self</span>, new_node):
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>right_child <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">None</span>:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>right_child <span style="color: #666666">=</span> BinaryTree(new_node)
+        <span style="color: #008000; font-weight: bold">else</span>:
+            new_child <span style="color: #666666">=</span> BinaryTree(new_node)
+            new_child<span style="color: #666666">.</span>right_child <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>right_child
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>right_child <span style="color: #666666">=</span> new_child
+</code></pre></div>
+<p>To round out the definition for a simple binary tree data structure, we will write accessor methods for the left and right children and for the root values (see <code>Listing 7</code>) .</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">**Listing 7**</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_root_val</span>(<span style="color: #008000">self</span>):
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>key
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">set_root_val</span>(<span style="color: #008000">self</span>, new_obj):
+    <span style="color: #008000">self</span><span style="color: #666666">.</span>key <span style="color: #666666">=</span> new_obj
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_left_child</span>(<span style="color: #008000">self</span>):
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>left_child
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_right_child</span>(<span style="color: #008000">self</span>):
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>right_child
+</code></pre></div>
+<p>Now that we have all the pieces to create and manipulate a binary tree, let’s use them to check on the structure a bit more. Let’s make a simple tree with node a as the root, and add nodes "b" and "c" as children. <code>ActiveCode 1</code> creates the tree and looks at the some of the values stored in <code>key</code>, <code>left_child</code>, and <code>right_child</code>. Notice that both the left and right children of the root are themselves distinct instances of the <code>BinaryTree</code> class. As we said in our original recursive definition for a tree, this allows us to treat any child of a binary tree as a binary tree itself.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 6.6.1 Exercising the Node and Reference Implementation</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">29</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">30</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">31</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">32</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">33</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">34</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">35</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">36</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">37</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">38</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">39</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">40</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">41</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">42</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">43</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">44</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">45</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">46</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">BinaryTree</span>:
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>, root_obj):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>key <span style="color: #666666">=</span> root_obj
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>left_child <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>right_child <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">insert_left</span>(<span style="color: #008000">self</span>, new_node):
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>left_child <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #008000; font-weight: bold">None</span>:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>left_child <span style="color: #666666">=</span> BinaryTree(new_node)
+        <span style="color: #008000; font-weight: bold">else</span>:
+            new_child <span style="color: #666666">=</span> BinaryTree(new_node)
+            new_child<span style="color: #666666">.</span>left_child <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>left_child
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>left_child <span style="color: #666666">=</span> new_child
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">insert_right</span>(<span style="color: #008000">self</span>, new_node):
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>right_child <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">None</span>:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>right_child <span style="color: #666666">=</span> BinaryTree(new_node)
+        <span style="color: #008000; font-weight: bold">else</span>:
+            new_child <span style="color: #666666">=</span> BinaryTree(new_node)
+            new_child<span style="color: #666666">.</span>right_child <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>right_child
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>right_child <span style="color: #666666">=</span> new_child
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_root_val</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>key
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">set_root_val</span>(<span style="color: #008000">self</span>, new_obj):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>key <span style="color: #666666">=</span> new_obj
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_left_child</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>left_child
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_right_child</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>right_child             
+
+
+a_tree <span style="color: #666666">=</span> BinaryTree(<span style="color: #BA2121">&quot;a&quot;</span>)
+<span style="color: #008000">print</span>(a_tree<span style="color: #666666">.</span>get_root_val())
+<span style="color: #008000">print</span>(a_tree<span style="color: #666666">.</span>get_left_child())
+a_tree<span style="color: #666666">.</span>insert_left(<span style="color: #BA2121">&quot;b&quot;</span>)
+<span style="color: #008000">print</span>(a_tree<span style="color: #666666">.</span>get_left_child())
+<span style="color: #008000">print</span>(a_tree<span style="color: #666666">.</span>get_left_child()<span style="color: #666666">.</span>get_root_val())
+a_tree<span style="color: #666666">.</span>insert_right(<span style="color: #BA2121">&quot;c&quot;</span>)
+<span style="color: #008000">print</span>(a_tree<span style="color: #666666">.</span>get_right_child())
+<span style="color: #008000">print</span>(a_tree<span style="color: #666666">.</span>get_right_child()<span style="color: #666666">.</span>get_root_val())
+a_tree<span style="color: #666666">.</span>get_right_child()<span style="color: #666666">.</span>set_root_val(<span style="color: #BA2121">&quot;hello&quot;</span>)
+<span style="color: #008000">print</span>(a_tree<span style="color: #666666">.</span>get_right_child()<span style="color: #666666">.</span>get_root_val())
+</code></pre></div></td></tr></table></div>
+<div class="admonition info">
+<p class="admonition-title">Self Check</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">mctree_3</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Write a function <code>build_tree</code> that returns a tree using the nodes and references implementation that looks like this:</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/tree_ex.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/tree_ex.png" /></a>
+</figure></p>
+<details class="- tip">
+<summary>Tip</summary>
+<div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">test</span> <span style="color: #008000; font-weight: bold">import</span> testEqual
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">build_tree</span>():
+    <span style="color: #008000; font-weight: bold">pass</span>
+
+ttree <span style="color: #666666">=</span> build_tree()
+
+testEqual(ttree<span style="color: #666666">.</span>get_right_child()<span style="color: #666666">.</span>get_root_val(), <span style="color: #BA2121">&quot;c&quot;</span>)
+testEqual(ttree<span style="color: #666666">.</span>get_left_child()<span style="color: #666666">.</span>get_right_child()<span style="color: #666666">.</span>get_root_val(), <span style="color: #BA2121">&quot;d&quot;</span>)
+testEqual(ttree<span style="color: #666666">.</span>get_right_child()<span style="color: #666666">.</span>get_left_child()<span style="color: #666666">.</span>get_root_val(), <span style="color: #BA2121">&quot;e&quot;</span>)
+</code></pre></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月9日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月11日</span>
       
         <br>
         创建日期:

@@ -22,7 +22,7 @@
     
     
       
-        <title>S18 - python数据结构和算法 - 中文版</title>
+        <title>6.18. AVL树实现 - python数据结构和算法 - 中文版</title>
       
     
     
@@ -85,6 +85,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#618-avl树实现" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -133,7 +138,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              S18
+              6.18. AVL树实现
             
           </span>
         </div>
@@ -2676,7 +2681,7 @@
         
   
   <span class="md-ellipsis">
-    S1
+    6.1. 目标
   </span>
   
 
@@ -2696,7 +2701,7 @@
         
   
   <span class="md-ellipsis">
-    S2
+    6.2. 树的示例
   </span>
   
 
@@ -2716,7 +2721,7 @@
         
   
   <span class="md-ellipsis">
-    S3
+    6.3. 词汇和定义
   </span>
   
 
@@ -2736,7 +2741,7 @@
         
   
   <span class="md-ellipsis">
-    S4
+    6.4. 实现
   </span>
   
 
@@ -2756,7 +2761,7 @@
         
   
   <span class="md-ellipsis">
-    S5
+    6.5. 列表表示法
   </span>
   
 
@@ -2776,7 +2781,7 @@
         
   
   <span class="md-ellipsis">
-    S6
+    6.6. 节点与引用
   </span>
   
 
@@ -2796,7 +2801,7 @@
         
   
   <span class="md-ellipsis">
-    S7
+    6.7. 解析树
   </span>
   
 
@@ -2816,7 +2821,7 @@
         
   
   <span class="md-ellipsis">
-    S8
+    6.8. 树遍历
   </span>
   
 
@@ -2836,7 +2841,7 @@
         
   
   <span class="md-ellipsis">
-    S9
+    6.9. 使用二叉堆的优先队列
   </span>
   
 
@@ -2856,7 +2861,7 @@
         
   
   <span class="md-ellipsis">
-    S10
+    6.10. 二叉堆操作
   </span>
   
 
@@ -2876,7 +2881,7 @@
         
   
   <span class="md-ellipsis">
-    S11
+    6.11. 二叉堆实现
   </span>
   
 
@@ -2896,7 +2901,7 @@
         
   
   <span class="md-ellipsis">
-    S12
+    6.12. 二叉搜索树
   </span>
   
 
@@ -2916,7 +2921,7 @@
         
   
   <span class="md-ellipsis">
-    S13
+    6.13. 搜索树操作
   </span>
   
 
@@ -2936,7 +2941,7 @@
         
   
   <span class="md-ellipsis">
-    S14
+    6.14. 搜索树实现
   </span>
   
 
@@ -2956,7 +2961,7 @@
         
   
   <span class="md-ellipsis">
-    S15
+    6.15. 搜索树分析
   </span>
   
 
@@ -2976,7 +2981,7 @@
         
   
   <span class="md-ellipsis">
-    S16
+    6.16. 平衡二叉搜索树
   </span>
   
 
@@ -2996,7 +3001,7 @@
         
   
   <span class="md-ellipsis">
-    S17
+    6.17. AVL树性能
   </span>
   
 
@@ -3018,12 +3023,14 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    S18
+    6.18. AVL树实现
   </span>
   
 
@@ -3044,7 +3051,7 @@
         
   
   <span class="md-ellipsis">
-    S19
+    6.19. Map ADT实现总结
   </span>
   
 
@@ -3064,7 +3071,7 @@
         
   
   <span class="md-ellipsis">
-    S20
+    6.20. 总结
   </span>
   
 
@@ -3084,7 +3091,7 @@
         
   
   <span class="md-ellipsis">
-    S21
+    6.21. 关键术语
   </span>
   
 
@@ -3104,7 +3111,7 @@
         
   
   <span class="md-ellipsis">
-    S22
+    6.22. 练习
   </span>
   
 
@@ -3944,6 +3951,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -3961,16 +3970,337 @@
   
 
 
-  <h1>S18</h1>
+<h1 id="618-avl树实现">6.18. AVL树实现<a class="headerlink" href="#618-avl树实现" title="Permanent link">&para;</a></h1>
+<p><strong>6.18. AVL Tree Implementation</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Now that we have demonstrated that keeping an AVL tree in balance is going to be a big performance improvement, let's look at how we will augment the procedure to insert a new key into the tree. Since all new keys are inserted into the tree as leaf nodes and we know that the balance factor for a new leaf is zero, there are no new requirements for the node that has just been inserted. But once the new leaf is added, we must update the balance factor of its parent. How this new leaf affects the parent’s balance factor depends on whether the leaf node is a left child or a right child. If the new node is a right child, the balance factor of the parent will be reduced by one. If the new node is a left child, then the balance factor of the parent will be increased by one. This rule can be applied recursively to the grandparent of the new node, and possibly to every ancestor, all the way up to the root of the tree. Since this is a recursive procedure, let's examine the two base cases for updating balance factors:</p>
+<ul>
+<li>The recursive call has reached the root of the tree.</li>
+<li>The balance factor of the parent has been adjusted to zero. You should convince yourself that once a subtree has a balance factor of zero, then the balance of its ancestor nodes does not change.</li>
+</ul>
+<p>We will implement the AVL tree as a subclass of <code>BinarySearchTree</code>. To begin, we will override the <code>_put</code> method and write a new <code>update_balance</code> helper method. These methods are shown in <code>Listing 1</code>. You will notice that the definition for <code>_put</code> is exactly the same as in simple binary search trees except for the addition of the calls to <code>update_balance</code> on lines 9 and 17.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 1</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">_put</span>(<span style="color: #008000">self</span>, key, value, current_node):
+    <span style="color: #008000; font-weight: bold">if</span> key <span style="color: #666666">&lt;</span> current_node<span style="color: #666666">.</span>key:
+        <span style="color: #008000; font-weight: bold">if</span> current_node<span style="color: #666666">.</span>left_child:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>_put(key, value, current_node<span style="color: #666666">.</span>left_child)
+        <span style="color: #008000; font-weight: bold">else</span>:
+            current_node<span style="color: #666666">.</span>left_child <span style="color: #666666">=</span> AVLTreeNode(
+                key, value, <span style="color: #666666">0</span>, parent<span style="color: #666666">=</span>current_node
+            )
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>update_balance(current_node<span style="color: #666666">.</span>left_child)
+    <span style="color: #008000; font-weight: bold">else</span>:
+        <span style="color: #008000; font-weight: bold">if</span> current_node<span style="color: #666666">.</span>right_child:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>_put(key, value, current_node<span style="color: #666666">.</span>right_child)
+        <span style="color: #008000; font-weight: bold">else</span>:
+            current_node<span style="color: #666666">.</span>right_child <span style="color: #666666">=</span> AVLTreeNode(
+                key, value, <span style="color: #666666">0</span>, parent<span style="color: #666666">=</span>current_node
+            )
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>update_balance(current_node<span style="color: #666666">.</span>right_child)
 
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">update_balance</span>(<span style="color: #008000">self</span>, node):
+    <span style="color: #008000; font-weight: bold">if</span> node<span style="color: #666666">.</span>balance_factor <span style="color: #666666">&gt;</span> <span style="color: #666666">1</span> <span style="color: #AA22FF; font-weight: bold">or</span> node<span style="color: #666666">.</span>balance_factor <span style="color: #666666">&lt;</span> <span style="color: #666666">-1</span>:
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>rebalance(node)
+        <span style="color: #008000; font-weight: bold">return</span>
+    <span style="color: #008000; font-weight: bold">if</span> node<span style="color: #666666">.</span>parent:
+        <span style="color: #008000; font-weight: bold">if</span> node<span style="color: #666666">.</span>is_left_child():
+            node<span style="color: #666666">.</span>parent<span style="color: #666666">.</span>balance_factor <span style="color: #666666">+=</span> <span style="color: #666666">1</span>
+        <span style="color: #008000; font-weight: bold">elif</span> node<span style="color: #666666">.</span>is_right_child():
+            node<span style="color: #666666">.</span>parent<span style="color: #666666">.</span>balance_factor <span style="color: #666666">-=</span> <span style="color: #666666">1</span>
 
+        <span style="color: #008000; font-weight: bold">if</span> node<span style="color: #666666">.</span>parent<span style="color: #666666">.</span>balance_factor <span style="color: #666666">!=</span> <span style="color: #666666">0</span>:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>update_balance(node<span style="color: #666666">.</span>parent)
+</code></pre></div>
+<p>The new <code>update_balance</code> method is where most of the work is done. This implements the recursive procedure we just described. It first checks to see if the current node is out of balance enough to require rebalancing (line 20). If that is the case then the rebalancing is done and no further updating to parents is required. If the current node does not require rebalancing then the balance factor of the parent is adjusted. If the balance factor of the parent is nonzero then the algorithm continues to work its way up the tree toward the root by recursively calling <code>update_balance</code> on the parent.</p>
+<p>When a rebalancing of the tree is necessary, how do we do it? Efficient rebalancing is the key to making the AVL Tree work well without sacrificing performance. In order to bring an AVL Tree back into balance, we will perform one or more <strong>rotations</strong> on the tree.</p>
+<p>To understand what a rotation is, let's look at a very simple example. Consider the tree in the left half of <code>Figure 3</code>. This tree is out of balance with a balance factor of -2. To bring this tree into balance we will use a left rotation around the subtree rooted at node A.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/simpleunbalanced.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/simpleunbalanced.png" /></a>
+    <figcaption markdown="span">Figure 3: Transforming an Unbalanced Tree Using a Left Rotation</figcaption>
+</figure>    </p>
+<p>To perform a left rotation we essentially do the following:</p>
+<ol>
+<li>Promote the right child (B) to be the root of the subtree.</li>
+<li>Move the old root (A) to be the left child of the new root.</li>
+<li>If new root (B) already has a left child, then make it the right child of the new left child (A). Note: since the new root (B) was the right child of A, the right child of A is guaranteed to be empty at this point. This allows us to add a new node as the right child without any further consideration.</li>
+</ol>
+<p>While this procedure is fairly easy in concept, the details of the code are a bit tricky since we need to move things around in just the right order so that all properties of a binary search tree are preserved. Furthermore, we need to make sure to update all of the parent pointers appropriately.</p>
+<p>Let's look at a slightly more complicated tree to illustrate the right rotation. The left side of <code>Figure 4</code> shows a tree that is left-heavy and with a balance factor of 2 at the root.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/rightrotate1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/rightrotate1.png" /></a>
+    <figcaption markdown="span">Figure 4: Transforming an Unbalanced Tree Using a Right Rotation</figcaption>
+</figure> </p>
+<p>To perform a right rotation we essentially do the following:</p>
+<ol>
+<li>Promote the left child (C) to be the root of the subtree.</li>
+<li>Move the old root (E) to be the right child of the new root.</li>
+<li>If the new root (C) already has a right child (D) then make it the left child of the new right child (E). Note: since the new root (C) was the left child of E, the left child of E is guaranteed to be empty at this point. This allows us to add a new node as the left child without any further consideration.</li>
+</ol>
+<p>Now that you have seen the rotations and have the basic idea of how a rotation works let us look at the code. <code>Listing 2</code> shows the code for the left rotation (the <code>rotate_right</code> method is symmetrical to <code>rotate_left</code> so we will leave it to you to study the code for <code>rotate_right</code>). In line 2 we create a temporary variable to keep track of the new root of the subtree. As we said before, the new root is the right child of the previous root. Now that a reference to the right child has been stored in this temporary variable, we replace the right child of the old root with the left child of the new.</p>
+<p>The next step is to adjust the parent pointers of the two nodes. If <code>new_root</code> has a left child then the new parent of the left child becomes the old root. The parent of the new root is set to the parent of the old root. If the old root was the root of the entire tree then we must set the root of the tree to point to this new root. Otherwise, if the old root is a left child then we change the parent of the left child to point to the new root; otherwise we change the parent of the right child to point to the new root. (lines 10-13). Finally we set the parent of the old root to be the new root. This is a lot of complicated bookkeeping, so we encourage you to trace through this function while looking at <code>Figure 3</code>.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 2</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">rotate_left</span>(<span style="color: #008000">self</span>, rotation_root):
+    new_root <span style="color: #666666">=</span> rotation_root<span style="color: #666666">.</span>right_child
+    rotation_root<span style="color: #666666">.</span>right_child <span style="color: #666666">=</span> new_root<span style="color: #666666">.</span>left_child
+    <span style="color: #008000; font-weight: bold">if</span> new_root<span style="color: #666666">.</span>left_child:
+        new_root<span style="color: #666666">.</span>left_child<span style="color: #666666">.</span>parent <span style="color: #666666">=</span> rotation_root
+    new_root<span style="color: #666666">.</span>parent <span style="color: #666666">=</span> rotation_root<span style="color: #666666">.</span>parent
+    <span style="color: #008000; font-weight: bold">if</span> rotation_root<span style="color: #666666">.</span>is_root():
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_root <span style="color: #666666">=</span> new_root
+    <span style="color: #008000; font-weight: bold">else</span>:
+        <span style="color: #008000; font-weight: bold">if</span> rotation_root<span style="color: #666666">.</span>is_left_child():
+            rotation_root<span style="color: #666666">.</span>parent<span style="color: #666666">.</span>left_child <span style="color: #666666">=</span> new_root
+        <span style="color: #008000; font-weight: bold">else</span>:
+            rotation_root<span style="color: #666666">.</span>parent<span style="color: #666666">.</span>right_child <span style="color: #666666">=</span> new_root
+    new_root<span style="color: #666666">.</span>left_child <span style="color: #666666">=</span> rotation_root
+    rotation_root<span style="color: #666666">.</span>parent <span style="color: #666666">=</span> new_root
+    rotation_root<span style="color: #666666">.</span>balance_factor <span style="color: #666666">=</span> (
+        rotation_root<span style="color: #666666">.</span>balance_factor <span style="color: #666666">+</span> <span style="color: #666666">1</span> <span style="color: #666666">-</span> <span style="color: #008000">min</span>(new_root<span style="color: #666666">.</span>balance_factor, <span style="color: #666666">0</span>)
+    )
+    new_root<span style="color: #666666">.</span>balance_factor <span style="color: #666666">=</span> (
+        new_root<span style="color: #666666">.</span>balance_factor <span style="color: #666666">+</span> <span style="color: #666666">1</span> <span style="color: #666666">+</span> <span style="color: #008000">max</span>(rotation_root<span style="color: #666666">.</span>balance_factor, <span style="color: #666666">0</span>)
+    )             
+</code></pre></div>
+<p>Finally, lines 16-21 require some explanation. In these lines we update the balance factors of the old and the new root. Since all the other moves involve moving entire subtrees, the balance factors of all other nodes are unaffected by the rotation. But how can we update the balance factors without completely recalculating the heights of the new subtrees? <code>Figure 5</code> and the following derivation should convince you that these lines are correct.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/bfderive.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/bfderive.png" /></a>
+    <figcaption markdown="span">Figure 5: A Left Rotation</figcaption>
+</figure>    </p>
+<p><code>Figure 5</code> shows a left rotation. B and D are the pivotal nodes and A, C, E are their subtrees. Let <span class="arithmatex">\(h_x\)</span> denote the height of a particular subtree rooted at node <span class="arithmatex">\(x\)</span>. By definition we know the following:</p>
+<p><span class="arithmatex">\(\begin{align} new\_bal(B) &amp;= h_A - h_C \\ old\_bal(B) &amp;= h_A - h_D \end{align}\)</span></p>
+<p>But we know that the old height of D can also be given by <span class="arithmatex">\(1 + max(h_C, h_E)\)</span>, that is, the height of D is one more than the maximum height of its two children. Remember that <span class="arithmatex">\(h_C\)</span> and <span class="arithmatex">\(h_E\)</span> have not changed. So, let us substitute that in to the second equation, which gives us </p>
+<p><span class="arithmatex">\(old\_bal(B) = h_A - (1 + max(h_C,h_E))\)</span> </p>
+<p>and then subtract the two equations. The following steps do the subtraction and use some algebra to simplify the equation for <span class="arithmatex">\(new\_bal(B)\)</span>.</p>
+<p><span class="arithmatex">\(\begin{align} new\_bal(B) - old\_bal(B) &amp;= h_A - h_C - (h_A - (1 + max(h_C,h_E))) \\ new\_bal(B) - old\_bal(B) &amp;= h_A - h_C - h_A + (1 + max(h_C,h_E)) \\ new\_bal(B) - old\_bal(B) &amp;= h_A  - h_A + 1 + max(h_C,h_E) - h_C  \\ new\_bal(B) - old\_bal(B) &amp;=  1 + max(h_C,h_E) - h_C \end{align}\)</span></p>
+<p>Next we will move <span class="arithmatex">\(old\_bal(B)\)</span> to the right-hand side of the equation and make use of the fact that <span class="arithmatex">\(max(a,b)-c = max(a-c, b-c)\)</span>.</p>
+<p><span class="arithmatex">\(new\_bal(B) = old\_bal(B) + 1 + max(h_C - h_C ,h_E - h_C)\)</span></p>
+<p>But <span class="arithmatex">\(h_E - h_C\)</span> is the same as <span class="arithmatex">\(-old\_bal(D)\)</span>. So we can use another identity that says <span class="arithmatex">\(max(-a,-b) = -min(a,b)\)</span>. So we can finish our derivation of <span class="arithmatex">\(new\_bal(B)\)</span> with the following steps:</p>
+<p><span class="arithmatex">\(\begin{align} new\_bal(B) &amp;= old\_bal(B) + 1 + max(0 , -old\_bal(D)) \\ new\_bal(B) &amp;= old\_bal(B) + 1 - min(0 , old\_bal(D)) \end{align}\)</span></p>
+<p>Now we have all of the parts in terms that we readily know. If we remember that B is <code>rotation_root</code> and D is <code>new_root</code> then we can see this corresponds exactly to the statement on lines 16-18 in <code>Listing 2</code>, or:</p>
+<div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>rotation_root<span style="color: #666666">.</span>balance_factor <span style="color: #666666">=</span> (
+    rotation_root<span style="color: #666666">.</span>balance_factor <span style="color: #666666">+</span> <span style="color: #666666">1</span> <span style="color: #666666">-</span> <span style="color: #008000">min</span>(new_root<span style="color: #666666">.</span>balance_factor, <span style="color: #666666">0</span>)
+)
+</code></pre></div>
+<p>A similar derivation gives us the equation for the updated node D as well as the balance factors after a right rotation. We leave these as an exercise for you.</p>
+<p>Now you might think that we are done. We know how to do our left and right rotations, and we know when we should do a left or right rotation.  But take a look at <code>Figure 6</code>. Since node A has a balance factor of -2 we should do a left rotation. But what happens when we do the left rotation around A?</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/hardunbalanced.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/hardunbalanced.png" /></a>
+    <figcaption markdown="span">Figure 6: An Unbalanced Tree that is More Difficult to Balance</figcaption>
+</figure>    </p>
+<p><code>Figure 7 &lt;fig_badrotate&gt;</code> shows us that after the left rotation we are now out of balance the other way. If we do a right rotation to correct the situation we are right back where we started.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/badrotate.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/badrotate.png" /></a>
+    <figcaption markdown="span">Figure 7: After a Left Rotation the Tree is Out of Balance in the Other Direction</figcaption>
+</figure>    </p>
+<p>To correct this problem we must use the following set of rules:</p>
+<ol>
+<li>If a subtree needs a left rotation to bring it into balance, first check the balance factor of the right child. If the right child is left-heavy, then do a right rotation on right child followed by the original left rotation.</li>
+<li>If a subtree needs a right rotation to bring it into balance, first check the balance factor of the left child. If the left child is right-heavy, then do a left rotation on the left child followed by the original right rotation.</li>
+</ol>
+<p><code>Figure 8</code> shows how these rules solve the dilemma we encountered in <code>Figure 6</code> and <code>Figure 7</code>. Starting with a right rotation around node C puts the tree in a position where the left rotation around A brings the entire subtree back into balance.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/rotatelr.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/rotatelr.png" /></a>
+    <figcaption markdown="span">Figure 8: A Right Rotation Followed by a Left Rotation</figcaption>
+</figure>    </p>
+<p>The code that implements these rules can be found in our <code>rebalance</code> method, which is shown in <code>Listing 3</code>. Rule number 1 from above is implemented by the <code>if</code> statement starting on line 2. Rule number 2 is implemented by the <code>elif</code> statement starting on line 8.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Listing 3</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">rebalance</span>(<span style="color: #008000">self</span>, node):
+    <span style="color: #008000; font-weight: bold">if</span> node<span style="color: #666666">.</span>balance_factor <span style="color: #666666">&lt;</span> <span style="color: #666666">0</span>:
+        <span style="color: #008000; font-weight: bold">if</span> node<span style="color: #666666">.</span>right_child<span style="color: #666666">.</span>balance_factor <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span>:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>rotate_right(node<span style="color: #666666">.</span>right_child)
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>rotate_left(node)
+        <span style="color: #008000; font-weight: bold">else</span>:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>rotate_left(node)
+    <span style="color: #008000; font-weight: bold">elif</span> node<span style="color: #666666">.</span>balance_factor <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span>:
+        <span style="color: #008000; font-weight: bold">if</span> node<span style="color: #666666">.</span>left_child<span style="color: #666666">.</span>balance_factor <span style="color: #666666">&lt;</span> <span style="color: #666666">0</span>:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>rotate_left(node<span style="color: #666666">.</span>left_child)
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>rotate_right(node)
+        <span style="color: #008000; font-weight: bold">else</span>:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>rotate_right(node)
+</code></pre></div></td></tr></table></div>
+<p>The <code>discussion questions</code> provide you the opportunity to rebalance a tree that requires a left rotation followed by a right. In addition the discussion questions provide you with the opportunity to rebalance some trees that are a little more complex than the tree in <code>Figure 8</code>.</p>
+<p>By keeping the tree in balance at all times, we can ensure that the <code>get</code> method will run in order <span class="arithmatex">\(O(log_2(n))\)</span> time. But the question is at what cost to our <code>put</code> method? Let us break this down into the operations performed by <code>put</code>. Since a new node is inserted as a leaf, updating the balance factors of all the parents will require a maximum of <span class="arithmatex">\(log_2(n)\)</span> operations, one for each level of the tree. If a subtree is found to be out of balance, a maximum of two rotations are required to bring the tree back into balance. But each of the rotations works in <span class="arithmatex">\(O(1)\)</span> time, so even our <code>put</code> operation remains <span class="arithmatex">\(O(log_2(n))\)</span>.</p>
+<p>At this point we have implemented a functional AVL tree, unless you need the ability to delete a node. We leave the deletion of the node and subsequent updating and rebalancing as an exercise for you.</p>
+</div>
+<div class="tabbed-block">
+<p>Now that we have demonstrated that keeping an AVL tree in balance is going to be a big performance improvement, let's look at how we will augment the procedure to insert a new key into the tree. Since all new keys are inserted into the tree as leaf nodes and we know that the balance factor for a new leaf is zero, there are no new requirements for the node that has just been inserted. But once the new leaf is added, we must update the balance factor of its parent. How this new leaf affects the parent’s balance factor depends on whether the leaf node is a left child or a right child. If the new node is a right child, the balance factor of the parent will be reduced by one. If the new node is a left child, then the balance factor of the parent will be increased by one. This rule can be applied recursively to the grandparent of the new node, and possibly to every ancestor, all the way up to the root of the tree. Since this is a recursive procedure, let's examine the two base cases for updating balance factors:</p>
+<ul>
+<li>The recursive call has reached the root of the tree.</li>
+<li>The balance factor of the parent has been adjusted to zero. You should convince yourself that once a subtree has a balance factor of zero, then the balance of its ancestor nodes does not change.</li>
+</ul>
+<p>We will implement the AVL tree as a subclass of <code>BinarySearchTree</code>. To begin, we will override the <code>_put</code> method and write a new <code>update_balance</code> helper method. These methods are shown in <code>Listing 1</code>. You will notice that the definition for <code>_put</code> is exactly the same as in simple binary search trees except for the addition of the calls to <code>update_balance</code> on lines 9 and 17.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 1</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">_put</span>(<span style="color: #008000">self</span>, key, value, current_node):
+    <span style="color: #008000; font-weight: bold">if</span> key <span style="color: #666666">&lt;</span> current_node<span style="color: #666666">.</span>key:
+        <span style="color: #008000; font-weight: bold">if</span> current_node<span style="color: #666666">.</span>left_child:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>_put(key, value, current_node<span style="color: #666666">.</span>left_child)
+        <span style="color: #008000; font-weight: bold">else</span>:
+            current_node<span style="color: #666666">.</span>left_child <span style="color: #666666">=</span> AVLTreeNode(
+                key, value, <span style="color: #666666">0</span>, parent<span style="color: #666666">=</span>current_node
+            )
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>update_balance(current_node<span style="color: #666666">.</span>left_child)
+    <span style="color: #008000; font-weight: bold">else</span>:
+        <span style="color: #008000; font-weight: bold">if</span> current_node<span style="color: #666666">.</span>right_child:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>_put(key, value, current_node<span style="color: #666666">.</span>right_child)
+        <span style="color: #008000; font-weight: bold">else</span>:
+            current_node<span style="color: #666666">.</span>right_child <span style="color: #666666">=</span> AVLTreeNode(
+                key, value, <span style="color: #666666">0</span>, parent<span style="color: #666666">=</span>current_node
+            )
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>update_balance(current_node<span style="color: #666666">.</span>right_child)
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">update_balance</span>(<span style="color: #008000">self</span>, node):
+    <span style="color: #008000; font-weight: bold">if</span> node<span style="color: #666666">.</span>balance_factor <span style="color: #666666">&gt;</span> <span style="color: #666666">1</span> <span style="color: #AA22FF; font-weight: bold">or</span> node<span style="color: #666666">.</span>balance_factor <span style="color: #666666">&lt;</span> <span style="color: #666666">-1</span>:
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>rebalance(node)
+        <span style="color: #008000; font-weight: bold">return</span>
+    <span style="color: #008000; font-weight: bold">if</span> node<span style="color: #666666">.</span>parent:
+        <span style="color: #008000; font-weight: bold">if</span> node<span style="color: #666666">.</span>is_left_child():
+            node<span style="color: #666666">.</span>parent<span style="color: #666666">.</span>balance_factor <span style="color: #666666">+=</span> <span style="color: #666666">1</span>
+        <span style="color: #008000; font-weight: bold">elif</span> node<span style="color: #666666">.</span>is_right_child():
+            node<span style="color: #666666">.</span>parent<span style="color: #666666">.</span>balance_factor <span style="color: #666666">-=</span> <span style="color: #666666">1</span>
+
+        <span style="color: #008000; font-weight: bold">if</span> node<span style="color: #666666">.</span>parent<span style="color: #666666">.</span>balance_factor <span style="color: #666666">!=</span> <span style="color: #666666">0</span>:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>update_balance(node<span style="color: #666666">.</span>parent)
+</code></pre></div>
+<p>The new <code>update_balance</code> method is where most of the work is done. This implements the recursive procedure we just described. It first checks to see if the current node is out of balance enough to require rebalancing (line 20). If that is the case then the rebalancing is done and no further updating to parents is required. If the current node does not require rebalancing then the balance factor of the parent is adjusted. If the balance factor of the parent is nonzero then the algorithm continues to work its way up the tree toward the root by recursively calling <code>update_balance</code> on the parent.</p>
+<p>When a rebalancing of the tree is necessary, how do we do it? Efficient rebalancing is the key to making the AVL Tree work well without sacrificing performance. In order to bring an AVL Tree back into balance, we will perform one or more <strong>rotations</strong> on the tree.</p>
+<p>To understand what a rotation is, let's look at a very simple example. Consider the tree in the left half of <code>Figure 3</code>. This tree is out of balance with a balance factor of -2. To bring this tree into balance we will use a left rotation around the subtree rooted at node A.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/simpleunbalanced.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/simpleunbalanced.png" /></a>
+    <figcaption markdown="span">Figure 3: Transforming an Unbalanced Tree Using a Left Rotation</figcaption>
+</figure>    </p>
+<p>To perform a left rotation we essentially do the following:</p>
+<ol>
+<li>Promote the right child (B) to be the root of the subtree.</li>
+<li>Move the old root (A) to be the left child of the new root.</li>
+<li>If new root (B) already has a left child, then make it the right child of the new left child (A). Note: since the new root (B) was the right child of A, the right child of A is guaranteed to be empty at this point. This allows us to add a new node as the right child without any further consideration.</li>
+</ol>
+<p>While this procedure is fairly easy in concept, the details of the code are a bit tricky since we need to move things around in just the right order so that all properties of a binary search tree are preserved. Furthermore, we need to make sure to update all of the parent pointers appropriately.</p>
+<p>Let's look at a slightly more complicated tree to illustrate the right rotation. The left side of <code>Figure 4</code> shows a tree that is left-heavy and with a balance factor of 2 at the root.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/rightrotate1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/rightrotate1.png" /></a>
+    <figcaption markdown="span">Figure 4: Transforming an Unbalanced Tree Using a Right Rotation</figcaption>
+</figure> </p>
+<p>To perform a right rotation we essentially do the following:</p>
+<ol>
+<li>Promote the left child (C) to be the root of the subtree.</li>
+<li>Move the old root (E) to be the right child of the new root.</li>
+<li>If the new root (C) already has a right child (D) then make it the left child of the new right child (E). Note: since the new root (C) was the left child of E, the left child of E is guaranteed to be empty at this point. This allows us to add a new node as the left child without any further consideration.</li>
+</ol>
+<p>Now that you have seen the rotations and have the basic idea of how a rotation works let us look at the code. <code>Listing 2</code> shows the code for the left rotation (the <code>rotate_right</code> method is symmetrical to <code>rotate_left</code> so we will leave it to you to study the code for <code>rotate_right</code>). In line 2 we create a temporary variable to keep track of the new root of the subtree. As we said before, the new root is the right child of the previous root. Now that a reference to the right child has been stored in this temporary variable, we replace the right child of the old root with the left child of the new.</p>
+<p>The next step is to adjust the parent pointers of the two nodes. If <code>new_root</code> has a left child then the new parent of the left child becomes the old root. The parent of the new root is set to the parent of the old root. If the old root was the root of the entire tree then we must set the root of the tree to point to this new root. Otherwise, if the old root is a left child then we change the parent of the left child to point to the new root; otherwise we change the parent of the right child to point to the new root. (lines 10-13). Finally we set the parent of the old root to be the new root. This is a lot of complicated bookkeeping, so we encourage you to trace through this function while looking at <code>Figure 3</code>.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 2</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">rotate_left</span>(<span style="color: #008000">self</span>, rotation_root):
+    new_root <span style="color: #666666">=</span> rotation_root<span style="color: #666666">.</span>right_child
+    rotation_root<span style="color: #666666">.</span>right_child <span style="color: #666666">=</span> new_root<span style="color: #666666">.</span>left_child
+    <span style="color: #008000; font-weight: bold">if</span> new_root<span style="color: #666666">.</span>left_child:
+        new_root<span style="color: #666666">.</span>left_child<span style="color: #666666">.</span>parent <span style="color: #666666">=</span> rotation_root
+    new_root<span style="color: #666666">.</span>parent <span style="color: #666666">=</span> rotation_root<span style="color: #666666">.</span>parent
+    <span style="color: #008000; font-weight: bold">if</span> rotation_root<span style="color: #666666">.</span>is_root():
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_root <span style="color: #666666">=</span> new_root
+    <span style="color: #008000; font-weight: bold">else</span>:
+        <span style="color: #008000; font-weight: bold">if</span> rotation_root<span style="color: #666666">.</span>is_left_child():
+            rotation_root<span style="color: #666666">.</span>parent<span style="color: #666666">.</span>left_child <span style="color: #666666">=</span> new_root
+        <span style="color: #008000; font-weight: bold">else</span>:
+            rotation_root<span style="color: #666666">.</span>parent<span style="color: #666666">.</span>right_child <span style="color: #666666">=</span> new_root
+    new_root<span style="color: #666666">.</span>left_child <span style="color: #666666">=</span> rotation_root
+    rotation_root<span style="color: #666666">.</span>parent <span style="color: #666666">=</span> new_root
+    rotation_root<span style="color: #666666">.</span>balance_factor <span style="color: #666666">=</span> (
+        rotation_root<span style="color: #666666">.</span>balance_factor <span style="color: #666666">+</span> <span style="color: #666666">1</span> <span style="color: #666666">-</span> <span style="color: #008000">min</span>(new_root<span style="color: #666666">.</span>balance_factor, <span style="color: #666666">0</span>)
+    )
+    new_root<span style="color: #666666">.</span>balance_factor <span style="color: #666666">=</span> (
+        new_root<span style="color: #666666">.</span>balance_factor <span style="color: #666666">+</span> <span style="color: #666666">1</span> <span style="color: #666666">+</span> <span style="color: #008000">max</span>(rotation_root<span style="color: #666666">.</span>balance_factor, <span style="color: #666666">0</span>)
+    )             
+</code></pre></div>
+<p>Finally, lines 16-21 require some explanation. In these lines we update the balance factors of the old and the new root. Since all the other moves involve moving entire subtrees, the balance factors of all other nodes are unaffected by the rotation. But how can we update the balance factors without completely recalculating the heights of the new subtrees? <code>Figure 5</code> and the following derivation should convince you that these lines are correct.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/bfderive.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/bfderive.png" /></a>
+    <figcaption markdown="span">Figure 5: A Left Rotation</figcaption>
+</figure>    </p>
+<p><code>Figure 5</code> shows a left rotation. B and D are the pivotal nodes and A, C, E are their subtrees. Let <span class="arithmatex">\(h_x\)</span> denote the height of a particular subtree rooted at node <span class="arithmatex">\(x\)</span>. By definition we know the following:</p>
+<p><span class="arithmatex">\(\begin{align} new\_bal(B) &amp;= h_A - h_C \\ old\_bal(B) &amp;= h_A - h_D \end{align}\)</span></p>
+<p>But we know that the old height of D can also be given by <span class="arithmatex">\(1 + max(h_C, h_E)\)</span>, that is, the height of D is one more than the maximum height of its two children. Remember that <span class="arithmatex">\(h_C\)</span> and <span class="arithmatex">\(h_E\)</span> have not changed. So, let us substitute that in to the second equation, which gives us </p>
+<p><span class="arithmatex">\(old\_bal(B) = h_A - (1 + max(h_C,h_E))\)</span> </p>
+<p>and then subtract the two equations. The following steps do the subtraction and use some algebra to simplify the equation for <span class="arithmatex">\(new\_bal(B)\)</span>.</p>
+<p><span class="arithmatex">\(\begin{align} new\_bal(B) - old\_bal(B) &amp;= h_A - h_C - (h_A - (1 + max(h_C,h_E))) \\ new\_bal(B) - old\_bal(B) &amp;= h_A - h_C - h_A + (1 + max(h_C,h_E)) \\ new\_bal(B) - old\_bal(B) &amp;= h_A  - h_A + 1 + max(h_C,h_E) - h_C  \\ new\_bal(B) - old\_bal(B) &amp;=  1 + max(h_C,h_E) - h_C \end{align}\)</span></p>
+<p>Next we will move <span class="arithmatex">\(old\_bal(B)\)</span> to the right-hand side of the equation and make use of the fact that <span class="arithmatex">\(max(a,b)-c = max(a-c, b-c)\)</span>.</p>
+<p><span class="arithmatex">\(new\_bal(B) = old\_bal(B) + 1 + max(h_C - h_C ,h_E - h_C)\)</span></p>
+<p>But <span class="arithmatex">\(h_E - h_C\)</span> is the same as <span class="arithmatex">\(-old\_bal(D)\)</span>. So we can use another identity that says <span class="arithmatex">\(max(-a,-b) = -min(a,b)\)</span>. So we can finish our derivation of <span class="arithmatex">\(new\_bal(B)\)</span> with the following steps:</p>
+<p><span class="arithmatex">\(\begin{align} new\_bal(B) &amp;= old\_bal(B) + 1 + max(0 , -old\_bal(D)) \\ new\_bal(B) &amp;= old\_bal(B) + 1 - min(0 , old\_bal(D)) \end{align}\)</span></p>
+<p>Now we have all of the parts in terms that we readily know. If we remember that B is <code>rotation_root</code> and D is <code>new_root</code> then we can see this corresponds exactly to the statement on lines 16-18 in <code>Listing 2</code>, or:</p>
+<div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>rotation_root<span style="color: #666666">.</span>balance_factor <span style="color: #666666">=</span> (
+    rotation_root<span style="color: #666666">.</span>balance_factor <span style="color: #666666">+</span> <span style="color: #666666">1</span> <span style="color: #666666">-</span> <span style="color: #008000">min</span>(new_root<span style="color: #666666">.</span>balance_factor, <span style="color: #666666">0</span>)
+)
+</code></pre></div>
+<p>A similar derivation gives us the equation for the updated node D as well as the balance factors after a right rotation. We leave these as an exercise for you.</p>
+<p>Now you might think that we are done. We know how to do our left and right rotations, and we know when we should do a left or right rotation.  But take a look at <code>Figure 6</code>. Since node A has a balance factor of -2 we should do a left rotation. But what happens when we do the left rotation around A?</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/hardunbalanced.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/hardunbalanced.png" /></a>
+    <figcaption markdown="span">Figure 6: An Unbalanced Tree that is More Difficult to Balance</figcaption>
+</figure>    </p>
+<p><code>Figure 7 &lt;fig_badrotate&gt;</code> shows us that after the left rotation we are now out of balance the other way. If we do a right rotation to correct the situation we are right back where we started.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/badrotate.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/badrotate.png" /></a>
+    <figcaption markdown="span">Figure 7: After a Left Rotation the Tree is Out of Balance in the Other Direction</figcaption>
+</figure>    </p>
+<p>To correct this problem we must use the following set of rules:</p>
+<ol>
+<li>If a subtree needs a left rotation to bring it into balance, first check the balance factor of the right child. If the right child is left-heavy, then do a right rotation on right child followed by the original left rotation.</li>
+<li>If a subtree needs a right rotation to bring it into balance, first check the balance factor of the left child. If the left child is right-heavy, then do a left rotation on the left child followed by the original right rotation.</li>
+</ol>
+<p><code>Figure 8</code> shows how these rules solve the dilemma we encountered in <code>Figure 6</code> and <code>Figure 7</code>. Starting with a right rotation around node C puts the tree in a position where the left rotation around A brings the entire subtree back into balance.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/rotatelr.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/rotatelr.png" /></a>
+    <figcaption markdown="span">Figure 8: A Right Rotation Followed by a Left Rotation</figcaption>
+</figure>    </p>
+<p>The code that implements these rules can be found in our <code>rebalance</code> method, which is shown in <code>Listing 3</code>. Rule number 1 from above is implemented by the <code>if</code> statement starting on line 2. Rule number 2 is implemented by the <code>elif</code> statement starting on line 8.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Listing 3</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">rebalance</span>(<span style="color: #008000">self</span>, node):
+    <span style="color: #008000; font-weight: bold">if</span> node<span style="color: #666666">.</span>balance_factor <span style="color: #666666">&lt;</span> <span style="color: #666666">0</span>:
+        <span style="color: #008000; font-weight: bold">if</span> node<span style="color: #666666">.</span>right_child<span style="color: #666666">.</span>balance_factor <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span>:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>rotate_right(node<span style="color: #666666">.</span>right_child)
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>rotate_left(node)
+        <span style="color: #008000; font-weight: bold">else</span>:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>rotate_left(node)
+    <span style="color: #008000; font-weight: bold">elif</span> node<span style="color: #666666">.</span>balance_factor <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span>:
+        <span style="color: #008000; font-weight: bold">if</span> node<span style="color: #666666">.</span>left_child<span style="color: #666666">.</span>balance_factor <span style="color: #666666">&lt;</span> <span style="color: #666666">0</span>:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>rotate_left(node<span style="color: #666666">.</span>left_child)
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>rotate_right(node)
+        <span style="color: #008000; font-weight: bold">else</span>:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>rotate_right(node)
+</code></pre></div></td></tr></table></div>
+<p>The <code>discussion questions</code> provide you the opportunity to rebalance a tree that requires a left rotation followed by a right. In addition the discussion questions provide you with the opportunity to rebalance some trees that are a little more complex than the tree in <code>Figure 8</code>.</p>
+<p>By keeping the tree in balance at all times, we can ensure that the <code>get</code> method will run in order <span class="arithmatex">\(O(log_2(n))\)</span> time. But the question is at what cost to our <code>put</code> method? Let us break this down into the operations performed by <code>put</code>. Since a new node is inserted as a leaf, updating the balance factors of all the parents will require a maximum of <span class="arithmatex">\(log_2(n)\)</span> operations, one for each level of the tree. If a subtree is found to be out of balance, a maximum of two rotations are required to bring the tree back into balance. But each of the rotations works in <span class="arithmatex">\(O(1)\)</span> time, so even our <code>put</code> operation remains <span class="arithmatex">\(O(log_2(n))\)</span>.</p>
+<p>At this point we have implemented a functional AVL tree, unless you need the ability to delete a node. We leave the deletion of the node and subsequent updating and rebalancing as an exercise for you.</p>
+</div>
+</div>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月9日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月11日</span>
       
         <br>
         创建日期:

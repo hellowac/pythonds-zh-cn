@@ -2691,7 +2691,7 @@
         
   
   <span class="md-ellipsis">
-    S1
+    6.1. 目标
   </span>
   
 
@@ -2711,7 +2711,7 @@
         
   
   <span class="md-ellipsis">
-    S2
+    6.2. 树的示例
   </span>
   
 
@@ -2731,7 +2731,7 @@
         
   
   <span class="md-ellipsis">
-    S3
+    6.3. 词汇和定义
   </span>
   
 
@@ -2751,7 +2751,7 @@
         
   
   <span class="md-ellipsis">
-    S4
+    6.4. 实现
   </span>
   
 
@@ -2771,7 +2771,7 @@
         
   
   <span class="md-ellipsis">
-    S5
+    6.5. 列表表示法
   </span>
   
 
@@ -2791,7 +2791,7 @@
         
   
   <span class="md-ellipsis">
-    S6
+    6.6. 节点与引用
   </span>
   
 
@@ -2811,7 +2811,7 @@
         
   
   <span class="md-ellipsis">
-    S7
+    6.7. 解析树
   </span>
   
 
@@ -2831,7 +2831,7 @@
         
   
   <span class="md-ellipsis">
-    S8
+    6.8. 树遍历
   </span>
   
 
@@ -2851,7 +2851,7 @@
         
   
   <span class="md-ellipsis">
-    S9
+    6.9. 使用二叉堆的优先队列
   </span>
   
 
@@ -2871,7 +2871,7 @@
         
   
   <span class="md-ellipsis">
-    S10
+    6.10. 二叉堆操作
   </span>
   
 
@@ -2891,7 +2891,7 @@
         
   
   <span class="md-ellipsis">
-    S11
+    6.11. 二叉堆实现
   </span>
   
 
@@ -2911,7 +2911,7 @@
         
   
   <span class="md-ellipsis">
-    S12
+    6.12. 二叉搜索树
   </span>
   
 
@@ -2931,7 +2931,7 @@
         
   
   <span class="md-ellipsis">
-    S13
+    6.13. 搜索树操作
   </span>
   
 
@@ -2951,7 +2951,7 @@
         
   
   <span class="md-ellipsis">
-    S14
+    6.14. 搜索树实现
   </span>
   
 
@@ -2971,7 +2971,7 @@
         
   
   <span class="md-ellipsis">
-    S15
+    6.15. 搜索树分析
   </span>
   
 
@@ -2991,7 +2991,7 @@
         
   
   <span class="md-ellipsis">
-    S16
+    6.16. 平衡二叉搜索树
   </span>
   
 
@@ -3011,7 +3011,7 @@
         
   
   <span class="md-ellipsis">
-    S17
+    6.17. AVL树性能
   </span>
   
 
@@ -3031,7 +3031,7 @@
         
   
   <span class="md-ellipsis">
-    S18
+    6.18. AVL树实现
   </span>
   
 
@@ -3051,7 +3051,7 @@
         
   
   <span class="md-ellipsis">
-    S19
+    6.19. Map ADT实现总结
   </span>
   
 
@@ -3071,7 +3071,7 @@
         
   
   <span class="md-ellipsis">
-    S20
+    6.20. 总结
   </span>
   
 
@@ -3091,7 +3091,7 @@
         
   
   <span class="md-ellipsis">
-    S21
+    6.21. 关键术语
   </span>
   
 
@@ -3111,7 +3111,7 @@
         
   
   <span class="md-ellipsis">
-    S22
+    6.22. 练习
   </span>
   
 
@@ -3972,10 +3972,241 @@
 
 <h1 id="59-插入排序">5.9. 插入排序<a class="headerlink" href="#59-插入排序" title="Permanent link">&para;</a></h1>
 <p><strong>5.9. The Insertion Sort</strong></p>
+<!--排序需要-->
+<script src="../js/animationbase.js"></script>
+<script src="../js/sortmodels.js"></script>
+<script src="../js/sortviewers.js"></script>
+
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
-<div class="tabbed-block"></div>
-<div class="tabbed-block"></div>
+<div class="tabbed-block">
+<p>The <strong>insertion sort</strong>, although still <span class="arithmatex">\(O(n^{2})\)</span>, works in a slightly different way. It always maintains a sorted sublist in the lower positions of the list. Each new item is then inserted back into the previous sublist such that the sorted sublist is one item larger. <code>Figure 4</code> shows the insertion sorting process. The shaded items represent the ordered sublists as the algorithm makes each pass.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/insertionsort.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/insertionsort.png" /></a>
+    <figcaption markdown="span">Figure 4: Insertion Sort: Complete</figcaption>
+</figure></p>
+<p>We begin by assuming that a list with one item (position <span class="arithmatex">\(0\)</span>) is already sorted. On each pass, one for each item 1 through <span class="arithmatex">\(n-1\)</span>, the current item is checked against those in the already sorted sublist. As we look back into the already sorted sublist, we shift those items that are greater to the right. When we reach a smaller item or the end of the sublist, the current item can be inserted.</p>
+<p><code>Figure 5</code> shows the fifth pass in detail. At this point in the algorithm, here is a sorted sublist of five items: 17, 26, 54, 77, and 93. We want to insert 31 back into the already sorted items. The first comparison against 93 causes 93 to be shifted to the right. 77 and 54 are also shifted. When the item 26 is encountered, the shifting process stops and 31 is placed in the open position. Now we have a sorted sublist of six items.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/insertionpass.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/insertionpass.png" /></a>
+    <figcaption markdown="span">Figure 5: Insertion Sort: Fifth Pass of the Sort</figcaption>
+</figure>   </p>
+<p>The implementation of <code>insertion_sort</code> (<code>ActiveCode 1</code>) shows that there are again <span class="arithmatex">\(n-1\)</span> passes to sort <span class="arithmatex">\(n\)</span> items. The iteration starts at position 1 and moves through position <span class="arithmatex">\(n-1\)</span>, as these are the items that need to be inserted back into the sorted sublists. Line 8 performs the shift operation that moves a value up one position in the list, making room behind it for the insertion. Remember that this is not a complete exchange as was performed in the previous algorithms.</p>
+<p>The maximum number of comparisons for an insertion sort is the sum of the first <span class="arithmatex">\(n-1\)</span> integers. Again, this is <span class="arithmatex">\(O(n^{2})\)</span>. However, in the best case, only one comparison needs to be done on each pass. This would be the case for an already sorted list.</p>
+<p>One note about shifting versus exchanging is also important. In general, a shift operation requires approximately a third of the processing work of an exchange since only one assignment is performed. In benchmark studies, insertion sort will show very good performance.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 5.9.1 Insertion Sort</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">insertion_sort</span>(a_list):
+    <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">1</span>, <span style="color: #008000">len</span>(a_list)):
+        cur_val <span style="color: #666666">=</span> a_list[i]
+        cur_pos <span style="color: #666666">=</span> i
+
+        <span style="color: #008000; font-weight: bold">while</span> cur_pos <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span> <span style="color: #AA22FF; font-weight: bold">and</span> a_list[cur_pos <span style="color: #666666">-</span> <span style="color: #666666">1</span>] <span style="color: #666666">&gt;</span> cur_val:
+            a_list[cur_pos] <span style="color: #666666">=</span> a_list[cur_pos <span style="color: #666666">-</span> <span style="color: #666666">1</span>]
+            cur_pos <span style="color: #666666">=</span> cur_pos <span style="color: #666666">-</span> <span style="color: #666666">1</span>
+        a_list[cur_pos] <span style="color: #666666">=</span> cur_val
+
+
+a_list <span style="color: #666666">=</span> [<span style="color: #666666">54</span>, <span style="color: #666666">26</span>, <span style="color: #666666">93</span>, <span style="color: #666666">17</span>, <span style="color: #666666">77</span>, <span style="color: #666666">31</span>, <span style="color: #666666">44</span>, <span style="color: #666666">55</span>, <span style="color: #666666">20</span>]
+insertion_sort(a_list)
+<span style="color: #008000">print</span>(a_list)
+</code></pre></div></td></tr></table></div>
+<p><div id="insertion_anim1" class="">
+    <canvas id="insertion_anim1_canvas" width="400" height="400" style="border:4px solid blue"></canvas>
+    <br>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="insertion_anim1_anim = insertion_anim_init('insertion_anim1')">Initialize</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="insertion_anim1_anim.run('insertion_anim1_anim')">Run</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="insertion_anim1_anim.stop()">Stop</button> <br>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="insertion_anim1_anim.begin()">Beginning</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="insertion_anim1_anim.forward()">Step Forward</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="insertion_anim1_anim.backward()">Step Backward</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="insertion_anim1_anim.end()">End</button>
+    <script>
+    insertion_anim_init = function(divid)
+    {
+       var a = new Animator(new InsertionSortModel(), new BarViewer(), divid)
+       a.init()
+       return a
+    }
+    </script>
+</div></p>
+<p>For more detail, CodeLens 4 allows you to step through the algorithm.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Tracing the Insertion Sort</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">insertion_sort</span>(a_list):
+    <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">1</span>, <span style="color: #008000">len</span>(a_list)):
+        cur_val <span style="color: #666666">=</span> a_list[i]
+        cur_pos <span style="color: #666666">=</span> i
+
+        <span style="color: #008000; font-weight: bold">while</span> cur_pos <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span> <span style="color: #AA22FF; font-weight: bold">and</span> a_list[cur_pos <span style="color: #666666">-</span> <span style="color: #666666">1</span>] <span style="color: #666666">&gt;</span> cur_val:
+            a_list[cur_pos] <span style="color: #666666">=</span> a_list[cur_pos <span style="color: #666666">-</span> <span style="color: #666666">1</span>]
+            cur_pos <span style="color: #666666">=</span> cur_pos <span style="color: #666666">-</span> <span style="color: #666666">1</span>
+        a_list[cur_pos] <span style="color: #666666">=</span> cur_val
+
+
+a_list <span style="color: #666666">=</span> [<span style="color: #666666">54</span>, <span style="color: #666666">26</span>, <span style="color: #666666">93</span>, <span style="color: #666666">17</span>, <span style="color: #666666">77</span>, <span style="color: #666666">31</span>, <span style="color: #666666">44</span>, <span style="color: #666666">55</span>, <span style="color: #666666">20</span>]
+insertion_sort(a_list)
+<span style="color: #008000">print</span>(a_list)
+</code></pre></div></td></tr></table></div>
+<div class="admonition info">
+<p class="admonition-title">Self Check</p>
+<p>Suppose you have the following list of numbers to sort: <br>
+[15, 5, 4, 18, 12, 19, 14, 10, 8, 20] which list represents the partially sorted list after three complete passes of insertion sort?</p>
+<ul>
+<li>answer a: [4, 5, 12, 15, 14, 10, 8, 18, 19, 20]</li>
+<li>answer b: [15, 5, 4, 10, 12, 8, 14, 18, 19, 20]</li>
+<li>answer c: [4, 5, 15, 18, 12, 19, 14, 10, 8, 20]</li>
+<li>
+<p>answer d: [15, 5, 4, 18, 12, 19, 14, 8, 10, 20]</p>
+</li>
+<li>
+<p>correct: c</p>
+</li>
+<li>
+<p>feedback a: This is a bubble sort.</p>
+</li>
+<li>feedback b:  This is the result of selection sort.</li>
+<li>feedback c: Insertion sort works at the start of the list.  Each pass produces a longer sorted list.</li>
+<li>feedback d: Insertion sort works on the front of the list not the end.</li>
+</ul>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <strong>insertion sort</strong>, although still <span class="arithmatex">\(O(n^{2})\)</span>, works in a slightly different way. It always maintains a sorted sublist in the lower positions of the list. Each new item is then inserted back into the previous sublist such that the sorted sublist is one item larger. <code>Figure 4</code> shows the insertion sorting process. The shaded items represent the ordered sublists as the algorithm makes each pass.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/insertionsort.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/insertionsort.png" /></a>
+    <figcaption markdown="span">Figure 4: Insertion Sort: Complete</figcaption>
+</figure></p>
+<p>We begin by assuming that a list with one item (position <span class="arithmatex">\(0\)</span>) is already sorted. On each pass, one for each item 1 through <span class="arithmatex">\(n-1\)</span>, the current item is checked against those in the already sorted sublist. As we look back into the already sorted sublist, we shift those items that are greater to the right. When we reach a smaller item or the end of the sublist, the current item can be inserted.</p>
+<p><code>Figure 5</code> shows the fifth pass in detail. At this point in the algorithm, here is a sorted sublist of five items: 17, 26, 54, 77, and 93. We want to insert 31 back into the already sorted items. The first comparison against 93 causes 93 to be shifted to the right. 77 and 54 are also shifted. When the item 26 is encountered, the shifting process stops and 31 is placed in the open position. Now we have a sorted sublist of six items.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/insertionpass.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/insertionpass.png" /></a>
+    <figcaption markdown="span">Figure 5: Insertion Sort: Fifth Pass of the Sort</figcaption>
+</figure>   </p>
+<p>The implementation of <code>insertion_sort</code> (<code>ActiveCode 1</code>) shows that there are again <span class="arithmatex">\(n-1\)</span> passes to sort <span class="arithmatex">\(n\)</span> items. The iteration starts at position 1 and moves through position <span class="arithmatex">\(n-1\)</span>, as these are the items that need to be inserted back into the sorted sublists. Line 8 performs the shift operation that moves a value up one position in the list, making room behind it for the insertion. Remember that this is not a complete exchange as was performed in the previous algorithms.</p>
+<p>The maximum number of comparisons for an insertion sort is the sum of the first <span class="arithmatex">\(n-1\)</span> integers. Again, this is <span class="arithmatex">\(O(n^{2})\)</span>. However, in the best case, only one comparison needs to be done on each pass. This would be the case for an already sorted list.</p>
+<p>One note about shifting versus exchanging is also important. In general, a shift operation requires approximately a third of the processing work of an exchange since only one assignment is performed. In benchmark studies, insertion sort will show very good performance.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 5.9.1 Insertion Sort</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">insertion_sort</span>(a_list):
+    <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">1</span>, <span style="color: #008000">len</span>(a_list)):
+        cur_val <span style="color: #666666">=</span> a_list[i]
+        cur_pos <span style="color: #666666">=</span> i
+
+        <span style="color: #008000; font-weight: bold">while</span> cur_pos <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span> <span style="color: #AA22FF; font-weight: bold">and</span> a_list[cur_pos <span style="color: #666666">-</span> <span style="color: #666666">1</span>] <span style="color: #666666">&gt;</span> cur_val:
+            a_list[cur_pos] <span style="color: #666666">=</span> a_list[cur_pos <span style="color: #666666">-</span> <span style="color: #666666">1</span>]
+            cur_pos <span style="color: #666666">=</span> cur_pos <span style="color: #666666">-</span> <span style="color: #666666">1</span>
+        a_list[cur_pos] <span style="color: #666666">=</span> cur_val
+
+
+a_list <span style="color: #666666">=</span> [<span style="color: #666666">54</span>, <span style="color: #666666">26</span>, <span style="color: #666666">93</span>, <span style="color: #666666">17</span>, <span style="color: #666666">77</span>, <span style="color: #666666">31</span>, <span style="color: #666666">44</span>, <span style="color: #666666">55</span>, <span style="color: #666666">20</span>]
+insertion_sort(a_list)
+<span style="color: #008000">print</span>(a_list)
+</code></pre></div></td></tr></table></div>
+<p><div id="insertion_anim" class="">
+    <canvas id="insertion_anim_canvas" width="400" height="400" style="border:4px solid blue"></canvas>
+    <br>
+    <button onclick="insertion_anim_anim = insertion_anim_init('insertion_anim')" style="border: 1px solid black; background-color: buttonface; padding: 2px;">Initialize</button>
+    <button onclick="insertion_anim_anim.run('insertion_anim_anim')" style="border: 1px solid black; background-color: buttonface; padding: 2px;">Run</button>
+    <button onclick="insertion_anim_anim.stop()" style="border: 1px solid black; background-color: buttonface; padding: 2px;">Stop</button> <br>
+    <button onclick="insertion_anim_anim.begin()" style="border: 1px solid black; background-color: buttonface; padding: 2px;">Beginning</button>
+    <button onclick="insertion_anim_anim.forward()" style="border: 1px solid black; background-color: buttonface; padding: 2px;">Step Forward</button>
+    <button onclick="insertion_anim_anim.backward()" style="border: 1px solid black; background-color: buttonface; padding: 2px;">Step Backward</button>
+    <button onclick="insertion_anim_anim.end()" style="border: 1px solid black; background-color: buttonface; padding: 2px;">End</button>
+    <script>
+    insertion_anim_init = function(divid)
+    {
+       var a = new Animator(new InsertionSortModel(), new BarViewer(), divid)
+       a.init()
+       return a
+    }
+    </script>
+</div></p>
+<p>For more detail, CodeLens 4 allows you to step through the algorithm.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Tracing the Insertion Sort</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">insertion_sort</span>(a_list):
+    <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">1</span>, <span style="color: #008000">len</span>(a_list)):
+        cur_val <span style="color: #666666">=</span> a_list[i]
+        cur_pos <span style="color: #666666">=</span> i
+
+        <span style="color: #008000; font-weight: bold">while</span> cur_pos <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span> <span style="color: #AA22FF; font-weight: bold">and</span> a_list[cur_pos <span style="color: #666666">-</span> <span style="color: #666666">1</span>] <span style="color: #666666">&gt;</span> cur_val:
+            a_list[cur_pos] <span style="color: #666666">=</span> a_list[cur_pos <span style="color: #666666">-</span> <span style="color: #666666">1</span>]
+            cur_pos <span style="color: #666666">=</span> cur_pos <span style="color: #666666">-</span> <span style="color: #666666">1</span>
+        a_list[cur_pos] <span style="color: #666666">=</span> cur_val
+
+
+a_list <span style="color: #666666">=</span> [<span style="color: #666666">54</span>, <span style="color: #666666">26</span>, <span style="color: #666666">93</span>, <span style="color: #666666">17</span>, <span style="color: #666666">77</span>, <span style="color: #666666">31</span>, <span style="color: #666666">44</span>, <span style="color: #666666">55</span>, <span style="color: #666666">20</span>]
+insertion_sort(a_list)
+<span style="color: #008000">print</span>(a_list)
+</code></pre></div></td></tr></table></div>
+<div class="admonition info">
+<p class="admonition-title">Self Check</p>
+<p>Suppose you have the following list of numbers to sort: <br>
+[15, 5, 4, 18, 12, 19, 14, 10, 8, 20] which list represents the partially sorted list after three complete passes of insertion sort?</p>
+<ul>
+<li>answer a: [4, 5, 12, 15, 14, 10, 8, 18, 19, 20]</li>
+<li>answer b: [15, 5, 4, 10, 12, 8, 14, 18, 19, 20]</li>
+<li>answer c: [4, 5, 15, 18, 12, 19, 14, 10, 8, 20]</li>
+<li>
+<p>answer d: [15, 5, 4, 18, 12, 19, 14, 8, 10, 20]</p>
+</li>
+<li>
+<p>correct: c</p>
+</li>
+<li>
+<p>feedback a: This is a bubble sort.</p>
+</li>
+<li>feedback b:  This is the result of selection sort.</li>
+<li>feedback c: Insertion sort works at the start of the list.  Each pass produces a longer sorted list.</li>
+<li>feedback d: Insertion sort works on the front of the list not the end.</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 
@@ -3984,7 +4215,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月10日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月11日</span>
       
         <br>
         创建日期:

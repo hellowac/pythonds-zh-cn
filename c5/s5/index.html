@@ -2749,7 +2749,7 @@
         
   
   <span class="md-ellipsis">
-    S1
+    6.1. 目标
   </span>
   
 
@@ -2769,7 +2769,7 @@
         
   
   <span class="md-ellipsis">
-    S2
+    6.2. 树的示例
   </span>
   
 
@@ -2789,7 +2789,7 @@
         
   
   <span class="md-ellipsis">
-    S3
+    6.3. 词汇和定义
   </span>
   
 
@@ -2809,7 +2809,7 @@
         
   
   <span class="md-ellipsis">
-    S4
+    6.4. 实现
   </span>
   
 
@@ -2829,7 +2829,7 @@
         
   
   <span class="md-ellipsis">
-    S5
+    6.5. 列表表示法
   </span>
   
 
@@ -2849,7 +2849,7 @@
         
   
   <span class="md-ellipsis">
-    S6
+    6.6. 节点与引用
   </span>
   
 
@@ -2869,7 +2869,7 @@
         
   
   <span class="md-ellipsis">
-    S7
+    6.7. 解析树
   </span>
   
 
@@ -2889,7 +2889,7 @@
         
   
   <span class="md-ellipsis">
-    S8
+    6.8. 树遍历
   </span>
   
 
@@ -2909,7 +2909,7 @@
         
   
   <span class="md-ellipsis">
-    S9
+    6.9. 使用二叉堆的优先队列
   </span>
   
 
@@ -2929,7 +2929,7 @@
         
   
   <span class="md-ellipsis">
-    S10
+    6.10. 二叉堆操作
   </span>
   
 
@@ -2949,7 +2949,7 @@
         
   
   <span class="md-ellipsis">
-    S11
+    6.11. 二叉堆实现
   </span>
   
 
@@ -2969,7 +2969,7 @@
         
   
   <span class="md-ellipsis">
-    S12
+    6.12. 二叉搜索树
   </span>
   
 
@@ -2989,7 +2989,7 @@
         
   
   <span class="md-ellipsis">
-    S13
+    6.13. 搜索树操作
   </span>
   
 
@@ -3009,7 +3009,7 @@
         
   
   <span class="md-ellipsis">
-    S14
+    6.14. 搜索树实现
   </span>
   
 
@@ -3029,7 +3029,7 @@
         
   
   <span class="md-ellipsis">
-    S15
+    6.15. 搜索树分析
   </span>
   
 
@@ -3049,7 +3049,7 @@
         
   
   <span class="md-ellipsis">
-    S16
+    6.16. 平衡二叉搜索树
   </span>
   
 
@@ -3069,7 +3069,7 @@
         
   
   <span class="md-ellipsis">
-    S17
+    6.17. AVL树性能
   </span>
   
 
@@ -3089,7 +3089,7 @@
         
   
   <span class="md-ellipsis">
-    S18
+    6.18. AVL树实现
   </span>
   
 
@@ -3109,7 +3109,7 @@
         
   
   <span class="md-ellipsis">
-    S19
+    6.19. Map ADT实现总结
   </span>
   
 
@@ -3129,7 +3129,7 @@
         
   
   <span class="md-ellipsis">
-    S20
+    6.20. 总结
   </span>
   
 
@@ -3149,7 +3149,7 @@
         
   
   <span class="md-ellipsis">
-    S21
+    6.21. 关键术语
   </span>
   
 
@@ -3169,7 +3169,7 @@
         
   
   <span class="md-ellipsis">
-    S22
+    6.22. 练习
   </span>
   
 
@@ -4068,40 +4068,1010 @@
 <p><strong>5.5. Hashing</strong></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
-<div class="tabbed-block"></div>
-<div class="tabbed-block"></div>
+<div class="tabbed-block">
+<p>In previous sections we were able to make improvements in our search algorithms by taking advantage of information about where items are stored in the collection with respect to one another. For example, by knowing that a list was ordered, we could search in logarithmic time using a binary search. In this section we will attempt to go one step further by building a data structure that can be searched in <span class="arithmatex">\(O(1)\)</span> time. This concept is referred to as <strong>hashing</strong>.</p>
+<p>In order to do this, we will need to know even more about where the items might be when we go to look for them in the collection. If every item is where it should be, then the search can use a single comparison to discover the presence of an item. We will see, however, that this is typically not the case.</p>
+<p>A <strong>hash table</strong> is a collection of items which are stored in such a way as to make it easy to find them later. Each position of the hash table, often called a <strong>slot</strong>, can hold an item and is named by an integer value starting at 0. For example, we will have a slot named 0, a slot named 1, a slot named 2, and so on. Initially, the hash table contains no items so every slot is empty. We can implement a hash table by using a list with each element initialized to the special Python value <code>None</code>. <code>Figure 4</code> shows a hash table of size <span class="arithmatex">\(m = 11\)</span>. In other words, there are <span class="arithmatex">\(m\)</span> slots in the table, named 0 through 10.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/hashtable.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/hashtable.png" /></a>
+    <figcaption markdown="span">Figure 4: Hash Table with 11 Empty Slots</figcaption>
+</figure></p>
+<p>The mapping between an item and the slot where that item belongs in the hash table is called the <strong>hash function</strong>. The hash function will take any item in the collection and return an integer in the range of slot names between 0 and <span class="arithmatex">\(m - 1\)</span>. Assume that we have the set of integer items 54, 26, 93, 17, 77, and 31. Our first hash function, sometimes referred to as the <em>remainder method</em>, simply takes an item and divides it by the table size, returning the remainder as its hash value (<span class="arithmatex">\(h(item)=item \% 11\)</span>). <span class="arithmatex">\(Table 4\)</span> gives all of the hash values for our example items. Note that this remainder method (modulo) will typically be present in some form in all hash functions since the result must be in the range of slot names.</p>
+<p><strong>Table 4: Simple Hash Function Using Remainders</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Item</strong></th>
+<th><strong>Hash Value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>54</td>
+<td>10</td>
+</tr>
+<tr>
+<td>26</td>
+<td>4</td>
+</tr>
+<tr>
+<td>93</td>
+<td>5</td>
+</tr>
+<tr>
+<td>17</td>
+<td>6</td>
+</tr>
+<tr>
+<td>77</td>
+<td>0</td>
+</tr>
+<tr>
+<td>31</td>
+<td>9</td>
+</tr>
+</tbody>
+</table>
+<p>Once the hash values have been computed, we can insert each item into the hash table at the designated position as shown in <code>Figure 5</code>. Note that 6 of the 11 slots are now occupied. This is referred to as the <strong>load factor</strong>, and is commonly denoted by <span class="arithmatex">\(\lambda = \frac {number\_of\_items}{table\_size}\)</span>. For this example, <span class="arithmatex">\(\lambda = \frac {6}{11}\)</span>.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/hashtable2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/hashtable2.png" /></a>
+    <figcaption markdown="span">Figure 5: Hash Table with Six Items</figcaption>
+</figure></p>
+<p>Now when we want to search for an item, we simply use the hash function to compute the slot name for the item and then check the hash table to see if it is present. This searching operation is <span class="arithmatex">\(O(1)\)</span> since a constant amount of time is required to compute the hash value and then index the hash table at that location. If everything is where it should be, we have found a constant time search algorithm.</p>
+<p>You can probably already see that this technique is going to work only if each item maps to a unique location in the hash table. For example, if the item 44 had been the next item in our collection, it would have a hash value of 0 (<span class="arithmatex">\(44\ \%\ 11 = 0\)</span>). Since 77 also had a hash value of 0, we would have a problem. According to the hash function, two or more items would need to be in the same slot. This is referred to as a <strong>collision</strong> (it may also be called a <em>clash</em>). Clearly, collisions create a problem for the hashing technique. We will discuss them in detail later.</p>
+</div>
+<div class="tabbed-block">
+<p>In previous sections we were able to make improvements in our search algorithms by taking advantage of information about where items are stored in the collection with respect to one another. For example, by knowing that a list was ordered, we could search in logarithmic time using a binary search. In this section we will attempt to go one step further by building a data structure that can be searched in <span class="arithmatex">\(O(1)\)</span> time. This concept is referred to as <strong>hashing</strong>.</p>
+<p>In order to do this, we will need to know even more about where the items might be when we go to look for them in the collection. If every item is where it should be, then the search can use a single comparison to discover the presence of an item. We will see, however, that this is typically not the case.</p>
+<p>A <strong>hash table</strong> is a collection of items which are stored in such a way as to make it easy to find them later. Each position of the hash table, often called a <strong>slot</strong>, can hold an item and is named by an integer value starting at 0. For example, we will have a slot named 0, a slot named 1, a slot named 2, and so on. Initially, the hash table contains no items so every slot is empty. We can implement a hash table by using a list with each element initialized to the special Python value <code>None</code>. <code>Figure 4</code> shows a hash table of size <span class="arithmatex">\(m = 11\)</span>. In other words, there are <span class="arithmatex">\(m\)</span> slots in the table, named 0 through 10.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/hashtable.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/hashtable.png" /></a>
+    <figcaption markdown="span">Figure 4: Hash Table with 11 Empty Slots</figcaption>
+</figure></p>
+<p>The mapping between an item and the slot where that item belongs in the hash table is called the <strong>hash function</strong>. The hash function will take any item in the collection and return an integer in the range of slot names between 0 and <span class="arithmatex">\(m - 1\)</span>. Assume that we have the set of integer items 54, 26, 93, 17, 77, and 31. Our first hash function, sometimes referred to as the <em>remainder method</em>, simply takes an item and divides it by the table size, returning the remainder as its hash value (<span class="arithmatex">\(h(item)=item \% 11\)</span>). <span class="arithmatex">\(Table 4\)</span> gives all of the hash values for our example items. Note that this remainder method (modulo) will typically be present in some form in all hash functions since the result must be in the range of slot names.</p>
+<p><strong>Table 4: Simple Hash Function Using Remainders</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Item</strong></th>
+<th><strong>Hash Value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>54</td>
+<td>10</td>
+</tr>
+<tr>
+<td>26</td>
+<td>4</td>
+</tr>
+<tr>
+<td>93</td>
+<td>5</td>
+</tr>
+<tr>
+<td>17</td>
+<td>6</td>
+</tr>
+<tr>
+<td>77</td>
+<td>0</td>
+</tr>
+<tr>
+<td>31</td>
+<td>9</td>
+</tr>
+</tbody>
+</table>
+<p>Once the hash values have been computed, we can insert each item into the hash table at the designated position as shown in <code>Figure 5</code>. Note that 6 of the 11 slots are now occupied. This is referred to as the <strong>load factor</strong>, and is commonly denoted by <span class="arithmatex">\(\lambda = \frac {number\_of\_items}{table\_size}\)</span>. For this example, <span class="arithmatex">\(\lambda = \frac {6}{11}\)</span>.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/hashtable2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/hashtable2.png" /></a>
+    <figcaption markdown="span">Figure 5: Hash Table with Six Items</figcaption>
+</figure></p>
+<p>Now when we want to search for an item, we simply use the hash function to compute the slot name for the item and then check the hash table to see if it is present. This searching operation is <span class="arithmatex">\(O(1)\)</span> since a constant amount of time is required to compute the hash value and then index the hash table at that location. If everything is where it should be, we have found a constant time search algorithm.</p>
+<p>You can probably already see that this technique is going to work only if each item maps to a unique location in the hash table. For example, if the item 44 had been the next item in our collection, it would have a hash value of 0 (<span class="arithmatex">\(44\ \%\ 11 = 0\)</span>). Since 77 also had a hash value of 0, we would have a problem. According to the hash function, two or more items would need to be in the same slot. This is referred to as a <strong>collision</strong> (it may also be called a <em>clash</em>). Clearly, collisions create a problem for the hashing technique. We will discuss them in detail later.</p>
+</div>
 </div>
 </div>
 <h2 id="551-哈希函数">5.5.1. 哈希函数<a class="headerlink" href="#551-哈希函数" title="Permanent link">&para;</a></h2>
 <p><strong>5.5.1. Hash Functions</strong></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">中文</label><label for="__tabbed_2_2">英文</label></div>
 <div class="tabbed-content">
-<div class="tabbed-block"></div>
-<div class="tabbed-block"></div>
+<div class="tabbed-block">
+<p>Given a collection of items, a hash function that maps each item into a unique slot is referred to as a <strong>perfect hash function</strong>. If we know the items and the collection will never change, then it is possible to construct a perfect hash function. Unfortunately, given an arbitrary collection of items, there is no systematic way to construct a perfect hash function. Luckily, we do not need the hash function to be perfect to still gain performance efficiency.</p>
+<p>One way to always have a perfect hash function is to increase the size of the hash table so that each possible value in the item range can be accommodated. This guarantees that each item will have a unique slot. Although this is practical for small numbers of items, it is not feasible when the number of possible items is large. For example, if the items were nine-digit Social Security numbers, this method would require almost one billion slots. If we only want to store data for a class of 25 students, we will be wasting an enormous amount of memory.</p>
+<p>Our goal is to create a hash function that minimizes the number of collisions, is easy to compute, and evenly distributes the items in the hash table. To that end, there are a number of common ways to extend the simple remainder method. We will consider a few of them here.</p>
+<p>The <strong>folding method</strong> for constructing hash functions begins by dividing the item into equal-sized pieces (the last piece may not be of equal size). These pieces are then added together to give the resulting hash value. For example, if our item was the phone number 436-555-4601, we would take the digits and divide them into groups of 2 (43, 65, 55, 46, 01). After the addition, <span class="arithmatex">\(43 + 65 + 55 + 46 + 01\)</span>, we get 1.   If we assume our hash table has 11 slots, then we need to perform the extra step of dividing by 11 and keeping the remainder. In this case <span class="arithmatex">\(210\ \%\ 11\)</span> is 1, so the phone number 436-555-4601 hashes to slot 1. Some folding methods go one step further and reverse every other piece before the addition. For the above example, we get <span class="arithmatex">\(43 + 56 + 55 + 64 + 01 = 219\)</span> which gives <span class="arithmatex">\(219\ \%\ 11 = 10\)</span>.</p>
+<p>Another numerical technique for constructing a hash function is called the <strong>mid-square method</strong>. We first square the item, and then extract some portion of the resulting digits. For example, if the item were 44, we would first compute <span class="arithmatex">\(44 ^{2} = 1936\)</span>. By extracting the middle two digits, 93, and performing the remainder step, we get 5 (<span class="arithmatex">\(93\ \%\ 11\)</span>). <code>Table 5</code> shows items under both the remainder method and the mid-square method. You should verify that you understand how these values were computed.</p>
+<p><strong>Table 5: Comparison of Remainder and Mid-Square Methods</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Item</strong></th>
+<th><strong>Remainder</strong></th>
+<th><strong>Mid-Square</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>54</td>
+<td>10</td>
+<td>3</td>
+</tr>
+<tr>
+<td>26</td>
+<td>4</td>
+<td>7</td>
+</tr>
+<tr>
+<td>93</td>
+<td>5</td>
+<td>9</td>
+</tr>
+<tr>
+<td>17</td>
+<td>6</td>
+<td>8</td>
+</tr>
+<tr>
+<td>77</td>
+<td>0</td>
+<td>4</td>
+</tr>
+<tr>
+<td>31</td>
+<td>9</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+<p>We can also create hash functions for character-based items such as strings. For example, the word <em>cat</em> can be thought of as a sequence of ordinal values.</p>
+<div class="language-pycon highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span><span style="color: #008000">ord</span>(<span style="color: #BA2121">&quot;c&quot;</span>)
+<span style="color: #717171">99</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span><span style="color: #008000">ord</span>(<span style="color: #BA2121">&quot;a&quot;</span>)
+<span style="color: #717171">97</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span><span style="color: #008000">ord</span>(<span style="color: #BA2121">&quot;t&quot;</span>)
+<span style="color: #717171">116</span>
+</code></pre></div>
+<p>We can then take these three ordinal values, add them up, and use the remainder method to get a hash value (see <code>Figure 6</code>). <code>Listing 1</code> shows a function called <code>hash_str</code> that takes a string and a table size and returns the hash value in the range from 0 to <code>table_size</code>-1.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/stringhash.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/stringhash.png" /></a>
+    <figcaption markdown="span">Figure 6: Hashing a String Using Ordinal Values</figcaption>
+</figure></p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">**Listing 1**</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">hash_str</span>(a_string, table_size):
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">sum</span>([<span style="color: #008000">ord</span>(c) <span style="color: #008000; font-weight: bold">for</span> c <span style="color: #AA22FF; font-weight: bold">in</span> a_string]) <span style="color: #666666">%</span> table_size
+</code></pre></div></td></tr></table></div>
+<p>It is interesting to note that when using this hash function, anagrams will always be given the same hash value. To remedy this, we could use the position of the character as a weight. <code>Figure 7</code> shows one possible way to use the positional value as a weighting factor. The modification to the <code>hash_str</code> function is left as an exercise.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/stringhash2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/stringhash2.png" /></a>
+    <figcaption markdown="span">Figure 7: Hashing a String Using Ordinal Values with Weighting</figcaption>
+</figure></p>
+<p>You may be able to think of a number of additional ways to compute hash values for items in a collection. The important thing to remember is that the hash function has to be efficient so that it does not become the dominant part of the storage and search process. If the hash function is too complex, then it becomes more work to compute the slot name than it would be to simply do a basic sequential or binary search as described earlier. This would quickly defeat the purpose of hashing.</p>
+</div>
+<div class="tabbed-block">
+<p>Given a collection of items, a hash function that maps each item into a unique slot is referred to as a <strong>perfect hash function</strong>. If we know the items and the collection will never change, then it is possible to construct a perfect hash function. Unfortunately, given an arbitrary collection of items, there is no systematic way to construct a perfect hash function. Luckily, we do not need the hash function to be perfect to still gain performance efficiency.</p>
+<p>One way to always have a perfect hash function is to increase the size of the hash table so that each possible value in the item range can be accommodated. This guarantees that each item will have a unique slot. Although this is practical for small numbers of items, it is not feasible when the number of possible items is large. For example, if the items were nine-digit Social Security numbers, this method would require almost one billion slots. If we only want to store data for a class of 25 students, we will be wasting an enormous amount of memory.</p>
+<p>Our goal is to create a hash function that minimizes the number of collisions, is easy to compute, and evenly distributes the items in the hash table. To that end, there are a number of common ways to extend the simple remainder method. We will consider a few of them here.</p>
+<p>The <strong>folding method</strong> for constructing hash functions begins by dividing the item into equal-sized pieces (the last piece may not be of equal size). These pieces are then added together to give the resulting hash value. For example, if our item was the phone number 436-555-4601, we would take the digits and divide them into groups of 2 (43, 65, 55, 46, 01). After the addition, <span class="arithmatex">\(43 + 65 + 55 + 46 + 01\)</span>, we get 1.   If we assume our hash table has 11 slots, then we need to perform the extra step of dividing by 11 and keeping the remainder. In this case <span class="arithmatex">\(210\ \%\ 11\)</span> is 1, so the phone number 436-555-4601 hashes to slot 1. Some folding methods go one step further and reverse every other piece before the addition. For the above example, we get <span class="arithmatex">\(43 + 56 + 55 + 64 + 01 = 219\)</span> which gives <span class="arithmatex">\(219\ \%\ 11 = 10\)</span>.</p>
+<p>Another numerical technique for constructing a hash function is called the <strong>mid-square method</strong>. We first square the item, and then extract some portion of the resulting digits. For example, if the item were 44, we would first compute <span class="arithmatex">\(44 ^{2} = 1936\)</span>. By extracting the middle two digits, 93, and performing the remainder step, we get 5 (<span class="arithmatex">\(93\ \%\ 11\)</span>). <code>Table 5</code> shows items under both the remainder method and the mid-square method. You should verify that you understand how these values were computed.</p>
+<p><strong>Table 5: Comparison of Remainder and Mid-Square Methods</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Item</strong></th>
+<th><strong>Remainder</strong></th>
+<th><strong>Mid-Square</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>54</td>
+<td>10</td>
+<td>3</td>
+</tr>
+<tr>
+<td>26</td>
+<td>4</td>
+<td>7</td>
+</tr>
+<tr>
+<td>93</td>
+<td>5</td>
+<td>9</td>
+</tr>
+<tr>
+<td>17</td>
+<td>6</td>
+<td>8</td>
+</tr>
+<tr>
+<td>77</td>
+<td>0</td>
+<td>4</td>
+</tr>
+<tr>
+<td>31</td>
+<td>9</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+<p>We can also create hash functions for character-based items such as strings. For example, the word <em>cat</em> can be thought of as a sequence of ordinal values.</p>
+<div class="language-pycon highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span><span style="color: #008000">ord</span>(<span style="color: #BA2121">&quot;c&quot;</span>)
+<span style="color: #717171">99</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span><span style="color: #008000">ord</span>(<span style="color: #BA2121">&quot;a&quot;</span>)
+<span style="color: #717171">97</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span><span style="color: #008000">ord</span>(<span style="color: #BA2121">&quot;t&quot;</span>)
+<span style="color: #717171">116</span>
+</code></pre></div>
+<p>We can then take these three ordinal values, add them up, and use the remainder method to get a hash value (see <code>Figure 6</code>). <code>Listing 1</code> shows a function called <code>hash_str</code> that takes a string and a table size and returns the hash value in the range from 0 to <code>table_size</code>-1.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/stringhash.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/stringhash.png" /></a>
+    <figcaption markdown="span">Figure 6: Hashing a String Using Ordinal Values</figcaption>
+</figure></p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">**Listing 1**</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">hash_str</span>(a_string, table_size):
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">sum</span>([<span style="color: #008000">ord</span>(c) <span style="color: #008000; font-weight: bold">for</span> c <span style="color: #AA22FF; font-weight: bold">in</span> a_string]) <span style="color: #666666">%</span> table_size
+</code></pre></div></td></tr></table></div>
+<p>It is interesting to note that when using this hash function, anagrams will always be given the same hash value. To remedy this, we could use the position of the character as a weight. <code>Figure 7</code> shows one possible way to use the positional value as a weighting factor. The modification to the <code>hash_str</code> function is left as an exercise.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/stringhash2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/stringhash2.png" /></a>
+    <figcaption markdown="span">Figure 7: Hashing a String Using Ordinal Values with Weighting</figcaption>
+</figure></p>
+<p>You may be able to think of a number of additional ways to compute hash values for items in a collection. The important thing to remember is that the hash function has to be efficient so that it does not become the dominant part of the storage and search process. If the hash function is too complex, then it becomes more work to compute the slot name than it would be to simply do a basic sequential or binary search as described earlier. This would quickly defeat the purpose of hashing.</p>
+</div>
 </div>
 </div>
 <h2 id="552-碰撞解决">5.5.2. 碰撞解决<a class="headerlink" href="#552-碰撞解决" title="Permanent link">&para;</a></h2>
 <p><strong>5.5.2. Collision Resolution</strong></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">中文</label><label for="__tabbed_3_2">英文</label></div>
 <div class="tabbed-content">
-<div class="tabbed-block"></div>
-<div class="tabbed-block"></div>
+<div class="tabbed-block">
+<p>We now return to the problem of collisions. When two items hash to the same slot, we must have a systematic method for placing the second item in the hash table. This process is called <strong>collision resolution</strong>. As we stated earlier, if the hash function is perfect, collisions will never occur. However, since this is often not possible, collision resolution becomes a very important part of hashing.</p>
+<p>One method for resolving collisions looks into the hash table and tries to find another open slot to hold the item that caused the collision. A simple way to do this is to start at the original hash value position and then move in a sequential manner through the slots until we encounter the first slot that is empty. Note that we may need to go back to the first slot (circularly) to cover the entire hash table. This collision resolution process is referred to as <strong>open addressing</strong> in that it tries to find the next open slot or address in the hash table. By systematically visiting each slot one at a time, we are performing an open addressing technique called <strong>linear probing</strong>.</p>
+<p><code>Figure 8</code> shows an extended set of integer items under the simple remainder method hash function (54, 26, 93, 17, 77, 31, 44, 55, 20). <code>Table 4</code> above shows the hash values for the original six items and <code>Figure 5</code> shows the contents of a hash table with those six items. Let's see what happens when we attempt to place the additional three items into the table. When we attempt to place 44 into slot 0, a collision occurs. Under linear probing, we look sequentially, slot by slot, until we find an open position. In this case, we find slot 1.</p>
+<p>Again, 55 should go in slot 0 but must be placed in slot 2 since it is the next open position. The final value of 20 hashes to slot 9. Since slot 9 is full, we begin to do linear probing. We visit slots 10, 0, 1, and 2, and finally find an empty slot at position 3.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/linearprobing1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/linearprobing1.png" /></a>
+    <figcaption markdown="span">Figure 8: Collision Resolution with Linear Probing</figcaption>
+</figure></p>
+<p>Once we have built a hash table using open addressing and linear probing, it is essential that we utilize the same methods to search for items. Assume we want to look up the item 93. When we compute the hash value, we get 5. Looking in slot 5 reveals 93, and we can return <code>True</code>. What if we are looking for 20? Now the hash value is 9, and slot 9 is currently holding 31. We cannot simply return <code>False</code> since we know that there could have been collisions. We are now forced to do a sequential search, starting at position 10, looking until either we find the item 20 or we find an empty slot.</p>
+<p>A disadvantage to linear probing is the tendency for <strong>clustering</strong>; items become clustered in the table. This means that if many collisions occur at the same hash value, a number of surrounding slots will be filled by the linear probing resolution. This will have an impact on other items that are being inserted, as we saw when we tried to add the item 20 above. A cluster of values hashing to 0 had to be skipped to finally find an open position. This cluster is shown in <code>Figure 9</code>.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/clustering.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/clustering.png" /></a>
+    <figcaption markdown="span">Figure 9: A Cluster of Items for Slot 0</figcaption>
+</figure></p>
+<p>One way to deal with clustering is to extend the linear probing technique so that instead of looking sequentially for the next open slot, we skip slots, thereby more evenly distributing the items that have caused collisions. This will potentially reduce the clustering that occurs. <code>Figure 10</code> shows the items when collision resolution is done with what we will call a “plus 3” probe. This means that once a collision occurs, we will look at every third slot until we find one that is empty.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/linearprobing2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/linearprobing2.png" /></a>
+    <figcaption markdown="span">Figure 10: Collision Resolution Using a Plus 3 Probe</figcaption>
+</figure></p>
+<p>The general name for this process of looking for another slot after a collision is <strong>rehashing</strong>. With simple linear probing, the rehash function is <span class="arithmatex">\(new\_hash = rehash(old\_hash)\)</span> where <span class="arithmatex">\(rehash(pos) = (pos + 1) \% size\)</span>. The plus 3 rehash can be defined as <span class="arithmatex">\(rehash(pos) = (pos + 3) \% size\)</span>. In general, <span class="arithmatex">\(rehash(pos) = (pos + skip) \% size\)</span>. It is important to note that the size of the skip must be such that all the slots in the table will eventually be visited. Otherwise, part of the table will be unused. To ensure this, it is often suggested that the table size be a prime number. This is the reason we have been using 11 in our examples.</p>
+<p>A variation of the linear probing idea is called <strong>quadratic probing</strong>. Instead of using a constant skip value, we use a rehash function that increments the hash value by 1, 3, 5, 7, 9, and so on. This means that if the first hash value is <span class="arithmatex">\(h\)</span>, the successive values are <span class="arithmatex">\(h + 1\)</span>, <span class="arithmatex">\(h + 4\)</span>, <span class="arithmatex">\(h + 9\)</span>, <span class="arithmatex">\(h + 16\)</span>, and so on. In general, the <span class="arithmatex">\(i\)</span> will be <span class="arithmatex">\(i ^ {2}\)</span> and <span class="arithmatex">\(rehash(pos) = (h + i ^ {2}) \% size\)</span>. In other words, quadratic probing uses a skip consisting of successive perfect squares. <code>Figure 11</code> shows our example values after they are placed using this technique.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/quadratic.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/quadratic.png" /></a>
+    <figcaption markdown="span">Figure 11: Collision Resolution with Quadratic Probing</figcaption>
+</figure></p>
+<p>An alternative method for handling the collision problem is to allow each slot to hold a reference to a collection (or chain) of items. <strong>Chaining</strong> allows many items to exist at the same location in the hash table. When collisions happen, the item is still placed in the proper slot of the hash table. As more and more items hash to the same location, the difficulty of searching for the item in the collection increases. <code>Figure 12</code> shows the items as they are added to a hash table that uses chaining to resolve collisions.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/chaining.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/chaining.png" /></a>
+    <figcaption markdown="span">Figure 12: Collision Resolution with Chaining</figcaption>
+</figure></p>
+<p>When we want to search for an item, we use the hash function to generate the slot where it should reside. Since with chaining each slot holds a collection, we use a searching technique to decide whether the item is present. The advantage is that on the average there are likely to be many fewer items in each slot, so the search is perhaps more efficient. We will look at the analysis for hashing at the end of this section.</p>
+<div class="admonition info">
+<p class="admonition-title">Self Check</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">HASH_1</label><label for="__tabbed_4_2">HASH_2</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>In a hash table of size 13 which index positions would the following two keys map to?  27,  130</p>
+<ul>
+<li>answer a: 1, 10</li>
+<li>answer b: 13, 0</li>
+<li>answer c: 1, 0</li>
+<li>answer d: 2, 3</li>
+</ul>
+<p>correct: c</p>
+<ul>
+<li>feedback a:  Be careful to use modulo not integer division</li>
+<li>feedback b:  Don't divide by two, use the modulo operator.</li>
+<li>feedback c: 27 % 13 == 1 and 130 % 13 == 0</li>
+<li>feedback d: Use the modulo operator</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p>Suppose you are given the following set of keys to insert into a hash table that holds exactly 11 values:  113 , 117 , 97 , 100 , 114 , 108 , 116 , 105 , 99 Which of the following best demonstrates the contents of the hash table after all the keys have been inserted using linear probing?</p>
+<ul>
+<li>answer a: 100, <strong>, </strong>, 113, 114, 105, 116, 117, 97, 108, 99</li>
+<li>answer b: 99, 100, <strong>, 113, 114, </strong>, 116, 117, 105, 97, 108</li>
+<li>answer c: 100, 113, 117, 97, 14, 108, 116, 105, 99, <strong>, </strong></li>
+<li>answer d: 117, 114, 108, 116, 105, 99, <strong>, </strong>, 97, 100, 113</li>
+</ul>
+<p>correct: b</p>
+<ul>
+<li>feedback a:  It looks like you may have been doing modulo 2 arithmentic.  You need to use the hash table size as the modulo value.</li>
+<li>feedback b:  Using modulo 11 arithmetic and linear probing gives these values</li>
+<li>feedback c: It looks like you are using modulo 10 arithmetic, use the table size.</li>
+<li>feedback d: Be careful to use modulo not integer division.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tabbed-block">
+<p>We now return to the problem of collisions. When two items hash to the same slot, we must have a systematic method for placing the second item in the hash table. This process is called <strong>collision resolution</strong>. As we stated earlier, if the hash function is perfect, collisions will never occur. However, since this is often not possible, collision resolution becomes a very important part of hashing.</p>
+<p>One method for resolving collisions looks into the hash table and tries to find another open slot to hold the item that caused the collision. A simple way to do this is to start at the original hash value position and then move in a sequential manner through the slots until we encounter the first slot that is empty. Note that we may need to go back to the first slot (circularly) to cover the entire hash table. This collision resolution process is referred to as <strong>open addressing</strong> in that it tries to find the next open slot or address in the hash table. By systematically visiting each slot one at a time, we are performing an open addressing technique called <strong>linear probing</strong>.</p>
+<p><code>Figure 8</code> shows an extended set of integer items under the simple remainder method hash function (54, 26, 93, 17, 77, 31, 44, 55, 20). <code>Table 4</code> above shows the hash values for the original six items and <code>Figure 5</code> shows the contents of a hash table with those six items. Let's see what happens when we attempt to place the additional three items into the table. When we attempt to place 44 into slot 0, a collision occurs. Under linear probing, we look sequentially, slot by slot, until we find an open position. In this case, we find slot 1.</p>
+<p>Again, 55 should go in slot 0 but must be placed in slot 2 since it is the next open position. The final value of 20 hashes to slot 9. Since slot 9 is full, we begin to do linear probing. We visit slots 10, 0, 1, and 2, and finally find an empty slot at position 3.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/linearprobing1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/linearprobing1.png" /></a>
+    <figcaption markdown="span">Figure 8: Collision Resolution with Linear Probing</figcaption>
+</figure></p>
+<p>Once we have built a hash table using open addressing and linear probing, it is essential that we utilize the same methods to search for items. Assume we want to look up the item 93. When we compute the hash value, we get 5. Looking in slot 5 reveals 93, and we can return <code>True</code>. What if we are looking for 20? Now the hash value is 9, and slot 9 is currently holding 31. We cannot simply return <code>False</code> since we know that there could have been collisions. We are now forced to do a sequential search, starting at position 10, looking until either we find the item 20 or we find an empty slot.</p>
+<p>A disadvantage to linear probing is the tendency for <strong>clustering</strong>; items become clustered in the table. This means that if many collisions occur at the same hash value, a number of surrounding slots will be filled by the linear probing resolution. This will have an impact on other items that are being inserted, as we saw when we tried to add the item 20 above. A cluster of values hashing to 0 had to be skipped to finally find an open position. This cluster is shown in <code>Figure 9</code>.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/clustering.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/clustering.png" /></a>
+    <figcaption markdown="span">Figure 9: A Cluster of Items for Slot 0</figcaption>
+</figure></p>
+<p>One way to deal with clustering is to extend the linear probing technique so that instead of looking sequentially for the next open slot, we skip slots, thereby more evenly distributing the items that have caused collisions. This will potentially reduce the clustering that occurs. <code>Figure 10</code> shows the items when collision resolution is done with what we will call a “plus 3” probe. This means that once a collision occurs, we will look at every third slot until we find one that is empty.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/linearprobing2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/linearprobing2.png" /></a>
+    <figcaption markdown="span">Figure 10: Collision Resolution Using a Plus 3 Probe</figcaption>
+</figure></p>
+<p>The general name for this process of looking for another slot after a collision is <strong>rehashing</strong>. With simple linear probing, the rehash function is <span class="arithmatex">\(new\_hash = rehash(old\_hash)\)</span> where <span class="arithmatex">\(rehash(pos) = (pos + 1) \% size\)</span>. The plus 3 rehash can be defined as <span class="arithmatex">\(rehash(pos) = (pos + 3) \% size\)</span>. In general, <span class="arithmatex">\(rehash(pos) = (pos + skip) \% size\)</span>. It is important to note that the size of the skip must be such that all the slots in the table will eventually be visited. Otherwise, part of the table will be unused. To ensure this, it is often suggested that the table size be a prime number. This is the reason we have been using 11 in our examples.</p>
+<p>A variation of the linear probing idea is called <strong>quadratic probing</strong>. Instead of using a constant skip value, we use a rehash function that increments the hash value by 1, 3, 5, 7, 9, and so on. This means that if the first hash value is <span class="arithmatex">\(h\)</span>, the successive values are <span class="arithmatex">\(h + 1\)</span>, <span class="arithmatex">\(h + 4\)</span>, <span class="arithmatex">\(h + 9\)</span>, <span class="arithmatex">\(h + 16\)</span>, and so on. In general, the <span class="arithmatex">\(i\)</span> will be <span class="arithmatex">\(i ^ {2}\)</span> and <span class="arithmatex">\(rehash(pos) = (h + i ^ {2}) \% size\)</span>. In other words, quadratic probing uses a skip consisting of successive perfect squares. <code>Figure 11</code> shows our example values after they are placed using this technique.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/quadratic.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/quadratic.png" /></a>
+    <figcaption markdown="span">Figure 11: Collision Resolution with Quadratic Probing</figcaption>
+</figure></p>
+<p>An alternative method for handling the collision problem is to allow each slot to hold a reference to a collection (or chain) of items. <strong>Chaining</strong> allows many items to exist at the same location in the hash table. When collisions happen, the item is still placed in the proper slot of the hash table. As more and more items hash to the same location, the difficulty of searching for the item in the collection increases. <code>Figure 12</code> shows the items as they are added to a hash table that uses chaining to resolve collisions.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/chaining.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/chaining.png" /></a>
+    <figcaption markdown="span">Figure 12: Collision Resolution with Chaining</figcaption>
+</figure></p>
+<p>When we want to search for an item, we use the hash function to generate the slot where it should reside. Since with chaining each slot holds a collection, we use a searching technique to decide whether the item is present. The advantage is that on the average there are likely to be many fewer items in each slot, so the search is perhaps more efficient. We will look at the analysis for hashing at the end of this section.</p>
+<div class="admonition info">
+<p class="admonition-title">Self Check</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">HASH_1</label><label for="__tabbed_5_2">HASH_2</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>In a hash table of size 13 which index positions would the following two keys map to?  27,  130</p>
+<ul>
+<li>answer a: 1, 10</li>
+<li>answer b: 13, 0</li>
+<li>answer c: 1, 0</li>
+<li>answer d: 2, 3</li>
+</ul>
+<p>correct: c</p>
+<ul>
+<li>feedback a:  Be careful to use modulo not integer division</li>
+<li>feedback b:  Don't divide by two, use the modulo operator.</li>
+<li>feedback c: 27 % 13 == 1 and 130 % 13 == 0</li>
+<li>feedback d: Use the modulo operator</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p>Suppose you are given the following set of keys to insert into a hash table that holds exactly 11 values:  113 , 117 , 97 , 100 , 114 , 108 , 116 , 105 , 99 Which of the following best demonstrates the contents of the hash table after all the keys have been inserted using linear probing?</p>
+<ul>
+<li>answer a: 100, <strong>, </strong>, 113, 114, 105, 116, 117, 97, 108, 99</li>
+<li>answer b: 99, 100, <strong>, 113, 114, </strong>, 116, 117, 105, 97, 108</li>
+<li>answer c: 100, 113, 117, 97, 14, 108, 116, 105, 99, <strong>, </strong></li>
+<li>answer d: 117, 114, 108, 116, 105, 99, <strong>, </strong>, 97, 100, 113</li>
+</ul>
+<p>correct: b</p>
+<ul>
+<li>feedback a:  It looks like you may have been doing modulo 2 arithmentic.  You need to use the hash table size as the modulo value.</li>
+<li>feedback b:  Using modulo 11 arithmetic and linear probing gives these values</li>
+<li>feedback c: It looks like you are using modulo 10 arithmetic, use the table size.</li>
+<li>feedback d: Be careful to use modulo not integer division.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <h2 id="553-实现map抽象数据类型">5.5.3. 实现Map抽象数据类型<a class="headerlink" href="#553-实现map抽象数据类型" title="Permanent link">&para;</a></h2>
 <p><strong>5.5.3. Implementing the Map Abstract Data Type</strong></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">中文</label><label for="__tabbed_4_2">英文</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">中文</label><label for="__tabbed_6_2">英文</label></div>
 <div class="tabbed-content">
-<div class="tabbed-block"></div>
-<div class="tabbed-block"></div>
+<div class="tabbed-block">
+<p>One of the most useful Python collections is the dictionary. Recall that a dictionary is an associative data type where you can store key-data pairs. The key is used to look up the associated data value. We often refer to this idea as a <strong>map</strong>.</p>
+<p>The map abstract data type is defined as follows. The structure is an unordered collection of associations between a key and a data value. The keys in a map are all unique so that there is a one-to-one relationship between a key and a value. The operations are given below.</p>
+<ul>
+<li><code>Map()</code> creates a new empty map.</li>
+<li><code>put(key, val)</code> adds a new key--value pair to the map. If the key is already in the map, it replaces the old value with the new value.</li>
+<li><code>get(key)</code> takes a key and returns the matching value stored in the map or <code>None</code> otherwise.</li>
+<li><code>del</code> deletes the key--value pair from the map using a statement of the form <code>del map[key]</code>.</li>
+<li><code>size()</code> returns the number of key--value pairs stored in the map.</li>
+<li><code>in</code> return <code>True</code> for a statement of the form <code>key in map</code> if the given key is in the map, <code>False</code> otherwise.</li>
+</ul>
+<p>One of the great benefits of a dictionary is the fact that given a key, we can look up the associated data value very quickly. In order to provide this fast look-up capability, we need an implementation that supports an efficient search. We could use a list with sequential or binary search, but it would be even better to use a hash table as described above since looking up an item in a hash table can approach $O(1)` performance.</p>
+<p>In <code>Listing 2</code> we use two lists to create a <code>HashTable</code> class that implements the map abstract data type. One list, called <code>slots</code>, will hold the key items and a parallel list, called <code>data</code>, will hold the data values. When we look up a key, the corresponding position in the data list will hold the associated data value. We will treat the key list as a hash table using the ideas presented earlier. Note that the initial size for the hash table has been chosen to be 11. Although this is arbitrary, it is important that the size be a prime number so that the collision resolution algorithm can be as efficient as possible.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">**Listing 2**</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">5</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">HashTable</span>:
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>size <span style="color: #666666">=</span> <span style="color: #666666">11</span>
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>slots <span style="color: #666666">=</span> [<span style="color: #008000; font-weight: bold">None</span>] <span style="color: #666666">*</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>size
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>data <span style="color: #666666">=</span> [<span style="color: #008000; font-weight: bold">None</span>] <span style="color: #666666">*</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>size
+</code></pre></div></td></tr></table></div>
+<p>As seen in <code>Listing 3</code>, <code>hash_function</code> implements the simple remainder method. The collision resolution technique is linear probing with a “plus 1” rehash value. The <code>put</code> function (see <code>Listing 3</code>) assumes that there will eventually be an empty slot unless the key is already present in the <code>self.slots</code>. It computes the original hash value and if that slot is not empty, iterates the <code>rehash</code> function until an empty slot occurs. If a nonempty slot already contains the key, the old data value is replaced with the new data value.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">**Listing 3**</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">put</span>(<span style="color: #008000">self</span>, key, data):
+    hash_value <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>hash_function(key, <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>slots))
+
+    <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>slots[hash_value] <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #008000; font-weight: bold">None</span>:
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>slots[hash_value] <span style="color: #666666">=</span> key
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>data[hash_value] <span style="color: #666666">=</span> data
+    <span style="color: #008000; font-weight: bold">else</span>:
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>slots[hash_value] <span style="color: #666666">==</span> key:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>data[hash_value] <span style="color: #666666">=</span> data  <span style="color: #3D7B7B; font-style: italic"># replace</span>
+        <span style="color: #008000; font-weight: bold">else</span>:
+            next_slot <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>rehash(hash_value, <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>slots))
+            <span style="color: #008000; font-weight: bold">while</span> (
+                <span style="color: #008000">self</span><span style="color: #666666">.</span>slots[next_slot] <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #AA22FF; font-weight: bold">not</span> <span style="color: #008000; font-weight: bold">None</span>
+                <span style="color: #AA22FF; font-weight: bold">and</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>slots[next_slot] <span style="color: #666666">!=</span> key
+            ):
+                next_slot <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>rehash(next_slot, <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>slots))
+
+            <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>slots[next_slot] <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #008000; font-weight: bold">None</span>:
+                <span style="color: #008000">self</span><span style="color: #666666">.</span>slots[next_slot] <span style="color: #666666">=</span> key
+                <span style="color: #008000">self</span><span style="color: #666666">.</span>data[next_slot] <span style="color: #666666">=</span> data
+            <span style="color: #008000; font-weight: bold">else</span>:
+                <span style="color: #008000">self</span><span style="color: #666666">.</span>data[next_slot] <span style="color: #666666">=</span> data
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">hash_function</span>(<span style="color: #008000">self</span>, key, size):
+    <span style="color: #008000; font-weight: bold">return</span> key <span style="color: #666666">%</span> size
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">rehash</span>(<span style="color: #008000">self</span>, old_hash, size):
+    <span style="color: #008000; font-weight: bold">return</span> (old_hash <span style="color: #666666">+</span> <span style="color: #666666">1</span>) <span style="color: #666666">%</span> size
+</code></pre></div></td></tr></table></div>
+<p>The <code>get</code> function (see <code>Listing 4</code>) begins by computing the initial hash value. If the value is not in the initial slot, <code>rehash</code> is used to locate the next possible position. Notice that line 14 guarantees that the search will terminate by checking to make sure that we have not returned to the initial slot. If that happens, we have exhausted all possible slots and the item must not be present.</p>
+<p>The final methods of the <code>HashTable</code> class provide additional dictionary functionality. We overload the <code>__getitem__</code> and <code>__setitem__</code> methods to allow access using <code>[]</code>. This means that once a <code>HashTable</code> has been created, the familiar index operator will be available. We leave the remaining methods as exercises.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">**Listing 4**</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get</span>(<span style="color: #008000">self</span>, key):
+    start_slot <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>hash_function(key, <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>slots))
+
+    position <span style="color: #666666">=</span> start_slot
+    <span style="color: #008000; font-weight: bold">while</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>slots[position] <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #AA22FF; font-weight: bold">not</span> <span style="color: #008000; font-weight: bold">None</span>:
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>slots[position] <span style="color: #666666">==</span> key:
+            <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>data[position]
+        <span style="color: #008000; font-weight: bold">else</span>:
+            position <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>rehash(position, <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>slots))
+            <span style="color: #008000; font-weight: bold">if</span> position <span style="color: #666666">==</span> start_slot:
+                <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">None</span>
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__getitem__</span>(<span style="color: #008000">self</span>, key):
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>get(key)
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__setitem__</span>(<span style="color: #008000">self</span>, key, data):
+    <span style="color: #008000">self</span><span style="color: #666666">.</span>put(key, data)
+</code></pre></div></td></tr></table></div>
+<p>The following session shows the <code>HashTable</code> class in action. First we will create a hash table and store some items with integer keys and string data values.</p>
+<div class="language-pycon highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>h <span style="color: #666666">=</span> HashTable()
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>h[<span style="color: #666666">54</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;cat&quot;</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>h[<span style="color: #666666">26</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;dog&quot;</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>h[<span style="color: #666666">93</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;lion&quot;</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>h[<span style="color: #666666">17</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;tiger&quot;</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>h[<span style="color: #666666">77</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;bird&quot;</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>h[<span style="color: #666666">31</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;cow&quot;</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>h[<span style="color: #666666">44</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;goat&quot;</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>h[<span style="color: #666666">55</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;pig&quot;</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>h[<span style="color: #666666">20</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;chicken&quot;</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>h<span style="color: #666666">.</span>slots
+<span style="color: #717171">[77, 44, 55, 20, 26, 93, 17, None, None, 31, 54]</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>h<span style="color: #666666">.</span>data
+<span style="color: #717171">[&#39;bird&#39;, &#39;goat&#39;, &#39;pig&#39;, &#39;chicken&#39;, &#39;dog&#39;, &#39;lion&#39;,</span>
+<span style="color: #717171">        &#39;tiger&#39;, None, None, &#39;cow&#39;, &#39;cat&#39;]</span>
+</code></pre></div>
+<p>Next we will access and modify some items in the hash table. Note that the value for the key 20 is being replaced.</p>
+<div class="language-pycon highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>h[<span style="color: #666666">20</span>]
+<span style="color: #717171">&#39;chicken&#39;</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>h[<span style="color: #666666">17</span>]
+<span style="color: #717171">&#39;tiger&#39;</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>h[<span style="color: #666666">20</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;duck&quot;</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>h[<span style="color: #666666">20</span>]
+<span style="color: #717171">&#39;duck&#39;</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>h<span style="color: #666666">.</span>data
+<span style="color: #717171">[&#39;bird&#39;, &#39;goat&#39;, &#39;pig&#39;, &#39;duck&#39;, &#39;dog&#39;, &#39;lion&#39;,</span>
+<span style="color: #717171">        &#39;tiger&#39;, None, None, &#39;cow&#39;, &#39;cat&#39;]</span>
+<span style="color: #717171">&gt;&gt; print(h[99])</span>
+<span style="color: #717171">None</span>
+</code></pre></div>
+<p>The complete hash table example can be found in ActiveCode 1.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 5.5.3.1 Complete Hash Table Example</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">29</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">30</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">31</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">32</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">33</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">34</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">35</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">36</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">37</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">38</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">39</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">40</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">41</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">42</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">43</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">44</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">45</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">46</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">47</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">48</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">49</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">50</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">51</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">52</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">53</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">54</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">55</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">56</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">57</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">58</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">59</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">60</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">61</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">62</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">63</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">64</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">65</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">66</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">67</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">68</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">69</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">70</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">HashTable</span>:
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>size <span style="color: #666666">=</span> <span style="color: #666666">11</span>
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>slots <span style="color: #666666">=</span> [<span style="color: #008000; font-weight: bold">None</span>] <span style="color: #666666">*</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>size
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>data <span style="color: #666666">=</span> [<span style="color: #008000; font-weight: bold">None</span>] <span style="color: #666666">*</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>size
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">put</span>(<span style="color: #008000">self</span>, key, data):
+        hash_value <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>hash_function(key, <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>slots))
+
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>slots[hash_value] <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #008000; font-weight: bold">None</span>:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>slots[hash_value] <span style="color: #666666">=</span> key
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>data[hash_value] <span style="color: #666666">=</span> data
+        <span style="color: #008000; font-weight: bold">else</span>:
+            <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>slots[hash_value] <span style="color: #666666">==</span> key:
+                <span style="color: #008000">self</span><span style="color: #666666">.</span>data[hash_value] <span style="color: #666666">=</span> data  <span style="color: #3D7B7B; font-style: italic"># replace</span>
+            <span style="color: #008000; font-weight: bold">else</span>:
+                next_slot <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>rehash(hash_value, <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>slots))
+                <span style="color: #008000; font-weight: bold">while</span> (
+                    <span style="color: #008000">self</span><span style="color: #666666">.</span>slots[next_slot] <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #AA22FF; font-weight: bold">not</span> <span style="color: #008000; font-weight: bold">None</span>
+                    <span style="color: #AA22FF; font-weight: bold">and</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>slots[next_slot] <span style="color: #666666">!=</span> key
+                ):
+                    next_slot <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>rehash(next_slot, <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>slots))
+
+                <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>slots[next_slot] <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #008000; font-weight: bold">None</span>:
+                    <span style="color: #008000">self</span><span style="color: #666666">.</span>slots[next_slot] <span style="color: #666666">=</span> key
+                    <span style="color: #008000">self</span><span style="color: #666666">.</span>data[next_slot] <span style="color: #666666">=</span> data
+                <span style="color: #008000; font-weight: bold">else</span>:
+                    <span style="color: #008000">self</span><span style="color: #666666">.</span>data[next_slot] <span style="color: #666666">=</span> data
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">hash_function</span>(<span style="color: #008000">self</span>, key, size):
+        <span style="color: #008000; font-weight: bold">return</span> key <span style="color: #666666">%</span> size
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">rehash</span>(<span style="color: #008000">self</span>, old_hash, size):
+        <span style="color: #008000; font-weight: bold">return</span> (old_hash <span style="color: #666666">+</span> <span style="color: #666666">1</span>) <span style="color: #666666">%</span> size
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get</span>(<span style="color: #008000">self</span>, key):
+        start_slot <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>hash_function(key, <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>slots))
+
+        position <span style="color: #666666">=</span> start_slot
+        <span style="color: #008000; font-weight: bold">while</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>slots[position] <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #AA22FF; font-weight: bold">not</span> <span style="color: #008000; font-weight: bold">None</span>:
+            <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>slots[position] <span style="color: #666666">==</span> key:
+                <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>data[position]
+            <span style="color: #008000; font-weight: bold">else</span>:
+                position <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>rehash(position, <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>slots))
+                <span style="color: #008000; font-weight: bold">if</span> position <span style="color: #666666">==</span> start_slot:
+                    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">None</span>
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__getitem__</span>(<span style="color: #008000">self</span>, key):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>get(key)
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__setitem__</span>(<span style="color: #008000">self</span>, key, data):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>put(key, data)
+
+h <span style="color: #666666">=</span> HashTable()
+h[<span style="color: #666666">54</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;cat&quot;</span>
+h[<span style="color: #666666">26</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;dog&quot;</span>
+h[<span style="color: #666666">93</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;lion&quot;</span>
+h[<span style="color: #666666">17</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;tiger&quot;</span>
+h[<span style="color: #666666">77</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;bird&quot;</span>
+h[<span style="color: #666666">31</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;cow&quot;</span>
+h[<span style="color: #666666">44</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;goat&quot;</span>
+h[<span style="color: #666666">55</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;pig&quot;</span>
+h[<span style="color: #666666">20</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;chicken&quot;</span>
+<span style="color: #008000">print</span>(h<span style="color: #666666">.</span>slots)
+<span style="color: #008000">print</span>(h<span style="color: #666666">.</span>data)
+<span style="color: #008000">print</span>(h[<span style="color: #666666">20</span>])
+<span style="color: #008000">print</span>(h[<span style="color: #666666">17</span>])
+h[<span style="color: #666666">20</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;duck&quot;</span>
+<span style="color: #008000">print</span>(h[<span style="color: #666666">20</span>])
+<span style="color: #008000">print</span>(h[<span style="color: #666666">99</span>])
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<p>One of the most useful Python collections is the dictionary. Recall that a dictionary is an associative data type where you can store key-data pairs. The key is used to look up the associated data value. We often refer to this idea as a <strong>map</strong>.</p>
+<p>The map abstract data type is defined as follows. The structure is an unordered collection of associations between a key and a data value. The keys in a map are all unique so that there is a one-to-one relationship between a key and a value. The operations are given below.</p>
+<ul>
+<li><code>Map()</code> creates a new empty map.</li>
+<li><code>put(key, val)</code> adds a new key--value pair to the map. If the key is already in the map, it replaces the old value with the new value.</li>
+<li><code>get(key)</code> takes a key and returns the matching value stored in the map or <code>None</code> otherwise.</li>
+<li><code>del</code> deletes the key--value pair from the map using a statement of the form <code>del map[key]</code>.</li>
+<li><code>size()</code> returns the number of key--value pairs stored in the map.</li>
+<li><code>in</code> return <code>True</code> for a statement of the form <code>key in map</code> if the given key is in the map, <code>False</code> otherwise.</li>
+</ul>
+<p>One of the great benefits of a dictionary is the fact that given a key, we can look up the associated data value very quickly. In order to provide this fast look-up capability, we need an implementation that supports an efficient search. We could use a list with sequential or binary search, but it would be even better to use a hash table as described above since looking up an item in a hash table can approach $O(1)` performance.</p>
+<p>In <code>Listing 2</code> we use two lists to create a <code>HashTable</code> class that implements the map abstract data type. One list, called <code>slots</code>, will hold the key items and a parallel list, called <code>data</code>, will hold the data values. When we look up a key, the corresponding position in the data list will hold the associated data value. We will treat the key list as a hash table using the ideas presented earlier. Note that the initial size for the hash table has been chosen to be 11. Although this is arbitrary, it is important that the size be a prime number so that the collision resolution algorithm can be as efficient as possible.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">**Listing 2**</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">5</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">HashTable</span>:
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>size <span style="color: #666666">=</span> <span style="color: #666666">11</span>
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>slots <span style="color: #666666">=</span> [<span style="color: #008000; font-weight: bold">None</span>] <span style="color: #666666">*</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>size
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>data <span style="color: #666666">=</span> [<span style="color: #008000; font-weight: bold">None</span>] <span style="color: #666666">*</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>size
+</code></pre></div></td></tr></table></div>
+<p>As seen in <code>Listing 3</code>, <code>hash_function</code> implements the simple remainder method. The collision resolution technique is linear probing with a “plus 1” rehash value. The <code>put</code> function (see <code>Listing 3</code>) assumes that there will eventually be an empty slot unless the key is already present in the <code>self.slots</code>. It computes the original hash value and if that slot is not empty, iterates the <code>rehash</code> function until an empty slot occurs. If a nonempty slot already contains the key, the old data value is replaced with the new data value.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">**Listing 3**</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">put</span>(<span style="color: #008000">self</span>, key, data):
+    hash_value <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>hash_function(key, <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>slots))
+
+    <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>slots[hash_value] <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #008000; font-weight: bold">None</span>:
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>slots[hash_value] <span style="color: #666666">=</span> key
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>data[hash_value] <span style="color: #666666">=</span> data
+    <span style="color: #008000; font-weight: bold">else</span>:
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>slots[hash_value] <span style="color: #666666">==</span> key:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>data[hash_value] <span style="color: #666666">=</span> data  <span style="color: #3D7B7B; font-style: italic"># replace</span>
+        <span style="color: #008000; font-weight: bold">else</span>:
+            next_slot <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>rehash(hash_value, <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>slots))
+            <span style="color: #008000; font-weight: bold">while</span> (
+                <span style="color: #008000">self</span><span style="color: #666666">.</span>slots[next_slot] <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #AA22FF; font-weight: bold">not</span> <span style="color: #008000; font-weight: bold">None</span>
+                <span style="color: #AA22FF; font-weight: bold">and</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>slots[next_slot] <span style="color: #666666">!=</span> key
+            ):
+                next_slot <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>rehash(next_slot, <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>slots))
+
+            <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>slots[next_slot] <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #008000; font-weight: bold">None</span>:
+                <span style="color: #008000">self</span><span style="color: #666666">.</span>slots[next_slot] <span style="color: #666666">=</span> key
+                <span style="color: #008000">self</span><span style="color: #666666">.</span>data[next_slot] <span style="color: #666666">=</span> data
+            <span style="color: #008000; font-weight: bold">else</span>:
+                <span style="color: #008000">self</span><span style="color: #666666">.</span>data[next_slot] <span style="color: #666666">=</span> data
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">hash_function</span>(<span style="color: #008000">self</span>, key, size):
+    <span style="color: #008000; font-weight: bold">return</span> key <span style="color: #666666">%</span> size
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">rehash</span>(<span style="color: #008000">self</span>, old_hash, size):
+    <span style="color: #008000; font-weight: bold">return</span> (old_hash <span style="color: #666666">+</span> <span style="color: #666666">1</span>) <span style="color: #666666">%</span> size
+</code></pre></div></td></tr></table></div>
+<p>The <code>get</code> function (see <code>Listing 4</code>) begins by computing the initial hash value. If the value is not in the initial slot, <code>rehash</code> is used to locate the next possible position. Notice that line 14 guarantees that the search will terminate by checking to make sure that we have not returned to the initial slot. If that happens, we have exhausted all possible slots and the item must not be present.</p>
+<p>The final methods of the <code>HashTable</code> class provide additional dictionary functionality. We overload the <code>__getitem__</code> and <code>__setitem__</code> methods to allow access using <code>[]</code>. This means that once a <code>HashTable</code> has been created, the familiar index operator will be available. We leave the remaining methods as exercises.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">**Listing 4**</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get</span>(<span style="color: #008000">self</span>, key):
+    start_slot <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>hash_function(key, <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>slots))
+
+    position <span style="color: #666666">=</span> start_slot
+    <span style="color: #008000; font-weight: bold">while</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>slots[position] <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #AA22FF; font-weight: bold">not</span> <span style="color: #008000; font-weight: bold">None</span>:
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>slots[position] <span style="color: #666666">==</span> key:
+            <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>data[position]
+        <span style="color: #008000; font-weight: bold">else</span>:
+            position <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>rehash(position, <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>slots))
+            <span style="color: #008000; font-weight: bold">if</span> position <span style="color: #666666">==</span> start_slot:
+                <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">None</span>
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__getitem__</span>(<span style="color: #008000">self</span>, key):
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>get(key)
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__setitem__</span>(<span style="color: #008000">self</span>, key, data):
+    <span style="color: #008000">self</span><span style="color: #666666">.</span>put(key, data)
+</code></pre></div></td></tr></table></div>
+<p>The following session shows the <code>HashTable</code> class in action. First we will create a hash table and store some items with integer keys and string data values.</p>
+<div class="language-pycon highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>h <span style="color: #666666">=</span> HashTable()
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>h[<span style="color: #666666">54</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;cat&quot;</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>h[<span style="color: #666666">26</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;dog&quot;</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>h[<span style="color: #666666">93</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;lion&quot;</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>h[<span style="color: #666666">17</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;tiger&quot;</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>h[<span style="color: #666666">77</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;bird&quot;</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>h[<span style="color: #666666">31</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;cow&quot;</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>h[<span style="color: #666666">44</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;goat&quot;</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>h[<span style="color: #666666">55</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;pig&quot;</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>h[<span style="color: #666666">20</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;chicken&quot;</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>h<span style="color: #666666">.</span>slots
+<span style="color: #717171">[77, 44, 55, 20, 26, 93, 17, None, None, 31, 54]</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>h<span style="color: #666666">.</span>data
+<span style="color: #717171">[&#39;bird&#39;, &#39;goat&#39;, &#39;pig&#39;, &#39;chicken&#39;, &#39;dog&#39;, &#39;lion&#39;,</span>
+<span style="color: #717171">        &#39;tiger&#39;, None, None, &#39;cow&#39;, &#39;cat&#39;]</span>
+</code></pre></div>
+<p>Next we will access and modify some items in the hash table. Note that the value for the key 20 is being replaced.</p>
+<div class="language-pycon highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>h[<span style="color: #666666">20</span>]
+<span style="color: #717171">&#39;chicken&#39;</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>h[<span style="color: #666666">17</span>]
+<span style="color: #717171">&#39;tiger&#39;</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>h[<span style="color: #666666">20</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;duck&quot;</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>h[<span style="color: #666666">20</span>]
+<span style="color: #717171">&#39;duck&#39;</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>h<span style="color: #666666">.</span>data
+<span style="color: #717171">[&#39;bird&#39;, &#39;goat&#39;, &#39;pig&#39;, &#39;duck&#39;, &#39;dog&#39;, &#39;lion&#39;,</span>
+<span style="color: #717171">        &#39;tiger&#39;, None, None, &#39;cow&#39;, &#39;cat&#39;]</span>
+<span style="color: #717171">&gt;&gt; print(h[99])</span>
+<span style="color: #717171">None</span>
+</code></pre></div>
+<p>The complete hash table example can be found in ActiveCode 1.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 5.5.3.1 Complete Hash Table Example</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">29</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">30</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">31</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">32</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">33</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">34</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">35</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">36</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">37</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">38</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">39</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">40</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">41</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">42</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">43</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">44</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">45</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">46</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">47</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">48</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">49</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">50</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">51</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">52</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">53</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">54</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">55</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">56</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">57</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">58</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">59</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">60</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">61</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">62</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">63</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">64</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">65</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">66</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">67</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">68</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">69</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">70</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">HashTable</span>:
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>size <span style="color: #666666">=</span> <span style="color: #666666">11</span>
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>slots <span style="color: #666666">=</span> [<span style="color: #008000; font-weight: bold">None</span>] <span style="color: #666666">*</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>size
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>data <span style="color: #666666">=</span> [<span style="color: #008000; font-weight: bold">None</span>] <span style="color: #666666">*</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>size
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">put</span>(<span style="color: #008000">self</span>, key, data):
+        hash_value <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>hash_function(key, <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>slots))
+
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>slots[hash_value] <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #008000; font-weight: bold">None</span>:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>slots[hash_value] <span style="color: #666666">=</span> key
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>data[hash_value] <span style="color: #666666">=</span> data
+        <span style="color: #008000; font-weight: bold">else</span>:
+            <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>slots[hash_value] <span style="color: #666666">==</span> key:
+                <span style="color: #008000">self</span><span style="color: #666666">.</span>data[hash_value] <span style="color: #666666">=</span> data  <span style="color: #3D7B7B; font-style: italic"># replace</span>
+            <span style="color: #008000; font-weight: bold">else</span>:
+                next_slot <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>rehash(hash_value, <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>slots))
+                <span style="color: #008000; font-weight: bold">while</span> (
+                    <span style="color: #008000">self</span><span style="color: #666666">.</span>slots[next_slot] <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #AA22FF; font-weight: bold">not</span> <span style="color: #008000; font-weight: bold">None</span>
+                    <span style="color: #AA22FF; font-weight: bold">and</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>slots[next_slot] <span style="color: #666666">!=</span> key
+                ):
+                    next_slot <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>rehash(next_slot, <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>slots))
+
+                <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>slots[next_slot] <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #008000; font-weight: bold">None</span>:
+                    <span style="color: #008000">self</span><span style="color: #666666">.</span>slots[next_slot] <span style="color: #666666">=</span> key
+                    <span style="color: #008000">self</span><span style="color: #666666">.</span>data[next_slot] <span style="color: #666666">=</span> data
+                <span style="color: #008000; font-weight: bold">else</span>:
+                    <span style="color: #008000">self</span><span style="color: #666666">.</span>data[next_slot] <span style="color: #666666">=</span> data
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">hash_function</span>(<span style="color: #008000">self</span>, key, size):
+        <span style="color: #008000; font-weight: bold">return</span> key <span style="color: #666666">%</span> size
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">rehash</span>(<span style="color: #008000">self</span>, old_hash, size):
+        <span style="color: #008000; font-weight: bold">return</span> (old_hash <span style="color: #666666">+</span> <span style="color: #666666">1</span>) <span style="color: #666666">%</span> size
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get</span>(<span style="color: #008000">self</span>, key):
+        start_slot <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>hash_function(key, <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>slots))
+
+        position <span style="color: #666666">=</span> start_slot
+        <span style="color: #008000; font-weight: bold">while</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>slots[position] <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #AA22FF; font-weight: bold">not</span> <span style="color: #008000; font-weight: bold">None</span>:
+            <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>slots[position] <span style="color: #666666">==</span> key:
+                <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>data[position]
+            <span style="color: #008000; font-weight: bold">else</span>:
+                position <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>rehash(position, <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>slots))
+                <span style="color: #008000; font-weight: bold">if</span> position <span style="color: #666666">==</span> start_slot:
+                    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">None</span>
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__getitem__</span>(<span style="color: #008000">self</span>, key):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>get(key)
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__setitem__</span>(<span style="color: #008000">self</span>, key, data):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>put(key, data)
+
+h <span style="color: #666666">=</span> HashTable()
+h[<span style="color: #666666">54</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;cat&quot;</span>
+h[<span style="color: #666666">26</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;dog&quot;</span>
+h[<span style="color: #666666">93</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;lion&quot;</span>
+h[<span style="color: #666666">17</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;tiger&quot;</span>
+h[<span style="color: #666666">77</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;bird&quot;</span>
+h[<span style="color: #666666">31</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;cow&quot;</span>
+h[<span style="color: #666666">44</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;goat&quot;</span>
+h[<span style="color: #666666">55</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;pig&quot;</span>
+h[<span style="color: #666666">20</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;chicken&quot;</span>
+<span style="color: #008000">print</span>(h<span style="color: #666666">.</span>slots)
+<span style="color: #008000">print</span>(h<span style="color: #666666">.</span>data)
+<span style="color: #008000">print</span>(h[<span style="color: #666666">20</span>])
+<span style="color: #008000">print</span>(h[<span style="color: #666666">17</span>])
+h[<span style="color: #666666">20</span>] <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;duck&quot;</span>
+<span style="color: #008000">print</span>(h[<span style="color: #666666">20</span>])
+<span style="color: #008000">print</span>(h[<span style="color: #666666">99</span>])
+</code></pre></div></td></tr></table></div>
+</div>
 </div>
 </div>
 <h2 id="554-哈希分析">5.5.4. 哈希分析<a class="headerlink" href="#554-哈希分析" title="Permanent link">&para;</a></h2>
 <p><strong>5.5.4. Analysis of Hashing</strong></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">中文</label><label for="__tabbed_5_2">英文</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">中文</label><label for="__tabbed_7_2">英文</label></div>
 <div class="tabbed-content">
-<div class="tabbed-block"></div>
-<div class="tabbed-block"></div>
+<div class="tabbed-block">
+<p>We stated earlier that in the best case hashing would provide an <span class="arithmatex">\(O(1)\)</span>, constant time search technique. However, due to collisions, the number of comparisons is typically not so simple. Even though a complete analysis of hashing is beyond the scope of this text, we can state some well-known results that approximate the number of comparisons necessary to search for an item.</p>
+<p>The most important piece of information we need to analyze the use of a hash table is the load factor, <span class="arithmatex">\(\lambda\)</span>. Conceptually, if <span class="arithmatex">\(\lambda\)</span> is small, then there is a lower chance of collisions, meaning that items are more likely to be in the slots where they belong. If <span class="arithmatex">\(\lambda\)</span> is large, meaning that the table is filling up, then there are more and more collisions. This means that collision resolution is more difficult, requiring more comparisons to find an empty slot. With chaining, increased collisions means an increased number of items on each chain.</p>
+<p>As before, we will have a result for both a successful and an unsuccessful search. For a successful search using open addressing with linear probing, the average number of comparisons is approximately <span class="arithmatex">\(\frac{1}{2}\left(1+\frac{1}{1-\lambda}\right)\)</span> and an unsuccessful search gives <span class="arithmatex">\(\frac{1}{2}\left(1+\left(\frac{1}{1-\lambda}\right)^2\right)\)</span> If we are using chaining, the average number of comparisons is <span class="arithmatex">\(1 + \frac {\lambda}{2}\)</span> for the successful case, and simply <span class="arithmatex">\(\lambda\)</span> comparisons if the search is unsuccessful.</p>
+</div>
+<div class="tabbed-block">
+<p>We stated earlier that in the best case hashing would provide an <span class="arithmatex">\(O(1)\)</span>, constant time search technique. However, due to collisions, the number of comparisons is typically not so simple. Even though a complete analysis of hashing is beyond the scope of this text, we can state some well-known results that approximate the number of comparisons necessary to search for an item.</p>
+<p>The most important piece of information we need to analyze the use of a hash table is the load factor, <span class="arithmatex">\(\lambda\)</span>. Conceptually, if <span class="arithmatex">\(\lambda\)</span> is small, then there is a lower chance of collisions, meaning that items are more likely to be in the slots where they belong. If <span class="arithmatex">\(\lambda\)</span> is large, meaning that the table is filling up, then there are more and more collisions. This means that collision resolution is more difficult, requiring more comparisons to find an empty slot. With chaining, increased collisions means an increased number of items on each chain.</p>
+<p>As before, we will have a result for both a successful and an unsuccessful search. For a successful search using open addressing with linear probing, the average number of comparisons is approximately <span class="arithmatex">\(\frac{1}{2}\left(1+\frac{1}{1-\lambda}\right)\)</span> and an unsuccessful search gives <span class="arithmatex">\(\frac{1}{2}\left(1+\left(\frac{1}{1-\lambda}\right)^2\right)\)</span> If we are using chaining, the average number of comparisons is <span class="arithmatex">\(1 + \frac {\lambda}{2}\)</span> for the successful case, and simply <span class="arithmatex">\(\lambda\)</span> comparisons if the search is unsuccessful.</p>
+</div>
 </div>
 </div>
 
@@ -4110,7 +5080,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月10日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月11日</span>
       
         <br>
         创建日期:

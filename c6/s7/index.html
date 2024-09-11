@@ -22,7 +22,7 @@
     
     
       
-        <title>S7 - python数据结构和算法 - 中文版</title>
+        <title>6.7. 解析树 - python数据结构和算法 - 中文版</title>
       
     
     
@@ -85,6 +85,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#67-解析树" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -133,7 +138,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              S7
+              6.7. 解析树
             
           </span>
         </div>
@@ -2676,7 +2681,7 @@
         
   
   <span class="md-ellipsis">
-    S1
+    6.1. 目标
   </span>
   
 
@@ -2696,7 +2701,7 @@
         
   
   <span class="md-ellipsis">
-    S2
+    6.2. 树的示例
   </span>
   
 
@@ -2716,7 +2721,7 @@
         
   
   <span class="md-ellipsis">
-    S3
+    6.3. 词汇和定义
   </span>
   
 
@@ -2736,7 +2741,7 @@
         
   
   <span class="md-ellipsis">
-    S4
+    6.4. 实现
   </span>
   
 
@@ -2756,7 +2761,7 @@
         
   
   <span class="md-ellipsis">
-    S5
+    6.5. 列表表示法
   </span>
   
 
@@ -2776,7 +2781,7 @@
         
   
   <span class="md-ellipsis">
-    S6
+    6.6. 节点与引用
   </span>
   
 
@@ -2798,12 +2803,14 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    S7
+    6.7. 解析树
   </span>
   
 
@@ -2824,7 +2831,7 @@
         
   
   <span class="md-ellipsis">
-    S8
+    6.8. 树遍历
   </span>
   
 
@@ -2844,7 +2851,7 @@
         
   
   <span class="md-ellipsis">
-    S9
+    6.9. 使用二叉堆的优先队列
   </span>
   
 
@@ -2864,7 +2871,7 @@
         
   
   <span class="md-ellipsis">
-    S10
+    6.10. 二叉堆操作
   </span>
   
 
@@ -2884,7 +2891,7 @@
         
   
   <span class="md-ellipsis">
-    S11
+    6.11. 二叉堆实现
   </span>
   
 
@@ -2904,7 +2911,7 @@
         
   
   <span class="md-ellipsis">
-    S12
+    6.12. 二叉搜索树
   </span>
   
 
@@ -2924,7 +2931,7 @@
         
   
   <span class="md-ellipsis">
-    S13
+    6.13. 搜索树操作
   </span>
   
 
@@ -2944,7 +2951,7 @@
         
   
   <span class="md-ellipsis">
-    S14
+    6.14. 搜索树实现
   </span>
   
 
@@ -2964,7 +2971,7 @@
         
   
   <span class="md-ellipsis">
-    S15
+    6.15. 搜索树分析
   </span>
   
 
@@ -2984,7 +2991,7 @@
         
   
   <span class="md-ellipsis">
-    S16
+    6.16. 平衡二叉搜索树
   </span>
   
 
@@ -3004,7 +3011,7 @@
         
   
   <span class="md-ellipsis">
-    S17
+    6.17. AVL树性能
   </span>
   
 
@@ -3024,7 +3031,7 @@
         
   
   <span class="md-ellipsis">
-    S18
+    6.18. AVL树实现
   </span>
   
 
@@ -3044,7 +3051,7 @@
         
   
   <span class="md-ellipsis">
-    S19
+    6.19. Map ADT实现总结
   </span>
   
 
@@ -3064,7 +3071,7 @@
         
   
   <span class="md-ellipsis">
-    S20
+    6.20. 总结
   </span>
   
 
@@ -3084,7 +3091,7 @@
         
   
   <span class="md-ellipsis">
-    S21
+    6.21. 关键术语
   </span>
   
 
@@ -3104,7 +3111,7 @@
         
   
   <span class="md-ellipsis">
-    S22
+    6.22. 练习
   </span>
   
 
@@ -3944,6 +3951,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -3961,16 +3970,327 @@
   
 
 
-  <h1>S7</h1>
+<h1 id="67-解析树">6.7. 解析树<a class="headerlink" href="#67-解析树" title="Permanent link">&para;</a></h1>
+<p><strong>6.7. Parse Tree</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>With the implementation of our tree data structure complete, we now look at an example of how a tree can be used to solve some real problems. In this section we will look at <strong>parse trees</strong>. Parse trees can be used to represent real-world constructions like sentences or mathematical expressions.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/nlParse.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/nlParse.png" /></a>
+    <figcaption markdown="span">Figure 1: A Parse Tree for a Simple Sentence</figcaption>
+</figure></p>
+<p><code>Figure 1</code> shows the hierarchical structure of a simple sentence. Representing a sentence as a tree structure allows us to work with the individual parts of the sentence by using subtrees.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/meParse.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/meParse.png" /></a>
+    <figcaption markdown="span">Figure 2: Parse Tree for <span class="arithmatex">\(((7 + 3) \cdot (5 - 2))\)</span></figcaption>
+</figure></p>
+<p>We can also represent a mathematical expression such as <span class="arithmatex">\(((7 + 3) \cdot (5 - 2))\)</span> as a parse tree, as shown in <code>Figure 2</code>. We have already looked at fully parenthesized expressions, so what do we know about this expression? We know that multiplication has a higher precedence than either addition or subtraction. Because of the parentheses, we know that before we can do the multiplication we must evaluate the parenthesized addition and subtraction expressions. The hierarchy of the tree helps us understand the order of evaluation for the whole expression. Before we can evaluate the top-level multiplication, we must evaluate the addition and the subtraction in the subtrees. The addition, which is the left subtree, evaluates to 10. The subtraction, which is the right subtree, evaluates to 3. Using the hierarchical structure of trees, we can simply replace an entire subtree with one node once we have evaluated the expressions in the children. Applying this replacement procedure gives us the simplified tree shown in <code>Figure 3</code>.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/meSimple.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/meSimple.png" /></a>
+    <figcaption markdown="span">Figuer 3: A Simplified Parse Tree for <span class="arithmatex">\(((7 + 3) \cdot (5 - 2))\)</span></figcaption>
+</figure></p>
+<p>In the rest of this section we are going to examine parse trees in more detail. In particular we will look at</p>
+<ul>
+<li>How to build a parse tree from a fully parenthesized mathematical expression.</li>
+<li>How to evaluate the expression stored in a parse tree.</li>
+<li>How to recover the original mathematical expression from a parse tree.</li>
+</ul>
+<p>The first step in building a parse tree is to break up the expression string into a list of tokens. There are four different kinds of tokens to consider: left parentheses, right parentheses, operators, and operands. We know that whenever we read a left parenthesis we are starting a new expression, and hence we should create a new tree to correspond to that expression. Conversely, whenever we read a right parenthesis, we have finished an expression. We also know that operands are going to be leaf nodes and children of their operators. Finally, we know that every operator is going to have both a left and a right child.</p>
+<p>Using the information from above we can define four rules as follows:</p>
+<ol>
+<li>If the current token is a <code>"("</code>, add a new node as the left child of the current node, and descend to the left child.</li>
+<li>If the current token is in the list <code>["+", "-", "/", "*"]</code>, set the root value of the current node to the operator represented by the current token. Add a new node as the right child of the current node and descend to the right child.</li>
+<li>If the current token is a number, set the root value of the current node to the number and return to the parent.</li>
+<li>If the current token is a <code>")"</code>, go to the parent of the current node.</li>
+</ol>
+<p>Before writing the Python code, let’s look at an example of the rules outlined above in action. We will use the expression <span class="arithmatex">\((3 + (4 * 5))\)</span>. We will parse this expression into the following list of character tokens: <code>["(", "3", "+", "(", "4", "*", "5", ")", ")"]</code>. Initially we will start out with a parse tree that consists of an empty root node. <code>Figure 4</code> illustrates the structure and contents of the parse tree as each new token is processed.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/buildExp1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/buildExp1.png" /></a>
+    <a class="glightbox" href="../imgs/buildExp2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/buildExp2.png" /></a>
+    <a class="glightbox" href="../imgs/buildExp3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/buildExp3.png" /></a>
+    <a class="glightbox" href="../imgs/buildExp4.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/buildExp4.png" /></a>
+    <a class="glightbox" href="../imgs/buildExp5.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/buildExp5.png" /></a>
+    <a class="glightbox" href="../imgs/buildExp6.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/buildExp6.png" /></a>
+    <a class="glightbox" href="../imgs/buildExp7.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/buildExp7.png" /></a>
+    <a class="glightbox" href="../imgs/buildExp8.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/buildExp8.png" /></a>
+    <figcaption markdown="span">Figure 4: Tracing Parse Tree Construction$</figcaption>
+</figure></p>
+<p>Using <code>Figure 4</code> and the example expression from the previous paragraph, let’s walk through the example step by step:</p>
+<p>a) Create an empty tree.</p>
+<p>b) Read <code>(</code> as the first token. By rule 1, create a new node as the left child of the root. Make the current node this new child.</p>
+<p>c) Read <code>3</code> as the next token. By rule 3, set the root value of the current node to 3 and go back up the tree to the parent.</p>
+<p>d) Read <code>+</code> as the next token. By rule 2, set the root value of the current node to + and add a new node as the right child. The new right child becomes the current node.</p>
+<p>e) Read <code>(</code> as the next token. By rule 1, create a new node as the left child of the current node. The new left child becomes the current node.</p>
+<p>f) Read <code>4</code> as the next token. By rule 3, set the value of the current node to 4. Make the parent of 4 the current node.</p>
+<p>g) Read <code>*</code> as the next token. By rule 2, set the root value of the current node to * and create a new right child. The new right child becomes the current node.</p>
+<p>h) Read <code>5</code> as the next token. By rule 3, set the root value of the current node to 5. Make the parent of 5 the current node.</p>
+<p>i) Read <code>)</code> as the next token. By rule 4 we make the parent of * the current node.</p>
+<p>j) Read <code>)</code> as the next token. By rule 4 we make the parent of + the current node. At this point there is no parent for +, so we are done.</p>
+<p>From the example above, it is clear that we need to keep track of the current node as well as the parent of the current node. The tree interface provides us with a way to get children of a node, through the <code>get_left_child</code> and <code>get_right_child</code> methods, but how can we keep track of the parent? A simple solution to keeping track of parents as we traverse the tree is to use a stack. Whenever we want to descend to a child of the current node, we first push the current node on the stack. When we want to return to the parent of the current node, we pop the parent off the stack.</p>
+<p>Using the rules described above, along with the <code>Stack</code> and <code>BinaryTree</code> operations, we are now ready to write a Python function to create a parse tree. The code for our parse tree builder is presented in <code>ActiveCode 1</code>.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 6.7.1 Building a Parse Tree</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">29</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">30</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">31</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">32</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">33</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">34</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">35</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pythonds3.basic</span> <span style="color: #008000; font-weight: bold">import</span> Stack
+<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pythonds3.trees</span> <span style="color: #008000; font-weight: bold">import</span> BinaryTree
 
 
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">build_parse_tree</span>(fp_expr):
+    fp_list <span style="color: #666666">=</span> fp_expr<span style="color: #666666">.</span>split()
+    p_stack <span style="color: #666666">=</span> Stack()
+    expr_tree <span style="color: #666666">=</span> BinaryTree(<span style="color: #BA2121">&quot;&quot;</span>)
+    p_stack<span style="color: #666666">.</span>push(expr_tree)
+    current_tree <span style="color: #666666">=</span> expr_tree
+
+    <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> fp_list:
+        <span style="color: #008000; font-weight: bold">if</span> i <span style="color: #666666">==</span> <span style="color: #BA2121">&quot;(&quot;</span>:
+            current_tree<span style="color: #666666">.</span>insert_left(<span style="color: #BA2121">&quot;&quot;</span>)
+            p_stack<span style="color: #666666">.</span>push(current_tree)
+            current_tree <span style="color: #666666">=</span> current_tree<span style="color: #666666">.</span>left_child
+        <span style="color: #008000; font-weight: bold">elif</span> i <span style="color: #AA22FF; font-weight: bold">in</span> [<span style="color: #BA2121">&quot;+&quot;</span>, <span style="color: #BA2121">&quot;-&quot;</span>, <span style="color: #BA2121">&quot;*&quot;</span>, <span style="color: #BA2121">&quot;/&quot;</span>]:
+            current_tree<span style="color: #666666">.</span>root <span style="color: #666666">=</span> i
+            current_tree<span style="color: #666666">.</span>insert_right(<span style="color: #BA2121">&quot;&quot;</span>)
+            p_stack<span style="color: #666666">.</span>push(current_tree)
+            current_tree <span style="color: #666666">=</span> current_tree<span style="color: #666666">.</span>right_child
+        <span style="color: #008000; font-weight: bold">elif</span> i<span style="color: #666666">.</span>isdigit():
+                current_tree<span style="color: #666666">.</span>root <span style="color: #666666">=</span> <span style="color: #008000">int</span>(i)
+                parent <span style="color: #666666">=</span> p_stack<span style="color: #666666">.</span>pop()
+                current_tree <span style="color: #666666">=</span> parent
+        <span style="color: #008000; font-weight: bold">elif</span> i <span style="color: #666666">==</span> <span style="color: #BA2121">&quot;)&quot;</span>:
+                current_tree <span style="color: #666666">=</span> p_stack<span style="color: #666666">.</span>pop()
+        <span style="color: #008000; font-weight: bold">else</span>:
+                <span style="color: #008000; font-weight: bold">raise</span> <span style="color: #CB3F38; font-weight: bold">ValueError</span>(<span style="color: #BA2121">f&quot;Unknown operator &#39;</span><span style="color: #A45A77; font-weight: bold">{</span>i<span style="color: #A45A77; font-weight: bold">}</span><span style="color: #BA2121">&#39;&quot;</span>)
+
+    <span style="color: #008000; font-weight: bold">return</span> expr_tree
+
+
+pt <span style="color: #666666">=</span> build_parse_tree(<span style="color: #BA2121">&quot;( ( 10 + 5 ) * 3 )&quot;</span>)
+pt<span style="color: #666666">.</span>postorder()  <span style="color: #3D7B7B; font-style: italic"># defined and explained in the next section</span>
+</code></pre></div></td></tr></table></div>
+<p>The four rules for building a parse tree are coded as the first four clauses of the <code>if..elif</code> statements on lines 13, 17, 22, and 26 of <code>ActiveCode 1</code>. In each case you can see that the code implements the rule, as described above, with a few calls to the <code>BinaryTree</code> or <code>Stack</code> methods. The only error checking we do in this function is in the <code>else</code> clause where a <code>ValueError</code> exception will be raised if we get a token from the list that we do not recognize.</p>
+<p>Now that we have built a parse tree, what can we do with it? As a first example, we will write a function to evaluate the parse tree and return the numerical result. To write this function, we will make use of the hierarchical nature of the tree. Look back at <code>Figure 2</code>. Recall that we can replace the original tree with the simplified tree shown in <code>Figure 3</code>. This suggests that we can write an algorithm that evaluates a parse tree by recursively evaluating each subtree.</p>
+<p>As we have done with past recursive algorithms, we will begin the design for the recursive evaluation function by identifying the base case. A natural base case for recursive algorithms that operate on trees is to check for a leaf node. In a parse tree, the leaf nodes will always be operands. Since numerical objects like integers and floating points require no further interpretation, the <code>evaluate</code> function can simply return the value stored in the leaf node. The recursive step that moves the function toward the base case is to call <code>evaluate</code> on both the left and the right children of the current node. The recursive call effectively moves us down the tree, toward a leaf node.</p>
+<p>To put the results of the two recursive calls together, we can simply apply the operator stored in the parent node to the results returned from evaluating both children. In the example from <code>Figure 3</code> we see that the two children of the root evaluate to themselves, namely 10 and 3. Applying the multiplication operator gives us a final result of 30.</p>
+<p>The code for a recursive <code>evaluate</code> function is shown in <code>Listing 1</code>. First, we obtain references to the left and the right children of the current node. If both the left and right children evaluate to <code>None</code>, then we know that the current node is really a leaf node. This check is on line 7. If the current node is not a leaf node, look up the operator in the current node and apply it to the results from recursively evaluating the left and right children.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">**Listing 1**</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">operator</span>
+
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">evaluate</span>(parse_tree):
+    operators <span style="color: #666666">=</span> {
+        <span style="color: #BA2121">&quot;+&quot;</span>: operator<span style="color: #666666">.</span>add,
+        <span style="color: #BA2121">&quot;-&quot;</span>: operator<span style="color: #666666">.</span>sub,
+        <span style="color: #BA2121">&quot;*&quot;</span>: operator<span style="color: #666666">.</span>mul,
+        <span style="color: #BA2121">&quot;/&quot;</span>: operator<span style="color: #666666">.</span>truediv,
+    }
+
+    left_child <span style="color: #666666">=</span> parse_tree<span style="color: #666666">.</span>left_child
+    right_child <span style="color: #666666">=</span> parse_tree<span style="color: #666666">.</span>right_child
+
+    <span style="color: #008000; font-weight: bold">if</span> left_child <span style="color: #AA22FF; font-weight: bold">and</span> right_child:
+        fn <span style="color: #666666">=</span> operators[parse_tree<span style="color: #666666">.</span>root]
+        <span style="color: #008000; font-weight: bold">return</span> fn(evaluate(left_child), evaluate(right_child))
+    <span style="color: #008000; font-weight: bold">else</span>:
+        <span style="color: #008000; font-weight: bold">return</span> parse_tree<span style="color: #666666">.</span>root
+</code></pre></div>
+<p>To implement the arithmetic, we use a dictionary with the keys <code>"+"</code>, <code>"-"</code>, <code>"*"</code>, and <code>"/"</code>. The values stored in the dictionary are functions from Python’s operator module. The operator module provides us with the function versions of many commonly used operators. When we look up an operator in the dictionary, the corresponding function object is retrieved. Since the retrieved object is a function, we can call it in the usual way: <code>function(param1, param2)</code>. So the lookup <code>operators["+"](2, 2)</code> is equivalent to <code>operator.add(2, 2)</code>.</p>
+<p>Finally, we will trace the <code>evaluate</code> function on the parse tree we created in <code>Figure 4</code>. When we first call <code>evaluate</code>, we pass the root of the entire tree as the parameter <code>parse_tree</code>. Then we obtain references to the left and right children to make sure they exist. The recursive call takes place on line 17. We begin by looking up the operator in the root of the tree, which is <code>"+"</code>. The <code>"+"</code> operator maps to the <code>operator.add</code> function call, which takes two parameters. As usual for a Python function call, the first thing Python does is to evaluate the parameters that are passed to the function. In this case both parameters are recursive function calls to our <code>evaluate</code> function. Using left-to-right evaluation, the first recursive call goes to the left. In the first recursive call the <code>evaluate</code> function is given the left subtree. We find that the node has no left or right children, so we are in a leaf node. When we are in a leaf node, we just return the value stored in the leaf node as the result of the evaluation. In this case we return the integer 3.</p>
+<p>At this point we have one parameter evaluated for our top-level call to <code>operator.add</code>. But we are not done yet. Continuing the left-to-right evaluation of the parameters, we now make a recursive call to evaluate the right child of the root. We find that the node has both a left and a right child so we look up the operator stored in this node, <code>"*"</code>, and call this function using the left and right children as the parameters. At this point you can see that both recursive calls will be to leaf nodes, which will evaluate to the integers 4 and 5 respectively. With the two parameters evaluated, we return the result of <code>operator.mul(4, 5)</code>. At this point we have evaluated the operands for the top level <code>"+"</code> operator and all that is left to do is finish the call to <code>operator.add(3, 20)</code>. The result of the evaluation of the entire expression tree for <span class="arithmatex">\((3 + (4 * 5))\)</span> is 23.</p>
+</div>
+<div class="tabbed-block">
+<p>With the implementation of our tree data structure complete, we now look at an example of how a tree can be used to solve some real problems. In this section we will look at <strong>parse trees</strong>. Parse trees can be used to represent real-world constructions like sentences or mathematical expressions.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/nlParse.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/nlParse.png" /></a>
+    <figcaption markdown="span">Figure 1: A Parse Tree for a Simple Sentence</figcaption>
+</figure></p>
+<p><code>Figure 1</code> shows the hierarchical structure of a simple sentence. Representing a sentence as a tree structure allows us to work with the individual parts of the sentence by using subtrees.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/meParse.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/meParse.png" /></a>
+    <figcaption markdown="span">Figure 2: Parse Tree for <span class="arithmatex">\(((7 + 3) \cdot (5 - 2))\)</span></figcaption>
+</figure></p>
+<p>We can also represent a mathematical expression such as <span class="arithmatex">\(((7 + 3) \cdot (5 - 2))\)</span> as a parse tree, as shown in <code>Figure 2</code>. We have already looked at fully parenthesized expressions, so what do we know about this expression? We know that multiplication has a higher precedence than either addition or subtraction. Because of the parentheses, we know that before we can do the multiplication we must evaluate the parenthesized addition and subtraction expressions. The hierarchy of the tree helps us understand the order of evaluation for the whole expression. Before we can evaluate the top-level multiplication, we must evaluate the addition and the subtraction in the subtrees. The addition, which is the left subtree, evaluates to 10. The subtraction, which is the right subtree, evaluates to 3. Using the hierarchical structure of trees, we can simply replace an entire subtree with one node once we have evaluated the expressions in the children. Applying this replacement procedure gives us the simplified tree shown in <code>Figure 3</code>.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/meSimple.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/meSimple.png" /></a>
+    <figcaption markdown="span">Figuer 3: A Simplified Parse Tree for <span class="arithmatex">\(((7 + 3) \cdot (5 - 2))\)</span></figcaption>
+</figure></p>
+<p>In the rest of this section we are going to examine parse trees in more detail. In particular we will look at</p>
+<ul>
+<li>How to build a parse tree from a fully parenthesized mathematical expression.</li>
+<li>How to evaluate the expression stored in a parse tree.</li>
+<li>How to recover the original mathematical expression from a parse tree.</li>
+</ul>
+<p>The first step in building a parse tree is to break up the expression string into a list of tokens. There are four different kinds of tokens to consider: left parentheses, right parentheses, operators, and operands. We know that whenever we read a left parenthesis we are starting a new expression, and hence we should create a new tree to correspond to that expression. Conversely, whenever we read a right parenthesis, we have finished an expression. We also know that operands are going to be leaf nodes and children of their operators. Finally, we know that every operator is going to have both a left and a right child.</p>
+<p>Using the information from above we can define four rules as follows:</p>
+<ol>
+<li>If the current token is a <code>"("</code>, add a new node as the left child of the current node, and descend to the left child.</li>
+<li>If the current token is in the list <code>["+", "-", "/", "*"]</code>, set the root value of the current node to the operator represented by the current token. Add a new node as the right child of the current node and descend to the right child.</li>
+<li>If the current token is a number, set the root value of the current node to the number and return to the parent.</li>
+<li>If the current token is a <code>")"</code>, go to the parent of the current node.</li>
+</ol>
+<p>Before writing the Python code, let’s look at an example of the rules outlined above in action. We will use the expression <span class="arithmatex">\((3 + (4 * 5))\)</span>. We will parse this expression into the following list of character tokens: <code>["(", "3", "+", "(", "4", "*", "5", ")", ")"]</code>. Initially we will start out with a parse tree that consists of an empty root node. <code>Figure 4</code> illustrates the structure and contents of the parse tree as each new token is processed.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/buildExp1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/buildExp1.png" /></a>
+    <a class="glightbox" href="../imgs/buildExp2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/buildExp2.png" /></a>
+    <a class="glightbox" href="../imgs/buildExp3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/buildExp3.png" /></a>
+    <a class="glightbox" href="../imgs/buildExp4.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/buildExp4.png" /></a>
+    <a class="glightbox" href="../imgs/buildExp5.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/buildExp5.png" /></a>
+    <a class="glightbox" href="../imgs/buildExp6.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/buildExp6.png" /></a>
+    <a class="glightbox" href="../imgs/buildExp7.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/buildExp7.png" /></a>
+    <a class="glightbox" href="../imgs/buildExp8.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/buildExp8.png" /></a>
+    <figcaption markdown="span">Figure 4: Tracing Parse Tree Construction$</figcaption>
+</figure></p>
+<p>Using <code>Figure 4</code> and the example expression from the previous paragraph, let’s walk through the example step by step:</p>
+<p>a) Create an empty tree.</p>
+<p>b) Read <code>(</code> as the first token. By rule 1, create a new node as the left child of the root. Make the current node this new child.</p>
+<p>c) Read <code>3</code> as the next token. By rule 3, set the root value of the current node to 3 and go back up the tree to the parent.</p>
+<p>d) Read <code>+</code> as the next token. By rule 2, set the root value of the current node to + and add a new node as the right child. The new right child becomes the current node.</p>
+<p>e) Read <code>(</code> as the next token. By rule 1, create a new node as the left child of the current node. The new left child becomes the current node.</p>
+<p>f) Read <code>4</code> as the next token. By rule 3, set the value of the current node to 4. Make the parent of 4 the current node.</p>
+<p>g) Read <code>*</code> as the next token. By rule 2, set the root value of the current node to * and create a new right child. The new right child becomes the current node.</p>
+<p>h) Read <code>5</code> as the next token. By rule 3, set the root value of the current node to 5. Make the parent of 5 the current node.</p>
+<p>i) Read <code>)</code> as the next token. By rule 4 we make the parent of * the current node.</p>
+<p>j) Read <code>)</code> as the next token. By rule 4 we make the parent of + the current node. At this point there is no parent for +, so we are done.</p>
+<p>From the example above, it is clear that we need to keep track of the current node as well as the parent of the current node. The tree interface provides us with a way to get children of a node, through the <code>get_left_child</code> and <code>get_right_child</code> methods, but how can we keep track of the parent? A simple solution to keeping track of parents as we traverse the tree is to use a stack. Whenever we want to descend to a child of the current node, we first push the current node on the stack. When we want to return to the parent of the current node, we pop the parent off the stack.</p>
+<p>Using the rules described above, along with the <code>Stack</code> and <code>BinaryTree</code> operations, we are now ready to write a Python function to create a parse tree. The code for our parse tree builder is presented in <code>ActiveCode 1</code>.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 6.7.1 Building a Parse Tree</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">29</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">30</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">31</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">32</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">33</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">34</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">35</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pythonds3.basic</span> <span style="color: #008000; font-weight: bold">import</span> Stack
+<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pythonds3.trees</span> <span style="color: #008000; font-weight: bold">import</span> BinaryTree
+
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">build_parse_tree</span>(fp_expr):
+    fp_list <span style="color: #666666">=</span> fp_expr<span style="color: #666666">.</span>split()
+    p_stack <span style="color: #666666">=</span> Stack()
+    expr_tree <span style="color: #666666">=</span> BinaryTree(<span style="color: #BA2121">&quot;&quot;</span>)
+    p_stack<span style="color: #666666">.</span>push(expr_tree)
+    current_tree <span style="color: #666666">=</span> expr_tree
+
+    <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> fp_list:
+        <span style="color: #008000; font-weight: bold">if</span> i <span style="color: #666666">==</span> <span style="color: #BA2121">&quot;(&quot;</span>:
+            current_tree<span style="color: #666666">.</span>insert_left(<span style="color: #BA2121">&quot;&quot;</span>)
+            p_stack<span style="color: #666666">.</span>push(current_tree)
+            current_tree <span style="color: #666666">=</span> current_tree<span style="color: #666666">.</span>left_child
+        <span style="color: #008000; font-weight: bold">elif</span> i <span style="color: #AA22FF; font-weight: bold">in</span> [<span style="color: #BA2121">&quot;+&quot;</span>, <span style="color: #BA2121">&quot;-&quot;</span>, <span style="color: #BA2121">&quot;*&quot;</span>, <span style="color: #BA2121">&quot;/&quot;</span>]:
+            current_tree<span style="color: #666666">.</span>root <span style="color: #666666">=</span> i
+            current_tree<span style="color: #666666">.</span>insert_right(<span style="color: #BA2121">&quot;&quot;</span>)
+            p_stack<span style="color: #666666">.</span>push(current_tree)
+            current_tree <span style="color: #666666">=</span> current_tree<span style="color: #666666">.</span>right_child
+        <span style="color: #008000; font-weight: bold">elif</span> i<span style="color: #666666">.</span>isdigit():
+                current_tree<span style="color: #666666">.</span>root <span style="color: #666666">=</span> <span style="color: #008000">int</span>(i)
+                parent <span style="color: #666666">=</span> p_stack<span style="color: #666666">.</span>pop()
+                current_tree <span style="color: #666666">=</span> parent
+        <span style="color: #008000; font-weight: bold">elif</span> i <span style="color: #666666">==</span> <span style="color: #BA2121">&quot;)&quot;</span>:
+                current_tree <span style="color: #666666">=</span> p_stack<span style="color: #666666">.</span>pop()
+        <span style="color: #008000; font-weight: bold">else</span>:
+                <span style="color: #008000; font-weight: bold">raise</span> <span style="color: #CB3F38; font-weight: bold">ValueError</span>(<span style="color: #BA2121">f&quot;Unknown operator &#39;</span><span style="color: #A45A77; font-weight: bold">{</span>i<span style="color: #A45A77; font-weight: bold">}</span><span style="color: #BA2121">&#39;&quot;</span>)
+
+    <span style="color: #008000; font-weight: bold">return</span> expr_tree
+
+
+pt <span style="color: #666666">=</span> build_parse_tree(<span style="color: #BA2121">&quot;( ( 10 + 5 ) * 3 )&quot;</span>)
+pt<span style="color: #666666">.</span>postorder()  <span style="color: #3D7B7B; font-style: italic"># defined and explained in the next section</span>
+</code></pre></div></td></tr></table></div>
+<p>The four rules for building a parse tree are coded as the first four clauses of the <code>if..elif</code> statements on lines 13, 17, 22, and 26 of <code>ActiveCode 1</code>. In each case you can see that the code implements the rule, as described above, with a few calls to the <code>BinaryTree</code> or <code>Stack</code> methods. The only error checking we do in this function is in the <code>else</code> clause where a <code>ValueError</code> exception will be raised if we get a token from the list that we do not recognize.</p>
+<p>Now that we have built a parse tree, what can we do with it? As a first example, we will write a function to evaluate the parse tree and return the numerical result. To write this function, we will make use of the hierarchical nature of the tree. Look back at <code>Figure 2</code>. Recall that we can replace the original tree with the simplified tree shown in <code>Figure 3</code>. This suggests that we can write an algorithm that evaluates a parse tree by recursively evaluating each subtree.</p>
+<p>As we have done with past recursive algorithms, we will begin the design for the recursive evaluation function by identifying the base case. A natural base case for recursive algorithms that operate on trees is to check for a leaf node. In a parse tree, the leaf nodes will always be operands. Since numerical objects like integers and floating points require no further interpretation, the <code>evaluate</code> function can simply return the value stored in the leaf node. The recursive step that moves the function toward the base case is to call <code>evaluate</code> on both the left and the right children of the current node. The recursive call effectively moves us down the tree, toward a leaf node.</p>
+<p>To put the results of the two recursive calls together, we can simply apply the operator stored in the parent node to the results returned from evaluating both children. In the example from <code>Figure 3</code> we see that the two children of the root evaluate to themselves, namely 10 and 3. Applying the multiplication operator gives us a final result of 30.</p>
+<p>The code for a recursive <code>evaluate</code> function is shown in <code>Listing 1</code>. First, we obtain references to the left and the right children of the current node. If both the left and right children evaluate to <code>None</code>, then we know that the current node is really a leaf node. This check is on line 7. If the current node is not a leaf node, look up the operator in the current node and apply it to the results from recursively evaluating the left and right children.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">**Listing 1**</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">operator</span>
+
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">evaluate</span>(parse_tree):
+    operators <span style="color: #666666">=</span> {
+        <span style="color: #BA2121">&quot;+&quot;</span>: operator<span style="color: #666666">.</span>add,
+        <span style="color: #BA2121">&quot;-&quot;</span>: operator<span style="color: #666666">.</span>sub,
+        <span style="color: #BA2121">&quot;*&quot;</span>: operator<span style="color: #666666">.</span>mul,
+        <span style="color: #BA2121">&quot;/&quot;</span>: operator<span style="color: #666666">.</span>truediv,
+    }
+
+    left_child <span style="color: #666666">=</span> parse_tree<span style="color: #666666">.</span>left_child
+    right_child <span style="color: #666666">=</span> parse_tree<span style="color: #666666">.</span>right_child
+
+    <span style="color: #008000; font-weight: bold">if</span> left_child <span style="color: #AA22FF; font-weight: bold">and</span> right_child:
+        fn <span style="color: #666666">=</span> operators[parse_tree<span style="color: #666666">.</span>root]
+        <span style="color: #008000; font-weight: bold">return</span> fn(evaluate(left_child), evaluate(right_child))
+    <span style="color: #008000; font-weight: bold">else</span>:
+        <span style="color: #008000; font-weight: bold">return</span> parse_tree<span style="color: #666666">.</span>root
+</code></pre></div>
+<p>To implement the arithmetic, we use a dictionary with the keys <code>"+"</code>, <code>"-"</code>, <code>"*"</code>, and <code>"/"</code>. The values stored in the dictionary are functions from Python’s operator module. The operator module provides us with the function versions of many commonly used operators. When we look up an operator in the dictionary, the corresponding function object is retrieved. Since the retrieved object is a function, we can call it in the usual way: <code>function(param1, param2)</code>. So the lookup <code>operators["+"](2, 2)</code> is equivalent to <code>operator.add(2, 2)</code>.</p>
+<p>Finally, we will trace the <code>evaluate</code> function on the parse tree we created in <code>Figure 4</code>. When we first call <code>evaluate</code>, we pass the root of the entire tree as the parameter <code>parse_tree</code>. Then we obtain references to the left and right children to make sure they exist. The recursive call takes place on line 17. We begin by looking up the operator in the root of the tree, which is <code>"+"</code>. The <code>"+"</code> operator maps to the <code>operator.add</code> function call, which takes two parameters. As usual for a Python function call, the first thing Python does is to evaluate the parameters that are passed to the function. In this case both parameters are recursive function calls to our <code>evaluate</code> function. Using left-to-right evaluation, the first recursive call goes to the left. In the first recursive call the <code>evaluate</code> function is given the left subtree. We find that the node has no left or right children, so we are in a leaf node. When we are in a leaf node, we just return the value stored in the leaf node as the result of the evaluation. In this case we return the integer 3.</p>
+<p>At this point we have one parameter evaluated for our top-level call to <code>operator.add</code>. But we are not done yet. Continuing the left-to-right evaluation of the parameters, we now make a recursive call to evaluate the right child of the root. We find that the node has both a left and a right child so we look up the operator stored in this node, <code>"*"</code>, and call this function using the left and right children as the parameters. At this point you can see that both recursive calls will be to leaf nodes, which will evaluate to the integers 4 and 5 respectively. With the two parameters evaluated, we return the result of <code>operator.mul(4, 5)</code>. At this point we have evaluated the operands for the top level <code>"+"</code> operator and all that is left to do is finish the call to <code>operator.add(3, 20)</code>. The result of the evaluation of the entire expression tree for <span class="arithmatex">\((3 + (4 * 5))\)</span> is 23.</p>
+</div>
+</div>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月9日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月11日</span>
       
         <br>
         创建日期:

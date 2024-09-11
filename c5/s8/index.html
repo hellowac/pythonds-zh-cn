@@ -2691,7 +2691,7 @@
         
   
   <span class="md-ellipsis">
-    S1
+    6.1. 目标
   </span>
   
 
@@ -2711,7 +2711,7 @@
         
   
   <span class="md-ellipsis">
-    S2
+    6.2. 树的示例
   </span>
   
 
@@ -2731,7 +2731,7 @@
         
   
   <span class="md-ellipsis">
-    S3
+    6.3. 词汇和定义
   </span>
   
 
@@ -2751,7 +2751,7 @@
         
   
   <span class="md-ellipsis">
-    S4
+    6.4. 实现
   </span>
   
 
@@ -2771,7 +2771,7 @@
         
   
   <span class="md-ellipsis">
-    S5
+    6.5. 列表表示法
   </span>
   
 
@@ -2791,7 +2791,7 @@
         
   
   <span class="md-ellipsis">
-    S6
+    6.6. 节点与引用
   </span>
   
 
@@ -2811,7 +2811,7 @@
         
   
   <span class="md-ellipsis">
-    S7
+    6.7. 解析树
   </span>
   
 
@@ -2831,7 +2831,7 @@
         
   
   <span class="md-ellipsis">
-    S8
+    6.8. 树遍历
   </span>
   
 
@@ -2851,7 +2851,7 @@
         
   
   <span class="md-ellipsis">
-    S9
+    6.9. 使用二叉堆的优先队列
   </span>
   
 
@@ -2871,7 +2871,7 @@
         
   
   <span class="md-ellipsis">
-    S10
+    6.10. 二叉堆操作
   </span>
   
 
@@ -2891,7 +2891,7 @@
         
   
   <span class="md-ellipsis">
-    S11
+    6.11. 二叉堆实现
   </span>
   
 
@@ -2911,7 +2911,7 @@
         
   
   <span class="md-ellipsis">
-    S12
+    6.12. 二叉搜索树
   </span>
   
 
@@ -2931,7 +2931,7 @@
         
   
   <span class="md-ellipsis">
-    S13
+    6.13. 搜索树操作
   </span>
   
 
@@ -2951,7 +2951,7 @@
         
   
   <span class="md-ellipsis">
-    S14
+    6.14. 搜索树实现
   </span>
   
 
@@ -2971,7 +2971,7 @@
         
   
   <span class="md-ellipsis">
-    S15
+    6.15. 搜索树分析
   </span>
   
 
@@ -2991,7 +2991,7 @@
         
   
   <span class="md-ellipsis">
-    S16
+    6.16. 平衡二叉搜索树
   </span>
   
 
@@ -3011,7 +3011,7 @@
         
   
   <span class="md-ellipsis">
-    S17
+    6.17. AVL树性能
   </span>
   
 
@@ -3031,7 +3031,7 @@
         
   
   <span class="md-ellipsis">
-    S18
+    6.18. AVL树实现
   </span>
   
 
@@ -3051,7 +3051,7 @@
         
   
   <span class="md-ellipsis">
-    S19
+    6.19. Map ADT实现总结
   </span>
   
 
@@ -3071,7 +3071,7 @@
         
   
   <span class="md-ellipsis">
-    S20
+    6.20. 总结
   </span>
   
 
@@ -3091,7 +3091,7 @@
         
   
   <span class="md-ellipsis">
-    S21
+    6.21. 关键术语
   </span>
   
 
@@ -3111,7 +3111,7 @@
         
   
   <span class="md-ellipsis">
-    S22
+    6.22. 练习
   </span>
   
 
@@ -3972,10 +3972,203 @@
 
 <h1 id="58-选择排序">5.8. 选择排序<a class="headerlink" href="#58-选择排序" title="Permanent link">&para;</a></h1>
 <p><strong>5.8. The Selection Sort</strong></p>
+<!--泡排序需要-->
+<script src="../js/animationbase.js"></script>
+<script src="../js/sortmodels.js"></script>
+<script src="../js/sortviewers.js"></script>
+
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
-<div class="tabbed-block"></div>
-<div class="tabbed-block"></div>
+<div class="tabbed-block">
+<p>The <strong>selection sort</strong> improves on the bubble sort by making only one exchange for every pass through the list. In order to do this, a selection sort looks for the largest value as it makes a pass and, after completing the pass, places it in the proper location. As with a bubble sort, after the first pass, the largest item is in the correct place. After the second pass, the next largest is in place. This process continues and requires <span class="arithmatex">\(n - 1\)</span> passes to sort <span class="arithmatex">\(n\)</span> items, since the final item must be in place after the <span class="arithmatex">\((n - 1)\)</span>-th pass.</p>
+<p><code>Figure 3</code> shows the entire sorting process for the selection sort. On each pass, the largest remaining item is selected and then placed in its proper location. The first pass places 93, the second pass places 77, the third places 55, and so on. The function is shown in <code>ActiveCode 1</code>.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/selectionsortnew.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/selectionsortnew.png" /></a>
+    <figcaption markdown="span">Figure 3: Selection Sort: Complete</figcaption>
+</figure></p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 5.8.1 Selection Sort</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">selection_sort</span>(a_list):
+    <span style="color: #008000; font-weight: bold">for</span> i, item <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">enumerate</span>(a_list):
+        min_idx <span style="color: #666666">=</span> <span style="color: #008000">len</span>(a_list) <span style="color: #666666">-</span> <span style="color: #666666">1</span>
+        <span style="color: #008000; font-weight: bold">for</span> j <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(i, <span style="color: #008000">len</span>(a_list)):
+            <span style="color: #008000; font-weight: bold">if</span> a_list[j] <span style="color: #666666">&lt;</span> a_list[min_idx]:
+                min_idx <span style="color: #666666">=</span> j
+        <span style="color: #008000; font-weight: bold">if</span> min_idx <span style="color: #666666">!=</span> i:
+            a_list[min_idx], a_list[i] <span style="color: #666666">=</span> a_list[i], a_list[min_idx]
+
+
+a_list <span style="color: #666666">=</span> [<span style="color: #666666">54</span>, <span style="color: #666666">26</span>, <span style="color: #666666">93</span>, <span style="color: #666666">17</span>, <span style="color: #666666">77</span>, <span style="color: #666666">31</span>, <span style="color: #666666">44</span>, <span style="color: #666666">55</span>, <span style="color: #666666">20</span>]
+selection_sort(a_list)
+<span style="color: #008000">print</span>(a_list)
+</code></pre></div></td></tr></table></div>
+<p><div id="selection_anim1" class="">
+    <canvas id="selection_anim1_canvas" width="400" height="400" style="border:4px solid blue"></canvas>
+    <br>
+    <button onclick="selection_anim1_anim = selection_anim_init('selection_anim1')" style="border: 1px solid black; background-color: buttonface; padding: 2px;">Initialize</button>
+    <button onclick="selection_anim1_anim.run('selection_anim1_anim')" style="border: 1px solid black; background-color: buttonface; padding: 2px;">Run</button>
+    <button onclick="selection_anim1_anim.stop()" style="border: 1px solid black; background-color: buttonface; padding: 2px;">Stop</button> <br>
+    <button onclick="selection_anim1_anim.begin()" style="border: 1px solid black; background-color: buttonface; padding: 2px;">Beginning</button>
+    <button onclick="selection_anim1_anim.forward()" style="border: 1px solid black; background-color: buttonface; padding: 2px;">Step Forward</button>
+    <button onclick="selection_anim1_anim.backward()" style="border: 1px solid black; background-color: buttonface; padding: 2px;">Step Backward</button>
+    <button onclick="selection_anim1_anim.end()" style="border: 1px solid black; background-color: buttonface; padding: 2px;">End</button>
+    <script>
+    selection_anim_init = function(divid)
+    {
+       var a = new Animator(new SelectionSortModel(), new BarViewer(), divid)
+       a.init()
+       return a
+    }
+    </script>
+</div></p>
+<p>For more detail, CodeLens 3 allows you to step through the algorithm.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Tracing the Selection Sort</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">selection_sort</span>(a_list):
+    <span style="color: #008000; font-weight: bold">for</span> i, item <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">enumerate</span>(a_list):
+        min_idx <span style="color: #666666">=</span> <span style="color: #008000">len</span>(a_list) <span style="color: #666666">-</span> <span style="color: #666666">1</span>
+        <span style="color: #008000; font-weight: bold">for</span> j <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(i, <span style="color: #008000">len</span>(a_list)):
+            <span style="color: #008000; font-weight: bold">if</span> a_list[j] <span style="color: #666666">&lt;</span> a_list[min_idx]:
+                min_idx <span style="color: #666666">=</span> j
+        <span style="color: #008000; font-weight: bold">if</span> min_idx <span style="color: #666666">!=</span> i:
+            a_list[min_idx], a_list[i] <span style="color: #666666">=</span> a_list[i], a_list[min_idx]
+a_list <span style="color: #666666">=</span> [<span style="color: #666666">54</span>, <span style="color: #666666">26</span>, <span style="color: #666666">93</span>, <span style="color: #666666">17</span>, <span style="color: #666666">77</span>, <span style="color: #666666">31</span>, <span style="color: #666666">44</span>, <span style="color: #666666">55</span>, <span style="color: #666666">20</span>]
+selection_sort(a_list)
+<span style="color: #008000">print</span>(a_list)
+</code></pre></div></td></tr></table></div>
+<p>You may see that the selection sort makes the same number of comparisons as the bubble sort and is therefore also <span class="arithmatex">\(O(n^{2})\)</span>. However, due to the reduction in the number of exchanges, the selection sort typically executes faster in benchmark studies. In fact, for our list, the bubble sort makes 20 exchanges, while the selection sort makes only 8.</p>
+<div class="admonition info">
+<p class="admonition-title">Self Check</p>
+<p>Suppose you have the following list of numbers to sort:</p>
+<p>[11, 7, 12, 14, 19, 1, 6, 18, 8, 20] which list represents the partially sorted list after three complete passes of selection sort?</p>
+<ul>
+<li>answer a: [7, 11, 12, 1, 6, 14, 8, 18, 19, 20]</li>
+<li>answer b: [7, 11, 12, 14, 19, 1, 6, 18, 8, 20]</li>
+<li>answer c: [11, 7, 12, 14, 1, 6, 8, 18, 19, 20]</li>
+<li>answer d: [11, 7, 12, 14, 8, 1, 6, 18, 19, 20]</li>
+</ul>
+<p>correct: d</p>
+<ul>
+<li>feedback a: Selection sort is similar to bubble sort (which you appear to have done) but uses fewer swaps</li>
+<li>feedback b: This looks like an insertion sort.</li>
+<li>feedback c: This one looks similar to the correct answer but instead of swapping the numbers have been shifted to the left to make room for the correct numbers.</li>
+<li>feedback d: Selection sort improves upon bubble sort by making fewer swaps.</li>
+</ul>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <strong>selection sort</strong> improves on the bubble sort by making only one exchange for every pass through the list. In order to do this, a selection sort looks for the largest value as it makes a pass and, after completing the pass, places it in the proper location. As with a bubble sort, after the first pass, the largest item is in the correct place. After the second pass, the next largest is in place. This process continues and requires <span class="arithmatex">\(n - 1\)</span> passes to sort <span class="arithmatex">\(n\)</span> items, since the final item must be in place after the <span class="arithmatex">\((n - 1)\)</span>-th pass.</p>
+<p><code>Figure 3</code> shows the entire sorting process for the selection sort. On each pass, the largest remaining item is selected and then placed in its proper location. The first pass places 93, the second pass places 77, the third places 55, and so on. The function is shown in <code>ActiveCode 1</code>.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/selectionsortnew.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/selectionsortnew.png" /></a>
+    <figcaption markdown="span">Figure 3: Selection Sort: Complete</figcaption>
+</figure></p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 5.8.1 Selection Sort</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">selection_sort</span>(a_list):
+    <span style="color: #008000; font-weight: bold">for</span> i, item <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">enumerate</span>(a_list):
+        min_idx <span style="color: #666666">=</span> <span style="color: #008000">len</span>(a_list) <span style="color: #666666">-</span> <span style="color: #666666">1</span>
+        <span style="color: #008000; font-weight: bold">for</span> j <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(i, <span style="color: #008000">len</span>(a_list)):
+            <span style="color: #008000; font-weight: bold">if</span> a_list[j] <span style="color: #666666">&lt;</span> a_list[min_idx]:
+                min_idx <span style="color: #666666">=</span> j
+        <span style="color: #008000; font-weight: bold">if</span> min_idx <span style="color: #666666">!=</span> i:
+            a_list[min_idx], a_list[i] <span style="color: #666666">=</span> a_list[i], a_list[min_idx]
+
+
+a_list <span style="color: #666666">=</span> [<span style="color: #666666">54</span>, <span style="color: #666666">26</span>, <span style="color: #666666">93</span>, <span style="color: #666666">17</span>, <span style="color: #666666">77</span>, <span style="color: #666666">31</span>, <span style="color: #666666">44</span>, <span style="color: #666666">55</span>, <span style="color: #666666">20</span>]
+selection_sort(a_list)
+<span style="color: #008000">print</span>(a_list)
+</code></pre></div></td></tr></table></div>
+<p><div id="selection_anim" class="">
+    <canvas id="selection_anim_canvas" width="400" height="400" style="border:4px solid blue"></canvas>
+    <br>
+    <button onclick="selection_anim_anim = selection_anim_init('selection_anim')" style="border: 1px solid black; background-color: buttonface; padding: 2px;">Initialize</button>
+    <button onclick="selection_anim_anim.run('selection_anim_anim')" style="border: 1px solid black; background-color: buttonface; padding: 2px;">Run</button>
+    <button onclick="selection_anim_anim.stop()" style="border: 1px solid black; background-color: buttonface; padding: 2px;">Stop</button> <br>
+    <button onclick="selection_anim_anim.begin()" style="border: 1px solid black; background-color: buttonface; padding: 2px;">Beginning</button>
+    <button onclick="selection_anim_anim.forward()" style="border: 1px solid black; background-color: buttonface; padding: 2px;">Step Forward</button>
+    <button onclick="selection_anim_anim.backward()" style="border: 1px solid black; background-color: buttonface; padding: 2px;">Step Backward</button>
+    <button onclick="selection_anim_anim.end()" style="border: 1px solid black; background-color: buttonface; padding: 2px;">End</button>
+    <script>
+    selection_anim_init = function(divid)
+    {
+       var a = new Animator(new SelectionSortModel(), new BarViewer(), divid)
+       a.init()
+       return a
+    }
+    </script>
+</div></p>
+<p>For more detail, CodeLens 3 allows you to step through the algorithm.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Tracing the Selection Sort</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">selection_sort</span>(a_list):
+    <span style="color: #008000; font-weight: bold">for</span> i, item <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">enumerate</span>(a_list):
+        min_idx <span style="color: #666666">=</span> <span style="color: #008000">len</span>(a_list) <span style="color: #666666">-</span> <span style="color: #666666">1</span>
+        <span style="color: #008000; font-weight: bold">for</span> j <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(i, <span style="color: #008000">len</span>(a_list)):
+            <span style="color: #008000; font-weight: bold">if</span> a_list[j] <span style="color: #666666">&lt;</span> a_list[min_idx]:
+                min_idx <span style="color: #666666">=</span> j
+        <span style="color: #008000; font-weight: bold">if</span> min_idx <span style="color: #666666">!=</span> i:
+            a_list[min_idx], a_list[i] <span style="color: #666666">=</span> a_list[i], a_list[min_idx]
+a_list <span style="color: #666666">=</span> [<span style="color: #666666">54</span>, <span style="color: #666666">26</span>, <span style="color: #666666">93</span>, <span style="color: #666666">17</span>, <span style="color: #666666">77</span>, <span style="color: #666666">31</span>, <span style="color: #666666">44</span>, <span style="color: #666666">55</span>, <span style="color: #666666">20</span>]
+selection_sort(a_list)
+<span style="color: #008000">print</span>(a_list)
+</code></pre></div></td></tr></table></div>
+<p>You may see that the selection sort makes the same number of comparisons as the bubble sort and is therefore also <span class="arithmatex">\(O(n^{2})\)</span>. However, due to the reduction in the number of exchanges, the selection sort typically executes faster in benchmark studies. In fact, for our list, the bubble sort makes 20 exchanges, while the selection sort makes only 8.</p>
+<div class="admonition info">
+<p class="admonition-title">Self Check</p>
+<p>Suppose you have the following list of numbers to sort:</p>
+<p>[11, 7, 12, 14, 19, 1, 6, 18, 8, 20] which list represents the partially sorted list after three complete passes of selection sort?</p>
+<ul>
+<li>answer a: [7, 11, 12, 1, 6, 14, 8, 18, 19, 20]</li>
+<li>answer b: [7, 11, 12, 14, 19, 1, 6, 18, 8, 20]</li>
+<li>answer c: [11, 7, 12, 14, 1, 6, 8, 18, 19, 20]</li>
+<li>answer d: [11, 7, 12, 14, 8, 1, 6, 18, 19, 20]</li>
+</ul>
+<p>correct: d</p>
+<ul>
+<li>feedback a: Selection sort is similar to bubble sort (which you appear to have done) but uses fewer swaps</li>
+<li>feedback b: This looks like an insertion sort.</li>
+<li>feedback c: This one looks similar to the correct answer but instead of swapping the numbers have been shifted to the left to make room for the correct numbers.</li>
+<li>feedback d: Selection sort improves upon bubble sort by making fewer swaps.</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 
@@ -3984,7 +4177,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月10日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月11日</span>
       
         <br>
         创建日期:

@@ -2691,7 +2691,7 @@
         
   
   <span class="md-ellipsis">
-    S1
+    6.1. 目标
   </span>
   
 
@@ -2711,7 +2711,7 @@
         
   
   <span class="md-ellipsis">
-    S2
+    6.2. 树的示例
   </span>
   
 
@@ -2731,7 +2731,7 @@
         
   
   <span class="md-ellipsis">
-    S3
+    6.3. 词汇和定义
   </span>
   
 
@@ -2751,7 +2751,7 @@
         
   
   <span class="md-ellipsis">
-    S4
+    6.4. 实现
   </span>
   
 
@@ -2771,7 +2771,7 @@
         
   
   <span class="md-ellipsis">
-    S5
+    6.5. 列表表示法
   </span>
   
 
@@ -2791,7 +2791,7 @@
         
   
   <span class="md-ellipsis">
-    S6
+    6.6. 节点与引用
   </span>
   
 
@@ -2811,7 +2811,7 @@
         
   
   <span class="md-ellipsis">
-    S7
+    6.7. 解析树
   </span>
   
 
@@ -2831,7 +2831,7 @@
         
   
   <span class="md-ellipsis">
-    S8
+    6.8. 树遍历
   </span>
   
 
@@ -2851,7 +2851,7 @@
         
   
   <span class="md-ellipsis">
-    S9
+    6.9. 使用二叉堆的优先队列
   </span>
   
 
@@ -2871,7 +2871,7 @@
         
   
   <span class="md-ellipsis">
-    S10
+    6.10. 二叉堆操作
   </span>
   
 
@@ -2891,7 +2891,7 @@
         
   
   <span class="md-ellipsis">
-    S11
+    6.11. 二叉堆实现
   </span>
   
 
@@ -2911,7 +2911,7 @@
         
   
   <span class="md-ellipsis">
-    S12
+    6.12. 二叉搜索树
   </span>
   
 
@@ -2931,7 +2931,7 @@
         
   
   <span class="md-ellipsis">
-    S13
+    6.13. 搜索树操作
   </span>
   
 
@@ -2951,7 +2951,7 @@
         
   
   <span class="md-ellipsis">
-    S14
+    6.14. 搜索树实现
   </span>
   
 
@@ -2971,7 +2971,7 @@
         
   
   <span class="md-ellipsis">
-    S15
+    6.15. 搜索树分析
   </span>
   
 
@@ -2991,7 +2991,7 @@
         
   
   <span class="md-ellipsis">
-    S16
+    6.16. 平衡二叉搜索树
   </span>
   
 
@@ -3011,7 +3011,7 @@
         
   
   <span class="md-ellipsis">
-    S17
+    6.17. AVL树性能
   </span>
   
 
@@ -3031,7 +3031,7 @@
         
   
   <span class="md-ellipsis">
-    S18
+    6.18. AVL树实现
   </span>
   
 
@@ -3051,7 +3051,7 @@
         
   
   <span class="md-ellipsis">
-    S19
+    6.19. Map ADT实现总结
   </span>
   
 
@@ -3071,7 +3071,7 @@
         
   
   <span class="md-ellipsis">
-    S20
+    6.20. 总结
   </span>
   
 
@@ -3091,7 +3091,7 @@
         
   
   <span class="md-ellipsis">
-    S21
+    6.21. 关键术语
   </span>
   
 
@@ -3111,7 +3111,7 @@
         
   
   <span class="md-ellipsis">
-    S22
+    6.22. 练习
   </span>
   
 
@@ -3972,10 +3972,519 @@
 
 <h1 id="512-快速排序">5.12. 快速排序<a class="headerlink" href="#512-快速排序" title="Permanent link">&para;</a></h1>
 <p><strong>5.12. The Quicksort</strong></p>
+<!--排序需要-->
+<script src="../js/animationbase.js"></script>
+<script src="../js/sortmodels.js"></script>
+<script src="../js/sortviewers.js"></script>
+
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
-<div class="tabbed-block"></div>
-<div class="tabbed-block"></div>
+<div class="tabbed-block">
+<p>The <strong>quicksort</strong> uses divide and conquer to gain the same advantages as the merge sort, while not using additional storage. As a trade-off, however, it is possible that the list may not be divided in half. When this happens, we will see that performance is diminished.</p>
+<p>A quicksort first selects a value, which is called the <strong>pivot value</strong>. Although there are many different ways to choose the pivot value, we will simply use the first item in the list. The role of the pivot value is to assist with splitting the list. The actual position where the pivot value belongs in the final sorted list, commonly called the <strong>split point</strong>, will be used to divide the list for subsequent calls to the quicksort.</p>
+<p><code>Figure 12</code> shows that 54 will serve as our first pivot value.
+Since we have looked at this example a few times already, we know that
+54 will eventually end up in the position currently holding 31. The
+<strong>partition</strong> process will happen next. It will find the split point and
+at the same time move other items to the appropriate side of the list,
+either less than or greater than the pivot value.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/firstsplit.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/firstsplit.png" /></a>
+    <figcaption markdown="span">Figure 12: The First Pivot Value for a Quicksort</figcaption>
+</figure>   </p>
+<p>Partitioning begins by locating two position markers—let’s call them <code>left_mark</code> and <code>right_mark</code>—at the beginning and end of the remaining items in the list (positions 1 and 8 in <code>Figure 13</code>). The goal of the partition process is to move items that are on the wrong side with respect to the pivot value while also converging on the split point. <code>Figure 13</code> shows this process as we locate the position of 54.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/partitionA.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/partitionA.png" /></a>
+    <figcaption markdown="span">Figure 13: Finding the Split Point for 54</figcaption>
+</figure>      </p>
+<p>We begin by incrementing <code>left_mark</code> until we locate a value that is greater than the pivot value. We then decrement <code>right_mark</code> until we find a value that is less than the pivot value. At this point we have discovered two items that are out of place with respect to the eventual split point. For our example, this occurs at 93 and 20. Now we can exchange these two items and then repeat the process again.</p>
+<p>At the point where <code>right_mark</code> becomes less than <code>left_mark</code>, we stop. The position of <code>right_mark</code> is now the split point. The pivot value can be exchanged with the contents of the split point and the pivot value is now in place (<code>Figure 14</code>). In addition, all the items to the left of the split point are less than the pivot value, and all the items to the right of the split point are greater than the pivot value. The list can now be divided at the split point and the quicksort can be invoked recursively on the two halves.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/partitionB.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/partitionB.png" /></a>
+    <figcaption markdown="span">Figure 14: Completing the Partition Process to Find the Split Point for 54</figcaption>
+</figure>     </p>
+<p>The <code>quick_sort</code> function shown in <code>ActiveCode 1</code> invokes a recursive function, <code>quick_sort_helper</code>. <code>quick_sort_helper</code> begins with the same base case as the merge sort. If the length of the list is less than or equal to one, it is already sorted. If it is greater, then it can be partitioned and recursively sorted. The <code>partition</code> function implements the process described earlier.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 5.12.1 Quicksort</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">29</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">30</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">31</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">32</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">33</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">34</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">35</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">36</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">37</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">quick_sort</span>(a_list):
+    quick_sort_helper(a_list, <span style="color: #666666">0</span>, <span style="color: #008000">len</span>(a_list) <span style="color: #666666">-</span> <span style="color: #666666">1</span>)
+
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">quick_sort_helper</span>(a_list, first, last):
+    <span style="color: #008000; font-weight: bold">if</span> first <span style="color: #666666">&lt;</span> last:
+        split <span style="color: #666666">=</span> partition(a_list, first, last)
+        quick_sort_helper(a_list, first, split <span style="color: #666666">-</span> <span style="color: #666666">1</span>)
+        quick_sort_helper(a_list, split <span style="color: #666666">+</span> <span style="color: #666666">1</span>, last)
+
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">partition</span>(a_list, first, last):
+    pivot_val <span style="color: #666666">=</span> a_list[first]
+    left_mark <span style="color: #666666">=</span> first <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+    right_mark <span style="color: #666666">=</span> last
+    done <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">False</span>
+
+    <span style="color: #008000; font-weight: bold">while</span> <span style="color: #AA22FF; font-weight: bold">not</span> done:
+        <span style="color: #008000; font-weight: bold">while</span> left_mark <span style="color: #666666">&lt;=</span> right_mark <span style="color: #AA22FF; font-weight: bold">and</span> a_list[left_mark] <span style="color: #666666">&lt;=</span> pivot_val:
+            left_mark <span style="color: #666666">=</span> left_mark <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+        <span style="color: #008000; font-weight: bold">while</span> left_mark <span style="color: #666666">&lt;=</span> right_mark <span style="color: #AA22FF; font-weight: bold">and</span> a_list[right_mark] <span style="color: #666666">&gt;=</span> pivot_val:
+            right_mark <span style="color: #666666">=</span> right_mark <span style="color: #666666">-</span> <span style="color: #666666">1</span>
+        <span style="color: #008000; font-weight: bold">if</span> right_mark <span style="color: #666666">&lt;</span> left_mark:
+            done <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">True</span>
+        <span style="color: #008000; font-weight: bold">else</span>:
+            a_list[left_mark], a_list[right_mark] <span style="color: #666666">=</span> (
+                a_list[right_mark],
+                a_list[left_mark],
+            )
+    a_list[first], a_list[right_mark] <span style="color: #666666">=</span> a_list[right_mark], a_list[first]
+
+    <span style="color: #008000; font-weight: bold">return</span> right_mark
+
+
+a_list <span style="color: #666666">=</span> [<span style="color: #666666">54</span>, <span style="color: #666666">26</span>, <span style="color: #666666">93</span>, <span style="color: #666666">17</span>, <span style="color: #666666">77</span>, <span style="color: #666666">31</span>, <span style="color: #666666">44</span>, <span style="color: #666666">55</span>, <span style="color: #666666">20</span>]
+quick_sort(a_list)
+<span style="color: #008000">print</span>(a_list)
+</code></pre></div></td></tr></table></div>
+<p><div id="quick_anim1" class="">
+    <canvas id="quick_anim1_canvas" width="400" height="400" style="border:4px solid blue"></canvas>
+    <br>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="quick_anim1_anim = quick_anim_init('quick_anim1')">Initialize</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="quick_anim1_anim.run('quick_anim1_anim')">Run</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="quick_anim1_anim.stop()">Stop</button> <br>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="quick_anim1_anim.begin()">Beginning</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="quick_anim1_anim.forward()">Step Forward</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="quick_anim1_anim.backward()">Step Backward</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="quick_anim1_anim.end()">End</button>
+    <script>
+    quick_anim_init = function(divid)
+    {
+       var a = new Animator(new QuickSortModel(), new BarViewer(), divid)
+       a.init()
+       return a
+    }
+    </script>
+</div></p>
+<p>For more detail, CodeLens 7 lets you step through the algorithm.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Tracing the Quicksort</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">29</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">30</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">31</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">32</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">33</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">34</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">35</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">36</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">37</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">quick_sort</span>(a_list):
+    quick_sort_helper(a_list, <span style="color: #666666">0</span>, <span style="color: #008000">len</span>(a_list) <span style="color: #666666">-</span> <span style="color: #666666">1</span>)
+
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">quick_sort_helper</span>(a_list, first, last):
+    <span style="color: #008000; font-weight: bold">if</span> first <span style="color: #666666">&lt;</span> last:
+        split <span style="color: #666666">=</span> partition(a_list, first, last)
+        quick_sort_helper(a_list, first, split <span style="color: #666666">-</span> <span style="color: #666666">1</span>)
+        quick_sort_helper(a_list, split <span style="color: #666666">+</span> <span style="color: #666666">1</span>, last)
+
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">partition</span>(a_list, first, last):
+    pivot_val <span style="color: #666666">=</span> a_list[first]
+    left_mark <span style="color: #666666">=</span> first <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+    right_mark <span style="color: #666666">=</span> last
+    done <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">False</span>
+
+    <span style="color: #008000; font-weight: bold">while</span> <span style="color: #AA22FF; font-weight: bold">not</span> done:
+        <span style="color: #008000; font-weight: bold">while</span> left_mark <span style="color: #666666">&lt;=</span> right_mark <span style="color: #AA22FF; font-weight: bold">and</span> a_list[left_mark] <span style="color: #666666">&lt;=</span> pivot_val:
+            left_mark <span style="color: #666666">=</span> left_mark <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+        <span style="color: #008000; font-weight: bold">while</span> left_mark <span style="color: #666666">&lt;=</span> right_mark <span style="color: #AA22FF; font-weight: bold">and</span> a_list[right_mark] <span style="color: #666666">&gt;=</span> pivot_val:
+            right_mark <span style="color: #666666">=</span> right_mark <span style="color: #666666">-</span> <span style="color: #666666">1</span>
+        <span style="color: #008000; font-weight: bold">if</span> right_mark <span style="color: #666666">&lt;</span> left_mark:
+            done <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">True</span>
+        <span style="color: #008000; font-weight: bold">else</span>:
+            a_list[left_mark], a_list[right_mark] <span style="color: #666666">=</span> (
+                a_list[right_mark],
+                a_list[left_mark],
+            )
+    a_list[first], a_list[right_mark] <span style="color: #666666">=</span> a_list[right_mark], a_list[first]
+
+    <span style="color: #008000; font-weight: bold">return</span> right_mark
+
+
+a_list <span style="color: #666666">=</span> [<span style="color: #666666">54</span>, <span style="color: #666666">26</span>, <span style="color: #666666">93</span>, <span style="color: #666666">17</span>, <span style="color: #666666">77</span>, <span style="color: #666666">31</span>, <span style="color: #666666">44</span>, <span style="color: #666666">55</span>, <span style="color: #666666">20</span>]
+quick_sort(a_list)
+<span style="color: #008000">print</span>(a_list)
+</code></pre></div></td></tr></table></div>
+<p>To analyze the <code>quick_sort</code> function, note that for a list of length <span class="arithmatex">\(n\)</span>, if the partition always occurs in the middle of the list, there will again be <span class="arithmatex">\(\log{n}\)</span> divisions. In order to find the split point, each of the <span class="arithmatex">\(n\)</span> items needs to be checked against the pivot value. The result is <span class="arithmatex">\(n\log{n}\)</span>. In addition, there is no need for additional memory as in the merge sort process.</p>
+<p>Unfortunately, in the worst case, the split points may not be in the middle and can be very skewed to the left or the right, leaving a very uneven division. In this case, sorting a list of <span class="arithmatex">\(n\)</span> items divides into sorting a list of 0 items and a list of <span class="arithmatex">\(n - 1\)</span> items. Then sorting a list of <span class="arithmatex">\(n - 1\)</span> divides into a list of size 0 and a list of size <span class="arithmatex">\(n - 2\)</span>, and so on. The result is an <span class="arithmatex">\(O(n^{2})\)</span> sort with all of the overhead that recursion requires.</p>
+<p>We mentioned earlier that there are different ways to choose the pivot value. In particular, we can attempt to alleviate some of the potential for an uneven division by using a technique called <strong>median of three</strong>. To choose the pivot value, we will consider the first, the middle, and the last element in the list. In our example, those are 54, 77, and 20. Now pick the median value, in our case 54, and use it for the pivot value (of course, that was the pivot value we used originally). The idea is that in the case where the first item in the list does not belong toward the middle of the list, the median of three will choose a better “middle” value. This will be particularly useful when the original list is somewhat sorted to begin with. We leave the implementation of this pivot value selection as an exercise.</p>
+<div class="admonition info">
+<p class="admonition-title">Self Check</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">question_sort_7</label><label for="__tabbed_2_2">question_sort_8</label><label for="__tabbed_2_3">question_sort_9</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Given the following list of numbers [14, 17, 13, 15, 19, 10, 3, 16, 9, 12] which answer shows the contents of the list after the second partitioning according to the quicksort algorithm?</p>
+<ul>
+<li>answer_a: [9, 3, 10, 13, 12]</li>
+<li>answer_b: [9, 3, 10, 13, 12, 14]</li>
+<li>answer_c: [9, 3, 10, 13, 12, 14, 17, 16, 15, 19]</li>
+<li>answer_d: [9, 3, 10, 13, 12, 14, 19, 16, 15, 17]</li>
+</ul>
+<p>correct: d</p>
+<ul>
+<li>feedback_a: It's important to remember that quicksort works on the entire list and sorts it in place.</li>
+<li>feedback_b: Remember quicksort works on the entire list and sorts it in place.</li>
+<li>feedback_c: The first partitioning works on the entire list, and the second partitioning works on the left partition not the right.</li>
+<li>feedback_d: The first partitioning works on the entire list, and the second partitioning works on the left partition.</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p>Given the following list of numbers [1, 20, 11, 5, 2, 9, 16, 14, 13, 19] what would be the first pivot value using the median of 3 method?</p>
+<ul>
+<li>answer_a: 1</li>
+<li>answer_b: 9</li>
+<li>answer_c: 16</li>
+<li>answer_d: 19</li>
+</ul>
+<p>correct: b</p>
+<ul>
+<li>feedback_a: The three numbers used in selecting the pivot are 1, 9, 19.  1 is not the median, and would be a very bad choice for the pivot since it is the smallest number in the list.</li>
+<li>feedback b:  Good job.</li>
+<li>feedback c: although 16 would be the median of 1, 16, 19 the middle is at len(list) // 2.</li>
+<li>feedback d: the three numbers used in selecting the pivot are 1, 9, 19.  9 is the median.  19 would be a bad choice since it is almost the largest.</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p>Which of the following sort algorithms are guaranteed to be O(n log n) even in the worst case?</p>
+<p>multiple_answers:</p>
+<ul>
+<li>answer a: Shell Sort</li>
+<li>answer b: Quick Sort</li>
+<li>answer c: Merge Sort</li>
+<li>answer d: Insertion Sort</li>
+</ul>
+<p>correct: c</p>
+<ul>
+<li>feedback a: Shell sort is about <code>n^1.5</code></li>
+<li>feedback b: Quicksort can be O(n log n), but if the pivot points are not well chosen and the list is just so, it can be O(n^2).</li>
+<li>feedback c: Merge Sort is the only guaranteed O(n log n) even in the worst case.  The cost is that merge sort uses more memory.</li>
+<li>feedback d: Insertion sort is <code>O(n^2)</code></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <strong>quicksort</strong> uses divide and conquer to gain the same advantages as the merge sort, while not using additional storage. As a trade-off, however, it is possible that the list may not be divided in half. When this happens, we will see that performance is diminished.</p>
+<p>A quicksort first selects a value, which is called the <strong>pivot value</strong>. Although there are many different ways to choose the pivot value, we will simply use the first item in the list. The role of the pivot value is to assist with splitting the list. The actual position where the pivot value belongs in the final sorted list, commonly called the <strong>split point</strong>, will be used to divide the list for subsequent calls to the quicksort.</p>
+<p><code>Figure 12</code> shows that 54 will serve as our first pivot value.
+Since we have looked at this example a few times already, we know that
+54 will eventually end up in the position currently holding 31. The
+<strong>partition</strong> process will happen next. It will find the split point and
+at the same time move other items to the appropriate side of the list,
+either less than or greater than the pivot value.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/firstsplit.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/firstsplit.png" /></a>
+    <figcaption markdown="span">Figure 12: The First Pivot Value for a Quicksort</figcaption>
+</figure>   </p>
+<p>Partitioning begins by locating two position markers—let’s call them <code>left_mark</code> and <code>right_mark</code>—at the beginning and end of the remaining items in the list (positions 1 and 8 in <code>Figure 13</code>). The goal of the partition process is to move items that are on the wrong side with respect to the pivot value while also converging on the split point. <code>Figure 13</code> shows this process as we locate the position of 54.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/partitionA.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/partitionA.png" /></a>
+    <figcaption markdown="span">Figure 13: Finding the Split Point for 54</figcaption>
+</figure>      </p>
+<p>We begin by incrementing <code>left_mark</code> until we locate a value that is greater than the pivot value. We then decrement <code>right_mark</code> until we find a value that is less than the pivot value. At this point we have discovered two items that are out of place with respect to the eventual split point. For our example, this occurs at 93 and 20. Now we can exchange these two items and then repeat the process again.</p>
+<p>At the point where <code>right_mark</code> becomes less than <code>left_mark</code>, we stop. The position of <code>right_mark</code> is now the split point. The pivot value can be exchanged with the contents of the split point and the pivot value is now in place (<code>Figure 14</code>). In addition, all the items to the left of the split point are less than the pivot value, and all the items to the right of the split point are greater than the pivot value. The list can now be divided at the split point and the quicksort can be invoked recursively on the two halves.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/partitionB.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/partitionB.png" /></a>
+    <figcaption markdown="span">Figure 14: Completing the Partition Process to Find the Split Point for 54</figcaption>
+</figure>     </p>
+<p>The <code>quick_sort</code> function shown in <code>ActiveCode 1</code> invokes a recursive function, <code>quick_sort_helper</code>. <code>quick_sort_helper</code> begins with the same base case as the merge sort. If the length of the list is less than or equal to one, it is already sorted. If it is greater, then it can be partitioned and recursively sorted. The <code>partition</code> function implements the process described earlier.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 5.12.1 Quicksort</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">29</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">30</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">31</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">32</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">33</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">34</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">35</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">36</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">37</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">quick_sort</span>(a_list):
+    quick_sort_helper(a_list, <span style="color: #666666">0</span>, <span style="color: #008000">len</span>(a_list) <span style="color: #666666">-</span> <span style="color: #666666">1</span>)
+
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">quick_sort_helper</span>(a_list, first, last):
+    <span style="color: #008000; font-weight: bold">if</span> first <span style="color: #666666">&lt;</span> last:
+        split <span style="color: #666666">=</span> partition(a_list, first, last)
+        quick_sort_helper(a_list, first, split <span style="color: #666666">-</span> <span style="color: #666666">1</span>)
+        quick_sort_helper(a_list, split <span style="color: #666666">+</span> <span style="color: #666666">1</span>, last)
+
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">partition</span>(a_list, first, last):
+    pivot_val <span style="color: #666666">=</span> a_list[first]
+    left_mark <span style="color: #666666">=</span> first <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+    right_mark <span style="color: #666666">=</span> last
+    done <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">False</span>
+
+    <span style="color: #008000; font-weight: bold">while</span> <span style="color: #AA22FF; font-weight: bold">not</span> done:
+        <span style="color: #008000; font-weight: bold">while</span> left_mark <span style="color: #666666">&lt;=</span> right_mark <span style="color: #AA22FF; font-weight: bold">and</span> a_list[left_mark] <span style="color: #666666">&lt;=</span> pivot_val:
+            left_mark <span style="color: #666666">=</span> left_mark <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+        <span style="color: #008000; font-weight: bold">while</span> left_mark <span style="color: #666666">&lt;=</span> right_mark <span style="color: #AA22FF; font-weight: bold">and</span> a_list[right_mark] <span style="color: #666666">&gt;=</span> pivot_val:
+            right_mark <span style="color: #666666">=</span> right_mark <span style="color: #666666">-</span> <span style="color: #666666">1</span>
+        <span style="color: #008000; font-weight: bold">if</span> right_mark <span style="color: #666666">&lt;</span> left_mark:
+            done <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">True</span>
+        <span style="color: #008000; font-weight: bold">else</span>:
+            a_list[left_mark], a_list[right_mark] <span style="color: #666666">=</span> (
+                a_list[right_mark],
+                a_list[left_mark],
+            )
+    a_list[first], a_list[right_mark] <span style="color: #666666">=</span> a_list[right_mark], a_list[first]
+
+    <span style="color: #008000; font-weight: bold">return</span> right_mark
+
+
+a_list <span style="color: #666666">=</span> [<span style="color: #666666">54</span>, <span style="color: #666666">26</span>, <span style="color: #666666">93</span>, <span style="color: #666666">17</span>, <span style="color: #666666">77</span>, <span style="color: #666666">31</span>, <span style="color: #666666">44</span>, <span style="color: #666666">55</span>, <span style="color: #666666">20</span>]
+quick_sort(a_list)
+<span style="color: #008000">print</span>(a_list)
+</code></pre></div></td></tr></table></div>
+<p><div id="quick_anim" class="">
+    <canvas id="quick_anim_canvas" width="400" height="400" style="border:4px solid blue"></canvas>
+    <br>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="quick_anim_anim = quick_anim_init('quick_anim')">Initialize</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="quick_anim_anim.run('quick_anim_anim')">Run</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="quick_anim_anim.stop()">Stop</button> <br>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="quick_anim_anim.begin()">Beginning</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="quick_anim_anim.forward()">Step Forward</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="quick_anim_anim.backward()">Step Backward</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="quick_anim_anim.end()">End</button>
+    <script>
+    quick_anim_init = function(divid)
+    {
+       var a = new Animator(new QuickSortModel(), new BarViewer(), divid)
+       a.init()
+       return a
+    }
+    </script>
+</div></p>
+<p>For more detail, CodeLens 7 lets you step through the algorithm.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Tracing the Quicksort</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">29</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">30</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">31</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">32</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">33</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">34</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">35</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">36</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">37</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">quick_sort</span>(a_list):
+    quick_sort_helper(a_list, <span style="color: #666666">0</span>, <span style="color: #008000">len</span>(a_list) <span style="color: #666666">-</span> <span style="color: #666666">1</span>)
+
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">quick_sort_helper</span>(a_list, first, last):
+    <span style="color: #008000; font-weight: bold">if</span> first <span style="color: #666666">&lt;</span> last:
+        split <span style="color: #666666">=</span> partition(a_list, first, last)
+        quick_sort_helper(a_list, first, split <span style="color: #666666">-</span> <span style="color: #666666">1</span>)
+        quick_sort_helper(a_list, split <span style="color: #666666">+</span> <span style="color: #666666">1</span>, last)
+
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">partition</span>(a_list, first, last):
+    pivot_val <span style="color: #666666">=</span> a_list[first]
+    left_mark <span style="color: #666666">=</span> first <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+    right_mark <span style="color: #666666">=</span> last
+    done <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">False</span>
+
+    <span style="color: #008000; font-weight: bold">while</span> <span style="color: #AA22FF; font-weight: bold">not</span> done:
+        <span style="color: #008000; font-weight: bold">while</span> left_mark <span style="color: #666666">&lt;=</span> right_mark <span style="color: #AA22FF; font-weight: bold">and</span> a_list[left_mark] <span style="color: #666666">&lt;=</span> pivot_val:
+            left_mark <span style="color: #666666">=</span> left_mark <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+        <span style="color: #008000; font-weight: bold">while</span> left_mark <span style="color: #666666">&lt;=</span> right_mark <span style="color: #AA22FF; font-weight: bold">and</span> a_list[right_mark] <span style="color: #666666">&gt;=</span> pivot_val:
+            right_mark <span style="color: #666666">=</span> right_mark <span style="color: #666666">-</span> <span style="color: #666666">1</span>
+        <span style="color: #008000; font-weight: bold">if</span> right_mark <span style="color: #666666">&lt;</span> left_mark:
+            done <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">True</span>
+        <span style="color: #008000; font-weight: bold">else</span>:
+            a_list[left_mark], a_list[right_mark] <span style="color: #666666">=</span> (
+                a_list[right_mark],
+                a_list[left_mark],
+            )
+    a_list[first], a_list[right_mark] <span style="color: #666666">=</span> a_list[right_mark], a_list[first]
+
+    <span style="color: #008000; font-weight: bold">return</span> right_mark
+
+
+a_list <span style="color: #666666">=</span> [<span style="color: #666666">54</span>, <span style="color: #666666">26</span>, <span style="color: #666666">93</span>, <span style="color: #666666">17</span>, <span style="color: #666666">77</span>, <span style="color: #666666">31</span>, <span style="color: #666666">44</span>, <span style="color: #666666">55</span>, <span style="color: #666666">20</span>]
+quick_sort(a_list)
+<span style="color: #008000">print</span>(a_list)
+</code></pre></div></td></tr></table></div>
+<p>To analyze the <code>quick_sort</code> function, note that for a list of length <span class="arithmatex">\(n\)</span>, if the partition always occurs in the middle of the list, there will again be <span class="arithmatex">\(\log{n}\)</span> divisions. In order to find the split point, each of the <span class="arithmatex">\(n\)</span> items needs to be checked against the pivot value. The result is <span class="arithmatex">\(n\log{n}\)</span>. In addition, there is no need for additional memory as in the merge sort process.</p>
+<p>Unfortunately, in the worst case, the split points may not be in the middle and can be very skewed to the left or the right, leaving a very uneven division. In this case, sorting a list of <span class="arithmatex">\(n\)</span> items divides into sorting a list of 0 items and a list of <span class="arithmatex">\(n - 1\)</span> items. Then sorting a list of <span class="arithmatex">\(n - 1\)</span> divides into a list of size 0 and a list of size <span class="arithmatex">\(n - 2\)</span>, and so on. The result is an <span class="arithmatex">\(O(n^{2})\)</span> sort with all of the overhead that recursion requires.</p>
+<p>We mentioned earlier that there are different ways to choose the pivot value. In particular, we can attempt to alleviate some of the potential for an uneven division by using a technique called <strong>median of three</strong>. To choose the pivot value, we will consider the first, the middle, and the last element in the list. In our example, those are 54, 77, and 20. Now pick the median value, in our case 54, and use it for the pivot value (of course, that was the pivot value we used originally). The idea is that in the case where the first item in the list does not belong toward the middle of the list, the median of three will choose a better “middle” value. This will be particularly useful when the original list is somewhat sorted to begin with. We leave the implementation of this pivot value selection as an exercise.</p>
+<div class="admonition info">
+<p class="admonition-title">Self Check</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">question_sort_7</label><label for="__tabbed_3_2">question_sort_8</label><label for="__tabbed_3_3">question_sort_9</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Given the following list of numbers [14, 17, 13, 15, 19, 10, 3, 16, 9, 12] which answer shows the contents of the list after the second partitioning according to the quicksort algorithm?</p>
+<ul>
+<li>answer_a: [9, 3, 10, 13, 12]</li>
+<li>answer_b: [9, 3, 10, 13, 12, 14]</li>
+<li>answer_c: [9, 3, 10, 13, 12, 14, 17, 16, 15, 19]</li>
+<li>answer_d: [9, 3, 10, 13, 12, 14, 19, 16, 15, 17]</li>
+</ul>
+<p>correct: d</p>
+<ul>
+<li>feedback_a: It's important to remember that quicksort works on the entire list and sorts it in place.</li>
+<li>feedback_b: Remember quicksort works on the entire list and sorts it in place.</li>
+<li>feedback_c: The first partitioning works on the entire list, and the second partitioning works on the left partition not the right.</li>
+<li>feedback_d: The first partitioning works on the entire list, and the second partitioning works on the left partition.</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p>Given the following list of numbers [1, 20, 11, 5, 2, 9, 16, 14, 13, 19] what would be the first pivot value using the median of 3 method?</p>
+<ul>
+<li>answer_a: 1</li>
+<li>answer_b: 9</li>
+<li>answer_c: 16</li>
+<li>answer_d: 19</li>
+</ul>
+<p>correct: b</p>
+<ul>
+<li>feedback_a: The three numbers used in selecting the pivot are 1, 9, 19.  1 is not the median, and would be a very bad choice for the pivot since it is the smallest number in the list.</li>
+<li>feedback b:  Good job.</li>
+<li>feedback c: although 16 would be the median of 1, 16, 19 the middle is at len(list) // 2.</li>
+<li>feedback d: the three numbers used in selecting the pivot are 1, 9, 19.  9 is the median.  19 would be a bad choice since it is almost the largest.</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p>Which of the following sort algorithms are guaranteed to be O(n log n) even in the worst case?</p>
+<p>multiple_answers:</p>
+<ul>
+<li>answer a: Shell Sort</li>
+<li>answer b: Quick Sort</li>
+<li>answer c: Merge Sort</li>
+<li>answer d: Insertion Sort</li>
+</ul>
+<p>correct: c</p>
+<ul>
+<li>feedback a: Shell sort is about <code>n^1.5</code></li>
+<li>feedback b: Quicksort can be O(n log n), but if the pivot points are not well chosen and the list is just so, it can be O(n^2).</li>
+<li>feedback c: Merge Sort is the only guaranteed O(n log n) even in the worst case.  The cost is that merge sort uses more memory.</li>
+<li>feedback d: Insertion sort is <code>O(n^2)</code></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 
@@ -3984,7 +4493,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月10日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月11日</span>
       
         <br>
         创建日期:

@@ -2691,7 +2691,7 @@
         
   
   <span class="md-ellipsis">
-    S1
+    6.1. 目标
   </span>
   
 
@@ -2711,7 +2711,7 @@
         
   
   <span class="md-ellipsis">
-    S2
+    6.2. 树的示例
   </span>
   
 
@@ -2731,7 +2731,7 @@
         
   
   <span class="md-ellipsis">
-    S3
+    6.3. 词汇和定义
   </span>
   
 
@@ -2751,7 +2751,7 @@
         
   
   <span class="md-ellipsis">
-    S4
+    6.4. 实现
   </span>
   
 
@@ -2771,7 +2771,7 @@
         
   
   <span class="md-ellipsis">
-    S5
+    6.5. 列表表示法
   </span>
   
 
@@ -2791,7 +2791,7 @@
         
   
   <span class="md-ellipsis">
-    S6
+    6.6. 节点与引用
   </span>
   
 
@@ -2811,7 +2811,7 @@
         
   
   <span class="md-ellipsis">
-    S7
+    6.7. 解析树
   </span>
   
 
@@ -2831,7 +2831,7 @@
         
   
   <span class="md-ellipsis">
-    S8
+    6.8. 树遍历
   </span>
   
 
@@ -2851,7 +2851,7 @@
         
   
   <span class="md-ellipsis">
-    S9
+    6.9. 使用二叉堆的优先队列
   </span>
   
 
@@ -2871,7 +2871,7 @@
         
   
   <span class="md-ellipsis">
-    S10
+    6.10. 二叉堆操作
   </span>
   
 
@@ -2891,7 +2891,7 @@
         
   
   <span class="md-ellipsis">
-    S11
+    6.11. 二叉堆实现
   </span>
   
 
@@ -2911,7 +2911,7 @@
         
   
   <span class="md-ellipsis">
-    S12
+    6.12. 二叉搜索树
   </span>
   
 
@@ -2931,7 +2931,7 @@
         
   
   <span class="md-ellipsis">
-    S13
+    6.13. 搜索树操作
   </span>
   
 
@@ -2951,7 +2951,7 @@
         
   
   <span class="md-ellipsis">
-    S14
+    6.14. 搜索树实现
   </span>
   
 
@@ -2971,7 +2971,7 @@
         
   
   <span class="md-ellipsis">
-    S15
+    6.15. 搜索树分析
   </span>
   
 
@@ -2991,7 +2991,7 @@
         
   
   <span class="md-ellipsis">
-    S16
+    6.16. 平衡二叉搜索树
   </span>
   
 
@@ -3011,7 +3011,7 @@
         
   
   <span class="md-ellipsis">
-    S17
+    6.17. AVL树性能
   </span>
   
 
@@ -3031,7 +3031,7 @@
         
   
   <span class="md-ellipsis">
-    S18
+    6.18. AVL树实现
   </span>
   
 
@@ -3051,7 +3051,7 @@
         
   
   <span class="md-ellipsis">
-    S19
+    6.19. Map ADT实现总结
   </span>
   
 
@@ -3071,7 +3071,7 @@
         
   
   <span class="md-ellipsis">
-    S20
+    6.20. 总结
   </span>
   
 
@@ -3091,7 +3091,7 @@
         
   
   <span class="md-ellipsis">
-    S21
+    6.21. 关键术语
   </span>
   
 
@@ -3111,7 +3111,7 @@
         
   
   <span class="md-ellipsis">
-    S22
+    6.22. 练习
   </span>
   
 
@@ -3972,10 +3972,411 @@
 
 <h1 id="57-冒泡排序">5.7. 冒泡排序<a class="headerlink" href="#57-冒泡排序" title="Permanent link">&para;</a></h1>
 <p><strong>5.7. The Bubble Sort</strong></p>
+<!--冒泡排序需要-->
+<script src="../js/animationbase.js"></script>
+<script src="../js/sortmodels.js"></script>
+<script src="../js/sortviewers.js"></script>
+
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
-<div class="tabbed-block"></div>
-<div class="tabbed-block"></div>
+<div class="tabbed-block">
+<p>The <strong>bubble sort</strong> makes multiple passes through a list. It compares adjacent items and exchanges those that are out of order. Each pass through the list places the next largest value in its proper place. In essence, each item bubbles up to the location where it belongs.</p>
+<p><code>Figure 1</code> shows the first pass of a bubble sort. The shaded items are being compared to see if they are out of order. If there are <span class="arithmatex">\(n\)</span> items in the list, then there are <span class="arithmatex">\(n-1\)</span> pairs of items that need to be compared on the first pass. It is important to note that once the largest value in the list is part of a pair, it will continually be moved along until the pass is complete.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/bubblepass.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/bubblepass.png" /></a>
+    <figcaption markdown="span">Figure 1: Bubble Sort: The First Pass</figcaption>
+</figure></p>
+<p>At the start of the second pass, the largest value is now in place. There are <span class="arithmatex">\(n-1\)</span> items left to sort, meaning that there will be <span class="arithmatex">\(n-2\)</span> pairs. Since each pass places the next largest value in place, the total number of passes necessary will be <span class="arithmatex">\(n-1\)</span>. After completing the <span class="arithmatex">\(n-1\)</span> passes, the smallest item must be in the correct position with no further processing required. <code>ActiveCode 1</code> shows the complete <code>bubble_sort</code> function. It takes the list as a parameter and modifies it by exchanging items as necessary.</p>
+<p>The exchange operation, sometimes called a <em>swap</em>, is slightly different in Python than in most other programming languages. Typically, swapping two elements in a list requires a temporary variable (an additional memory location). A code fragment such as</p>
+<div class="language-pycon highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #717171">    temp = a_list[i]</span>
+<span style="color: #717171">    a_list[i] = a_list[j]</span>
+<span style="color: #717171">    a_list[j] = temp</span>
+</code></pre></div>
+<p>will exchange the <span class="arithmatex">\(i\)</span>-th and <span class="arithmatex">\(j\)</span>-th items in the list. Without the temporary storage, one of the values would be overwritten.</p>
+<p>In Python, it is possible to perform simultaneous assignment. The statement <code>a, b = b, a</code> will result in two assignment statements being done at the same time (see <code>Figure 2</code>). Using simultaneous assignment, the exchange operation can be done in one statement.</p>
+<p>Lines 5--7 in <code>ActiveCode 1</code> perform the exchange of the <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\((i+1)\)</span>-th items using the three-step procedure described earlier. Note that we could also have used the simultaneous assignment to swap the items.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/swap.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/swap.png" /></a>
+    <figcaption markdown="span">Figure 2: Exchanging Two Values in Python</figcaption>
+</figure></p>
+<p>The following activecode example shows the complete <code>bubble_sort</code> function working on the list shown above.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 5.7.1 The Bubble Sort Implementation</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">bubble_sort</span>(a_list):
+    <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #008000">len</span>(a_list) <span style="color: #666666">-</span> <span style="color: #666666">1</span>, <span style="color: #666666">0</span>, <span style="color: #666666">-1</span>):
+        <span style="color: #008000; font-weight: bold">for</span> j <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(i):
+            <span style="color: #008000; font-weight: bold">if</span> a_list[j] <span style="color: #666666">&gt;</span> a_list[j <span style="color: #666666">+</span> <span style="color: #666666">1</span>]:
+                temp <span style="color: #666666">=</span> a_list[j]
+                a_list[j] <span style="color: #666666">=</span> a_list[j <span style="color: #666666">+</span> <span style="color: #666666">1</span>]
+                a_list[j <span style="color: #666666">+</span> <span style="color: #666666">1</span>] <span style="color: #666666">=</span> temp
+
+
+a_list <span style="color: #666666">=</span> [<span style="color: #666666">54</span>, <span style="color: #666666">26</span>, <span style="color: #666666">93</span>, <span style="color: #666666">17</span>, <span style="color: #666666">77</span>, <span style="color: #666666">31</span>, <span style="color: #666666">44</span>, <span style="color: #666666">55</span>, <span style="color: #666666">20</span>]
+bubble_sort(a_list)
+<span style="color: #008000">print</span>(a_list)
+</code></pre></div></td></tr></table></div>
+<p>The following animation shows <code>bubble_sort</code> in action.</p>
+<p><div id="bubble_anim1" class="">
+    <canvas id="bubble_anim1_canvas" width="400" height="400" style="border:4px solid blue"></canvas>
+    <br>
+    <button onclick="bubble_anim1_anim = bubble_anim_init('bubble_anim1')" style="border: 1px solid black;     background-color: buttonface; padding: 2px;">Initialize</button>
+    <button onclick="bubble_anim1_anim.run('bubble_anim1_anim')" style="border: 1px solid black; background-color: buttonface; padding: 2px;" class="">Run</button>
+    <button onclick="bubble_anim1_anim.stop()" style="border: 1px solid black; background-color: buttonface; padding: 2px;">Stop</button> <br>
+    <button onclick="bubble_anim1_anim.begin()" style="border: 1px solid black; background-color: buttonface; padding: 2px;">Beginning</button>
+    <button onclick="bubble_anim1_anim.forward()" style="border: 1px solid black; background-color: buttonface; padding: 2px;">Step Forward</button>
+    <button onclick="bubble_anim1_anim.backward()" style="border: 1px solid black; background-color: buttonface; padding: 2px;">Step Backward</button>
+    <button onclick="bubble_anim1_anim.end()" style="border: 1px solid black; background-color: buttonface; padding: 2px;">End</button>
+    <script>
+    bubble_anim_init = function(divid)
+    {
+       var a = new Animator(new BubbleSortModel(), new BarViewer(), divid)
+       a.init()
+       return a
+    }
+    </script>
+</div>                   </p>
+<p>For more detail, CodeLens 1 allows you to step through the algorithm.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Tracing the Bubble Sort</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">bubble_sort</span>(a_list):
+    <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #008000">len</span>(a_list) <span style="color: #666666">-</span> <span style="color: #666666">1</span>, <span style="color: #666666">0</span>, <span style="color: #666666">-1</span>):
+        <span style="color: #008000; font-weight: bold">for</span> j <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(i):
+            <span style="color: #008000; font-weight: bold">if</span> a_list[j] <span style="color: #666666">&gt;</span> a_list[j <span style="color: #666666">+</span> <span style="color: #666666">1</span>]:
+                temp <span style="color: #666666">=</span> a_list[j]
+                a_list[j] <span style="color: #666666">=</span> a_list[j <span style="color: #666666">+</span> <span style="color: #666666">1</span>]
+                a_list[j <span style="color: #666666">+</span> <span style="color: #666666">1</span>] <span style="color: #666666">=</span> temp
+
+
+a_list <span style="color: #666666">=</span> [<span style="color: #666666">54</span>, <span style="color: #666666">26</span>, <span style="color: #666666">93</span>, <span style="color: #666666">17</span>, <span style="color: #666666">77</span>, <span style="color: #666666">31</span>, <span style="color: #666666">44</span>, <span style="color: #666666">55</span>, <span style="color: #666666">20</span>]
+bubble_sort(a_list)
+<span style="color: #008000">print</span>(a_list)
+</code></pre></div></td></tr></table></div>
+<p>To analyze the bubble sort, we should note that regardless of how the items are arranged in the initial list, <span class="arithmatex">\(n - 1\)</span> passes will be made to sort a list of size <span class="arithmatex">\(n\)</span>. <code>Table 1</code> shows the number of comparisons for each pass. The total number of comparisons is the sum of the first <span class="arithmatex">\(n - 1\)</span> integers. Recall that the sum of the first <span class="arithmatex">\(n\)</span> integers is <span class="arithmatex">\(\frac{1}{2}n^{2} + \frac{1}{2}n\)</span>. The sum of the first <span class="arithmatex">\(n - 1\)</span> integers is <span class="arithmatex">\(\frac{1}{2}n^{2} + \frac{1}{2}n - n\)</span>, which is <span class="arithmatex">\(\frac{1}{2}n^{2} - \frac{1}{2}n\)</span>. This is still <span class="arithmatex">\(O(n^{2})\)</span> comparisons. In the best case, if the list is already ordered, no exchanges will be made. However, in the worst case, every comparison will cause an exchange. On average, we exchange half of the time.</p>
+<p><strong>Table 1: Comparisons for Each Pass of Bubble Sort</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Pass</strong></th>
+<th><strong>Comparisons</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><span class="arithmatex">\(n-1\)</span></td>
+</tr>
+<tr>
+<td>2</td>
+<td><span class="arithmatex">\(n-2\)</span></td>
+</tr>
+<tr>
+<td>3</td>
+<td><span class="arithmatex">\(n-3\)</span></td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(n-1\)</span></td>
+<td><span class="arithmatex">\(1\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>A bubble sort is often considered the most inefficient sorting method since it must exchange items before the final location is known. These “wasted” exchange operations are very costly. However, because the bubble sort makes passes through the entire unsorted portion of the list, it has the capability to do something most sorting algorithms cannot. In particular, if during a pass there are no exchanges, then we know that the list must be sorted. A bubble sort can be modified to stop early if it finds that the list has become sorted. This means that for lists that require just a few passes, a bubble sort may have an advantage in that it will recognize the sorted list and stop. <code>ActiveCode 2</code> shows this modification, which is often referred to as the <strong>short bubble</strong>.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 5.7.2 The Short Bubble Sort Implementation</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">bubble_sort_short</span>(a_list):
+    <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #008000">len</span>(a_list) <span style="color: #666666">-</span> <span style="color: #666666">1</span>, <span style="color: #666666">0</span>, <span style="color: #666666">-1</span>):
+        exchanges <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">False</span>
+        <span style="color: #008000; font-weight: bold">for</span> j <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(i):
+            <span style="color: #008000; font-weight: bold">if</span> a_list[j] <span style="color: #666666">&gt;</span> a_list[j <span style="color: #666666">+</span> <span style="color: #666666">1</span>]:
+                exchanges <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">True</span>
+                a_list[j], a_list[j <span style="color: #666666">+</span> <span style="color: #666666">1</span>] <span style="color: #666666">=</span> a_list[j <span style="color: #666666">+</span> <span style="color: #666666">1</span>], a_list[j]
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #AA22FF; font-weight: bold">not</span> exchanges:
+            <span style="color: #008000; font-weight: bold">break</span>
+
+
+a_list <span style="color: #666666">=</span> [<span style="color: #666666">20</span>, <span style="color: #666666">30</span>, <span style="color: #666666">40</span>, <span style="color: #666666">90</span>, <span style="color: #666666">50</span>, <span style="color: #666666">60</span>, <span style="color: #666666">70</span>, <span style="color: #666666">80</span>, <span style="color: #666666">100</span>, <span style="color: #666666">110</span>]
+bubble_sort_short(a_list)
+<span style="color: #008000">print</span>(a_list)
+</code></pre></div></td></tr></table></div>
+<p>Finally, here is <code>bubble_sort_short</code> in CodeLens (CodeLens 2)..</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Tracing the Short Bubble Sort</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">bubble_sort_short</span>(a_list):
+    <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #008000">len</span>(a_list) <span style="color: #666666">-</span> <span style="color: #666666">1</span>, <span style="color: #666666">0</span>, <span style="color: #666666">-1</span>):
+        exchanges <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">False</span>
+        <span style="color: #008000; font-weight: bold">for</span> j <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(i):
+            <span style="color: #008000; font-weight: bold">if</span> a_list[j] <span style="color: #666666">&gt;</span> a_list[j <span style="color: #666666">+</span> <span style="color: #666666">1</span>]:
+                exchanges <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">True</span>
+                a_list[j], a_list[j <span style="color: #666666">+</span> <span style="color: #666666">1</span>] <span style="color: #666666">=</span> a_list[j <span style="color: #666666">+</span> <span style="color: #666666">1</span>], a_list[j]
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #AA22FF; font-weight: bold">not</span> exchanges:
+            <span style="color: #008000; font-weight: bold">break</span>
+
+
+a_list <span style="color: #666666">=</span> [<span style="color: #666666">20</span>, <span style="color: #666666">30</span>, <span style="color: #666666">40</span>, <span style="color: #666666">90</span>, <span style="color: #666666">50</span>, <span style="color: #666666">60</span>, <span style="color: #666666">70</span>, <span style="color: #666666">80</span>, <span style="color: #666666">100</span>, <span style="color: #666666">110</span>]
+bubble_sort_short(a_list)
+<span style="color: #008000">print</span>(a_list)
+</code></pre></div></td></tr></table></div>
+<div class="admonition info">
+<p class="admonition-title">Self Check</p>
+<p>Suppose you have the following list of numbers to sort: <br>
+[19, 1, 9, 7, 3, 10, 13, 15, 8, 12] which list represents the partially sorted list after three complete passes of bubble sort?</p>
+<ul>
+<li>answer a: [1, 9, 19, 7, 3, 10, 13, 15, 8, 12]</li>
+<li>answer b: [1, 3, 7, 9, 10, 8, 12, 13, 15, 19]</li>
+<li>answer c: [1, 7, 3, 9, 10, 13, 8, 12, 15, 19]</li>
+<li>answer d: [1, 9, 19, 7, 3, 10, 13, 15, 8, 12]</li>
+</ul>
+<p>correct: b</p>
+<ul>
+<li>feedback a:  This answer represents three swaps.  A pass means that you continue swapping all the way to the end of the list.</li>
+<li>feedback b:  Very Good</li>
+<li>feedback c: A bubble sort contines to swap numbers up to index position passnum.  But remember that passnum starts at the length of the list - 1.</li>
+<li>feedback d: You have been doing an insertion sort, not a bubble sort.</li>
+</ul>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <strong>bubble sort</strong> makes multiple passes through a list. It compares adjacent items and exchanges those that are out of order. Each pass through the list places the next largest value in its proper place. In essence, each item bubbles up to the location where it belongs.</p>
+<p><code>Figure 1</code> shows the first pass of a bubble sort. The shaded items are being compared to see if they are out of order. If there are <span class="arithmatex">\(n\)</span> items in the list, then there are <span class="arithmatex">\(n-1\)</span> pairs of items that need to be compared on the first pass. It is important to note that once the largest value in the list is part of a pair, it will continually be moved along until the pass is complete.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/bubblepass.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/bubblepass.png" /></a>
+    <figcaption markdown="span">Figure 1: Bubble Sort: The First Pass</figcaption>
+</figure></p>
+<p>At the start of the second pass, the largest value is now in place. There are <span class="arithmatex">\(n-1\)</span> items left to sort, meaning that there will be <span class="arithmatex">\(n-2\)</span> pairs. Since each pass places the next largest value in place, the total number of passes necessary will be <span class="arithmatex">\(n-1\)</span>. After completing the <span class="arithmatex">\(n-1\)</span> passes, the smallest item must be in the correct position with no further processing required. <code>ActiveCode 1</code> shows the complete <code>bubble_sort</code> function. It takes the list as a parameter and modifies it by exchanging items as necessary.</p>
+<p>The exchange operation, sometimes called a <em>swap</em>, is slightly different in Python than in most other programming languages. Typically, swapping two elements in a list requires a temporary variable (an additional memory location). A code fragment such as</p>
+<div class="language-pycon highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #717171">    temp = a_list[i]</span>
+<span style="color: #717171">    a_list[i] = a_list[j]</span>
+<span style="color: #717171">    a_list[j] = temp</span>
+</code></pre></div>
+<p>will exchange the <span class="arithmatex">\(i\)</span>-th and <span class="arithmatex">\(j\)</span>-th items in the list. Without the temporary storage, one of the values would be overwritten.</p>
+<p>In Python, it is possible to perform simultaneous assignment. The statement <code>a, b = b, a</code> will result in two assignment statements being done at the same time (see <code>Figure 2</code>). Using simultaneous assignment, the exchange operation can be done in one statement.</p>
+<p>Lines 5--7 in <code>ActiveCode 1</code> perform the exchange of the <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\((i+1)\)</span>-th items using the three-step procedure described earlier. Note that we could also have used the simultaneous assignment to swap the items.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/swap.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/swap.png" /></a>
+    <figcaption markdown="span">Figure 2: Exchanging Two Values in Python</figcaption>
+</figure></p>
+<p>The following activecode example shows the complete <code>bubble_sort</code> function working on the list shown above.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 5.7.1 The Bubble Sort Implementation</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">bubble_sort</span>(a_list):
+    <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #008000">len</span>(a_list) <span style="color: #666666">-</span> <span style="color: #666666">1</span>, <span style="color: #666666">0</span>, <span style="color: #666666">-1</span>):
+        <span style="color: #008000; font-weight: bold">for</span> j <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(i):
+            <span style="color: #008000; font-weight: bold">if</span> a_list[j] <span style="color: #666666">&gt;</span> a_list[j <span style="color: #666666">+</span> <span style="color: #666666">1</span>]:
+                temp <span style="color: #666666">=</span> a_list[j]
+                a_list[j] <span style="color: #666666">=</span> a_list[j <span style="color: #666666">+</span> <span style="color: #666666">1</span>]
+                a_list[j <span style="color: #666666">+</span> <span style="color: #666666">1</span>] <span style="color: #666666">=</span> temp
+
+
+a_list <span style="color: #666666">=</span> [<span style="color: #666666">54</span>, <span style="color: #666666">26</span>, <span style="color: #666666">93</span>, <span style="color: #666666">17</span>, <span style="color: #666666">77</span>, <span style="color: #666666">31</span>, <span style="color: #666666">44</span>, <span style="color: #666666">55</span>, <span style="color: #666666">20</span>]
+bubble_sort(a_list)
+<span style="color: #008000">print</span>(a_list)
+</code></pre></div></td></tr></table></div>
+<p>The following animation shows <code>bubble_sort</code> in action.</p>
+<p><div id="bubble_anim" class="">
+    <canvas id="bubble_anim_canvas" width="400" height="400" style="border:4px solid blue"></canvas>
+    <br>
+    <button onclick="bubble_anim_anim = bubble_anim_init('bubble_anim')" style="border: 1px solid black;     background-color: buttonface; padding: 2px;">Initialize</button>
+    <button onclick="bubble_anim_anim.run('bubble_anim_anim')" style="border: 1px solid black; background-color: buttonface; padding: 2px;" class="">Run</button>
+    <button onclick="bubble_anim_anim.stop()" style="border: 1px solid black; background-color: buttonface; padding: 2px;">Stop</button> <br>
+    <button onclick="bubble_anim_anim.begin()" style="border: 1px solid black; background-color: buttonface; padding: 2px;">Beginning</button>
+    <button onclick="bubble_anim_anim.forward()" style="border: 1px solid black; background-color: buttonface; padding: 2px;">Step Forward</button>
+    <button onclick="bubble_anim_anim.backward()" style="border: 1px solid black; background-color: buttonface; padding: 2px;">Step Backward</button>
+    <button onclick="bubble_anim_anim.end()" style="border: 1px solid black; background-color: buttonface; padding: 2px;">End</button>
+    <script>
+    bubble_anim_init = function(divid)
+    {
+       var a = new Animator(new BubbleSortModel(), new BarViewer(), divid)
+       a.init()
+       return a
+    }
+    </script>
+</div>                   </p>
+<p>For more detail, CodeLens 1 allows you to step through the algorithm.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Tracing the Bubble Sort</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">bubble_sort</span>(a_list):
+    <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #008000">len</span>(a_list) <span style="color: #666666">-</span> <span style="color: #666666">1</span>, <span style="color: #666666">0</span>, <span style="color: #666666">-1</span>):
+        <span style="color: #008000; font-weight: bold">for</span> j <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(i):
+            <span style="color: #008000; font-weight: bold">if</span> a_list[j] <span style="color: #666666">&gt;</span> a_list[j <span style="color: #666666">+</span> <span style="color: #666666">1</span>]:
+                temp <span style="color: #666666">=</span> a_list[j]
+                a_list[j] <span style="color: #666666">=</span> a_list[j <span style="color: #666666">+</span> <span style="color: #666666">1</span>]
+                a_list[j <span style="color: #666666">+</span> <span style="color: #666666">1</span>] <span style="color: #666666">=</span> temp
+
+
+a_list <span style="color: #666666">=</span> [<span style="color: #666666">54</span>, <span style="color: #666666">26</span>, <span style="color: #666666">93</span>, <span style="color: #666666">17</span>, <span style="color: #666666">77</span>, <span style="color: #666666">31</span>, <span style="color: #666666">44</span>, <span style="color: #666666">55</span>, <span style="color: #666666">20</span>]
+bubble_sort(a_list)
+<span style="color: #008000">print</span>(a_list)
+</code></pre></div></td></tr></table></div>
+<p>To analyze the bubble sort, we should note that regardless of how the items are arranged in the initial list, <span class="arithmatex">\(n - 1\)</span> passes will be made to sort a list of size <span class="arithmatex">\(n\)</span>. <code>Table 1</code> shows the number of comparisons for each pass. The total number of comparisons is the sum of the first <span class="arithmatex">\(n - 1\)</span> integers. Recall that the sum of the first <span class="arithmatex">\(n\)</span> integers is <span class="arithmatex">\(\frac{1}{2}n^{2} + \frac{1}{2}n\)</span>. The sum of the first <span class="arithmatex">\(n - 1\)</span> integers is <span class="arithmatex">\(\frac{1}{2}n^{2} + \frac{1}{2}n - n\)</span>, which is <span class="arithmatex">\(\frac{1}{2}n^{2} - \frac{1}{2}n\)</span>. This is still <span class="arithmatex">\(O(n^{2})\)</span> comparisons. In the best case, if the list is already ordered, no exchanges will be made. However, in the worst case, every comparison will cause an exchange. On average, we exchange half of the time.</p>
+<p><strong>Table 1: Comparisons for Each Pass of Bubble Sort</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Pass</strong></th>
+<th><strong>Comparisons</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><span class="arithmatex">\(n-1\)</span></td>
+</tr>
+<tr>
+<td>2</td>
+<td><span class="arithmatex">\(n-2\)</span></td>
+</tr>
+<tr>
+<td>3</td>
+<td><span class="arithmatex">\(n-3\)</span></td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(n-1\)</span></td>
+<td><span class="arithmatex">\(1\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>A bubble sort is often considered the most inefficient sorting method since it must exchange items before the final location is known. These “wasted” exchange operations are very costly. However, because the bubble sort makes passes through the entire unsorted portion of the list, it has the capability to do something most sorting algorithms cannot. In particular, if during a pass there are no exchanges, then we know that the list must be sorted. A bubble sort can be modified to stop early if it finds that the list has become sorted. This means that for lists that require just a few passes, a bubble sort may have an advantage in that it will recognize the sorted list and stop. <code>ActiveCode 2</code> shows this modification, which is often referred to as the <strong>short bubble</strong>.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 5.7.2 The Short Bubble Sort Implementation</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">bubble_sort_short</span>(a_list):
+    <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #008000">len</span>(a_list) <span style="color: #666666">-</span> <span style="color: #666666">1</span>, <span style="color: #666666">0</span>, <span style="color: #666666">-1</span>):
+        exchanges <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">False</span>
+        <span style="color: #008000; font-weight: bold">for</span> j <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(i):
+            <span style="color: #008000; font-weight: bold">if</span> a_list[j] <span style="color: #666666">&gt;</span> a_list[j <span style="color: #666666">+</span> <span style="color: #666666">1</span>]:
+                exchanges <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">True</span>
+                a_list[j], a_list[j <span style="color: #666666">+</span> <span style="color: #666666">1</span>] <span style="color: #666666">=</span> a_list[j <span style="color: #666666">+</span> <span style="color: #666666">1</span>], a_list[j]
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #AA22FF; font-weight: bold">not</span> exchanges:
+            <span style="color: #008000; font-weight: bold">break</span>
+
+
+a_list <span style="color: #666666">=</span> [<span style="color: #666666">20</span>, <span style="color: #666666">30</span>, <span style="color: #666666">40</span>, <span style="color: #666666">90</span>, <span style="color: #666666">50</span>, <span style="color: #666666">60</span>, <span style="color: #666666">70</span>, <span style="color: #666666">80</span>, <span style="color: #666666">100</span>, <span style="color: #666666">110</span>]
+bubble_sort_short(a_list)
+<span style="color: #008000">print</span>(a_list)
+</code></pre></div></td></tr></table></div>
+<p>Finally, here is <code>bubble_sort_short</code> in CodeLens (CodeLens 2)..</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Tracing the Short Bubble Sort</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">bubble_sort_short</span>(a_list):
+    <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #008000">len</span>(a_list) <span style="color: #666666">-</span> <span style="color: #666666">1</span>, <span style="color: #666666">0</span>, <span style="color: #666666">-1</span>):
+        exchanges <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">False</span>
+        <span style="color: #008000; font-weight: bold">for</span> j <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(i):
+            <span style="color: #008000; font-weight: bold">if</span> a_list[j] <span style="color: #666666">&gt;</span> a_list[j <span style="color: #666666">+</span> <span style="color: #666666">1</span>]:
+                exchanges <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">True</span>
+                a_list[j], a_list[j <span style="color: #666666">+</span> <span style="color: #666666">1</span>] <span style="color: #666666">=</span> a_list[j <span style="color: #666666">+</span> <span style="color: #666666">1</span>], a_list[j]
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #AA22FF; font-weight: bold">not</span> exchanges:
+            <span style="color: #008000; font-weight: bold">break</span>
+
+
+a_list <span style="color: #666666">=</span> [<span style="color: #666666">20</span>, <span style="color: #666666">30</span>, <span style="color: #666666">40</span>, <span style="color: #666666">90</span>, <span style="color: #666666">50</span>, <span style="color: #666666">60</span>, <span style="color: #666666">70</span>, <span style="color: #666666">80</span>, <span style="color: #666666">100</span>, <span style="color: #666666">110</span>]
+bubble_sort_short(a_list)
+<span style="color: #008000">print</span>(a_list)
+</code></pre></div></td></tr></table></div>
+<div class="admonition info">
+<p class="admonition-title">Self Check</p>
+<p>Suppose you have the following list of numbers to sort: <br>
+[19, 1, 9, 7, 3, 10, 13, 15, 8, 12] which list represents the partially sorted list after three complete passes of bubble sort?</p>
+<ul>
+<li>answer a: [1, 9, 19, 7, 3, 10, 13, 15, 8, 12]</li>
+<li>answer b: [1, 3, 7, 9, 10, 8, 12, 13, 15, 19]</li>
+<li>answer c: [1, 7, 3, 9, 10, 13, 8, 12, 15, 19]</li>
+<li>answer d: [1, 9, 19, 7, 3, 10, 13, 15, 8, 12]</li>
+</ul>
+<p>correct: b</p>
+<ul>
+<li>feedback a:  This answer represents three swaps.  A pass means that you continue swapping all the way to the end of the list.</li>
+<li>feedback b:  Very Good</li>
+<li>feedback c: A bubble sort contines to swap numbers up to index position passnum.  But remember that passnum starts at the length of the list - 1.</li>
+<li>feedback d: You have been doing an insertion sort, not a bubble sort.</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 
@@ -3984,7 +4385,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月10日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月11日</span>
       
         <br>
         创建日期:

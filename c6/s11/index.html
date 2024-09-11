@@ -22,7 +22,7 @@
     
     
       
-        <title>S11 - python数据结构和算法 - 中文版</title>
+        <title>6.11. 二叉堆实现 - python数据结构和算法 - 中文版</title>
       
     
     
@@ -85,6 +85,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#611-二叉堆实现" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -133,7 +138,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              S11
+              6.11. 二叉堆实现
             
           </span>
         </div>
@@ -2676,7 +2681,7 @@
         
   
   <span class="md-ellipsis">
-    S1
+    6.1. 目标
   </span>
   
 
@@ -2696,7 +2701,7 @@
         
   
   <span class="md-ellipsis">
-    S2
+    6.2. 树的示例
   </span>
   
 
@@ -2716,7 +2721,7 @@
         
   
   <span class="md-ellipsis">
-    S3
+    6.3. 词汇和定义
   </span>
   
 
@@ -2736,7 +2741,7 @@
         
   
   <span class="md-ellipsis">
-    S4
+    6.4. 实现
   </span>
   
 
@@ -2756,7 +2761,7 @@
         
   
   <span class="md-ellipsis">
-    S5
+    6.5. 列表表示法
   </span>
   
 
@@ -2776,7 +2781,7 @@
         
   
   <span class="md-ellipsis">
-    S6
+    6.6. 节点与引用
   </span>
   
 
@@ -2796,7 +2801,7 @@
         
   
   <span class="md-ellipsis">
-    S7
+    6.7. 解析树
   </span>
   
 
@@ -2816,7 +2821,7 @@
         
   
   <span class="md-ellipsis">
-    S8
+    6.8. 树遍历
   </span>
   
 
@@ -2836,7 +2841,7 @@
         
   
   <span class="md-ellipsis">
-    S9
+    6.9. 使用二叉堆的优先队列
   </span>
   
 
@@ -2856,7 +2861,7 @@
         
   
   <span class="md-ellipsis">
-    S10
+    6.10. 二叉堆操作
   </span>
   
 
@@ -2878,16 +2883,69 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    6.11. 二叉堆实现
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    S11
+    6.11. 二叉堆实现
   </span>
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#6111-结构属性" class="md-nav__link">
+    6.11.1. 结构属性
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6112-堆序属性" class="md-nav__link">
+    6.11.2. 堆序属性
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6113-堆操作" class="md-nav__link">
+    6.11.3. 堆操作
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2904,7 +2962,7 @@
         
   
   <span class="md-ellipsis">
-    S12
+    6.12. 二叉搜索树
   </span>
   
 
@@ -2924,7 +2982,7 @@
         
   
   <span class="md-ellipsis">
-    S13
+    6.13. 搜索树操作
   </span>
   
 
@@ -2944,7 +3002,7 @@
         
   
   <span class="md-ellipsis">
-    S14
+    6.14. 搜索树实现
   </span>
   
 
@@ -2964,7 +3022,7 @@
         
   
   <span class="md-ellipsis">
-    S15
+    6.15. 搜索树分析
   </span>
   
 
@@ -2984,7 +3042,7 @@
         
   
   <span class="md-ellipsis">
-    S16
+    6.16. 平衡二叉搜索树
   </span>
   
 
@@ -3004,7 +3062,7 @@
         
   
   <span class="md-ellipsis">
-    S17
+    6.17. AVL树性能
   </span>
   
 
@@ -3024,7 +3082,7 @@
         
   
   <span class="md-ellipsis">
-    S18
+    6.18. AVL树实现
   </span>
   
 
@@ -3044,7 +3102,7 @@
         
   
   <span class="md-ellipsis">
-    S19
+    6.19. Map ADT实现总结
   </span>
   
 
@@ -3064,7 +3122,7 @@
         
   
   <span class="md-ellipsis">
-    S20
+    6.20. 总结
   </span>
   
 
@@ -3084,7 +3142,7 @@
         
   
   <span class="md-ellipsis">
-    S21
+    6.21. 关键术语
   </span>
   
 
@@ -3104,7 +3162,7 @@
         
   
   <span class="md-ellipsis">
-    S22
+    6.22. 练习
   </span>
   
 
@@ -3944,6 +4002,37 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#6111-结构属性" class="md-nav__link">
+    6.11.1. 结构属性
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6112-堆序属性" class="md-nav__link">
+    6.11.2. 堆序属性
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6113-堆操作" class="md-nav__link">
+    6.11.3. 堆操作
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -3961,16 +4050,491 @@
   
 
 
-  <h1>S11</h1>
+<h1 id="611-二叉堆实现">6.11. 二叉堆实现<a class="headerlink" href="#611-二叉堆实现" title="Permanent link">&para;</a></h1>
+<p><strong>6.11. Binary Heap Implementation</strong></p>
+<h2 id="6111-结构属性">6.11.1. 结构属性<a class="headerlink" href="#6111-结构属性" title="Permanent link">&para;</a></h2>
+<p><strong>6.11.1. The Structure Property</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>In order to make our heap work efficiently, we will take advantage of the logarithmic nature of the binary tree to represent our heap. In order to guarantee logarithmic performance, we must keep our tree balanced. A balanced binary tree has roughly the same number of nodes in the left and right subtrees of the root. In our heap implementation we keep the tree balanced by creating a <strong>complete binary tree</strong>. A complete binary tree is a tree in which each level has all of its nodes. The exception to this is the bottom level of the tree, which we fill in from left to right. <code>Figure 1</code> shows an example of a complete binary tree.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/compTree.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/compTree.png" /></a>
+    <figcaption markdown="span">Figure 1: A Complete Binary Tree</figcaption>
+</figure></p>
+<p>Another interesting property of a complete tree is that we can represent it using a single list. We do not need to use nodes and references or even lists of lists. Because the tree is complete, the left child of a parent (at position <span class="arithmatex">\(p\)</span>) is the node that is found in position <span class="arithmatex">\(2p + 1\)</span> in the list. Similarly, the right child of the parent is at position <span class="arithmatex">\(2p + 2\)</span> in the list. To find the parent of any node in the tree, we can simply use Python’s integer division. Given that a node is at position <span class="arithmatex">\(n\)</span> in the list, the parent is at position <span class="arithmatex">\((n - 1) // 2<code>.</code>Figure 2\)</span> shows a complete binary tree and also gives the list representation of the tree.  Note the <span class="arithmatex">\(2p + 1\)</span> and <span class="arithmatex">\(2p + 2\)</span> relationship between parent and children. The list representation of the tree, along with the full structure property, allows us to efficiently traverse a complete binary tree using only a few simple mathematical operations. We will see that this also leads to an efficient implementation of our binary heap.</p>
+</div>
+<div class="tabbed-block">
+<p>In order to make our heap work efficiently, we will take advantage of the logarithmic nature of the binary tree to represent our heap. In order to guarantee logarithmic performance, we must keep our tree balanced. A balanced binary tree has roughly the same number of nodes in the left and right subtrees of the root. In our heap implementation we keep the tree balanced by creating a <strong>complete binary tree</strong>. A complete binary tree is a tree in which each level has all of its nodes. The exception to this is the bottom level of the tree, which we fill in from left to right. <code>Figure 1</code> shows an example of a complete binary tree.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/compTree.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/compTree.png" /></a>
+    <figcaption markdown="span">Figure 1: A Complete Binary Tree</figcaption>
+</figure></p>
+<p>Another interesting property of a complete tree is that we can represent it using a single list. We do not need to use nodes and references or even lists of lists. Because the tree is complete, the left child of a parent (at position <span class="arithmatex">\(p\)</span>) is the node that is found in position <span class="arithmatex">\(2p + 1\)</span> in the list. Similarly, the right child of the parent is at position <span class="arithmatex">\(2p + 2\)</span> in the list. To find the parent of any node in the tree, we can simply use Python’s integer division. Given that a node is at position <span class="arithmatex">\(n\)</span> in the list, the parent is at position <span class="arithmatex">\((n - 1) // 2<code>.</code>Figure 2\)</span> shows a complete binary tree and also gives the list representation of the tree.  Note the <span class="arithmatex">\(2p + 1\)</span> and <span class="arithmatex">\(2p + 2\)</span> relationship between parent and children. The list representation of the tree, along with the full structure property, allows us to efficiently traverse a complete binary tree using only a few simple mathematical operations. We will see that this also leads to an efficient implementation of our binary heap.</p>
+</div>
+</div>
+</div>
+<h2 id="6112-堆序属性">6.11.2. 堆序属性<a class="headerlink" href="#6112-堆序属性" title="Permanent link">&para;</a></h2>
+<p><strong>6.11.2. The Heap Order Property</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">中文</label><label for="__tabbed_2_2">英文</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>The method that we will use to store items in a heap relies on maintaining the heap order property. The <strong>heap order property</strong> is as follows: in a heap, for every node <span class="arithmatex">\(x\)</span> with parent <span class="arithmatex">\(p\)</span>, the key in <span class="arithmatex">\(p\)</span> is smaller than or equal to the key in <span class="arithmatex">\(x\)</span>. <code>Figure 2</code> also illustrates a complete binary tree that has the heap order property.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/heapOrder.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/heapOrder.png" /></a>
+    <figcaption markdown="span">Figure 2: A Complete Binary Tree, along with Its List Representation</figcaption>
+</figure></p>
+</div>
+<div class="tabbed-block">
+<p>The method that we will use to store items in a heap relies on maintaining the heap order property. The <strong>heap order property</strong> is as follows: in a heap, for every node <span class="arithmatex">\(x\)</span> with parent <span class="arithmatex">\(p\)</span>, the key in <span class="arithmatex">\(p\)</span> is smaller than or equal to the key in <span class="arithmatex">\(x\)</span>. <code>Figure 2</code> also illustrates a complete binary tree that has the heap order property.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/heapOrder.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/heapOrder.png" /></a>
+    <figcaption markdown="span">Figure 2: A Complete Binary Tree, along with Its List Representation</figcaption>
+</figure></p>
+</div>
+</div>
+</div>
+<h2 id="6113-堆操作">6.11.3. 堆操作<a class="headerlink" href="#6113-堆操作" title="Permanent link">&para;</a></h2>
+<p><strong>6.11.3. Heap Operations</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">中文</label><label for="__tabbed_3_2">英文</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>We will begin our implementation of a binary heap with the constructor. Since the entire binary heap can be represented by a single list, all the constructor will do is initialize the list. <code>Listing 1</code> shows the Python code for the constructor.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 1</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">BinaryHeap</span>:
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap <span style="color: #666666">=</span> []
+</code></pre></div>
+<p>The next method we will implement is <code>insert</code>. The easiest, and most efficient, way to add an item to a list is to simply append the item to the end of the list. The good news about appending is that it guarantees that we will maintain the complete tree property. The bad news about appending is that we will very likely violate the heap structure property. However, it is possible to write a method that will allow us to regain the heap structure property by comparing the newly added item with its parent. If the newly added item is less than its parent, then we can swap the item with its parent. <code>Figure 2</code> shows the series of swaps needed to percolate the newly added item up to its proper position in the tree.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/percUp.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/percUp.png" /></a>
+    <figcaption markdown="span">Figure 2: Percolate the New Node up to Its Proper Position</figcaption>
+</figure>   </p>
+<p>Notice that when we percolate an item up, we are restoring the heap property between the newly added item and the parent. We are also preserving the heap property for any siblings. Of course, if the newly added item is very small, we may still need to swap it up another level. In fact, we may need to keep swapping until we get to the top of the tree. <code>Listing 2</code> shows the <code>_perc_up</code> method, which percolates a new item as far up in the tree as it needs to go to maintain the heap property. We used a leading underscore (<code>_</code>) in  the name of the method as it is an internal operation. The parent of the current node can be computed by subtracting 1 from the index of the current node and dividing the result by 2.</p>
+<p>We are now ready to write the <code>insert</code> method (see <code>Listing 3</code>). Most of the work in the <code>insert</code> method is really done by <code>_perc_up</code>. Once a new item is appended to the tree, <code>_perc_up</code> takes over and positions the new item properly.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 2</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">_perc_up</span>(<span style="color: #008000">self</span>, i):
+    <span style="color: #008000; font-weight: bold">while</span> (i <span style="color: #666666">-</span> <span style="color: #666666">1</span>) <span style="color: #666666">//</span> <span style="color: #666666">2</span> <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>:
+        parent_idx <span style="color: #666666">=</span> (i <span style="color: #666666">-</span> <span style="color: #666666">1</span>) <span style="color: #666666">//</span> <span style="color: #666666">2</span>
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[i] <span style="color: #666666">&lt;</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[parent_idx]:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[i], <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[parent_idx] <span style="color: #666666">=</span> (
+                <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[parent_idx],
+                <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[i],
+            )
+        i <span style="color: #666666">=</span> parent_idx
+</code></pre></div>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 3</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">insert</span>(<span style="color: #008000">self</span>, item):
+    <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap<span style="color: #666666">.</span>append(item)
+    <span style="color: #008000">self</span><span style="color: #666666">.</span>_perc_up(<span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_heap) <span style="color: #666666">-</span> <span style="color: #666666">1</span>)
+</code></pre></div>
+<p>With the <code>insert</code> method properly defined, we can now look at the <code>delete</code> method. Since the heap property requires that the root of the tree be the smallest item in the tree, finding the minimum item is easy. The hard part of <code>delete</code> is restoring full compliance with the heap structure and heap order properties after the root has been removed. We can restore our heap in two steps. First, we will restore the root item by taking the last item in the list and moving it to the root position. Moving the last item maintains our heap structure property. However, we have probably destroyed the heap order property of our binary heap. Second, we will restore the heap order property by pushing the new root node down the tree to its proper position. <code>Figure 3</code> shows the series of swaps needed to move the new root node to its proper position in the heap.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/percDown.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/percDown.png" /></a>
+    <figcaption markdown="span">Figure 3: Percolating the Root Node down the Tree</figcaption>
+</figure></p>
+<p>In order to maintain the heap order property, all we need to do is swap the root with its smaller child that is less than the root. After the initial swap, we may repeat the swapping process with a node and its children until the node is swapped into a position on the tree where it is already less than both children. The code for percolating a node down the tree is found in the <code>_perc_down</code> and <code>_get_min_child</code> methods in <code>Listing 4</code>.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 4</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">_perc_down</span>(<span style="color: #008000">self</span>, i):
+    <span style="color: #008000; font-weight: bold">while</span> <span style="color: #666666">2</span> <span style="color: #666666">*</span> i <span style="color: #666666">+</span> <span style="color: #666666">1</span> <span style="color: #666666">&lt;</span> <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_heap):
+        sm_child <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_get_min_child(i)
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[i] <span style="color: #666666">&gt;</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[sm_child]:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[i], <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[sm_child] <span style="color: #666666">=</span> (
+                <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[sm_child],
+                <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[i],
+            )
+        <span style="color: #008000; font-weight: bold">else</span>:
+            <span style="color: #008000; font-weight: bold">break</span>
+        i <span style="color: #666666">=</span> sm_child
 
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">_get_min_child</span>(<span style="color: #008000">self</span>, i):
+    <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">2</span> <span style="color: #666666">*</span> i <span style="color: #666666">+</span> <span style="color: #666666">2</span> <span style="color: #666666">&gt;</span> <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_heap) <span style="color: #666666">-</span> <span style="color: #666666">1</span>:
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">2</span> <span style="color: #666666">*</span> i <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+    <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[<span style="color: #666666">2</span> <span style="color: #666666">*</span> i <span style="color: #666666">+</span> <span style="color: #666666">1</span>] <span style="color: #666666">&lt;</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[<span style="color: #666666">2</span> <span style="color: #666666">*</span> i <span style="color: #666666">+</span> <span style="color: #666666">2</span>]:
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">2</span> <span style="color: #666666">*</span> i <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">2</span> <span style="color: #666666">*</span> i <span style="color: #666666">+</span> <span style="color: #666666">2</span>
+</code></pre></div>
+<p>The code for the <code>delete</code> operation is in <code>Listing 5</code>. Note that once again the hard work is handled by a helper function, in this case <code>_perc_down</code>.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 5</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">delete</span>(<span style="color: #008000">self</span>):
+    <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[<span style="color: #666666">0</span>], <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[<span style="color: #666666">-1</span>] <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[<span style="color: #666666">-1</span>], <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[<span style="color: #666666">0</span>]
+    result <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap<span style="color: #666666">.</span>pop()
+    <span style="color: #008000">self</span><span style="color: #666666">.</span>_perc_down(<span style="color: #666666">0</span>)
+    <span style="color: #008000; font-weight: bold">return</span> result
+</code></pre></div>
+<p>To finish our discussion of binary heaps, we will look at a method to build an entire heap from a list of keys. The first method you might think of may be like the following. Given a list of keys, you could easily build a heap by inserting each key one at a time. Since you are starting with an empy list, it is sorted and you could use binary search to find the right position to insert the next key at a cost of approximately <span class="arithmatex">\(O(\log{n})\)</span> operations. However, remember that inserting an item in the middle of the list may require <span class="arithmatex">\(O(n)\)</span> operations to shift the rest of the list over to make room for the new key. Therefore, to insert <span class="arithmatex">\(n\)</span> keys into the heap would require a total of <span class="arithmatex">\(O(n \log{n})\)</span> operations. However, if we start with an entire list then we can build the whole heap in <span class="arithmatex">\(O(n)\)</span> operations. <code>Listing 6</code> shows the code to build the entire heap.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 6</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">heapify</span>(<span style="color: #008000">self</span>, not_a_heap):
+    <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap <span style="color: #666666">=</span> not_a_heap[:]
+    i <span style="color: #666666">=</span> <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_heap) <span style="color: #666666">//</span> <span style="color: #666666">2</span> <span style="color: #666666">-</span> <span style="color: #666666">1</span>
+    <span style="color: #008000; font-weight: bold">while</span> i <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>:
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_perc_down(i)
+        i <span style="color: #666666">=</span> i <span style="color: #666666">-</span> <span style="color: #666666">1</span>
+</code></pre></div>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/buildheap.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/buildheap.png" /></a>
+    <figcaption markdown="span">Figure 4: Building a Heap from the List [9, 6, 5, 2, 3]</figcaption>
+</figure>   </p>
+<p><code>Figure 4</code> shows the swaps that the <code>hepify</code> method makes as it moves the nodes in an initial tree of [9, 6, 5, 2, 3] into their proper positions. Although we start out in the middle of the tree and work our way back toward the root, the <code>_perc_down</code> method ensures that the largest child is always moved down the tree. Because the heap is a complete binary tree, any nodes past the halfway point will be leaves and therefore have no children. Notice that when <code>i = 0</code>, we are percolating down from the root of the tree, so this may require multiple swaps. As you can see in the rightmost two trees of <code>Figure 4</code>, first the 9 is moved out of the root position, but after 9 is moved down one level in the tree, <code>_perc_down</code> ensures that we check the next set of children farther down in the tree to ensure that it is pushed as low as it can go. In this case it results in a second swap with 3. Now that 9 has been moved to the lowest level of the tree, no further swapping can be done. It is useful to compare the list representation of this series of swaps with the tree representation shown in <code>Figure 4</code></p>
+<div class="language-pycon highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #717171">start  [9, 6, 5, 2, 3]</span>
+<span style="color: #717171">i = 1  [9, 2, 5, 6, 3]</span>
+<span style="color: #717171">i = 0  [2, 3, 5, 6, 9]</span>
+</code></pre></div>
+<p>The complete binary heap implementation can be seen in ActiveCode 1.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 6.11.3.1 The Complete Binary Heap Example</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">29</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">30</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">31</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">32</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">33</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">34</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">35</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">36</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">37</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">38</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">39</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">40</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">41</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">42</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">43</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">44</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">45</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">46</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">47</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">48</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">49</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">50</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">51</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">52</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">53</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">54</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">55</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">56</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">57</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">58</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">59</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">60</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">61</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">62</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">63</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">64</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">65</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">66</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">67</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">BinaryHeap</span>:
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap <span style="color: #666666">=</span> []
 
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">_perc_up</span>(<span style="color: #008000">self</span>, cur_idx):
+        <span style="color: #008000; font-weight: bold">while</span> (cur_idx <span style="color: #666666">-</span> <span style="color: #666666">1</span>) <span style="color: #666666">//</span> <span style="color: #666666">2</span> <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>:
+            parent_idx <span style="color: #666666">=</span> (cur_idx <span style="color: #666666">-</span> <span style="color: #666666">1</span>) <span style="color: #666666">//</span> <span style="color: #666666">2</span>
+            <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[cur_idx] <span style="color: #666666">&lt;</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[parent_idx]:
+                <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[cur_idx], <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[parent_idx] <span style="color: #666666">=</span> (
+                    <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[parent_idx],
+                    <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[cur_idx],
+                )
+            cur_idx <span style="color: #666666">=</span> parent_idx
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">_perc_down</span>(<span style="color: #008000">self</span>, cur_idx):
+        <span style="color: #008000; font-weight: bold">while</span> <span style="color: #666666">2</span> <span style="color: #666666">*</span> cur_idx <span style="color: #666666">+</span> <span style="color: #666666">1</span> <span style="color: #666666">&lt;</span> <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_heap):
+            min_child_idx <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_get_min_child(cur_idx)
+            <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[cur_idx] <span style="color: #666666">&gt;</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[min_child_idx]:
+                <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[cur_idx], <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[min_child_idx] <span style="color: #666666">=</span> (
+                    <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[min_child_idx],
+                    <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[cur_idx],
+                )
+            <span style="color: #008000; font-weight: bold">else</span>:
+                <span style="color: #008000; font-weight: bold">return</span>
+            cur_idx <span style="color: #666666">=</span> min_child_idx
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">_get_min_child</span>(<span style="color: #008000">self</span>, parent_idx):
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">2</span> <span style="color: #666666">*</span> parent_idx <span style="color: #666666">+</span> <span style="color: #666666">2</span> <span style="color: #666666">&gt;</span> <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_heap) <span style="color: #666666">-</span> <span style="color: #666666">1</span>:
+            <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">2</span> <span style="color: #666666">*</span> parent_idx <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[<span style="color: #666666">2</span> <span style="color: #666666">*</span> parent_idx <span style="color: #666666">+</span> <span style="color: #666666">1</span>] <span style="color: #666666">&lt;</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[<span style="color: #666666">2</span> <span style="color: #666666">*</span> parent_idx <span style="color: #666666">+</span> <span style="color: #666666">2</span>]:
+            <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">2</span> <span style="color: #666666">*</span> parent_idx <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">2</span> <span style="color: #666666">*</span> parent_idx <span style="color: #666666">+</span> <span style="color: #666666">2</span>
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">heapify</span>(<span style="color: #008000">self</span>, not_a_heap):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap <span style="color: #666666">=</span> not_a_heap[:]
+        cur_idx <span style="color: #666666">=</span> <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_heap) <span style="color: #666666">//</span> <span style="color: #666666">2</span> <span style="color: #666666">-</span> <span style="color: #666666">1</span>
+        <span style="color: #008000; font-weight: bold">while</span> cur_idx <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>_perc_down(cur_idx)
+            cur_idx <span style="color: #666666">=</span> cur_idx <span style="color: #666666">-</span> <span style="color: #666666">1</span>
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_min</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[<span style="color: #666666">0</span>]
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">insert</span>(<span style="color: #008000">self</span>, item):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap<span style="color: #666666">.</span>append(item)
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_perc_up(<span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_heap) <span style="color: #666666">-</span> <span style="color: #666666">1</span>)
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">delete</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[<span style="color: #666666">0</span>], <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[<span style="color: #666666">-1</span>] <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[<span style="color: #666666">-1</span>], <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[<span style="color: #666666">0</span>]
+        result <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap<span style="color: #666666">.</span>pop()
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_perc_down(<span style="color: #666666">0</span>)
+        <span style="color: #008000; font-weight: bold">return</span> result
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">is_empty</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #AA22FF; font-weight: bold">not</span> <span style="color: #008000">bool</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_heap)
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__len__</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_heap)
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__str__</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">str</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_heap)
+
+a_heap <span style="color: #666666">=</span> BinaryHeap()
+a_heap<span style="color: #666666">.</span>heapify([<span style="color: #666666">9</span>, <span style="color: #666666">5</span>, <span style="color: #666666">6</span>, <span style="color: #666666">2</span>, <span style="color: #666666">3</span>])
+
+<span style="color: #008000; font-weight: bold">while</span> <span style="color: #AA22FF; font-weight: bold">not</span> a_heap<span style="color: #666666">.</span>is_empty():
+    <span style="color: #008000">print</span>(a_heap<span style="color: #666666">.</span>delete())
+</code></pre></div></td></tr></table></div>
+<p>The assertion that we can build the heap in <span class="arithmatex">\(O(n)\)</span> may seem a bit mysterious at first, and a proof is beyond the scope of this book. However, the key to understanding that you can build the heap in <span class="arithmatex">\(O(n)\)</span> is to remember that the <span class="arithmatex">\(\log{n}\)</span> factor is derived from the height of the tree. For most of the work in <code>heapify</code>, the tree is shorter than <span class="arithmatex">\(\log{n}\)</span>.</p>
+<p>Using the fact that you can build a heap from a list in <span class="arithmatex">\(O(n)\)</span> time, you will construct a sorting algorithm that uses a heap and sorts a list in <span class="arithmatex">\(O(n\log{n})\)</span> as an exercise at the end of this chapter.</p>
+</div>
+<div class="tabbed-block">
+<p>We will begin our implementation of a binary heap with the constructor. Since the entire binary heap can be represented by a single list, all the constructor will do is initialize the list. <code>Listing 1</code> shows the Python code for the constructor.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 1</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">BinaryHeap</span>:
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap <span style="color: #666666">=</span> []
+</code></pre></div>
+<p>The next method we will implement is <code>insert</code>. The easiest, and most efficient, way to add an item to a list is to simply append the item to the end of the list. The good news about appending is that it guarantees that we will maintain the complete tree property. The bad news about appending is that we will very likely violate the heap structure property. However, it is possible to write a method that will allow us to regain the heap structure property by comparing the newly added item with its parent. If the newly added item is less than its parent, then we can swap the item with its parent. <code>Figure 2</code> shows the series of swaps needed to percolate the newly added item up to its proper position in the tree.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/percUp.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/percUp.png" /></a>
+    <figcaption markdown="span">Figure 2: Percolate the New Node up to Its Proper Position</figcaption>
+</figure>   </p>
+<p>Notice that when we percolate an item up, we are restoring the heap property between the newly added item and the parent. We are also preserving the heap property for any siblings. Of course, if the newly added item is very small, we may still need to swap it up another level. In fact, we may need to keep swapping until we get to the top of the tree. <code>Listing 2</code> shows the <code>_perc_up</code> method, which percolates a new item as far up in the tree as it needs to go to maintain the heap property. We used a leading underscore (<code>_</code>) in  the name of the method as it is an internal operation. The parent of the current node can be computed by subtracting 1 from the index of the current node and dividing the result by 2.</p>
+<p>We are now ready to write the <code>insert</code> method (see <code>Listing 3</code>). Most of the work in the <code>insert</code> method is really done by <code>_perc_up</code>. Once a new item is appended to the tree, <code>_perc_up</code> takes over and positions the new item properly.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 2</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">_perc_up</span>(<span style="color: #008000">self</span>, i):
+    <span style="color: #008000; font-weight: bold">while</span> (i <span style="color: #666666">-</span> <span style="color: #666666">1</span>) <span style="color: #666666">//</span> <span style="color: #666666">2</span> <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>:
+        parent_idx <span style="color: #666666">=</span> (i <span style="color: #666666">-</span> <span style="color: #666666">1</span>) <span style="color: #666666">//</span> <span style="color: #666666">2</span>
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[i] <span style="color: #666666">&lt;</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[parent_idx]:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[i], <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[parent_idx] <span style="color: #666666">=</span> (
+                <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[parent_idx],
+                <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[i],
+            )
+        i <span style="color: #666666">=</span> parent_idx
+</code></pre></div>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 3</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">insert</span>(<span style="color: #008000">self</span>, item):
+    <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap<span style="color: #666666">.</span>append(item)
+    <span style="color: #008000">self</span><span style="color: #666666">.</span>_perc_up(<span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_heap) <span style="color: #666666">-</span> <span style="color: #666666">1</span>)
+</code></pre></div>
+<p>With the <code>insert</code> method properly defined, we can now look at the <code>delete</code> method. Since the heap property requires that the root of the tree be the smallest item in the tree, finding the minimum item is easy. The hard part of <code>delete</code> is restoring full compliance with the heap structure and heap order properties after the root has been removed. We can restore our heap in two steps. First, we will restore the root item by taking the last item in the list and moving it to the root position. Moving the last item maintains our heap structure property. However, we have probably destroyed the heap order property of our binary heap. Second, we will restore the heap order property by pushing the new root node down the tree to its proper position. <code>Figure 3</code> shows the series of swaps needed to move the new root node to its proper position in the heap.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/percDown.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/percDown.png" /></a>
+    <figcaption markdown="span">Figure 3: Percolating the Root Node down the Tree</figcaption>
+</figure></p>
+<p>In order to maintain the heap order property, all we need to do is swap the root with its smaller child that is less than the root. After the initial swap, we may repeat the swapping process with a node and its children until the node is swapped into a position on the tree where it is already less than both children. The code for percolating a node down the tree is found in the <code>_perc_down</code> and <code>_get_min_child</code> methods in <code>Listing 4</code>.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 4</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">_perc_down</span>(<span style="color: #008000">self</span>, i):
+    <span style="color: #008000; font-weight: bold">while</span> <span style="color: #666666">2</span> <span style="color: #666666">*</span> i <span style="color: #666666">+</span> <span style="color: #666666">1</span> <span style="color: #666666">&lt;</span> <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_heap):
+        sm_child <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_get_min_child(i)
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[i] <span style="color: #666666">&gt;</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[sm_child]:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[i], <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[sm_child] <span style="color: #666666">=</span> (
+                <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[sm_child],
+                <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[i],
+            )
+        <span style="color: #008000; font-weight: bold">else</span>:
+            <span style="color: #008000; font-weight: bold">break</span>
+        i <span style="color: #666666">=</span> sm_child
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">_get_min_child</span>(<span style="color: #008000">self</span>, i):
+    <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">2</span> <span style="color: #666666">*</span> i <span style="color: #666666">+</span> <span style="color: #666666">2</span> <span style="color: #666666">&gt;</span> <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_heap) <span style="color: #666666">-</span> <span style="color: #666666">1</span>:
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">2</span> <span style="color: #666666">*</span> i <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+    <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[<span style="color: #666666">2</span> <span style="color: #666666">*</span> i <span style="color: #666666">+</span> <span style="color: #666666">1</span>] <span style="color: #666666">&lt;</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[<span style="color: #666666">2</span> <span style="color: #666666">*</span> i <span style="color: #666666">+</span> <span style="color: #666666">2</span>]:
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">2</span> <span style="color: #666666">*</span> i <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">2</span> <span style="color: #666666">*</span> i <span style="color: #666666">+</span> <span style="color: #666666">2</span>
+</code></pre></div>
+<p>The code for the <code>delete</code> operation is in <code>Listing 5</code>. Note that once again the hard work is handled by a helper function, in this case <code>_perc_down</code>.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 5</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">delete</span>(<span style="color: #008000">self</span>):
+    <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[<span style="color: #666666">0</span>], <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[<span style="color: #666666">-1</span>] <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[<span style="color: #666666">-1</span>], <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[<span style="color: #666666">0</span>]
+    result <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap<span style="color: #666666">.</span>pop()
+    <span style="color: #008000">self</span><span style="color: #666666">.</span>_perc_down(<span style="color: #666666">0</span>)
+    <span style="color: #008000; font-weight: bold">return</span> result
+</code></pre></div>
+<p>To finish our discussion of binary heaps, we will look at a method to build an entire heap from a list of keys. The first method you might think of may be like the following. Given a list of keys, you could easily build a heap by inserting each key one at a time. Since you are starting with an empy list, it is sorted and you could use binary search to find the right position to insert the next key at a cost of approximately <span class="arithmatex">\(O(\log{n})\)</span> operations. However, remember that inserting an item in the middle of the list may require <span class="arithmatex">\(O(n)\)</span> operations to shift the rest of the list over to make room for the new key. Therefore, to insert <span class="arithmatex">\(n\)</span> keys into the heap would require a total of <span class="arithmatex">\(O(n \log{n})\)</span> operations. However, if we start with an entire list then we can build the whole heap in <span class="arithmatex">\(O(n)\)</span> operations. <code>Listing 6</code> shows the code to build the entire heap.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 6</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">heapify</span>(<span style="color: #008000">self</span>, not_a_heap):
+    <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap <span style="color: #666666">=</span> not_a_heap[:]
+    i <span style="color: #666666">=</span> <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_heap) <span style="color: #666666">//</span> <span style="color: #666666">2</span> <span style="color: #666666">-</span> <span style="color: #666666">1</span>
+    <span style="color: #008000; font-weight: bold">while</span> i <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>:
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_perc_down(i)
+        i <span style="color: #666666">=</span> i <span style="color: #666666">-</span> <span style="color: #666666">1</span>
+</code></pre></div>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/buildheap.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/buildheap.png" /></a>
+    <figcaption markdown="span">Figure 4: Building a Heap from the List [9, 6, 5, 2, 3]</figcaption>
+</figure>   </p>
+<p><code>Figure 4</code> shows the swaps that the <code>hepify</code> method makes as it moves the nodes in an initial tree of [9, 6, 5, 2, 3] into their proper positions. Although we start out in the middle of the tree and work our way back toward the root, the <code>_perc_down</code> method ensures that the largest child is always moved down the tree. Because the heap is a complete binary tree, any nodes past the halfway point will be leaves and therefore have no children. Notice that when <code>i = 0</code>, we are percolating down from the root of the tree, so this may require multiple swaps. As you can see in the rightmost two trees of <code>Figure 4</code>, first the 9 is moved out of the root position, but after 9 is moved down one level in the tree, <code>_perc_down</code> ensures that we check the next set of children farther down in the tree to ensure that it is pushed as low as it can go. In this case it results in a second swap with 3. Now that 9 has been moved to the lowest level of the tree, no further swapping can be done. It is useful to compare the list representation of this series of swaps with the tree representation shown in <code>Figure 4</code></p>
+<div class="language-pycon highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #717171">start  [9, 6, 5, 2, 3]</span>
+<span style="color: #717171">i = 1  [9, 2, 5, 6, 3]</span>
+<span style="color: #717171">i = 0  [2, 3, 5, 6, 9]</span>
+</code></pre></div>
+<p>The complete binary heap implementation can be seen in ActiveCode 1.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 6.11.3.1 The Complete Binary Heap Example</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">29</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">30</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">31</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">32</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">33</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">34</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">35</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">36</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">37</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">38</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">39</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">40</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">41</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">42</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">43</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">44</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">45</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">46</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">47</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">48</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">49</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">50</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">51</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">52</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">53</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">54</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">55</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">56</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">57</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">58</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">59</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">60</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">61</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">62</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">63</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">64</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">65</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">66</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">67</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">BinaryHeap</span>:
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap <span style="color: #666666">=</span> []
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">_perc_up</span>(<span style="color: #008000">self</span>, cur_idx):
+        <span style="color: #008000; font-weight: bold">while</span> (cur_idx <span style="color: #666666">-</span> <span style="color: #666666">1</span>) <span style="color: #666666">//</span> <span style="color: #666666">2</span> <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>:
+            parent_idx <span style="color: #666666">=</span> (cur_idx <span style="color: #666666">-</span> <span style="color: #666666">1</span>) <span style="color: #666666">//</span> <span style="color: #666666">2</span>
+            <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[cur_idx] <span style="color: #666666">&lt;</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[parent_idx]:
+                <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[cur_idx], <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[parent_idx] <span style="color: #666666">=</span> (
+                    <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[parent_idx],
+                    <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[cur_idx],
+                )
+            cur_idx <span style="color: #666666">=</span> parent_idx
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">_perc_down</span>(<span style="color: #008000">self</span>, cur_idx):
+        <span style="color: #008000; font-weight: bold">while</span> <span style="color: #666666">2</span> <span style="color: #666666">*</span> cur_idx <span style="color: #666666">+</span> <span style="color: #666666">1</span> <span style="color: #666666">&lt;</span> <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_heap):
+            min_child_idx <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_get_min_child(cur_idx)
+            <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[cur_idx] <span style="color: #666666">&gt;</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[min_child_idx]:
+                <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[cur_idx], <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[min_child_idx] <span style="color: #666666">=</span> (
+                    <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[min_child_idx],
+                    <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[cur_idx],
+                )
+            <span style="color: #008000; font-weight: bold">else</span>:
+                <span style="color: #008000; font-weight: bold">return</span>
+            cur_idx <span style="color: #666666">=</span> min_child_idx
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">_get_min_child</span>(<span style="color: #008000">self</span>, parent_idx):
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">2</span> <span style="color: #666666">*</span> parent_idx <span style="color: #666666">+</span> <span style="color: #666666">2</span> <span style="color: #666666">&gt;</span> <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_heap) <span style="color: #666666">-</span> <span style="color: #666666">1</span>:
+            <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">2</span> <span style="color: #666666">*</span> parent_idx <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[<span style="color: #666666">2</span> <span style="color: #666666">*</span> parent_idx <span style="color: #666666">+</span> <span style="color: #666666">1</span>] <span style="color: #666666">&lt;</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[<span style="color: #666666">2</span> <span style="color: #666666">*</span> parent_idx <span style="color: #666666">+</span> <span style="color: #666666">2</span>]:
+            <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">2</span> <span style="color: #666666">*</span> parent_idx <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">2</span> <span style="color: #666666">*</span> parent_idx <span style="color: #666666">+</span> <span style="color: #666666">2</span>
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">heapify</span>(<span style="color: #008000">self</span>, not_a_heap):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap <span style="color: #666666">=</span> not_a_heap[:]
+        cur_idx <span style="color: #666666">=</span> <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_heap) <span style="color: #666666">//</span> <span style="color: #666666">2</span> <span style="color: #666666">-</span> <span style="color: #666666">1</span>
+        <span style="color: #008000; font-weight: bold">while</span> cur_idx <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>_perc_down(cur_idx)
+            cur_idx <span style="color: #666666">=</span> cur_idx <span style="color: #666666">-</span> <span style="color: #666666">1</span>
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_min</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[<span style="color: #666666">0</span>]
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">insert</span>(<span style="color: #008000">self</span>, item):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap<span style="color: #666666">.</span>append(item)
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_perc_up(<span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_heap) <span style="color: #666666">-</span> <span style="color: #666666">1</span>)
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">delete</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[<span style="color: #666666">0</span>], <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[<span style="color: #666666">-1</span>] <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[<span style="color: #666666">-1</span>], <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[<span style="color: #666666">0</span>]
+        result <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap<span style="color: #666666">.</span>pop()
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_perc_down(<span style="color: #666666">0</span>)
+        <span style="color: #008000; font-weight: bold">return</span> result
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">is_empty</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #AA22FF; font-weight: bold">not</span> <span style="color: #008000">bool</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_heap)
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__len__</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_heap)
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__str__</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">str</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_heap)
+
+a_heap <span style="color: #666666">=</span> BinaryHeap()
+a_heap<span style="color: #666666">.</span>heapify([<span style="color: #666666">9</span>, <span style="color: #666666">5</span>, <span style="color: #666666">6</span>, <span style="color: #666666">2</span>, <span style="color: #666666">3</span>])
+
+<span style="color: #008000; font-weight: bold">while</span> <span style="color: #AA22FF; font-weight: bold">not</span> a_heap<span style="color: #666666">.</span>is_empty():
+    <span style="color: #008000">print</span>(a_heap<span style="color: #666666">.</span>delete())
+</code></pre></div></td></tr></table></div>
+<p>The assertion that we can build the heap in <span class="arithmatex">\(O(n)\)</span> may seem a bit mysterious at first, and a proof is beyond the scope of this book. However, the key to understanding that you can build the heap in <span class="arithmatex">\(O(n)\)</span> is to remember that the <span class="arithmatex">\(\log{n}\)</span> factor is derived from the height of the tree. For most of the work in <code>heapify</code>, the tree is shorter than <span class="arithmatex">\(\log{n}\)</span>.</p>
+<p>Using the fact that you can build a heap from a list in <span class="arithmatex">\(O(n)\)</span> time, you will construct a sorting algorithm that uses a heap and sorts a list in <span class="arithmatex">\(O(n\log{n})\)</span> as an exercise at the end of this chapter.</p>
+</div>
+</div>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月9日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月11日</span>
       
         <br>
         创建日期:

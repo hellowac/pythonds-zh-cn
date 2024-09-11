@@ -22,7 +22,7 @@
     
     
       
-        <title>S10 - python数据结构和算法 - 中文版</title>
+        <title>6.10. 二叉堆操作 - python数据结构和算法 - 中文版</title>
       
     
     
@@ -85,6 +85,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#610-二叉堆操作" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -133,7 +138,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              S10
+              6.10. 二叉堆操作
             
           </span>
         </div>
@@ -2676,7 +2681,7 @@
         
   
   <span class="md-ellipsis">
-    S1
+    6.1. 目标
   </span>
   
 
@@ -2696,7 +2701,7 @@
         
   
   <span class="md-ellipsis">
-    S2
+    6.2. 树的示例
   </span>
   
 
@@ -2716,7 +2721,7 @@
         
   
   <span class="md-ellipsis">
-    S3
+    6.3. 词汇和定义
   </span>
   
 
@@ -2736,7 +2741,7 @@
         
   
   <span class="md-ellipsis">
-    S4
+    6.4. 实现
   </span>
   
 
@@ -2756,7 +2761,7 @@
         
   
   <span class="md-ellipsis">
-    S5
+    6.5. 列表表示法
   </span>
   
 
@@ -2776,7 +2781,7 @@
         
   
   <span class="md-ellipsis">
-    S6
+    6.6. 节点与引用
   </span>
   
 
@@ -2796,7 +2801,7 @@
         
   
   <span class="md-ellipsis">
-    S7
+    6.7. 解析树
   </span>
   
 
@@ -2816,7 +2821,7 @@
         
   
   <span class="md-ellipsis">
-    S8
+    6.8. 树遍历
   </span>
   
 
@@ -2836,7 +2841,7 @@
         
   
   <span class="md-ellipsis">
-    S9
+    6.9. 使用二叉堆的优先队列
   </span>
   
 
@@ -2858,12 +2863,14 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    S10
+    6.10. 二叉堆操作
   </span>
   
 
@@ -2884,7 +2891,7 @@
         
   
   <span class="md-ellipsis">
-    S11
+    6.11. 二叉堆实现
   </span>
   
 
@@ -2904,7 +2911,7 @@
         
   
   <span class="md-ellipsis">
-    S12
+    6.12. 二叉搜索树
   </span>
   
 
@@ -2924,7 +2931,7 @@
         
   
   <span class="md-ellipsis">
-    S13
+    6.13. 搜索树操作
   </span>
   
 
@@ -2944,7 +2951,7 @@
         
   
   <span class="md-ellipsis">
-    S14
+    6.14. 搜索树实现
   </span>
   
 
@@ -2964,7 +2971,7 @@
         
   
   <span class="md-ellipsis">
-    S15
+    6.15. 搜索树分析
   </span>
   
 
@@ -2984,7 +2991,7 @@
         
   
   <span class="md-ellipsis">
-    S16
+    6.16. 平衡二叉搜索树
   </span>
   
 
@@ -3004,7 +3011,7 @@
         
   
   <span class="md-ellipsis">
-    S17
+    6.17. AVL树性能
   </span>
   
 
@@ -3024,7 +3031,7 @@
         
   
   <span class="md-ellipsis">
-    S18
+    6.18. AVL树实现
   </span>
   
 
@@ -3044,7 +3051,7 @@
         
   
   <span class="md-ellipsis">
-    S19
+    6.19. Map ADT实现总结
   </span>
   
 
@@ -3064,7 +3071,7 @@
         
   
   <span class="md-ellipsis">
-    S20
+    6.20. 总结
   </span>
   
 
@@ -3084,7 +3091,7 @@
         
   
   <span class="md-ellipsis">
-    S21
+    6.21. 关键术语
   </span>
   
 
@@ -3104,7 +3111,7 @@
         
   
   <span class="md-ellipsis">
-    S22
+    6.22. 练习
   </span>
   
 
@@ -3944,6 +3951,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -3961,16 +3970,71 @@
   
 
 
-  <h1>S10</h1>
+<h1 id="610-二叉堆操作">6.10. 二叉堆操作<a class="headerlink" href="#610-二叉堆操作" title="Permanent link">&para;</a></h1>
+<p><strong>6.10. Binary Heap Operations</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>The basic operations we will implement for our binary heap are as follows:</p>
+<ul>
+<li><code>BinaryHeap()</code> creates a new empty binary heap.</li>
+<li><code>insert(k)</code> adds a new item to the heap.</li>
+<li><code>get_min()</code> returns the item with the minimum key value, leaving the item in the heap.</li>
+<li><code>delete()</code> returns the item with the minimum key value, removing the item from the heap.</li>
+<li><code>is_empty()</code> returns <code>True</code> if the heap is empty, <code>False</code> otherwise.</li>
+<li><code>size()</code> returns the number of items in the heap.</li>
+<li><code>heapify(list)</code> builds a new heap from a list of keys.</li>
+</ul>
+<p><code>ActiveCode 1</code> demonstrates the use of some of the binary heap methods.  Notice that no matter what order we add items to the heap, the smallest is removed each time.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Activity: 6.10.1 Using the Binary Heap</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pythonds3.trees</span> <span style="color: #008000; font-weight: bold">import</span> BinaryHeap
 
+my_heap <span style="color: #666666">=</span> BinaryHeap()
+my_heap<span style="color: #666666">.</span>insert(<span style="color: #666666">5</span>)
+my_heap<span style="color: #666666">.</span>insert(<span style="color: #666666">7</span>)
+my_heap<span style="color: #666666">.</span>insert(<span style="color: #666666">3</span>)
+my_heap<span style="color: #666666">.</span>insert(<span style="color: #666666">11</span>)
 
+<span style="color: #008000">print</span>(my_heap<span style="color: #666666">.</span>delete())
+<span style="color: #008000">print</span>(my_heap<span style="color: #666666">.</span>delete())
+<span style="color: #008000">print</span>(my_heap<span style="color: #666666">.</span>delete())
+<span style="color: #008000">print</span>(my_heap<span style="color: #666666">.</span>delete())
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>The basic operations we will implement for our binary heap are as follows:</p>
+<ul>
+<li><code>BinaryHeap()</code> creates a new empty binary heap.</li>
+<li><code>insert(k)</code> adds a new item to the heap.</li>
+<li><code>get_min()</code> returns the item with the minimum key value, leaving the item in the heap.</li>
+<li><code>delete()</code> returns the item with the minimum key value, removing the item from the heap.</li>
+<li><code>is_empty()</code> returns <code>True</code> if the heap is empty, <code>False</code> otherwise.</li>
+<li><code>size()</code> returns the number of items in the heap.</li>
+<li><code>heapify(list)</code> builds a new heap from a list of keys.</li>
+</ul>
+<p><code>ActiveCode 1</code> demonstrates the use of some of the binary heap methods.  Notice that no matter what order we add items to the heap, the smallest is removed each time.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Activity: 6.10.1 Using the Binary Heap</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pythonds3.trees</span> <span style="color: #008000; font-weight: bold">import</span> BinaryHeap
+
+my_heap <span style="color: #666666">=</span> BinaryHeap()
+my_heap<span style="color: #666666">.</span>insert(<span style="color: #666666">5</span>)
+my_heap<span style="color: #666666">.</span>insert(<span style="color: #666666">7</span>)
+my_heap<span style="color: #666666">.</span>insert(<span style="color: #666666">3</span>)
+my_heap<span style="color: #666666">.</span>insert(<span style="color: #666666">11</span>)
+
+<span style="color: #008000">print</span>(my_heap<span style="color: #666666">.</span>delete())
+<span style="color: #008000">print</span>(my_heap<span style="color: #666666">.</span>delete())
+<span style="color: #008000">print</span>(my_heap<span style="color: #666666">.</span>delete())
+<span style="color: #008000">print</span>(my_heap<span style="color: #666666">.</span>delete())
+</code></pre></div>
+</div>
+</div>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月9日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月11日</span>
       
         <br>
         创建日期:

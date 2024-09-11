@@ -2691,7 +2691,7 @@
         
   
   <span class="md-ellipsis">
-    S1
+    6.1. 目标
   </span>
   
 
@@ -2711,7 +2711,7 @@
         
   
   <span class="md-ellipsis">
-    S2
+    6.2. 树的示例
   </span>
   
 
@@ -2731,7 +2731,7 @@
         
   
   <span class="md-ellipsis">
-    S3
+    6.3. 词汇和定义
   </span>
   
 
@@ -2751,7 +2751,7 @@
         
   
   <span class="md-ellipsis">
-    S4
+    6.4. 实现
   </span>
   
 
@@ -2771,7 +2771,7 @@
         
   
   <span class="md-ellipsis">
-    S5
+    6.5. 列表表示法
   </span>
   
 
@@ -2791,7 +2791,7 @@
         
   
   <span class="md-ellipsis">
-    S6
+    6.6. 节点与引用
   </span>
   
 
@@ -2811,7 +2811,7 @@
         
   
   <span class="md-ellipsis">
-    S7
+    6.7. 解析树
   </span>
   
 
@@ -2831,7 +2831,7 @@
         
   
   <span class="md-ellipsis">
-    S8
+    6.8. 树遍历
   </span>
   
 
@@ -2851,7 +2851,7 @@
         
   
   <span class="md-ellipsis">
-    S9
+    6.9. 使用二叉堆的优先队列
   </span>
   
 
@@ -2871,7 +2871,7 @@
         
   
   <span class="md-ellipsis">
-    S10
+    6.10. 二叉堆操作
   </span>
   
 
@@ -2891,7 +2891,7 @@
         
   
   <span class="md-ellipsis">
-    S11
+    6.11. 二叉堆实现
   </span>
   
 
@@ -2911,7 +2911,7 @@
         
   
   <span class="md-ellipsis">
-    S12
+    6.12. 二叉搜索树
   </span>
   
 
@@ -2931,7 +2931,7 @@
         
   
   <span class="md-ellipsis">
-    S13
+    6.13. 搜索树操作
   </span>
   
 
@@ -2951,7 +2951,7 @@
         
   
   <span class="md-ellipsis">
-    S14
+    6.14. 搜索树实现
   </span>
   
 
@@ -2971,7 +2971,7 @@
         
   
   <span class="md-ellipsis">
-    S15
+    6.15. 搜索树分析
   </span>
   
 
@@ -2991,7 +2991,7 @@
         
   
   <span class="md-ellipsis">
-    S16
+    6.16. 平衡二叉搜索树
   </span>
   
 
@@ -3011,7 +3011,7 @@
         
   
   <span class="md-ellipsis">
-    S17
+    6.17. AVL树性能
   </span>
   
 
@@ -3031,7 +3031,7 @@
         
   
   <span class="md-ellipsis">
-    S18
+    6.18. AVL树实现
   </span>
   
 
@@ -3051,7 +3051,7 @@
         
   
   <span class="md-ellipsis">
-    S19
+    6.19. Map ADT实现总结
   </span>
   
 
@@ -3071,7 +3071,7 @@
         
   
   <span class="md-ellipsis">
-    S20
+    6.20. 总结
   </span>
   
 
@@ -3091,7 +3091,7 @@
         
   
   <span class="md-ellipsis">
-    S21
+    6.21. 关键术语
   </span>
   
 
@@ -3111,7 +3111,7 @@
         
   
   <span class="md-ellipsis">
-    S22
+    6.22. 练习
   </span>
   
 
@@ -3972,10 +3972,421 @@
 
 <h1 id="511-归并排序">5.11. 归并排序<a class="headerlink" href="#511-归并排序" title="Permanent link">&para;</a></h1>
 <p><strong>5.11. The Merge Sort</strong></p>
+<!--排序需要-->
+<script src="../js/animationbase.js"></script>
+<script src="../js/sortmodels.js"></script>
+<script src="../js/sortviewers.js"></script>
+
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
-<div class="tabbed-block"></div>
-<div class="tabbed-block"></div>
+<div class="tabbed-block">
+<p>We now turn our attention to using a divide and conquer strategy as a way to improve the performance of sorting algorithms. The first algorithm we will study is the <strong>merge sort</strong>. Merge sort is a recursive algorithm that continually splits a list in half. If the list is empty or has one item, it is sorted by definition (the base case). If the list has more than one item, we split the list and recursively invoke a merge sort on both halves. Once the two halves are sorted, the fundamental operation, called a <strong>merge</strong>, is performed. Merging is the process of taking two smaller sorted lists and combining them together into a single sorted new list. <code>Figure 10</code> shows our familiar example list as it is being split by <code>merge_sort</code>. <code>Figure 11</code> shows the simple lists, now sorted, as they are merged back together.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/mergesortA.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/mergesortA.png" /></a>
+    <figcaption markdown="span">Figure 10: Splitting the List in a Merge Sort</figcaption>
+</figure>   </p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/mergesortB.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/mergesortB.png" /></a>
+    <figcaption markdown="span">Figure 11: Lists as They Are Merged Together</figcaption>
+</figure>   </p>
+<p>The <code>merge_sort</code> function shown in <code>ActiveCode 1</code> begins by asking the base case question. If the length of the list is less than or equal to one, then we already have a sorted list and no more processing is necessary. If, on the other hand, the length is greater than one, then we use the Python <code>slice</code> operation to extract the left and right halves. It is important to note that the list may not have an even number of items. That does not matter, as the lengths will differ by at most one.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 5.11.1 Merge Sort</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">29</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">30</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">31</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">32</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">33</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">34</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">35</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">merge_sort</span>(a_list):
+    <span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;Splitting&quot;</span>, a_list)
+    <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">len</span>(a_list) <span style="color: #666666">&gt;</span> <span style="color: #666666">1</span>:
+        mid <span style="color: #666666">=</span> <span style="color: #008000">len</span>(a_list) <span style="color: #666666">//</span> <span style="color: #666666">2</span>
+        left_half <span style="color: #666666">=</span> a_list[:mid]
+        right_half <span style="color: #666666">=</span> a_list[mid:]
+
+        merge_sort(left_half)
+        merge_sort(right_half)
+
+        i, j, k <span style="color: #666666">=</span> <span style="color: #666666">0</span>, <span style="color: #666666">0</span>, <span style="color: #666666">0</span>
+        <span style="color: #008000; font-weight: bold">while</span> i <span style="color: #666666">&lt;</span> <span style="color: #008000">len</span>(left_half) <span style="color: #AA22FF; font-weight: bold">and</span> j <span style="color: #666666">&lt;</span> <span style="color: #008000">len</span>(right_half):
+            <span style="color: #008000; font-weight: bold">if</span> left_half[i] <span style="color: #666666">&lt;=</span> right_half[j]:
+                a_list[k] <span style="color: #666666">=</span> left_half[i]
+                i <span style="color: #666666">=</span> i <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+            <span style="color: #008000; font-weight: bold">else</span>:
+                a_list[k] <span style="color: #666666">=</span> right_half[j]
+                j <span style="color: #666666">=</span> j <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+            k <span style="color: #666666">=</span> k <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+
+        <span style="color: #008000; font-weight: bold">while</span> i <span style="color: #666666">&lt;</span> <span style="color: #008000">len</span>(left_half):
+            a_list[k] <span style="color: #666666">=</span> left_half[i]
+            i <span style="color: #666666">=</span> i <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+            k <span style="color: #666666">=</span> k <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+
+        <span style="color: #008000; font-weight: bold">while</span> j <span style="color: #666666">&lt;</span> <span style="color: #008000">len</span>(right_half):
+            a_list[k] <span style="color: #666666">=</span> right_half[j]
+            j <span style="color: #666666">=</span> j <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+            k <span style="color: #666666">=</span> k <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+    <span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;Merging&quot;</span>, a_list)
+
+
+a_list <span style="color: #666666">=</span> [<span style="color: #666666">54</span>, <span style="color: #666666">26</span>, <span style="color: #666666">93</span>, <span style="color: #666666">17</span>, <span style="color: #666666">77</span>, <span style="color: #666666">31</span>, <span style="color: #666666">44</span>, <span style="color: #666666">55</span>, <span style="color: #666666">20</span>]
+merge_sort(a_list)
+<span style="color: #008000">print</span>(a_list)
+</code></pre></div></td></tr></table></div>
+<p>Once the <code>merge_sort</code> function is invoked on the left half and the right half (lines 8–9), it is assumed they are sorted. The rest of the function (lines 11–29) is responsible for merging the two smaller sorted lists into a larger sorted list. Notice that the merge operation places the items back into the original list (<code>a_list</code>) one at a time by repeatedly taking the smallest item from the sorted lists. Note that the condition in line 13 (<code>left_half[i] &lt;= right_half[j]</code>) ensures that the algorithm is stable. A <strong>stable algorithm</strong> maintains the order of duplicate items in a list and is preferred in most cases.</p>
+<p>The <code>merge_sort</code> function has been augmented with a <code>print</code> statement (line 2) to show the contents of the list being sorted at the start of each invocation. There is also a <code>print</code> statement (line 30) to show the merging process. The transcript shows the result of executing the function on our example list. Note that the list with 44, 55, and 20 will not divide evenly. The first split gives <code>[44]</code> and the second gives <code>[55, 20]</code>. It is easy to see how the splitting process eventually yields a list that can be immediately merged with other sorted lists.</p>
+<p><div id="merge_anim1" class="">
+    <canvas id="merge_anim1_canvas" width="400" height="400" style="border:4px solid blue"></canvas>
+    <br>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="merge_anim1_anim = merge_anim_init('merge_anim1')">Initialize</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="merge_anim1_anim.run('merge_anim1_anim')">Run</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="merge_anim1_anim.stop()">Stop</button> <br>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="merge_anim1_anim.begin()">Beginning</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="merge_anim1_anim.forward()">Step Forward</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="merge_anim1_anim.backward()">Step Backward</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="merge_anim1_anim.end()">End</button>
+    <script>
+    merge_anim_init = function(divid)
+    {
+       var a = new Animator(new MergeSortModel(), new BarViewer(), divid)
+       a.init()
+       return a
+    }
+    </script>
+</div></p>
+<p>For more detail, CodeLens 6 allows you to step through the algorithm.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Tracing the Merge Sort</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">29</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">merge_sort</span>(a_list):
+    <span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;Splitting &quot;</span>,a_list)
+    <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">len</span>(a_list)<span style="color: #666666">&gt;1</span>:
+        mid <span style="color: #666666">=</span> <span style="color: #008000">len</span>(a_list)<span style="color: #666666">//2</span>
+        left_half <span style="color: #666666">=</span> a_list[:mid]
+        right_half <span style="color: #666666">=</span> a_list[mid:]
+        merge_sort(left_half)
+        merge_sort(right_half)
+        i, j, k <span style="color: #666666">=</span> <span style="color: #666666">0</span>, <span style="color: #666666">0</span>, <span style="color: #666666">0</span>
+        <span style="color: #008000; font-weight: bold">while</span> i<span style="color: #666666">&lt;</span><span style="color: #008000">len</span>(left_half) <span style="color: #AA22FF; font-weight: bold">and</span> j<span style="color: #666666">&lt;</span><span style="color: #008000">len</span>(right_half):
+            <span style="color: #008000; font-weight: bold">if</span> left_half[i]<span style="color: #666666">&lt;=</span>right_half[j]:
+                a_list[k]<span style="color: #666666">=</span>left_half[i]
+                i<span style="color: #666666">=</span>i<span style="color: #666666">+1</span>
+            <span style="color: #008000; font-weight: bold">else</span>:
+                a_list[k]<span style="color: #666666">=</span>right_half[j]
+                j<span style="color: #666666">=</span>j<span style="color: #666666">+1</span>
+            k<span style="color: #666666">=</span>k<span style="color: #666666">+1</span>
+        <span style="color: #008000; font-weight: bold">while</span> i<span style="color: #666666">&lt;</span><span style="color: #008000">len</span>(left_half):
+            a_list[k]<span style="color: #666666">=</span>left_half[i]
+            i<span style="color: #666666">=</span>i<span style="color: #666666">+1</span>
+            k<span style="color: #666666">=</span>k<span style="color: #666666">+1</span>
+        <span style="color: #008000; font-weight: bold">while</span> j<span style="color: #666666">&lt;</span><span style="color: #008000">len</span>(right_half):
+            a_list[k]<span style="color: #666666">=</span>right_half[j]
+            j<span style="color: #666666">=</span>j<span style="color: #666666">+1</span>
+            k<span style="color: #666666">=</span>k<span style="color: #666666">+1</span>
+    <span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;Merging &quot;</span>,a_list)
+a_list <span style="color: #666666">=</span> [<span style="color: #666666">54</span>,<span style="color: #666666">26</span>,<span style="color: #666666">93</span>,<span style="color: #666666">17</span>,<span style="color: #666666">77</span>,<span style="color: #666666">31</span>,<span style="color: #666666">44</span>,<span style="color: #666666">55</span>,<span style="color: #666666">20</span>]
+merge_sort(a_list)
+<span style="color: #008000">print</span>(a_list)
+</code></pre></div></td></tr></table></div>
+<p>In order to analyze the <code>merge_sort</code> function, we need to consider the two distinct processes that make up its implementation. First, the list is split into halves. We already computed (in a binary search) that we can divide a list in half <span class="arithmatex">\(\log{n}\)</span> times where <span class="arithmatex">\(n\)</span> is the length of the list. The second process is the merge. Each item in the list will eventually be processed and placed on the sorted list. So the merge operation which results in a list of size <span class="arithmatex">\(n\)</span> requires <span class="arithmatex">\(n\)</span> operations. The result of this analysis is that <span class="arithmatex">\(\log{n}\)</span> splits, each of which costs <span class="arithmatex">\(n\)</span> for a total of <span class="arithmatex">\(n\log{n}\)</span> operations. A merge sort is an <span class="arithmatex">\(O(n\log{n})\)</span> algorithm.</p>
+<p>Recall that the slicing operator is <span class="arithmatex">\(O(k)\)</span> where <span class="arithmatex">\(k\)</span> is the size of the slice. In order to guarantee that <code>merge_sort</code> will be <span class="arithmatex">\(O(n\log n)\)</span> we will need to remove the slice operator. Again, this is possible if we simply pass the starting and ending indices along with the list when we make the recursive call. We leave this as an exercise.</p>
+<p>It is important to notice that the <code>merge_sort</code> function requires extra space to hold the two halves as they are extracted with the slicing operations. This additional space can be a critical factor if the list is large and can make this sort problematic when working on large data sets.</p>
+<div class="admonition info">
+<p class="admonition-title">Self Check</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">question_sort_5</label><label for="__tabbed_2_2">question_sort_6</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Given the following list of numbers: <br> [21, 1, 26, 45, 29, 28, 2, 9, 16, 49, 39, 27, 43, 34, 46, 40] <br> which answer illustrates the list to be sorted after 3 recursive calls to mergesort?</p>
+<ul>
+<li>answer a: [16, 49, 39, 27, 43, 34, 46, 40]</li>
+<li>answer b: [21,1]</li>
+<li>answer c: [21, 1, 26, 45]</li>
+<li>answer d: [21]</li>
+</ul>
+<p>correct: b</p>
+<ul>
+<li>feedback a: This is the second half of the list.</li>
+<li>feedback b: Yes, mergesort will continue to recursively move toward the beginning of the list until it hits a base case.</li>
+<li>feedback c: Remember mergesort doesn't work on the right half of the list until the left half is completely sorted.</li>
+<li>feedback d: This is the list after 4 recursive calls</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p>Given the following list of numbers: <br> [21, 1, 26, 45, 29, 28, 2, 9, 16, 49, 39, 27, 43, 34, 46, 40] <br> which answer illustrates the first two lists to be merged?</p>
+<ul>
+<li>answer a: [21, 1] and [26, 45]</li>
+<li>answer b: [[1, 2, 9, 21, 26, 28, 29, 45] and [16, 27, 34, 39, 40, 43, 46, 49]</li>
+<li>answer c: [21] and [1]</li>
+<li>answer d: [9] and [16]</li>
+</ul>
+<p>correct: c</p>
+<ul>
+<li>feedback a: The first two lists merged will be base case lists, we have not yet reached a base case.</li>
+<li>feedback b: These will be the last two lists merged</li>
+<li>feedback c: The lists [21] and [1] are the first two base cases encountered by mergesort and will therefore be the first two lists merged.</li>
+<li>feedback d: Although 9 and 16 are next to each other they are in different halves of the list starting with the first split.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tabbed-block">
+<p>We now turn our attention to using a divide and conquer strategy as a way to improve the performance of sorting algorithms. The first algorithm we will study is the <strong>merge sort</strong>. Merge sort is a recursive algorithm that continually splits a list in half. If the list is empty or has one item, it is sorted by definition (the base case). If the list has more than one item, we split the list and recursively invoke a merge sort on both halves. Once the two halves are sorted, the fundamental operation, called a <strong>merge</strong>, is performed. Merging is the process of taking two smaller sorted lists and combining them together into a single sorted new list. <code>Figure 10</code> shows our familiar example list as it is being split by <code>merge_sort</code>. <code>Figure 11</code> shows the simple lists, now sorted, as they are merged back together.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/mergesortA.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/mergesortA.png" /></a>
+    <figcaption markdown="span">Figure 10: Splitting the List in a Merge Sort</figcaption>
+</figure>   </p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/mergesortB.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/mergesortB.png" /></a>
+    <figcaption markdown="span">Figure 11: Lists as They Are Merged Together</figcaption>
+</figure>   </p>
+<p>The <code>merge_sort</code> function shown in <code>ActiveCode 1</code> begins by asking the base case question. If the length of the list is less than or equal to one, then we already have a sorted list and no more processing is necessary. If, on the other hand, the length is greater than one, then we use the Python <code>slice</code> operation to extract the left and right halves. It is important to note that the list may not have an even number of items. That does not matter, as the lengths will differ by at most one.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 5.11.1 Merge Sort</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">29</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">30</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">31</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">32</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">33</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">34</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">35</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">merge_sort</span>(a_list):
+    <span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;Splitting&quot;</span>, a_list)
+    <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">len</span>(a_list) <span style="color: #666666">&gt;</span> <span style="color: #666666">1</span>:
+        mid <span style="color: #666666">=</span> <span style="color: #008000">len</span>(a_list) <span style="color: #666666">//</span> <span style="color: #666666">2</span>
+        left_half <span style="color: #666666">=</span> a_list[:mid]
+        right_half <span style="color: #666666">=</span> a_list[mid:]
+
+        merge_sort(left_half)
+        merge_sort(right_half)
+
+        i, j, k <span style="color: #666666">=</span> <span style="color: #666666">0</span>, <span style="color: #666666">0</span>, <span style="color: #666666">0</span>
+        <span style="color: #008000; font-weight: bold">while</span> i <span style="color: #666666">&lt;</span> <span style="color: #008000">len</span>(left_half) <span style="color: #AA22FF; font-weight: bold">and</span> j <span style="color: #666666">&lt;</span> <span style="color: #008000">len</span>(right_half):
+            <span style="color: #008000; font-weight: bold">if</span> left_half[i] <span style="color: #666666">&lt;=</span> right_half[j]:
+                a_list[k] <span style="color: #666666">=</span> left_half[i]
+                i <span style="color: #666666">=</span> i <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+            <span style="color: #008000; font-weight: bold">else</span>:
+                a_list[k] <span style="color: #666666">=</span> right_half[j]
+                j <span style="color: #666666">=</span> j <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+            k <span style="color: #666666">=</span> k <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+
+        <span style="color: #008000; font-weight: bold">while</span> i <span style="color: #666666">&lt;</span> <span style="color: #008000">len</span>(left_half):
+            a_list[k] <span style="color: #666666">=</span> left_half[i]
+            i <span style="color: #666666">=</span> i <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+            k <span style="color: #666666">=</span> k <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+
+        <span style="color: #008000; font-weight: bold">while</span> j <span style="color: #666666">&lt;</span> <span style="color: #008000">len</span>(right_half):
+            a_list[k] <span style="color: #666666">=</span> right_half[j]
+            j <span style="color: #666666">=</span> j <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+            k <span style="color: #666666">=</span> k <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+    <span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;Merging&quot;</span>, a_list)
+
+
+a_list <span style="color: #666666">=</span> [<span style="color: #666666">54</span>, <span style="color: #666666">26</span>, <span style="color: #666666">93</span>, <span style="color: #666666">17</span>, <span style="color: #666666">77</span>, <span style="color: #666666">31</span>, <span style="color: #666666">44</span>, <span style="color: #666666">55</span>, <span style="color: #666666">20</span>]
+merge_sort(a_list)
+<span style="color: #008000">print</span>(a_list)
+</code></pre></div></td></tr></table></div>
+<p>Once the <code>merge_sort</code> function is invoked on the left half and the right half (lines 8–9), it is assumed they are sorted. The rest of the function (lines 11–29) is responsible for merging the two smaller sorted lists into a larger sorted list. Notice that the merge operation places the items back into the original list (<code>a_list</code>) one at a time by repeatedly taking the smallest item from the sorted lists. Note that the condition in line 13 (<code>left_half[i] &lt;= right_half[j]</code>) ensures that the algorithm is stable. A <strong>stable algorithm</strong> maintains the order of duplicate items in a list and is preferred in most cases.</p>
+<p>The <code>merge_sort</code> function has been augmented with a <code>print</code> statement (line 2) to show the contents of the list being sorted at the start of each invocation. There is also a <code>print</code> statement (line 30) to show the merging process. The transcript shows the result of executing the function on our example list. Note that the list with 44, 55, and 20 will not divide evenly. The first split gives <code>[44]</code> and the second gives <code>[55, 20]</code>. It is easy to see how the splitting process eventually yields a list that can be immediately merged with other sorted lists.</p>
+<p><div id="merge_anim" class="">
+    <canvas id="merge_anim_canvas" width="400" height="400" style="border:4px solid blue"></canvas>
+    <br>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="merge_anim_anim = merge_anim_init('merge_anim')">Initialize</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="merge_anim_anim.run('merge_anim_anim')">Run</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="merge_anim_anim.stop()">Stop</button> <br>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="merge_anim_anim.begin()">Beginning</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="merge_anim_anim.forward()">Step Forward</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="merge_anim_anim.backward()">Step Backward</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="merge_anim_anim.end()">End</button>
+    <script>
+    merge_anim_init = function(divid)
+    {
+       var a = new Animator(new MergeSortModel(), new BarViewer(), divid)
+       a.init()
+       return a
+    }
+    </script>
+</div></p>
+<p>For more detail, CodeLens 6 allows you to step through the algorithm.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Tracing the Merge Sort</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">29</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">merge_sort</span>(a_list):
+    <span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;Splitting &quot;</span>,a_list)
+    <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">len</span>(a_list)<span style="color: #666666">&gt;1</span>:
+        mid <span style="color: #666666">=</span> <span style="color: #008000">len</span>(a_list)<span style="color: #666666">//2</span>
+        left_half <span style="color: #666666">=</span> a_list[:mid]
+        right_half <span style="color: #666666">=</span> a_list[mid:]
+        merge_sort(left_half)
+        merge_sort(right_half)
+        i, j, k <span style="color: #666666">=</span> <span style="color: #666666">0</span>, <span style="color: #666666">0</span>, <span style="color: #666666">0</span>
+        <span style="color: #008000; font-weight: bold">while</span> i<span style="color: #666666">&lt;</span><span style="color: #008000">len</span>(left_half) <span style="color: #AA22FF; font-weight: bold">and</span> j<span style="color: #666666">&lt;</span><span style="color: #008000">len</span>(right_half):
+            <span style="color: #008000; font-weight: bold">if</span> left_half[i]<span style="color: #666666">&lt;=</span>right_half[j]:
+                a_list[k]<span style="color: #666666">=</span>left_half[i]
+                i<span style="color: #666666">=</span>i<span style="color: #666666">+1</span>
+            <span style="color: #008000; font-weight: bold">else</span>:
+                a_list[k]<span style="color: #666666">=</span>right_half[j]
+                j<span style="color: #666666">=</span>j<span style="color: #666666">+1</span>
+            k<span style="color: #666666">=</span>k<span style="color: #666666">+1</span>
+        <span style="color: #008000; font-weight: bold">while</span> i<span style="color: #666666">&lt;</span><span style="color: #008000">len</span>(left_half):
+            a_list[k]<span style="color: #666666">=</span>left_half[i]
+            i<span style="color: #666666">=</span>i<span style="color: #666666">+1</span>
+            k<span style="color: #666666">=</span>k<span style="color: #666666">+1</span>
+        <span style="color: #008000; font-weight: bold">while</span> j<span style="color: #666666">&lt;</span><span style="color: #008000">len</span>(right_half):
+            a_list[k]<span style="color: #666666">=</span>right_half[j]
+            j<span style="color: #666666">=</span>j<span style="color: #666666">+1</span>
+            k<span style="color: #666666">=</span>k<span style="color: #666666">+1</span>
+    <span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;Merging &quot;</span>,a_list)
+a_list <span style="color: #666666">=</span> [<span style="color: #666666">54</span>,<span style="color: #666666">26</span>,<span style="color: #666666">93</span>,<span style="color: #666666">17</span>,<span style="color: #666666">77</span>,<span style="color: #666666">31</span>,<span style="color: #666666">44</span>,<span style="color: #666666">55</span>,<span style="color: #666666">20</span>]
+merge_sort(a_list)
+<span style="color: #008000">print</span>(a_list)
+</code></pre></div></td></tr></table></div>
+<p>In order to analyze the <code>merge_sort</code> function, we need to consider the two distinct processes that make up its implementation. First, the list is split into halves. We already computed (in a binary search) that we can divide a list in half <span class="arithmatex">\(\log{n}\)</span> times where <span class="arithmatex">\(n\)</span> is the length of the list. The second process is the merge. Each item in the list will eventually be processed and placed on the sorted list. So the merge operation which results in a list of size <span class="arithmatex">\(n\)</span> requires <span class="arithmatex">\(n\)</span> operations. The result of this analysis is that <span class="arithmatex">\(\log{n}\)</span> splits, each of which costs <span class="arithmatex">\(n\)</span> for a total of <span class="arithmatex">\(n\log{n}\)</span> operations. A merge sort is an <span class="arithmatex">\(O(n\log{n})\)</span> algorithm.</p>
+<p>Recall that the slicing operator is <span class="arithmatex">\(O(k)\)</span> where <span class="arithmatex">\(k\)</span> is the size of the slice. In order to guarantee that <code>merge_sort</code> will be <span class="arithmatex">\(O(n\log n)\)</span> we will need to remove the slice operator. Again, this is possible if we simply pass the starting and ending indices along with the list when we make the recursive call. We leave this as an exercise.</p>
+<p>It is important to notice that the <code>merge_sort</code> function requires extra space to hold the two halves as they are extracted with the slicing operations. This additional space can be a critical factor if the list is large and can make this sort problematic when working on large data sets.</p>
+<div class="admonition info">
+<p class="admonition-title">Self Check</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">question_sort_5</label><label for="__tabbed_3_2">question_sort_6</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Given the following list of numbers: <br> [21, 1, 26, 45, 29, 28, 2, 9, 16, 49, 39, 27, 43, 34, 46, 40] <br> which answer illustrates the list to be sorted after 3 recursive calls to mergesort?</p>
+<ul>
+<li>answer a: [16, 49, 39, 27, 43, 34, 46, 40]</li>
+<li>answer b: [21,1]</li>
+<li>answer c: [21, 1, 26, 45]</li>
+<li>answer d: [21]</li>
+</ul>
+<p>correct: b</p>
+<ul>
+<li>feedback a: This is the second half of the list.</li>
+<li>feedback b: Yes, mergesort will continue to recursively move toward the beginning of the list until it hits a base case.</li>
+<li>feedback c: Remember mergesort doesn't work on the right half of the list until the left half is completely sorted.</li>
+<li>feedback d: This is the list after 4 recursive calls</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p>Given the following list of numbers: <br> [21, 1, 26, 45, 29, 28, 2, 9, 16, 49, 39, 27, 43, 34, 46, 40] <br> which answer illustrates the first two lists to be merged?</p>
+<ul>
+<li>answer a: [21, 1] and [26, 45]</li>
+<li>answer b: [[1, 2, 9, 21, 26, 28, 29, 45] and [16, 27, 34, 39, 40, 43, 46, 49]</li>
+<li>answer c: [21] and [1]</li>
+<li>answer d: [9] and [16]</li>
+</ul>
+<p>correct: c</p>
+<ul>
+<li>feedback a: The first two lists merged will be base case lists, we have not yet reached a base case.</li>
+<li>feedback b: These will be the last two lists merged</li>
+<li>feedback c: The lists [21] and [1] are the first two base cases encountered by mergesort and will therefore be the first two lists merged.</li>
+<li>feedback d: Although 9 and 16 are next to each other they are in different halves of the list starting with the first split.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 
@@ -3984,7 +4395,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月10日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月11日</span>
       
         <br>
         创建日期:

@@ -2691,7 +2691,7 @@
         
   
   <span class="md-ellipsis">
-    S1
+    6.1. 目标
   </span>
   
 
@@ -2711,7 +2711,7 @@
         
   
   <span class="md-ellipsis">
-    S2
+    6.2. 树的示例
   </span>
   
 
@@ -2731,7 +2731,7 @@
         
   
   <span class="md-ellipsis">
-    S3
+    6.3. 词汇和定义
   </span>
   
 
@@ -2751,7 +2751,7 @@
         
   
   <span class="md-ellipsis">
-    S4
+    6.4. 实现
   </span>
   
 
@@ -2771,7 +2771,7 @@
         
   
   <span class="md-ellipsis">
-    S5
+    6.5. 列表表示法
   </span>
   
 
@@ -2791,7 +2791,7 @@
         
   
   <span class="md-ellipsis">
-    S6
+    6.6. 节点与引用
   </span>
   
 
@@ -2811,7 +2811,7 @@
         
   
   <span class="md-ellipsis">
-    S7
+    6.7. 解析树
   </span>
   
 
@@ -2831,7 +2831,7 @@
         
   
   <span class="md-ellipsis">
-    S8
+    6.8. 树遍历
   </span>
   
 
@@ -2851,7 +2851,7 @@
         
   
   <span class="md-ellipsis">
-    S9
+    6.9. 使用二叉堆的优先队列
   </span>
   
 
@@ -2871,7 +2871,7 @@
         
   
   <span class="md-ellipsis">
-    S10
+    6.10. 二叉堆操作
   </span>
   
 
@@ -2891,7 +2891,7 @@
         
   
   <span class="md-ellipsis">
-    S11
+    6.11. 二叉堆实现
   </span>
   
 
@@ -2911,7 +2911,7 @@
         
   
   <span class="md-ellipsis">
-    S12
+    6.12. 二叉搜索树
   </span>
   
 
@@ -2931,7 +2931,7 @@
         
   
   <span class="md-ellipsis">
-    S13
+    6.13. 搜索树操作
   </span>
   
 
@@ -2951,7 +2951,7 @@
         
   
   <span class="md-ellipsis">
-    S14
+    6.14. 搜索树实现
   </span>
   
 
@@ -2971,7 +2971,7 @@
         
   
   <span class="md-ellipsis">
-    S15
+    6.15. 搜索树分析
   </span>
   
 
@@ -2991,7 +2991,7 @@
         
   
   <span class="md-ellipsis">
-    S16
+    6.16. 平衡二叉搜索树
   </span>
   
 
@@ -3011,7 +3011,7 @@
         
   
   <span class="md-ellipsis">
-    S17
+    6.17. AVL树性能
   </span>
   
 
@@ -3031,7 +3031,7 @@
         
   
   <span class="md-ellipsis">
-    S18
+    6.18. AVL树实现
   </span>
   
 
@@ -3051,7 +3051,7 @@
         
   
   <span class="md-ellipsis">
-    S19
+    6.19. Map ADT实现总结
   </span>
   
 
@@ -3071,7 +3071,7 @@
         
   
   <span class="md-ellipsis">
-    S20
+    6.20. 总结
   </span>
   
 
@@ -3091,7 +3091,7 @@
         
   
   <span class="md-ellipsis">
-    S21
+    6.21. 关键术语
   </span>
   
 
@@ -3111,7 +3111,7 @@
         
   
   <span class="md-ellipsis">
-    S22
+    6.22. 练习
   </span>
   
 
@@ -3972,10 +3972,311 @@
 
 <h1 id="510-希尔排序">5.10. 希尔排序<a class="headerlink" href="#510-希尔排序" title="Permanent link">&para;</a></h1>
 <p><strong>5.10. The Shell Sort</strong></p>
+<!--排序需要-->
+<script src="../js/animationbase.js"></script>
+<script src="../js/sortmodels.js"></script>
+<script src="../js/sortviewers.js"></script>
+
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
-<div class="tabbed-block"></div>
-<div class="tabbed-block"></div>
+<div class="tabbed-block">
+<p>The <strong>Shell sort</strong>, sometimes called the <em>diminishing increment sort</em>, improves on the insertion sort by breaking the original list into a number of smaller sublists, each of which is sorted using an insertion sort. The unique way that these sublists are chosen is the key to the Shell sort. Instead of breaking the list into sublists of contiguous items, the Shell sort uses an increment <span class="arithmatex">\(i\)</span>, sometimes called the <strong>gap</strong>, to create a sublist by choosing all items that are <span class="arithmatex">\(i\)</span> items apart.</p>
+<p>This can be seen in <code>Figure 6</code>. This list has nine items. If we use an increment of three, there are three sublists, each of which can be sorted by an insertion sort. After completing these sorts, we get the list shown in <code>Figure 7</code>. Although the list shown in <code>Figure 7</code> is not completely sorted, something very interesting has happened. By sorting the sublists, we have moved the items closer to where they actually belong.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/shellsortA.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/shellsortA.png" /></a>
+    <figcaption markdown="span">Figure 6: A Shell Sort with Increments of Three</figcaption>
+</figure>   </p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/shellsortB.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/shellsortB.png" /></a>
+    <figcaption markdown="span">Figure 7: A Shell Sort after Sorting Each Sublist</figcaption>
+</figure></p>
+<p><code>Figure 8</code> shows a final insertion sort using an increment of one—in other words, a standard insertion sort. Note that by performing the earlier sublist sorts, we have now reduced the total number of shifting operations necessary to put the list in its final order. For this case, we need only four more shifts to complete the process.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/shellsortC.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/shellsortC.png" /></a>
+    <figcaption markdown="span">Figure 8: ShellSort: A Final Insertion Sort with Increment of 1</figcaption>
+</figure>   </p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/shellsortD.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/shellsortD.png" /></a>
+    <figcaption markdown="span">Figure 9: Initial Sublists for a Shell Sort</figcaption>
+</figure>   </p>
+<p>We said earlier that the way in which the increments are chosen is the unique feature of the Shell sort. The function shown in <code>ActiveCode 1</code> uses a different set of increments. In this case, we begin with <span class="arithmatex">\(\frac {n}{2}\)</span> sublists. On the next pass, <span class="arithmatex">\(\frac {n}{4}\)</span> sublists are sorted. Eventually, a single list is sorted with the basic insertion sort. <code>Figure 9</code> shows the first sublists for our example using this increment.</p>
+<p>The following invocation of the <code>shell_sort</code> function shows the partially sorted lists after each increment, with the final sort being an insertion sort with an increment of one.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 5.10.1 Shell Sort Implementation</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">shell_sort</span>(a_list):
+    sublist_count <span style="color: #666666">=</span> <span style="color: #008000">len</span>(a_list) <span style="color: #666666">//</span> <span style="color: #666666">2</span>
+    <span style="color: #008000; font-weight: bold">while</span> sublist_count <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span>:
+        <span style="color: #008000; font-weight: bold">for</span> pos_start <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(sublist_count):
+            gap_insertion_sort(a_list, pos_start, sublist_count)
+        <span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;After increments of size&quot;</span>, sublist_count, <span style="color: #BA2121">&quot;the list is&quot;</span>, a_list)
+        sublist_count <span style="color: #666666">=</span> sublist_count <span style="color: #666666">//</span> <span style="color: #666666">2</span>
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">gap_insertion_sort</span>(a_list, start, gap):
+    <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(start <span style="color: #666666">+</span> gap, <span style="color: #008000">len</span>(a_list), gap):
+        cur_val <span style="color: #666666">=</span> a_list[i]
+        cur_pos <span style="color: #666666">=</span> i
+        <span style="color: #008000; font-weight: bold">while</span> cur_pos <span style="color: #666666">&gt;=</span> gap <span style="color: #AA22FF; font-weight: bold">and</span> a_list[cur_pos <span style="color: #666666">-</span> gap] <span style="color: #666666">&gt;</span> cur_val:
+            a_list[cur_pos] <span style="color: #666666">=</span> a_list[cur_pos <span style="color: #666666">-</span> gap]
+            cur_pos <span style="color: #666666">=</span> cur_pos <span style="color: #666666">-</span> gap
+        a_list[cur_pos] <span style="color: #666666">=</span> cur_val
+
+
+a_list <span style="color: #666666">=</span> [<span style="color: #666666">54</span>, <span style="color: #666666">26</span>, <span style="color: #666666">93</span>, <span style="color: #666666">17</span>, <span style="color: #666666">77</span>, <span style="color: #666666">31</span>, <span style="color: #666666">44</span>, <span style="color: #666666">55</span>, <span style="color: #666666">20</span>]
+shell_sort(a_list)
+<span style="color: #008000">print</span>(a_list)
+</code></pre></div></td></tr></table></div>
+<p><div id="shell_anim1" class="">
+    <canvas id="shell_anim1_canvas" width="400" height="400" style="border:4px solid blue"></canvas>
+    <br>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="shell_anim1_anim = shell_anim_init('shell_anim1')">Initialize</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="shell_anim1_anim.run('shell_anim1_anim')">Run</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="shell_anim1_anim.stop()">Stop</button> <br>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="shell_anim1_anim.begin()">Beginning</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="shell_anim1_anim.forward()">Step Forward</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="shell_anim1_anim.backward()">Step Backward</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="shell_anim1_anim.end()">End</button>
+    <script>
+    shell_anim_init = function(divid)
+    {
+       var a = new Animator(new ShellSortModel(), new BarViewer(), divid)
+       a.init()
+       return a
+    }
+    </script>
+</div></p>
+<p>For more detail, CodeLens 5 allows you to step through the algorithm.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Tracing the Shell Sort</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">shell_sort</span>(a_list):
+    sublist_count <span style="color: #666666">=</span> <span style="color: #008000">len</span>(a_list) <span style="color: #666666">//</span> <span style="color: #666666">2</span>
+    <span style="color: #008000; font-weight: bold">while</span> sublist_count <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span>:
+        <span style="color: #008000; font-weight: bold">for</span> pos_start <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(sublist_count):
+            gap_insertion_sort(a_list, pos_start, sublist_count)
+        <span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;After increments of size&quot;</span>, sublist_count, <span style="color: #BA2121">&quot;the list is&quot;</span>, a_list)
+        sublist_count <span style="color: #666666">=</span> sublist_count <span style="color: #666666">//</span> <span style="color: #666666">2</span>
+
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">gap_insertion_sort</span>(a_list, start, gap):
+    <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(start <span style="color: #666666">+</span> gap, <span style="color: #008000">len</span>(a_list), gap):
+        cur_val <span style="color: #666666">=</span> a_list[i]
+        cur_pos <span style="color: #666666">=</span> i
+        <span style="color: #008000; font-weight: bold">while</span> cur_pos <span style="color: #666666">&gt;=</span> gap <span style="color: #AA22FF; font-weight: bold">and</span> a_list[cur_pos <span style="color: #666666">-</span> gap] <span style="color: #666666">&gt;</span> cur_val:
+            a_list[cur_pos] <span style="color: #666666">=</span> a_list[cur_pos <span style="color: #666666">-</span> gap]
+            cur_pos <span style="color: #666666">=</span> cur_pos <span style="color: #666666">-</span> gap
+        a_list[cur_pos] <span style="color: #666666">=</span> cur_val
+
+
+a_list <span style="color: #666666">=</span> [<span style="color: #666666">54</span>, <span style="color: #666666">26</span>, <span style="color: #666666">93</span>, <span style="color: #666666">17</span>, <span style="color: #666666">77</span>, <span style="color: #666666">31</span>, <span style="color: #666666">44</span>, <span style="color: #666666">55</span>, <span style="color: #666666">20</span>]
+shell_sort(a_list)
+<span style="color: #008000">print</span>(alist)
+</code></pre></div></td></tr></table></div>
+<p>At first glance you may think that a Shell sort cannot be better than an insertion sort since it does a complete insertion sort as the last step. It turns out, however, that this final insertion sort does not need to do very many comparisons (or shifts) since the list has been presorted by earlier incremental insertion sorts, as described above. In other words, each pass produces a list that is “more sorted” than the previous one. This makes the final pass very efficient.</p>
+<p>Although a general analysis of the Shell sort is well beyond the scope of this text, we can say that it tends to fall somewhere between <span class="arithmatex">\(O(n)\)</span> and <span class="arithmatex">\(O(n^{2})\)</span>, based on the behavior described above. For the increments shown in <code>Listing 5</code>, the performance is <span class="arithmatex">\(O(n^{2})\)</span>. By changing the increment, for example using <span class="arithmatex">\(2^{k}-1\)</span> (1, 3, 7, 15, 31, and so on), a Shell sort can perform at <span class="arithmatex">\(O(n^{\frac {3}{2}})\)</span>.</p>
+<div class="admonition info">
+<p class="admonition-title">Self Check</p>
+<p>Given the following list of numbers:  [5, 16, 20, 12, 3, 8, 9, 17, 19, 7]
+Which answer illustrates the contents of the list after all swapping is complete for a gap size of 3?</p>
+<ul>
+<li>answer a: [5, 3, 8, 7, 16, 19, 9, 17, 20, 12]</li>
+<li>answer b: [3, 7, 5, 8, 9, 12, 19, 16, 20, 17]</li>
+<li>answer c: [3, 5, 7, 8, 9, 12, 16, 17, 19, 20]</li>
+<li>answer d: [5, 16, 20, 3, 8, 12, 9, 17, 20, 7]</li>
+</ul>
+<p>correct: a</p>
+<ul>
+<li>feedback a:  Each group of numbers represented by index positions 3 apart are sorted correctly.</li>
+<li>feedback b:  This solution is for a gap size of two.</li>
+<li>feedback c: This is list completely sorted, you have gone too far.</li>
+<li>feedback d: The gap size of three indicates that the group represented by every third number e.g. 0, 3, 6, 9  and 1, 4, 7 and 2, 5, 8 are sorted not groups of 3.</li>
+</ul>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <strong>Shell sort</strong>, sometimes called the <em>diminishing increment sort</em>, improves on the insertion sort by breaking the original list into a number of smaller sublists, each of which is sorted using an insertion sort. The unique way that these sublists are chosen is the key to the Shell sort. Instead of breaking the list into sublists of contiguous items, the Shell sort uses an increment <span class="arithmatex">\(i\)</span>, sometimes called the <strong>gap</strong>, to create a sublist by choosing all items that are <span class="arithmatex">\(i\)</span> items apart.</p>
+<p>This can be seen in <code>Figure 6</code>. This list has nine items. If we use an increment of three, there are three sublists, each of which can be sorted by an insertion sort. After completing these sorts, we get the list shown in <code>Figure 7</code>. Although the list shown in <code>Figure 7</code> is not completely sorted, something very interesting has happened. By sorting the sublists, we have moved the items closer to where they actually belong.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/shellsortA.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/shellsortA.png" /></a>
+    <figcaption markdown="span">Figure 6: A Shell Sort with Increments of Three</figcaption>
+</figure>   </p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/shellsortB.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/shellsortB.png" /></a>
+    <figcaption markdown="span">Figure 7: A Shell Sort after Sorting Each Sublist</figcaption>
+</figure></p>
+<p><code>Figure 8</code> shows a final insertion sort using an increment of one—in other words, a standard insertion sort. Note that by performing the earlier sublist sorts, we have now reduced the total number of shifting operations necessary to put the list in its final order. For this case, we need only four more shifts to complete the process.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/shellsortC.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/shellsortC.png" /></a>
+    <figcaption markdown="span">Figure 8: ShellSort: A Final Insertion Sort with Increment of 1</figcaption>
+</figure>   </p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/shellsortD.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/shellsortD.png" /></a>
+    <figcaption markdown="span">Figure 9: Initial Sublists for a Shell Sort</figcaption>
+</figure>   </p>
+<p>We said earlier that the way in which the increments are chosen is the unique feature of the Shell sort. The function shown in <code>ActiveCode 1</code> uses a different set of increments. In this case, we begin with <span class="arithmatex">\(\frac {n}{2}\)</span> sublists. On the next pass, <span class="arithmatex">\(\frac {n}{4}\)</span> sublists are sorted. Eventually, a single list is sorted with the basic insertion sort. <code>Figure 9</code> shows the first sublists for our example using this increment.</p>
+<p>The following invocation of the <code>shell_sort</code> function shows the partially sorted lists after each increment, with the final sort being an insertion sort with an increment of one.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 5.10.1 Shell Sort Implementation</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">shell_sort</span>(a_list):
+    sublist_count <span style="color: #666666">=</span> <span style="color: #008000">len</span>(a_list) <span style="color: #666666">//</span> <span style="color: #666666">2</span>
+    <span style="color: #008000; font-weight: bold">while</span> sublist_count <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span>:
+        <span style="color: #008000; font-weight: bold">for</span> pos_start <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(sublist_count):
+            gap_insertion_sort(a_list, pos_start, sublist_count)
+        <span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;After increments of size&quot;</span>, sublist_count, <span style="color: #BA2121">&quot;the list is&quot;</span>, a_list)
+        sublist_count <span style="color: #666666">=</span> sublist_count <span style="color: #666666">//</span> <span style="color: #666666">2</span>
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">gap_insertion_sort</span>(a_list, start, gap):
+    <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(start <span style="color: #666666">+</span> gap, <span style="color: #008000">len</span>(a_list), gap):
+        cur_val <span style="color: #666666">=</span> a_list[i]
+        cur_pos <span style="color: #666666">=</span> i
+        <span style="color: #008000; font-weight: bold">while</span> cur_pos <span style="color: #666666">&gt;=</span> gap <span style="color: #AA22FF; font-weight: bold">and</span> a_list[cur_pos <span style="color: #666666">-</span> gap] <span style="color: #666666">&gt;</span> cur_val:
+            a_list[cur_pos] <span style="color: #666666">=</span> a_list[cur_pos <span style="color: #666666">-</span> gap]
+            cur_pos <span style="color: #666666">=</span> cur_pos <span style="color: #666666">-</span> gap
+        a_list[cur_pos] <span style="color: #666666">=</span> cur_val
+
+
+a_list <span style="color: #666666">=</span> [<span style="color: #666666">54</span>, <span style="color: #666666">26</span>, <span style="color: #666666">93</span>, <span style="color: #666666">17</span>, <span style="color: #666666">77</span>, <span style="color: #666666">31</span>, <span style="color: #666666">44</span>, <span style="color: #666666">55</span>, <span style="color: #666666">20</span>]
+shell_sort(a_list)
+<span style="color: #008000">print</span>(a_list)
+</code></pre></div></td></tr></table></div>
+<p><div id="shell_anim" class="">
+    <canvas id="shell_anim_canvas" width="400" height="400" style="border:4px solid blue"></canvas>
+    <br>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="shell_anim_anim = shell_anim_init('shell_anim')">Initialize</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="shell_anim_anim.run('shell_anim_anim')">Run</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="shell_anim_anim.stop()">Stop</button> <br>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="shell_anim_anim.begin()">Beginning</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="shell_anim_anim.forward()">Step Forward</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="shell_anim_anim.backward()">Step Backward</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="shell_anim_anim.end()">End</button>
+    <script>
+    shell_anim_init = function(divid)
+    {
+       var a = new Animator(new ShellSortModel(), new BarViewer(), divid)
+       a.init()
+       return a
+    }
+    </script>
+</div></p>
+<p>For more detail, CodeLens 5 allows you to step through the algorithm.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Tracing the Shell Sort</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">shell_sort</span>(a_list):
+    sublist_count <span style="color: #666666">=</span> <span style="color: #008000">len</span>(a_list) <span style="color: #666666">//</span> <span style="color: #666666">2</span>
+    <span style="color: #008000; font-weight: bold">while</span> sublist_count <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span>:
+        <span style="color: #008000; font-weight: bold">for</span> pos_start <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(sublist_count):
+            gap_insertion_sort(a_list, pos_start, sublist_count)
+        <span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;After increments of size&quot;</span>, sublist_count, <span style="color: #BA2121">&quot;the list is&quot;</span>, a_list)
+        sublist_count <span style="color: #666666">=</span> sublist_count <span style="color: #666666">//</span> <span style="color: #666666">2</span>
+
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">gap_insertion_sort</span>(a_list, start, gap):
+    <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(start <span style="color: #666666">+</span> gap, <span style="color: #008000">len</span>(a_list), gap):
+        cur_val <span style="color: #666666">=</span> a_list[i]
+        cur_pos <span style="color: #666666">=</span> i
+        <span style="color: #008000; font-weight: bold">while</span> cur_pos <span style="color: #666666">&gt;=</span> gap <span style="color: #AA22FF; font-weight: bold">and</span> a_list[cur_pos <span style="color: #666666">-</span> gap] <span style="color: #666666">&gt;</span> cur_val:
+            a_list[cur_pos] <span style="color: #666666">=</span> a_list[cur_pos <span style="color: #666666">-</span> gap]
+            cur_pos <span style="color: #666666">=</span> cur_pos <span style="color: #666666">-</span> gap
+        a_list[cur_pos] <span style="color: #666666">=</span> cur_val
+
+
+a_list <span style="color: #666666">=</span> [<span style="color: #666666">54</span>, <span style="color: #666666">26</span>, <span style="color: #666666">93</span>, <span style="color: #666666">17</span>, <span style="color: #666666">77</span>, <span style="color: #666666">31</span>, <span style="color: #666666">44</span>, <span style="color: #666666">55</span>, <span style="color: #666666">20</span>]
+shell_sort(a_list)
+<span style="color: #008000">print</span>(alist)
+</code></pre></div></td></tr></table></div>
+<p>At first glance you may think that a Shell sort cannot be better than an insertion sort since it does a complete insertion sort as the last step. It turns out, however, that this final insertion sort does not need to do very many comparisons (or shifts) since the list has been presorted by earlier incremental insertion sorts, as described above. In other words, each pass produces a list that is “more sorted” than the previous one. This makes the final pass very efficient.</p>
+<p>Although a general analysis of the Shell sort is well beyond the scope of this text, we can say that it tends to fall somewhere between <span class="arithmatex">\(O(n)\)</span> and <span class="arithmatex">\(O(n^{2})\)</span>, based on the behavior described above. For the increments shown in <code>Listing 5</code>, the performance is <span class="arithmatex">\(O(n^{2})\)</span>. By changing the increment, for example using <span class="arithmatex">\(2^{k}-1\)</span> (1, 3, 7, 15, 31, and so on), a Shell sort can perform at <span class="arithmatex">\(O(n^{\frac {3}{2}})\)</span>.</p>
+<div class="admonition info">
+<p class="admonition-title">Self Check</p>
+<p>Given the following list of numbers:  [5, 16, 20, 12, 3, 8, 9, 17, 19, 7]
+Which answer illustrates the contents of the list after all swapping is complete for a gap size of 3?</p>
+<ul>
+<li>answer a: [5, 3, 8, 7, 16, 19, 9, 17, 20, 12]</li>
+<li>answer b: [3, 7, 5, 8, 9, 12, 19, 16, 20, 17]</li>
+<li>answer c: [3, 5, 7, 8, 9, 12, 16, 17, 19, 20]</li>
+<li>answer d: [5, 16, 20, 3, 8, 12, 9, 17, 20, 7]</li>
+</ul>
+<p>correct: a</p>
+<ul>
+<li>feedback a:  Each group of numbers represented by index positions 3 apart are sorted correctly.</li>
+<li>feedback b:  This solution is for a gap size of two.</li>
+<li>feedback c: This is list completely sorted, you have gone too far.</li>
+<li>feedback d: The gap size of three indicates that the group represented by every third number e.g. 0, 3, 6, 9  and 1, 4, 7 and 2, 5, 8 are sorted not groups of 3.</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 
@@ -3984,7 +4285,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月10日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月11日</span>
       
         <br>
         创建日期:

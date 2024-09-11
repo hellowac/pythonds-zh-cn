@@ -22,7 +22,7 @@
     
     
       
-        <title>S3 - python数据结构和算法 - 中文版</title>
+        <title>6.3. 词汇和定义 - python数据结构和算法 - 中文版</title>
       
     
     
@@ -85,6 +85,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#63-词汇和定义" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -133,7 +138,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              S3
+              6.3. 词汇和定义
             
           </span>
         </div>
@@ -2676,7 +2681,7 @@
         
   
   <span class="md-ellipsis">
-    S1
+    6.1. 目标
   </span>
   
 
@@ -2696,7 +2701,7 @@
         
   
   <span class="md-ellipsis">
-    S2
+    6.2. 树的示例
   </span>
   
 
@@ -2718,12 +2723,14 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    S3
+    6.3. 词汇和定义
   </span>
   
 
@@ -2744,7 +2751,7 @@
         
   
   <span class="md-ellipsis">
-    S4
+    6.4. 实现
   </span>
   
 
@@ -2764,7 +2771,7 @@
         
   
   <span class="md-ellipsis">
-    S5
+    6.5. 列表表示法
   </span>
   
 
@@ -2784,7 +2791,7 @@
         
   
   <span class="md-ellipsis">
-    S6
+    6.6. 节点与引用
   </span>
   
 
@@ -2804,7 +2811,7 @@
         
   
   <span class="md-ellipsis">
-    S7
+    6.7. 解析树
   </span>
   
 
@@ -2824,7 +2831,7 @@
         
   
   <span class="md-ellipsis">
-    S8
+    6.8. 树遍历
   </span>
   
 
@@ -2844,7 +2851,7 @@
         
   
   <span class="md-ellipsis">
-    S9
+    6.9. 使用二叉堆的优先队列
   </span>
   
 
@@ -2864,7 +2871,7 @@
         
   
   <span class="md-ellipsis">
-    S10
+    6.10. 二叉堆操作
   </span>
   
 
@@ -2884,7 +2891,7 @@
         
   
   <span class="md-ellipsis">
-    S11
+    6.11. 二叉堆实现
   </span>
   
 
@@ -2904,7 +2911,7 @@
         
   
   <span class="md-ellipsis">
-    S12
+    6.12. 二叉搜索树
   </span>
   
 
@@ -2924,7 +2931,7 @@
         
   
   <span class="md-ellipsis">
-    S13
+    6.13. 搜索树操作
   </span>
   
 
@@ -2944,7 +2951,7 @@
         
   
   <span class="md-ellipsis">
-    S14
+    6.14. 搜索树实现
   </span>
   
 
@@ -2964,7 +2971,7 @@
         
   
   <span class="md-ellipsis">
-    S15
+    6.15. 搜索树分析
   </span>
   
 
@@ -2984,7 +2991,7 @@
         
   
   <span class="md-ellipsis">
-    S16
+    6.16. 平衡二叉搜索树
   </span>
   
 
@@ -3004,7 +3011,7 @@
         
   
   <span class="md-ellipsis">
-    S17
+    6.17. AVL树性能
   </span>
   
 
@@ -3024,7 +3031,7 @@
         
   
   <span class="md-ellipsis">
-    S18
+    6.18. AVL树实现
   </span>
   
 
@@ -3044,7 +3051,7 @@
         
   
   <span class="md-ellipsis">
-    S19
+    6.19. Map ADT实现总结
   </span>
   
 
@@ -3064,7 +3071,7 @@
         
   
   <span class="md-ellipsis">
-    S20
+    6.20. 总结
   </span>
   
 
@@ -3084,7 +3091,7 @@
         
   
   <span class="md-ellipsis">
-    S21
+    6.21. 关键术语
   </span>
   
 
@@ -3104,7 +3111,7 @@
         
   
   <span class="md-ellipsis">
-    S22
+    6.22. 练习
   </span>
   
 
@@ -3944,6 +3951,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -3961,16 +3970,129 @@
   
 
 
-  <h1>S3</h1>
-
-
+<h1 id="63-词汇和定义">6.3. 词汇和定义<a class="headerlink" href="#63-词汇和定义" title="Permanent link">&para;</a></h1>
+<p><strong>6.3. Vocabulary and Definitions</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Now that we have looked at examples of trees, we will formally define a tree and its components.</p>
+<dl>
+<dt>Node</dt>
+<dd>A <strong>node</strong> is a fundamental part of a tree. It can have a name, which we call the <em>key</em>. A node may also have additional information. We call this additional information the <em>value</em> or <em>payload</em>. While the payload information is not central to many tree algorithms, it is often critical in applications that make use of trees.</dd>
+<dt>Edge</dt>
+<dd>An <strong>edge</strong> is another fundamental part of a tree. An edge connects two
+nodes to show that there is a relationship between them. Every node
+(except the root) is connected by exactly one incoming edge from
+another node. Each node may have several outgoing edges.</dd>
+<dt>Root</dt>
+<dd>The <strong>root</strong> of the tree is the only node in the tree that has no
+incoming edges. In <code>Figure 2</code>, / is the root of the tree.</dd>
+<dt>Path</dt>
+<dd>A <strong>path</strong> is an ordered list of nodes that are connected by edges, for
+example,
+Mammalia <span class="arithmatex">\(\rightarrow\)</span> Carnivora <span class="arithmatex">\(\rightarrow\)</span> Felidae <span class="arithmatex">\(\rightarrow\)</span> <em>Felis</em> <span class="arithmatex">\(\rightarrow\)</span> <em>catus</em>
+is a path.</dd>
+<dt>Children</dt>
+<dd>The set of nodes that have incoming edges from the same
+node are said to be the <strong>children</strong> of that node. In <code>Figure 2</code>,
+nodes log/, spool/, and yp/ are the children of node var/.</dd>
+<dt>Parent</dt>
+<dd>A node is the <strong>parent</strong> of all the nodes it connects to with outgoing edges. In <code>Figure 2</code> the node var/ is the parent of nodes log/, spool/, and yp/.</dd>
+<dt>Sibling</dt>
+<dd>Nodes in the tree that are children of the same parent are said to be <strong>siblings</strong>. The nodes etc/ and usr/ are siblings in the file system tree shown in <code>Figure 2</code>.</dd>
+<dt>Subtree</dt>
+<dd>A <strong>subtree</strong> is a set of nodes and edges comprised of a parent and allthe descendants of that parent.</dd>
+<dt>Leaf Node</dt>
+<dd>A <strong>leaf node</strong> is a node that has no children. For example, Human and
+Chimpanzee are leaf nodes in <code>Figure 1</code>.</dd>
+<dt>Level</dt>
+<dd>The <strong>level</strong> of a node <span class="arithmatex">\(n\)</span> is the number of edges on the path from the root node to <span class="arithmatex">\(n\)</span>. For example, the level of the Felis node in <code>Figure 1</code> is five. By definition, the level of the root node is zero.</dd>
+<dt>Height</dt>
+<dd>The <strong>height</strong> of a tree is equal to the maximum level of any node in the tree. The height of the tree in <code>Figure 2</code> is two.</dd>
+</dl>
+<p>With the basic vocabulary now defined, we can move on to a formal definition of a tree. In fact, we will provide two definitions of a tree. One definition involves nodes and edges. The second definition, which will prove to be very useful, is a recursive definition.</p>
+<p><em>Definition One:</em> A tree consists of a set of nodes and a set of edges that connect pairs of nodes. A tree has the following properties:</p>
+<ul>
+<li>One node of the tree is designated as the root node.</li>
+<li>Every node <span class="arithmatex">\(n\)</span>, except the root node, is connected by an edge from exactly one other node <span class="arithmatex">\(p\)</span>, where <span class="arithmatex">\(p\)</span> is the parent of <span class="arithmatex">\(n\)</span>.</li>
+<li>A unique path traverses from the root to each node.</li>
+<li>If each node in the tree has a maximum of two children, we say that the tree is a <strong>binary tree</strong>.</li>
+</ul>
+<p><code>Figure 3</code> illustrates a tree that fits definition one. The arrowheads on the edges indicate the direction of the connection.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/treedef1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/treedef1.png" /></a>
+    <figcaption markdown="span">Figure 3: A Tree Consisting of a Set of Nodes and Edges</figcaption>
+</figure></p>
+<p><em>Definition Two:</em> A tree is either empty or consists of a root and zero or more subtrees, each of which is also a tree. The root of each subtree is connected to the root of the parent tree by an edge. <code>Figure 4</code> illustrates this recursive definition of a tree. Using the recursive definition of a tree, we know that the tree in <code>Figure 4</code> has at least four nodes since each of the triangles representing a subtree must have a root. It may have many more nodes than that, but we do not know unless we look deeper into the tree.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/TreeDefRecursive.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/TreeDefRecursive.png" /></a>
+    <figcaption markdown="span">Figure 4: A Recursive Definition of a Tree</figcaption>
+</figure></p>
+</div>
+<div class="tabbed-block">
+<p>Now that we have looked at examples of trees, we will formally define a tree and its components.</p>
+<dl>
+<dt>Node</dt>
+<dd>A <strong>node</strong> is a fundamental part of a tree. It can have a name, which we call the <em>key</em>. A node may also have additional information. We call this additional information the <em>value</em> or <em>payload</em>. While the payload information is not central to many tree algorithms, it is often critical in applications that make use of trees.</dd>
+<dt>Edge</dt>
+<dd>An <strong>edge</strong> is another fundamental part of a tree. An edge connects two
+nodes to show that there is a relationship between them. Every node
+(except the root) is connected by exactly one incoming edge from
+another node. Each node may have several outgoing edges.</dd>
+<dt>Root</dt>
+<dd>The <strong>root</strong> of the tree is the only node in the tree that has no
+incoming edges. In <code>Figure 2</code>, / is the root of the tree.</dd>
+<dt>Path</dt>
+<dd>A <strong>path</strong> is an ordered list of nodes that are connected by edges, for
+example,
+Mammalia <span class="arithmatex">\(\rightarrow\)</span> Carnivora <span class="arithmatex">\(\rightarrow\)</span> Felidae <span class="arithmatex">\(\rightarrow\)</span> <em>Felis</em> <span class="arithmatex">\(\rightarrow\)</span> <em>catus</em>
+is a path.</dd>
+<dt>Children</dt>
+<dd>The set of nodes that have incoming edges from the same
+node are said to be the <strong>children</strong> of that node. In <code>Figure 2</code>,
+nodes log/, spool/, and yp/ are the children of node var/.</dd>
+<dt>Parent</dt>
+<dd>A node is the <strong>parent</strong> of all the nodes it connects to with outgoing edges. In <code>Figure 2</code> the node var/ is the parent of nodes log/, spool/, and yp/.</dd>
+<dt>Sibling</dt>
+<dd>Nodes in the tree that are children of the same parent are said to be <strong>siblings</strong>. The nodes etc/ and usr/ are siblings in the file system tree shown in <code>Figure 2</code>.</dd>
+<dt>Subtree</dt>
+<dd>A <strong>subtree</strong> is a set of nodes and edges comprised of a parent and allthe descendants of that parent.</dd>
+<dt>Leaf Node</dt>
+<dd>A <strong>leaf node</strong> is a node that has no children. For example, Human and
+Chimpanzee are leaf nodes in <code>Figure 1</code>.</dd>
+<dt>Level</dt>
+<dd>The <strong>level</strong> of a node <span class="arithmatex">\(n\)</span> is the number of edges on the path from the root node to <span class="arithmatex">\(n\)</span>. For example, the level of the Felis node in <code>Figure 1</code> is five. By definition, the level of the root node is zero.</dd>
+<dt>Height</dt>
+<dd>The <strong>height</strong> of a tree is equal to the maximum level of any node in the tree. The height of the tree in `Figure 2$ is two.</dd>
+</dl>
+<p>With the basic vocabulary now defined, we can move on to a formal definition of a tree. In fact, we will provide two definitions of a tree. One definition involves nodes and edges. The second definition, which will prove to be very useful, is a recursive definition.</p>
+<p><em>Definition One:</em> A tree consists of a set of nodes and a set of edges that connect pairs of nodes. A tree has the following properties:</p>
+<ul>
+<li>One node of the tree is designated as the root node.</li>
+<li>Every node <span class="arithmatex">\(n\)</span>, except the root node, is connected by an edge from exactly one other node <span class="arithmatex">\(p\)</span>, where <span class="arithmatex">\(p\)</span> is the parent of <span class="arithmatex">\(n\)</span>.</li>
+<li>A unique path traverses from the root to each node.</li>
+<li>If each node in the tree has a maximum of two children, we say that the tree is a <strong>binary tree</strong>.</li>
+</ul>
+<p><code>Figure 3</code> illustrates a tree that fits definition one. The arrowheads on the edges indicate the direction of the connection.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/treedef1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/treedef1.png" /></a>
+    <figcaption markdown="span">Figure 3: A Tree Consisting of a Set of Nodes and Edges</figcaption>
+</figure></p>
+<p><em>Definition Two:</em> A tree is either empty or consists of a root and zero or more subtrees, each of which is also a tree. The root of each subtree is connected to the root of the parent tree by an edge. <code>Figure 4</code> illustrates this recursive definition of a tree. Using the recursive definition of a tree, we know that the tree in <code>Figure 4</code> has at least four nodes since each of the triangles representing a subtree must have a root. It may have many more nodes than that, but we do not know unless we look deeper into the tree.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/TreeDefRecursive.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/TreeDefRecursive.png" /></a>
+    <figcaption markdown="span">Figure 4: A Recursive Definition of a Tree</figcaption>
+</figure></p>
+</div>
+</div>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月9日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月11日</span>
       
         <br>
         创建日期:
