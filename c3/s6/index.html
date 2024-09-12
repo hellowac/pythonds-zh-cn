@@ -3977,10 +3977,80 @@
 <p>原文: <a href="https://runestone.academy/ns/books/published/pythonds3/BasicDS/SimpleBalancedParentheses.html?mode=browsing">https://runestone.academy/ns/books/published/pythonds3/BasicDS/SimpleBalancedParentheses.html?mode=browsing</a></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
-<div class="tabbed-block"></div>
-<div class="tabbed-block"></div>
+<div class="tabbed-block">
+<p>现在我们将关注于使用栈来解决实际的计算机科学问题。你可能已经写过类似这样的算术表达式：</p>
+<div class="arithmatex">\[(5 + 6) * (7 + 8) / (4 + 3)\]</div>
+<p>在这些表达式中，括号用于排序操作的执行。你也可能在编程语言如 Lisp 中有过一些编程经验，比如有如下构造：</p>
+<div class="language-text highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>(defun square(n)
+        (* n n))
+</code></pre></div>
+<p>这定义了一个名为 <code>square</code> 的函数，它会返回其参数 <code>n</code> 的平方。Lisp 以使用大量括号而闻名。</p>
+<p>在这两个示例中，括号必须以平衡的方式出现。<strong>平衡的括号</strong> 意味着每个开括号都有一个对应的闭括号，并且括号对是正确嵌套的。考虑以下正确平衡的括号字符串：</p>
+<div class="language-text highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>(()()()())
+
+(((())))
+
+(()((())()))
+</code></pre></div>
+<p>将这些与以下不平衡的括号字符串进行比较：</p>
+<div class="language-text highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>    ((((((())
+
+    ()))
+
+    (()()(()
+</code></pre></div>
+<p>区分正确平衡的括号和不平衡的括号是识别许多编程语言结构的重要部分。</p>
+<p>挑战在于编写一个算法，从左到右读取括号字符串，并决定这些符号是否平衡。要解决这个问题，我们需要做一个重要的观察。当你从左到右处理符号时，最新的开括号必须与下一个闭括号匹配（见 <code>Figure 4</code>）。此外，第一个处理的开符号可能需要等到最后一个符号才会有匹配。闭符号与开符号的匹配是按出现的相反顺序进行的；它们是从内部向外匹配的。这是栈可以用来解决问题的线索。</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/simpleparcheck.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/simpleparcheck.png" /></a>
+    <figcaption>Figure 4: 匹配括号</figcaption>
+</figure></p>
+<p>一旦你同意栈是保持括号的适当数据结构，算法的描述就是直接的。从一个空栈开始，从左到右处理括号字符串。如果符号是开括号，则将其推入栈中，表示稍后需要出现一个相应的闭符号。另一方面，如果符号是闭括号，则弹出栈。只要可以弹出栈以匹配每个闭符号，括号就保持平衡。如果在任何时候栈中没有开符号来匹配一个闭符号，则字符串不平衡。在字符串结束时，当所有符号都被处理完后，栈应该是空的。实现这个算法的 Python 代码如下所示（<code>ActiveCode 1</code>）。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 3.6.1 解决平衡括号问题</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pythonds3.basic</span> <span style="color: #008000; font-weight: bold">import</span> Stack
+
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">par_checker</span>(symbol_string):
+    s <span style="color: #666666">=</span> Stack()
+    <span style="color: #008000; font-weight: bold">for</span> symbol <span style="color: #AA22FF; font-weight: bold">in</span> symbol_string:
+        <span style="color: #008000; font-weight: bold">if</span> symbol <span style="color: #666666">==</span> <span style="color: #BA2121">&quot;(&quot;</span>:
+            s<span style="color: #666666">.</span>push(symbol)
+        <span style="color: #008000; font-weight: bold">else</span>:
+            <span style="color: #008000; font-weight: bold">if</span> s<span style="color: #666666">.</span>is_empty():
+                <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">False</span>
+            <span style="color: #008000; font-weight: bold">else</span>:
+                s<span style="color: #666666">.</span>pop()
+
+    <span style="color: #008000; font-weight: bold">return</span> s<span style="color: #666666">.</span>is_empty()
+
+
+<span style="color: #008000">print</span>(par_checker(<span style="color: #BA2121">&quot;((()))&quot;</span>))  <span style="color: #3D7B7B; font-style: italic"># 预期输出 True</span>
+<span style="color: #008000">print</span>(par_checker(<span style="color: #BA2121">&quot;((()()))&quot;</span>))  <span style="color: #3D7B7B; font-style: italic"># 预期输出 True</span>
+<span style="color: #008000">print</span>(par_checker(<span style="color: #BA2121">&quot;(()&quot;</span>))  <span style="color: #3D7B7B; font-style: italic"># 预期输出 False</span>
+<span style="color: #008000">print</span>(par_checker(<span style="color: #BA2121">&quot;)(&quot;</span>))  <span style="color: #3D7B7B; font-style: italic"># 预期输出 False</span>
+</code></pre></div></td></tr></table></div>
+<p>这个函数 <code>par_checker</code> 假设 <code>Stack</code> 类是可用的，并返回一个布尔值，表示括号字符串是否平衡。如果当前符号是 <code>(</code>，则将其推入栈中（第 7 到 8 行）。另外注意第 13 行的 <code>pop</code> 只是从栈中移除一个符号。返回的值没有使用，因为我们知道它必须是之前看到的开符号。如果在处理完 <code>symbol_string</code> 之前栈变为空，则说明有太多的闭括号，字符串不平衡，因此我们立即返回 <code>False</code>（第 11 行）。在结束时（第 15 行），只要栈已完全清空，字符串就代表一个正确平衡的括号序列。</p>
 </div>
-</div>
+<div class="tabbed-block">
 <p>We now turn our attention to using stacks to solve real computer science problems. You have no doubt written arithmetic expressions such as</p>
 <div class="arithmatex">\[(5 + 6) * (7 + 8) / (4 + 3)\]</div>
 <p>where parentheses are used to order the performance of operations. You may also have some experience programming in a language such as Lisp with constructs like</p>
@@ -4004,10 +4074,10 @@
 </code></pre></div>
 <p>The ability to differentiate between parentheses that are correctly balanced and those that are unbalanced is an important part of recognizing many programming language structures.</p>
 <p>The challenge then is to write an algorithm that will read a string of parentheses from left to right and decide whether the symbols are balanced. To solve this problem we need to make an important observation. As you process symbols from left to right, the most recent opening parenthesis must match the next closing symbol (see <code>Figure 4</code>). Also, the first opening symbol processed may have to wait until the very last symbol for its match. Closing symbols match opening symbols in the reverse order of their appearance; they match from the inside out. This is a clue that stacks can be used to solve the problem.</p>
-<figure>
+<p><figure markdown="span">
   <a class="glightbox" href="../imgs/simpleparcheck.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/simpleparcheck.png" /></a>
   <figcaption>Figure 4: Matching Parentheses</figcaption>
-</figure>
+</figure></p>
 <p>Once you agree that a stack is the appropriate data structure for keeping the parentheses, the statement of the algorithm is straightforward. Starting with an empty stack, process the parenthesis strings from left to right. If a symbol is an opening parenthesis, push it on the stack as a signal that a corresponding closing symbol needs to appear later. If, on the other hand, a symbol is a closing parenthesis, pop the stack. As long as it is possible to pop the stack to match every closing symbol, the parentheses remain balanced. If at any time there is no opening symbol on the stack to match a closing symbol, the string is not balanced properly. At the end of the string, when all symbols have been processed, the stack should be empty. The Python code to implement this algorithm is shown in <code>ActiveCode 1</code>.</p>
 <div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 3.6.1 Solving the Balanced Parentheses Problem</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
@@ -4052,13 +4122,16 @@
 <span style="color: #008000">print</span>(par_checker(<span style="color: #BA2121">&quot;)(&quot;</span>))  <span style="color: #3D7B7B; font-style: italic"># expected False</span>
 </code></pre></div></td></tr></table></div>
 <p>This function, <code>par_checker</code>, assumes that a <code>Stack</code> class is available and returns a Boolean result as to whether the string of parentheses is balanced. If the current symbol is <code>(</code>, then it is pushed on the stack (lines 7--8). Note also in line 13 that <code>pop</code> simply removes a symbol from the stack. The returned value is not used since we know it must be an opening symbol seen earlier. If the stack becomes empty before we reach the end of the <code>symbol_string</code>, then there are too many closing parentheses and the string is not balanced, so we immediately return <code>False</code> (line 11). At the end (line 15), the string represents a correctly balanced sequence of parentheses as long as the stack has been completely cleaned off.</p>
+</div>
+</div>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月10日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月12日</span>
       
         <br>
         创建日期:

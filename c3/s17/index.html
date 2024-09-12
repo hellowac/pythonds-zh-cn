@@ -3977,7 +3977,7 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>As we have done in previous sections, we will create a new class for the implementation of the abstract data type deque. Again, the Python list will provide a very nice set of methods upon which to build the details of the deque. Our implementation (<code>Listing 1</code>) will assume that the rear of the deque is at position 0 in the list.</p>
+<p>正如我们在之前的章节中所做的，我们将为抽象数据类型双端队列（deque）的实现创建一个新类。再次使用 Python 列表，我们可以利用其提供的丰富方法来构建双端队列的细节。我们的实现（<code>Listing 1</code>）将假设双端队列的后端在列表的第 0 个位置。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Listing 1</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
@@ -4008,38 +4008,38 @@
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">29</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">30</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Deque</span>:
-<span style="color: #bbbbbb">    </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Deque implementation as a list&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">    </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;使用列表实现双端队列&quot;&quot;&quot;</span>
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Create new deque&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;创建一个新的双端队列&quot;&quot;&quot;</span>
         <span style="color: #008000">self</span><span style="color: #666666">.</span>_items <span style="color: #666666">=</span> []
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">is_empty</span>(<span style="color: #008000">self</span>):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Check if the deque is empty&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;检查双端队列是否为空&quot;&quot;&quot;</span>
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #AA22FF; font-weight: bold">not</span> <span style="color: #008000">bool</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_items)
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">add_front</span>(<span style="color: #008000">self</span>, item):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Add an item to the front of the deque&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;将一个项添加到双端队列的前端&quot;&quot;&quot;</span>
         <span style="color: #008000">self</span><span style="color: #666666">.</span>_items<span style="color: #666666">.</span>append(item)
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">add_rear</span>(<span style="color: #008000">self</span>, item):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Add an item to the rear of the deque&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;将一个项添加到双端队列的后端&quot;&quot;&quot;</span>
         <span style="color: #008000">self</span><span style="color: #666666">.</span>_items<span style="color: #666666">.</span>insert(<span style="color: #666666">0</span>, item)
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">remove_front</span>(<span style="color: #008000">self</span>):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Remove an item from the front of the deque&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;从双端队列的前端移除一个项&quot;&quot;&quot;</span>
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_items<span style="color: #666666">.</span>pop()
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">remove_rear</span>(<span style="color: #008000">self</span>):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Remove an item from the rear of the deque&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;从双端队列的后端移除一个项&quot;&quot;&quot;</span>
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_items<span style="color: #666666">.</span>pop(<span style="color: #666666">0</span>)
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">size</span>(<span style="color: #008000">self</span>):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Get the number of items in the deque&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;获取双端队列中的项数&quot;&quot;&quot;</span>
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_items)
 </code></pre></div></td></tr></table></div>
-<p>In <code>remove_front</code> we use the <code>pop</code> method to remove the last element from the list. However, in <code>remove_rear</code>, the <code>pop(0)</code> method must remove the first element of the list. Likewise, we need to use the <code>insert</code> method (line 12) in <code>add_rear</code> since the <code>append</code> method assumes the addition of a new element to the end of the list.</p>
-<p>CodeLens 1 shows the <code>Deque</code> class in action as we perform the sequence of operations from <code>Table 1</code>.</p>
+<p>在 <code>remove_front</code> 方法中，我们使用 <code>pop</code> 方法从列表中移除最后一个元素。然而，在 <code>remove_rear</code> 方法中，<code>pop(0)</code> 方法必须移除列表中的第一个元素。同样，在 <code>add_rear</code> 方法中，我们需要使用 <code>insert</code> 方法（第 12 行），因为 <code>append</code> 方法假设将新元素添加到列表的末尾。</p>
+<p><code>CodeLens 1</code> 展示了 <code>Deque</code> 类的实际操作，按照 <code>表 1</code> 中的操作序列执行。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: CodeLens Example Deque Operations (deqtest)</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
@@ -4082,37 +4082,37 @@
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">40</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">41</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">42</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Deque</span>:
-<span style="color: #bbbbbb">    </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Queue implementation as a list&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">    </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;使用列表实现双端队列&quot;&quot;&quot;</span>
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Create new deque&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;创建一个新的双端队列&quot;&quot;&quot;</span>
         <span style="color: #008000">self</span><span style="color: #666666">.</span>_items <span style="color: #666666">=</span> []
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">is_empty</span>(<span style="color: #008000">self</span>):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Check if the deque is empty&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;检查双端队列是否为空&quot;&quot;&quot;</span>
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #AA22FF; font-weight: bold">not</span> <span style="color: #008000">bool</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_items)
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">add_front</span>(<span style="color: #008000">self</span>, item):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Add an item to the front of the deque&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;将一个项添加到双端队列的前端&quot;&quot;&quot;</span>
         <span style="color: #008000">self</span><span style="color: #666666">.</span>_items<span style="color: #666666">.</span>append(item)
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">add_rear</span>(<span style="color: #008000">self</span>, item):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Add an item to the rear of the deque&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;将一个项添加到双端队列的后端&quot;&quot;&quot;</span>
         <span style="color: #008000">self</span><span style="color: #666666">.</span>_items<span style="color: #666666">.</span>insert(<span style="color: #666666">0</span>, item)
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">remove_front</span>(<span style="color: #008000">self</span>):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Remove an item from the front of the deque&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;从双端队列的前端移除一个项&quot;&quot;&quot;</span>
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_items<span style="color: #666666">.</span>pop()
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">remove_rear</span>(<span style="color: #008000">self</span>):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Remove an item from the rear of the deque&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;从双端队列的后端移除一个项&quot;&quot;&quot;</span>
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_items<span style="color: #666666">.</span>pop(<span style="color: #666666">0</span>)
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">size</span>(<span style="color: #008000">self</span>):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Get the number of items in the deque&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;获取双端队列中的项数&quot;&quot;&quot;</span>
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_items)
 
-d<span style="color: #666666">=</span>Deque()
+d <span style="color: #666666">=</span> Deque()
 <span style="color: #008000">print</span>(d<span style="color: #666666">.</span>is_empty())
 d<span style="color: #666666">.</span>add_rear(<span style="color: #666666">4</span>)
 d<span style="color: #666666">.</span>add_rear(<span style="color: #BA2121">&#39;dog&#39;</span>)
@@ -4124,7 +4124,7 @@ d<span style="color: #666666">.</span>add_rear(<span style="color: #666666">8.4<
 <span style="color: #008000">print</span>(d<span style="color: #666666">.</span>remove_rear())
 <span style="color: #008000">print</span>(d<span style="color: #666666">.</span>remove_front())
 </code></pre></div></td></tr></table></div>
-<p>You can see many similarities to Python code already described for stacks and queues. You are also likely to observe that in this implementation adding and removing items from the front is <span class="arithmatex">\(O(1)\)</span> whereas adding and removing from the rear is <span class="arithmatex">\(O(n)\)</span>. This is to be expected given the common operations that appear for adding and removing items. Again, the important thing is to be certain that we know where the front and rear are assigned in the implementation.</p>
+<p>你可以看到，这个实现与之前描述的栈和队列的 Python 代码有很多相似之处。你还会发现，在这个实现中，从前端添加和移除项的操作是 <span class="arithmatex">\(O(1)\)</span>，而从后端添加和移除项的操作是 <span class="arithmatex">\(O(n)\)</span>。这符合常见的操作复杂度。再次强调，了解在实现中前端和后端的位置非常重要。</p>
 </div>
 <div class="tabbed-block">
 <p>As we have done in previous sections, we will create a new class for the implementation of the abstract data type deque. Again, the Python list will provide a very nice set of methods upon which to build the details of the deque. Our implementation (<code>Listing 1</code>) will assume that the rear of the deque is at position 0 in the list.</p>
@@ -4284,7 +4284,7 @@ d<span style="color: #666666">.</span>add_rear(<span style="color: #666666">8.4<
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月10日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月12日</span>
       
         <br>
         创建日期:

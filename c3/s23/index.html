@@ -4029,25 +4029,25 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>In order to implement the ordered list, we must remember that the relative positions of the items are based on some underlying characteristic. The ordered list of integers given above (17, 26, 31, 54, 77, and 93) can be represented by a linked structure as shown in <code>Figure 15</code>. Again, the node and link structure is ideal for representing the relative positioning of the items.</p>
+<p>为了实现有序列表，我们必须记住项的相对位置是基于某些基本特征。有序的整数列表（如 17, 26, 31, 54, 77 和 93）可以通过链接结构来表示，如 <code>图 15</code> 所示。同样，节点和链接结构非常适合表示项的相对位置。</p>
 <p><figure markdown="span">
-    <a class="glightbox" href="../imgs/orderlinkedlist.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/orderlinkedlist.png" /></a>
-    <figcaption markdown="span">Figure 15: An Ordered Linked List</figcaption>
+    <a class="glightbox" href="../imgs/orderlinkedlist.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="图像标题" src="../imgs/orderlinkedlist.png" /></a>
+    <figcaption markdown="span">图 15：有序链表</figcaption>
 </figure></p>
-<p>To implement the <code>OrderedList</code> class, we will use the same technique as seen previously with unordered lists. Once again, an empty list will be denoted by a <code>head</code> reference to <code>None</code> (see <code>Listing 8</code>).</p>
+<p>要实现 <code>OrderedList</code> 类，我们将使用与之前无序列表相同的技术。再次，空列表将由指向 <code>None</code> 的 <code>head</code> 引用表示（参见 <code>Listing 8</code>）。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 8</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">OrderedList</span>:
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>):
         <span style="color: #008000">self</span><span style="color: #666666">.</span>head <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
 </code></pre></div>
-<p>As we consider the operations for the ordered list, we should note that the <code>is_empty</code> and <code>size</code> methods can be implemented the same as with unordered lists since they deal only with the number of nodes in the list without regard to the actual item values. Likewise, the <code>remove</code> method will work just fine since we still need to find the item and then link around the node to remove it. The two remaining methods, <code>search</code> and <code>add</code>, will require some modification.</p>
-<p>The search of an unordered linked list required that we traverse the nodes one at a time until we either find the item we are looking for or run out of nodes (<code>None</code>). It turns out that the same approach would work with the ordered list and no changes are necessary if the item is in the list. However, in the case where the item is not in the list, we can take advantage of the ordering to stop the search as soon as possible.</p>
-<p>For example, <code>Figure 16</code> shows the ordered linked list as a search is looking for the value 45. As we traverse, starting at the head of the list, we first compare against 17. Since 17 is not the item we are looking for, we move to the next node, in this case 26. Again, this is not what we want, so we move on to 31 and then on to 54. Now, at this point, something is different. Since 54 is not the item we are looking for, our former strategy would be to move forward. However, due to the fact that this is an ordered list, that will not be necessary. Once the value in the node becomes greater than the item we are searching for, the search can stop and return <code>False</code>. There is no way the item could exist further out in the linked list.</p>
+<p>考虑到有序列表的操作，我们应该注意到 <code>is_empty</code> 和 <code>size</code> 方法可以与无序列表一样实现，因为它们只处理列表中节点的数量，而不关心实际项的值。同样，<code>remove</code> 方法也能正常工作，因为我们仍然需要找到项，然后绕过节点进行删除。剩下的两个方法，<code>search</code> 和 <code>add</code>, 将需要一些修改。</p>
+<p>无序链表的搜索要求我们逐个遍历节点，直到找到所寻找的项或用尽节点（<code>None</code>）。实际上，对于有序列表，同样的方法也适用，如果项在列表中，没有必要做任何更改。然而，如果项不在列表中，我们可以利用排序来尽可能早地停止搜索。</p>
+<p>例如，<code>图 16</code> 显示了有序链表的搜索过程，正在寻找值 45。当我们从列表的头部开始遍历时，首先与 17 进行比较。由于 17 不是我们要找的项，我们移动到下一个节点，这里是 26。同样，这也不是我们想要的，所以我们继续移动到 31，然后到 54。此时，情况有所不同。由于 54 不是我们要找的项，我们的旧策略是继续向前移动。然而，由于这是一个有序列表，情况并非如此。一旦节点中的值大于我们要搜索的项，搜索可以停止并返回 <code>False</code>。因为项不可能在链表的后面存在。</p>
 <p><figure markdown="span">
-    <a class="glightbox" href="../imgs/orderedsearch.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/orderedsearch.png" /></a>
-    <figcaption markdown="span">Figure 16: Searching an Ordered Linked List</figcaption>
+    <a class="glightbox" href="../imgs/orderedsearch.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="图像标题" src="../imgs/orderedsearch.png" /></a>
+    <figcaption markdown="span">图 16：搜索有序链表</figcaption>
 </figure></p>
-<p><code>Listing 9</code> shows the complete <code>search</code> method. It is easy to incorporate the new condition discussed above by adding another check (line 6). We can continue to look forward in the list (line 3). If any node is ever discovered that contains data greater than the item we are looking for, we will immediately return <code>False</code>. The remaining lines are identical to the unordered list search.</p>
-<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 9</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">search</span>(<span style="color: #008000">self</span>,item):
+<p><code>Listing 9</code> 显示了完整的 <code>search</code> 方法。通过添加另一个检查（第 6 行），很容易将上述新条件纳入其中。我们可以继续向前查看列表（第 3 行）。如果发现任何节点包含的数据大于我们要寻找的项，我们将立即返回 <code>False</code>。其余的行与无序列表的搜索相同。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 9</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">search</span>(<span style="color: #008000">self</span>, item):
     current <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>head
     <span style="color: #008000; font-weight: bold">while</span> current <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #AA22FF; font-weight: bold">not</span> <span style="color: #008000; font-weight: bold">None</span>:
         <span style="color: #008000; font-weight: bold">if</span> current<span style="color: #666666">.</span>data <span style="color: #666666">==</span> item:
@@ -4058,16 +4058,16 @@
 
     <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">False</span>
 </code></pre></div>
-<p>The most significant method modification will take place in <code>add</code>. Recall that for unordered lists, the <code>add</code> method could simply place a new node at the head of the list. It was the easiest point of access. Unfortunately, this will no longer work with ordered lists. It is now necessary that we discover the specific place where a new item belongs in the existing ordered list.</p>
-<p>Assume we have the ordered list consisting of 17, 26, 54, 77, and 93 and we want to add the value 31. The <code>add</code> method must decide that the new item belongs between 26 and 54. <code>Figure 17</code> shows the setup that we need. As we explained earlier, we need to traverse the linked list looking for the place where the new node will be added. We know we have found that place when either we run out of nodes (<code>current</code> becomes <code>None</code>) or the value of the current node becomes greater than the item we wish to add. In our example, seeing the value 54 causes us to stop.</p>
+<p>最重要的方法修改将在 <code>add</code> 中进行。回想一下，对于无序列表，<code>add</code> 方法可以简单地将新节点放在列表的头部。这是最容易访问的点。不幸的是，这在有序列表中不再有效。现在有必要找到新项在现有有序列表中的确切位置。</p>
+<p>假设我们有一个有序列表，包含 17, 26, 54, 77 和 93，并且我们想要添加值 31。<code>add</code> 方法必须决定新项应该放在 26 和 54 之间。<code>图 17</code> 显示了我们需要的设置。如前所述，我们需要遍历链表，寻找新节点应该插入的位置。当我们用尽节点（<code>current</code> 变为 <code>None</code>）或当前节点的值大于我们想要添加的项时，我们知道已经找到了位置。在我们的例子中，看到值 54 就会使我们停止。</p>
 <p><figure markdown="span">
-    <a class="glightbox" href="../imgs/linkedlistinsert.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/linkedlistinsert.png" /></a>
-    <figcaption markdown="span">Figure 17: Adding an Item to an Ordered Linked List</figcaption>
+    <a class="glightbox" href="../imgs/linkedlistinsert.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="图像标题" src="../imgs/linkedlistinsert.png" /></a>
+    <figcaption markdown="span">图 17：向有序链表中添加项</figcaption>
 </figure></p>
-<p>As we saw with unordered lists, it is necessary to have an additional reference, again called <code>previous</code>, since <code>current</code> will not provide access to the node that must be modified. <code>Listing 10</code> shows the complete <code>add</code> method. Lines 3–4 set up the two external references and lines 8–9 again allow <code>previous</code> to follow one node behind <code>current</code> every time through the iteration. The condition (line 1) allows the iteration to continue as long as there are more nodes and the value in the current node is not larger than the item. In either case, when the iteration fails, we have found the location for the new node.</p>
-<p>The remainder of the method completes the two-step process shown in <code>Figure 17</code>. Once a new node has been created for the item, the only remaining question is whether the new node will be added at the beginning of the linked list or some place in the middle. Again, <code>previous is None</code> (line 11) can be used to provide the answer.</p>
+<p>正如我们在无序列表中看到的，我们需要一个额外的引用，这里称为 <code>previous</code>, 因为 <code>current</code> 不会提供访问必须修改的节点的能力。<code>Listing 10</code> 显示了完整的 <code>add</code> 方法。第 3 行和第 4 行设置了两个外部引用，第 8 行和第 9 行使 <code>previous</code> 每次迭代时都跟在 <code>current</code> 后面。一旦发现当前节点的值大于要添加的项（第 1 行的条件），迭代将继续。无论如何，当迭代结束时，我们已经找到了新节点的位置。</p>
+<p>方法的其余部分完成了 <code>图 17</code> 中显示的两步过程。一旦为该项创建了新节点，唯一剩下的问题是新节点是会被添加到链表的开头，还是添加到中间某个位置。同样，<code>previous is None</code>（第 11 行）可以用来提供答案。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 10</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">add</span>(<span style="color: #008000">self</span>, item):
-<span style="color: #bbbbbb">    </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Add a new node&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">    </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;添加一个新节点&quot;&quot;&quot;</span>
     current <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>head
     previous <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
     temp <span style="color: #666666">=</span> Node(item)
@@ -4083,8 +4083,8 @@
         temp<span style="color: #666666">.</span>next <span style="color: #666666">=</span> current
         previous<span style="color: #666666">.</span>next <span style="color: #666666">=</span> temp
 </code></pre></div>
-<p>The <code>OrderedList</code> class with methods discussed thus far can be found in ActiveCode 1. We leave the remaining methods as exercises. You should carefully consider whether the unordered implementations will work given that the list is now ordered.</p>
-<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 3.23.1 OrderedList Class Thus Far</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<p>到目前为止讨论的 <code>OrderedList</code> 类可以在 ActiveCode 1 中找到。我们将剩余的方法留作练习。你应该仔细考虑无序列表的实现是否适用于有序列表。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 3.23.1 OrderedList 类</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
@@ -4176,44 +4176,44 @@
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">90</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">91</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">92</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Node</span>:
-<span style="color: #bbbbbb">    </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;A node of a linked list&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">    </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;链表的节点&quot;&quot;&quot;</span>
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>, node_data):
         <span style="color: #008000">self</span><span style="color: #666666">.</span>_data <span style="color: #666666">=</span> node_data
         <span style="color: #008000">self</span><span style="color: #666666">.</span>_next <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_data</span>(<span style="color: #008000">self</span>):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Get node data&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;获取节点数据&quot;&quot;&quot;</span>
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_data
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">set_data</span>(<span style="color: #008000">self</span>, node_data):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Set node data&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;设置节点数据&quot;&quot;&quot;</span>
         <span style="color: #008000">self</span><span style="color: #666666">.</span>_data <span style="color: #666666">=</span> node_data
 
     data <span style="color: #666666">=</span> <span style="color: #008000">property</span>(get_data, set_data)
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_next</span>(<span style="color: #008000">self</span>):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Get next node&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;获取下一个节点&quot;&quot;&quot;</span>
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_next
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">set_next</span>(<span style="color: #008000">self</span>, node_next):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Set next node&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;设置下一个节点&quot;&quot;&quot;</span>
         <span style="color: #008000">self</span><span style="color: #666666">.</span>_next <span style="color: #666666">=</span> node_next
 
     <span style="color: #008000">next</span> <span style="color: #666666">=</span> <span style="color: #008000">property</span>(get_next, set_next)
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__str__</span>(<span style="color: #008000">self</span>):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;String&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;字符串表示&quot;&quot;&quot;</span>
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">str</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_data)
 
 
 <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">OrderedList</span>:
-<span style="color: #bbbbbb">    </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Ordered linked list implementation&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">    </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;有序链表的实现&quot;&quot;&quot;</span>
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>):
         <span style="color: #008000">self</span><span style="color: #666666">.</span>head <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">search</span>(<span style="color: #008000">self</span>, item):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Search for a node with a specific value&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;搜索具有特定值的节点&quot;&quot;&quot;</span>
         current <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>head
         <span style="color: #008000; font-weight: bold">while</span> current <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #AA22FF; font-weight: bold">not</span> <span style="color: #008000; font-weight: bold">None</span>:
             <span style="color: #008000; font-weight: bold">if</span> current<span style="color: #666666">.</span>data <span style="color: #666666">==</span> item:
@@ -4225,7 +4225,7 @@
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">False</span>
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">add</span>(<span style="color: #008000">self</span>, item):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Add a new node&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;添加一个新节点&quot;&quot;&quot;</span>
         current <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>head
         previous <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
         temp <span style="color: #666666">=</span> Node(item)
@@ -4242,11 +4242,11 @@
             previous<span style="color: #666666">.</span>next <span style="color: #666666">=</span> temp
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">is_empty</span>(<span style="color: #008000">self</span>):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Is the list empty&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;列表是否为空&quot;&quot;&quot;</span>
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>head <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">None</span>
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">size</span>(<span style="color: #008000">self</span>):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Size of the list&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;列表的大小&quot;&quot;&quot;</span>
         current <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>head
         count <span style="color: #666666">=</span> <span style="color: #666666">0</span>
         <span style="color: #008000; font-weight: bold">while</span> current <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #AA22FF; font-weight: bold">not</span> <span style="color: #008000; font-weight: bold">None</span>:
@@ -4517,8 +4517,8 @@ my_list<span style="color: #666666">.</span>add(<span style="color: #666666">54<
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">中文</label><label for="__tabbed_2_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>To analyze the complexity of the linked list operations, we need to consider whether they require traversal. Consider a linked list that has <span class="arithmatex">\(n\)</span> nodes. The <code>is_empty</code> method is <span class="arithmatex">\(O(1)\)</span> since it requires one step to check the head reference for <code>None</code>. <code>size</code>, on the other hand, will always require <span class="arithmatex">\(n\)</span> steps since there is no way to know how many nodes are in the linked list without traversing from head to end. Therefore, <code>size</code> is <span class="arithmatex">\(O(n)\)</span>. Adding an item to an unordered list will always be <span class="arithmatex">\(O(1)\)</span> since we simply place the new node at the head of the linked list. However, <code>search</code> and <code>remove</code>, as well as <code>add</code> for an ordered list, all require the traversal process. Although on average they may need to traverse only half of the nodes, these methods are all <span class="arithmatex">\(O(n)\)</span> since in the worst case each will process every node in the list.</p>
-<p>You may also have noticed that the performance of this implementation differs from the actual performance given earlier for Python lists. This suggests that linked lists are not the way Python lists are implemented. The actual implementation of a Python list is based on the notion of an array. We discuss this in more detail in the last chapter.</p>
+<p>为了分析链表操作的复杂性，我们需要考虑这些操作是否需要遍历。考虑一个有 <span class="arithmatex">\(n\)</span> 个节点的链表。<code>is_empty</code> 方法的复杂度是 <span class="arithmatex">\(O(1)\)</span>，因为只需要一步检查头引用是否为 <code>None</code>。另一方面，<code>size</code> 方法总是需要 <span class="arithmatex">\(n\)</span> 步，因为没有办法知道链表中有多少个节点而不从头到尾遍历。因此，<code>size</code> 的复杂度是 <span class="arithmatex">\(O(n)\)</span>。向无序链表添加一个项目的复杂度始终是 <span class="arithmatex">\(O(1)\)</span>，因为我们只需将新节点放置在链表的头部。然而，<code>search</code> 和 <code>remove</code> 以及有序链表中的 <code>add</code> 都需要遍历过程。尽管平均情况下它们可能只需遍历链表的一半节点，这些方法的复杂度都是 <span class="arithmatex">\(O(n)\)</span>，因为在最坏的情况下，每个方法都可能处理链表中的每个节点。</p>
+<p>你可能还注意到，这种实现的性能与之前提到的 Python 列表的实际性能不同。这表明链表并不是 Python 列表的实现方式。Python 列表的实际实现基于数组的概念。我们将在最后一章中详细讨论这一点。</p>
 </div>
 <div class="tabbed-block">
 <p>To analyze the complexity of the linked list operations, we need to consider whether they require traversal. Consider a linked list that has <span class="arithmatex">\(n\)</span> nodes. The <code>is_empty</code> method is <span class="arithmatex">\(O(1)\)</span> since it requires one step to check the head reference for <code>None</code>. <code>size</code>, on the other hand, will always require <span class="arithmatex">\(n\)</span> steps since there is no way to know how many nodes are in the linked list without traversing from head to end. Therefore, <code>size</code> is <span class="arithmatex">\(O(n)\)</span>. Adding an item to an unordered list will always be <span class="arithmatex">\(O(1)\)</span> since we simply place the new node at the head of the linked list. However, <code>search</code> and <code>remove</code>, as well as <code>add</code> for an ordered list, all require the traversal process. Although on average they may need to traverse only half of the nodes, these methods are all <span class="arithmatex">\(O(n)\)</span> since in the worst case each will process every node in the list.</p>
@@ -4532,7 +4532,7 @@ my_list<span style="color: #666666">.</span>add(<span style="color: #666666">54<
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月10日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月12日</span>
       
         <br>
         创建日期:

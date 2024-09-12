@@ -3977,35 +3977,35 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>We will now consider a type of list known as an <em>ordered list</em>. For example, if the list of integers shown above were an ordered list (ascending order), then it could be written as 17, 26, 31, 54, 77, and 1.  Since 17 is the smallest item, it occupies the first position in the list. Likewise, since 93 is the largest, it occupies the last position.</p>
-<p>The structure of an ordered list is a collection of items where each item holds a relative position that is based upon some underlying characteristic of the item. The ordering is typically either ascending or descending and we assume that list items have a meaningful comparison operation that is already defined. Many of the ordered list operations are the same as those of the unordered list.</p>
+<p>我们现在将考虑一种称为 <em>有序列表</em> 的列表类型。例如，如果上面的整数列表是一个有序列表（升序排列），那么它可以写成 17, 26, 31, 54, 77 和 93。由于 17 是最小的项，它占据了列表中的第一个位置。同样，由于 93 是最大的，它占据了最后一个位置。</p>
+<p>有序列表的结构是一组项，其中每项都根据某些基本特征具有相对的位置。排序通常是升序或降序，我们假设列表项具有已经定义的有意义的比较操作。许多有序列表操作与无序列表的操作相同。</p>
 <ul>
 <li>
-<p><code>OrderedList()</code> creates a new ordered list that is empty. It needs no parameters and returns an empty list.</p>
+<p><code>OrderedList()</code> 创建一个新的空有序列表。它不需要参数，并返回一个空列表。</p>
 </li>
 <li>
-<p><code>add(item)</code> adds a new item to the list making sure that the order is preserved. It needs the item and returns nothing. Assume the item is not already in the list.</p>
+<p><code>add(item)</code> 将一个新项添加到列表中，确保顺序得以保持。它需要项，并不返回任何内容。假设项不在列表中。</p>
 </li>
 <li>
-<p><code>remove(item)</code> removes the item from the list. It needs the item and modifies the list. It will raise an error if the item is not present in the list.</p>
+<p><code>remove(item)</code> 从列表中删除该项。它需要项并修改列表。如果该项不在列表中，它会引发错误。</p>
 </li>
 <li>
-<p><code>search(item)</code> searches for the item in the list. It needs the item and returns a Boolean value.</p>
+<p><code>search(item)</code> 在列表中搜索该项。它需要项，并返回一个布尔值。</p>
 </li>
 <li>
-<p><code>is_empty()</code> tests to see whether the list is empty. It needs no parameters and returns a Boolean value.</p>
+<p><code>is_empty()</code> 测试列表是否为空。它不需要参数，并返回一个布尔值。</p>
 </li>
 <li>
-<p><code>size()</code> returns the number of items in the list. It needs no parameters and returns an integer.</p>
+<p><code>size()</code> 返回列表中的项数。它不需要参数，并返回一个整数。</p>
 </li>
 <li>
-<p><code>index(item)</code> returns the position of an item in the list. It needs the item and returns the index. Assume the item is in the list.</p>
+<p><code>index(item)</code> 返回项在列表中的位置。它需要项，并返回索引。假设该项在列表中。</p>
 </li>
 <li>
-<p><code>pop()</code> removes and returns the last item in the list. It needs nothing and returns an item. Assume the list has at least one item.</p>
+<p><code>pop()</code> 删除并返回列表中的最后一项。它不需要任何参数，并返回一个项。假设列表中至少有一项。</p>
 </li>
 <li>
-<p><code>pop(pos)</code> removes and returns the item at position <code>pos</code>. It needs the position and returns the item. Assume the item is in the list.</p>
+<p><code>pop(pos)</code> 删除并返回位置 <code>pos</code> 处的项。它需要位置，并返回该项。假设该项在列表中。</p>
 </li>
 </ul>
 </div>
@@ -4050,7 +4050,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月10日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月12日</span>
       
         <br>
         创建日期:

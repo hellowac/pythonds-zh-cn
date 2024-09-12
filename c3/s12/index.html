@@ -3978,6 +3978,100 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
+<p>为抽象数据类型队列实现创建一个新的类是合适的。如之前所述，我们将利用列表集合的强大和简单来构建队列的内部表示。</p>
+<p>我们需要决定列表的哪一端作为尾部，哪一端作为前端。在 <code>Listing 1</code> 中的实现假设尾部在列表的第 0 个位置。这允许我们使用列表的 <code>insert</code> 函数将新元素添加到队列的尾部。<code>pop</code> 操作可以用来移除前端元素（即列表的最后一个元素）。请记住，这也意味着 <code>enqueue</code> 的时间复杂度是 <span class="arithmatex">\(O(n)\)</span>，而 <code>dequeue</code> 的时间复杂度是 <span class="arithmatex">\(O(1)\)</span>。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 1</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Queue</span>:
+<span style="color: #bbbbbb">    </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;使用列表实现的队列&quot;&quot;&quot;</span>
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>):
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;创建新的队列&quot;&quot;&quot;</span>
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_items <span style="color: #666666">=</span> []
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">is_empty</span>(<span style="color: #008000">self</span>):
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;检查队列是否为空&quot;&quot;&quot;</span>
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #AA22FF; font-weight: bold">not</span> <span style="color: #008000">bool</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_items)
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">enqueue</span>(<span style="color: #008000">self</span>, item):
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;将一个项添加到队列中&quot;&quot;&quot;</span>
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_items<span style="color: #666666">.</span>insert(<span style="color: #666666">0</span>, item)
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">dequeue</span>(<span style="color: #008000">self</span>):
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;从队列中移除一个项&quot;&quot;&quot;</span>
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_items<span style="color: #666666">.</span>pop()
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">size</span>(<span style="color: #008000">self</span>):
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;获取队列中项的数量&quot;&quot;&quot;</span>
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_items)
+</code></pre></div>
+<p><code>CodeLens 1</code> 显示了 <code>Queue</code> 类的实际操作，展示了 <code>Table 1</code> 中操作序列的效果。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Activity: CodeLens Example Queue Operations (ququeuetest)</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Queue</span>:
+<span style="color: #bbbbbb">    </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;使用列表实现的队列&quot;&quot;&quot;</span>
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>):
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;创建新的队列&quot;&quot;&quot;</span>
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_items <span style="color: #666666">=</span> []
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">is_empty</span>(<span style="color: #008000">self</span>):
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;检查队列是否为空&quot;&quot;&quot;</span>
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #AA22FF; font-weight: bold">not</span> <span style="color: #008000">bool</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_items)
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">enqueue</span>(<span style="color: #008000">self</span>, item):
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;将一个项添加到队列中&quot;&quot;&quot;</span>
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_items<span style="color: #666666">.</span>insert(<span style="color: #666666">0</span>, item)
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">dequeue</span>(<span style="color: #008000">self</span>):
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;从队列中移除一个项&quot;&quot;&quot;</span>
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_items<span style="color: #666666">.</span>pop()
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">size</span>(<span style="color: #008000">self</span>):
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;获取队列中项的数量&quot;&quot;&quot;</span>
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_items)
+
+q <span style="color: #666666">=</span> Queue()
+q<span style="color: #666666">.</span>enqueue(<span style="color: #666666">4</span>)
+q<span style="color: #666666">.</span>enqueue(<span style="color: #BA2121">&quot;dog&quot;</span>)
+q<span style="color: #666666">.</span>enqueue(<span style="color: #008000; font-weight: bold">True</span>)
+<span style="color: #008000">print</span>(q<span style="color: #666666">.</span>size())
+</code></pre></div>
+<p>进一步操作该队列将得到以下结果：</p>
+<div class="language-pycon highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>q<span style="color: #666666">.</span>size()
+<span style="color: #717171">3</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>q<span style="color: #666666">.</span>is_empty()
+<span style="color: #717171">False</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>q<span style="color: #666666">.</span>enqueue(<span style="color: #666666">8.4</span>)
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>q<span style="color: #666666">.</span>dequeue()
+<span style="color: #717171">4</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>q<span style="color: #666666">.</span>dequeue()
+<span style="color: #717171">&#39;dog&#39;</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>q<span style="color: #666666">.</span>size()
+<span style="color: #717171">2</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">自检</p>
+<p>假设你有以下一系列队列操作。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>q <span style="color: #666666">=</span> Queue()
+q<span style="color: #666666">.</span>enqueue(<span style="color: #BA2121">&quot;hello&quot;</span>)
+q<span style="color: #666666">.</span>enqueue(<span style="color: #BA2121">&quot;dog&quot;</span>)
+q<span style="color: #666666">.</span>enqueue(<span style="color: #666666">3</span>)
+q<span style="color: #666666">.</span>dequeue()
+</code></pre></div>
+<p>队列中剩下哪些项？</p>
+<ul>
+<li>答案 a: 'hello', 'dog'</li>
+<li>答案 b: 'dog', 3</li>
+<li>答案 c: 'hello', 3</li>
+<li>答案 d: 'hello', 'dog', 3</li>
+</ul>
+<p>正确答案: b</p>
+<ul>
+<li>反馈 a: 记住，队列中第一个添加的项是第一个移除的。先进先出（FIFO）。</li>
+<li>反馈 b: 是的，先进先出意味着 "hello" 已经被移除。</li>
+<li>反馈 c: 队列和栈都是只能访问第一个和最后一个项的数据结构。</li>
+<li>反馈 d: 哦，可能你错过了最后的 <code>dequeue</code> 调用？</li>
+</ul>
+</div>
+</div>
+<div class="tabbed-block">
 <p>It is again appropriate to create a new class for the implementation of the abstract data type queue. As before, we will use the power and simplicity of the list collection to build the internal representation of the queue.</p>
 <p>We need to decide which end of the list to use as the rear and which to use as the front. The implementation shown in <code>Listing 1</code> assumes that the rear is at position 0 in the list. This allows us to use the <code>insert</code> function on lists to add new elements to the rear of the queue. The <code>pop</code> operation can be used to remove the front element (the last element of the list). Recall that this also means that <code>enqueue</code> will be <span class="arithmatex">\(O(n)\)</span> and <code>dequeue</code> will be <span class="arithmatex">\(O(1)\)</span>. </p>
 <div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 1</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Queue</span>:
@@ -4071,7 +4165,6 @@ q<span style="color: #666666">.</span>dequeue()
 </ul>
 </div>
 </div>
-<div class="tabbed-block"></div>
 </div>
 </div>
 
@@ -4080,7 +4173,7 @@ q<span style="color: #666666">.</span>dequeue()
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月10日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月12日</span>
       
         <br>
         创建日期:

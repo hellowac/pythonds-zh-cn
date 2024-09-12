@@ -3979,7 +3979,7 @@
 <div class="tabbed-block">
 <ol>
 <li>
-<p>Convert the following values to binary using the Divide by 2 algorithm. Show the stack of remainders.</p>
+<p>使用除以 2 算法将以下值转换为二进制。显示余数的堆栈。</p>
 <ul>
 <li>17</li>
 <li>45</li>
@@ -3987,10 +3987,10 @@
 </ul>
 </li>
 <li>
-<p>Convert the following infix expressions to prefix (use full parentheses):</p>
+<p>将以下中缀表达式转换为前缀（使用完整的括号）：</p>
 <ul>
 <li>
-<p>(A + B) · ( C + D) · (E + F)</p>
+<p>(A + B) · (C + D) · (E + F)</p>
 </li>
 <li>
 <p>A + ((B + C) · (D + E))</p>
@@ -4001,11 +4001,13 @@
 </ul>
 </li>
 <li>
-<p>Convert the above infix expressions to postfix (use full parentheses).</p>
+<p>将上述中缀表达式转换为后缀（使用完整的括号）。</p>
 </li>
-<li>Convert the above infix expressions to postfix using the direct conversion algorithm. Show the stack as the conversion takes place.</li>
 <li>
-<p>Evaluate the following postfix expressions. Show the stack as each operand and operator is processed.</p>
+<p>使用直接转换算法将上述中缀表达式转换为后缀。显示转换过程中堆栈的状态。</p>
+</li>
+<li>
+<p>评估以下后缀表达式。显示每个操作数和操作符处理时的堆栈状态。</p>
 <ul>
 <li>
 <p>2 3 · 4 +</p>
@@ -4019,41 +4021,61 @@
 </ul>
 </li>
 <li>
-<p>The alternative implementation of the queue ADT is to use a list such that the rear of the queue is at the end of the list. What would this mean for Big-O performance?</p>
+<p>使用列表实现队列 ADT 的另一种方法是将队列的尾部放在列表的末尾。这对 Big-O 性能意味着什么？</p>
 </li>
-<li>What is the result of carrying out both steps of the linked list <code>add</code> method in reverse order? What kind of reference results? What types of problems may result?</li>
-<li>Explain how the linked list <code>remove</code> method works when the item to be removed is in the last node.</li>
-<li>Explain how the <code>remove</code> method works when the item is in the only node in the linked list.</li>
-<li>Modify the infix-to-postfix algorithm so that it can handle errors.</li>
-<li>Modify the postfix evaluation algorithm so that it can handle errors.</li>
-<li>Implement a direct infix evaluator that combines the functionality of infix-to-postfix conversion and the postfix evaluation algorithm. Your evaluator should process infix tokens from left to right and use two stacks, one for operators and one for operands, to perform the evaluation.</li>
-<li>Turn your direct infix evaluator from the previous problem into a calculator.</li>
-<li>Implement the queue ADT, using a list such that the rear of the queue is at the end of the list.</li>
-<li>Design and implement an experiment to do benchmark comparisons of the two queue implementations. What can you learn from such an experiment?</li>
-<li>Modify the hot potato simulation to allow for a randomly chosen counting value so that each pass is not predictable from the previous one.</li>
 <li>
-<p>Consider a real life situation. Formulate a question and then design a simulation that can help to answer it. Possible situations include:</p>
+<p>如果反向执行链表 <code>add</code> 方法的两个步骤，会产生什么结果？结果是什么类型的引用？可能会出现哪些问题？</p>
+</li>
+<li>
+<p>解释当要删除的项在链表的最后一个节点时，链表 <code>remove</code> 方法是如何工作的。</p>
+</li>
+<li>
+<p>解释当项在链表中唯一的节点时，<code>remove</code> 方法是如何工作的。</p>
+</li>
+<li>
+<p>修改中缀到后缀的算法，使其能够处理错误。</p>
+</li>
+<li>
+<p>修改后缀评估算法，使其能够处理错误。</p>
+</li>
+<li>
+<p>实现一个直接的中缀表达式评估器，结合中缀到后缀转换和后缀评估算法的功能。你的评估器应该从左到右处理中缀标记，并使用两个堆栈，一个用于操作符，一个用于操作数，来执行评估。</p>
+</li>
+<li>
+<p>将前一个问题中的直接中缀表达式评估器转换为计算器。</p>
+</li>
+<li>
+<p>实现队列 ADT，使用列表将队列的尾部放在列表的末尾。</p>
+</li>
+<li>
+<p>设计并实现一个实验，以对比两个队列实现的性能。你能从这样的实验中学到什么？</p>
+</li>
+<li>
+<p>修改热土豆模拟程序，允许随机选择计数值，使每次传递不再从前一次预测。</p>
+</li>
+<li>
+<p>考虑一个现实生活中的情况。提出一个问题，然后设计一个可以帮助回答它的模拟。可能的情况包括：</p>
 <ul>
 <li>
-<p>Cars lined up at a car wash</p>
+<p>排队洗车的汽车</p>
 </li>
 <li>
-<p>Customers at a grocery store check-out</p>
+<p>超市结账的顾客</p>
 </li>
 <li>
-<p>Airplanes taking off and landing on a runway</p>
+<p>在跑道上起飞和降落的飞机</p>
 </li>
 <li>
-<p>A bank teller</p>
+<p>银行出纳员</p>
 </li>
 </ul>
-<p>Be sure to state any assumptions that you make and provide any probabilistic data that must be considered as part of the scenario.</p>
+<p>确保说明你做出的任何假设，并提供必须考虑的任何概率数据。</p>
 </li>
 <li>
-<p>Implement a radix sorting machine. A radix sort for base 10 integers is a mechanical sorting technique that utilizes a collection of bins, one main bin and 10 digit bins. Each bin acts like a queue and maintains its values in the order that they arrive. The algorithm begins by placing each number in the main bin. Then it considers each value digit by digit. The first value is removed and placed in a digit bin corresponding to the digit being considered. For example, if the ones digit is being considered, 534 is placed in digit bin 4 and 667 is placed in digit bin 7. Once all the values are placed in the corresponding digit bins, the values are collected from bin 0 to bin 9 and placed back in the main bin. The process continues with the tens digit, the hundreds, and so on. After the last digit is processed, the main bin contains the values in order.</p>
+<p>实现一个基数排序机器。基数排序对于十进制整数是一种机械排序技术，使用一个主箱和 10 个数字箱。每个箱子像一个队列一样维护其值的到达顺序。算法从将每个数字放入主箱开始。然后按位考虑每个值。如果考虑的是个位数字，534 被放入数字箱 4 中，667 被放入数字箱 7 中。一旦所有值都放入了对应的数字箱中，从箱子 0 到箱子 9 收集值，并将它们放回主箱。该过程继续进行到十位数字、百位数字等。处理完最后一个数字后，主箱中的值将按顺序排列。</p>
 </li>
 <li>
-<p>Another example of the parentheses matching problem comes from Hypertext Markup Language (HTML). In HTML, tags exist in both opening and closing forms and must be balanced to properly describe a web document. This very simple HTML document:</p>
+<p>HTML 标签的匹配问题是另一个例子。在 HTML 中，标签有开标签和闭标签两种形式，必须平衡以正确描述网页文档。这个非常简单的 HTML 文档：</p>
 <div class="language-html highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>&lt;<span style="color: #008000; font-weight: bold">html</span>&gt;
     &lt;<span style="color: #008000; font-weight: bold">head</span>&gt;
         &lt;<span style="color: #008000; font-weight: bold">title</span>&gt;
@@ -4066,27 +4088,59 @@
     &lt;/<span style="color: #008000; font-weight: bold">body</span>&gt;
 &lt;/<span style="color: #008000; font-weight: bold">html</span>&gt;
 </code></pre></div>
-<p>is intended only to show the matching and nesting structure for tags in the language. Write a program that can check an HTML document for proper opening and closing tags.</p>
+<p>旨在展示 HTML 语言中标签的匹配和嵌套结构。编写一个程序，检查 HTML 文档中的开闭标签是否正确。</p>
 </li>
 <li>
-<p>Extend the program from Listing 3.15 to handle palindromes with spaces. For example, I PREFER PI is a palindrome that reads the same forward and backward if you ignore the blank characters.</p>
+<p>扩展 Listing 3.15 中的程序，以处理带空格的回文。例如，I PREFER PI 是一个回文，如果忽略空白字符，它正向和反向读法相同。</p>
 </li>
-<li>To implement the <code>size</code> method, we counted the number of nodes in the list. An alternative strategy would be to store the number of nodes in the list as an additional piece of data in the head of the list. Modify the <code>UnorderedList</code> class to include this information and rewrite the <code>size</code> method.</li>
-<li>Implement the <code>remove</code> method so that it works correctly in the case where the item is not in the list.</li>
-<li>Modify the list classes to allow duplicates. Which methods will be impacted by this change?</li>
-<li>Implement the <code>__str__</code> method in the <code>UnorderedList</code> class. What would be a good string representation for a list?</li>
-<li>Implement the <code>__str__</code> method so that lists are displayed the Python way (with square brackets).</li>
-<li>Implement the remaining operations defined in the unordered list ADT (<code>append</code>, <code>index</code>, <code>pop</code>, <code>insert</code>).</li>
-<li>Implement a <code>slice</code> method for the <code>UnorderedList</code> class. It should take two parameters, <code>start</code> and <code>stop</code>, and return a copy of the list starting at the <code>start</code> position and going up to but not including the <code>stop</code> position.</li>
-<li>Implement the remaining operations defined in the ordered list ADT.</li>
-<li>Consider the relationship between unordered and ordered lists. Is it possible that inheritance could be used to build a more efficient implementation? Implement this inheritance hierarchy.</li>
-<li>Implement a stack using linked lists.</li>
-<li>Implement a queue using linked lists.</li>
-<li>Implement a deque using linked lists.</li>
-<li>Design and implement an experiment that will compare the performance of a Python list with a list implemented as a linked list.</li>
-<li>Design and implement an experiment that will compare the performance of the Python list-based stack and queue with the linked list implementation.</li>
-<li>The linked list implementation given above is called a <em>singly linked list</em> because each node has a single reference to the next node in the sequence. An alternative implementation is known as a <em>doubly linked list</em>. In this implementation, each node has a reference to the next node (commonly called <em>next</em>) as well as a reference to the preceding node (commonly called <em>back</em>). The head reference also contains two references, one to the first node in the linked list and one to the last. Code this implementation in Python.</li>
-<li>Create an implementation of a queue that would have an average performance of <span class="arithmatex">\(O(1)\)</span> for <code>enqueue</code> and <code>dequeue</code> operations.</li>
+<li>
+<p>实现 <code>size</code> 方法时，我们计算了列表中的节点数量。另一种策略是在列表头部存储节点数量作为附加数据。修改 <code>UnorderedList</code> 类以包括这些信息，并重写 <code>size</code> 方法。</p>
+</li>
+<li>
+<p>实现 <code>remove</code> 方法，使其在项不在列表中时也能正确工作。</p>
+</li>
+<li>
+<p>修改列表类以允许重复项。这种变化将影响哪些方法？</p>
+</li>
+<li>
+<p>在 <code>UnorderedList</code> 类中实现 <code>__str__</code> 方法。什么是列表的良好字符串表示？</p>
+</li>
+<li>
+<p>实现 <code>__str__</code> 方法，使列表以 Python 的方式显示（使用方括号）。</p>
+</li>
+<li>
+<p>实现未排序列表 ADT 中定义的剩余操作（<code>append</code>、<code>index</code>、<code>pop</code>、<code>insert</code>）。</p>
+</li>
+<li>
+<p>为 <code>UnorderedList</code> 类实现 <code>slice</code> 方法。它应接受两个参数 <code>start</code> 和 <code>stop</code>，并返回从 <code>start</code> 位置开始到但不包括 <code>stop</code> 位置的列表副本。</p>
+</li>
+<li>
+<p>实现有序列表 ADT 中定义的剩余操作。</p>
+</li>
+<li>
+<p>考虑无序列表和有序列表之间的关系。是否可以使用继承来构建更高效的实现？实现这个继承层次结构。</p>
+</li>
+<li>
+<p>使用链表实现栈。</p>
+</li>
+<li>
+<p>使用链表实现队列。</p>
+</li>
+<li>
+<p>使用链表实现双端队列（Deque）。</p>
+</li>
+<li>
+<p>设计并实现一个实验，以比较 Python 列表与作为链表实现的列表的性能。</p>
+</li>
+<li>
+<p>设计并实现一个实验，以比较基于 Python 列表的栈和队列与链表实现的性能。</p>
+</li>
+<li>
+<p>上述链表实现称为 <em>单向链表</em>，因为每个节点只有一个对序列中下一个节点的引用。另一种实现被称为 <em>双向链表</em>。在这种实现中，每个节点有对下一个节点的引用（通常称为 <em>next</em>）以及对前一个节点的引用（通常称为 <em>back</em>）。头引用还包含两个引用，一个指向链表中的第一个节点，一个指向最后一个节点。用 Python 编写这种实现。</p>
+</li>
+<li>
+<p>创建一个队列的实现，使 <code>enqueue</code> 和 <code>dequeue</code> 操作的平均性能为 <span class="arithmatex">\(O(1)\)</span>。</p>
+</li>
 </ol>
 </div>
 <div class="tabbed-block">
@@ -4210,7 +4264,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月10日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月12日</span>
       
         <br>
         创建日期:

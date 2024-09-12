@@ -4058,23 +4058,23 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>When you write an arithmetic expression such as B · C, the form of the expression provides you with information so that you can interpret it correctly. In this case we know that the variable B is being multiplied by the variable C since the multiplication operator · appears between them in the expression. This type of notation is referred to as <strong>infix</strong> since the operator is <em>in between</em> the two operands that it is working on.</p>
-<p>Consider another infix example, A + B · C. The operators + and · still appear between the operands, but there is a problem. Which operands do they work on? Does the + work on A and B, or does the · take B and C? The expression seems ambiguous.</p>
-<p>In fact, you have been reading and writing these types of expressions for a long time and they do not cause you any problem. The reason for this is that you know something about the operators + and ·. Each operator has a <strong>precedence</strong> level. Operators of higher precedence are used before operators of lower precedence. The only thing that can change that order is the presence of parentheses. The precedence order for arithmetic operators places multiplication and division above addition and subtraction. If two operators of equal precedence appear, then a left-to-right ordering or associativity is used.</p>
-<p>Let’s interpret the troublesome expression A + B · C using operator precedence. B and C are multiplied first, and A is then added to that result. (A + B) · C would force the addition of A and B to be done first before the multiplication. In the expression A + B + C, by precedence (via associativity), the leftmost + would be done first.</p>
-<p>Although all this may be obvious to you, remember that computers need to know exactly what operations to perform and in what order. One way to write an expression that guarantees there will be no confusion with respect to the order of operations is to create what is called a <strong>fully parenthesized</strong> expression. This type of expression uses one pair of parentheses for each operator. The parentheses dictate the order of operations; there is no ambiguity. There is also no need to remember any precedence rules.</p>
-<p>The expression A + B · C + D can be rewritten as ((A + (B · C)) + D) to show that the multiplication happens first, followed by the leftmost addition. A + B + C + D can be written as (((A + B) + C) + D) since the addition operations associate from left to right.</p>
-<p>There are two other very important expression formats that may not seem obvious to you at first. Consider the infix expression A + B. What would happen if we moved the operator before the two operands? The resulting expression would be + A B. Likewise, we could move the operator to the end, resulting in A B +. These look a bit strange.</p>
-<p>These changes to the position of the operator with respect to the operands create two new expression formats, <strong>prefix</strong> and <strong>postfix</strong>. Prefix expression notation requires that all operators precede the two operands that they work on. Postfix, on the other hand, requires that its operators come after the corresponding operands. A few more examples should help to make this a bit clearer (see <code>Table 2</code>).</p>
-<p>A + B · C would be written as + A · B C in prefix. The multiplication operator comes immediately before the operands B and C, denoting that · has precedence over +. The addition operator then appears before the A and the result of the multiplication.</p>
-<p>In postfix, the expression would be A B C · +. Again, the order of operations is preserved since the · appears immediately after the B and the C, denoting that · has precedence, with + coming after. Although the operators moved and now appear either before or after their respective operands, the order of the operands stayed exactly the same relative to one another.</p>
-<p><strong>Table 2: Examples of Infix, Prefix, and Postfix Expressions</strong></p>
+<p>当你写下一个算术表达式，如 B · C 时，表达式的形式会提供信息，以便你可以正确解释它。在这个例子中，我们知道变量 B 正在被变量 C 乘，因为乘法运算符 · 出现在它们之间。这种符号表示法称为 <strong>中缀</strong>，因为运算符 <em>在</em> 两个操作数之间。</p>
+<p>考虑另一个中缀示例 A + B · C。运算符 + 和 · 仍然出现在操作数之间，但存在一个问题。这些运算符作用于哪个操作数？+ 运算符作用于 A 和 B，还是 · 运算符作用于 B 和 C？这个表达式似乎含糊不清。</p>
+<p>实际上，你已经很长时间在阅读和编写这种类型的表达式，这些并不会对你造成困扰。原因在于你了解 + 和 · 运算符的一些规则。每个运算符都有一个 <strong>优先级</strong> 级别。优先级更高的运算符会在优先级较低的运算符之前使用。唯一可以改变这种顺序的情况是存在括号。算术运算符的优先级顺序是将乘法和除法置于加法和减法之上。如果两个运算符具有相同的优先级，则使用从左到右的顺序或结合性。</p>
+<p>我们用运算符优先级来解释有问题的表达式 A + B · C。首先进行 B 和 C 的乘法，然后将结果加上 A。 (A + B) · C 会强制先进行 A 和 B 的加法，然后进行乘法。在表达式 A + B + C 中，按照优先级（通过结合性），最左边的 + 会先进行。</p>
+<p>虽然这一切对你来说可能很明显，但要记住计算机需要确切知道要执行哪些操作以及执行的顺序。确保操作顺序没有混淆的一种方法是创建一个称为 <strong>完全括号化</strong> 的表达式。这种类型的表达式为每个运算符使用一对括号。括号决定了操作的顺序；没有歧义。也不需要记住任何优先级规则。</p>
+<p>表达式 A + B · C + D 可以重写为 ((A + (B · C)) + D) 来显示乘法先进行，然后是最左边的加法。 A + B + C + D 可以写作 (((A + B) + C) + D)，因为加法操作从左到右结合。</p>
+<p>还有两种其他非常重要的表达式格式，开始时可能对你不太明显。考虑中缀表达式 A + B。如果我们将运算符移到两个操作数之前，会发生什么？得到的表达式是 + A B。同样，我们可以将运算符移到末尾，得到 A B +。这些看起来有点奇怪。</p>
+<p>这些对运算符相对于操作数的位置的改变创建了两种新的表达式格式，<strong>前缀</strong> 和 <strong>后缀</strong>。前缀表达式表示法要求所有运算符出现在它们操作的两个操作数之前。而后缀则要求运算符出现在相应的操作数之后。更多的示例应该有助于使这一点更清晰（见 <code>Table 2</code>）。</p>
+<p>A + B · C 在前缀表达式中写作 + A · B C。乘法运算符紧接在操作数 B 和 C 之前，表示 · 优先于 +。然后加法运算符出现在 A 和乘法结果之前。</p>
+<p>在后缀表达式中，表达式为 A B C · +。同样，操作顺序被保持，因为 · 紧接在 B 和 C 之后，表示 · 优先于 +，加法运算符随后出现。虽然运算符移动了，现在出现在它们各自的操作数之前或之后，但操作数之间的顺序保持完全不变。</p>
+<p><strong>Table 2: 中缀、前缀和后缀表达式示例</strong></p>
 <table>
 <thead>
 <tr>
-<th><strong>Infix Expression</strong></th>
-<th><strong>Prefix Expression</strong></th>
-<th><strong>Postfix Expression</strong></th>
+<th><strong>中缀表达式</strong></th>
+<th><strong>前缀表达式</strong></th>
+<th><strong>后缀表达式</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -4090,15 +4090,15 @@
 </tr>
 </tbody>
 </table>
-<p>Now consider the infix expression (A + B) · C. Recall that in this case, infix requires the parentheses to force the performance of the addition before the multiplication. However, when A + B was written in prefix, the addition operator was simply moved before the operands, + A B. The result of this operation becomes the first operand for the multiplication. The multiplication operator is moved in front of the entire expression, giving us · + A B C. Likewise, in postfix A B + forces the addition to happen first. The multiplication can be done to that result and the remaining operand C. The proper postfix expression is then A B + C ·.</p>
-<p>Consider these three expressions again (see <code>Table 3</code>). Something very important has happened. Where did the parentheses go? Why don’t we need them in prefix and postfix? The answer is that the operators are no longer ambiguous with respect to the operands that they work on. Only infix notation requires the additional symbols. The order of operations within prefix and postfix expressions is completely determined by the position of the operator and nothing else. In many ways, this makes infix the least desirable notation to use.</p>
-<p><strong>Table 3: Comparison of Infix, Prefix, and Postfix Expressions</strong></p>
+<p>现在考虑中缀表达式 (A + B) · C。回想一下，在这种情况下，中缀表示法要求括号强制先进行加法，然后再进行乘法。然而，当 A + B 写成前缀时，加法运算符被简单地移到操作数之前，+ A B。这个操作的结果成为乘法的第一个操作数。乘法运算符移到整个表达式之前，得到 · + A B C。同样，在后缀表达式中 A B + 强制先进行加法，然后对结果和剩余的操作数 C 进行乘法。正确的后缀表达式是 A B + C ·。</p>
+<p>再次考虑这三种表达式（见 <code>Table 3</code>）。发生了一个非常重要的事情。括号去了哪里？为什么在前缀和后缀表示法中我们不需要它们？答案是运算符对于它们操作的操作数不再模糊。只有中缀表示法需要额外的符号。前缀和后缀表达式中的操作顺序完全由运算符的位置决定，别无其他。在很多方面，这使得中缀表示法成为最不理想的表示法。</p>
+<p><strong>Table 3: 中缀、前缀和后缀表达式的比较</strong></p>
 <table>
 <thead>
 <tr>
-<th><strong>Infix Expression</strong></th>
-<th><strong>Prefix Expression</strong></th>
-<th><strong>Postfix Expression</strong></th>
+<th><strong>中缀表达式</strong></th>
+<th><strong>前缀表达式</strong></th>
+<th><strong>后缀表达式</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -4109,14 +4109,14 @@
 </tr>
 </tbody>
 </table>
-<p><code>Table 4</code> shows some additional examples of infix expressions and the equivalent prefix and postfix expressions. Be sure that you understand how they are equivalent in terms of the order of the operations being performed.</p>
-<p><strong>Table 4: Additional Examples of Infix, Prefix, and Postfix Expressions</strong></p>
+<p><code>Table 4</code> 展示了一些额外的中缀表达式及其等效的前缀和后缀表达式。确保你理解它们在操作顺序上的等价性。</p>
+<p><strong>Table 4: 额外的中缀、前缀和后缀表达式示例</strong></p>
 <table>
 <thead>
 <tr>
-<th><strong>Infix Expression</strong></th>
-<th><strong>Prefix Expression</strong></th>
-<th><strong>Postfix Expression</strong></th>
+<th><strong>中缀表达式</strong></th>
+<th><strong>前缀表达式</strong></th>
+<th><strong>后缀表达式</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -4776,7 +4776,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月10日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月12日</span>
       
         <br>
         创建日期:

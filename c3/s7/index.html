@@ -3978,24 +3978,24 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>The balanced parentheses problem shown above is a specific case of a more general situation that arises in many programming languages. The general problem of balancing and nesting different kinds of opening and closing symbols occurs frequently. For example, in Python square brackets, <code>[</code> and <code>]</code>, are used for lists; curly braces, <code>{</code> and <code>}</code>, are used for sets and dictionaries; and parentheses, <code>(</code> and <code>)</code>, are used for tuples and arithmetic expressions. It is possible to mix symbols as long as each maintains its own open and close relationship. Strings of symbols such as</p>
+<p>上面讨论的平衡括号问题是许多编程语言中出现的更一般情况的特例。平衡和嵌套不同类型的开闭符号的普遍问题在编程中经常出现。例如，在 Python 中，方括号 <code>[</code> 和 <code>]</code> 用于列表；大括号 <code>{</code> 和 <code>}</code> 用于集合和字典；而圆括号 <code>(</code> 和 <code>)</code> 用于元组和算术表达式。只要每种符号保持其自身的开闭关系，就可以混合使用这些符号。像以下这样的符号串：</p>
 <div class="language-text highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{ { ( [ ] [ ] ) } ( ) }
 
 [ [ { { ( ( ) ) } } ] ]
 
 [ ] [ ] [ ] ( ) { }
 </code></pre></div>
-<p>are properly balanced in that not only does each opening symbol have a corresponding closing symbol, but the types of symbols match as well.</p>
-<p>Compare those with the following strings that are not balanced:</p>
+<p>是正确平衡的，因为每个开符号都有一个对应的闭符号，并且符号类型也匹配。</p>
+<p>将这些与以下不平衡的符号串进行比较：</p>
 <div class="language-text highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>( [ ) ]
 
 ( ( ( ) ] ) )
 
 [ { ( ) ]
 </code></pre></div>
-<p>The simple parentheses checker from the previous section can easily be extended to handle these new types of symbols. Recall that each opening symbol is simply pushed on the stack to wait for the matching closing symbol to appear later in the sequence. When a closing symbol does appear, the only difference is that we must check to be sure that it correctly matches the type of the opening symbol on top of the stack. If the two symbols do not match, the string is not balanced. Once again, if the entire string is processed and nothing is left on the stack, the string is correctly balanced.</p>
-<p>The Python program to implement this is shown in <code>ActiveCode 1</code>. The only change appears in line 13 where we call a helper function, <code>matches</code>, to assist with symbol-matching. Each symbol that is removed from the stack must be checked to see that it matches the current closing symbol. If a mismatch occurs, the balance checker returns <code>False</code> immediately.</p>
-<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 3.7.1 Solving the General Balanced Symbol Problem</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<p>前一节中简单的括号检查器可以很容易地扩展以处理这些新的符号类型。回顾一下，每个开符号都简单地推入栈中，以等待后续出现的匹配闭符号。当闭符号出现时，唯一的区别是我们必须检查它是否正确匹配栈顶的开符号。如果两个符号不匹配，则字符串不平衡。再次强调，如果处理完整个字符串后栈中没有剩余符号，则字符串是正确平衡的。</p>
+<p>实现这个功能的 Python 程序如下所示（<code>ActiveCode 1</code>）。唯一的变化出现在第 13 行，我们调用了一个辅助函数 <code>matches</code> 来帮助符号匹配。每个从栈中移除的符号必须检查是否与当前的闭符号匹配。如果发生不匹配，平衡检查器将立即返回 <code>False</code>。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 3.7.1 解决一般的符号平衡问题</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
@@ -4045,7 +4045,7 @@
 <span style="color: #008000">print</span>(balance_checker(<span style="color: #BA2121">&#39;{({([][])}())}&#39;</span>))
 <span style="color: #008000">print</span>(balance_checker(<span style="color: #BA2121">&#39;[{()]&#39;</span>))
 </code></pre></div></td></tr></table></div>
-<p>These two examples show that stacks are very important data structures for the processing of language constructs in computer science. Almost any notation you can think of has some type of nested symbol that must be matched in a balanced order. There are a number of other important uses for stacks in computer science. We will continue to explore them in the next sections.</p>
+<p>这两个示例表明，栈是处理计算机科学中语言构造的重要数据结构。几乎所有你能想到的记法都有一些需要按平衡顺序匹配的嵌套符号。在计算机科学中，栈还有许多其他重要的用途。我们将在接下来的部分继续探讨这些用途。</p>
 </div>
 <div class="tabbed-block">
 <p>The balanced parentheses problem shown above is a specific case of a more general situation that arises in many programming languages. The general problem of balancing and nesting different kinds of opening and closing symbols occurs frequently. For example, in Python square brackets, <code>[</code> and <code>]</code>, are used for lists; curly braces, <code>{</code> and <code>}</code>, are used for sets and dictionaries; and parentheses, <code>(</code> and <code>)</code>, are used for tuples and arithmetic expressions. It is possible to mix symbols as long as each maintains its own open and close relationship. Strings of symbols such as</p>
@@ -4125,7 +4125,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月10日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月12日</span>
       
         <br>
         创建日期:

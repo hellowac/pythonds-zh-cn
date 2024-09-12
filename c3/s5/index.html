@@ -3978,11 +3978,11 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Now that we have clearly defined the stack as an abstract data type, we will turn our attention to using Python to implement the stack. Recall that when we give an abstract data type a physical implementation, we refer to the implementation as a <em>data structure</em>.</p>
-<p>As we described in Chapter 1, in Python, as in any object-oriented programming language, the implementation of choice for an abstract data type such as a stack is the creation of a new class. The stack operations are implemented as methods. Further, to implement a stack, which is a collection of elements, it makes sense to utilize the power and simplicity of the primitive collections provided by Python. We will use a list.</p>
-<p>Recall that the list class in Python provides an ordered collection mechanism and a set of methods. For example, if we have the list [2, 5, 3, 6, 7, 4], we need only to decide which end of the list will be considered the top of the stack and which will be the base. Once that decision is made, the operations can be implemented using the list methods such as <code>append</code> and <code>pop</code>.</p>
-<p>The following stack implementation (<code>ActiveCode 1</code>) assumes that the end of the list will hold the top element of the stack. As the stack grows (as <code>push</code> operations occur), new items will be added on the end of the list. <code>pop</code> operations will manipulate that same end. </p>
-<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 3.5.1 Implementing a Stack class using Python lists</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<p>现在我们已经明确了栈作为抽象数据类型的定义，我们将关注使用 Python 实现栈。回顾一下，当我们给一个抽象数据类型一个物理实现时，我们称这种实现为<em>数据结构</em>。</p>
+<p>正如我们在第一章所描述的，在 Python 中，与任何面向对象的编程语言一样，抽象数据类型如栈的实现选择是创建一个新的类。栈操作被实现为方法。此外，要实现栈（这是一个元素集合），利用 Python 提供的原始集合的力量和简单性是有意义的。我们将使用列表。</p>
+<p>回顾一下，Python 的列表类提供了一个有序的集合机制和一组方法。例如，如果我们有一个列表 [2, 5, 3, 6, 7, 4]，我们只需决定哪个端被视为栈的顶部，哪个端是底部。一旦做出这个决定，可以使用列表方法如 <code>append</code> 和 <code>pop</code> 来实现操作。</p>
+<p>以下栈实现（<code>ActiveCode 1</code>）假设列表的末端将保存栈的顶部元素。随着栈的增长（当 <code>push</code> 操作发生时），新项将被添加到列表的末端。 <code>pop</code> 操作将操作该末端。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 3.5.1 使用 Python 列表实现栈类</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
@@ -4008,36 +4008,36 @@
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Stack</span>:
-<span style="color: #bbbbbb">    </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Stack implementation as a list&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">    </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;使用列表实现栈&quot;&quot;&quot;</span>
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Create new stack&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;创建新栈&quot;&quot;&quot;</span>
         <span style="color: #008000">self</span><span style="color: #666666">.</span>_items <span style="color: #666666">=</span> []
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">is_empty</span>(<span style="color: #008000">self</span>):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Check if the stack is empty&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;检查栈是否为空&quot;&quot;&quot;</span>
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #AA22FF; font-weight: bold">not</span> <span style="color: #008000">bool</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_items)
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">push</span>(<span style="color: #008000">self</span>, item):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Add an item to the stack&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;将项添加到栈中&quot;&quot;&quot;</span>
         <span style="color: #008000">self</span><span style="color: #666666">.</span>_items<span style="color: #666666">.</span>append(item)
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">pop</span>(<span style="color: #008000">self</span>):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Remove an item from the stack&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;从栈中移除项&quot;&quot;&quot;</span>
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_items<span style="color: #666666">.</span>pop()
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">peek</span>(<span style="color: #008000">self</span>):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Get the value of the top item in the stack&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;获取栈中顶部项的值&quot;&quot;&quot;</span>
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_items[<span style="color: #666666">-1</span>]
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">size</span>(<span style="color: #008000">self</span>):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Get the number of items in the stack&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;获取栈中项的数量&quot;&quot;&quot;</span>
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_items)
 </code></pre></div></td></tr></table></div>
-<p>Remember that nothing happens when we click the <code>run</code> button other than the definition of the class.  We must create a <code>Stack</code> object and then use it. <code>ActiveCode 2</code> shows the <code>Stack</code> class in action as we perform the sequence of operations from <code>Table 1</code>.  Notice that the definition of the <code>Stack</code> class is imported from the <code>pythonds3</code> module  that is included with the materials for this book or can be downloaded from the <a href="https://pypi.org/">Python Package Index</a>.</p>
+<p>请记住，点击<code>run</code>按钮时不会发生任何事情，除了定义类。我们必须创建一个 <code>Stack</code> 对象，然后使用它。<code>ActiveCode 2</code> 显示了 <code>Stack</code> 类在我们执行 <code>Table 1</code> 中的操作序列时的实际情况。注意 <code>Stack</code> 类的定义从与本书材料一起提供的 <code>pythonds3</code> 模块中导入，或者可以从 <a href="https://pypi.org/">Python Package Index</a> 下载。</p>
 <div class="admonition info">
-<p class="admonition-title">Note</p>
-<p>The <code>pythonds3</code> module contains implementations of all data structures discussed in this book. It is structured according to the sections: basic, trees, and graphs. The module can be downloaded from <a href="https://github.com/psads/pythonds3">GitHub</a> or installed from the command line as follows:</p>
+<p class="admonition-title">注意</p>
+<p><code>pythonds3</code> 模块包含本书中讨论的所有数据结构的实现。它根据以下部分进行结构化：基础、树和图。该模块可以从 <a href="https://github.com/psads/pythonds3">GitHub</a> 下载，或者通过命令行安装，如下所示：</p>
 <p><code>python3 -m pip install -U pythonds3</code></p>
 </div>
 <div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 3.5.2 ActiveCode</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
@@ -4070,8 +4070,8 @@ s<span style="color: #666666">.</span>push(<span style="color: #666666">8.4</spa
 <span style="color: #008000">print</span>(s<span style="color: #666666">.</span>pop())
 <span style="color: #008000">print</span>(s<span style="color: #666666">.</span>size())
 </code></pre></div></td></tr></table></div>
-<p>It is important to note that we could have chosen to implement the stack using a list where the top is at the beginning instead of at the end. In this case, the previous <code>pop</code> and <code>append</code> methods would no longer work and we would have to index position 0 (the first item in the list) explicitly using <code>pop</code> and <code>insert</code>. The implementation is shown in <code>CodeLens 1</code>.</p>
-<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: CodeLens Alternative Implementation of the Stack class (stack_cl_1)</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<p>重要的是要注意，我们本可以选择使用列表实现栈，将顶部设置在开始处而不是末尾。在这种情况下，之前的 <code>pop</code> 和 <code>append</code> 方法将不再有效，我们将必须使用 <code>pop</code> 和 <code>insert</code> 明确索引位置 0（列表中的第一个项目）。该实现显示在 <code>CodeLens 1</code> 中。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: CodeLens 替代实现的栈类 (stack_cl_1)</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
@@ -4117,25 +4117,25 @@ s<span style="color: #666666">.</span>push(<span style="color: #BA2121">&quot;he
 s<span style="color: #666666">.</span>push(<span style="color: #BA2121">&quot;true&quot;</span>)
 <span style="color: #008000">print</span>(s<span style="color: #666666">.</span>pop())
 </code></pre></div></td></tr></table></div>
-<p>This ability to change the physical implementation of an abstract data type while maintaining the logical characteristics is an example of abstraction at work. However, even though the stack will work either way, if we consider the performance of the two implementations, there is definitely a difference. Recall that the <code>append()</code> and <code>pop()</code> operations were both <span class="arithmatex">\(O(1)\)</span>. This means that the first implementation will perform <code>push</code> and <code>pop</code> in constant time no matter how many items are on the stack. The performance of the second implementation suffers in that the <code>insert(0)</code> and <code>pop(0)</code> operations will both require <span class="arithmatex">\(O(n)\)</span> for a stack of size <code>n</code>. Clearly, even though the implementations are logically equivalent, they would have very different timings when performing benchmark testing.</p>
+<p>这种改变抽象数据类型的物理实现的能力，同时保持其逻辑特性，是抽象工作的一个例子。然而，即使栈可以以任意方式工作，如果考虑这两种实现的性能，确实存在差异。回顾一下，<code>append()</code> 和 <code>pop()</code> 操作都是 <span class="arithmatex">\(O(1)\)</span> 的。这意味着第一种实现将以常数时间执行 <code>push</code> 和 <code>pop</code> 操作，无论栈中有多少项。第二种实现的性能较差，因为 <code>insert(0)</code> 和 <code>pop(0)</code> 操作都需要 <span class="arithmatex">\(O(n)\)</span>，对于大小为 <code>n</code> 的栈来说。显然，即使实现逻辑上等效，它们在进行基准测试时的时间会有很大不同。</p>
 <div class="admonition info">
-<p class="admonition-title">Self Check</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Activity: 3.5.4 Multiple Choice</label><label for="__tabbed_2_2">Activity: 3.5.5 Multiple Choice</label></div>
+<p class="admonition-title">自我检查</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Activity: 3.5.4 多项选择题</label><label for="__tabbed_2_2">Activity: 3.5.5 多项选择题</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Given the following sequence of stack operations, what is the top item on the stack when the sequence is complete?</p>
+<p>给定以下栈操作序列，当序列完成时，栈上的顶部项是什么？</p>
 <p>:answer_a: "x"
 :answer_b: "y"
 :answer_c: "z"
-:answer_d: The stack is empty</p>
+:answer_d: 栈为空</p>
 <p>:correct: c</p>
-<p>:feedback_a: Remember that a stack is built from the bottom up.
-:feedback_b: Remember that a stack is built from the bottom up.
-:feedback_c: Good job.
-:feedback_d: Remember that a stack is built from the bottom up.</p>
+<p>:feedback_a: 请记住，栈是从底部向上建立的。
+:feedback_b: 请记住，栈是从底部向上建立的。
+:feedback_c: 做得好。
+:feedback_d: 请记住，栈是从底部向上建立的。</p>
 </div>
 <div class="tabbed-block">
-<p>Given the following sequence of stack operations, what is the top item on the stack when the sequence is complete?</p>
+<p>给定以下栈操作序列，当序列完成时，栈上的顶部项是什么？</p>
 <div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>m <span style="color: #666666">=</span> Stack()
 m<span style="color: #666666">.</span>push(<span style="color: #BA2121">&quot;x&quot;</span>)
 m<span style="color: #666666">.</span>push(<span style="color: #BA2121">&quot;y&quot;</span>)
@@ -4145,16 +4145,16 @@ m<span style="color: #666666">.</span>peek()
 </code></pre></div>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> a: "x"</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> b: the stack is empty</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> c: an error will occur</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> b: 栈为空</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> c: 将发生错误</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> d: "z"</li>
 </ul>
 <p>correct: c</p>
 <ul>
-<li>feedback a: You may want to check out the docs for isEmpty</li>
-<li>feedback b: There is an odd number of things on the stack but each time through the loop 2 things are popped.</li>
-<li>feedback c: Good Job.</li>
-<li>feedback d: You may want to check out the docs for isEmpty</li>
+<li>feedback a: 你可能需要查看一下 <code>isEmpty</code> 的文档</li>
+<li>feedback b: 栈中有奇数个项目，但每次循环中弹出两个项目。</li>
+<li>feedback c: 做得好。</li>
+<li>feedback d: 你可能需要查看一下 <code>isEmpty</code> 的文档</li>
 </ul>
 <div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>m <span style="color: #666666">=</span> Stack()
 m<span style="color: #666666">.</span>push(<span style="color: #BA2121">&quot;x&quot;</span>)
@@ -4164,12 +4164,12 @@ m<span style="color: #666666">.</span>push(<span style="color: #BA2121">&quot;z&
     m<span style="color: #666666">.</span>pop()
     m<span style="color: #666666">.</span>pop()
 </code></pre></div>
-<p>Write a function <code>rev_string(my_str)</code> that uses a stack to reverse the characters in a string.</p>
+<p>编写一个函数 <code>rev_string(my_str)</code>，该函数使用栈来反转字符串中的字符。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">test</span> <span style="color: #008000; font-weight: bold">import</span> testEqual
 <span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pythonds3.basic</span> <span style="color: #008000; font-weight: bold">import</span> Stack
 
 <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">rev_string</span>(my_str):
-    <span style="color: #3D7B7B; font-style: italic"># your code here</span>
+    <span style="color: #3D7B7B; font-style: italic"># 你的代码在这里</span>
 
 testEqual(rev_string(<span style="color: #BA2121">&quot;apple&quot;</span>), <span style="color: #BA2121">&quot;elppa&quot;</span>)
 testEqual(rev_string(<span style="color: #BA2121">&quot;x&quot;</span>), <span style="color: #BA2121">&quot;x&quot;</span>)
@@ -4392,7 +4392,7 @@ testEqual(rev_string(<span style="color: #BA2121">&quot;1234567890&quot;</span>)
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月9日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月12日</span>
       
         <br>
         创建日期:

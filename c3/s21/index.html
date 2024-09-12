@@ -4044,16 +4044,16 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>In order to implement an unordered list, we will construct what is commonly known as a <strong>linked list</strong>. Recall that we need to be sure that we can maintain the relative positioning of the items. However, there is no requirement that we maintain that positioning in contiguous memory. For example, consider the collection of items shown in <code>Figure 1</code>. It appears that these values have been placed randomly. If we can maintain some explicit information in each item, namely the location of the next item (see <code>Figure 2</code>), then the relative position of each item can be expressed by simply following the link from one item to the next.</p>
+<p>为了实现一个无序列表，我们将构造一个通常称为<strong>链表</strong>的数据结构。请记住，我们需要确保能够保持项目的相对位置。然而，并不要求我们在连续的内存中保持这些位置。例如，考虑<code>图 1</code>中显示的项目集合。这些值似乎是随机放置的。如果我们可以在每个项目中保持一些显式的信息，即下一个项目的位置（参见<code>图 2</code>），那么每个项目的相对位置可以通过简单地跟随从一个项目到下一个项目的链接来表示。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/idea.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/idea.png" /></a>
-    <figcaption>Figure 1: Items Not Constrained in Their Physical Placement</figcaption>
+    <figcaption>图 1: 项目不受物理位置的限制</figcaption>
 </figure></p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/idea2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/idea2.png" /></a>
-    <figcaption>Figure 2: Relative Positions Maintained by Explicit Links</figcaption>
+    <figcaption>图 2: 通过显式链接保持相对位置</figcaption>
 </figure></p>
-<p>It is important to note that the location of the first item of the list must be explicitly specified. Once we know where the first item is, the first item can tell us where the second is, and so on. The external reference is often referred to as the <strong>head</strong> of the list. Similarly, the last item needs to know that there is no next item.</p>
+<p>需要注意的是，列表中第一个项目的位置必须明确指定。一旦知道了第一个项目的位置，第一个项目可以告诉我们第二个项目的位置，以此类推。外部引用通常被称为列表的<strong>头</strong>。类似地，最后一个项目需要知道没有下一个项目。</p>
 </div>
 <div class="tabbed-block">
 <p>In order to implement an unordered list, we will construct what is commonly known as a <strong>linked list</strong>. Recall that we need to be sure that we can maintain the relative positioning of the items. However, there is no requirement that we maintain that positioning in contiguous memory. For example, consider the collection of items shown in <code>Figure 1</code>. It appears that these values have been placed randomly. If we can maintain some explicit information in each item, namely the location of the next item (see <code>Figure 2</code>), then the relative position of each item can be expressed by simply following the link from one item to the next.</p>
@@ -4074,7 +4074,7 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">中文</label><label for="__tabbed_2_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>The basic building block for the linked list implementation is the <strong>node</strong>. Each node object must hold at least two pieces of information. First, the node must contain the list item itself. We will call this the <strong>data field</strong> of the node. In addition, each node must hold a reference to the next node. <code>Listing 1</code> shows the Python implementation. To construct a node, you need to supply the initial data value for the node. Evaluating the assignment statement below will yield a <code>Node</code> object containing the value <code>93</code> (see <code>Figure 3</code>). You should note that we will typically represent a node object as shown in <code>Figure 4</code>. Hidden fields <code>_data</code> and <code>_next</code> of the <code>Node</code> class are turned into properties and can be accessed as <code>data</code> and <code>next</code> respectively.</p>
+<p>链表实现的基本构建块是<strong>节点</strong>。每个节点对象必须至少包含两个信息。首先，节点必须包含列表项本身。我们将称之为节点的<strong>数据字段</strong>。此外，每个节点必须持有对下一个节点的引用。<code>Listing 1</code>展示了Python的实现。要构造一个节点，需要提供节点的初始数据值。以下赋值语句将生成一个包含值<code>93</code>的<code>Node</code>对象（见<code>图 3</code>）。需要注意的是，我们通常将节点对象表示如<code>图 4</code>所示。<code>Node</code>类中的隐藏字段<code>_data</code>和<code>_next</code>被转换为属性，可以分别通过<code>data</code>和<code>next</code>访问。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Listing 1</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
@@ -4105,49 +4105,49 @@
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">29</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">30</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Node</span>:
-<span style="color: #bbbbbb">    </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;A node of a linked list&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">    </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;链表节点&quot;&quot;&quot;</span>
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>, node_data):
         <span style="color: #008000">self</span><span style="color: #666666">.</span>_data <span style="color: #666666">=</span> node_data
         <span style="color: #008000">self</span><span style="color: #666666">.</span>_next <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_data</span>(<span style="color: #008000">self</span>):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Get node data&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;获取节点数据&quot;&quot;&quot;</span>
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_data
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">set_data</span>(<span style="color: #008000">self</span>, node_data):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Set node data&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;设置节点数据&quot;&quot;&quot;</span>
         <span style="color: #008000">self</span><span style="color: #666666">.</span>_data <span style="color: #666666">=</span> node_data
 
     data <span style="color: #666666">=</span> <span style="color: #008000">property</span>(get_data, set_data)
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_next</span>(<span style="color: #008000">self</span>):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Get next node&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;获取下一个节点&quot;&quot;&quot;</span>
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_next
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">set_next</span>(<span style="color: #008000">self</span>, node_next):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Set next node&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;设置下一个节点&quot;&quot;&quot;</span>
         <span style="color: #008000">self</span><span style="color: #666666">.</span>_next <span style="color: #666666">=</span> node_next
 
     <span style="color: #008000">next</span> <span style="color: #666666">=</span> <span style="color: #008000">property</span>(get_next, set_next)
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__str__</span>(<span style="color: #008000">self</span>):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;String&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;字符串表示&quot;&quot;&quot;</span>
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">str</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_data)
 </code></pre></div></td></tr></table></div>
-<p>We create <code>Node</code> objects in the usual way.</p>
+<p>我们按照通常的方式创建<code>Node</code>对象。</p>
 <div class="language-pycon highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>temp <span style="color: #666666">=</span> Node(<span style="color: #666666">93</span>)
 <span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>temp<span style="color: #666666">.</span>data
 <span style="color: #717171">93</span>
 </code></pre></div>
-<p>The special Python reference value <code>None</code> will play an important role in the <code>Node</code> class and later in the linked list itself. A reference to <code>None</code> will denote the fact that there is no next node. Note in the constructor that a node is initially created with <code>next</code> set to <code>None</code>. Since this is sometimes referred to as “grounding the node,” we will use the standard ground symbol to denote a reference that is referring to <code>None</code>. It is always a good idea to explicitly assign <code>None</code> to your initial next reference values.</p>
+<p>特殊的Python引用值<code>None</code>将在<code>Node</code>类中以及后来的链表实现中扮演重要角色。对<code>None</code>的引用表示没有下一个节点。请注意，在构造函数中，节点最初创建时<code>next</code>被设置为<code>None</code>。由于这有时被称为“节点的基础”，我们将使用标准的基础符号表示引用指向<code>None</code>。显式地将<code>None</code>分配给初始的下一个引用值总是一个好主意。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/node.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/node.png" /></a>
-    <figcaption>Figure 3: A Node Object Contains the Item and a Reference to the Next Node</figcaption>
+    <figcaption>图 3: 一个节点对象包含项目和对下一个节点的引用</figcaption>
 </figure></p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/node2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/node2.png" /></a>
-    <figcaption>Figure 4: A Typical Representation for a Node</figcaption>
+    <figcaption>图 4: 节点的典型表示</figcaption>
 </figure></p>
 </div>
 <div class="tabbed-block">
@@ -4234,7 +4234,7 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">中文</label><label for="__tabbed_3_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>As we suggested above, the unordered list will be built from a collection of nodes, each linked to the next by explicit references. As long as we know where to find the first node (containing the first item), each item after that can be found by successively following the next links. With this in mind, the <code>UnorderedList</code> class must maintain a reference to the first node. <code>Listing 2</code> shows the constructor. Note that each list object will maintain a single reference to the head of the list.</p>
+<p>正如我们前面所提到的，无序列表将由一系列节点构成，每个节点通过显式引用链接到下一个节点。只要我们知道第一个节点的位置（包含第一个项），之后的每个项都可以通过依次跟随“下一个”链接来找到。考虑到这一点，<code>UnorderedList</code> 类必须维护对第一个节点的引用。<code>Listing 2</code> 显示了构造函数。请注意，每个列表对象将维护对列表头的单个引用。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Listing 2</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span>
@@ -4243,25 +4243,25 @@
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>):
         <span style="color: #008000">self</span><span style="color: #666666">.</span>head <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
 </code></pre></div></td></tr></table></div>
-<p>Initially when we construct a list, there are no items. The assignment statement</p>
+<p>初始时，当我们构造一个列表时，列表中没有任何项。赋值语句</p>
 <div class="language-pycon highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>my_list <span style="color: #666666">=</span> UnorderedList()
 </code></pre></div>
-<p>creates the linked list representation shown in <code>Figure 5</code>. As we discussed in the <code>Node</code> class, the special reference <code>None</code> will again be used to state that the head of the list does not refer to anything. Eventually, the example list given earlier will be represented by a linked list as shown in <code>Figure 6</code>. The head of the list refers to the first node which contains the first item of the list. In turn, that node holds a reference to the next node (the next item), and so on. It is very important to note that the list class itself does not contain any node objects. Instead it contains a single reference to only the first node in the linked structure.</p>
+<p>创建了如<code>图 5</code>所示的链表表示。正如我们在<code>Node</code>类中讨论的，特殊的引用值<code>None</code>将再次用于表示列表头不指向任何内容。最终，之前给出的示例列表将被表示为如<code>图 6</code>所示的链表。列表的头指向第一个节点，该节点包含列表的第一个项。该节点又持有对下一个节点（下一个项）的引用，依此类推。非常重要的一点是，列表类本身不包含任何节点对象。它只包含对链表结构中第一个节点的单个引用。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/initlinkedlist.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/initlinkedlist.png" /></a>
-    <figcaption>Figure 5: An Empty List</figcaption>
+    <figcaption>图 5: 空列表</figcaption>
 </figure></p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/linkedlist.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/linkedlist.png" /></a>
-    <figcaption>Figure 6: A Linked List of Integers</figcaption>
+    <figcaption>图 6: 整数链表</figcaption>
 </figure></p>
-<p>The <code>is_empty</code> method, shown in <code>Listing 3</code>, simply checks to see if the head of the list is a reference to <code>None</code>. The result of the boolean expression <code>self.head == None</code> will only be true if there are no nodes in the linked list. Since a new list is empty, the constructor and the check for empty must be consistent with one another. This shows the advantage to using the reference <code>None</code> to denote the end of the linked structure. In Python, <code>None</code> can be compared to any reference. Two references are equal if they both refer to the same object. We will use this often in our remaining methods.</p>
+<p><code>is_empty</code> 方法，如<code>Listing 3</code>所示，简单地检查列表的头是否引用<code>None</code>。布尔表达式<code>self.head == None</code>的结果只有在链表中没有节点时才为真。由于新列表是空的，构造函数和空检查必须是一致的。这展示了使用引用<code>None</code>来表示链表结构末尾的优点。在Python中，<code>None</code>可以与任何引用进行比较。如果两个引用都指向相同的对象，则它们相等。我们将在其余的方法中经常使用这一点。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 3</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">is_empty</span>(<span style="color: #008000">self</span>):
     <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>head <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">None</span>
 </code></pre></div>
-<p>So how do we get items into our list? We need to implement the <code>add</code> method. However, before we can do that, we need to address the important question of where in the linked list to place the new item. Since this list is unordered, the specific location of the new item with respect to the other items already in the list is not important. The new item can go anywhere. With that in mind, it makes sense to place the new item in the easiest location possible.</p>
-<p>Recall that the linked list structure provides us with only one entry point, the head of the list. All of the other nodes can only be reached by accessing the first node and then following <code>next</code> links. This means that the easiest place to add the new node is right at the head, or beginning, of the list. In other words, we will make the new item the first item of the list and the existing items will need to be linked to this new first item so that they follow.</p>
-<p>The linked list shown in <code>Figure 6</code> was built by calling the <code>add</code> method a number of times.</p>
+<p>那么，我们如何将项添加到列表中呢？我们需要实现<code>add</code>方法。然而，在此之前，我们需要解决一个重要的问题，即在链表中将新项放置在哪里。由于该列表是无序的，新项相对于列表中其他项的具体位置并不重要。新项可以放在任何地方。考虑到这一点，将新项放在最简单的位置是有意义的。</p>
+<p>请记住，链表结构提供了唯一的入口点，即列表的头。所有其他节点只能通过访问第一个节点，然后跟随“下一个”链接来到达。这意味着，添加新节点的最简单位置是列表的头部，或开始部分。换句话说，我们将新项作为列表的第一个项，并且现有项需要链接到这个新的第一个项，使其跟随。</p>
+<p>如<code>图 6</code>所示的链表是通过多次调用<code>add</code>方法构建的。</p>
 <div class="language-pycon highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>my_list<span style="color: #666666">.</span>add(<span style="color: #666666">31</span>)
 <span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>my_list<span style="color: #666666">.</span>add(<span style="color: #666666">77</span>)
 <span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>my_list<span style="color: #666666">.</span>add(<span style="color: #666666">17</span>)
@@ -4269,8 +4269,8 @@
 <span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>my_list<span style="color: #666666">.</span>add(<span style="color: #666666">26</span>)
 <span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>my_list<span style="color: #666666">.</span>add(<span style="color: #666666">54</span>)
 </code></pre></div>
-<p>Note that since <code>31</code> is the first item added to the list, it will eventually be the last node on the linked list as every other item is added ahead of it. Also, since <code>54</code> is the last item added, it will become the data value in the first node of the linked list.</p>
-<p>The <code>add</code> method is shown in <code>Listing 4</code>. Each item of the list must reside in a node object. Line 2 creates a new node and places the item as its data. Now we must complete the process by linking the new node into the existing structure. This requires two steps as shown in <code>Figure 7</code>. Step 1 (line 3) changes the <code>next</code> reference of the new node to refer to the old first node of the list. Now that the rest of the list has been properly attached to the new node, we can modify the head of the list to refer to the new node. The assignment statement in line 4 sets the head of the list.</p>
+<p>注意，由于<code>31</code>是添加到列表中的第一个项，它最终将成为链表中的最后一个节点，因为所有其他项都被添加在它之前。此外，由于<code>54</code>是最后一个添加的项，它将成为链表中第一个节点的数据值。</p>
+<p><code>add</code>方法如<code>Listing 4</code>所示。列表中的每个项必须位于一个节点对象中。第2行创建一个新节点，并将项作为其数据。现在我们必须通过将新节点链接到现有结构中来完成过程。这需要两个步骤，如<code>图 7</code>所示。第1步（第3行）将新节点的“下一个”引用更改为指向旧的第一个节点。现在，列表的其余部分已正确附加到新节点上，我们可以修改列表的头以指向新节点。第4行的赋值语句设置了列表的头。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Listing 4</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span>
@@ -4281,15 +4281,15 @@
 </code></pre></div></td></tr></table></div>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/addtohead.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/addtohead.png" /></a>
-    <figcaption>Figure 7: Adding a New Node is a Two-Step Process</figcaption>
+    <figcaption>图 7: 添加新节点是一个两步过程</figcaption>
 </figure></p>
-<p>The order of the two steps described above is very important. What happens if the order of line 3 and line 4 is reversed? If the modification of the head of the list happens first, the result can be seen in <code>Figure 8</code>. Since the head was the only external reference to the list nodes, all of the original nodes are lost and can no longer be accessed.</p>
+<p>上述两个步骤的顺序非常重要。如果第3行和第4行的顺序被颠倒了，会发生什么？如果首先修改列表的头，结果可以在<code>图 8</code>中看到。由于头是链表节点的唯一外部引用，所有原始节点都被丢失，无法再访问。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/wrongorder.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/wrongorder.png" /></a>
-    <figcaption>Figure 8: Result of Reversing the Order of the Two Steps</figcaption>
+    <figcaption>图 8: 颠倒两个步骤的顺序的结果</figcaption>
 </figure></p>
-<p>The next methods that we will implement–<code>size</code>, <code>search</code>, and <code>remove</code>–are all based on a technique known as <strong>linked list traversal</strong>. <em>Traversal</em> refers to the process of systematically visiting each node. To do this we use an external reference that starts at the first node in the list. As we visit each node, we move the reference to the next node by “traversing” the next reference.</p>
-<p>To implement the <code>size</code> method, we need to traverse the linked list and keep a count of the number of nodes that occurred. <code>Listing 5</code> shows the Python code for counting the number of nodes in the list. The external reference is called <code>current</code> and is initialized to the head of the list in line 2. At the start of the process we have not seen any nodes so the count is set to :math:<code>0</code>. Lines 4–6 actually implement the traversal. As long as the current reference has not seen the end of the list (<code>None</code>), we move current along to the next node via the assignment statement in line 6. Again, the ability to compare a reference to <code>None</code> is very useful. Every time current moves to a new node, we add :math:<code>1</code> to <code>count</code>. Finally, <code>count</code> gets returned after the iteration stops. <code>Figure 9</code> shows this process as it proceeds down the list.</p>
+<p>接下来我们将实现的方法——<code>size</code>、<code>search</code> 和 <code>remove</code>——都基于一种称为<strong>链表遍历</strong>的技术。<em>遍历</em>指的是系统地访问每个节点的过程。为此，我们使用一个外部引用，该引用从列表中的第一个节点开始。当我们访问每个节点时，我们通过“遍历”下一个引用来移动引用到下一个节点。</p>
+<p>要实现 <code>size</code> 方法，我们需要遍历链表并统计节点的数量。<code>Listing 5</code> 显示了计数链表中节点数量的 Python 代码。外部引用名为 <code>current</code>，在第 2 行初始化为链表的头部。在开始时，我们还没有访问任何节点，因此计数被设置为 0。第 4 行到第 6 行实际实现了遍历操作。只要当前引用没有到达链表的末尾（<code>None</code>），我们就通过第 6 行的赋值语句将 <code>current</code> 移动到下一个节点。再次强调，将引用与 <code>None</code> 比较非常有用。每次 <code>current</code> 移动到一个新节点时，我们就将 <code>count</code> 加 1。最后，在迭代停止后返回 <code>count</code>。<code>Figure 9</code> 显示了这个过程如何沿链表向下进行。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Listing 5</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span>
@@ -4308,10 +4308,10 @@
 </code></pre></div></td></tr></table></div>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/traversal.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/traversal.png" /></a>
-    <figcaption>Figure 9: Traversing the Linked List from the Head to the End</figcaption>
+    <figcaption>Figure 9: 从头到尾遍历链表</figcaption>
 </figure></p>
-<p>Searching for a value in a linked list implementation of an unordered list also uses the traversal technique. As we visit each node in the linked list we will ask whether the data stored there matches the item we are looking for. In this case, however, we may not have to traverse all the way to the end of the list. In fact, if we do get to the end of the list, that means that the item we are looking for must not be present. Also, if we do find the item, there is no need to continue.</p>
-<p><code>Listing 6</code> shows the implementation for the <code>search</code> method. As in the <code>size</code> method, the traversal is initialized to start at the head of the list (line 2). We continue to iterate over the list as long as there are more nodes to visit. The question in line 4 asks whether the data item is present in the current node. If so, we return <code>True</code> immediately.</p>
+<p>在链表实现的无序列表中查找一个值也使用遍历技术。在访问链表中的每个节点时，我们会检查存储的数据是否与我们要查找的项目匹配。在这种情况下，我们可能不需要遍历到链表的末尾。事实上，如果我们到达链表的末尾，那么我们要找的项一定不在链表中。另外，如果找到项，就没有必要继续遍历。</p>
+<p><code>Listing 6</code> 显示了 <code>search</code> 方法的实现。与 <code>size</code> 方法一样，遍历初始化为从链表的头部开始（第 2 行）。只要还有更多节点需要访问，我们就继续遍历。第 4 行的问题是检查当前节点中是否存在数据项。如果存在，我们立即返回 <code>True</code>。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Listing 6</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span>
@@ -4328,22 +4328,22 @@
 
     <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">False</span>
 </code></pre></div></td></tr></table></div>
-<p>As an example, consider invoking the <code>search</code> method looking for the item 17.</p>
+<p>例如，考虑调用 <code>search</code> 方法查找项 17。</p>
 <div class="language-pycon highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>my_list<span style="color: #666666">.</span>search(<span style="color: #666666">17</span>)
 <span style="color: #717171">True</span>
 </code></pre></div>
-<p>Since <code>17</code> is in the list, the traversal process needs to move only to the node containing <code>17</code>. At that point, the condition in line 4 becomes <code>True</code> and we return the result of the search. This process can be seen in <code>Figure 10</code>.</p>
+<p>由于 <code>17</code> 在列表中，遍历过程只需要移动到包含 <code>17</code> 的节点。在那时，第 4 行的条件为 <code>True</code>，我们返回搜索的结果。<code>Figure 10</code> 显示了成功查找值 17 的过程。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/search.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/search.png" /></a>
-    <figcaption>Figure 10: Successful Search for the Value 17</figcaption>
+    <figcaption>Figure 10: 成功查找值 17</figcaption>
 </figure></p>
-<p>The <code>remove</code> method requires two logical steps. First, we need to traverse the list looking for the item we want to remove. Once we find the item, we must remove it. If the item is not in the list, our method should raise a <code>ValueError</code>.</p>
-<p>The first step is very similar to <code>search</code>. Starting with an external reference set to the head of the list, we traverse the links until we discover the item we are looking for.</p>
-<p>When the item is found and we break out of the loop, <code>current</code> will be a reference to the node containing the item to be removed. But how do we remove it? One possibility would be to replace the value of the item with some marker that suggests that the item is no longer present. The problem with this approach is the number of nodes will no longer match the number of items. It would be much better to remove the item by removing the entire node.</p>
-<p>In order to remove the node containing the item, we need to modify the link in the previous node so that it refers to the node that comes after <code>current</code>. Unfortunately, there is no way to go backward in the linked list. Since <code>current</code> refers to the node ahead of the node where we would like to make the change, it is too late to make the necessary modification.</p>
-<p>The solution to this dilemma is to use two external references as we traverse down the linked list. <code>current</code> will behave just as it did before, marking the current location of the traversal. The new reference, which we will call <code>previous</code>, will always travel one node behind <code>current</code>. That way, when <code>current</code> stops at the node to be removed, <code>previous</code> will refer to the proper place in the linked list for the modification.</p>
-<p><code>Listing 7</code> shows the complete <code>remove</code> method. Lines 2–3 assign initial values to the two references. Note that <code>current</code> starts out at the list head as in the other traversal examples. <code>previous</code>, however, is assumed to always travel one node behind <code>current</code>. For this reason, <code>previous</code> starts out with a value of <code>None</code> since there is no node before the head (see <code>Figure 11</code>).</p>
-<p>In lines 6–7 we ask whether the item stored in the current node is the item we wish to remove. If so, we break out of the loop. If we do not find the item, <code>previous</code> and <code>current</code> must both be moved one node ahead. Again, the order of these two statements is crucial. <code>previous</code> must first be moved one node ahead to the location of <code>current</code>. At that point, <code>current</code> can be moved. This process is often referred to as <em>inchworming</em>, as <code>previous</code> must catch up to <code>current</code> before <code>current</code> moves ahead. <code>Figure 12</code> shows the movement of <code>previous</code> and <code>current</code> as they progress down the list looking for the node containing the value 17.</p>
+<p><code>remove</code> 方法需要两个逻辑步骤。首先，我们需要遍历链表查找要删除的项。一旦找到项，我们必须将其删除。如果项不在列表中，我们的方法应引发 <code>ValueError</code> 异常。</p>
+<p>第一步与 <code>search</code> 方法非常相似。从外部引用设置为链表的头部开始，我们遍历链表直到发现要删除的项。</p>
+<p>当项被找到并跳出循环时，<code>current</code> 将引用包含要删除项的节点。但我们如何删除它呢？一种可能性是将项的值替换为某个标记，表示该项不再存在。这个方法的问题是节点的数量将不再与项的数量匹配。更好的方法是通过删除整个节点来移除项。</p>
+<p>为了删除包含项的节点，我们需要修改前一个节点中的链接，使其指向 <code>current</code> 节点之后的节点。不幸的是，链表没有向后遍历的功能。由于 <code>current</code> 引用的是我们想要更改的节点的前一个节点，因此现在更改已经为时已晚。</p>
+<p>解决这个困境的方法是使用两个外部引用进行遍历。<code>current</code> 将像之前一样，标记遍历的当前位置。新的引用，我们称之为 <code>previous</code>，将始终比 <code>current</code> 领先一个节点。这样，当 <code>current</code> 停在要删除的节点时，<code>previous</code> 将引用链表中需要修改的位置。</p>
+<p><code>Listing 7</code> 显示了完整的 <code>remove</code> 方法。第 2 行到第 3 行为两个引用赋予初始值。请注意，<code>current</code> 从链表头开始，正如其他遍历示例一样。然而，<code>previous</code> 被假设始终在 <code>current</code> 之前一个节点。因此，<code>previous</code> 初始值为 <code>None</code>，因为头部之前没有节点（参见 <code>Figure 11</code>）。</p>
+<p>第 6 行到第 7 行询问当前节点中存储的项是否是我们希望删除的项。如果是，我们就跳出循环。如果未找到项，<code>previous</code> 和 <code>current</code> 必须都向前移动一个节点。再次强调，这两个语句的顺序是至关重要的。<code>previous</code> 必须首先移动到 <code>current</code> 的位置，然后 <code>current</code> 才能移动。这种过程通常被称为 <em>inchworming</em>（爬虫式移动），因为 <code>previous</code> 必须追赶到 <code>current</code> 之前，才能让 <code>current</code> 向前移动。<code>Figure 12</code> 显示了 <code>previous</code> 和 <code>current</code> 在查找包含值 17 的节点时的移动情况。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Listing 7</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
@@ -4378,24 +4378,24 @@
 </code></pre></div></td></tr></table></div>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/removeinit.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/removeinit.png" /></a>
-    <figcaption markdown="span">Figure 11: Initial Values for the <code>previous</code> and <code>current</code> References</figcaption>
+    <figcaption>Figure 11: <code>previous</code> 和 <code>current</code> 的初始值</figcaption>
 </figure></p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/prevcurr.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/prevcurr.png" /></a>
-    <figcaption markdown="span">Figure 12: <code>previous</code> and <code>current</code> Move Down the List</figcaption>
+    <figcaption>Figure 12: <code>previous</code> 和 <code>current</code> 向下移动链表</figcaption>
 </figure></p>
-<p>Once the searching step of the <code>remove</code> has been completed, we need to remove the node from the linked list. <code>Figure 13</code> shows the link that must be modified. However, there is a special case that needs to be addressed. If the item to be removed happens to be the first item in the list, then <code>current</code> will reference the first node in the linked list. This also means that <code>previous</code> will be <code>None</code>. We said earlier that <code>previous</code> would be referring to the node whose next reference needs to be modified in order to complete the removal. In this case, it is not <code>previous</code> but rather the head of the list that needs to be changed (see <code>Figure 14</code>). Another special case occurs if the item is not in the list. In that case <code>current is None</code> evaluates to <code>True</code> and an error is raised.</p>
+<p>完成 <code>remove</code> 方法的查找步骤后，我们需要从链表中删除节点。<code>Figure 13</code> 显示了必须修改的链接。但是，有一个特殊情况需要处理。如果要删除的项恰好是列表中的第一个项，那么 <code>current</code> 将引用链表中的第一个节点。这也意味着 <code>previous</code> 将为 <code>None</code>。我们之前说过 <code>previous</code> 将引用需要修改其 <code>next</code> 引用的节点，以完成删除。在这种情况下，需要更改的不是 <code>previous</code>，而是链表的头部（参见 <code>Figure 14</code>）。另一个特殊情况是项不在列表中。在这种情况下，<code>current is None</code> 评估为 <code>True</code>，并引发错误。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/remove.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/remove.png" /></a>
-    <figcaption markdown="span">Figure 13: Removing an Item from the Middle of the List</figcaption>
+    <figcaption>Figure 13: 从链表中删除中间的项</figcaption>
 </figure></p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/remove2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/remove2.png" /></a>
-    <figcaption markdown="span">Figure 14: Removing the First Node from the List</figcaption>
+    <figcaption>Figure 14: 从链表中删除第一个节点</figcaption>
 </figure></p>
-<p>Line 13 allows us to check whether we are dealing with the special case described above. If <code>previous</code> did not move, it will still have the value <code>None</code> when the loop breaks. In that case, the head of the list is modified to refer to the node after the current node (line 14), in effect removing the first node from the linked list. However, if <code>previous</code> is not <code>None</code>, the node to be removed is somewhere down the linked list structure. In this case the <code>previous</code> reference is providing us with the node whose next reference must be changed. Line 16 modifies the <code>next</code> property of the <code>previous</code> to accomplish the removal. Note that in both cases the destination of the reference change is <code>current.next</code>. One question that often arises is whether the two cases shown here will also handle the situation where the item to be removed is in the last node of the linked list. We leave that for you to consider.</p>
-<p>You can try out the <code>UnorderedList</code> class in ActiveCode 1.  </p>
-<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 3.21.2.1 The Complete UnorderedList Class</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">  1</span>
+<p>第 13 行允许我们检查是否处理上述特殊情况。如果 <code>previous</code> 没有移动，当循环跳出时，它将仍然具有值 <code>None</code>。在这种情况下，链表的头部被修改为引用 <code>current</code> 节点之后的节点（第 14 行），有效地从链表中删除第一个节点。然而，如果 <code>previous</code> 不是 <code>None</code>，要删除的节点在链表的某处。在这种情况下，<code>previous</code> 引用提供了必须更改的 <code>next</code> 引用的节点。第 16 行修改 <code>previous</code> 的 <code>next</code> 属性以完成删除。注意，在这两种情况下，引用更改的目标都是 <code>current.next</code>。一个常见的问题是这两种情况是否也处理了要删除的项位于链表最后一个节点的情况。我们留给你自己思考。</p>
+<p>你可以在 ActiveCode 1 中试用 <code>UnorderedList</code> 类。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 3.21.2.1 完整的 UnorderedList 类</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">  1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">  2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">  3</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">  4</span>
@@ -4504,34 +4504,34 @@
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">107</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">108</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">109</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Node</span>:
-<span style="color: #bbbbbb">    </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;A node of a linked list&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">    </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;链表的节点&quot;&quot;&quot;</span>
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>, node_data):
         <span style="color: #008000">self</span><span style="color: #666666">.</span>_data <span style="color: #666666">=</span> node_data
         <span style="color: #008000">self</span><span style="color: #666666">.</span>_next <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_data</span>(<span style="color: #008000">self</span>):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Get node data&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;获取节点数据&quot;&quot;&quot;</span>
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_data
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">set_data</span>(<span style="color: #008000">self</span>, node_data):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Set node data&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;设置节点数据&quot;&quot;&quot;</span>
         <span style="color: #008000">self</span><span style="color: #666666">.</span>_data <span style="color: #666666">=</span> node_data
 
     data <span style="color: #666666">=</span> <span style="color: #008000">property</span>(get_data, set_data)
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_next</span>(<span style="color: #008000">self</span>):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Get next node&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;获取下一个节点&quot;&quot;&quot;</span>
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_next
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">set_next</span>(<span style="color: #008000">self</span>, node_next):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Set next node&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;设置下一个节点&quot;&quot;&quot;</span>
         <span style="color: #008000">self</span><span style="color: #666666">.</span>_next <span style="color: #666666">=</span> node_next
 
     <span style="color: #008000">next</span> <span style="color: #666666">=</span> <span style="color: #008000">property</span>(get_next, set_next)
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__str__</span>(<span style="color: #008000">self</span>):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;String&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;字符串表示&quot;&quot;&quot;</span>
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">str</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_data)
 
 
@@ -4613,39 +4613,39 @@ my_list<span style="color: #666666">.</span>remove(<span style="color: #666666">
 <span style="color: #008000; font-weight: bold">except</span> <span style="color: #CB3F38; font-weight: bold">ValueError</span> <span style="color: #008000; font-weight: bold">as</span> ve:
     <span style="color: #008000">print</span>(ve)
 </code></pre></div></td></tr></table></div>
-<p>The remaining methods <code>append</code>, <code>insert</code>, <code>index</code>, and <code>pop</code> are left as exercises. Remember that each of these must take into account whether the change is taking place at the head of the list or someplace else. Also, <code>insert</code>, <code>index</code>, and <code>pop</code> require that we name the positions of the list. We will assume that position names are integers starting with 0.</p>
+<p>其余方法 <code>append</code>、<code>insert</code>、<code>index</code> 和 <code>pop</code> 留作练习。请记住，每个方法都必须考虑更改是否发生在列表头部或其他地方。此外，<code>insert</code>、<code>index</code> 和 <code>pop</code> 需要我们指定列表的位置。我们将假定位置名称是从 0 开始的整数。</p>
 <div class="admonition info">
-<p class="admonition-title">Self Check</p>
-<p>Part I:  Implement the append method for UnorderedList.  What is the time complexity of the method you created?</p>
+<p class="admonition-title">自检</p>
+<p>第一部分：为 UnorderedList 实现 <code>append</code> 方法。你创建的方法的时间复杂度是多少？</p>
 <div class="language-python highlight" style="background: #f8f8f8"><span class="filename">self_check_list1</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Node</span>:
-<span style="color: #bbbbbb">    </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;A node of a linked list&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">    </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;链表的节点&quot;&quot;&quot;</span>
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>, node_data):
         <span style="color: #008000">self</span><span style="color: #666666">.</span>_data <span style="color: #666666">=</span> node_data
         <span style="color: #008000">self</span><span style="color: #666666">.</span>_next <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_data</span>(<span style="color: #008000">self</span>):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Get node data&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;获取节点数据&quot;&quot;&quot;</span>
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_data
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">set_data</span>(<span style="color: #008000">self</span>, node_data):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Set node data&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;设置节点数据&quot;&quot;&quot;</span>
         <span style="color: #008000">self</span><span style="color: #666666">.</span>_data <span style="color: #666666">=</span> node_data
 
     data <span style="color: #666666">=</span> <span style="color: #008000">property</span>(get_data, set_data)
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_next</span>(<span style="color: #008000">self</span>):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Get next node&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;获取下一个节点&quot;&quot;&quot;</span>
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_next
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">set_next</span>(<span style="color: #008000">self</span>, node_next):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Set next node&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;设置下一个节点&quot;&quot;&quot;</span>
         <span style="color: #008000">self</span><span style="color: #666666">.</span>_next <span style="color: #666666">=</span> node_next
 
     <span style="color: #008000">next</span> <span style="color: #666666">=</span> <span style="color: #008000">property</span>(get_next, set_next)
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__str__</span>(<span style="color: #008000">self</span>):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;String&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;字符串表示&quot;&quot;&quot;</span>
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">str</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_data)
 
 
@@ -4699,36 +4699,36 @@ my_list<span style="color: #666666">.</span>remove(<span style="color: #666666">
 
 my_list <span style="color: #666666">=</span> UnorderedList()
 </code></pre></div>
-<p>Part II:  In the previous problem, you most likely created an append method that was :math:<code>O(n)</code>  If you add an instance variable to the UnorderedList class you can create an append method that is :math:<code>O(1)</code>.  Modify your append method to be :math:<code>O(1)</code>  Be Careful!  To really do this correctly you will need to consider a couple of special cases that may require you to make a modification to the add method as well.</p>
+<p>第二部分：在前一个问题中，你很可能创建了一个时间复杂度为 O(n) 的 <code>append</code> 方法。如果你向 <code>UnorderedList</code> 类添加一个实例变量，你可以创建一个时间复杂度为 O(1) 的 <code>append</code> 方法。修改你的 <code>append</code> 方法，使其时间复杂度为 O(1)。小心！为了正确完成这项任务，你可能需要考虑几个特殊情况，这可能还需要你修改 <code>add</code> 方法。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><span class="filename">self_check_list2</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Node</span>:
-<span style="color: #bbbbbb">    </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;A node of a linked list&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">    </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;链表的节点&quot;&quot;&quot;</span>
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>, node_data):
         <span style="color: #008000">self</span><span style="color: #666666">.</span>_data <span style="color: #666666">=</span> node_data
         <span style="color: #008000">self</span><span style="color: #666666">.</span>_next <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_data</span>(<span style="color: #008000">self</span>):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Get node data&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;获取节点数据&quot;&quot;&quot;</span>
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_data
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">set_data</span>(<span style="color: #008000">self</span>, node_data):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Set node data&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;设置节点数据&quot;&quot;&quot;</span>
         <span style="color: #008000">self</span><span style="color: #666666">.</span>_data <span style="color: #666666">=</span> node_data
 
     data <span style="color: #666666">=</span> <span style="color: #008000">property</span>(get_data, set_data)
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_next</span>(<span style="color: #008000">self</span>):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Get next node&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;获取下一个节点&quot;&quot;&quot;</span>
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_next
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">set_next</span>(<span style="color: #008000">self</span>, node_next):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Set next node&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;设置下一个节点&quot;&quot;&quot;</span>
         <span style="color: #008000">self</span><span style="color: #666666">.</span>_next <span style="color: #666666">=</span> node_next
 
     <span style="color: #008000">next</span> <span style="color: #666666">=</span> <span style="color: #008000">property</span>(get_next, set_next)
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__str__</span>(<span style="color: #008000">self</span>):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;String&quot;&quot;&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;字符串表示&quot;&quot;&quot;</span>
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">str</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_data)
 
 
@@ -5343,7 +5343,7 @@ my_list <span style="color: #666666">=</span> UnorderedList()
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月10日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月12日</span>
       
         <br>
         创建日期:

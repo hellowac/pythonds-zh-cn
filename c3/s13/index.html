@@ -3978,20 +3978,20 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>One of the typical applications for showing a queue in action is to simulate a real situation that requires data to be managed in a FIFO manner. To begin, let’s consider the children’s game hot potato. In this game (see <code>Figure 2</code>) children line up in a circle and pass an item from neighbor to neighbor as fast as they can. At a certain point in the game, the action is stopped and the child who has the item (the potato) is removed from the circle. Play continues until only one child is left.</p>
+<p>一个典型的展示队列应用的场景是模拟一个需要以 FIFO 方式管理数据的实际情况。我们先来看一个儿童游戏“热土豆”的例子。在这个游戏中（见 <code>Figure 2</code>），孩子们排成一个圆圈，将一个物品从一个邻居传递给另一个邻居，尽可能快地传递。在游戏的某个时刻，行动会被停止，持有物品（即“土豆”）的孩子将从圆圈中被移除。游戏继续，直到只剩下一个孩子。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/hotpotato.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/hotpotato.png" /></a>
-    <figcaption>Figure 2: A Six-Person Game of Hot Potato</figcaption>
+    <figcaption>Figure 2: 六人热土豆游戏</figcaption>
 </figure></p>
-<p>This game is a modern-day equivalent of the famous Josephus problem. Based on a legend about the famous first-century historian Flavius Josephus, the story is told that in the Jewish revolt against Rome, Josephus and 39 of his comrades held out against the Romans in a cave. With defeat imminent, they decided that they would rather die than be slaves to the Romans. They arranged themselves in a circle. One man was designated as number one, and proceeding clockwise they killed every seventh man. Josephus, according to the legend, was among other things an accomplished mathematician. He instantly figured out where he ought to sit in order to be the last to go. When the time came, instead of killing himself, he joined the Roman side. You can find many different versions of this story. Some count every third man and some allow the last man to escape on a horse. In any case, the idea is the same.</p>
-<p>We will implement a general <strong>simulation</strong> of Hot Potato. Our program will input a list of names and a constant, call it “num,” to be used for counting. It will return the name of the last person remaining after repetitive counting by <code>num</code>. What happens at that point is up to you.</p>
-<p>To simulate the circle, we will use a queue (see <code>Figure 3</code>). Assume that the child holding the potato will be at the front of the queue. Upon passing the potato, the simulation will simply dequeue and then immediately enqueue that child, putting them at the end of the line. They will then wait until all the others have been at the front before it will be their turn again. After <code>num</code> dequeue/enqueue operations, the child at the front will be removed permanently and another cycle will begin. This process will continue until only one name remains (the size of the queue is 1).</p>
+<p>这个游戏是著名的约瑟夫问题的现代版。根据关于著名的第一世纪历史学家弗拉维乌斯·约瑟夫斯的传说，故事讲述了在犹太人对罗马的反抗中，约瑟夫斯和他的 39 名战友在一个洞穴中坚守。面对即将到来的失败，他们决定宁死不屈，宁愿死也不愿成为罗马人的奴隶。他们排成一个圆圈。一个人被指定为编号 1，然后顺时针每隔七个人杀死一个人。据传说，约瑟夫斯不仅是一个杰出的历史学家，还是一个出色的数学家。他立即计算出自己应该坐在哪里，以便最后一个被杀。当时，他选择了加入罗马的一方，而不是自杀。你可以找到许多不同版本的这个故事，有的数每第三个人，有的允许最后一个人骑马逃跑。无论如何，思想都是一样的。</p>
+<p>我们将实现一个通用的 <strong>热土豆模拟</strong>。我们的程序将输入一个名字列表和一个常数，称之为“num”，用于计数。它将返回在重复计数后剩下的最后一个人的名字。那时发生什么事情就由你决定了。</p>
+<p>为了模拟圆圈，我们将使用一个队列（见 <code>Figure 3</code>）。假设持有土豆的孩子在队列的前端。传递土豆时，模拟将简单地执行 <code>dequeue</code> 操作，然后立即执行 <code>enqueue</code> 操作，将该孩子放到队列的末尾。然后，他们将等待，直到所有其他孩子都在前面时，轮到他们。经过 <code>num</code> 次 <code>dequeue/enqueue</code> 操作后，前面的孩子将被永久移除，另一个循环将开始。这一过程将继续，直到只剩下一个名字（队列的大小为 1）。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/namequeue.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/namequeue.png" /></a>
-    <figcaption>Figure 3: A Queue Implementation of Hot Potato</figcaption>
+    <figcaption>Figure 3: 热土豆的队列实现</figcaption>
 </figure></p>
-<p>The program is shown in :ref:<code>ActiveCode 1 &lt;lst_josephussim&gt;</code>. A call to the <code>hot_potato</code> function using 7 as the counting constant returns <code>'Susan'</code>.</p>
-<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 3.13.1 Hot Potato Simulation</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<p>程序显示在 <code>:ref:ActiveCode 1 &lt;lst_josephussim&gt;</code> 中。使用 7 作为计数常数调用 <code>hot_potato</code> 函数将返回 <code>‘Susan’</code>。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 3.13.1 热土豆模拟</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
@@ -4027,7 +4027,7 @@
 
 <span style="color: #008000">print</span>(hot_potato([<span style="color: #BA2121">&quot;Bill&quot;</span>, <span style="color: #BA2121">&quot;David&quot;</span>, <span style="color: #BA2121">&quot;Susan&quot;</span>, <span style="color: #BA2121">&quot;Jane&quot;</span>, <span style="color: #BA2121">&quot;Kent&quot;</span>, <span style="color: #BA2121">&quot;Brad&quot;</span>], <span style="color: #666666">7</span>))
 </code></pre></div></td></tr></table></div>
-<p>Note that in this example the value of the counting constant is greater than the number of names in the list. This is not a problem since the queue acts like a circle and counting continues back at the beginning until the value is reached. Also, notice that the list is loaded into the queue such that the first name on the list will be at the front of the queue. <code>'Bill'</code> in this case is the first item in the list and therefore moves to the front of the queue. A variation of this implementation, described in the exercises, allows for a random counter.</p>
+<p>请注意，在这个例子中，计数常数的值大于名字列表中的名字数量。这不是问题，因为队列像一个圆圈一样工作，计数会从开始处继续，直到达到指定值。另外，注意列表被加载到队列中，使得列表中的第一个名字会位于队列的前端。在这个例子中，“Bill”是列表中的第一个项，因此它会移动到队列的前面。这种实现的变体在练习中有所描述，允许使用随机计数器。</p>
 </div>
 <div class="tabbed-block">
 <p>One of the typical applications for showing a queue in action is to simulate a real situation that requires data to be managed in a FIFO manner. To begin, let’s consider the children’s game hot potato. In this game (see <code>Figure 2</code>) children line up in a circle and pass an item from neighbor to neighbor as fast as they can. At a certain point in the game, the action is stopped and the child who has the item (the potato) is removed from the circle. Play continues until only one child is left.</p>
@@ -4089,7 +4089,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月10日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月12日</span>
       
         <br>
         创建日期:

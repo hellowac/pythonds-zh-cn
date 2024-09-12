@@ -3978,32 +3978,32 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>The queue abstract data type is defined by the following structure and operations. A queue is structured, as described above, as an ordered collection of items which are added at one end, called the <em>rear</em>, and removed from the other end, called the <em>front</em>. Queues maintain a FIFO ordering property. The queue operations are given below.</p>
+<p>队列抽象数据类型由以下结构和操作定义。队列的结构如上所述，是一个有序的项集合，新项在一个端点添加，称为 <em>尾部</em>，而从另一个端点移除，称为 <em>前端</em>。队列保持 FIFO（先进先出）排序属性。队列操作如下：</p>
 <ul>
 <li>
-<p><code>Queue()</code> creates a new queue that is empty. It needs no parameters and returns an empty queue.</p>
+<p><code>Queue()</code> 创建一个新的空队列。它不需要参数，返回一个空队列。</p>
 </li>
 <li>
-<p><code>enqueue(item)</code> adds a new item to the rear of the queue. It needs the item and returns nothing.</p>
+<p><code>enqueue(item)</code> 将一个新项添加到队列的尾部。它需要项作为参数，不返回任何值。</p>
 </li>
 <li>
-<p><code>dequeue()</code> removes the front item from the queue. It needs no parameters and returns the item. The queue is modified.</p>
+<p><code>dequeue()</code> 从队列的前端移除一个项。它不需要参数，返回该项。队列会被修改。</p>
 </li>
 <li>
-<p><code>is_empty()</code> tests to see whether the queue is empty. It needs no parameters and returns a boolean value.</p>
+<p><code>is_empty()</code> 测试队列是否为空。它不需要参数，返回布尔值。</p>
 </li>
 <li>
-<p><code>size()</code> returns the number of items in the queue. It needs no parameters and returns an integer.</p>
+<p><code>size()</code> 返回队列中项的数量。它不需要参数，返回一个整数。</p>
 </li>
 </ul>
-<p>As an example, if we assume that <code>q</code> is a queue that has been created and is currently empty, then <code>Table 5</code> shows the results of a sequence of queue operations. The queue contents are shown such that the front is on the right. The first item enqueued was <code>4</code> so it is the first item returned by <code>dequeue</code>.</p>
-<p><strong>Table 5: Example Queue Operations</strong></p>
+<p>作为示例，假设 <code>q</code> 是一个已经创建并且当前为空的队列，<code>Table 5</code> 显示了一系列队列操作的结果。队列的内容显示如下，前端在右侧。第一个入队的项是 <code>4</code>，因此它是 <code>dequeue</code> 返回的第一个项。</p>
+<p><strong>表 5：队列操作示例</strong></p>
 <table>
 <thead>
 <tr>
-<th><strong>Queue Operation</strong></th>
-<th><strong>Queue Contents</strong></th>
-<th><strong>Return Value</strong></th>
+<th><strong>队列操作</strong></th>
+<th><strong>队列内容</strong></th>
+<th><strong>返回值</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -4019,7 +4019,7 @@
 </tr>
 <tr>
 <td><code>q.enqueue("dog")</code></td>
-<td><code>['dog',4]</code></td>
+<td><code>['dog', 4]</code></td>
 <td></td>
 </tr>
 <tr>
@@ -4039,7 +4039,7 @@
 </tr>
 <tr>
 <td><code>q.enqueue(8.4)</code></td>
-<td><code>[8.4,True, 'dog', 4]</code></td>
+<td><code>[8.4, True, 'dog', 4]</code></td>
 <td></td>
 </tr>
 <tr>
@@ -4151,7 +4151,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月10日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月12日</span>
       
         <br>
         创建日期:
