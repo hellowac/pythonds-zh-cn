@@ -3977,46 +3977,46 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>The second major Python data structure is the dictionary. As you probably recall, dictionaries differ from lists in that you can access items in a dictionary by a key rather than a position. Later in this book you will see that there are many ways to implement a dictionary. The thing that is most important to notice right now is that the <code>get item</code> and <code>set item</code> operations on a dictionary are <span class="arithmatex">\(O(1)\)</span>. Another important dictionary operation is the <code>contains</code> operation. Checking to see whether a key is in the dictionary or not is also <span class="arithmatex">\(O(1)\)</span>. The efficiency of all dictionary operations is summarized in <code>Table 3</code>. One important side note on dictionary performance is that the efficiencies we provide in the table are for average performance. In some rare cases the <code>contains</code>, <code>get item</code>, and <code>set item</code> operations can degenerate into <span class="arithmatex">\(O(n)\)</span> performance, but we will get into that in Chapter 8 when we talk about the different ways that a dictionary could be implemented.</p>
-<p><strong>Table 3: Big O Efficiency of Python Dictionary Operations</strong></p>
+<p>第二种主要的 Python 数据结构是字典。正如你可能记得的，字典与列表的不同之处在于，你可以通过键来访问字典中的元素，而不是通过位置。在本书的后面章节中，你会看到实现字典的许多方式。此时最重要的是注意字典中的 <code>获取元素</code> 和 <code>设置元素</code> 操作的时间复杂度都是 <span class="arithmatex">\(O(1)\)</span>。另一个重要的字典操作是 <code>包含</code> 操作，检查一个键是否在字典中也是 <span class="arithmatex">\(O(1)\)</span>。所有字典操作的效率总结在 <code>表 3</code> 中。关于字典性能的一个重要注释是，表中给出的效率是平均性能。在一些罕见的情况下，<code>包含</code>、<code>获取元素</code> 和 <code>设置元素</code> 操作可能会退化为 <span class="arithmatex">\(O(n)\)</span>，但我们会在第 8 章讨论字典可能的不同实现方式时详细说明。</p>
+<p><strong>表 3：Python 字典操作的 Big O 效率</strong></p>
 <table>
 <thead>
 <tr>
-<th>Operation</th>
-<th>Big O Efficiency</th>
+<th>操作</th>
+<th>Big O 效率</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>copy</code></td>
+<td><code>复制(copy)</code></td>
 <td>O(n)</td>
 </tr>
 <tr>
-<td><code>get item</code></td>
+<td><code>获取元素(get item)</code></td>
 <td>O(1)</td>
 </tr>
 <tr>
-<td><code>set item</code></td>
+<td><code>设置元素(set item)</code></td>
 <td>O(1)</td>
 </tr>
 <tr>
-<td><code>delete item</code></td>
+<td><code>删除元素(delete item)</code></td>
 <td>O(1)</td>
 </tr>
 <tr>
-<td><code>contains (in)</code></td>
+<td><code>包含 (in)</code></td>
 <td>O(1)</td>
 </tr>
 <tr>
-<td><code>iteration</code></td>
+<td><code>迭代(iteration)</code></td>
 <td>O(n)</td>
 </tr>
 </tbody>
 </table>
-<p>For our last performance experiment we will compare the performance of the contains operation between lists and dictionaries. In the process we will confirm that the contains operator for lists is <span class="arithmatex">\(O(n)\)</span> and the contains operator for dictionaries is <span class="arithmatex">\(O(1)\)</span>. The experiment we will use to compare the two is simple: we’ll make a list with a range of numbers in it, then we will pick numbers at random and check to see if the numbers are in the list. If our performance tables are correct, the bigger the list, the longer it should take to determine if any one number is contained in the list.</p>
-<p>We will repeat the same experiment for a dictionary that contains numbers as the keys. In this experiment we should see that determining whether or not a number is in the dictionary is not only much faster, but the time it takes to check should remain constant even as the dictionary grows larger.</p>
-<p><code>Listing 6</code> implements this comparison. Notice that we are performing exactly the same operation, <code>number in container</code>. The difference is that on line 8 <code>x</code> is a list, and on line 10 <code>x</code> is a dictionary.</p>
-<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Listing 6</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<p>在我们最后的性能实验中，我们将比较列表和字典的 <code>包含</code> 操作的性能。我们会验证列表的 <code>包含</code> 操作是 <span class="arithmatex">\(O(n)\)</span>，而字典的 <code>包含</code> 操作是 <span class="arithmatex">\(O(1)\)</span>。我们将使用一个简单的实验来比较这两者：创建一个包含数字范围的列表，然后随机挑选数字，检查该数字是否在列表中。如果我们的性能表是正确的，那么列表越大，确定某个数字是否在列表中的时间应该越长。</p>
+<p>我们将对一个包含数字作为键的字典重复相同的实验。在这个实验中，我们会看到确定某个数字是否在字典中的速度不仅要快得多，而且随着字典变大，检查所需的时间应该保持不变。</p>
+<p><code>列表 6</code> 实现了这个比较。注意我们执行的是完全相同的操作，<code>number in container</code>。区别在于第 8 行的 <code>x</code> 是一个列表，而第 10 行的 <code>x</code> 是一个字典。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">列表 6</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
@@ -4040,50 +4040,50 @@
     dict_time <span style="color: #666666">=</span> t<span style="color: #666666">.</span>timeit(number<span style="color: #666666">=1000</span>)
     <span style="color: #008000">print</span>(<span style="color: #BA2121">f&quot;</span><span style="color: #A45A77; font-weight: bold">{</span>i<span style="color: #A45A77; font-weight: bold">:</span><span style="color: #BA2121">&lt;10,</span><span style="color: #A45A77; font-weight: bold">}{</span>lst_time<span style="color: #A45A77; font-weight: bold">:</span><span style="color: #BA2121">&gt;10.3f</span><span style="color: #A45A77; font-weight: bold">}{</span>dict_time<span style="color: #A45A77; font-weight: bold">:</span><span style="color: #BA2121">&gt;10.3f</span><span style="color: #A45A77; font-weight: bold">}</span><span style="color: #BA2121">&quot;</span>)
 </code></pre></div></td></tr></table></div>
-<p><code>Figure 4</code> summarizes the results of running <code>Listing 6</code>. You can see that the dictionary is consistently faster. For the smallest list size of 10,000 elements a dictionary is 89.4 times faster than a list. For the largest list size of 990,000 elements the dictionary is 11,603 times faster! You can also see that the time it takes for the <code>contains</code> operator on the list grows linearly with the size of the list. This verifies the assertion that the <code>contains</code> operator on a list is :math:<code>O(n)</code>. It can also be seen that the time for the <code>contains</code> operator on a dictionary is constant even as the dictionary size grows. In fact, for a dictionary size of 10,000 the <code>contains</code> operation took 0.004 milliseconds, and for the dictionary size of 990,000 it also took 0.004 milliseconds.</p>
+<p><code>图 4</code> 总结了运行 <code>列表 6</code> 的结果。你可以看到字典始终更快。对于包含 10,000 个元素的最小列表，字典比列表快 89.4 倍。对于包含 990,000 个元素的最大列表，字典比列表快 11,603 倍！你还可以看到，列表上 <code>包含</code> 操作的时间随着列表大小呈线性增长。这验证了列表上 <code>包含</code> 操作是 <span class="arithmatex">\(O(n)\)</span>。还可以看出，字典上 <code>包含</code> 操作的时间即使在字典大小增长时也是恒定的。事实上，对于大小为 10,000 的字典，<code>包含</code> 操作耗时 0.004 毫秒，而对于大小为 990,000 的字典，<code>包含</code> 操作同样耗时 0.004 毫秒。</p>
 <p><figure markdown="span">
-  <a class="glightbox" href="../imgs/listvdict.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/listvdict.png" width="300" /></a>
-  <figcaption markdown="span">Figure 4: Comparing the <code>in</code> Operator for Python Lists and Dictionaries</figcaption>
+    <a class="glightbox" href="../imgs/listvdict.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="图像标题" src="../imgs/listvdict.png" width="300" /></a>
+    <figcaption markdown="span">图 4：比较 Python 列表和字典的 <code>in</code> 操作</figcaption>
 </figure></p>
-<p>Since Python is an evolving language, there are always changes going on behind the scenes. The latest information on the performance of Python data structures can be found on the Python website. As of this writing the Python wiki has a nice <strong>time complexity</strong> page that can be found at the <a href="http://wiki.python.org/moin/TimeComplexity">Time Complexity Wiki</a>.</p>
+<p>由于 Python 是一种不断发展的语言，幕后总是在进行一些变化。关于 Python 数据结构性能的最新信息可以在 Python 网站上找到。截至本文撰写时，Python Wiki 上有一个关于 <strong>时间复杂度</strong> 的页面，你可以访问 <a href="http://wiki.python.org/moin/TimeComplexity">Time Complexity Wiki</a> 了解更多。</p>
 <div class="admonition info">
-<p class="admonition-title">Self Check</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Activity: 2.7.1 Multiple Choice</label><label for="__tabbed_2_2">Activity: 2.7.2 Multiple Choice</label></div>
+<p class="admonition-title">自测</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">活动：2.7.1 选择题</label><label for="__tabbed_2_2">活动：2.7.2 选择题</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Which of the list operations shown below is not O(1)?</p>
+<p>以下列表操作中，哪一个不是 O(1)？</p>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> a: a_list.pop(0)</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> b: a_list.pop()</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> c: a_list.append()</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> d: a_list[10]</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> e: all of the above are O(1)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> e: 上述所有操作都是 O(1)</li>
 </ul>
-<p>correct: a</p>
+<p>正确答案：a</p>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> feedback a: When you remove the first element of a list, all the other elements of the list must be shifted forward.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> feedback b: Removing an element from the end of the list is a constant operation.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> feedback c: Appending to the end of the list is a constant operation</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> feedback d: Indexing a list is a constant operation</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> feedback e: There is one operation that requires all other list elements to be moved.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 反馈 a: 当你删除列表的第一个元素时，列表中的所有其他元素必须前移。</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 反馈 b: 从列表末尾删除元素是一个常量操作。</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 反馈 c: 向列表末尾添加元素是一个常量操作。</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 反馈 d: 索引列表是一个常量操作。</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 反馈 e: 有一个操作需要移动列表中的所有其他元素。</li>
 </ul>
 </div>
 <div class="tabbed-block">
-<p>Which of the dictionary operations shown below is O(1)?</p>
+<p>以下字典操作中，哪个是 O(1)？</p>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> a: "x" in a_dict</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> b: del a_dict["x"]</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> c: a_dict["x"] == 10</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> d: a_dict["x"] = a_dict["x"] + 1</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> e: all of the above are O(1)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> e: 上述所有操作都是 O(1)</li>
 </ul>
-<p>correct: e</p>
+<p>正确答案：e</p>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> feedback a: in is a constant operation for a dictionary because you do not have to iterate but there is a better answer.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> feedback b: deleting an element from a dictionary is a constant operation but there is a better answer.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> feedback c: Assignment to a dictionary key is constant but there is a better answer.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> feedback d: Re-assignment to a dictionary key is constant but there is a better answer.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> feedback e: The only dictionary operations that are not O(1) are those that require iteration.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 反馈 a: 在字典中使用 <code>in</code> 是一个常量操作，因为你不需要遍历整个字典，但有更好的答案。</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 反馈 b: 从字典中删除元素是一个常量操作，但有更好的答案。</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 反馈 c: 为字典键赋值是一个常量操作，但有更好的答案。</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 反馈 d: 重新为字典键赋值是一个常量操作，但有更好的答案。</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 反馈 e: 唯一不是 O(1) 的字典操作是那些需要迭代的操作。</li>
 </ul>
 </div>
 </div>
@@ -4214,7 +4214,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月9日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月12日</span>
       
         <br>
         创建日期:

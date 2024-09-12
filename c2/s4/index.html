@@ -4071,7 +4071,7 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>A good example problem for showing algorithms with different orders of magnitude is the classic anagram detection problem for strings. One string is an anagram of another if the second is simply a rearrangement of the first. For example, <code>heart</code> and <code>earth</code> are anagrams. The strings <code>python</code> and <code>typhon</code> are anagrams as well. For the sake of simplicity, we will assume that the two strings in question are of equal length and that they are made up of symbols from the set of 26 lowercase alphabetic characters. Our goal is to write a boolean function that will take two strings and return whether they are anagrams.</p>
+<p>展示不同数量级算法的一个很好例子是经典的字符串字谜检测问题。如果一个字符串是另一个字符串的字谜，那么第二个字符串只是第一个字符串的重新排列。例如，<code>heart</code> 和 <code>earth</code> 是字谜。字符串 <code>python</code> 和 <code>typhon</code> 也是字谜。为了简单起见，我们假设这两个字符串的长度相等，并且它们由 26 个小写字母组成。我们的目标是编写一个布尔函数，该函数接受两个字符串并返回它们是否是字谜。</p>
 </div>
 <div class="tabbed-block">
 <p>A good example problem for showing algorithms with different orders of magnitude is the classic anagram detection problem for strings. One string is an anagram of another if the second is simply a rearrangement of the first. For example, <code>heart</code> and <code>earth</code> are anagrams. The strings <code>python</code> and <code>typhon</code> are anagrams as well. For the sake of simplicity, we will assume that the two strings in question are of equal length and that they are made up of symbols from the set of 26 lowercase alphabetic characters. Our goal is to write a boolean function that will take two strings and return whether they are anagrams.</p>
@@ -4083,7 +4083,7 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">中文</label><label for="__tabbed_2_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Our first solution to the anagram problem will check the lengths of the strings and then check to see that each character in the first string actually occurs in the second. If it is possible to check off each character, then the two strings must be anagrams. <strong>Checking off</strong> a character will be accomplished by replacing it with the special Python value <code>None</code>. However, since strings in Python are immutable, the first step in the process will be to convert the second string to a list. Each character from the first string can be checked against the characters in the list and if found, checked off by replacement. <code>ActiveCode 1</code> shows this function.</p>
+<p>我们对字谜问题的第一个解决方案将检查字符串的长度，然后检查第一个字符串中的每个字符是否确实出现在第二个字符串中。如果可以勾选每个字符，那么这两个字符串必须是字谜。<strong>勾选字符</strong>将通过将其替换为特殊的 Python 值 <code>None</code> 来完成。然而，由于 Python 中的字符串是不可变的，因此处理的第一步是将第二个字符串转换为列表。然后可以将第一个字符串中的每个字符与列表中的字符进行比较，如果找到，则通过替换来勾选。<code>ActiveCode 1</code> 显示了这个函数。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 2.4.1.1 Checking Off</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
@@ -4136,15 +4136,15 @@
     <span style="color: #008000; font-weight: bold">return</span> still_ok
 
 
-<span style="color: #008000">print</span>(anagram_solution_1(<span style="color: #BA2121">&quot;apple&quot;</span>, <span style="color: #BA2121">&quot;pleap&quot;</span>))  <span style="color: #3D7B7B; font-style: italic"># expected: True</span>
-<span style="color: #008000">print</span>(anagram_solution_1(<span style="color: #BA2121">&quot;abcd&quot;</span>, <span style="color: #BA2121">&quot;dcba&quot;</span>))  <span style="color: #3D7B7B; font-style: italic"># expected: True</span>
-<span style="color: #008000">print</span>(anagram_solution_1(<span style="color: #BA2121">&quot;abcd&quot;</span>, <span style="color: #BA2121">&quot;dcda&quot;</span>))  <span style="color: #3D7B7B; font-style: italic"># expected: False</span>
+<span style="color: #008000">print</span>(anagram_solution_1(<span style="color: #BA2121">&quot;apple&quot;</span>, <span style="color: #BA2121">&quot;pleap&quot;</span>))  <span style="color: #3D7B7B; font-style: italic"># 预期结果: True</span>
+<span style="color: #008000">print</span>(anagram_solution_1(<span style="color: #BA2121">&quot;abcd&quot;</span>, <span style="color: #BA2121">&quot;dcba&quot;</span>))  <span style="color: #3D7B7B; font-style: italic"># 预期结果: True</span>
+<span style="color: #008000">print</span>(anagram_solution_1(<span style="color: #BA2121">&quot;abcd&quot;</span>, <span style="color: #BA2121">&quot;dcda&quot;</span>))  <span style="color: #3D7B7B; font-style: italic"># 预期结果: False</span>
 </code></pre></div></td></tr></table></div>
-<p>To analyze this algorithm, we need to note that each of the <em>n</em> characters in <code>s1</code> will cause an iteration through up to n characters in the list from <code>s2</code>. Each of the <em>n</em> positions in the list will be visited once to match a character from s1. The number of visits then becomes the sum of the integers from 1 to n. We stated earlier that this can be written as</p>
+<p>要分析这个算法，我们需要注意 <code>s1</code> 中的每个 <em>n</em> 个字符都会导致对 <code>s2</code> 列表中的最多 n 个字符的迭代。列表中的每个 <em>n</em> 个位置将被访问一次以匹配来自 <code>s1</code> 的字符。访问的次数将成为从 1 到 n 的整数的总和。我们之前提到，这可以写成：</p>
 <div class="arithmatex">\[\begin{align} 
-  \sum_{i=1}^{n} i &amp;= \frac {n(n+1)}{2} \\ &amp;= \frac {1}{2}n^{2} + \frac {1}{2}n
+    \sum_{i=1}^{n} i &amp;= \frac {n(n+1)}{2} \\ &amp;= \frac {1}{2}n^{2} + \frac {1}{2}n
 \end{align}\]</div>
-<p>As <span class="arithmatex">\(n\)</span> gets large, the <span class="arithmatex">\(n^{2}\)</span> term will dominate the $n term and the <span class="arithmatex">\(\frac {1}{2}\)</span> can be ignored. Therefore, this solution is <span class="arithmatex">\(O(n^{2})\)</span>.</p>
+<p>随着 <span class="arithmatex">\(n\)</span> 变大，<span class="arithmatex">\(n^{2}\)</span> 项将占主导地位，而 <span class="arithmatex">\(n\)</span> 项和 <span class="arithmatex">\(\frac {1}{2}\)</span> 可以忽略。因此，这个解决方案的时间复杂度是 <span class="arithmatex">\(O(n^{2})\)</span>。</p>
 </div>
 <div class="tabbed-block">
 <p>Our first solution to the anagram problem will check the lengths of the strings and then check to see that each character in the first string actually occurs in the second. If it is possible to check off each character, then the two strings must be anagrams. <strong>Checking off</strong> a character will be accomplished by replacing it with the special Python value <code>None</code>. However, since strings in Python are immutable, the first step in the process will be to convert the second string to a list. Each character from the first string can be checked against the characters in the list and if found, checked off by replacement. <code>ActiveCode 1</code> shows this function.</p>
@@ -4217,7 +4217,7 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">中文</label><label for="__tabbed_3_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Another solution to the anagram problem will make use of the fact that even though <code>s1</code> and <code>s2</code> are different, they are anagrams only if they consist of exactly the same characters. So if we begin by sorting each string alphabetically from a to z, we will end up with the same string if the original two strings are anagrams. <code>ActiveCode 2</code> shows this solution. Again, in Python we can use the built-in <code>sort</code> method on lists by simply converting each string to a list at the start.</p>
+<p>另一种解决字谜问题的方案利用了这样一个事实，即虽然 <code>s1</code> 和 <code>s2</code> 不同，但它们只有在由完全相同的字符组成时才是字谜。因此，如果我们先按字母顺序将每个字符串从 a 排到 z，那么如果原始的两个字符串是字谜，最终它们会得到相同的字符串。<code>ActiveCode 2</code> 显示了这个解决方案。同样，在 Python 中，我们可以通过将每个字符串转换为列表来使用内置的 <code>sort</code> 方法进行排序。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 2.4.2.1 Sort and Compare</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
@@ -4258,11 +4258,11 @@
     <span style="color: #008000; font-weight: bold">return</span> matches
 
 
-<span style="color: #008000">print</span>(anagram_solution_2(<span style="color: #BA2121">&quot;apple&quot;</span>, <span style="color: #BA2121">&quot;pleap&quot;</span>))  <span style="color: #3D7B7B; font-style: italic"># expected: True</span>
-<span style="color: #008000">print</span>(anagram_solution_2(<span style="color: #BA2121">&quot;abcd&quot;</span>, <span style="color: #BA2121">&quot;dcba&quot;</span>))  <span style="color: #3D7B7B; font-style: italic"># expected: True</span>
-<span style="color: #008000">print</span>(anagram_solution_2(<span style="color: #BA2121">&quot;abcd&quot;</span>, <span style="color: #BA2121">&quot;dcda&quot;</span>))  <span style="color: #3D7B7B; font-style: italic"># expected: False</span>
+<span style="color: #008000">print</span>(anagram_solution_2(<span style="color: #BA2121">&quot;apple&quot;</span>, <span style="color: #BA2121">&quot;pleap&quot;</span>))  <span style="color: #3D7B7B; font-style: italic"># 预期结果: True</span>
+<span style="color: #008000">print</span>(anagram_solution_2(<span style="color: #BA2121">&quot;abcd&quot;</span>, <span style="color: #BA2121">&quot;dcba&quot;</span>))  <span style="color: #3D7B7B; font-style: italic"># 预期结果: True</span>
+<span style="color: #008000">print</span>(anagram_solution_2(<span style="color: #BA2121">&quot;abcd&quot;</span>, <span style="color: #BA2121">&quot;dcda&quot;</span>))  <span style="color: #3D7B7B; font-style: italic"># 预期结果: False</span>
 </code></pre></div></td></tr></table></div>
-<p>At first glance you may be tempted to think that this algorithm is <span class="arithmatex">\(O(n)\)</span>, since there is one simple iteration to compare the n characters after the sorting process. However, the two calls to the Python <code>sort</code> method are not without their own cost. As we will see in Chapter 5, sorting is typically either <span class="arithmatex">\(O(n^{2})\)</span> or <span class="arithmatex">\(O(n\log n)\)</span>, so the sorting operations dominate the iteration. In the end, this algorithm will have the same order of magnitude as that of the sorting process.</p>
+<p>乍一看，你可能会认为该算法是 <span class="arithmatex">\(O(n)\)</span>，因为在排序过程之后，只需进行一次简单的迭代来比较 n 个字符。然而，对 Python <code>sort</code> 方法的两次调用也并非没有代价。正如我们将在第 5 章看到的那样，排序通常是 <span class="arithmatex">\(O(n^{2})\)</span> 或 <span class="arithmatex">\(O(n\log n)\)</span>，因此排序操作占主导地位。最终，这个算法的数量级与排序过程相同。</p>
 </div>
 <div class="tabbed-block">
 <p>Another solution to the anagram problem will make use of the fact that even though <code>s1</code> and <code>s2</code> are different, they are anagrams only if they consist of exactly the same characters. So if we begin by sorting each string alphabetically from a to z, we will end up with the same string if the original two strings are anagrams. <code>ActiveCode 2</code> shows this solution. Again, in Python we can use the built-in <code>sort</code> method on lists by simply converting each string to a list at the start.</p>
@@ -4319,8 +4319,8 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">中文</label><label for="__tabbed_4_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>A brute force technique for solving a problem typically tries to exhaust all possibilities. For the anagram detection problem, we can simply generate a list of all possible strings using the characters from s1 and then see if s2 occurs. However, there is a problem with this approach. When generating all possible strings from s1, there are n possible first characters, <span class="arithmatex">\(n - 1\)</span> possible characters for the second position, <span class="arithmatex">\(n - 2\)</span> for the third, and so on. The total number of candidate strings is <span class="arithmatex">\(n \cdot (n - 1) \cdot (n - 2) \cdot ... \cdot 3 \cdot 2 \cdot 1\)</span>, which is <span class="arithmatex">\(n!\)</span>. Although some of the strings may be duplicates, the program cannot know this ahead of time and so it will still generate <span class="arithmatex">\(n!\)</span> different strings.</p>
-<p>It turns out that <span class="arithmatex">\(n!\)</span> grows even faster than <span class="arithmatex">\(2^{n}\)</span> as n gets large. In fact, if s1 were 20 characters long, there would be <span class="arithmatex">\(20! = 2,432,902,008,176,640,000\)</span> possible candidate strings. If we processed one possibility every second, it would still take us 77,146,816,596 years to go through the entire list. This is probably not going to be a good solution.</p>
+<p>暴力求解方法通常尝试穷尽所有可能性。对于字谜检测问题，我们可以简单地生成使用 s1 中字符的所有可能字符串列表，然后检查 s2 是否出现。然而，这种方法存在问题。生成 s1 的所有可能字符串时，第一位有 n 种可能，第二位有 <span class="arithmatex">\(n - 1\)</span> 种可能，第三位有 <span class="arithmatex">\(n - 2\)</span> 种可能，依此类推。候选字符串的总数是 <span class="arithmatex">\(n \cdot (n - 1) \cdot (n - 2) \cdot ... \cdot 3 \cdot 2 \cdot 1\)</span>，即 <span class="arithmatex">\(n!\)</span>。虽然某些字符串可能是重复的，但程序无法提前知道这一点，因此它仍然会生成 <span class="arithmatex">\(n!\)</span> 个不同的字符串。</p>
+<p>事实上，随着 n 的增大，<span class="arithmatex">\(n!\)</span> 的增长速度甚至比 <span class="arithmatex">\(2^{n}\)</span> 还快。实际上，如果 s1 有 20 个字符，那么可能的候选字符串数为 <span class="arithmatex">\(20! = 2,432,902,008,176,640,000\)</span>。如果我们每秒处理一个可能的字符串，遍历整个列表仍然需要 77,146,816,596 年。这可能不是一个好的解决方案。</p>
 </div>
 <div class="tabbed-block">
 <p>A brute force technique for solving a problem typically tries to exhaust all possibilities. For the anagram detection problem, we can simply generate a list of all possible strings using the characters from s1 and then see if s2 occurs. However, there is a problem with this approach. When generating all possible strings from s1, there are n possible first characters, <span class="arithmatex">\(n - 1\)</span> possible characters for the second position, <span class="arithmatex">\(n - 2\)</span> for the third, and so on. The total number of candidate strings is <span class="arithmatex">\(n \cdot (n - 1) \cdot (n - 2) \cdot ... \cdot 3 \cdot 2 \cdot 1\)</span>, which is <span class="arithmatex">\(n!\)</span>. Although some of the strings may be duplicates, the program cannot know this ahead of time and so it will still generate <span class="arithmatex">\(n!\)</span> different strings.</p>
@@ -4333,7 +4333,7 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">中文</label><label for="__tabbed_5_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Our final solution to the anagram problem takes advantage of the fact that any two anagrams will have the same number of a’s, the same number of b’s, the same number of c’s, and so on. In order to decide whether two strings are anagrams, we will first count the number of times each character occurs. Since there are 26 possible characters, we can use a list of 26 counters, one for each possible character. Each time we see a particular character, we will increment the counter at that position. In the end, if the two lists of counters are identical, the strings must be anagrams. <code>ActiveCode 3</code> shows this solution.</p>
+<p>我们对字谜问题的最终解决方案利用了这样一个事实：任何两个字谜都会有相同数量的字母 a，相同数量的字母 b，相同数量的字母 c，以此类推。为了判断两个字符串是否是字谜，我们首先要计算每个字符出现的次数。由于有 26 个可能的字符，我们可以使用一个包含 26 个计数器的列表，每个计数器对应一个字符。每次看到一个特定字符时，我们将增加该位置的计数。最终，如果这两个计数字符列表相同，那么这两个字符串必须是字谜。<code>ActiveCode 3</code> 显示了该解决方案。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 2.4.4.1 Count and Compare</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
@@ -4382,59 +4382,63 @@
     <span style="color: #008000; font-weight: bold">return</span> still_ok
 
 
-<span style="color: #008000">print</span>(anagram_solution_4(<span style="color: #BA2121">&quot;apple&quot;</span>, <span style="color: #BA2121">&quot;pleap&quot;</span>))  <span style="color: #3D7B7B; font-style: italic"># expected: True</span>
-<span style="color: #008000">print</span>(anagram_solution_4(<span style="color: #BA2121">&quot;abcd&quot;</span>, <span style="color: #BA2121">&quot;dcba&quot;</span>))  <span style="color: #3D7B7B; font-style: italic"># expected: True</span>
-<span style="color: #008000">print</span>(anagram_solution_4(<span style="color: #BA2121">&quot;abcd&quot;</span>, <span style="color: #BA2121">&quot;dcda&quot;</span>))  <span style="color: #3D7B7B; font-style: italic"># expected: False</span>
+<span style="color: #008000">print</span>(anagram_solution_4(<span style="color: #BA2121">&quot;apple&quot;</span>, <span style="color: #BA2121">&quot;pleap&quot;</span>))  <span style="color: #3D7B7B; font-style: italic"># 预期结果: True</span>
+<span style="color: #008000">print</span>(anagram_solution_4(<span style="color: #BA2121">&quot;abcd&quot;</span>, <span style="color: #BA2121">&quot;dcba&quot;</span>))  <span style="color: #3D7B7B; font-style: italic"># 预期结果: True</span>
+<span style="color: #008000">print</span>(anagram_solution_4(<span style="color: #BA2121">&quot;abcd&quot;</span>, <span style="color: #BA2121">&quot;dcda&quot;</span>))  <span style="color: #3D7B7B; font-style: italic"># 预期结果: False</span>
 </code></pre></div></td></tr></table></div>
-<p>Again, the solution has a number of iterations. However, unlike the first solution, none of them are nested. The first two iterations used to count the characters are both based on n. The third iteration, comparing the two lists of counts, always takes 26 steps since there are 26 possible characters in the strings. Adding it all up gives us <span class="arithmatex">\(T(n)=2n+26\)</span> steps. That is <span class="arithmatex">\(O(n)\)</span>. We have found a linear order of magnitude algorithm for solving this problem.</p>
-<p>Before leaving this example, we need to say something about space requirements. Although the last solution was able to run in linear time, it could only do so by using additional storage to keep the two lists of character counts. In other words, this algorithm sacrificed space in order to gain time.</p>
-<p>This is a common occurrence. On many occasions you will need to make decisions between time and space trade-offs. In this case, the amount of extra space is not significant. However, if the underlying alphabet had millions of characters, there would be more concern. As a computer scientist, when given a choice of algorithms, it will be up to you to determine the best use of computing resources given a particular problem.</p>
+<p>同样，这个解决方案也有多次迭代。然而，不同于第一个解决方案，迭代并未嵌套。前两次用于计算字符的迭代基于 n。第三次迭代用于比较两个计数列表，由于字符串中有 26 个可能的字符，这次迭代总共需要 26 步。总共计算得到的步数为 <span class="arithmatex">\(T(n)=2n+26\)</span>。即 <span class="arithmatex">\(O(n)\)</span>。我们已经找到了一个线性数量级的算法来解决这个问题。</p>
+<p>在结束这个例子之前，我们需要讨论一下空间需求。虽然最后的解决方案能够在线性时间内运行，但它只能通过使用额外的存储空间来保存两个字符计数列表来实现。换句话说，这个算法牺牲了空间来换取时间。</p>
+<p>这种情况非常常见。在许多情况下，你需要在时间和空间的权衡之间做出决策。在这个例子中，额外的空间需求并不大。然而，如果底层的字母表包含数百万个字符，那么这个问题将会更加令人担忧。作为一名计算机科学家，当你有选择算法的机会时，你需要根据具体问题决定如何最有效地利用计算资源。</p>
 <div class="admonition info">
-<p class="admonition-title">Self Check [Activity: 2.4.4.2 Multiple Choice]</p>
-<p>Q-4: Given the following code fragment, what is its Big O running time?</p>
+<p class="admonition-title">自检</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">活动：2.4.4.2 多项选择</label><label for="__tabbed_6_2">活动：2.4.4.3 多项选择</label><label for="__tabbed_6_3">活动：2.4.4.4 多项选择</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Q-4：给定以下代码片段，它的 Big O 运行时间是什么？</p>
 <div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>test <span style="color: #666666">=</span> <span style="color: #666666">0</span>
 <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n):
-   <span style="color: #008000; font-weight: bold">for</span> j <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n):
-      test <span style="color: #666666">=</span> test <span style="color: #666666">+</span> i <span style="color: #666666">*</span> j
+    <span style="color: #008000; font-weight: bold">for</span> j <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n):
+        test <span style="color: #666666">=</span> test <span style="color: #666666">+</span> i <span style="color: #666666">*</span> j
 </code></pre></div>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>A. O(n)</strong></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>B. O(n^2)</strong></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>C. O(log n)</strong></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>D. O(n^3)</strong></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>A. <span class="arithmatex">\(O(n)\)</span></strong></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>B. <span class="arithmatex">\(O(n^2)\)</span></strong></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>C. <span class="arithmatex">\(O(log n)\)</span></strong></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>D. <span class="arithmatex">\(O(n^3)\)</span></strong></li>
 </ul>
 </div>
-<div class="admonition info">
-<p class="admonition-title">Self Check [Activity: 2.4.4.3 Multiple Choice]</p>
-<p>Q-5: Given the following code fragment what is its Big O running time?</p>
+<div class="tabbed-block">
+<p>Q-5：给定以下代码片段，它的 Big O 运行时间是什么？</p>
 <div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>test <span style="color: #666666">=</span> <span style="color: #666666">0</span>
 <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n):
-   test <span style="color: #666666">=</span> test <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+    test <span style="color: #666666">=</span> test <span style="color: #666666">+</span> <span style="color: #666666">1</span>
 
 <span style="color: #008000; font-weight: bold">for</span> j <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n):
-   test <span style="color: #666666">=</span> test <span style="color: #666666">-</span> <span style="color: #666666">1</span>
+    test <span style="color: #666666">=</span> test <span style="color: #666666">-</span> <span style="color: #666666">1</span>
 </code></pre></div>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>A. O(n)</strong></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>B. O(n^2)</strong></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>C. O(log n)</strong></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>D. O(n^3)</strong></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>A. <span class="arithmatex">\(O(n)\)</span></strong></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>B. <span class="arithmatex">\(O(n^2)\)</span></strong></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>C. <span class="arithmatex">\(O(log n)\)</span></strong></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>D. <span class="arithmatex">\(O(n^3)\)</span></strong></li>
 </ul>
 </div>
-<div class="admonition info">
-<p class="admonition-title">Self Check [Activity: 2.4.4.4 Multiple Choice]</p>
-<p>Q-6: Given the following code fragment what is its Big O running time?</p>
+<div class="tabbed-block">
+<p>Q-6：给定以下代码片段，它的 Big O 运行时间是什么？</p>
 <div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>i <span style="color: #666666">=</span> n
 <span style="color: #008000; font-weight: bold">while</span> i <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span>:
-   k <span style="color: #666666">=</span> <span style="color: #666666">2</span> <span style="color: #666666">+</span> <span style="color: #666666">2</span>
-   i <span style="color: #666666">=</span> i <span style="color: #666666">//</span> <span style="color: #666666">2</span>
+    k <span style="color: #666666">=</span> <span style="color: #666666">2</span> <span style="color: #666666">+</span> <span style="color: #666666">2</span>
+    i <span style="color: #666666">=</span> i <span style="color: #666666">//</span> <span style="color: #666666">2</span>
 </code></pre></div>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>A. O(n)</strong></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>B. O(n^2)</strong></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>C. O(log n)</strong></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>D. O(n^3)</strong></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>A. <span class="arithmatex">\(O(n)\)</span></strong></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>B. <span class="arithmatex">\(O(n^2)\)</span></strong></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>C. <span class="arithmatex">\(O(log n)\)</span></strong></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>D. <span class="arithmatex">\(O(n^3)\)</span></strong></li>
 </ul>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="tabbed-block">
@@ -4550,7 +4554,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月9日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月12日</span>
       
         <br>
         创建日期:

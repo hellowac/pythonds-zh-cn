@@ -3979,36 +3979,44 @@
 <div class="tabbed-block">
 <ol>
 <li>
-<p>Give the Big O performance of the following code fragment:</p>
+<p><strong>以下代码片段的 Big O 性能是多少？</strong></p>
 <div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n):
     <span style="color: #008000; font-weight: bold">for</span> j <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n):
         k <span style="color: #666666">=</span> <span style="color: #666666">2</span> <span style="color: #666666">+</span> <span style="color: #666666">2</span>
 </code></pre></div>
+<p><strong>Big O 性能：</strong> <span class="arithmatex">\(O(n^2)\)</span></p>
+<p><strong>解释：</strong> 有两个嵌套的循环，每个循环运行 <span class="arithmatex">\(n\)</span> 次，因此总操作次数为 <span class="arithmatex">\(n \times n = n^2\)</span>。</p>
 </li>
 <li>
-<p>Give the Big O performance of the following code fragment:</p>
+<p><strong>以下代码片段的 Big O 性能是多少？</strong></p>
 <div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>    <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n):
             k <span style="color: #666666">=</span> <span style="color: #666666">2</span> <span style="color: #666666">+</span> <span style="color: #666666">2</span>
 </code></pre></div>
+<p><strong>Big O 性能：</strong> <span class="arithmatex">\(O(n)\)</span></p>
+<p><strong>解释：</strong> 有一个循环运行 <span class="arithmatex">\(n\)</span> 次，因此操作次数与 <span class="arithmatex">\(n\)</span> 成线性关系。</p>
 </li>
 <li>
-<p>Give the Big O performance of the following code fragment:</p>
+<p><strong>以下代码片段的 Big O 性能是多少？</strong></p>
 <div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>    i <span style="color: #666666">=</span> n
     <span style="color: #008000; font-weight: bold">while</span> i <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span>:
         k <span style="color: #666666">=</span> <span style="color: #666666">2</span> <span style="color: #666666">+</span> <span style="color: #666666">2</span>
         i <span style="color: #666666">=</span> i <span style="color: #666666">//</span> <span style="color: #666666">2</span>
 </code></pre></div>
+<p><strong>Big O 性能：</strong> <span class="arithmatex">\(O(\log n)\)</span></p>
+<p><strong>解释：</strong> 每次迭代时 <span class="arithmatex">\(i\)</span> 的值被减半，因此迭代次数与 <span class="arithmatex">\(n\)</span> 可以被 2 除的次数成正比，即 <span class="arithmatex">\(\log n\)</span>。</p>
 </li>
 <li>
-<p>Give the Big O performance of the following code fragment:</p>
+<p><strong>以下代码片段的 Big O 性能是多少？</strong></p>
 <div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>    <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n):
         <span style="color: #008000; font-weight: bold">for</span> j <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n):
             <span style="color: #008000; font-weight: bold">for</span> k <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n):
                 k <span style="color: #666666">=</span> <span style="color: #666666">2</span> <span style="color: #666666">+</span> <span style="color: #666666">2</span>
 </code></pre></div>
+<p><strong>Big O 性能：</strong> <span class="arithmatex">\(O(n^3)\)</span></p>
+<p><strong>解释：</strong> 有三个嵌套的循环，每个循环运行 <span class="arithmatex">\(n\)</span> 次，总操作次数为 <span class="arithmatex">\(n \times n \times n = n^3\)</span>。</p>
 </li>
 <li>
-<p>Give the Big O performance of the following code fragment:</p>
+<p><strong>以下代码片段的 Big O 性能是多少？</strong></p>
 <div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>    <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n):
         k <span style="color: #666666">=</span> <span style="color: #666666">2</span> <span style="color: #666666">+</span> <span style="color: #666666">2</span>
     <span style="color: #008000; font-weight: bold">for</span> j <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n):
@@ -4016,21 +4024,118 @@
     <span style="color: #008000; font-weight: bold">for</span> k <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n):
         k <span style="color: #666666">=</span> <span style="color: #666666">2</span> <span style="color: #666666">+</span> <span style="color: #666666">2</span>
 </code></pre></div>
+<p><strong>Big O 性能：</strong> <span class="arithmatex">\(O(n)\)</span></p>
+<p><strong>解释：</strong> 虽然有三个分开的循环，但它们是顺序执行的而不是嵌套的。每个循环运行 <span class="arithmatex">\(n\)</span> 次，因此总操作次数为 <span class="arithmatex">\(3n\)</span>，在 Big O 记法中常数系数被省略，所以为 <span class="arithmatex">\(O(n)\)</span>。</p>
 </li>
 <li>
-<p>Devise an experiment to verify that the <code>list index</code> operator is <span class="arithmatex">\(O(1)\)</span>.</p>
+<p><strong>设计一个实验来验证 <code>list index</code> 操作符的性能是 <span class="arithmatex">\(O(1)\)</span>：</strong></p>
+<p><strong>实验：</strong> 测量访问列表中某个特定索引的时间，并对不同大小的列表进行测试。</p>
+<p><strong>实现：</strong></p>
+<div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">timeit</span>
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">index_test</span>(n):
+    l <span style="color: #666666">=</span> <span style="color: #008000">list</span>(<span style="color: #008000">range</span>(n))
+    <span style="color: #008000; font-weight: bold">for</span> _ <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">1000</span>):  <span style="color: #3D7B7B; font-style: italic"># 重复以获得稳定的测量结果</span>
+        _ <span style="color: #666666">=</span> l[n <span style="color: #666666">//</span> <span style="color: #666666">2</span>]  <span style="color: #3D7B7B; font-style: italic"># 访问中间元素</span>
+
+<span style="color: #008000; font-weight: bold">for</span> size <span style="color: #AA22FF; font-weight: bold">in</span> [<span style="color: #666666">10</span>, <span style="color: #666666">100</span>, <span style="color: #666666">1000</span>, <span style="color: #666666">10000</span>]:
+    time_taken <span style="color: #666666">=</span> timeit<span style="color: #666666">.</span>timeit(<span style="color: #008000; font-weight: bold">lambda</span>: index_test(size), number<span style="color: #666666">=1</span>)
+    <span style="color: #008000">print</span>(<span style="color: #BA2121">f&quot;列表大小: </span><span style="color: #A45A77; font-weight: bold">{</span>size<span style="color: #A45A77; font-weight: bold">}</span><span style="color: #BA2121">, 耗时: </span><span style="color: #A45A77; font-weight: bold">{</span>time_taken<span style="color: #A45A77; font-weight: bold">:</span><span style="color: #BA2121">.6f</span><span style="color: #A45A77; font-weight: bold">}</span><span style="color: #BA2121"> 秒&quot;</span>)
+</code></pre></div>
+<p><strong>预期结果：</strong> 无论列表大小如何，时间应该保持不变，从而验证 <span class="arithmatex">\(O(1)\)</span> 性能。</p>
 </li>
 <li>
-<p>Devise an experiment to verify that <code>get item</code> and <code>set item</code> are <span class="arithmatex">\(O(1)\)</span> for dictionaries.</p>
+<p><strong>设计一个实验来验证 <code>get item</code> 和 <code>set item</code> 操作在字典中的性能是 <span class="arithmatex">\(O(1)\)</span>：</strong></p>
+<p><strong>实验：</strong> 测量从字典中获取和设置项的时间，并对不同大小的字典进行测试。</p>
+<p><strong>实现：</strong></p>
+<div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">timeit</span>
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">dict_get_set_test</span>(n):
+    d <span style="color: #666666">=</span> {i: i <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n)}
+    <span style="color: #008000; font-weight: bold">for</span> _ <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">1000</span>):  <span style="color: #3D7B7B; font-style: italic"># 重复以获得稳定的测量结果</span>
+        _ <span style="color: #666666">=</span> d[n <span style="color: #666666">//</span> <span style="color: #666666">2</span>]  <span style="color: #3D7B7B; font-style: italic"># 获取项</span>
+        d[n <span style="color: #666666">//</span> <span style="color: #666666">2</span>] <span style="color: #666666">=</span> n <span style="color: #666666">//</span> <span style="color: #666666">2</span>  <span style="color: #3D7B7B; font-style: italic"># 设置项</span>
+
+<span style="color: #008000; font-weight: bold">for</span> size <span style="color: #AA22FF; font-weight: bold">in</span> [<span style="color: #666666">10</span>, <span style="color: #666666">100</span>, <span style="color: #666666">1000</span>, <span style="color: #666666">10000</span>]:
+    time_taken <span style="color: #666666">=</span> timeit<span style="color: #666666">.</span>timeit(<span style="color: #008000; font-weight: bold">lambda</span>: dict_get_set_test(size), number<span style="color: #666666">=1</span>)
+    <span style="color: #008000">print</span>(<span style="color: #BA2121">f&quot;字典大小: </span><span style="color: #A45A77; font-weight: bold">{</span>size<span style="color: #A45A77; font-weight: bold">}</span><span style="color: #BA2121">, 耗时: </span><span style="color: #A45A77; font-weight: bold">{</span>time_taken<span style="color: #A45A77; font-weight: bold">:</span><span style="color: #BA2121">.6f</span><span style="color: #A45A77; font-weight: bold">}</span><span style="color: #BA2121"> 秒&quot;</span>)
+</code></pre></div>
+<p><strong>预期结果：</strong> 无论字典大小如何，时间应该保持不变，从而验证 <span class="arithmatex">\(O(1)\)</span> 性能。</p>
 </li>
 <li>
-<p>Devise an experiment that compares the performance of the <code>del</code> operator on lists and dictionaries.</p>
+<p><strong>设计一个实验来比较 <code>del</code> 操作符在列表和字典中的性能：</strong></p>
+<p><strong>实验：</strong> 测量从列表和字典中删除项的时间，并对不同大小的列表和字典进行测试。</p>
+<p><strong>实现：</strong></p>
+<div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">timeit</span>
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">list_del_test</span>(n):
+    l <span style="color: #666666">=</span> <span style="color: #008000">list</span>(<span style="color: #008000">range</span>(n))
+    <span style="color: #008000; font-weight: bold">for</span> _ <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">1000</span>):  <span style="color: #3D7B7B; font-style: italic"># 重复以获得稳定的测量结果</span>
+        l<span style="color: #666666">.</span>pop()  <span style="color: #3D7B7B; font-style: italic"># 从末尾删除</span>
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">dict_del_test</span>(n):
+    d <span style="color: #666666">=</span> {i: i <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n)}
+    <span style="color: #008000; font-weight: bold">for</span> _ <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">1000</span>):  <span style="color: #3D7B7B; font-style: italic"># 重复以获得稳定的测量结果</span>
+        <span style="color: #008000; font-weight: bold">del</span> d[n <span style="color: #666666">//</span> <span style="color: #666666">2</span>]  <span style="color: #3D7B7B; font-style: italic"># 删除特定键</span>
+
+<span style="color: #008000; font-weight: bold">for</span> size <span style="color: #AA22FF; font-weight: bold">in</span> [<span style="color: #666666">10</span>, <span style="color: #666666">100</span>, <span style="color: #666666">1000</span>, <span style="color: #666666">10000</span>]:
+    list_time <span style="color: #666666">=</span> timeit<span style="color: #666666">.</span>timeit(<span style="color: #008000; font-weight: bold">lambda</span>: list_del_test(size), number<span style="color: #666666">=1</span>)
+    dict_time <span style="color: #666666">=</span> timeit<span style="color: #666666">.</span>timeit(<span style="color: #008000; font-weight: bold">lambda</span>: dict_del_test(size), number<span style="color: #666666">=1</span>)
+    <span style="color: #008000">print</span>(<span style="color: #BA2121">f&quot;大小: </span><span style="color: #A45A77; font-weight: bold">{</span>size<span style="color: #A45A77; font-weight: bold">}</span><span style="color: #BA2121">, 列表删除时间: </span><span style="color: #A45A77; font-weight: bold">{</span>list_time<span style="color: #A45A77; font-weight: bold">:</span><span style="color: #BA2121">.6f</span><span style="color: #A45A77; font-weight: bold">}</span><span style="color: #BA2121"> 秒, 字典删除时间: </span><span style="color: #A45A77; font-weight: bold">{</span>dict_time<span style="color: #A45A77; font-weight: bold">:</span><span style="color: #BA2121">.6f</span><span style="color: #A45A77; font-weight: bold">}</span><span style="color: #BA2121"> 秒&quot;</span>)
+</code></pre></div>
+<p><strong>预期结果：</strong> 删除字典中的项时间应该保持不变，而从列表中删除项的时间会随着列表大小的增加而线性增长。</p>
 </li>
 <li>
-<p>Given a list of numbers in random order, write an algorithm that works in <span class="arithmatex">\(O(n\log(n))\)</span> to find the <span class="arithmatex">\(k\)</span> th smallest number in the list.</p>
+<p><strong>给定一个随机顺序的数字列表，编写一个 <span class="arithmatex">\(O(n \log n)\)</span> 时间复杂度的算法来找到列表中的第 <span class="arithmatex">\(k\)</span> 小的数字：</strong></p>
+<p><strong>算法：</strong> 对列表进行排序，然后访问第 <span class="arithmatex">\(k\)</span> 小的元素。</p>
+<p><strong>实现：</strong></p>
+<div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">kth_smallest</span>(arr, k):
+    sorted_arr <span style="color: #666666">=</span> <span style="color: #008000">sorted</span>(arr)  <span style="color: #3D7B7B; font-style: italic"># O(n log n) 排序</span>
+    <span style="color: #008000; font-weight: bold">return</span> sorted_arr[k <span style="color: #666666">-</span> <span style="color: #666666">1</span>]  <span style="color: #3D7B7B; font-style: italic"># 访问第 k 小的元素</span>
+
+<span style="color: #3D7B7B; font-style: italic"># 示例用法：</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">random</span>
+nums <span style="color: #666666">=</span> random<span style="color: #666666">.</span>sample(<span style="color: #008000">range</span>(<span style="color: #666666">1</span>, <span style="color: #666666">10000</span>), <span style="color: #666666">5000</span>)  <span style="color: #3D7B7B; font-style: italic"># 生成随机数列表</span>
+<span style="color: #008000">print</span>(kth_smallest(nums, <span style="color: #666666">10</span>))
+</code></pre></div>
 </li>
 <li>
-<p>Can you improve the algorithm from the previous problem to be linear? Explain.</p>
+<p><strong>能否将上一个问题中的算法改进为线性时间复杂度？解释：</strong></p>
+<p><strong>算法：</strong> 使用 Quickselect 算法，这可以在期望的 <span class="arithmatex">\(O(n)\)</span> 时间复杂度内找到第 <span class="arithmatex">\(k\)</span> 小的元素。</p>
+<p><strong>解释：</strong> Quickselect 是一个选择算法，用于在无序列表中找到第 <span class="arithmatex">\(k\)</span> 小的元素。它与快速排序算法相关，但仅对列表进行部分排序。其平均时间复杂度为 <span class="arithmatex">\(O(n)\)</span>，尽管最坏情况下的复杂度为 <span class="arithmatex">\(O(n^2)\)</span>，可以通过使用随机化或中位数的中位数技术来缓解。</p>
+<p><strong>实现：</strong></p>
+<div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">random</span>
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">partition</span>(arr, low, high):
+    pivot <span style="color: #666666">=</span> arr[high]
+    i <span style="color: #666666">=</span> low <span style="color: #666666">-</span> <span style="color: #666666">1</span>
+    <span style="color: #008000; font-weight: bold">for</span> j <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(low, high):
+        <span style="color: #008000; font-weight: bold">if</span> arr[j] <span style="color: #666666">&lt;=</span> pivot:
+            i <span style="color: #666666">+=</span> <span style="color: #666666">1</span>
+            arr[i], arr[j] <span style="color: #666666">=</span> arr[j], arr[i]
+    arr[i <span style="color: #666666">+</span> <span style="color: #666666">1</span>], arr[high] <span style="color: #666666">=</span> arr[high], arr[i <span style="color: #666666">+</span> <span style="color: #666666">1</span>]
+    <span style="color: #008000; font-weight: bold">return</span> i <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">quickselect</span>(arr, low, high, k):
+    <span style="color: #008000; font-weight: bold">if</span> low <span style="color: #666666">==</span> high:
+        <span style="color: #008000; font-weight: bold">return</span> arr[low]
+    pivot_index <span style="color: #666666">=</span> random<span style="color: #666666">.</span>randint(low, high)
+    pivot_index <span style="color: #666666">=</span> partition(arr, low, high)
+    <span style="color: #008000; font-weight: bold">if</span> k <span style="color: #666666">==</span> pivot_index:
+        <span style="color: #008000; font-weight: bold">return</span> arr[k]
+    <span style="color: #008000; font-weight: bold">elif</span> k <span style="color: #666666">&lt;</span> pivot_index:
+        <span style="color: #008000; font-weight: bold">return</span> quickselect(arr, low, pivot_index <span style="color: #666666">-</span> <span style="color: #666666">1</span>, k)
+    <span style="color: #008000; font-weight: bold">else</span>:
+        <span style="color: #008000; font-weight: bold">return</span> quickselect(arr, pivot_index <span style="color: #666666">+</span> <span style="color: #666666">1</span>, high, k)
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">find_kth_smallest</span>(arr, k):
+    <span style="color: #008000; font-weight: bold">return</span> quickselect(arr, <span style="color: #666666">0</span>, <span style="color: #008000">len</span>(arr) <span style="color: #666666">-</span> <span style="color: #666666">1</span>, k <span style="color: #666666">-</span> <span style="color: #666666">1</span>)
+
+<span style="color: #3D7B7B; font-style: italic"># 示例用法：</span>
+nums <span style="color: #666666">=</span> random<span style="color: #666666">.</span>sample(<span style="color: #008000">range</span>(<span style="color: #666666">1</span>, <span style="color: #666666">10000</span>), <span style="color: #666666">5000</span>)
+<span style="color: #008000">print</span>(find_kth_smallest(nums, <span style="color: #666666">10</span>))
+</code></pre></div>
+<p><strong>解释：</strong> Quickselect 算法旨在以平均 <span class="arithmatex">\(O(n)\)</span> 时间复杂度找到第 <span class="arithmatex">\(k\)</span> 小的元素，使其比排序更高效，只需找到一个元素。</p>
 </li>
 </ol>
 </div>
@@ -4100,7 +4205,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月9日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月12日</span>
       
         <br>
         创建日期:
