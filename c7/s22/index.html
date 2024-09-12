@@ -22,7 +22,7 @@
     
     
       
-        <title>S22 - python数据结构和算法 - 中文版</title>
+        <title>7.22. Prim生成树算法 - python数据结构和算法 - 中文版</title>
       
     
     
@@ -49,6 +49,8 @@
     
     
       <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -84,6 +86,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#722-prim生成树算法" class="md-skip">
+          跳转至
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -133,7 +140,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              S22
+              7.22. Prim生成树算法
             
           </span>
         </div>
@@ -3228,7 +3235,7 @@
         
   
   <span class="md-ellipsis">
-    S1
+    7.1. 目标
   </span>
   
 
@@ -3248,7 +3255,7 @@
         
   
   <span class="md-ellipsis">
-    S2
+    7.2. 词汇和定义
   </span>
   
 
@@ -3268,7 +3275,7 @@
         
   
   <span class="md-ellipsis">
-    S3
+    7.3. 图的抽象数据类型
   </span>
   
 
@@ -3288,7 +3295,7 @@
         
   
   <span class="md-ellipsis">
-    S4
+    7.4. 邻接矩阵
   </span>
   
 
@@ -3308,7 +3315,7 @@
         
   
   <span class="md-ellipsis">
-    S5
+    7.5. 邻接表
   </span>
   
 
@@ -3328,7 +3335,7 @@
         
   
   <span class="md-ellipsis">
-    S6
+    7.6. 实现
   </span>
   
 
@@ -3348,7 +3355,7 @@
         
   
   <span class="md-ellipsis">
-    S7
+    7.7. 字梯问题
   </span>
   
 
@@ -3368,7 +3375,7 @@
         
   
   <span class="md-ellipsis">
-    S8
+    7.8. 构建字梯图
   </span>
   
 
@@ -3388,7 +3395,7 @@
         
   
   <span class="md-ellipsis">
-    S9
+    7.9. 实现广度优先搜索
   </span>
   
 
@@ -3408,7 +3415,7 @@
         
   
   <span class="md-ellipsis">
-    S10
+    7.10. 广度优先搜索分析
   </span>
   
 
@@ -3428,7 +3435,7 @@
         
   
   <span class="md-ellipsis">
-    S11
+    7.11. 骑士巡游问题
   </span>
   
 
@@ -3448,7 +3455,7 @@
         
   
   <span class="md-ellipsis">
-    S12
+    7.12. 构建骑士巡游图
   </span>
   
 
@@ -3468,7 +3475,7 @@
         
   
   <span class="md-ellipsis">
-    S13
+    7.13. 实现骑士巡游
   </span>
   
 
@@ -3488,7 +3495,7 @@
         
   
   <span class="md-ellipsis">
-    S14
+    7.14. 骑士巡游分析
   </span>
   
 
@@ -3508,7 +3515,7 @@
         
   
   <span class="md-ellipsis">
-    S15
+    7.15. 一般的深度优先搜索
   </span>
   
 
@@ -3528,7 +3535,7 @@
         
   
   <span class="md-ellipsis">
-    S16
+    7.16. 深度优先搜索分析
   </span>
   
 
@@ -3548,7 +3555,7 @@
         
   
   <span class="md-ellipsis">
-    S17
+    7.17. 拓扑排序
   </span>
   
 
@@ -3568,7 +3575,7 @@
         
   
   <span class="md-ellipsis">
-    S18
+    7.18. 强连通分量
   </span>
   
 
@@ -3588,7 +3595,7 @@
         
   
   <span class="md-ellipsis">
-    S19
+    7.19. 最短路径问题
   </span>
   
 
@@ -3608,7 +3615,7 @@
         
   
   <span class="md-ellipsis">
-    S20
+    7.20. Dijkstra算法
   </span>
   
 
@@ -3628,7 +3635,7 @@
         
   
   <span class="md-ellipsis">
-    S21
+    7.21. Dijkstra算法分析
   </span>
   
 
@@ -3650,12 +3657,14 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    S22
+    7.22. Prim生成树算法
   </span>
   
 
@@ -3676,7 +3685,7 @@
         
   
   <span class="md-ellipsis">
-    S23
+    7.23. 总结
   </span>
   
 
@@ -3696,7 +3705,7 @@
         
   
   <span class="md-ellipsis">
-    S24
+    7.24. 关键术语
   </span>
   
 
@@ -3716,7 +3725,7 @@
         
   
   <span class="md-ellipsis">
-    S25
+    7.25. 练习
   </span>
   
 
@@ -3810,7 +3819,7 @@
         
   
   <span class="md-ellipsis">
-    S1
+    8.1. 目标
   </span>
   
 
@@ -3830,7 +3839,7 @@
         
   
   <span class="md-ellipsis">
-    S2
+    8.2. Python列表再探
   </span>
   
 
@@ -3850,7 +3859,7 @@
         
   
   <span class="md-ellipsis">
-    S3
+    8.3. 递归再探
   </span>
   
 
@@ -3870,7 +3879,7 @@
         
   
   <span class="md-ellipsis">
-    S4
+    8.4. 字典再探：跳表
   </span>
   
 
@@ -3890,7 +3899,7 @@
         
   
   <span class="md-ellipsis">
-    S5
+    8.5. 树再探：图像量化
   </span>
   
 
@@ -3910,7 +3919,7 @@
         
   
   <span class="md-ellipsis">
-    S6
+    8.6. 图再探：模式匹配
   </span>
   
 
@@ -3944,6 +3953,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -3961,16 +3972,169 @@
   
 
 
-  <h1>S22</h1>
+<h1 id="722-prim生成树算法">7.22. Prim生成树算法<a class="headerlink" href="#722-prim生成树算法" title="Permanent link">&para;</a></h1>
+<p><strong>7.22. Prim’s Spanning Tree Algorithm</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>For our last graph algorithm let’s consider a problem that online game designers and internet radio providers face. The problem is that they want to efficiently transfer a piece of information to anyone and everyone who may be listening. This is important in gaming so that all the players know the very latest position of every other player. This is important for internet radio so that all the listeners that are tuned in are getting all the data they need to reconstruct the song they are listening to. <code>Figure 9</code> illustrates the broadcast problem.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/bcast1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/bcast1.png" /></a>
+    <figcaption markdown="span">Figure 9: The Broadcast Problem</figcaption>
+</figure></p>
+<p>There are some brute force solutions to this problem, so let’s look at them first to help understand the broadcast problem better. This will also help you appreciate the solution that we will propose when we are done. To begin, the broadcast host has some information that the listeners all need to receive. The simplest solution is for the broadcasting host to keep a list of all of the listeners and send individual messages to each. In <code>Figure 9</code> we show a small network with a broadcaster and some listeners. Using this first approach, four copies of every message would be sent. Assuming that the least cost path is used, let’s see how many times each router would handle the same message.</p>
+<p>All messages from the broadcaster go through router A, so A sees all four copies of every message. Router C sees only one copy of each message for its listener. However, routers B and D would see three copies of every message since routers B and D are on the cheapest path for listeners 1, 2, and 4. When you consider that the broadcast host must send hundreds of messages each second for a radio broadcast, that is a lot of extra traffic.</p>
+<p>A brute force solution is for the broadcast host to send a single copy of the broadcast message and let the routers sort things out. In this case, the easiest solution is a strategy called <strong>uncontrolled flooding</strong>. The flooding strategy works as follows. Each message starts with a time to live (<code>TTL</code>) value set to some number greater than or equal to the number of edges between the broadcast host and its most distant listener. Each router gets a copy of the message and passes the message on to <em>all</em> of its neighboring routers. When the message is passed on the <code>TTL</code> is decreased. Because each router continues to send copies of the message to all its neighbors until the <code>TTL</code> value reaches 0, it is easy to convince yourself that uncontrolled flooding generates many more unnecessary messages than our first strategy.</p>
+<p>The solution to this problem lies in the construction of a minimum weight <strong>spanning tree</strong>. Formally we define the minimum spanning tree <span class="arithmatex">\(T\)</span> for a graph <span class="arithmatex">\(G = (V,E)\)</span> as follows. <span class="arithmatex">\(T\)</span> is an acyclic subset of <span class="arithmatex">\(E\)</span> that connects all the vertices in <span class="arithmatex">\(V\)</span>. The sum of the weights of the edges in T is minimized.</p>
+<p><code>Figure 10</code> shows a simplified version of the broadcast graph and highlights the edges that form a minimum spanning tree for the graph. Now to solve our broadcast problem, the broadcast host simply sends a single copy of the broadcast message into the network. Each router forwards the message to any neighbor that is part of the spanning tree, excluding the neighbor that just sent it the message. In this example A forwards the message to B. B forwards the message to D and C. D forwards the message to E, which forwards it to F, which forwards it to G. No router sees more than one copy of any message, and all the listeners that are interested see a copy of the message.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/mst1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/mst1.png" /></a>
+    <figcaption markdown="span">Figure 10: Minimum Spanning Tree for the Broadcast Graph </figcaption>
+</figure></p>
+<p>The algorithm we will use to solve this problem is called Prim’s algorithm. Prim’s algorithm belongs to a family of algorithms called the <em>greedy algorithms</em> because at each step it will choose the cheapest next step. In this case the cheapest next step is to follow the edge with the lowest weight.</p>
+<p>To develop Prim's algorithm, let’s first examine the basic idea in constructing a spanning tree as follows:</p>
+<div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>While T <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #AA22FF; font-weight: bold">not</span> yet a spanning tree
+    Find an edge that <span style="color: #AA22FF; font-weight: bold">is</span> safe to add to the tree
+    Add the new edge to T
+</code></pre></div>
+<p>The trick is in the step that directs us to “find an edge that is safe.” We define a safe edge as any edge that connects a vertex that is in the spanning tree to a vertex that is not in the spanning tree. This ensures that the tree will always remain a tree and therefore have no cycles.</p>
+<p>The Python code to implement Prim’s algorithm is shown in <code>Listing 2</code>. Prim’s algorithm is similar to Dijkstra’s algorithm in that they both use a priority queue to select the next vertex to add to the growing graph.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 2</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">sys</span>
+<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pythonds3.graphs</span> <span style="color: #008000; font-weight: bold">import</span> PriorityQueue
 
 
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">prim</span>(graph, start):
+    pq <span style="color: #666666">=</span> PriorityQueue()
+    <span style="color: #008000; font-weight: bold">for</span> vertex <span style="color: #AA22FF; font-weight: bold">in</span> graph:
+        vertex<span style="color: #666666">.</span>distance <span style="color: #666666">=</span> sys<span style="color: #666666">.</span>maxsize
+        vertex<span style="color: #666666">.</span>previous <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
+    start<span style="color: #666666">.</span>distance <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+    pq<span style="color: #666666">.</span>heapify([(vertex<span style="color: #666666">.</span>distance, vertex) <span style="color: #008000; font-weight: bold">for</span> vertex <span style="color: #AA22FF; font-weight: bold">in</span> graph])
+    <span style="color: #008000; font-weight: bold">while</span> <span style="color: #AA22FF; font-weight: bold">not</span> pq<span style="color: #666666">.</span>is_empty():
+        distance, current_v <span style="color: #666666">=</span> pq<span style="color: #666666">.</span>delete()
+        <span style="color: #008000; font-weight: bold">for</span> next_v <span style="color: #AA22FF; font-weight: bold">in</span> current_v<span style="color: #666666">.</span>get_neighbors():
+            new_distance <span style="color: #666666">=</span> current_v<span style="color: #666666">.</span>get_neighbor(next_v)
+            <span style="color: #008000; font-weight: bold">if</span> next_v <span style="color: #AA22FF; font-weight: bold">in</span> pq <span style="color: #AA22FF; font-weight: bold">and</span> new_distance <span style="color: #666666">&lt;</span> next_v<span style="color: #666666">.</span>distance:
+                next_v<span style="color: #666666">.</span>previous <span style="color: #666666">=</span> current_v
+                next_v<span style="color: #666666">.</span>distance <span style="color: #666666">=</span> new_distance
+                pq<span style="color: #666666">.</span>change_priority(next_v, new_distance)
+</code></pre></div>
+<p>The following sequence of figures (<code>Figure 11</code>  through <code>Figure 17</code>) shows the algorithm in operation on our sample tree. We begin with the starting vertex as A. The distances to all the other vertices are initialized to infinity. Looking at the neighbors of A we can update distances to two of the additional vertices, B and C, because the distances to B and C through A are less than infinite. This moves B and C to the front of the priority queue. Update the predecessor links for B and C by setting them to point to A. It is important to note that we have not formally added B or C to the spanning tree yet. A node is not considered to be part of the spanning tree until it is removed from the priority queue.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/prima.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/prima.png" /></a>
+    <figcaption markdown="span">Figure 11: Tracing Prim’s Algorithm</figcaption>
+</figure></p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/primb.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/primb.png" /></a>
+    <figcaption markdown="span">Figure 12: Tracing Prim’s Algorithm</figcaption>
+</figure></p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/primc.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/primc.png" /></a>
+    <figcaption markdown="span">Figure 13: Tracing Prim’s Algorithm</figcaption>
+</figure></p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/primd.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/primd.png" /></a>
+    <figcaption markdown="span">Figure 14: Tracing Prim’s Algorithm</figcaption>
+</figure></p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/prime.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/prime.png" /></a>
+    <figcaption markdown="span">Figure 15: Tracing Prim’s Algorithm</figcaption>
+</figure></p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/primf.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/primf.png" /></a>
+    <figcaption markdown="span">Figure 16: Tracing Prim’s Algorithm</figcaption>
+</figure></p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/primg.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/primg.png" /></a>
+    <figcaption markdown="span">Figure 17: Tracing Prim’s Algorithm</figcaption>
+</figure></p>
+<p>Since B has the smallest distance we look at B next. Examining B’s neighbors we see that D and E can be updated. Both D and E get new distance values and their predecessor links are updated. Moving on to the next node in the priority queue we find C. The only node that C is adjacent to that is still in the priority queue is F; thus we can update the distance to F and adjust F’s position in the priority queue.</p>
+<p>Now we examine the vertices adjacent to node D. We find that we can update E and reduce the distance to E from 6 to 4. When we do this we change the predecessor link on E to point back to D, thus preparing it to be grafted into the spanning tree but in a different location. The rest of the algorithm proceeds as you would expect, adding each new node to the tree.</p>
+</div>
+<div class="tabbed-block">
+<p>For our last graph algorithm let’s consider a problem that online game designers and internet radio providers face. The problem is that they want to efficiently transfer a piece of information to anyone and everyone who may be listening. This is important in gaming so that all the players know the very latest position of every other player. This is important for internet radio so that all the listeners that are tuned in are getting all the data they need to reconstruct the song they are listening to. <code>Figure 9</code> illustrates the broadcast problem.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/bcast1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/bcast1.png" /></a>
+    <figcaption markdown="span">Figure 9: The Broadcast Problem</figcaption>
+</figure></p>
+<p>There are some brute force solutions to this problem, so let’s look at them first to help understand the broadcast problem better. This will also help you appreciate the solution that we will propose when we are done. To begin, the broadcast host has some information that the listeners all need to receive. The simplest solution is for the broadcasting host to keep a list of all of the listeners and send individual messages to each. In <code>Figure 9</code> we show a small network with a broadcaster and some listeners. Using this first approach, four copies of every message would be sent. Assuming that the least cost path is used, let’s see how many times each router would handle the same message.</p>
+<p>All messages from the broadcaster go through router A, so A sees all four copies of every message. Router C sees only one copy of each message for its listener. However, routers B and D would see three copies of every message since routers B and D are on the cheapest path for listeners 1, 2, and 4. When you consider that the broadcast host must send hundreds of messages each second for a radio broadcast, that is a lot of extra traffic.</p>
+<p>A brute force solution is for the broadcast host to send a single copy of the broadcast message and let the routers sort things out. In this case, the easiest solution is a strategy called <strong>uncontrolled flooding</strong>. The flooding strategy works as follows. Each message starts with a time to live (<code>TTL</code>) value set to some number greater than or equal to the number of edges between the broadcast host and its most distant listener. Each router gets a copy of the message and passes the message on to <em>all</em> of its neighboring routers. When the message is passed on the <code>TTL</code> is decreased. Because each router continues to send copies of the message to all its neighbors until the <code>TTL</code> value reaches 0, it is easy to convince yourself that uncontrolled flooding generates many more unnecessary messages than our first strategy.</p>
+<p>The solution to this problem lies in the construction of a minimum weight <strong>spanning tree</strong>. Formally we define the minimum spanning tree <span class="arithmatex">\(T\)</span> for a graph <span class="arithmatex">\(G = (V,E)\)</span> as follows. <span class="arithmatex">\(T\)</span> is an acyclic subset of <span class="arithmatex">\(E\)</span> that connects all the vertices in <span class="arithmatex">\(V\)</span>. The sum of the weights of the edges in T is minimized.</p>
+<p><code>Figure 10</code> shows a simplified version of the broadcast graph and highlights the edges that form a minimum spanning tree for the graph. Now to solve our broadcast problem, the broadcast host simply sends a single copy of the broadcast message into the network. Each router forwards the message to any neighbor that is part of the spanning tree, excluding the neighbor that just sent it the message. In this example A forwards the message to B. B forwards the message to D and C. D forwards the message to E, which forwards it to F, which forwards it to G. No router sees more than one copy of any message, and all the listeners that are interested see a copy of the message.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/mst1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/mst1.png" /></a>
+    <figcaption markdown="span">Figure 10: Minimum Spanning Tree for the Broadcast Graph </figcaption>
+</figure></p>
+<p>The algorithm we will use to solve this problem is called Prim’s algorithm. Prim’s algorithm belongs to a family of algorithms called the <em>greedy algorithms</em> because at each step it will choose the cheapest next step. In this case the cheapest next step is to follow the edge with the lowest weight.</p>
+<p>To develop Prim's algorithm, let’s first examine the basic idea in constructing a spanning tree as follows:</p>
+<div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>While T <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #AA22FF; font-weight: bold">not</span> yet a spanning tree
+    Find an edge that <span style="color: #AA22FF; font-weight: bold">is</span> safe to add to the tree
+    Add the new edge to T
+</code></pre></div>
+<p>The trick is in the step that directs us to “find an edge that is safe.” We define a safe edge as any edge that connects a vertex that is in the spanning tree to a vertex that is not in the spanning tree. This ensures that the tree will always remain a tree and therefore have no cycles.</p>
+<p>The Python code to implement Prim’s algorithm is shown in <code>Listing 2</code>. Prim’s algorithm is similar to Dijkstra’s algorithm in that they both use a priority queue to select the next vertex to add to the growing graph.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 2</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">sys</span>
+<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pythonds3.graphs</span> <span style="color: #008000; font-weight: bold">import</span> PriorityQueue
+
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">prim</span>(graph, start):
+    pq <span style="color: #666666">=</span> PriorityQueue()
+    <span style="color: #008000; font-weight: bold">for</span> vertex <span style="color: #AA22FF; font-weight: bold">in</span> graph:
+        vertex<span style="color: #666666">.</span>distance <span style="color: #666666">=</span> sys<span style="color: #666666">.</span>maxsize
+        vertex<span style="color: #666666">.</span>previous <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
+    start<span style="color: #666666">.</span>distance <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+    pq<span style="color: #666666">.</span>heapify([(vertex<span style="color: #666666">.</span>distance, vertex) <span style="color: #008000; font-weight: bold">for</span> vertex <span style="color: #AA22FF; font-weight: bold">in</span> graph])
+    <span style="color: #008000; font-weight: bold">while</span> <span style="color: #AA22FF; font-weight: bold">not</span> pq<span style="color: #666666">.</span>is_empty():
+        distance, current_v <span style="color: #666666">=</span> pq<span style="color: #666666">.</span>delete()
+        <span style="color: #008000; font-weight: bold">for</span> next_v <span style="color: #AA22FF; font-weight: bold">in</span> current_v<span style="color: #666666">.</span>get_neighbors():
+            new_distance <span style="color: #666666">=</span> current_v<span style="color: #666666">.</span>get_neighbor(next_v)
+            <span style="color: #008000; font-weight: bold">if</span> next_v <span style="color: #AA22FF; font-weight: bold">in</span> pq <span style="color: #AA22FF; font-weight: bold">and</span> new_distance <span style="color: #666666">&lt;</span> next_v<span style="color: #666666">.</span>distance:
+                next_v<span style="color: #666666">.</span>previous <span style="color: #666666">=</span> current_v
+                next_v<span style="color: #666666">.</span>distance <span style="color: #666666">=</span> new_distance
+                pq<span style="color: #666666">.</span>change_priority(next_v, new_distance)
+</code></pre></div>
+<p>The following sequence of figures (<code>Figure 11</code>  through <code>Figure 17</code>) shows the algorithm in operation on our sample tree. We begin with the starting vertex as A. The distances to all the other vertices are initialized to infinity. Looking at the neighbors of A we can update distances to two of the additional vertices, B and C, because the distances to B and C through A are less than infinite. This moves B and C to the front of the priority queue. Update the predecessor links for B and C by setting them to point to A. It is important to note that we have not formally added B or C to the spanning tree yet. A node is not considered to be part of the spanning tree until it is removed from the priority queue.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/prima.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/prima.png" /></a>
+    <figcaption markdown="span">Figure 11: Tracing Prim’s Algorithm</figcaption>
+</figure></p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/primb.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/primb.png" /></a>
+    <figcaption markdown="span">Figure 12: Tracing Prim’s Algorithm</figcaption>
+</figure></p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/primc.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/primc.png" /></a>
+    <figcaption markdown="span">Figure 13: Tracing Prim’s Algorithm</figcaption>
+</figure></p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/primd.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/primd.png" /></a>
+    <figcaption markdown="span">Figure 14: Tracing Prim’s Algorithm</figcaption>
+</figure></p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/prime.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/prime.png" /></a>
+    <figcaption markdown="span">Figure 15: Tracing Prim’s Algorithm</figcaption>
+</figure></p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/primf.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/primf.png" /></a>
+    <figcaption markdown="span">Figure 16: Tracing Prim’s Algorithm</figcaption>
+</figure></p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/primg.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/primg.png" /></a>
+    <figcaption markdown="span">Figure 17: Tracing Prim’s Algorithm</figcaption>
+</figure></p>
+<p>Since B has the smallest distance we look at B next. Examining B’s neighbors we see that D and E can be updated. Both D and E get new distance values and their predecessor links are updated. Moving on to the next node in the priority queue we find C. The only node that C is adjacent to that is still in the priority queue is F; thus we can update the distance to F and adjust F’s position in the priority queue.</p>
+<p>Now we examine the vertices adjacent to node D. We find that we can update E and reduce the distance to E from 6 to 4. When we do this we change the predecessor link on E to point back to D, thus preparing it to be grafted into the spanning tree but in a different location. The rest of the algorithm proceeds as you would expect, adding each new node to the tree.</p>
+</div>
+</div>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月9日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月12日</span>
       
         <br>
         创建日期:
@@ -4032,9 +4196,15 @@
       
         <script src="../../javascripts/mathjax.js"></script>
       
+        <script src="../../javascripts/katex.js"></script>
+      
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>

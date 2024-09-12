@@ -22,7 +22,7 @@
     
     
       
-        <title>S9 - python数据结构和算法 - 中文版</title>
+        <title>7.9. 实现广度优先搜索 - python数据结构和算法 - 中文版</title>
       
     
     
@@ -49,6 +49,8 @@
     
     
       <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -84,6 +86,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#79-实现广度优先搜索" class="md-skip">
+          跳转至
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -133,7 +140,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              S9
+              7.9. 实现广度优先搜索
             
           </span>
         </div>
@@ -3228,7 +3235,7 @@
         
   
   <span class="md-ellipsis">
-    S1
+    7.1. 目标
   </span>
   
 
@@ -3248,7 +3255,7 @@
         
   
   <span class="md-ellipsis">
-    S2
+    7.2. 词汇和定义
   </span>
   
 
@@ -3268,7 +3275,7 @@
         
   
   <span class="md-ellipsis">
-    S3
+    7.3. 图的抽象数据类型
   </span>
   
 
@@ -3288,7 +3295,7 @@
         
   
   <span class="md-ellipsis">
-    S4
+    7.4. 邻接矩阵
   </span>
   
 
@@ -3308,7 +3315,7 @@
         
   
   <span class="md-ellipsis">
-    S5
+    7.5. 邻接表
   </span>
   
 
@@ -3328,7 +3335,7 @@
         
   
   <span class="md-ellipsis">
-    S6
+    7.6. 实现
   </span>
   
 
@@ -3348,7 +3355,7 @@
         
   
   <span class="md-ellipsis">
-    S7
+    7.7. 字梯问题
   </span>
   
 
@@ -3368,7 +3375,7 @@
         
   
   <span class="md-ellipsis">
-    S8
+    7.8. 构建字梯图
   </span>
   
 
@@ -3390,12 +3397,14 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    S9
+    7.9. 实现广度优先搜索
   </span>
   
 
@@ -3416,7 +3425,7 @@
         
   
   <span class="md-ellipsis">
-    S10
+    7.10. 广度优先搜索分析
   </span>
   
 
@@ -3436,7 +3445,7 @@
         
   
   <span class="md-ellipsis">
-    S11
+    7.11. 骑士巡游问题
   </span>
   
 
@@ -3456,7 +3465,7 @@
         
   
   <span class="md-ellipsis">
-    S12
+    7.12. 构建骑士巡游图
   </span>
   
 
@@ -3476,7 +3485,7 @@
         
   
   <span class="md-ellipsis">
-    S13
+    7.13. 实现骑士巡游
   </span>
   
 
@@ -3496,7 +3505,7 @@
         
   
   <span class="md-ellipsis">
-    S14
+    7.14. 骑士巡游分析
   </span>
   
 
@@ -3516,7 +3525,7 @@
         
   
   <span class="md-ellipsis">
-    S15
+    7.15. 一般的深度优先搜索
   </span>
   
 
@@ -3536,7 +3545,7 @@
         
   
   <span class="md-ellipsis">
-    S16
+    7.16. 深度优先搜索分析
   </span>
   
 
@@ -3556,7 +3565,7 @@
         
   
   <span class="md-ellipsis">
-    S17
+    7.17. 拓扑排序
   </span>
   
 
@@ -3576,7 +3585,7 @@
         
   
   <span class="md-ellipsis">
-    S18
+    7.18. 强连通分量
   </span>
   
 
@@ -3596,7 +3605,7 @@
         
   
   <span class="md-ellipsis">
-    S19
+    7.19. 最短路径问题
   </span>
   
 
@@ -3616,7 +3625,7 @@
         
   
   <span class="md-ellipsis">
-    S20
+    7.20. Dijkstra算法
   </span>
   
 
@@ -3636,7 +3645,7 @@
         
   
   <span class="md-ellipsis">
-    S21
+    7.21. Dijkstra算法分析
   </span>
   
 
@@ -3656,7 +3665,7 @@
         
   
   <span class="md-ellipsis">
-    S22
+    7.22. Prim生成树算法
   </span>
   
 
@@ -3676,7 +3685,7 @@
         
   
   <span class="md-ellipsis">
-    S23
+    7.23. 总结
   </span>
   
 
@@ -3696,7 +3705,7 @@
         
   
   <span class="md-ellipsis">
-    S24
+    7.24. 关键术语
   </span>
   
 
@@ -3716,7 +3725,7 @@
         
   
   <span class="md-ellipsis">
-    S25
+    7.25. 练习
   </span>
   
 
@@ -3810,7 +3819,7 @@
         
   
   <span class="md-ellipsis">
-    S1
+    8.1. 目标
   </span>
   
 
@@ -3830,7 +3839,7 @@
         
   
   <span class="md-ellipsis">
-    S2
+    8.2. Python列表再探
   </span>
   
 
@@ -3850,7 +3859,7 @@
         
   
   <span class="md-ellipsis">
-    S3
+    8.3. 递归再探
   </span>
   
 
@@ -3870,7 +3879,7 @@
         
   
   <span class="md-ellipsis">
-    S4
+    8.4. 字典再探：跳表
   </span>
   
 
@@ -3890,7 +3899,7 @@
         
   
   <span class="md-ellipsis">
-    S5
+    8.5. 树再探：图像量化
   </span>
   
 
@@ -3910,7 +3919,7 @@
         
   
   <span class="md-ellipsis">
-    S6
+    8.6. 图再探：模式匹配
   </span>
   
 
@@ -3944,6 +3953,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -3961,16 +3972,141 @@
   
 
 
-  <h1>S9</h1>
+<h1 id="79-实现广度优先搜索">7.9. 实现广度优先搜索<a class="headerlink" href="#79-实现广度优先搜索" title="Permanent link">&para;</a></h1>
+<p><strong>7.9. Implementing Breadth-First Search</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>With the graph constructed we can now turn our attention to the algorithm we will use to find the shortest solution to the word ladder problem. The graph algorithm we are going to use is called the <strong>breadth-first search</strong> (<strong>BFS</strong>), and it is one of the easiest algorithms for searching a graph. It also serves as a prototype for several other important graph algorithms that we will study later.</p>
+<p>Given a starting vertex <span class="arithmatex">\(s\)</span> of a graph <span class="arithmatex">\(G\)</span>, a breadth first search proceeds by exploring edges in the graph to find all the vertices in <span class="arithmatex">\(G\)</span> for which there is a path from <span class="arithmatex">\(s\)</span>. The remarkable thing about a breadth-first search is that it finds <em>all</em> the vertices that are a distance <span class="arithmatex">\(k\)</span> from <span class="arithmatex">\(s\)</span> before it finds <em>any</em> vertices that are a distance <span class="arithmatex">\(k+1\)</span>. One good way to visualize what the breadth-first search algorithm does is to imagine that it is building a tree, one level of the tree at a time. A breadth first search adds all children of the starting vertex before it begins to discover any of the grandchildren.</p>
+<p>To keep track of its progress, BFS colors each of the vertices white, gray, or black. All the vertices are initialized to white when they are constructed. A white vertex is an undiscovered vertex. When a vertex is initially discovered it is colored gray, and when BFS has completely explored a vertex it is colored black. This means that once a vertex is colored black, it has no white vertices adjacent to it. A gray node, on the other hand, may have some white vertices adjacent to it, indicating that there are still additional vertices to explore.</p>
+<p>The breadth-first search algorithm shown in <code>Listing 2</code> below uses the adjacency list graph representation we developed earlier. In addition it uses a <code>Queue</code>, a crucial point as we will see, to decide which vertex to explore next.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 2</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pythonds3.basic</span> <span style="color: #008000; font-weight: bold">import</span> Queue
+<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pythonds3.graphs</span> <span style="color: #008000; font-weight: bold">import</span> Graph
 
 
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">bfs</span>(start):
+    start<span style="color: #666666">.</span>distance <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+    start<span style="color: #666666">.</span>previous <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
+    vert_queue <span style="color: #666666">=</span> Queue()
+    vert_queue<span style="color: #666666">.</span>enqueue(start)
+    <span style="color: #008000; font-weight: bold">while</span> vert_queue<span style="color: #666666">.</span>size() <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span>:
+        current <span style="color: #666666">=</span> vert_queue<span style="color: #666666">.</span>dequeue()
+        <span style="color: #008000; font-weight: bold">for</span> neighbor <span style="color: #AA22FF; font-weight: bold">in</span> current<span style="color: #666666">.</span>get_neighbors():
+            <span style="color: #008000; font-weight: bold">if</span> neighbor<span style="color: #666666">.</span>color <span style="color: #666666">==</span> <span style="color: #BA2121">&quot;white&quot;</span>:
+                neighbor<span style="color: #666666">.</span>color <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;gray&quot;</span>
+                neighbor<span style="color: #666666">.</span>distance <span style="color: #666666">=</span> current<span style="color: #666666">.</span>distance <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+                neighbor<span style="color: #666666">.</span>previous <span style="color: #666666">=</span> current
+                vert_queue<span style="color: #666666">.</span>enqueue(neighbor)
+        current<span style="color: #666666">.</span>color <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;black&quot;</span>
+</code></pre></div>
+<p>The BFS algorithm uses an extended version of the <code>Vertex</code> class that adds three new instance variables: <code>distance</code>, <code>previous</code>, and <code>color</code>. Each of these instance variables also has the appropriate getter and setter methods. The code for this expanded <code>Vertex</code> class is included in the <code>pythonds3</code> package, but we will not show it to you here as there is nothing new to learn by seeing the additional instance variables.</p>
+<p>BFS begins at the starting vertex <code>start</code> and paints it gray to show that it is currently being explored. Two other values, the <code>distance</code> and the <code>previous</code>, are initialized to 0 and <code>None</code> respectively for the starting vertex. Finally, <code>start</code> is placed on a <code>Queue</code>. The next step is to begin to systematically explore vertices at the front of the queue. We explore each new node at the front of the queue by iterating over its adjacency list. As each node on the adjacency list is examined, its color is checked. If it is white, the vertex is unexplored, and four things happen:</p>
+<ol>
+<li>The new unexplored vertex <code>neighbor</code> is colored gray.</li>
+<li>The predecessor of <code>neighbor</code> is set to the current node <code>current</code>.</li>
+<li>The distance to <code>neighbor</code> is set to the distance to <code>current + 1</code>.</li>
+<li><code>neighbor</code> is added to the end of a queue. Adding <code>neighbor</code> to the end of the queue effectively schedules this node for further exploration, but not until all the other vertices on the adjacency list of <code>current</code> have been explored.</li>
+</ol>
+<p>Let’s look at how the <code>bfs</code> function would construct the breadth-first tree corresponding to the graph in <code>Figure 1</code>. Starting from FOOL we take all nodes that are adjacent to FOOL and add them to the tree. The adjacent nodes include POOL, FOIL, FOUL, and COOL. Each of these nodes are added to the queue of new nodes to expand. <code>Figure 3</code> shows the state of the in-progress tree along with the queue after this step.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/bfs1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/bfs1.png" /></a>
+    <figcaption markdown="span">Figure 3: The First Step in the Breadth-First Search</figcaption>
+</figure></p>
+<p>In the next step <code>bfs</code> removes the next node (POOL) from the front of the queue and repeats the process for all of its adjacent nodes. However, when <code>bfs</code> examines the node COOL, it finds that the color of COOL has already been changed to gray. This indicates that there is a shorter path to COOL and that COOL is already on the queue for further expansion. The only new node added to the queue while examining POOL is POLL. The new state of the tree and queue is shown in <code>Figure 4</code>.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/bfs2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/bfs2.png" /></a>
+    <figcaption markdown="span">Figure 4: The Second Step in the Breadth-First Search</figcaption>
+</figure></p>
+<p>The next vertex on the queue is FOIL. The only new node that FOIL can add to the tree is FAIL. As <code>bfs</code> continues to process the queue, neither of the next two nodes adds anything new to the queue or the tree. <code>Figure 5</code> shows the tree and the queue after expanding all the vertices on the second level of the tree.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/bfs3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/bfs3.png" /></a>
+    <figcaption markdown="span">Figure 5: Breadth-First Search Tree After Completing One Level</figcaption>
+</figure></p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/bfsDone.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/bfsDone.png" /></a>
+    <figcaption markdown="span">FIgure 6: Final Breadth-First Search Tree </figcaption>
+</figure></p>
+<p>You should continue to work through the algorithm on your own so that you are comfortable with how it works. <code>Figure 6</code> shows the final breadth-first search tree after all the vertices in <code>Figure 3</code> have been expanded. The amazing thing about the breadth-first search solution is that we have not only solved the FOOL–SAGE problem we started out with, but we have solved many other problems along the way. We can start at any vertex in the breadth-first search tree and follow the predecessor arrows back to the root to find the shortest word ladder from any word back to FOOL. The function below (<code>Listing 3</code>) shows how to follow the predecessor links to print out the word ladder.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 3</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">traverse</span>(starting_vertex):
+    current <span style="color: #666666">=</span> starting_vertex
+    <span style="color: #008000; font-weight: bold">while</span> current:
+        <span style="color: #008000">print</span>(current<span style="color: #666666">.</span>key)
+        current <span style="color: #666666">=</span> current<span style="color: #666666">.</span>previous
+
+traverse(g<span style="color: #666666">.</span>get_vertex(<span style="color: #BA2121">&quot;sage&quot;</span>))
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>With the graph constructed we can now turn our attention to the algorithm we will use to find the shortest solution to the word ladder problem. The graph algorithm we are going to use is called the <strong>breadth-first search</strong> (<strong>BFS</strong>), and it is one of the easiest algorithms for searching a graph. It also serves as a prototype for several other important graph algorithms that we will study later.</p>
+<p>Given a starting vertex <span class="arithmatex">\(s\)</span> of a graph <span class="arithmatex">\(G\)</span>, a breadth first search proceeds by exploring edges in the graph to find all the vertices in <span class="arithmatex">\(G\)</span> for which there is a path from <span class="arithmatex">\(s\)</span>. The remarkable thing about a breadth-first search is that it finds <em>all</em> the vertices that are a distance <span class="arithmatex">\(k\)</span> from <span class="arithmatex">\(s\)</span> before it finds <em>any</em> vertices that are a distance <span class="arithmatex">\(k+1\)</span>. One good way to visualize what the breadth-first search algorithm does is to imagine that it is building a tree, one level of the tree at a time. A breadth first search adds all children of the starting vertex before it begins to discover any of the grandchildren.</p>
+<p>To keep track of its progress, BFS colors each of the vertices white, gray, or black. All the vertices are initialized to white when they are constructed. A white vertex is an undiscovered vertex. When a vertex is initially discovered it is colored gray, and when BFS has completely explored a vertex it is colored black. This means that once a vertex is colored black, it has no white vertices adjacent to it. A gray node, on the other hand, may have some white vertices adjacent to it, indicating that there are still additional vertices to explore.</p>
+<p>The breadth-first search algorithm shown in <code>Listing 2</code> below uses the adjacency list graph representation we developed earlier. In addition it uses a <code>Queue</code>, a crucial point as we will see, to decide which vertex to explore next.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 2</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pythonds3.basic</span> <span style="color: #008000; font-weight: bold">import</span> Queue
+<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pythonds3.graphs</span> <span style="color: #008000; font-weight: bold">import</span> Graph
+
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">bfs</span>(start):
+    start<span style="color: #666666">.</span>distance <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+    start<span style="color: #666666">.</span>previous <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
+    vert_queue <span style="color: #666666">=</span> Queue()
+    vert_queue<span style="color: #666666">.</span>enqueue(start)
+    <span style="color: #008000; font-weight: bold">while</span> vert_queue<span style="color: #666666">.</span>size() <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span>:
+        current <span style="color: #666666">=</span> vert_queue<span style="color: #666666">.</span>dequeue()
+        <span style="color: #008000; font-weight: bold">for</span> neighbor <span style="color: #AA22FF; font-weight: bold">in</span> current<span style="color: #666666">.</span>get_neighbors():
+            <span style="color: #008000; font-weight: bold">if</span> neighbor<span style="color: #666666">.</span>color <span style="color: #666666">==</span> <span style="color: #BA2121">&quot;white&quot;</span>:
+                neighbor<span style="color: #666666">.</span>color <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;gray&quot;</span>
+                neighbor<span style="color: #666666">.</span>distance <span style="color: #666666">=</span> current<span style="color: #666666">.</span>distance <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+                neighbor<span style="color: #666666">.</span>previous <span style="color: #666666">=</span> current
+                vert_queue<span style="color: #666666">.</span>enqueue(neighbor)
+        current<span style="color: #666666">.</span>color <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;black&quot;</span>
+</code></pre></div>
+<p>The BFS algorithm uses an extended version of the <code>Vertex</code> class that adds three new instance variables: <code>distance</code>, <code>previous</code>, and <code>color</code>. Each of these instance variables also has the appropriate getter and setter methods. The code for this expanded <code>Vertex</code> class is included in the <code>pythonds3</code> package, but we will not show it to you here as there is nothing new to learn by seeing the additional instance variables.</p>
+<p>BFS begins at the starting vertex <code>start</code> and paints it gray to show that it is currently being explored. Two other values, the <code>distance</code> and the <code>previous</code>, are initialized to 0 and <code>None</code> respectively for the starting vertex. Finally, <code>start</code> is placed on a <code>Queue</code>. The next step is to begin to systematically explore vertices at the front of the queue. We explore each new node at the front of the queue by iterating over its adjacency list. As each node on the adjacency list is examined, its color is checked. If it is white, the vertex is unexplored, and four things happen:</p>
+<ol>
+<li>The new unexplored vertex <code>neighbor</code> is colored gray.</li>
+<li>The predecessor of <code>neighbor</code> is set to the current node <code>current</code>.</li>
+<li>The distance to <code>neighbor</code> is set to the distance to <code>current + 1</code>.</li>
+<li><code>neighbor</code> is added to the end of a queue. Adding <code>neighbor</code> to the end of the queue effectively schedules this node for further exploration, but not until all the other vertices on the adjacency list of <code>current</code> have been explored.</li>
+</ol>
+<p>Let’s look at how the <code>bfs</code> function would construct the breadth-first tree corresponding to the graph in <code>Figure 1</code>. Starting from FOOL we take all nodes that are adjacent to FOOL and add them to the tree. The adjacent nodes include POOL, FOIL, FOUL, and COOL. Each of these nodes are added to the queue of new nodes to expand. <code>Figure 3</code> shows the state of the in-progress tree along with the queue after this step.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/bfs1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/bfs1.png" /></a>
+    <figcaption markdown="span">Figure 3: The First Step in the Breadth-First Search</figcaption>
+</figure></p>
+<p>In the next step <code>bfs</code> removes the next node (POOL) from the front of the queue and repeats the process for all of its adjacent nodes. However, when <code>bfs</code> examines the node COOL, it finds that the color of COOL has already been changed to gray. This indicates that there is a shorter path to COOL and that COOL is already on the queue for further expansion. The only new node added to the queue while examining POOL is POLL. The new state of the tree and queue is shown in <code>Figure 4</code>.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/bfs2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/bfs2.png" /></a>
+    <figcaption markdown="span">Figure 4: The Second Step in the Breadth-First Search</figcaption>
+</figure></p>
+<p>The next vertex on the queue is FOIL. The only new node that FOIL can add to the tree is FAIL. As <code>bfs</code> continues to process the queue, neither of the next two nodes adds anything new to the queue or the tree. <code>Figure 5</code> shows the tree and the queue after expanding all the vertices on the second level of the tree.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/bfs3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/bfs3.png" /></a>
+    <figcaption markdown="span">Figure 5: Breadth-First Search Tree After Completing One Level</figcaption>
+</figure></p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/bfsDone.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/bfsDone.png" /></a>
+    <figcaption markdown="span">FIgure 6: Final Breadth-First Search Tree </figcaption>
+</figure></p>
+<p>You should continue to work through the algorithm on your own so that you are comfortable with how it works. <code>Figure 6</code> shows the final breadth-first search tree after all the vertices in <code>Figure 3</code> have been expanded. The amazing thing about the breadth-first search solution is that we have not only solved the FOOL–SAGE problem we started out with, but we have solved many other problems along the way. We can start at any vertex in the breadth-first search tree and follow the predecessor arrows back to the root to find the shortest word ladder from any word back to FOOL. The function below (<code>Listing 3</code>) shows how to follow the predecessor links to print out the word ladder.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 3</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">traverse</span>(starting_vertex):
+    current <span style="color: #666666">=</span> starting_vertex
+    <span style="color: #008000; font-weight: bold">while</span> current:
+        <span style="color: #008000">print</span>(current<span style="color: #666666">.</span>key)
+        current <span style="color: #666666">=</span> current<span style="color: #666666">.</span>previous
+
+traverse(g<span style="color: #666666">.</span>get_vertex(<span style="color: #BA2121">&quot;sage&quot;</span>))
+</code></pre></div>
+</div>
+</div>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月9日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月12日</span>
       
         <br>
         创建日期:
@@ -4032,9 +4168,15 @@
       
         <script src="../../javascripts/mathjax.js"></script>
       
+        <script src="../../javascripts/katex.js"></script>
+      
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>

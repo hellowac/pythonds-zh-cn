@@ -22,7 +22,7 @@
     
     
       
-        <title>S13 - python数据结构和算法 - 中文版</title>
+        <title>7.13. 实现骑士巡游 - python数据结构和算法 - 中文版</title>
       
     
     
@@ -49,6 +49,8 @@
     
     
       <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -84,6 +86,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#713-实现骑士巡游" class="md-skip">
+          跳转至
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -133,7 +140,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              S13
+              7.13. 实现骑士巡游
             
           </span>
         </div>
@@ -3228,7 +3235,7 @@
         
   
   <span class="md-ellipsis">
-    S1
+    7.1. 目标
   </span>
   
 
@@ -3248,7 +3255,7 @@
         
   
   <span class="md-ellipsis">
-    S2
+    7.2. 词汇和定义
   </span>
   
 
@@ -3268,7 +3275,7 @@
         
   
   <span class="md-ellipsis">
-    S3
+    7.3. 图的抽象数据类型
   </span>
   
 
@@ -3288,7 +3295,7 @@
         
   
   <span class="md-ellipsis">
-    S4
+    7.4. 邻接矩阵
   </span>
   
 
@@ -3308,7 +3315,7 @@
         
   
   <span class="md-ellipsis">
-    S5
+    7.5. 邻接表
   </span>
   
 
@@ -3328,7 +3335,7 @@
         
   
   <span class="md-ellipsis">
-    S6
+    7.6. 实现
   </span>
   
 
@@ -3348,7 +3355,7 @@
         
   
   <span class="md-ellipsis">
-    S7
+    7.7. 字梯问题
   </span>
   
 
@@ -3368,7 +3375,7 @@
         
   
   <span class="md-ellipsis">
-    S8
+    7.8. 构建字梯图
   </span>
   
 
@@ -3388,7 +3395,7 @@
         
   
   <span class="md-ellipsis">
-    S9
+    7.9. 实现广度优先搜索
   </span>
   
 
@@ -3408,7 +3415,7 @@
         
   
   <span class="md-ellipsis">
-    S10
+    7.10. 广度优先搜索分析
   </span>
   
 
@@ -3428,7 +3435,7 @@
         
   
   <span class="md-ellipsis">
-    S11
+    7.11. 骑士巡游问题
   </span>
   
 
@@ -3448,7 +3455,7 @@
         
   
   <span class="md-ellipsis">
-    S12
+    7.12. 构建骑士巡游图
   </span>
   
 
@@ -3470,12 +3477,14 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    S13
+    7.13. 实现骑士巡游
   </span>
   
 
@@ -3496,7 +3505,7 @@
         
   
   <span class="md-ellipsis">
-    S14
+    7.14. 骑士巡游分析
   </span>
   
 
@@ -3516,7 +3525,7 @@
         
   
   <span class="md-ellipsis">
-    S15
+    7.15. 一般的深度优先搜索
   </span>
   
 
@@ -3536,7 +3545,7 @@
         
   
   <span class="md-ellipsis">
-    S16
+    7.16. 深度优先搜索分析
   </span>
   
 
@@ -3556,7 +3565,7 @@
         
   
   <span class="md-ellipsis">
-    S17
+    7.17. 拓扑排序
   </span>
   
 
@@ -3576,7 +3585,7 @@
         
   
   <span class="md-ellipsis">
-    S18
+    7.18. 强连通分量
   </span>
   
 
@@ -3596,7 +3605,7 @@
         
   
   <span class="md-ellipsis">
-    S19
+    7.19. 最短路径问题
   </span>
   
 
@@ -3616,7 +3625,7 @@
         
   
   <span class="md-ellipsis">
-    S20
+    7.20. Dijkstra算法
   </span>
   
 
@@ -3636,7 +3645,7 @@
         
   
   <span class="md-ellipsis">
-    S21
+    7.21. Dijkstra算法分析
   </span>
   
 
@@ -3656,7 +3665,7 @@
         
   
   <span class="md-ellipsis">
-    S22
+    7.22. Prim生成树算法
   </span>
   
 
@@ -3676,7 +3685,7 @@
         
   
   <span class="md-ellipsis">
-    S23
+    7.23. 总结
   </span>
   
 
@@ -3696,7 +3705,7 @@
         
   
   <span class="md-ellipsis">
-    S24
+    7.24. 关键术语
   </span>
   
 
@@ -3716,7 +3725,7 @@
         
   
   <span class="md-ellipsis">
-    S25
+    7.25. 练习
   </span>
   
 
@@ -3810,7 +3819,7 @@
         
   
   <span class="md-ellipsis">
-    S1
+    8.1. 目标
   </span>
   
 
@@ -3830,7 +3839,7 @@
         
   
   <span class="md-ellipsis">
-    S2
+    8.2. Python列表再探
   </span>
   
 
@@ -3850,7 +3859,7 @@
         
   
   <span class="md-ellipsis">
-    S3
+    8.3. 递归再探
   </span>
   
 
@@ -3870,7 +3879,7 @@
         
   
   <span class="md-ellipsis">
-    S4
+    8.4. 字典再探：跳表
   </span>
   
 
@@ -3890,7 +3899,7 @@
         
   
   <span class="md-ellipsis">
-    S5
+    8.5. 树再探：图像量化
   </span>
   
 
@@ -3910,7 +3919,7 @@
         
   
   <span class="md-ellipsis">
-    S6
+    8.6. 图再探：模式匹配
   </span>
   
 
@@ -3944,6 +3953,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -3961,16 +3972,151 @@
   
 
 
-  <h1>S13</h1>
+<h1 id="713-实现骑士巡游">7.13. 实现骑士巡游<a class="headerlink" href="#713-实现骑士巡游" title="Permanent link">&para;</a></h1>
+<p><strong>7.13. Implementing Knight’s Tour</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>The search algorithm we will use to solve the knight’s tour problem is called <strong>depth-first search</strong> (<strong>DFS</strong>).  Whereas the breadth-first search algorithm builds a search tree one level at a time, a depth-first search creates a search tree by exploring one branch of the tree as deeply as possible. In this section we will look at two algorithms that implement a depth-first search. The first algorithm we will look at specifically solves the knight’s tour problem by explicitly forbidding a node to be visited more than once. The second implementation is more general, but allows nodes to be visited more than once as the tree is constructed. The second version is used in subsequent sections to develop additional graph algorithms.</p>
+<p>The depth-first exploration of the graph is exactly what we need in order to find a path through 64 vertices (one for each square on the chessboard) and 63 edges. We will see that when the depth-first search algorithm finds a dead end (a place in the graph where there are no more moves possible) it backs up the tree to the next deepest vertex that allows it to make a legal move.</p>
+<p>The <code>knight_tour</code> function shown in <code>Listing 3</code> takes four parameters: <code>n</code>, the current depth in the search tree; <code>path</code>, a list of vertices visited up to this point; <code>u</code>, the vertex in the graph we wish to explore; and <code>limit</code>, the number of nodes in the path. The <code>knight_tour</code> function is recursive. When the <code>knight_tour</code> function is called, it first checks the base case condition. If we have a path that contains 64 vertices, we return from <code>knight_tour</code> with a status of <code>True</code>, indicating that we have found a successful tour. If the path is not long enough, we continue to explore one level deeper by choosing a new vertex to explore and calling <code>knight_tour</code> recursively for that vertex.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 3</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pythonds3.graphs</span> <span style="color: #008000; font-weight: bold">import</span> Graph
 
 
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">knight_tour</span>(n, path, u, limit):
+    u<span style="color: #666666">.</span>color <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;gray&quot;</span>
+    path<span style="color: #666666">.</span>append(u)
+    <span style="color: #008000; font-weight: bold">if</span> n <span style="color: #666666">&lt;</span> limit:
+        neighbors <span style="color: #666666">=</span> <span style="color: #008000">sorted</span>(<span style="color: #008000">list</span>(u<span style="color: #666666">.</span>get_neighbors()))
+        i <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+        done <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">False</span>
+        <span style="color: #008000; font-weight: bold">while</span> i <span style="color: #666666">&lt;</span> <span style="color: #008000">len</span>(neighbors) <span style="color: #AA22FF; font-weight: bold">and</span> <span style="color: #AA22FF; font-weight: bold">not</span> done:
+            <span style="color: #008000; font-weight: bold">if</span> neighbors[i]<span style="color: #666666">.</span>color <span style="color: #666666">==</span> <span style="color: #BA2121">&quot;white&quot;</span>:
+                done <span style="color: #666666">=</span> knight_tour(n <span style="color: #666666">+</span> <span style="color: #666666">1</span>, path, neighbors[i], limit)
+            i <span style="color: #666666">=</span> i <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #AA22FF; font-weight: bold">not</span> done:  <span style="color: #3D7B7B; font-style: italic"># prepare to backtrack</span>
+            path<span style="color: #666666">.</span>pop()
+            u<span style="color: #666666">.</span>color <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;white&quot;</span>
+    <span style="color: #008000; font-weight: bold">else</span>:
+        done <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">True</span>
+    <span style="color: #008000; font-weight: bold">return</span> done
+</code></pre></div>
+<p>DFS also uses colors to keep track of which vertices in the graph have been visited. Unvisited vertices are colored white, and visited vertices are colored gray. If all neighbors of a particular vertex have been explored and we have not yet reached our goal length of 64 vertices, we have reached a dead end and must backtrack. Backtracking happens when we return from <code>knight_tour</code> with a status of <code>False</code>. In the breadth-first search we used a queue to keep track of which vertex to visit next. Since depth-first search is recursive, we are implicitly using a stack to help us with our backtracking. When we return from a call to <code>knight_tour</code> with a status of <code>False</code>, in line 11,  we remain inside the <code>while</code> loop and look at the next vertex in <code>neighbors</code>.</p>
+<p>Let's look at a simple example of <code>knight_tour</code> (<code>Listing 3</code>) in action. You can refer to the figures below to follow the steps of the search. For this example we will assume that the call to the <code>get_neighbors</code> method on line 6 orders the nodes in alphabetical order. We begin by calling <code>knight_tour(0, path, A, 6)</code>.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/ktdfsa.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/ktdfsa.png" /></a>
+    <figcaption markdown="span">Figure 3: Start with Node A</figcaption>
+</figure></p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/ktdfsb.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/ktdfsb.png" /></a>
+    <figcaption markdown="span">Figure 4: Explore B</figcaption>
+</figure></p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/ktdfsc.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/ktdfsc.png" /></a>
+    <figcaption markdown="span">Figure 5: Node C is a Dead End</figcaption>
+</figure></p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/ktdfsd.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/ktdfsd.png" /></a>
+    <figcaption markdown="span">Figure 6: Backtrack to B</figcaption>
+</figure></p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/ktdfse.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/ktdfse.png" /></a>
+    <figcaption markdown="span">Figure 7: Explore D</figcaption>
+</figure></p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/ktdfsf.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/ktdfsf.png" /></a>
+    <figcaption markdown="span">Figure 8: Explore E</figcaption>
+</figure></p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/ktdfsg.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/ktdfsg.png" /></a>
+    <figcaption markdown="span">Figure 9: Explore F</figcaption>
+</figure></p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/ktdfsh.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/ktdfsh.png" /></a>
+    <figcaption markdown="span">Figure 10: Finish</figcaption>
+</figure></p>
+<p><code>knight_tour</code> starts with node A in <code>Figure 3</code>. The nodes adjacent to A are B and D. Since B is before D alphabetically, DFS selects B to expand next as shown in <code>Figure 4</code>. Exploring B happens when <code>knight_tour</code> is called recursively. B is adjacent to C and D, so <code>knight_tour</code> elects to explore C next. However, as you can see in <code>Figure 5</code> node C is a dead end with no adjacent white nodes. At this point we change the color of node C back to white. The call to <code>knight_tour</code> returns a value of <code>False</code>. The return from the recursive call effectively backtracks the search to vertex B (see <code>Figure 6</code>). The next vertex on the list to explore is vertex D, so <code>knight_tour</code> makes a recursive call moving to node D (see <code>Figure 7</code>). From vertex D on, <code>knight_tour</code> can continue to make recursive calls until we get to node C again (see <code>Figure 8</code>, <code>Figure 9</code>, and  <code>Figure 10</code>).  However, this time when we get to node C the test <code>n &lt; limit</code> fails so we know that we have exhausted all the nodes in the graph. At this point we can return <code>True</code> to indicate that we have made a successful tour of the graph. When we return the list, <code>path</code> has the values <code>[A, B, D, E, F, C]</code>, which is the order we need to traverse the graph to visit each node exactly once.</p>
+<p><code>Figure 11</code> shows you what a complete tour around an <span class="arithmatex">\(8 \times 8\)</span> board looks like. There are many possible tours; some are symmetric. With some modification you can make circular tours that start and end at the same square.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/completeTour.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/completeTour.png" /></a>
+    <figcaption markdown="span">Figure 11: A Complete Tour of the Board Found by <code>knight_tour</code></figcaption>
+</figure></p>
+</div>
+<div class="tabbed-block">
+<p>The search algorithm we will use to solve the knight’s tour problem is called <strong>depth-first search</strong> (<strong>DFS</strong>).  Whereas the breadth-first search algorithm builds a search tree one level at a time, a depth-first search creates a search tree by exploring one branch of the tree as deeply as possible. In this section we will look at two algorithms that implement a depth-first search. The first algorithm we will look at specifically solves the knight’s tour problem by explicitly forbidding a node to be visited more than once. The second implementation is more general, but allows nodes to be visited more than once as the tree is constructed. The second version is used in subsequent sections to develop additional graph algorithms.</p>
+<p>The depth-first exploration of the graph is exactly what we need in order to find a path through 64 vertices (one for each square on the chessboard) and 63 edges. We will see that when the depth-first search algorithm finds a dead end (a place in the graph where there are no more moves possible) it backs up the tree to the next deepest vertex that allows it to make a legal move.</p>
+<p>The <code>knight_tour</code> function shown in <code>Listing 3</code> takes four parameters: <code>n</code>, the current depth in the search tree; <code>path</code>, a list of vertices visited up to this point; <code>u</code>, the vertex in the graph we wish to explore; and <code>limit</code>, the number of nodes in the path. The <code>knight_tour</code> function is recursive. When the <code>knight_tour</code> function is called, it first checks the base case condition. If we have a path that contains 64 vertices, we return from <code>knight_tour</code> with a status of <code>True</code>, indicating that we have found a successful tour. If the path is not long enough, we continue to explore one level deeper by choosing a new vertex to explore and calling <code>knight_tour</code> recursively for that vertex.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 3</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pythonds3.graphs</span> <span style="color: #008000; font-weight: bold">import</span> Graph
+
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">knight_tour</span>(n, path, u, limit):
+    u<span style="color: #666666">.</span>color <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;gray&quot;</span>
+    path<span style="color: #666666">.</span>append(u)
+    <span style="color: #008000; font-weight: bold">if</span> n <span style="color: #666666">&lt;</span> limit:
+        neighbors <span style="color: #666666">=</span> <span style="color: #008000">sorted</span>(<span style="color: #008000">list</span>(u<span style="color: #666666">.</span>get_neighbors()))
+        i <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+        done <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">False</span>
+        <span style="color: #008000; font-weight: bold">while</span> i <span style="color: #666666">&lt;</span> <span style="color: #008000">len</span>(neighbors) <span style="color: #AA22FF; font-weight: bold">and</span> <span style="color: #AA22FF; font-weight: bold">not</span> done:
+            <span style="color: #008000; font-weight: bold">if</span> neighbors[i]<span style="color: #666666">.</span>color <span style="color: #666666">==</span> <span style="color: #BA2121">&quot;white&quot;</span>:
+                done <span style="color: #666666">=</span> knight_tour(n <span style="color: #666666">+</span> <span style="color: #666666">1</span>, path, neighbors[i], limit)
+            i <span style="color: #666666">=</span> i <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #AA22FF; font-weight: bold">not</span> done:  <span style="color: #3D7B7B; font-style: italic"># prepare to backtrack</span>
+            path<span style="color: #666666">.</span>pop()
+            u<span style="color: #666666">.</span>color <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;white&quot;</span>
+    <span style="color: #008000; font-weight: bold">else</span>:
+        done <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">True</span>
+    <span style="color: #008000; font-weight: bold">return</span> done
+</code></pre></div>
+<p>DFS also uses colors to keep track of which vertices in the graph have been visited. Unvisited vertices are colored white, and visited vertices are colored gray. If all neighbors of a particular vertex have been explored and we have not yet reached our goal length of 64 vertices, we have reached a dead end and must backtrack. Backtracking happens when we return from <code>knight_tour</code> with a status of <code>False</code>. In the breadth-first search we used a queue to keep track of which vertex to visit next. Since depth-first search is recursive, we are implicitly using a stack to help us with our backtracking. When we return from a call to <code>knight_tour</code> with a status of <code>False</code>, in line 11,  we remain inside the <code>while</code> loop and look at the next vertex in <code>neighbors</code>.</p>
+<p>Let's look at a simple example of <code>knight_tour</code> (<code>Listing 3</code>) in action. You can refer to the figures below to follow the steps of the search. For this example we will assume that the call to the <code>get_neighbors</code> method on line 6 orders the nodes in alphabetical order. We begin by calling <code>knight_tour(0, path, A, 6)</code>.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/ktdfsa.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/ktdfsa.png" /></a>
+    <figcaption markdown="span">Figure 3: Start with Node A</figcaption>
+</figure></p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/ktdfsb.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/ktdfsb.png" /></a>
+    <figcaption markdown="span">Figure 4: Explore B</figcaption>
+</figure></p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/ktdfsc.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/ktdfsc.png" /></a>
+    <figcaption markdown="span">Figure 5: Node C is a Dead End</figcaption>
+</figure></p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/ktdfsd.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/ktdfsd.png" /></a>
+    <figcaption markdown="span">Figure 6: Backtrack to B</figcaption>
+</figure></p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/ktdfse.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/ktdfse.png" /></a>
+    <figcaption markdown="span">Figure 7: Explore D</figcaption>
+</figure></p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/ktdfsf.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/ktdfsf.png" /></a>
+    <figcaption markdown="span">Figure 8: Explore E</figcaption>
+</figure></p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/ktdfsg.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/ktdfsg.png" /></a>
+    <figcaption markdown="span">Figure 9: Explore F</figcaption>
+</figure></p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/ktdfsh.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/ktdfsh.png" /></a>
+    <figcaption markdown="span">Figure 10: Finish</figcaption>
+</figure></p>
+<p><code>knight_tour</code> starts with node A in <code>Figure 3</code>. The nodes adjacent to A are B and D. Since B is before D alphabetically, DFS selects B to expand next as shown in <code>Figure 4</code>. Exploring B happens when <code>knight_tour</code> is called recursively. B is adjacent to C and D, so <code>knight_tour</code> elects to explore C next. However, as you can see in <code>Figure 5</code> node C is a dead end with no adjacent white nodes. At this point we change the color of node C back to white. The call to <code>knight_tour</code> returns a value of <code>False</code>. The return from the recursive call effectively backtracks the search to vertex B (see <code>Figure 6</code>). The next vertex on the list to explore is vertex D, so <code>knight_tour</code> makes a recursive call moving to node D (see <code>Figure 7</code>). From vertex D on, <code>knight_tour</code> can continue to make recursive calls until we get to node C again (see <code>Figure 8</code>, <code>Figure 9</code>, and  <code>Figure 10</code>).  However, this time when we get to node C the test <code>n &lt; limit</code> fails so we know that we have exhausted all the nodes in the graph. At this point we can return <code>True</code> to indicate that we have made a successful tour of the graph. When we return the list, <code>path</code> has the values <code>[A, B, D, E, F, C]</code>, which is the order we need to traverse the graph to visit each node exactly once.</p>
+<p><code>Figure 11</code> shows you what a complete tour around an <span class="arithmatex">\(8 \times 8\)</span> board looks like. There are many possible tours; some are symmetric. With some modification you can make circular tours that start and end at the same square.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/completeTour.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/completeTour.png" /></a>
+    <figcaption markdown="span">Figure 11: A Complete Tour of the Board Found by <code>knight_tour</code></figcaption>
+</figure></p>
+</div>
+</div>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月9日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月12日</span>
       
         <br>
         创建日期:
@@ -4032,9 +4178,15 @@
       
         <script src="../../javascripts/mathjax.js"></script>
       
+        <script src="../../javascripts/katex.js"></script>
+      
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>

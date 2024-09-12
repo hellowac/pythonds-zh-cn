@@ -22,7 +22,7 @@
     
     
       
-        <title>S18 - python数据结构和算法 - 中文版</title>
+        <title>7.18. 强连通分量 - python数据结构和算法 - 中文版</title>
       
     
     
@@ -49,6 +49,8 @@
     
     
       <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -84,6 +86,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#718-强连通分量" class="md-skip">
+          跳转至
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -133,7 +140,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              S18
+              7.18. 强连通分量
             
           </span>
         </div>
@@ -3228,7 +3235,7 @@
         
   
   <span class="md-ellipsis">
-    S1
+    7.1. 目标
   </span>
   
 
@@ -3248,7 +3255,7 @@
         
   
   <span class="md-ellipsis">
-    S2
+    7.2. 词汇和定义
   </span>
   
 
@@ -3268,7 +3275,7 @@
         
   
   <span class="md-ellipsis">
-    S3
+    7.3. 图的抽象数据类型
   </span>
   
 
@@ -3288,7 +3295,7 @@
         
   
   <span class="md-ellipsis">
-    S4
+    7.4. 邻接矩阵
   </span>
   
 
@@ -3308,7 +3315,7 @@
         
   
   <span class="md-ellipsis">
-    S5
+    7.5. 邻接表
   </span>
   
 
@@ -3328,7 +3335,7 @@
         
   
   <span class="md-ellipsis">
-    S6
+    7.6. 实现
   </span>
   
 
@@ -3348,7 +3355,7 @@
         
   
   <span class="md-ellipsis">
-    S7
+    7.7. 字梯问题
   </span>
   
 
@@ -3368,7 +3375,7 @@
         
   
   <span class="md-ellipsis">
-    S8
+    7.8. 构建字梯图
   </span>
   
 
@@ -3388,7 +3395,7 @@
         
   
   <span class="md-ellipsis">
-    S9
+    7.9. 实现广度优先搜索
   </span>
   
 
@@ -3408,7 +3415,7 @@
         
   
   <span class="md-ellipsis">
-    S10
+    7.10. 广度优先搜索分析
   </span>
   
 
@@ -3428,7 +3435,7 @@
         
   
   <span class="md-ellipsis">
-    S11
+    7.11. 骑士巡游问题
   </span>
   
 
@@ -3448,7 +3455,7 @@
         
   
   <span class="md-ellipsis">
-    S12
+    7.12. 构建骑士巡游图
   </span>
   
 
@@ -3468,7 +3475,7 @@
         
   
   <span class="md-ellipsis">
-    S13
+    7.13. 实现骑士巡游
   </span>
   
 
@@ -3488,7 +3495,7 @@
         
   
   <span class="md-ellipsis">
-    S14
+    7.14. 骑士巡游分析
   </span>
   
 
@@ -3508,7 +3515,7 @@
         
   
   <span class="md-ellipsis">
-    S15
+    7.15. 一般的深度优先搜索
   </span>
   
 
@@ -3528,7 +3535,7 @@
         
   
   <span class="md-ellipsis">
-    S16
+    7.16. 深度优先搜索分析
   </span>
   
 
@@ -3548,7 +3555,7 @@
         
   
   <span class="md-ellipsis">
-    S17
+    7.17. 拓扑排序
   </span>
   
 
@@ -3570,12 +3577,14 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    S18
+    7.18. 强连通分量
   </span>
   
 
@@ -3596,7 +3605,7 @@
         
   
   <span class="md-ellipsis">
-    S19
+    7.19. 最短路径问题
   </span>
   
 
@@ -3616,7 +3625,7 @@
         
   
   <span class="md-ellipsis">
-    S20
+    7.20. Dijkstra算法
   </span>
   
 
@@ -3636,7 +3645,7 @@
         
   
   <span class="md-ellipsis">
-    S21
+    7.21. Dijkstra算法分析
   </span>
   
 
@@ -3656,7 +3665,7 @@
         
   
   <span class="md-ellipsis">
-    S22
+    7.22. Prim生成树算法
   </span>
   
 
@@ -3676,7 +3685,7 @@
         
   
   <span class="md-ellipsis">
-    S23
+    7.23. 总结
   </span>
   
 
@@ -3696,7 +3705,7 @@
         
   
   <span class="md-ellipsis">
-    S24
+    7.24. 关键术语
   </span>
   
 
@@ -3716,7 +3725,7 @@
         
   
   <span class="md-ellipsis">
-    S25
+    7.25. 练习
   </span>
   
 
@@ -3810,7 +3819,7 @@
         
   
   <span class="md-ellipsis">
-    S1
+    8.1. 目标
   </span>
   
 
@@ -3830,7 +3839,7 @@
         
   
   <span class="md-ellipsis">
-    S2
+    8.2. Python列表再探
   </span>
   
 
@@ -3850,7 +3859,7 @@
         
   
   <span class="md-ellipsis">
-    S3
+    8.3. 递归再探
   </span>
   
 
@@ -3870,7 +3879,7 @@
         
   
   <span class="md-ellipsis">
-    S4
+    8.4. 字典再探：跳表
   </span>
   
 
@@ -3890,7 +3899,7 @@
         
   
   <span class="md-ellipsis">
-    S5
+    8.5. 树再探：图像量化
   </span>
   
 
@@ -3910,7 +3919,7 @@
         
   
   <span class="md-ellipsis">
-    S6
+    8.6. 图再探：模式匹配
   </span>
   
 
@@ -3944,6 +3953,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -3961,16 +3972,119 @@
   
 
 
-  <h1>S18</h1>
-
-
+<h1 id="718-强连通分量">7.18. 强连通分量<a class="headerlink" href="#718-强连通分量" title="Permanent link">&para;</a></h1>
+<p><strong>7.18. Strongly Connected Components</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>For the remainder of this chapter we will turn our attention to some extremely large graphs. The graphs we will use to study some additional algorithms are the graphs produced by the connections between hosts on the internet and the links between web pages. We will begin with web pages.</p>
+<p>Search engines like Google and Bing exploit the fact that the pages on the web form a very large directed graph. To transform the World Wide Web into a graph, we will treat a page as a vertex, and the hyperlinks on the page as edges connecting one vertex to another. <code>Figure 30</code> shows a very small part of the graph produced by following the links from one page to the next, beginning at Luther College’s Computer Science home page. Of course, this graph could be huge, so we have limited it to websites that are no more than 10 links away from the CS home page.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/cshome.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/cshome.png" /></a>
+    <figcaption markdown="span">Figure 30: The Graph Produced by Links from the Luther Computer Science Home Page</figcaption>
+</figure></p>
+<p>If you study the graph in <code>Figure 30</code> you might make some interesting observations. First you might notice that many of the other websites on the graph are other Luther College websites. Second, you might notice that there are several links to other colleges in Iowa. Third, you might notice that there are several links to other liberal arts colleges. You might conclude from this that there is some underlying structure to the Web that clusters together websites that are similar on some level.</p>
+<p>One graph algorithm that can help find clusters of highly interconnected vertices in a graph is called the <strong>strongly connected components</strong> algorithm, or <strong>SCC</strong>. We formally define a strongly connected component, <span class="arithmatex">\(C\)</span>, of a graph <span class="arithmatex">\(G\)</span>, as the largest subset of vertices $C \subset V<code>such that for every pair of vertices $v, w \in C$ we have a path from $v$ to $w$ and a path from $w$ to $v$.</code>Figure 27` shows a simple graph with three strongly connected components that are identified by the different shaded areas.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/scc1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/scc1.png" /></a>
+    <figcaption markdown="span">Figure 31: A Directed Graph with Three Strongly Connected Components</figcaption>
+</figure></p>
+<p>Once the strongly connected components have been identified, we can show a simplified view of the graph by combining all the vertices in one strongly connected component into a single larger vertex. The simplified version of the graph in <code>Figure 31</code> is shown in <code>Figure 32</code>.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/scc2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/scc2.png" /></a>
+    <figcaption markdown="span">Figure 32: The Reduced Graph</figcaption>
+</figure></p>
+<p>Once again we will see that we can create a very powerful and efficient algorithm by making use of a depth-first search. Before we tackle the main SCC algorithm we must look at one other definition. The transposition of a graph <span class="arithmatex">\(G\)</span> is defined as the graph <span class="arithmatex">\(G^T\)</span> where all the edges in the graph have been reversed. That is, if there is a directed edge from node A to node B in the original graph, then <span class="arithmatex">\(G^T\)</span> will contain an edge from node B to node A. <code>Figure 33</code> and <code>Figure 34</code> show a simple graph and its transposition.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/transpose1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/transpose1.png" /></a>
+    <figcaption markdown="span">Figure 33: A Graph <span class="arithmatex">\(G\)</span></figcaption>
+</figure></p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/transpose2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/transpose2.png" /></a>
+    <figcaption markdown="span">Figure 34: The Transposition of <span class="arithmatex">\(G\)</span>, <span class="arithmatex">\(G^T\)</span></figcaption>
+</figure></p>
+<p>Look at the figures again. Notice that the graph in <code>Figure 33</code> has two strongly connected components. Now look at  <code>Figure 34</code>. Notice that it has the same two strongly connected components.</p>
+<p>We can now describe the algorithm to compute the strongly connected components for a graph.</p>
+<ol>
+<li>Call <code>dfs</code> for the graph <span class="arithmatex">\(G\)</span> to compute the closing times for each vertex.</li>
+<li>Compute <span class="arithmatex">\(G^T\)</span>.</li>
+<li>Call <code>dfs</code> for the graph <span class="arithmatex">\(G^T\)</span> but in the main loop of DFS explore each vertex in decreasing order of closing time.</li>
+<li>Each tree in the forest computed in step 3 is a strongly connected component. Output the vertex IDs for each vertex in each tree in the forest to identify the component.</li>
+</ol>
+<p>Let's trace the operation of the steps described above on the example graph in <code>Figure 31</code>. <code>Figure 35</code> shows the starting and closing times computed for the original graph by the DFS algorithm. <code>Figure 36</code> shows the starting and closing times computed by running DFS on the transposed graph.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/scc1a.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/scc1a.png" /></a>
+    <figcaption markdown="span">Figure 35: Finishing Times for the Original Graph <span class="arithmatex">\(G\)</span></figcaption>
+</figure></p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/scc1b.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/scc1b.png" /></a>
+    <figcaption markdown="span">Figure 36: Finishing Times for <span class="arithmatex">\(G^T\)</span></figcaption>
+</figure></p>
+<p>Finally, <code>Figure 37</code> shows the forest of three trees produced in step 3 of the strongly connected components algorithm. You will notice that we do not provide you with the Python code for the SCC algorithm; we leave writing this program as an exercise.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/sccforest.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/sccforest.png" /></a>
+    <figcaption markdown="span">Figure 37: Strongly Connected Components</figcaption>
+</figure></p>
+</div>
+<div class="tabbed-block">
+<p>For the remainder of this chapter we will turn our attention to some extremely large graphs. The graphs we will use to study some additional algorithms are the graphs produced by the connections between hosts on the internet and the links between web pages. We will begin with web pages.</p>
+<p>Search engines like Google and Bing exploit the fact that the pages on the web form a very large directed graph. To transform the World Wide Web into a graph, we will treat a page as a vertex, and the hyperlinks on the page as edges connecting one vertex to another. <code>Figure 30</code> shows a very small part of the graph produced by following the links from one page to the next, beginning at Luther College’s Computer Science home page. Of course, this graph could be huge, so we have limited it to websites that are no more than 10 links away from the CS home page.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/cshome.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/cshome.png" /></a>
+    <figcaption markdown="span">Figure 30: The Graph Produced by Links from the Luther Computer Science Home Page</figcaption>
+</figure></p>
+<p>If you study the graph in <code>Figure 30</code> you might make some interesting observations. First you might notice that many of the other websites on the graph are other Luther College websites. Second, you might notice that there are several links to other colleges in Iowa. Third, you might notice that there are several links to other liberal arts colleges. You might conclude from this that there is some underlying structure to the Web that clusters together websites that are similar on some level.</p>
+<p>One graph algorithm that can help find clusters of highly interconnected vertices in a graph is called the <strong>strongly connected components</strong> algorithm, or <strong>SCC</strong>. We formally define a strongly connected component, <span class="arithmatex">\(C\)</span>, of a graph <span class="arithmatex">\(G\)</span>, as the largest subset of vertices $C \subset V<code>such that for every pair of vertices $v, w \in C$ we have a path from $v$ to $w$ and a path from $w$ to $v$.</code>Figure 27` shows a simple graph with three strongly connected components that are identified by the different shaded areas.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/scc1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/scc1.png" /></a>
+    <figcaption markdown="span">Figure 31: A Directed Graph with Three Strongly Connected Components</figcaption>
+</figure></p>
+<p>Once the strongly connected components have been identified, we can show a simplified view of the graph by combining all the vertices in one strongly connected component into a single larger vertex. The simplified version of the graph in <code>Figure 31</code> is shown in <code>Figure 32</code>.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/scc2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/scc2.png" /></a>
+    <figcaption markdown="span">Figure 32: The Reduced Graph</figcaption>
+</figure></p>
+<p>Once again we will see that we can create a very powerful and efficient algorithm by making use of a depth-first search. Before we tackle the main SCC algorithm we must look at one other definition. The transposition of a graph <span class="arithmatex">\(G\)</span> is defined as the graph <span class="arithmatex">\(G^T\)</span> where all the edges in the graph have been reversed. That is, if there is a directed edge from node A to node B in the original graph, then <span class="arithmatex">\(G^T\)</span> will contain an edge from node B to node A. <code>Figure 33</code> and <code>Figure 34</code> show a simple graph and its transposition.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/transpose1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/transpose1.png" /></a>
+    <figcaption markdown="span">Figure 33: A Graph <span class="arithmatex">\(G\)</span></figcaption>
+</figure></p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/transpose2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/transpose2.png" /></a>
+    <figcaption markdown="span">Figure 34: The Transposition of <span class="arithmatex">\(G\)</span>, <span class="arithmatex">\(G^T\)</span></figcaption>
+</figure></p>
+<p>Look at the figures again. Notice that the graph in <code>Figure 33</code> has two strongly connected components. Now look at  <code>Figure 34</code>. Notice that it has the same two strongly connected components.</p>
+<p>We can now describe the algorithm to compute the strongly connected components for a graph.</p>
+<ol>
+<li>Call <code>dfs</code> for the graph <span class="arithmatex">\(G\)</span> to compute the closing times for each vertex.</li>
+<li>Compute <span class="arithmatex">\(G^T\)</span>.</li>
+<li>Call <code>dfs</code> for the graph <span class="arithmatex">\(G^T\)</span> but in the main loop of DFS explore each vertex in decreasing order of closing time.</li>
+<li>Each tree in the forest computed in step 3 is a strongly connected component. Output the vertex IDs for each vertex in each tree in the forest to identify the component.</li>
+</ol>
+<p>Let's trace the operation of the steps described above on the example graph in <code>Figure 31</code>. <code>Figure 35</code> shows the starting and closing times computed for the original graph by the DFS algorithm. <code>Figure 36</code> shows the starting and closing times computed by running DFS on the transposed graph.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/scc1a.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/scc1a.png" /></a>
+    <figcaption markdown="span">Figure 35: Finishing Times for the Original Graph <span class="arithmatex">\(G\)</span></figcaption>
+</figure></p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/scc1b.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/scc1b.png" /></a>
+    <figcaption markdown="span">Figure 36: Finishing Times for <span class="arithmatex">\(G^T\)</span></figcaption>
+</figure></p>
+<p>Finally, <code>Figure 37</code> shows the forest of three trees produced in step 3 of the strongly connected components algorithm. You will notice that we do not provide you with the Python code for the SCC algorithm; we leave writing this program as an exercise.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/sccforest.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/sccforest.png" /></a>
+    <figcaption markdown="span">Figure 37: Strongly Connected Components</figcaption>
+</figure></p>
+</div>
+</div>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月9日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月12日</span>
       
         <br>
         创建日期:
@@ -4032,9 +4146,15 @@
       
         <script src="../../javascripts/mathjax.js"></script>
       
+        <script src="../../javascripts/katex.js"></script>
+      
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>

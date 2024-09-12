@@ -20,7 +20,7 @@
     
     
       
-        <title>S6 - python数据结构和算法 - 中文版</title>
+        <title>8.6. 图再探：模式匹配 - python数据结构和算法 - 中文版</title>
       
     
     
@@ -47,6 +47,8 @@
     
     
       <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -82,6 +84,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#86-图再探模式匹配" class="md-skip">
+          跳转至
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -131,7 +138,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              S6
+              8.6. 图再探：模式匹配
             
           </span>
         </div>
@@ -3224,7 +3231,7 @@
         
   
   <span class="md-ellipsis">
-    S1
+    7.1. 目标
   </span>
   
 
@@ -3244,7 +3251,7 @@
         
   
   <span class="md-ellipsis">
-    S2
+    7.2. 词汇和定义
   </span>
   
 
@@ -3264,7 +3271,7 @@
         
   
   <span class="md-ellipsis">
-    S3
+    7.3. 图的抽象数据类型
   </span>
   
 
@@ -3284,7 +3291,7 @@
         
   
   <span class="md-ellipsis">
-    S4
+    7.4. 邻接矩阵
   </span>
   
 
@@ -3304,7 +3311,7 @@
         
   
   <span class="md-ellipsis">
-    S5
+    7.5. 邻接表
   </span>
   
 
@@ -3324,7 +3331,7 @@
         
   
   <span class="md-ellipsis">
-    S6
+    7.6. 实现
   </span>
   
 
@@ -3344,7 +3351,7 @@
         
   
   <span class="md-ellipsis">
-    S7
+    7.7. 字梯问题
   </span>
   
 
@@ -3364,7 +3371,7 @@
         
   
   <span class="md-ellipsis">
-    S8
+    7.8. 构建字梯图
   </span>
   
 
@@ -3384,7 +3391,7 @@
         
   
   <span class="md-ellipsis">
-    S9
+    7.9. 实现广度优先搜索
   </span>
   
 
@@ -3404,7 +3411,7 @@
         
   
   <span class="md-ellipsis">
-    S10
+    7.10. 广度优先搜索分析
   </span>
   
 
@@ -3424,7 +3431,7 @@
         
   
   <span class="md-ellipsis">
-    S11
+    7.11. 骑士巡游问题
   </span>
   
 
@@ -3444,7 +3451,7 @@
         
   
   <span class="md-ellipsis">
-    S12
+    7.12. 构建骑士巡游图
   </span>
   
 
@@ -3464,7 +3471,7 @@
         
   
   <span class="md-ellipsis">
-    S13
+    7.13. 实现骑士巡游
   </span>
   
 
@@ -3484,7 +3491,7 @@
         
   
   <span class="md-ellipsis">
-    S14
+    7.14. 骑士巡游分析
   </span>
   
 
@@ -3504,7 +3511,7 @@
         
   
   <span class="md-ellipsis">
-    S15
+    7.15. 一般的深度优先搜索
   </span>
   
 
@@ -3524,7 +3531,7 @@
         
   
   <span class="md-ellipsis">
-    S16
+    7.16. 深度优先搜索分析
   </span>
   
 
@@ -3544,7 +3551,7 @@
         
   
   <span class="md-ellipsis">
-    S17
+    7.17. 拓扑排序
   </span>
   
 
@@ -3564,7 +3571,7 @@
         
   
   <span class="md-ellipsis">
-    S18
+    7.18. 强连通分量
   </span>
   
 
@@ -3584,7 +3591,7 @@
         
   
   <span class="md-ellipsis">
-    S19
+    7.19. 最短路径问题
   </span>
   
 
@@ -3604,7 +3611,7 @@
         
   
   <span class="md-ellipsis">
-    S20
+    7.20. Dijkstra算法
   </span>
   
 
@@ -3624,7 +3631,7 @@
         
   
   <span class="md-ellipsis">
-    S21
+    7.21. Dijkstra算法分析
   </span>
   
 
@@ -3644,7 +3651,7 @@
         
   
   <span class="md-ellipsis">
-    S22
+    7.22. Prim生成树算法
   </span>
   
 
@@ -3664,7 +3671,7 @@
         
   
   <span class="md-ellipsis">
-    S23
+    7.23. 总结
   </span>
   
 
@@ -3684,7 +3691,7 @@
         
   
   <span class="md-ellipsis">
-    S24
+    7.24. 关键术语
   </span>
   
 
@@ -3704,7 +3711,7 @@
         
   
   <span class="md-ellipsis">
-    S25
+    7.25. 练习
   </span>
   
 
@@ -3800,7 +3807,7 @@
         
   
   <span class="md-ellipsis">
-    S1
+    8.1. 目标
   </span>
   
 
@@ -3820,7 +3827,7 @@
         
   
   <span class="md-ellipsis">
-    S2
+    8.2. Python列表再探
   </span>
   
 
@@ -3840,7 +3847,7 @@
         
   
   <span class="md-ellipsis">
-    S3
+    8.3. 递归再探
   </span>
   
 
@@ -3860,7 +3867,7 @@
         
   
   <span class="md-ellipsis">
-    S4
+    8.4. 字典再探：跳表
   </span>
   
 
@@ -3880,7 +3887,7 @@
         
   
   <span class="md-ellipsis">
-    S5
+    8.5. 树再探：图像量化
   </span>
   
 
@@ -3902,16 +3909,76 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    8.6. 图再探：模式匹配
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    S6
+    8.6. 图再探：模式匹配
   </span>
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#861-生物字符串" class="md-nav__link">
+    8.6.1. 生物字符串
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#862-简单比较" class="md-nav__link">
+    8.6.2. 简单比较
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#863-使用图有限状态自动机" class="md-nav__link">
+    8.6.3. 使用图：有限状态自动机
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#864-使用图knuth-morris-pratt算法" class="md-nav__link">
+    8.6.4. 使用图：Knuth-Morris-Pratt算法
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -3942,6 +4009,44 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#861-生物字符串" class="md-nav__link">
+    8.6.1. 生物字符串
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#862-简单比较" class="md-nav__link">
+    8.6.2. 简单比较
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#863-使用图有限状态自动机" class="md-nav__link">
+    8.6.3. 使用图：有限状态自动机
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#864-使用图knuth-morris-pratt算法" class="md-nav__link">
+    8.6.4. 使用图：Knuth-Morris-Pratt算法
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -3959,16 +4064,297 @@
   
 
 
-  <h1>S6</h1>
+<h1 id="86-图再探模式匹配">8.6. 图再探：模式匹配<a class="headerlink" href="#86-图再探模式匹配" title="Permanent link">&para;</a></h1>
+<p><strong>8.6. Graphs Revisited: Pattern Matching</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Even with the growing interest in computer graphics, processing textual information is still an important area of study. Of particular interest here is the problem of finding patterns, often referred to as <strong>substrings</strong>, that exist in long strings of characters. The task is to perform some type of search that can identify at least the first occurrence of the pattern. We can also consider an extension of this problem to find all such occurrences.</p>
+<p>Python includes a built-in substring method called <code>find</code> that returns the location of the first occurrence of a pattern in a given string. For example,</p>
+<div class="language-pycon highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span><span style="color: #BA2121">&quot;ccabababcab&quot;</span><span style="color: #666666">.</span>find(<span style="color: #BA2121">&quot;ab&quot;</span>)
+<span style="color: #717171">2</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span><span style="color: #BA2121">&quot;ccabababcab&quot;</span><span style="color: #666666">.</span>find(<span style="color: #BA2121">&quot;xyz&quot;</span>)
+<span style="color: #717171">-1</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt;</span>
+</code></pre></div>
+<p>shows that the substring <code>"ab"</code> occurs for the first time starting at index position <code>2</code> in the string <code>"ccabababcab"</code>. <code>find</code> also returns a <code>-1</code> if the pattern does not occur.</p>
+</div>
+<div class="tabbed-block">
+<p>Even with the growing interest in computer graphics, processing textual information is still an important area of study. Of particular interest here is the problem of finding patterns, often referred to as <strong>substrings</strong>, that exist in long strings of characters. The task is to perform some type of search that can identify at least the first occurrence of the pattern. We can also consider an extension of this problem to find all such occurrences.</p>
+<p>Python includes a built-in substring method called <code>find</code> that returns the location of the first occurrence of a pattern in a given string. For example,</p>
+<div class="language-pycon highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span><span style="color: #BA2121">&quot;ccabababcab&quot;</span><span style="color: #666666">.</span>find(<span style="color: #BA2121">&quot;ab&quot;</span>)
+<span style="color: #717171">2</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span><span style="color: #BA2121">&quot;ccabababcab&quot;</span><span style="color: #666666">.</span>find(<span style="color: #BA2121">&quot;xyz&quot;</span>)
+<span style="color: #717171">-1</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt;</span>
+</code></pre></div>
+<p>shows that the substring <code>"ab"</code> occurs for the first time starting at index position <code>2</code> in the string <code>"ccabababcab"</code>. <code>find</code> also returns a <code>-1</code> if the pattern does not occur.</p>
+</div>
+</div>
+</div>
+<h2 id="861-生物字符串">8.6.1. 生物字符串<a class="headerlink" href="#861-生物字符串" title="Permanent link">&para;</a></h2>
+<p><strong>8.6.1. Biological Strings</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">中文</label><label for="__tabbed_2_2">英文</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Some of the most exciting work in algorithm development is currently taking place in the domain of bioinformatics; in particular, finding ways to manage and process large quantities of biological data. Much of this data takes the form of coded genetic material stored in the chromosomes of individual organisms. Deoxyribonucleic acid, more commonly known as DNA, is a very simple organic molecule that provides the blueprint for protein synthesis.</p>
+<p>DNA is basically a long sequence consisting of four chemical bases: adenine(A), thymine(T), guanine(G), and cytosine(C). These four symbols are often referred to as the <em>genetic alphabet</em> and we represent a piece of DNA as a string or sequence of these base symbols. For example, the <strong>DNA string</strong> ATCGTAGAGTCAGTAGAGACTADTGGTACGA might code a very small part of a DNA strand. It turns out that within these long strings, perhaps thousands and thousands of base symbols long, small pieces exist that provide extensive information as to the meaning of this genetic code. We can see then that having methods for searching out these pieces is a very important tool for the bioinformatics researcher.</p>
+<p>Our problem then reduces to the following ideas. Given a string of symbols from the underlying alphabet A, T, G, and C, develop an algorithm that will allow us to locate a particular pattern within that string. We will often refer to the DNA string as the <em>text</em>. If the pattern does not exist, we would like to know that as well. Further, since these strings are typically quite long, we need to be sure that the algorithm is efficient.</p>
+</div>
+<div class="tabbed-block">
+<p>Some of the most exciting work in algorithm development is currently taking place in the domain of bioinformatics; in particular, finding ways to manage and process large quantities of biological data. Much of this data takes the form of coded genetic material stored in the chromosomes of individual organisms. Deoxyribonucleic acid, more commonly known as DNA, is a very simple organic molecule that provides the blueprint for protein synthesis.</p>
+<p>DNA is basically a long sequence consisting of four chemical bases: adenine(A), thymine(T), guanine(G), and cytosine(C). These four symbols are often referred to as the <em>genetic alphabet</em> and we represent a piece of DNA as a string or sequence of these base symbols. For example, the <strong>DNA string</strong> ATCGTAGAGTCAGTAGAGACTADTGGTACGA might code a very small part of a DNA strand. It turns out that within these long strings, perhaps thousands and thousands of base symbols long, small pieces exist that provide extensive information as to the meaning of this genetic code. We can see then that having methods for searching out these pieces is a very important tool for the bioinformatics researcher.</p>
+<p>Our problem then reduces to the following ideas. Given a string of symbols from the underlying alphabet A, T, G, and C, develop an algorithm that will allow us to locate a particular pattern within that string. We will often refer to the DNA string as the <em>text</em>. If the pattern does not exist, we would like to know that as well. Further, since these strings are typically quite long, we need to be sure that the algorithm is efficient.</p>
+</div>
+</div>
+</div>
+<h2 id="862-简单比较">8.6.2. 简单比较<a class="headerlink" href="#862-简单比较" title="Permanent link">&para;</a></h2>
+<p><strong>8.6.2. Simple Comparison</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">中文</label><label for="__tabbed_3_2">英文</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Our first approach is likely the solution that comes immediately to your mind for solving the DNA string pattern-matching problem. We will simply try all possibilities for matching the pattern to the text. <code>Figure 1</code> shows how the algorithm will work. We will start out comparing the pattern from left to right with the text, starting at the first character in both. If there is a match, then we proceed to check the second character. Whenever a mismatch occurs, we simply slide the pattern one position to the right and start over.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/simplematch.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/simplematch.png" /></a>
+    <figcaption markdown="span">Figure 1: A Simple Pattern-Matching Algorithm</figcaption>
+</figure></p>
+<p>In this example, we have found a match on the sixth attempt, starting at position 5. The shaded characters denote the partial matches that occurred as we moved the pattern. <code>Listing lst_simplematcher</code> shows the Python implementation for this method. It takes the pattern and the text as parameters. If there is a pattern match, it returns the position of the starting text character. Otherwise, it returns <code>-1</code> to signal that the search failed.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Listing lst_simplematcher</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">simple_matcher</span>(pattern, text):
+    i <span style="color: #666666">=</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>
 
+    <span style="color: #008000; font-weight: bold">while</span> <span style="color: #008000; font-weight: bold">True</span>:
+        <span style="color: #008000; font-weight: bold">if</span> text[i] <span style="color: #666666">==</span> pattern[j]:
+            j <span style="color: #666666">=</span> j <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+        <span style="color: #008000; font-weight: bold">else</span>:
+            j <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+        i <span style="color: #666666">=</span> i <span style="color: #666666">+</span> <span style="color: #666666">1</span>
 
+        <span style="color: #008000; font-weight: bold">if</span> i <span style="color: #666666">==</span> <span style="color: #008000">len</span>(text):
+            <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">-1</span>
+        <span style="color: #008000; font-weight: bold">if</span> j <span style="color: #666666">==</span> <span style="color: #008000">len</span>(pattern):
+            <span style="color: #008000; font-weight: bold">return</span> i <span style="color: #666666">-</span> j
+</code></pre></div></td></tr></table></div>
+<p>The variables <code>i</code> and <code>j</code> serve as indices into the text and pattern respectively. The loop repeats until either the text or the pattern ends.</p>
+<p>Line 5 checks for a match between the current text character and the current pattern character. If the match occurs, pattern index is incremented. If the match fails, we reset the pattern back to its beginning (line 4). In both cases we move to the next position in the text. At every iteration of the loop we check if there is more text to process (line 11) and return -1 if not. Line 13 checks to see if every character in the pattern has been processed. If so, a match has been found and we return its starting index.</p>
+<p>If we assume that the length of the text is <span class="arithmatex">\(n\)</span> characters and the length of the pattern is <span class="arithmatex">\(m\)</span> characters, then it is easy to see that the complexity of this approach is <span class="arithmatex">\(O(nm)\)</span>. For each of the <span class="arithmatex">\(n\)</span> characters we may have to compare against almost all <span class="arithmatex">\(m\)</span> of the pattern characters. This is not so bad if the size of <span class="arithmatex">\(n\)</span> and <span class="arithmatex">\(m\)</span> are small. However, if we are considering thousands (or perhaps millions) of characters in our text in addition a large pattern, it will be necessary to look for a better approach.</p>
+</div>
+<div class="tabbed-block">
+<p>Our first approach is likely the solution that comes immediately to your mind for solving the DNA string pattern-matching problem. We will simply try all possibilities for matching the pattern to the text. <code>Figure 1</code> shows how the algorithm will work. We will start out comparing the pattern from left to right with the text, starting at the first character in both. If there is a match, then we proceed to check the second character. Whenever a mismatch occurs, we simply slide the pattern one position to the right and start over.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/simplematch.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/simplematch.png" /></a>
+    <figcaption markdown="span">Figure 1: A Simple Pattern-Matching Algorithm</figcaption>
+</figure></p>
+<p>In this example, we have found a match on the sixth attempt, starting at position 5. The shaded characters denote the partial matches that occurred as we moved the pattern. <code>Listing lst_simplematcher</code> shows the Python implementation for this method. It takes the pattern and the text as parameters. If there is a pattern match, it returns the position of the starting text character. Otherwise, it returns <code>-1</code> to signal that the search failed.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Listing lst_simplematcher</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">simple_matcher</span>(pattern, text):
+    i <span style="color: #666666">=</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+
+    <span style="color: #008000; font-weight: bold">while</span> <span style="color: #008000; font-weight: bold">True</span>:
+        <span style="color: #008000; font-weight: bold">if</span> text[i] <span style="color: #666666">==</span> pattern[j]:
+            j <span style="color: #666666">=</span> j <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+        <span style="color: #008000; font-weight: bold">else</span>:
+            j <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+        i <span style="color: #666666">=</span> i <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+
+        <span style="color: #008000; font-weight: bold">if</span> i <span style="color: #666666">==</span> <span style="color: #008000">len</span>(text):
+            <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">-1</span>
+        <span style="color: #008000; font-weight: bold">if</span> j <span style="color: #666666">==</span> <span style="color: #008000">len</span>(pattern):
+            <span style="color: #008000; font-weight: bold">return</span> i <span style="color: #666666">-</span> j
+</code></pre></div></td></tr></table></div>
+<p>The variables <code>i</code> and <code>j</code> serve as indices into the text and pattern respectively. The loop repeats until either the text or the pattern ends.</p>
+<p>Line 5 checks for a match between the current text character and the current pattern character. If the match occurs, pattern index is incremented. If the match fails, we reset the pattern back to its beginning (line 4). In both cases we move to the next position in the text. At every iteration of the loop we check if there is more text to process (line 11) and return -1 if not. Line 13 checks to see if every character in the pattern has been processed. If so, a match has been found and we return its starting index.</p>
+<p>If we assume that the length of the text is <span class="arithmatex">\(n\)</span> characters and the length of the pattern is <span class="arithmatex">\(m\)</span> characters, then it is easy to see that the complexity of this approach is <span class="arithmatex">\(O(nm)\)</span>. For each of the <span class="arithmatex">\(n\)</span> characters we may have to compare against almost all <span class="arithmatex">\(m\)</span> of the pattern characters. This is not so bad if the size of <span class="arithmatex">\(n\)</span> and <span class="arithmatex">\(m\)</span> are small. However, if we are considering thousands (or perhaps millions) of characters in our text in addition a large pattern, it will be necessary to look for a better approach.</p>
+</div>
+</div>
+</div>
+<h2 id="863-使用图有限状态自动机">8.6.3. 使用图：有限状态自动机<a class="headerlink" href="#863-使用图有限状态自动机" title="Permanent link">&para;</a></h2>
+<p><strong>8.6.3. Using Graphs: Finite State Automata</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">中文</label><label for="__tabbed_4_2">英文</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>It is possible to create an <span class="arithmatex">\(O(n)\)</span> pattern matcher if we are willing to do some preprocessing with the pattern. One approach is to build what is known as a <strong>deterministic finite automaton</strong>, or <strong>DFA</strong>, that represents the pattern as a graph. Each vertex of the <strong>DFA graph</strong> is a state, keeping track of the amount of the pattern that has been seen so far. Each edge of the graph represents a transition that takes place after processing a character from the text.</p>
+<p><code>Figure 2</code> shows a DFA for the example pattern from the last section (ACATA). The first vertex (state 0) is known as the <em>start state</em> (or <em>initial state</em>) and denotes that we have not seen any matching pattern characters so far. Clearly, before processing the first text character, this is the situation.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/dfa.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/dfa.png" /></a>
+    <figcaption markdown="span">Figure 2: A Deterministic Finite Automaton</figcaption>
+</figure></p>
+<p>The DFA works in a very simple way. We keep track of our current state, setting it to 0 when we start. We read the next character from the text. Depending on the character, we follow the appropriate transition to the next state, which in turn becomes the new current state. By definition, each state has one and only one transition for each character in the alphabet. This means that for our DNA alphabet we know that each state has four possible transitions to a next state. Note that in the figure we have labeled some edges (transitions) with multiple alphabet symbols to denote more than one transition to the same state.</p>
+<p>We continue to follow transitions until a termination event occurs. If we enter state 5, known as the <em>final state</em> (the two concentric circles denote the final state in the DFA graph), we can stop and report success. The DFA graph has discovered an occurrence of the pattern. You might note that there are no transitions out of the final state, meaning that we must stop at that point. The location of the pattern can be computed from the location of the current character and the size of the pattern. On the other hand, if we run out of text characters and the current state is somewhere else in the DFA, known as a <em>nonfinal</em> state, we know that the pattern did not occur.</p>
+<p><code>Figure 3</code> shows a step-by-step trace of the example DFA as it works through the text string ACGACACATA looking for the substring ACATA. The next state computed by the DFA always becomes the current state in the subsequent step. Since there is one and only one next state for every current state–current character combination, the processing through the DFA graph is easy to follow.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/steptable.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/steptable.png" /></a>
+    <figcaption markdown="span">Figure 3: A Trace of the DFA Pattern Matcher</figcaption>
+</figure></p>
+<p>Since every character from the text is used once as input to the DFA graph, the complexity of this approach is <span class="arithmatex">\(O(n)\)</span>. However, we need to take into account the preprocessing step that builds the DFA. There are many well-known algorithms for producing a DFA graph from a pattern. Unfortunately, all of them are quite complex mostly due to the fact that each state (vertex) must have a transition (edge) accounting for each alphabet symbol. The question arises as to whether there might be a similar pattern matcher that employs a more streamlined set of edges.</p>
+</div>
+<div class="tabbed-block">
+<p>It is possible to create an <span class="arithmatex">\(O(n)\)</span> pattern matcher if we are willing to do some preprocessing with the pattern. One approach is to build what is known as a <strong>deterministic finite automaton</strong>, or <strong>DFA</strong>, that represents the pattern as a graph. Each vertex of the <strong>DFA graph</strong> is a state, keeping track of the amount of the pattern that has been seen so far. Each edge of the graph represents a transition that takes place after processing a character from the text.</p>
+<p><code>Figure 2</code> shows a DFA for the example pattern from the last section (ACATA). The first vertex (state 0) is known as the <em>start state</em> (or <em>initial state</em>) and denotes that we have not seen any matching pattern characters so far. Clearly, before processing the first text character, this is the situation.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/dfa.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/dfa.png" /></a>
+    <figcaption markdown="span">Figure 2: A Deterministic Finite Automaton</figcaption>
+</figure></p>
+<p>The DFA works in a very simple way. We keep track of our current state, setting it to 0 when we start. We read the next character from the text. Depending on the character, we follow the appropriate transition to the next state, which in turn becomes the new current state. By definition, each state has one and only one transition for each character in the alphabet. This means that for our DNA alphabet we know that each state has four possible transitions to a next state. Note that in the figure we have labeled some edges (transitions) with multiple alphabet symbols to denote more than one transition to the same state.</p>
+<p>We continue to follow transitions until a termination event occurs. If we enter state 5, known as the <em>final state</em> (the two concentric circles denote the final state in the DFA graph), we can stop and report success. The DFA graph has discovered an occurrence of the pattern. You might note that there are no transitions out of the final state, meaning that we must stop at that point. The location of the pattern can be computed from the location of the current character and the size of the pattern. On the other hand, if we run out of text characters and the current state is somewhere else in the DFA, known as a <em>nonfinal</em> state, we know that the pattern did not occur.</p>
+<p><code>Figure 3</code> shows a step-by-step trace of the example DFA as it works through the text string ACGACACATA looking for the substring ACATA. The next state computed by the DFA always becomes the current state in the subsequent step. Since there is one and only one next state for every current state–current character combination, the processing through the DFA graph is easy to follow.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/steptable.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/steptable.png" /></a>
+    <figcaption markdown="span">Figure 3: A Trace of the DFA Pattern Matcher</figcaption>
+</figure></p>
+<p>Since every character from the text is used once as input to the DFA graph, the complexity of this approach is <span class="arithmatex">\(O(n)\)</span>. However, we need to take into account the preprocessing step that builds the DFA. There are many well-known algorithms for producing a DFA graph from a pattern. Unfortunately, all of them are quite complex mostly due to the fact that each state (vertex) must have a transition (edge) accounting for each alphabet symbol. The question arises as to whether there might be a similar pattern matcher that employs a more streamlined set of edges.</p>
+</div>
+</div>
+</div>
+<h2 id="864-使用图knuth-morris-pratt算法">8.6.4. 使用图：Knuth-Morris-Pratt算法<a class="headerlink" href="#864-使用图knuth-morris-pratt算法" title="Permanent link">&para;</a></h2>
+<p><strong>8.6.4. Using Graphs: Knuth-Morris-Pratt</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">中文</label><label for="__tabbed_5_2">英文</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Recall the simple pattern matcher presented earlier. Every possible substring of the text was tested against the pattern. In many cases this proved to be a waste of time since the actual starting point for the match was farther down the text string. A possible solution to this inefficiency would be to slide the pattern more than one text character if a mismatch occurs. <code>Figure 4</code> shows this strategy using the rule that we slide the pattern over to the point where the previous mismatch happened.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/simplematch2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/simplematch2.png" /></a>
+    <figcaption markdown="span">Figure 4: Simple Pattern Matcher with Longer Shifts</figcaption>
+</figure></p>
+<p>In step 1, we find that the first two positions match. Since the mismatch occurs in the third character (the shaded character), we slide the entire pattern over and begin our next match at that point. In step 2, we fail immediately so there is no choice but to slide over to the next position. Now, the first three positions match. However, there is a problem. When the mismatch occurs, our algorithm says to slide over to that point. Unfortunately, this is too far and we miss the actual starting point for the pattern in the text string (position 5).</p>
+<p>The reason this solution failed is that we did not take advantage of information about the content of the pattern and the text that had been seen in a previously attempted match. Note that in step 3, the last two characters of the text string that occur at the time of the mismatch (positions 5 and 6) actually match the first two characters of the pattern. We say that a two-character prefix of the pattern matches a two-character suffix of the text string processed up to that point. This is valuable information. Had we been tracking the amount of overlap between prefixes and suffixes, we could have simply slid the pattern two characters, which would have put us in the right place to start step 4.</p>
+<p>This observation leads to a pattern matcher known as <strong>Knuth-Morris-Pratt</strong> (or <strong>KMP</strong>), named for the computer scientists who first presented it. The idea is to build a graph representation that will provide information as to the amount of “slide” that will be necessary when a mismatch occurs. The <strong>KMP graph</strong> will again consist of states and transitions (vertices and edges). However, unlike the DFA graph from the previous section, there will be only two transitions leaving each state.</p>
+<p><code>Figure 5</code> shows the complete KMP graph for the example pattern. There are two special states for a KMP graph, the initial state and the final state. The initial state, marked “get,” is responsible for reading the next character from the input text. The subsequent transition, marked with an asterisk, is always taken. Note that the start transition enters this initial state, which means that we initially get the first character from the text and transition immediately to the next state (state 1). The final state (state 6), this time labeled with an “F,” again means success and represents a termination point for the graph.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/kmp.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/kmp.png" /></a>
+    <figcaption markdown="span">Figure 5: An Example KMP Graph</figcaption>
+</figure></p>
+<p>Each remaining vertex is responsible for checking a particular character of the pattern against the current text character. For example, the vertex labeled “C?” asks whether the current text character is C. If so, then the edge labeled “Y” is used. This means “yes,” there was a match. In addition, the next character is read. In general, whenever a state is successful in matching the character it is responsible for, the next character is read from the text.</p>
+<p>The remaining transitions, those labeled “N,” denote that a mismatch occurred. In this case, as was explained above, we need to know how many positions to slide the pattern. In essence, we want to keep the current text character and simply move back to a previous point in the pattern. To compute this, we use a simple algorithm that basically checks the pattern against itself, looking for overlap between a prefix and a suffix (see <code>Listing lst_mismatchedlinks</code>). If such an overlap is found, its length tells us how far back to place the mismatched link in the KMP graph. It is important to note that new text characters are not processed when a mismatched link is used.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Listing lst_mismatchedlinks</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">mismatched_links</span>(pattern):
+    aug_pattern <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;0&quot;</span> <span style="color: #666666">+</span> pattern
+    links <span style="color: #666666">=</span> {<span style="color: #666666">1</span>: <span style="color: #666666">0</span>}
+    <span style="color: #008000; font-weight: bold">for</span> k <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">2</span>, <span style="color: #008000">len</span>(aug_pattern)):
+        s <span style="color: #666666">=</span> links[k <span style="color: #666666">-</span> <span style="color: #666666">1</span>]
+        <span style="color: #008000; font-weight: bold">while</span> s <span style="color: #666666">&gt;=</span> <span style="color: #666666">1</span>:
+            <span style="color: #008000; font-weight: bold">if</span> aug_pattern[s] <span style="color: #666666">==</span> aug_pattern[k <span style="color: #666666">-</span> <span style="color: #666666">1</span>]:
+                <span style="color: #008000; font-weight: bold">break</span>
+            <span style="color: #008000; font-weight: bold">else</span>:
+                s <span style="color: #666666">=</span> links[s]
+        links[k] <span style="color: #666666">=</span> s <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+    <span style="color: #008000; font-weight: bold">return</span> links
+</code></pre></div></td></tr></table></div>
+<p>Here is the example pattern as it is being processed by the <code>mismatched_links</code> method:</p>
+<div class="language-pycon highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>mismatched_links(<span style="color: #BA2121">&quot;ACATA&quot;</span>)
+<span style="color: #717171">{1: 0, 2: 1, 3: 1, 4: 2, 5: 1}</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt;</span>
+</code></pre></div>
+<p>The value returned by the method is a dictionary containing key-value pairs where the key is the current vertex (state) and the value is its destination vertex for the mismatched link. It can be seen that each state, from 1 to 5 corresponding to each character in the pattern, has a transition back to a previous state in the KMP graph.</p>
+<p>As we noted earlier, the mismatched links can be computed by sliding the pattern past itself looking for the longest matching prefix and suffix. The method begins by augmenting the pattern so that the indices on the characters match the vertex labels in the KMP graph. Since the initial state is state 0, we have used the <code>“0”</code> symbol as a placeholder. Now the characters 1 to <span class="arithmatex">\(m\)</span> in the augmented pattern correspond directly with the states 1 to <span class="arithmatex">\(m\)</span> in the graph.</p>
+<p>Line 3 creates the first dictionary entry, which is always a transition from vertex 1 back to the initial state where a new character is automatically read from the text string. The iteration that follows simply checks larger and larger pieces of the pattern, looking for prefix and suffix overlap. If such an overlap occurs, the length of the overlap can be used to set the next link.</p>
+<p><code>Figure 6</code> shows the KMP graph as it is being used to locate the example pattern in the text string ACGACACATA. Again, notice that the current character changes only when a match link has been used. In the case of a mismatch, as in steps 4 and 5, the current character remains the same. It is not until step 6, when we have transitioned all the way back to state 0, that we get the next character and return to state 1.</p>
+<p>Steps 10 and 11 show the importance of the proper mismatched link. In step 10 the current character, C, does not match the symbol that state 4 needs to match. The result is a mismatched link. However, since we have seen a partial match at that point, the mismatched link reverts back to state 2 where there is a correct match. This eventually leads to a successful pattern match.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/steptable2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/steptable2.png" /></a>
+    <figcaption markdown="span">Figure 6: A Trace of the KMP Pattern Matcher</figcaption>
+</figure></p>
+<p>As with the DFA graph from the previous section, KMP pattern matching is <span class="arithmatex">\(O(n)\)</span> since we process each character of the text string. However, the KMP graph is much easier to construct and requires much less storage as there are only two transitions from every vertex.</p>
+</div>
+<div class="tabbed-block">
+<p>Recall the simple pattern matcher presented earlier. Every possible substring of the text was tested against the pattern. In many cases this proved to be a waste of time since the actual starting point for the match was farther down the text string. A possible solution to this inefficiency would be to slide the pattern more than one text character if a mismatch occurs. <code>Figure 4</code> shows this strategy using the rule that we slide the pattern over to the point where the previous mismatch happened.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/simplematch2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/simplematch2.png" /></a>
+    <figcaption markdown="span">Figure 4: Simple Pattern Matcher with Longer Shifts</figcaption>
+</figure></p>
+<p>In step 1, we find that the first two positions match. Since the mismatch occurs in the third character (the shaded character), we slide the entire pattern over and begin our next match at that point. In step 2, we fail immediately so there is no choice but to slide over to the next position. Now, the first three positions match. However, there is a problem. When the mismatch occurs, our algorithm says to slide over to that point. Unfortunately, this is too far and we miss the actual starting point for the pattern in the text string (position 5).</p>
+<p>The reason this solution failed is that we did not take advantage of information about the content of the pattern and the text that had been seen in a previously attempted match. Note that in step 3, the last two characters of the text string that occur at the time of the mismatch (positions 5 and 6) actually match the first two characters of the pattern. We say that a two-character prefix of the pattern matches a two-character suffix of the text string processed up to that point. This is valuable information. Had we been tracking the amount of overlap between prefixes and suffixes, we could have simply slid the pattern two characters, which would have put us in the right place to start step 4.</p>
+<p>This observation leads to a pattern matcher known as <strong>Knuth-Morris-Pratt</strong> (or <strong>KMP</strong>), named for the computer scientists who first presented it. The idea is to build a graph representation that will provide information as to the amount of “slide” that will be necessary when a mismatch occurs. The <strong>KMP graph</strong> will again consist of states and transitions (vertices and edges). However, unlike the DFA graph from the previous section, there will be only two transitions leaving each state.</p>
+<p><code>Figure 5</code> shows the complete KMP graph for the example pattern. There are two special states for a KMP graph, the initial state and the final state. The initial state, marked “get,” is responsible for reading the next character from the input text. The subsequent transition, marked with an asterisk, is always taken. Note that the start transition enters this initial state, which means that we initially get the first character from the text and transition immediately to the next state (state 1). The final state (state 6), this time labeled with an “F,” again means success and represents a termination point for the graph.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/kmp.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/kmp.png" /></a>
+    <figcaption markdown="span">Figure 5: An Example KMP Graph</figcaption>
+</figure></p>
+<p>Each remaining vertex is responsible for checking a particular character of the pattern against the current text character. For example, the vertex labeled “C?” asks whether the current text character is C. If so, then the edge labeled “Y” is used. This means “yes,” there was a match. In addition, the next character is read. In general, whenever a state is successful in matching the character it is responsible for, the next character is read from the text.</p>
+<p>The remaining transitions, those labeled “N,” denote that a mismatch occurred. In this case, as was explained above, we need to know how many positions to slide the pattern. In essence, we want to keep the current text character and simply move back to a previous point in the pattern. To compute this, we use a simple algorithm that basically checks the pattern against itself, looking for overlap between a prefix and a suffix (see <code>Listing lst_mismatchedlinks</code>). If such an overlap is found, its length tells us how far back to place the mismatched link in the KMP graph. It is important to note that new text characters are not processed when a mismatched link is used.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Listing lst_mismatchedlinks</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">mismatched_links</span>(pattern):
+    aug_pattern <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;0&quot;</span> <span style="color: #666666">+</span> pattern
+    links <span style="color: #666666">=</span> {<span style="color: #666666">1</span>: <span style="color: #666666">0</span>}
+    <span style="color: #008000; font-weight: bold">for</span> k <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">2</span>, <span style="color: #008000">len</span>(aug_pattern)):
+        s <span style="color: #666666">=</span> links[k <span style="color: #666666">-</span> <span style="color: #666666">1</span>]
+        <span style="color: #008000; font-weight: bold">while</span> s <span style="color: #666666">&gt;=</span> <span style="color: #666666">1</span>:
+            <span style="color: #008000; font-weight: bold">if</span> aug_pattern[s] <span style="color: #666666">==</span> aug_pattern[k <span style="color: #666666">-</span> <span style="color: #666666">1</span>]:
+                <span style="color: #008000; font-weight: bold">break</span>
+            <span style="color: #008000; font-weight: bold">else</span>:
+                s <span style="color: #666666">=</span> links[s]
+        links[k] <span style="color: #666666">=</span> s <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+    <span style="color: #008000; font-weight: bold">return</span> links
+</code></pre></div></td></tr></table></div>
+<p>Here is the example pattern as it is being processed by the <code>mismatched_links</code> method:</p>
+<div class="language-pycon highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>mismatched_links(<span style="color: #BA2121">&quot;ACATA&quot;</span>)
+<span style="color: #717171">{1: 0, 2: 1, 3: 1, 4: 2, 5: 1}</span>
+<span style="color: #000080; font-weight: bold">&gt;&gt;&gt;</span>
+</code></pre></div>
+<p>The value returned by the method is a dictionary containing key-value pairs where the key is the current vertex (state) and the value is its destination vertex for the mismatched link. It can be seen that each state, from 1 to 5 corresponding to each character in the pattern, has a transition back to a previous state in the KMP graph.</p>
+<p>As we noted earlier, the mismatched links can be computed by sliding the pattern past itself looking for the longest matching prefix and suffix. The method begins by augmenting the pattern so that the indices on the characters match the vertex labels in the KMP graph. Since the initial state is state 0, we have used the <code>“0”</code> symbol as a placeholder. Now the characters 1 to <span class="arithmatex">\(m\)</span> in the augmented pattern correspond directly with the states 1 to <span class="arithmatex">\(m\)</span> in the graph.</p>
+<p>Line 3 creates the first dictionary entry, which is always a transition from vertex 1 back to the initial state where a new character is automatically read from the text string. The iteration that follows simply checks larger and larger pieces of the pattern, looking for prefix and suffix overlap. If such an overlap occurs, the length of the overlap can be used to set the next link.</p>
+<p><code>Figure 6</code> shows the KMP graph as it is being used to locate the example pattern in the text string ACGACACATA. Again, notice that the current character changes only when a match link has been used. In the case of a mismatch, as in steps 4 and 5, the current character remains the same. It is not until step 6, when we have transitioned all the way back to state 0, that we get the next character and return to state 1.</p>
+<p>Steps 10 and 11 show the importance of the proper mismatched link. In step 10 the current character, C, does not match the symbol that state 4 needs to match. The result is a mismatched link. However, since we have seen a partial match at that point, the mismatched link reverts back to state 2 where there is a correct match. This eventually leads to a successful pattern match.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/steptable2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/steptable2.png" /></a>
+    <figcaption markdown="span">Figure 6: A Trace of the KMP Pattern Matcher</figcaption>
+</figure></p>
+<p>As with the DFA graph from the previous section, KMP pattern matching is <span class="arithmatex">\(O(n)\)</span> since we process each character of the text string. However, the KMP graph is much easier to construct and requires much less storage as there are only two transitions from every vertex.</p>
+</div>
+</div>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月9日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月12日</span>
       
         <br>
         创建日期:
@@ -4030,9 +4416,15 @@
       
         <script src="../../javascripts/mathjax.js"></script>
       
+        <script src="../../javascripts/katex.js"></script>
+      
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>

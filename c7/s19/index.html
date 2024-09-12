@@ -22,7 +22,7 @@
     
     
       
-        <title>S19 - python数据结构和算法 - 中文版</title>
+        <title>7.19. 最短路径问题 - python数据结构和算法 - 中文版</title>
       
     
     
@@ -49,6 +49,8 @@
     
     
       <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -84,6 +86,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#719-最短路径问题" class="md-skip">
+          跳转至
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -133,7 +140,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              S19
+              7.19. 最短路径问题
             
           </span>
         </div>
@@ -3228,7 +3235,7 @@
         
   
   <span class="md-ellipsis">
-    S1
+    7.1. 目标
   </span>
   
 
@@ -3248,7 +3255,7 @@
         
   
   <span class="md-ellipsis">
-    S2
+    7.2. 词汇和定义
   </span>
   
 
@@ -3268,7 +3275,7 @@
         
   
   <span class="md-ellipsis">
-    S3
+    7.3. 图的抽象数据类型
   </span>
   
 
@@ -3288,7 +3295,7 @@
         
   
   <span class="md-ellipsis">
-    S4
+    7.4. 邻接矩阵
   </span>
   
 
@@ -3308,7 +3315,7 @@
         
   
   <span class="md-ellipsis">
-    S5
+    7.5. 邻接表
   </span>
   
 
@@ -3328,7 +3335,7 @@
         
   
   <span class="md-ellipsis">
-    S6
+    7.6. 实现
   </span>
   
 
@@ -3348,7 +3355,7 @@
         
   
   <span class="md-ellipsis">
-    S7
+    7.7. 字梯问题
   </span>
   
 
@@ -3368,7 +3375,7 @@
         
   
   <span class="md-ellipsis">
-    S8
+    7.8. 构建字梯图
   </span>
   
 
@@ -3388,7 +3395,7 @@
         
   
   <span class="md-ellipsis">
-    S9
+    7.9. 实现广度优先搜索
   </span>
   
 
@@ -3408,7 +3415,7 @@
         
   
   <span class="md-ellipsis">
-    S10
+    7.10. 广度优先搜索分析
   </span>
   
 
@@ -3428,7 +3435,7 @@
         
   
   <span class="md-ellipsis">
-    S11
+    7.11. 骑士巡游问题
   </span>
   
 
@@ -3448,7 +3455,7 @@
         
   
   <span class="md-ellipsis">
-    S12
+    7.12. 构建骑士巡游图
   </span>
   
 
@@ -3468,7 +3475,7 @@
         
   
   <span class="md-ellipsis">
-    S13
+    7.13. 实现骑士巡游
   </span>
   
 
@@ -3488,7 +3495,7 @@
         
   
   <span class="md-ellipsis">
-    S14
+    7.14. 骑士巡游分析
   </span>
   
 
@@ -3508,7 +3515,7 @@
         
   
   <span class="md-ellipsis">
-    S15
+    7.15. 一般的深度优先搜索
   </span>
   
 
@@ -3528,7 +3535,7 @@
         
   
   <span class="md-ellipsis">
-    S16
+    7.16. 深度优先搜索分析
   </span>
   
 
@@ -3548,7 +3555,7 @@
         
   
   <span class="md-ellipsis">
-    S17
+    7.17. 拓扑排序
   </span>
   
 
@@ -3568,7 +3575,7 @@
         
   
   <span class="md-ellipsis">
-    S18
+    7.18. 强连通分量
   </span>
   
 
@@ -3590,12 +3597,14 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    S19
+    7.19. 最短路径问题
   </span>
   
 
@@ -3616,7 +3625,7 @@
         
   
   <span class="md-ellipsis">
-    S20
+    7.20. Dijkstra算法
   </span>
   
 
@@ -3636,7 +3645,7 @@
         
   
   <span class="md-ellipsis">
-    S21
+    7.21. Dijkstra算法分析
   </span>
   
 
@@ -3656,7 +3665,7 @@
         
   
   <span class="md-ellipsis">
-    S22
+    7.22. Prim生成树算法
   </span>
   
 
@@ -3676,7 +3685,7 @@
         
   
   <span class="md-ellipsis">
-    S23
+    7.23. 总结
   </span>
   
 
@@ -3696,7 +3705,7 @@
         
   
   <span class="md-ellipsis">
-    S24
+    7.24. 关键术语
   </span>
   
 
@@ -3716,7 +3725,7 @@
         
   
   <span class="md-ellipsis">
-    S25
+    7.25. 练习
   </span>
   
 
@@ -3810,7 +3819,7 @@
         
   
   <span class="md-ellipsis">
-    S1
+    8.1. 目标
   </span>
   
 
@@ -3830,7 +3839,7 @@
         
   
   <span class="md-ellipsis">
-    S2
+    8.2. Python列表再探
   </span>
   
 
@@ -3850,7 +3859,7 @@
         
   
   <span class="md-ellipsis">
-    S3
+    8.3. 递归再探
   </span>
   
 
@@ -3870,7 +3879,7 @@
         
   
   <span class="md-ellipsis">
-    S4
+    8.4. 字典再探：跳表
   </span>
   
 
@@ -3890,7 +3899,7 @@
         
   
   <span class="md-ellipsis">
-    S5
+    8.5. 树再探：图像量化
   </span>
   
 
@@ -3910,7 +3919,7 @@
         
   
   <span class="md-ellipsis">
-    S6
+    8.6. 图再探：模式匹配
   </span>
   
 
@@ -3944,6 +3953,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -3961,16 +3972,81 @@
   
 
 
-  <h1>S19</h1>
+<h1 id="719-最短路径问题">7.19. 最短路径问题<a class="headerlink" href="#719-最短路径问题" title="Permanent link">&para;</a></h1>
+<p><strong>7.19. Shortest Path Problems</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>When you surf the web, send an email, or log in to a laboratory computer from another location on campus, a lot of work is going on behind the scenes to get the information on your computer transferred to another computer. The in-depth study of how information flows from one computer to another over the internet is the primary topic for a class in computer networking. However, we will talk about how the internet works just enough to understand another very important graph algorithm.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/Internet.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/Internet.png" /></a>
+    <figcaption markdown="span">Figure 1: Overview of Connectivity in the Internet</figcaption>
+</figure></p>
+<p><code>Figure 1</code> shows you a high-level overview of how communication on the internet works. When you use your browser to request a web page from a server, the request must travel over your local area network and out onto the internet through a router. The request travels over the internet and eventually arrives at a router for the local area network where the server is located. The web page you requested then travels back through the same routers to get to your browser. Inside the cloud labeled “Internet” in <code>Figure 1</code> are additional routers. The job of all of these routers is to work together to get your information from place to place. You can see there are many routers for yourself if your computer supports the <code>traceroute</code> command. The text below shows the output of the <code>traceroute</code> command, which illustrates that there are 13 routers between the web server at Luther College and the mail server at the University of Minnesota.</p>
+<p>Each router on the internet is connected to one or more other routers. If you run the <code>traceroute</code> command at different times of the day, you are likely to see that your information flows through different routers at different times. This is because there is a cost associated with each connection between a pair of routers that depends on the volume of traffic, the time of day, and many other factors. By this time it will not surprise you to learn that we can represent the network of routers as a graph with weighted edges.</p>
+<div class="language-text highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>1  192.203.196.1  
+2  hilda.luther.edu (216.159.75.1)  
+3  ICN-Luther-Ether.icn.state.ia.us (207.165.237.137)
+4  ICN-ISP-1.icn.state.ia.us (209.56.255.1)  
+5  p3-0.hsa1.chi1.bbnplanet.net (4.24.202.13)
+6  ae-1-54.bbr2.Chicago1.Level3.net (4.68.101.97)
+7  so-3-0-0.mpls2.Minneapolis1.Level3.net (64.159.4.214)
+8  ge-3-0.hsa2.Minneapolis1.Level3.net (4.68.112.18) 
+9  p1-0.minnesota.bbnplanet.net (4.24.226.74)
+10  TelecomB-BR-01-V4002.ggnet.umn.edu (192.42.152.37)
+11  TelecomB-BN-01-Vlan-3000.ggnet.umn.edu (128.101.58.1)
+12  TelecomB-CN-01-Vlan-710.ggnet.umn.edu (128.101.80.158)
+13  baldrick.cs.umn.edu (128.101.80.129)(N!)  88.631 ms (N!)
 
 
+Routers from One Host to the Next over the Internet      
+</code></pre></div>
+<p><code>Figure 2</code> shows a small example of a weighted graph that represents the interconnection of routers in the internet. The problem that we want to solve is to find the <strong>shortest path</strong>, one with the smallest total weight along which to route any given message. This problem should sound familiar because it is similar to the problem we solved using a breadth-first search, except that here we are concerned with the total weight of the path rather than the number of hops in the path. It should be noted that if all the weights are equal, the problem is the same.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/routeGraph.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/routeGraph.png" /></a>
+    <figcaption markdown="span">Figure 2: Connections and Weights between Routers in the Internet</figcaption>
+</figure></p>
+</div>
+<div class="tabbed-block">
+<p>When you surf the web, send an email, or log in to a laboratory computer from another location on campus, a lot of work is going on behind the scenes to get the information on your computer transferred to another computer. The in-depth study of how information flows from one computer to another over the internet is the primary topic for a class in computer networking. However, we will talk about how the internet works just enough to understand another very important graph algorithm.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/Internet.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/Internet.png" /></a>
+    <figcaption markdown="span">Figure 1: Overview of Connectivity in the Internet</figcaption>
+</figure></p>
+<p><code>Figure 1</code> shows you a high-level overview of how communication on the internet works. When you use your browser to request a web page from a server, the request must travel over your local area network and out onto the internet through a router. The request travels over the internet and eventually arrives at a router for the local area network where the server is located. The web page you requested then travels back through the same routers to get to your browser. Inside the cloud labeled “Internet” in <code>Figure 1</code> are additional routers. The job of all of these routers is to work together to get your information from place to place. You can see there are many routers for yourself if your computer supports the <code>traceroute</code> command. The text below shows the output of the <code>traceroute</code> command, which illustrates that there are 13 routers between the web server at Luther College and the mail server at the University of Minnesota.</p>
+<p>Each router on the internet is connected to one or more other routers. If you run the <code>traceroute</code> command at different times of the day, you are likely to see that your information flows through different routers at different times. This is because there is a cost associated with each connection between a pair of routers that depends on the volume of traffic, the time of day, and many other factors. By this time it will not surprise you to learn that we can represent the network of routers as a graph with weighted edges.</p>
+<div class="language-text highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>1  192.203.196.1  
+2  hilda.luther.edu (216.159.75.1)  
+3  ICN-Luther-Ether.icn.state.ia.us (207.165.237.137)
+4  ICN-ISP-1.icn.state.ia.us (209.56.255.1)  
+5  p3-0.hsa1.chi1.bbnplanet.net (4.24.202.13)
+6  ae-1-54.bbr2.Chicago1.Level3.net (4.68.101.97)
+7  so-3-0-0.mpls2.Minneapolis1.Level3.net (64.159.4.214)
+8  ge-3-0.hsa2.Minneapolis1.Level3.net (4.68.112.18) 
+9  p1-0.minnesota.bbnplanet.net (4.24.226.74)
+10  TelecomB-BR-01-V4002.ggnet.umn.edu (192.42.152.37)
+11  TelecomB-BN-01-Vlan-3000.ggnet.umn.edu (128.101.58.1)
+12  TelecomB-CN-01-Vlan-710.ggnet.umn.edu (128.101.80.158)
+13  baldrick.cs.umn.edu (128.101.80.129)(N!)  88.631 ms (N!)
+
+
+Routers from One Host to the Next over the Internet      
+</code></pre></div>
+<p><code>Figure 2</code> shows a small example of a weighted graph that represents the interconnection of routers in the internet. The problem that we want to solve is to find the <strong>shortest path</strong>, one with the smallest total weight along which to route any given message. This problem should sound familiar because it is similar to the problem we solved using a breadth-first search, except that here we are concerned with the total weight of the path rather than the number of hops in the path. It should be noted that if all the weights are equal, the problem is the same.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/routeGraph.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/routeGraph.png" /></a>
+    <figcaption markdown="span">Figure 2: Connections and Weights between Routers in the Internet</figcaption>
+</figure></p>
+</div>
+</div>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月9日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月12日</span>
       
         <br>
         创建日期:
@@ -4032,9 +4108,15 @@
       
         <script src="../../javascripts/mathjax.js"></script>
       
+        <script src="../../javascripts/katex.js"></script>
+      
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>

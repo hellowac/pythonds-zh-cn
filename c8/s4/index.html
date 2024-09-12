@@ -22,7 +22,7 @@
     
     
       
-        <title>S4 - python数据结构和算法 - 中文版</title>
+        <title>8.4. 字典再探：跳表 - python数据结构和算法 - 中文版</title>
       
     
     
@@ -49,6 +49,8 @@
     
     
       <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -84,6 +86,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#84-字典再探跳表" class="md-skip">
+          跳转至
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -133,7 +140,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              S4
+              8.4. 字典再探：跳表
             
           </span>
         </div>
@@ -3226,7 +3233,7 @@
         
   
   <span class="md-ellipsis">
-    S1
+    7.1. 目标
   </span>
   
 
@@ -3246,7 +3253,7 @@
         
   
   <span class="md-ellipsis">
-    S2
+    7.2. 词汇和定义
   </span>
   
 
@@ -3266,7 +3273,7 @@
         
   
   <span class="md-ellipsis">
-    S3
+    7.3. 图的抽象数据类型
   </span>
   
 
@@ -3286,7 +3293,7 @@
         
   
   <span class="md-ellipsis">
-    S4
+    7.4. 邻接矩阵
   </span>
   
 
@@ -3306,7 +3313,7 @@
         
   
   <span class="md-ellipsis">
-    S5
+    7.5. 邻接表
   </span>
   
 
@@ -3326,7 +3333,7 @@
         
   
   <span class="md-ellipsis">
-    S6
+    7.6. 实现
   </span>
   
 
@@ -3346,7 +3353,7 @@
         
   
   <span class="md-ellipsis">
-    S7
+    7.7. 字梯问题
   </span>
   
 
@@ -3366,7 +3373,7 @@
         
   
   <span class="md-ellipsis">
-    S8
+    7.8. 构建字梯图
   </span>
   
 
@@ -3386,7 +3393,7 @@
         
   
   <span class="md-ellipsis">
-    S9
+    7.9. 实现广度优先搜索
   </span>
   
 
@@ -3406,7 +3413,7 @@
         
   
   <span class="md-ellipsis">
-    S10
+    7.10. 广度优先搜索分析
   </span>
   
 
@@ -3426,7 +3433,7 @@
         
   
   <span class="md-ellipsis">
-    S11
+    7.11. 骑士巡游问题
   </span>
   
 
@@ -3446,7 +3453,7 @@
         
   
   <span class="md-ellipsis">
-    S12
+    7.12. 构建骑士巡游图
   </span>
   
 
@@ -3466,7 +3473,7 @@
         
   
   <span class="md-ellipsis">
-    S13
+    7.13. 实现骑士巡游
   </span>
   
 
@@ -3486,7 +3493,7 @@
         
   
   <span class="md-ellipsis">
-    S14
+    7.14. 骑士巡游分析
   </span>
   
 
@@ -3506,7 +3513,7 @@
         
   
   <span class="md-ellipsis">
-    S15
+    7.15. 一般的深度优先搜索
   </span>
   
 
@@ -3526,7 +3533,7 @@
         
   
   <span class="md-ellipsis">
-    S16
+    7.16. 深度优先搜索分析
   </span>
   
 
@@ -3546,7 +3553,7 @@
         
   
   <span class="md-ellipsis">
-    S17
+    7.17. 拓扑排序
   </span>
   
 
@@ -3566,7 +3573,7 @@
         
   
   <span class="md-ellipsis">
-    S18
+    7.18. 强连通分量
   </span>
   
 
@@ -3586,7 +3593,7 @@
         
   
   <span class="md-ellipsis">
-    S19
+    7.19. 最短路径问题
   </span>
   
 
@@ -3606,7 +3613,7 @@
         
   
   <span class="md-ellipsis">
-    S20
+    7.20. Dijkstra算法
   </span>
   
 
@@ -3626,7 +3633,7 @@
         
   
   <span class="md-ellipsis">
-    S21
+    7.21. Dijkstra算法分析
   </span>
   
 
@@ -3646,7 +3653,7 @@
         
   
   <span class="md-ellipsis">
-    S22
+    7.22. Prim生成树算法
   </span>
   
 
@@ -3666,7 +3673,7 @@
         
   
   <span class="md-ellipsis">
-    S23
+    7.23. 总结
   </span>
   
 
@@ -3686,7 +3693,7 @@
         
   
   <span class="md-ellipsis">
-    S24
+    7.24. 关键术语
   </span>
   
 
@@ -3706,7 +3713,7 @@
         
   
   <span class="md-ellipsis">
-    S25
+    7.25. 练习
   </span>
   
 
@@ -3802,7 +3809,7 @@
         
   
   <span class="md-ellipsis">
-    S1
+    8.1. 目标
   </span>
   
 
@@ -3822,7 +3829,7 @@
         
   
   <span class="md-ellipsis">
-    S2
+    8.2. Python列表再探
   </span>
   
 
@@ -3842,7 +3849,7 @@
         
   
   <span class="md-ellipsis">
-    S3
+    8.3. 递归再探
   </span>
   
 
@@ -3864,16 +3871,96 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    8.4. 字典再探：跳表
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    S4
+    8.4. 字典再探：跳表
   </span>
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#841-map抽象数据类型" class="md-nav__link">
+    8.4.1. Map抽象数据类型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#842-用python实现字典" class="md-nav__link">
+    8.4.2. 用Python实现字典
+  </a>
+  
+    <nav class="md-nav" aria-label="8.4.2. 用Python实现字典">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#8421-searching-a-skip-list" class="md-nav__link">
+    8.4.2.1. Searching a Skip List
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8422-adding-key-value-pairs-to-a-skip-list" class="md-nav__link">
+    8.4.2.2. Adding Key-Value Pairs to a Skip List
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8423-building-the-map" class="md-nav__link">
+    8.4.2.3. Building the Map
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8424-analysis-of-a-skip-list" class="md-nav__link">
+    8.4.2.4. Analysis of a Skip List
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -3890,7 +3977,7 @@
         
   
   <span class="md-ellipsis">
-    S5
+    8.5. 树再探：图像量化
   </span>
   
 
@@ -3910,7 +3997,7 @@
         
   
   <span class="md-ellipsis">
-    S6
+    8.6. 图再探：模式匹配
   </span>
   
 
@@ -3944,6 +4031,64 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#841-map抽象数据类型" class="md-nav__link">
+    8.4.1. Map抽象数据类型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#842-用python实现字典" class="md-nav__link">
+    8.4.2. 用Python实现字典
+  </a>
+  
+    <nav class="md-nav" aria-label="8.4.2. 用Python实现字典">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#8421-searching-a-skip-list" class="md-nav__link">
+    8.4.2.1. Searching a Skip List
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8422-adding-key-value-pairs-to-a-skip-list" class="md-nav__link">
+    8.4.2.2. Adding Key-Value Pairs to a Skip List
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8423-building-the-map" class="md-nav__link">
+    8.4.2.3. Building the Map
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8424-analysis-of-a-skip-list" class="md-nav__link">
+    8.4.2.4. Analysis of a Skip List
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -3961,16 +4106,635 @@
   
 
 
-  <h1>S4</h1>
+<h1 id="84-字典再探跳表">8.4. 字典再探：跳表<a class="headerlink" href="#84-字典再探跳表" title="Permanent link">&para;</a></h1>
+<p><strong>8.4. Dictionaries Revisited: Skip Lists</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>One of the most versatile collections available in Python is the <strong>dictionary</strong>. Dictionaries, often referred to as <strong>maps</strong>, store a collection of key-value pairs. The key, which must be unique, is assigned an association with a particular data value. Given a key, it is possible to ask the map for the corresponding associated data value. The abilities to put a key-value pair into the map and then look up a data value associated with a given key are the fundamental operations that all maps must provide.</p>
+<p>For example, <code>Figure 1</code> shows a map containing key-value pairs. In this case, the keys are integers and the values are small, two-character words. From a logical perspective, there is no inherent order or organization within the pairs themselves. However, as the example shows, if a key (93) is provided to the map, the associated value (be) is returned.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/mappic.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/mappic.png" /></a>
+    <figcaption markdown="span">Figure 1: An Example Map</figcaption>
+</figure>   </p>
+</div>
+<div class="tabbed-block">
+<p>One of the most versatile collections available in Python is the <strong>dictionary</strong>. Dictionaries, often referred to as <strong>maps</strong>, store a collection of key-value pairs. The key, which must be unique, is assigned an association with a particular data value. Given a key, it is possible to ask the map for the corresponding associated data value. The abilities to put a key-value pair into the map and then look up a data value associated with a given key are the fundamental operations that all maps must provide.</p>
+<p>For example, <code>Figure 1</code> shows a map containing key-value pairs. In this case, the keys are integers and the values are small, two-character words. From a logical perspective, there is no inherent order or organization within the pairs themselves. However, as the example shows, if a key (93) is provided to the map, the associated value (be) is returned.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/mappic.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/mappic.png" /></a>
+    <figcaption markdown="span">Figure 1: An Example Map</figcaption>
+</figure>   </p>
+</div>
+</div>
+</div>
+<h2 id="841-map抽象数据类型">8.4.1. Map抽象数据类型<a class="headerlink" href="#841-map抽象数据类型" title="Permanent link">&para;</a></h2>
+<p><strong>8.4.1. The Map Abstract Data Type</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">中文</label><label for="__tabbed_2_2">英文</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>The map abstract data type is defined by the following structure and operations. The structure of a map, as described above, is a collection of key-value pairs where values can be accessed via their associated key. The map operations are given below:</p>
+<ul>
+<li><code>Map()</code> creates a new map that is empty. It needs no parameters and returns an empty map.</li>
+<li><code>put(key,value)</code> adds a new key-value pair to the map. It needs the key and the associated value and returns nothing. Assume the key is not already in the map.</li>
+<li><code>get(key)</code> searches for the key in the map and returns the associated value. It needs the key and returns a value.</li>
+</ul>
+<p>It should be noted that there are a number of other possible operations that we could add to the map abstract data type. We will explore these in the exercises.</p>
+</div>
+<div class="tabbed-block">
+<p>The map abstract data type is defined by the following structure and operations. The structure of a map, as described above, is a collection of key-value pairs where values can be accessed via their associated key. The map operations are given below:</p>
+<ul>
+<li><code>Map()</code> creates a new map that is empty. It needs no parameters and returns an empty map.</li>
+<li><code>put(key,value)</code> adds a new key-value pair to the map. It needs the key and the associated value and returns nothing. Assume the key is not already in the map.</li>
+<li><code>get(key)</code> searches for the key in the map and returns the associated value. It needs the key and returns a value.</li>
+</ul>
+<p>It should be noted that there are a number of other possible operations that we could add to the map abstract data type. We will explore these in the exercises.</p>
+</div>
+</div>
+</div>
+<h2 id="842-用python实现字典">8.4.2. 用Python实现字典<a class="headerlink" href="#842-用python实现字典" title="Permanent link">&para;</a></h2>
+<p><strong>8.4.2. Implementing a Dictionary in Python</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">中文</label><label for="__tabbed_3_2">英文</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>We have already seen a number of interesting ways to implement the map idea. In Chapter <a href="../../c5/">sorting-and-searching</a> we considered the hash table as a means of providing map behavior. Given a set of keys and a hash function, we could place the keys in a collection that allowed us to search and retrieve the associated data value. Our analysis showed that this technique could potentially yield an <span class="arithmatex">\(O(1)\)</span> search. However, performance degraded due to issues such as table size, collisions, and collision resolution strategy.</p>
+<p>In Chapter <a href="../../c6/">trees</a> we considered a binary search tree as a way to store such a collection. In this case the keys were placed in the tree such that searching could be done in <span class="arithmatex">\(O(\log n)\)</span>. However, this was only true if the tree was balanced; that is, the left and the right subtrees were all of similar size. Unfortunately, depending on the order of insertion, the keys could end up being skewed to the right or to the left. In this case the search again degrades.</p>
+<p>The problem we would like to address here is to come up with an implementation that has the advantages of an efficient search without the drawbacks described above. One such possibility is called a <strong>skip list</strong>. <code>Figure 2</code> shows a possible skip list for the collection of key-value pairs shown in <code>Figure 1</code> (the reason for saying “possible” will become apparent later). As you can see, a skip list is basically a two-dimensional linked list where the links all go forward (to the right) or down. The <em>head</em> of the list can be seen in the upper left corner. Note that this is the only entry point into the skip list structure.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/initskiplist.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/initskiplist.png" /></a>
+    <figcaption markdown="span">Figure 2 An Example Skip List</figcaption>
+</figure>  </p>
+<p>Before moving on to the details of skip-list processing it will be useful to explain some vocabulary. <code>Figure 3</code> shows that the majority of the skip list structure consists of a collection of data nodes, each of which holds a key and an associated value. In addition, there are two references from each data node. <code>Figure 4</code> shows a detailed view of a single data node.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/vocabskiplist1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/vocabskiplist1.png" /></a>
+    <figcaption markdown="span">Figure 3: The Body of the Skip List Is Made Up of Data Nodes</figcaption>
+</figure>   </p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/datanode.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/datanode.png" /></a>
+    <figcaption markdown="span">Figure 4: A Single Data Node</figcaption>
+</figure>   </p>
+<p><code>Figure 5</code> shows two different vertical columns. The leftmost column consists of a linked list of header nodes. Each header node holds two references called <code>down</code> and <code>next</code>. The <code>next</code> reference refers to a linked list of data nodes. The <code>down</code> reference refers to the next lower header node. A detailed view of a header node can be seen in <code>Figure 6</code>.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/vocabskiplist2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/vocabskiplist2.png" /></a>
+    <figcaption markdown="span">Figure 5: Header Nodes and Towers</figcaption>
+</figure>   </p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/headernode.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/headernode.png" /></a>
+    <figcaption markdown="span">Figure 6: Each Header Node Holds Two References</figcaption>
+</figure></p>
+<p>The columns of data nodes are known as <strong>towers</strong>. Towers are linked together by the <code>down</code> reference in the data node. We can see that each tower corresponds to a particular key-value pair, and towers can have different heights. We will explain how the height of the tower is determined later when we consider how to add data to the skip list.</p>
+<p>Finally, <code>Figure 7</code> shows a horizontal collection of nodes. If you look closely, you will notice that each level is actually an ordered linked list of data nodes where the order is maintained by the key. Each linked list is given a name, commonly referred to as its <strong>level</strong>. Levels are named starting with 0 at the lowest row. Level 0 consists of the entire collection of nodes. Every key-value pair must be present in the level-0 linked list. However, as we move up to higher levels, we see that the number of nodes decreases. This is one of the important characteristics of a skip list and will lead to an efficient search. Again, it can be seen that the number of nodes at each level is directly related to the height of the towers.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/vocabskiplist3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/vocabskiplist3.png" /></a>
+    <figcaption markdown="span">Figure 7: Each Horizontal Group of Data Nodes Is a Level</figcaption>
+</figure>   </p>
+<p>Classes for the two types of nodes described above can easily be constructed in the same fashion as for simple linked lists in the previous section. A header node consists of two references, <code>next</code> and <code>down</code>, both of which are initialized to <code>None</code> in the constructor (see <code>Listing lst_headnode</code>).</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing lst_headnode</span><pre style="line-height: 125%;"><span></span><code>   <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">HeaderNode</span>:
+       <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>):
+           <span style="color: #008000">self</span><span style="color: #666666">.</span>_next <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
+           <span style="color: #008000">self</span><span style="color: #666666">.</span>_down <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
 
+       <span style="color: #AA22FF">@property</span>
+       <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">next</span>(<span style="color: #008000">self</span>):
+           <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_next
 
+       <span style="color: #AA22FF">@next</span><span style="color: #666666">.</span>setter
+       <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">next</span>(<span style="color: #008000">self</span>, value):
+           <span style="color: #008000">self</span><span style="color: #666666">.</span>_next <span style="color: #666666">=</span> value
+
+       <span style="color: #AA22FF">@property</span>
+       <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">down</span>(<span style="color: #008000">self</span>):
+           <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_down
+
+       <span style="color: #AA22FF">@down</span><span style="color: #666666">.</span>setter
+       <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">down</span>(<span style="color: #008000">self</span>, value):
+           <span style="color: #008000">self</span><span style="color: #666666">.</span>_down <span style="color: #666666">=</span> value
+</code></pre></div>
+<p>A data node has four fields: two for the key and value, and two additional for the references <code>next</code> and <code>down</code>. Again, the references are initialized to <code>None</code> and wrapped into <code>properties</code> for data manipulation (see <code>Listing lst_datanode</code>).</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing lst_datanode</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">DataNode</span>:
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>, key, value):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_key <span style="color: #666666">=</span> key
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_data <span style="color: #666666">=</span> value
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_next <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_down <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
+
+    <span style="color: #AA22FF">@property</span>
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">key</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_key
+
+    <span style="color: #AA22FF">@property</span>
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">data</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_data
+
+    <span style="color: #AA22FF">@data</span><span style="color: #666666">.</span>setter
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">data</span>(<span style="color: #008000">self</span>, value):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_data <span style="color: #666666">=</span> value
+
+    <span style="color: #AA22FF">@property</span>
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">next</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_next
+
+    <span style="color: #AA22FF">@next</span><span style="color: #666666">.</span>setter
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">next</span>(<span style="color: #008000">self</span>, value):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_next <span style="color: #666666">=</span> value
+
+    <span style="color: #AA22FF">@property</span>
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">down</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_down
+
+    <span style="color: #AA22FF">@down</span><span style="color: #666666">.</span>setter
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">down</span>(<span style="color: #008000">self</span>, value):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_down <span style="color: #666666">=</span> value
+</code></pre></div>
+<p>The constructor for the entire skip list is shown in <code>Listing lst_constructor</code>. When a skip list is created, there are no data and therefore no header nodes. The head of the skip list is set to <code>None</code>. As key-value pairs are added to the structure, the list head refers to the first header node which in turn provides access to a linked list of data nodes as well as access to lower levels.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing lst_constructor</span><pre style="line-height: 125%;"><span></span><code>   <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">SkipList</span>:
+       <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>):
+           <span style="color: #008000">self</span><span style="color: #666666">.</span>_head <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>We have already seen a number of interesting ways to implement the map idea. In Chapter <a href="../../c5/">sorting-and-searching</a> we considered the hash table as a means of providing map behavior. Given a set of keys and a hash function, we could place the keys in a collection that allowed us to search and retrieve the associated data value. Our analysis showed that this technique could potentially yield an <span class="arithmatex">\(O(1)\)</span> search. However, performance degraded due to issues such as table size, collisions, and collision resolution strategy.</p>
+<p>In Chapter <a href="../../c6/">trees</a> we considered a binary search tree as a way to store such a collection. In this case the keys were placed in the tree such that searching could be done in <span class="arithmatex">\(O(\log n)\)</span>. However, this was only true if the tree was balanced; that is, the left and the right subtrees were all of similar size. Unfortunately, depending on the order of insertion, the keys could end up being skewed to the right or to the left. In this case the search again degrades.</p>
+<p>The problem we would like to address here is to come up with an implementation that has the advantages of an efficient search without the drawbacks described above. One such possibility is called a <strong>skip list</strong>. <code>Figure 2</code> shows a possible skip list for the collection of key-value pairs shown in <code>Figure 1</code> (the reason for saying “possible” will become apparent later). As you can see, a skip list is basically a two-dimensional linked list where the links all go forward (to the right) or down. The <em>head</em> of the list can be seen in the upper left corner. Note that this is the only entry point into the skip list structure.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/initskiplist.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/initskiplist.png" /></a>
+    <figcaption markdown="span">Figure 2 An Example Skip List</figcaption>
+</figure>  </p>
+<p>Before moving on to the details of skip-list processing it will be useful to explain some vocabulary. <code>Figure 3</code> shows that the majority of the skip list structure consists of a collection of data nodes, each of which holds a key and an associated value. In addition, there are two references from each data node. <code>Figure 4</code> shows a detailed view of a single data node.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/vocabskiplist1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/vocabskiplist1.png" /></a>
+    <figcaption markdown="span">Figure 3: The Body of the Skip List Is Made Up of Data Nodes</figcaption>
+</figure>   </p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/datanode.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/datanode.png" /></a>
+    <figcaption markdown="span">Figure 4: A Single Data Node</figcaption>
+</figure>   </p>
+<p><code>Figure 5</code> shows two different vertical columns. The leftmost column consists of a linked list of header nodes. Each header node holds two references called <code>down</code> and <code>next</code>. The <code>next</code> reference refers to a linked list of data nodes. The <code>down</code> reference refers to the next lower header node. A detailed view of a header node can be seen in <code>Figure 6</code>.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/vocabskiplist2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/vocabskiplist2.png" /></a>
+    <figcaption markdown="span">Figure 5: Header Nodes and Towers</figcaption>
+</figure>   </p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/headernode.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/headernode.png" /></a>
+    <figcaption markdown="span">Figure 6: Each Header Node Holds Two References</figcaption>
+</figure></p>
+<p>The columns of data nodes are known as <strong>towers</strong>. Towers are linked together by the <code>down</code> reference in the data node. We can see that each tower corresponds to a particular key-value pair, and towers can have different heights. We will explain how the height of the tower is determined later when we consider how to add data to the skip list.</p>
+<p>Finally, <code>Figure 7</code> shows a horizontal collection of nodes. If you look closely, you will notice that each level is actually an ordered linked list of data nodes where the order is maintained by the key. Each linked list is given a name, commonly referred to as its <strong>level</strong>. Levels are named starting with 0 at the lowest row. Level 0 consists of the entire collection of nodes. Every key-value pair must be present in the level-0 linked list. However, as we move up to higher levels, we see that the number of nodes decreases. This is one of the important characteristics of a skip list and will lead to an efficient search. Again, it can be seen that the number of nodes at each level is directly related to the height of the towers.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/vocabskiplist3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/vocabskiplist3.png" /></a>
+    <figcaption markdown="span">Figure 7: Each Horizontal Group of Data Nodes Is a Level</figcaption>
+</figure>   </p>
+<p>Classes for the two types of nodes described above can easily be constructed in the same fashion as for simple linked lists in the previous section. A header node consists of two references, <code>next</code> and <code>down</code>, both of which are initialized to <code>None</code> in the constructor (see <code>Listing lst_headnode</code>).</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing lst_headnode</span><pre style="line-height: 125%;"><span></span><code>   <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">HeaderNode</span>:
+       <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>):
+           <span style="color: #008000">self</span><span style="color: #666666">.</span>_next <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
+           <span style="color: #008000">self</span><span style="color: #666666">.</span>_down <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
+
+       <span style="color: #AA22FF">@property</span>
+       <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">next</span>(<span style="color: #008000">self</span>):
+           <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_next
+
+       <span style="color: #AA22FF">@next</span><span style="color: #666666">.</span>setter
+       <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">next</span>(<span style="color: #008000">self</span>, value):
+           <span style="color: #008000">self</span><span style="color: #666666">.</span>_next <span style="color: #666666">=</span> value
+
+       <span style="color: #AA22FF">@property</span>
+       <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">down</span>(<span style="color: #008000">self</span>):
+           <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_down
+
+       <span style="color: #AA22FF">@down</span><span style="color: #666666">.</span>setter
+       <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">down</span>(<span style="color: #008000">self</span>, value):
+           <span style="color: #008000">self</span><span style="color: #666666">.</span>_down <span style="color: #666666">=</span> value
+</code></pre></div>
+<p>A data node has four fields: two for the key and value, and two additional for the references <code>next</code> and <code>down</code>. Again, the references are initialized to <code>None</code> and wrapped into <code>properties</code> for data manipulation (see <code>Listing lst_datanode</code>).</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing lst_datanode</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">DataNode</span>:
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>, key, value):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_key <span style="color: #666666">=</span> key
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_data <span style="color: #666666">=</span> value
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_next <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_down <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
+
+    <span style="color: #AA22FF">@property</span>
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">key</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_key
+
+    <span style="color: #AA22FF">@property</span>
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">data</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_data
+
+    <span style="color: #AA22FF">@data</span><span style="color: #666666">.</span>setter
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">data</span>(<span style="color: #008000">self</span>, value):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_data <span style="color: #666666">=</span> value
+
+    <span style="color: #AA22FF">@property</span>
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">next</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_next
+
+    <span style="color: #AA22FF">@next</span><span style="color: #666666">.</span>setter
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">next</span>(<span style="color: #008000">self</span>, value):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_next <span style="color: #666666">=</span> value
+
+    <span style="color: #AA22FF">@property</span>
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">down</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_down
+
+    <span style="color: #AA22FF">@down</span><span style="color: #666666">.</span>setter
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">down</span>(<span style="color: #008000">self</span>, value):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_down <span style="color: #666666">=</span> value
+</code></pre></div>
+<p>The constructor for the entire skip list is shown in <code>Listing lst_constructor</code>. When a skip list is created, there are no data and therefore no header nodes. The head of the skip list is set to <code>None</code>. As key-value pairs are added to the structure, the list head refers to the first header node which in turn provides access to a linked list of data nodes as well as access to lower levels.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing lst_constructor</span><pre style="line-height: 125%;"><span></span><code>   <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">SkipList</span>:
+       <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>):
+           <span style="color: #008000">self</span><span style="color: #666666">.</span>_head <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="8421-searching-a-skip-list">8.4.2.1. Searching a Skip List<a class="headerlink" href="#8421-searching-a-skip-list" title="Permanent link">&para;</a></h3>
+<p><strong>8.4.2.1. Searching a Skip List</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">中文</label><label for="__tabbed_4_2">英文</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>The search operation for a skip list will require a key. It will find a data node containing that key and return the corresponding value that is stored in the node. <code>Figure 8</code> shows the search process as it proceeds through the skip list looking for the key 77. The nodes marked by stars represent those that are considered during the search process.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/searchskiplist.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/searchskiplist.png" /></a>
+    <figcaption markdown="span">Figure 8: Searching for the Key 77</figcaption>
+</figure>   </p>
+<p>As we search for 77, we begin at the head of the skip list. The first header node refers to the data node holding 31. Since 31 is less than 77, we move forward. Now since there is no next data node from 31 at that level (level 3), we must drop down to level 2. This time, when we look to the right, we see a data node with the key 77. Our search is successful and the word <em>of</em> is returned. It is important to note that our first comparison, data node 31, allowed us to skip over 17 and 26. Likewise, from 31 we were able to go directly to 77, bypassing 54.</p>
+<p><code>Listing lst_skiplistsearchcode</code> shows the Python implementation of the <code>search</code> method. The search starts at the head of the list and searches through nodes until either the key is found or there are no more nodes to check. The basic idea is to start at the header node of the highest level and begin to look to the right. If no data node is present, the search continues on the next lower level (lines <code>[check1 line:4]</code>–<code>[down1 line:5]</code>). On the other hand, if a data node exists, we compare the keys. If there is a match, we have found a data node with the key we are looking for and we can return its value (lines <code>[check2 line:7]</code>–<code>[found line:8]</code>).</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Listing lst_skiplistsearchcode</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">search</span>(<span style="color: #008000">self</span>, key):
+    current <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_head
+    <span style="color: #008000; font-weight: bold">while</span> current:
+        <span style="color: #008000; font-weight: bold">if</span> current<span style="color: #666666">.</span>next <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #008000; font-weight: bold">None</span>:          <span style="color: #3D7B7B; font-style: italic"># check1</span>
+            current <span style="color: #666666">=</span> current<span style="color: #666666">.</span>down        <span style="color: #3D7B7B; font-style: italic"># down1</span>
+        <span style="color: #008000; font-weight: bold">else</span>:
+            <span style="color: #008000; font-weight: bold">if</span> current<span style="color: #666666">.</span>next<span style="color: #666666">.</span>key <span style="color: #666666">==</span> key:   <span style="color: #3D7B7B; font-style: italic"># check2</span>
+                <span style="color: #008000; font-weight: bold">return</span> current<span style="color: #666666">.</span>next<span style="color: #666666">.</span>data  <span style="color: #3D7B7B; font-style: italic"># found</span>
+            <span style="color: #008000; font-weight: bold">if</span> key <span style="color: #666666">&lt;</span> current<span style="color: #666666">.</span>next<span style="color: #666666">.</span>key:    <span style="color: #3D7B7B; font-style: italic"># check3</span>
+                current <span style="color: #666666">=</span> current<span style="color: #666666">.</span>down    <span style="color: #3D7B7B; font-style: italic"># down2</span>
+            <span style="color: #008000; font-weight: bold">else</span>:
+                current <span style="color: #666666">=</span> current<span style="color: #666666">.</span>next    <span style="color: #3D7B7B; font-style: italic"># </span>
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">None</span>
+</code></pre></div></td></tr></table></div>
+<p>Since each level is an ordered linked list, a key mismatch provides us with very useful information. If the key we are looking for is less than the key contained in the data node (line <code>[check3 line:9]</code>), we know that no other data node on that level can contain our key since everything to the right has to be greater. In that case, we drop down one level in that tower (line <code>[down2 line:10]</code>). If no such level exists (we drop to <code>None</code>), we have discovered that the key is not present in our skip list. We break out of the loop and return <code>None</code>. On the other hand, as long as there are data nodes on the current level with key values less than the key we are looking for, we continue moving to the next node (line <code>[next1 line:12]</code>).</p>
+<p>Once we enter a lower level, we repeat the process of checking to see if there is a next node. Each level lower in the skip list has the potential to provide additional data nodes. If the key is present, it will have to be discovered no later than level 0 since level 0 is the complete ordered linked list. Our hope is that we will find it sooner.</p>
+</div>
+<div class="tabbed-block">
+<p>The search operation for a skip list will require a key. It will find a data node containing that key and return the corresponding value that is stored in the node. <code>Figure 8</code> shows the search process as it proceeds through the skip list looking for the key 77. The nodes marked by stars represent those that are considered during the search process.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/searchskiplist.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/searchskiplist.png" /></a>
+    <figcaption markdown="span">Figure 8: Searching for the Key 77</figcaption>
+</figure>   </p>
+<p>As we search for 77, we begin at the head of the skip list. The first header node refers to the data node holding 31. Since 31 is less than 77, we move forward. Now since there is no next data node from 31 at that level (level 3), we must drop down to level 2. This time, when we look to the right, we see a data node with the key 77. Our search is successful and the word <em>of</em> is returned. It is important to note that our first comparison, data node 31, allowed us to skip over 17 and 26. Likewise, from 31 we were able to go directly to 77, bypassing 54.</p>
+<p><code>Listing lst_skiplistsearchcode</code> shows the Python implementation of the <code>search</code> method. The search starts at the head of the list and searches through nodes until either the key is found or there are no more nodes to check. The basic idea is to start at the header node of the highest level and begin to look to the right. If no data node is present, the search continues on the next lower level (lines <code>[check1 line:4]</code>–<code>[down1 line:5]</code>). On the other hand, if a data node exists, we compare the keys. If there is a match, we have found a data node with the key we are looking for and we can return its value (lines <code>[check2 line:7]</code>–<code>[found line:8]</code>).</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Listing lst_skiplistsearchcode</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">search</span>(<span style="color: #008000">self</span>, key):
+    current <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_head
+    <span style="color: #008000; font-weight: bold">while</span> current:
+        <span style="color: #008000; font-weight: bold">if</span> current<span style="color: #666666">.</span>next <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #008000; font-weight: bold">None</span>:          <span style="color: #3D7B7B; font-style: italic"># check1</span>
+            current <span style="color: #666666">=</span> current<span style="color: #666666">.</span>down        <span style="color: #3D7B7B; font-style: italic"># down1</span>
+        <span style="color: #008000; font-weight: bold">else</span>:
+            <span style="color: #008000; font-weight: bold">if</span> current<span style="color: #666666">.</span>next<span style="color: #666666">.</span>key <span style="color: #666666">==</span> key:   <span style="color: #3D7B7B; font-style: italic"># check2</span>
+                <span style="color: #008000; font-weight: bold">return</span> current<span style="color: #666666">.</span>next<span style="color: #666666">.</span>data  <span style="color: #3D7B7B; font-style: italic"># found</span>
+            <span style="color: #008000; font-weight: bold">if</span> key <span style="color: #666666">&lt;</span> current<span style="color: #666666">.</span>next<span style="color: #666666">.</span>key:    <span style="color: #3D7B7B; font-style: italic"># check3</span>
+                current <span style="color: #666666">=</span> current<span style="color: #666666">.</span>down    <span style="color: #3D7B7B; font-style: italic"># down2</span>
+            <span style="color: #008000; font-weight: bold">else</span>:
+                current <span style="color: #666666">=</span> current<span style="color: #666666">.</span>next    <span style="color: #3D7B7B; font-style: italic"># </span>
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">None</span>
+</code></pre></div></td></tr></table></div>
+<p>Since each level is an ordered linked list, a key mismatch provides us with very useful information. If the key we are looking for is less than the key contained in the data node (line <code>[check3 line:9]</code>), we know that no other data node on that level can contain our key since everything to the right has to be greater. In that case, we drop down one level in that tower (line <code>[down2 line:10]</code>). If no such level exists (we drop to <code>None</code>), we have discovered that the key is not present in our skip list. We break out of the loop and return <code>None</code>. On the other hand, as long as there are data nodes on the current level with key values less than the key we are looking for, we continue moving to the next node (line <code>[next1 line:12]</code>).</p>
+<p>Once we enter a lower level, we repeat the process of checking to see if there is a next node. Each level lower in the skip list has the potential to provide additional data nodes. If the key is present, it will have to be discovered no later than level 0 since level 0 is the complete ordered linked list. Our hope is that we will find it sooner.</p>
+</div>
+</div>
+</div>
+<h3 id="8422-adding-key-value-pairs-to-a-skip-list">8.4.2.2. Adding Key-Value Pairs to a Skip List<a class="headerlink" href="#8422-adding-key-value-pairs-to-a-skip-list" title="Permanent link">&para;</a></h3>
+<p><strong>8.4.2.2. Adding Key-Value Pairs to a Skip List</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">中文</label><label for="__tabbed_5_2">英文</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>If we are given a skip list, the <code>search</code> method is fairly easy to implement. Our task here is to understand how the skip list structure was built in the first place and how it is possible that the same set of keys, added in the same order, can give us different skip lists.</p>
+<p>Adding a new key-value pair to the skip list is essentially a two-step process. First, we search the skip list looking for the position where the key should have been. Remember that we are assuming the key is not already present. <code>Figure 9</code> shows this process as we look to add the key 65 (data value “hi”) to the collection. We have used the stars once again to show the path of the search process as it proceeds through the skip list.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/addskiplist.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/addskiplist.png" /></a>
+    <figcaption markdown="span">Figure 9: Searching for the Key 65</figcaption>
+</figure></p>
+<p>As we proceed using the same search strategy as in the previous section, we find that 65 is greater than 31. Since there are no more nodes on level 3, we drop to level 2. Here we find 77, which is greater than 65. Again, we drop, this time to level 1. Now the next node is 54, which is less than 65. Continuing to the right, we hit 77, which again causes us to drop down until eventually we hit the <code>None</code> at the base of the tower.</p>
+<p>The second step in the process is to create a new data node and add it to the level 0 linked list (<code>Figure 10</code>). However, if we stop at that point, the best we will ever have is a single linked list of key-value pairs. We also need to build a tower for the new entry, and this is where the skip list gets very interesting. How high should the tower be? The height of the tower for the new entry will not be predetermined but instead will be completely probabilistic. In essence, we will flip a coin to decide whether to add another level to the tower. Each time the coin comes up heads, we will add one more level to the current tower.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/addskiplist2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/addskiplist2.png" /></a>
+    <figcaption markdown="span">Figure 10: Adding the Data Node and Tower for 65</figcaption>
+</figure>   </p>
+<p>It is easy to use a random number generator to simulate a coin flip. We can use <code>randrange</code> from the <code>random</code> module and interpret 1 as heads.</p>
+<p><code>Listing lst_insert</code> shows the <code>insert</code> method. You will note immediately in line 2 that we need to check to see if this is the first node being added to the skip list. This is the same question we asked for simple linked lists. If we are adding to the head of the list, a new header node as well as data node must be created. The iteration in lines 7--14 continues as long as the <code>randrange</code> function returns a 1 (the coin toss returns heads). Each time a new level is added to the tower, a new data node and a new header node are created.</p>
+<p>In the case of a non-empty skip list (line 15), we need to search for the insert position as described above. Since we have no way of knowing how many data nodes will be added to the tower, we need to save the insert points for every level that we enter as part of the search process. These insert points will be processed in reverse order, so a stack will work nicely to allow us to back up through the linked lists inserting tower data nodes as necessary. The stars in <code>Figure 10</code> show the insert points that would be stacked in the example. These points represent only those places where we dropped down during the search.</p>
+<p>Starting at line 34, we flip our coin
+to determine the number of levels for the tower. This time we pop the
+insert stack to get the next higher insertion point as the tower grows.
+Only after the stack becomes empty will we need to return to creating
+new header nodes. We leave the remaining details of the implementation
+for you to trace.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Listing lst_insert</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">29</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">30</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">31</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">32</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">33</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">34</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">35</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">36</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">37</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">38</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">39</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">40</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">41</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">42</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">43</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">44</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">45</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">46</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">47</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">48</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">49</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">insert</span>(<span style="color: #008000">self</span>, key, value):
+    <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_head <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #008000; font-weight: bold">None</span>:
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_head <span style="color: #666666">=</span> HeaderNode()
+        temp <span style="color: #666666">=</span> DataNode(key, value)
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_head<span style="color: #666666">.</span>next <span style="color: #666666">=</span> temp
+        top <span style="color: #666666">=</span> temp
+        <span style="color: #008000; font-weight: bold">while</span> randrange(<span style="color: #666666">2</span>) <span style="color: #666666">==</span> <span style="color: #666666">1</span>:
+            newhead <span style="color: #666666">=</span> HeaderNode()
+            temp <span style="color: #666666">=</span> DataNode(key, value)
+            temp<span style="color: #666666">.</span>down <span style="color: #666666">=</span> top
+            newhead<span style="color: #666666">.</span>next <span style="color: #666666">=</span> temp
+            newhead<span style="color: #666666">.</span>down <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_head
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>_head <span style="color: #666666">=</span> newhead
+            top <span style="color: #666666">=</span> temp
+    <span style="color: #008000; font-weight: bold">else</span>:
+        tower <span style="color: #666666">=</span> Stack()
+        current <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_head
+        <span style="color: #008000; font-weight: bold">while</span> current:
+            <span style="color: #008000; font-weight: bold">if</span> current<span style="color: #666666">.</span>next <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #008000; font-weight: bold">None</span>:
+                tower<span style="color: #666666">.</span>push(current)
+                current <span style="color: #666666">=</span> current<span style="color: #666666">.</span>down
+            <span style="color: #008000; font-weight: bold">else</span>:
+                <span style="color: #008000; font-weight: bold">if</span> current<span style="color: #666666">.</span>next<span style="color: #666666">.</span>key <span style="color: #666666">&gt;</span> key:
+                    tower<span style="color: #666666">.</span>push(current)
+                    current <span style="color: #666666">=</span> current<span style="color: #666666">.</span>down
+                <span style="color: #008000; font-weight: bold">else</span>:
+                    current <span style="color: #666666">=</span> current<span style="color: #666666">.</span>next
+
+        lowest_level <span style="color: #666666">=</span> tower<span style="color: #666666">.</span>pop()
+        temp <span style="color: #666666">=</span> DataNode(key, value)
+        temp<span style="color: #666666">.</span>next <span style="color: #666666">=</span> lowest_level<span style="color: #666666">.</span>next
+        lowest_level<span style="color: #666666">.</span>next <span style="color: #666666">=</span> temp
+        top <span style="color: #666666">=</span> temp
+        <span style="color: #008000; font-weight: bold">while</span> randrange(<span style="color: #666666">2</span>) <span style="color: #666666">==</span> <span style="color: #666666">1</span>:
+            <span style="color: #008000; font-weight: bold">if</span> tower<span style="color: #666666">.</span>is_empty():
+                newhead <span style="color: #666666">=</span> HeaderNode()
+                temp <span style="color: #666666">=</span> DataNode(key, value)
+                temp<span style="color: #666666">.</span>down <span style="color: #666666">=</span> top
+                newhead<span style="color: #666666">.</span>next <span style="color: #666666">=</span> temp
+                newhead<span style="color: #666666">.</span>down <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_head
+                <span style="color: #008000">self</span><span style="color: #666666">.</span>_head <span style="color: #666666">=</span> newhead
+                top <span style="color: #666666">=</span> temp
+            <span style="color: #008000; font-weight: bold">else</span>:
+                next_level <span style="color: #666666">=</span> tower<span style="color: #666666">.</span>pop()
+                temp <span style="color: #666666">=</span> DataNode(key, value)
+                temp<span style="color: #666666">.</span>down <span style="color: #666666">=</span> top
+                temp<span style="color: #666666">.</span>next <span style="color: #666666">=</span> next_level<span style="color: #666666">.</span>next
+                next_level<span style="color: #666666">.</span>next <span style="color: #666666">=</span> temp
+                top <span style="color: #666666">=</span> temp
+</code></pre></div></td></tr></table></div>
+<p>We should make one final note about the structure of the skip list. We had mentioned earlier that there are many possible skip lists for a set of keys, even if they are inserted in the same order. Now we see why. Depending on the random nature of the coin flip, the height of the towers for any particular key is bound to change each time we build the skip list.</p>
+</div>
+<div class="tabbed-block">
+<p>If we are given a skip list, the <code>search</code> method is fairly easy to implement. Our task here is to understand how the skip list structure was built in the first place and how it is possible that the same set of keys, added in the same order, can give us different skip lists.</p>
+<p>Adding a new key-value pair to the skip list is essentially a two-step process. First, we search the skip list looking for the position where the key should have been. Remember that we are assuming the key is not already present. <code>Figure 9</code> shows this process as we look to add the key 65 (data value “hi”) to the collection. We have used the stars once again to show the path of the search process as it proceeds through the skip list.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/addskiplist.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/addskiplist.png" /></a>
+    <figcaption markdown="span">Figure 9: Searching for the Key 65</figcaption>
+</figure></p>
+<p>As we proceed using the same search strategy as in the previous section, we find that 65 is greater than 31. Since there are no more nodes on level 3, we drop to level 2. Here we find 77, which is greater than 65. Again, we drop, this time to level 1. Now the next node is 54, which is less than 65. Continuing to the right, we hit 77, which again causes us to drop down until eventually we hit the <code>None</code> at the base of the tower.</p>
+<p>The second step in the process is to create a new data node and add it to the level 0 linked list (<code>Figure 10</code>). However, if we stop at that point, the best we will ever have is a single linked list of key-value pairs. We also need to build a tower for the new entry, and this is where the skip list gets very interesting. How high should the tower be? The height of the tower for the new entry will not be predetermined but instead will be completely probabilistic. In essence, we will flip a coin to decide whether to add another level to the tower. Each time the coin comes up heads, we will add one more level to the current tower.</p>
+<p><figure markdown="span">
+    <a class="glightbox" href="../imgs/addskiplist2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/addskiplist2.png" /></a>
+    <figcaption markdown="span">Figure 10: Adding the Data Node and Tower for 65</figcaption>
+</figure>   </p>
+<p>It is easy to use a random number generator to simulate a coin flip. We can use <code>randrange</code> from the <code>random</code> module and interpret 1 as heads.</p>
+<p><code>Listing lst_insert</code> shows the <code>insert</code> method. You will note immediately in line 2 that we need to check to see if this is the first node being added to the skip list. This is the same question we asked for simple linked lists. If we are adding to the head of the list, a new header node as well as data node must be created. The iteration in lines 7--14 continues as long as the <code>randrange</code> function returns a 1 (the coin toss returns heads). Each time a new level is added to the tower, a new data node and a new header node are created.</p>
+<p>In the case of a non-empty skip list (line 15), we need to search for the insert position as described above. Since we have no way of knowing how many data nodes will be added to the tower, we need to save the insert points for every level that we enter as part of the search process. These insert points will be processed in reverse order, so a stack will work nicely to allow us to back up through the linked lists inserting tower data nodes as necessary. The stars in <code>Figure 10</code> show the insert points that would be stacked in the example. These points represent only those places where we dropped down during the search.</p>
+<p>Starting at line 34, we flip our coin
+to determine the number of levels for the tower. This time we pop the
+insert stack to get the next higher insertion point as the tower grows.
+Only after the stack becomes empty will we need to return to creating
+new header nodes. We leave the remaining details of the implementation
+for you to trace.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Listing lst_insert</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">29</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">30</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">31</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">32</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">33</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">34</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">35</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">36</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">37</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">38</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">39</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">40</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">41</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">42</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">43</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">44</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">45</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">46</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">47</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">48</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">49</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">insert</span>(<span style="color: #008000">self</span>, key, value):
+    <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_head <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #008000; font-weight: bold">None</span>:
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_head <span style="color: #666666">=</span> HeaderNode()
+        temp <span style="color: #666666">=</span> DataNode(key, value)
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>_head<span style="color: #666666">.</span>next <span style="color: #666666">=</span> temp
+        top <span style="color: #666666">=</span> temp
+        <span style="color: #008000; font-weight: bold">while</span> randrange(<span style="color: #666666">2</span>) <span style="color: #666666">==</span> <span style="color: #666666">1</span>:
+            newhead <span style="color: #666666">=</span> HeaderNode()
+            temp <span style="color: #666666">=</span> DataNode(key, value)
+            temp<span style="color: #666666">.</span>down <span style="color: #666666">=</span> top
+            newhead<span style="color: #666666">.</span>next <span style="color: #666666">=</span> temp
+            newhead<span style="color: #666666">.</span>down <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_head
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>_head <span style="color: #666666">=</span> newhead
+            top <span style="color: #666666">=</span> temp
+    <span style="color: #008000; font-weight: bold">else</span>:
+        tower <span style="color: #666666">=</span> Stack()
+        current <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_head
+        <span style="color: #008000; font-weight: bold">while</span> current:
+            <span style="color: #008000; font-weight: bold">if</span> current<span style="color: #666666">.</span>next <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #008000; font-weight: bold">None</span>:
+                tower<span style="color: #666666">.</span>push(current)
+                current <span style="color: #666666">=</span> current<span style="color: #666666">.</span>down
+            <span style="color: #008000; font-weight: bold">else</span>:
+                <span style="color: #008000; font-weight: bold">if</span> current<span style="color: #666666">.</span>next<span style="color: #666666">.</span>key <span style="color: #666666">&gt;</span> key:
+                    tower<span style="color: #666666">.</span>push(current)
+                    current <span style="color: #666666">=</span> current<span style="color: #666666">.</span>down
+                <span style="color: #008000; font-weight: bold">else</span>:
+                    current <span style="color: #666666">=</span> current<span style="color: #666666">.</span>next
+
+        lowest_level <span style="color: #666666">=</span> tower<span style="color: #666666">.</span>pop()
+        temp <span style="color: #666666">=</span> DataNode(key, value)
+        temp<span style="color: #666666">.</span>next <span style="color: #666666">=</span> lowest_level<span style="color: #666666">.</span>next
+        lowest_level<span style="color: #666666">.</span>next <span style="color: #666666">=</span> temp
+        top <span style="color: #666666">=</span> temp
+        <span style="color: #008000; font-weight: bold">while</span> randrange(<span style="color: #666666">2</span>) <span style="color: #666666">==</span> <span style="color: #666666">1</span>:
+            <span style="color: #008000; font-weight: bold">if</span> tower<span style="color: #666666">.</span>is_empty():
+                newhead <span style="color: #666666">=</span> HeaderNode()
+                temp <span style="color: #666666">=</span> DataNode(key, value)
+                temp<span style="color: #666666">.</span>down <span style="color: #666666">=</span> top
+                newhead<span style="color: #666666">.</span>next <span style="color: #666666">=</span> temp
+                newhead<span style="color: #666666">.</span>down <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_head
+                <span style="color: #008000">self</span><span style="color: #666666">.</span>_head <span style="color: #666666">=</span> newhead
+                top <span style="color: #666666">=</span> temp
+            <span style="color: #008000; font-weight: bold">else</span>:
+                next_level <span style="color: #666666">=</span> tower<span style="color: #666666">.</span>pop()
+                temp <span style="color: #666666">=</span> DataNode(key, value)
+                temp<span style="color: #666666">.</span>down <span style="color: #666666">=</span> top
+                temp<span style="color: #666666">.</span>next <span style="color: #666666">=</span> next_level<span style="color: #666666">.</span>next
+                next_level<span style="color: #666666">.</span>next <span style="color: #666666">=</span> temp
+                top <span style="color: #666666">=</span> temp
+</code></pre></div></td></tr></table></div>
+<p>We should make one final note about the structure of the skip list. We had mentioned earlier that there are many possible skip lists for a set of keys, even if they are inserted in the same order. Now we see why. Depending on the random nature of the coin flip, the height of the towers for any particular key is bound to change each time we build the skip list.</p>
+</div>
+</div>
+</div>
+<h3 id="8423-building-the-map">8.4.2.3. Building the Map<a class="headerlink" href="#8423-building-the-map" title="Permanent link">&para;</a></h3>
+<p><strong>8.4.2.3. Building the Map</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">中文</label><label for="__tabbed_6_2">英文</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Now that we have implemented the skip list behavior allowing us to add data to the list and search for data that is present, we are in a position to finally implement the map abstract data type. As we discussed above, maps must provide two operations, <code>put</code> and <code>get</code>. <code>Listing lst_mapclass</code> shows that these operations can easily be implemented by constructing an internal skip list collection (line <code>[init:3]</code>__) and using the <code>insert</code> and <code>search</code> operations shown in the previous two sections.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing lst_mapclass</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Map</span>:
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>collection <span style="color: #666666">=</span> SkipList()
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">put</span>(<span style="color: #008000">self</span>, key, value):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>collection<span style="color: #666666">.</span>insert(key, value)
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get</span>(<span style="color: #008000">self</span>, key):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>collection<span style="color: #666666">.</span>search(key)
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>Now that we have implemented the skip list behavior allowing us to add data to the list and search for data that is present, we are in a position to finally implement the map abstract data type. As we discussed above, maps must provide two operations, <code>put</code> and <code>get</code>. <code>Listing lst_mapclass</code> shows that these operations can easily be implemented by constructing an internal skip list collection (line <code>[init:3]</code>__) and using the <code>insert</code> and <code>search</code> operations shown in the previous two sections.</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing lst_mapclass</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Map</span>:
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>collection <span style="color: #666666">=</span> SkipList()
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">put</span>(<span style="color: #008000">self</span>, key, value):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>collection<span style="color: #666666">.</span>insert(key, value)
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get</span>(<span style="color: #008000">self</span>, key):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>collection<span style="color: #666666">.</span>search(key)
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="8424-analysis-of-a-skip-list">8.4.2.4. Analysis of a Skip List<a class="headerlink" href="#8424-analysis-of-a-skip-list" title="Permanent link">&para;</a></h3>
+<p><strong>8.4.2.4. Analysis of a Skip List</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">中文</label><label for="__tabbed_7_2">英文</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>If we had simply stored the key-value pairs in an ordered linked list, we know that the search method would be <span class="arithmatex">\(O(n)\)</span>. Can we expect better performance from the skip list? Recall that the skip list is a probabilistic data structure. This means that the analysis will be dependent upon the probability of some event, in this case, the flip of a coin. Although a rigorous analysis of this structure is beyond the scope of this text, we can make a strong informal argument.</p>
+<p>Assume that we are building a skip list for <span class="arithmatex">\(n\)</span> keys. We know that each tower starts off with a height of 1. As we add data nodes to the tower, assuming the probability of getting heads is <span class="arithmatex">\(\frac{1}{2}\)</span>, we can say that <span class="arithmatex">\(\frac{n}{2}\)</span> of the keys have towers of height 2. As we flip the coin again, <span class="arithmatex">\(\frac{n}{4}\)</span> of the keys have a tower of height 3. This corresponds to the probability of flipping two heads in a row. Continuing this argument shows <span class="arithmatex">\(\frac{n}{8}\)</span> keys have a tower of height 4 and so on. This means that we expect the height of the tallest tower to be <span class="arithmatex">\(\log_{2}(n) + 1\)</span>. Using our Big-O notation, we would say that the height of the skip list is <span class="arithmatex">\(O(\log (n))\)</span>.</p>
+<p>To analyze the <code>search</code> method, recall that there are two scans that need to be considered as we look for a given key. The first is the down direction. The previous result suggests that in the worst case we will expect to consider <span class="arithmatex">\(O(\log (n))\)</span> levels to find a key. In addition, we need to include the number of forward links that need to be scanned on each level. We drop down a level when one of two events occurs. Either we find a data node with a key that is greater than the key we are looking for or we find the end of a level. If we are currently looking at some data node, the probability that one of those two events will happen in the next link is <span class="arithmatex">\(\frac{1}{2}\)</span>. This means that after looking at two links, we would expect to drop to the next lower level (we expect to get heads after two coin flips). In any case, the number of nodes that we need to look at on any given level is constant. The entire result then becomes <span class="arithmatex">\(O(\log (n))\)</span>. Since inserting a new node is dominated by searching for its location, the <code>insert</code> operation will also have <span class="arithmatex">\(O(\log(n))\)</span> performance.</p>
+</div>
+<div class="tabbed-block">
+<p>If we had simply stored the key-value pairs in an ordered linked list, we know that the search method would be <span class="arithmatex">\(O(n)\)</span>. Can we expect better performance from the skip list? Recall that the skip list is a probabilistic data structure. This means that the analysis will be dependent upon the probability of some event, in this case, the flip of a coin. Although a rigorous analysis of this structure is beyond the scope of this text, we can make a strong informal argument.</p>
+<p>Assume that we are building a skip list for <span class="arithmatex">\(n\)</span> keys. We know that each tower starts off with a height of 1. As we add data nodes to the tower, assuming the probability of getting heads is <span class="arithmatex">\(\frac{1}{2}\)</span>, we can say that <span class="arithmatex">\(\frac{n}{2}\)</span> of the keys have towers of height 2. As we flip the coin again, <span class="arithmatex">\(\frac{n}{4}\)</span> of the keys have a tower of height 3. This corresponds to the probability of flipping two heads in a row. Continuing this argument shows <span class="arithmatex">\(\frac{n}{8}\)</span> keys have a tower of height 4 and so on. This means that we expect the height of the tallest tower to be <span class="arithmatex">\(\log_{2}(n) + 1\)</span>. Using our Big-O notation, we would say that the height of the skip list is <span class="arithmatex">\(O(\log (n))\)</span>.</p>
+<p>To analyze the <code>search</code> method, recall that there are two scans that need to be considered as we look for a given key. The first is the down direction. The previous result suggests that in the worst case we will expect to consider <span class="arithmatex">\(O(\log (n))\)</span> levels to find a key. In addition, we need to include the number of forward links that need to be scanned on each level. We drop down a level when one of two events occurs. Either we find a data node with a key that is greater than the key we are looking for or we find the end of a level. If we are currently looking at some data node, the probability that one of those two events will happen in the next link is <span class="arithmatex">\(\frac{1}{2}\)</span>. This means that after looking at two links, we would expect to drop to the next lower level (we expect to get heads after two coin flips). In any case, the number of nodes that we need to look at on any given level is constant. The entire result then becomes <span class="arithmatex">\(O(\log (n))\)</span>. Since inserting a new node is dominated by searching for its location, the <code>insert</code> operation will also have <span class="arithmatex">\(O(\log(n))\)</span> performance.</p>
+</div>
+</div>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月9日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月12日</span>
       
         <br>
         创建日期:
@@ -4032,9 +4796,15 @@
       
         <script src="../../javascripts/mathjax.js"></script>
       
+        <script src="../../javascripts/katex.js"></script>
+      
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
