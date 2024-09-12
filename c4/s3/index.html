@@ -3977,7 +3977,7 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>We will begin our investigation with a simple problem that you already know how to solve without using recursion. Suppose that you want to calculate the sum of a list of numbers such as: <span class="arithmatex">\([1, 3, 5, 7, 9]\)</span>. An iterative function that computes the sum is shown in <code>ActiveCode 4.3.1</code>. The function uses an accumulator variable (<code>the_sum</code>) to compute a running total of all the numbers in the list by starting with <span class="arithmatex">\(0\)</span> and adding each number in the list.</p>
+<p>我们将从一个简单的问题开始，这个问题你已经知道如何解决，而无需使用递归。假设你想计算一个数字列表的总和，比如：[1, 3, 5, 7, 9]。一个计算总和的迭代函数如 <code>ActiveCode 4.3.1</code> 所示。这个函数使用一个累加器变量（<code>the_sum</code>）来计算列表中所有数字的运行总和，开始时为0，然后将列表中的每个数字相加。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 4.3.1 Iterative Summation</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span>
@@ -3992,39 +3992,39 @@
 
 <span style="color: #008000">print</span>(list_sum([<span style="color: #666666">1</span>, <span style="color: #666666">3</span>, <span style="color: #666666">5</span>, <span style="color: #666666">7</span>, <span style="color: #666666">9</span>]))
 </code></pre></div></td></tr></table></div>
-<p>Pretend for a minute that you do not have <code>while</code> loops or <code>for</code> loops. How would you compute the sum of a list of numbers? If you were a mathematician you might start by recalling that addition is a function that is defined for two parameters, a pair of numbers. To redefine the problem from adding a list to adding pairs of numbers, we could rewrite the list as a fully parenthesized expression. Such an expression looks like this: </p>
+<p>假设你没有 <code>while</code> 循环或 <code>for</code> 循环。你将如何计算一个数字列表的总和？如果你是一个数学家，你可能会从加法是一个为两个参数定义的函数（即一对数字）开始。为了将问题从加法列表重新定义为加法对数字，我们可以将列表重新写成一个完全括起来的表达式。这样的表达式看起来像这样：</p>
 <p><span class="arithmatex">\(((((1 + 3) + 5) + 7) + 9)\)</span></p>
-<p>We can also parenthesize the expression the other way around,</p>
+<p>我们也可以将表达式以另一种方式括起来，</p>
 <p><span class="arithmatex">\((1 + (3 + (5 + (7 + 9))))\)</span></p>
-<p>Notice that the innermost set of parentheses, <span class="arithmatex">\((7 + 9)\)</span>, is a problem that we can solve without a loop or any special constructs. In fact, we can use the following sequence of simplifications to compute a final sum.</p>
+<p>注意到最内层的括号 <span class="arithmatex">\((7 + 9)\)</span> 是一个可以在没有循环或任何特殊结构的情况下解决的问题。事实上，我们可以使用以下简化序列来计算最终的总和。</p>
 <p><span class="arithmatex">\(\begin{align}  total &amp;= \  (1 + (3 + (5 + (7 + 9)))) \\ total &amp;= \  (1 + (3 + (5 + 16))) \\ total &amp;= \  (1 + (3 + 21)) \\ total &amp;= \  (1 + 24) \\ total &amp;= \  25 \end{align}\)</span></p>
-<p>How can we take this idea and turn it into a Python program? First, let’s restate the sum problem in terms of Python lists. We might say the sum of the list <code>num_list</code> is the sum of the first element of the list (<code>num_list[0]</code>) and the sum of the numbers in the rest of the list (<code>num_list[1:]</code>). To state it in a functional form:</p>
-<p><span class="arithmatex">\(list\_sum(num\_list) = first(num\_list) + list\_sum(rest(num\_list)) \label{eqn:list_sum}\)</span></p>
-<p>In this equation <span class="arithmatex">\(irst(num\_list)\)</span> returns the first element of the list and <span class="arithmatex">\(rest(num\_list)\)</span> returns a list of everything but the first element. This is easily expressed in Python as shown in <code>ActiveCode 4.3.2</code>.</p>
+<p>我们如何将这个想法转化为Python程序？首先，让我们用Python列表的术语重新表述总和问题。我们可以说，列表 <code>num_list</code> 的总和是列表第一个元素（<code>num_list[0]</code>）和列表其余部分的总和（<code>num_list[1:]</code>）。用函数形式表述为：</p>
+<p><span class="arithmatex">\(list\_sum(num\_list) = first(num\_list) + list\_sum(rest(num\_list))\)</span></p>
+<p>在这个方程中，<code>first(num_list)</code> 返回列表的第一个元素，<code>rest(num_list)</code> 返回除第一个元素外的列表。这在Python中可以很容易地表示，如 <code>ActiveCode 4.3.2</code> 所示。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 4.3.2 Recursive Summation</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">4</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">5</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">6</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">7</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code>    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">list_sum</span>(num_list):
-        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">len</span>(num_list) <span style="color: #666666">==</span> <span style="color: #666666">1</span>:
-            <span style="color: #008000; font-weight: bold">return</span> num_list[<span style="color: #666666">0</span>]
-        <span style="color: #008000; font-weight: bold">else</span>:
-            <span style="color: #008000; font-weight: bold">return</span> num_list[<span style="color: #666666">0</span>] <span style="color: #666666">+</span> list_sum(num_list[<span style="color: #666666">1</span>:])
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">7</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">list_sum</span>(num_list):
+    <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">len</span>(num_list) <span style="color: #666666">==</span> <span style="color: #666666">1</span>:
+        <span style="color: #008000; font-weight: bold">return</span> num_list[<span style="color: #666666">0</span>]
+    <span style="color: #008000; font-weight: bold">else</span>:
+        <span style="color: #008000; font-weight: bold">return</span> num_list[<span style="color: #666666">0</span>] <span style="color: #666666">+</span> list_sum(num_list[<span style="color: #666666">1</span>:])
 
-    <span style="color: #008000">print</span>(list_sum([<span style="color: #666666">1</span>, <span style="color: #666666">3</span>, <span style="color: #666666">5</span>, <span style="color: #666666">7</span>, <span style="color: #666666">9</span>]))
+<span style="color: #008000">print</span>(list_sum([<span style="color: #666666">1</span>, <span style="color: #666666">3</span>, <span style="color: #666666">5</span>, <span style="color: #666666">7</span>, <span style="color: #666666">9</span>]))
 </code></pre></div></td></tr></table></div>
-<p>There are a few key ideas in this listing to look at. First, on line 2 we are checking to see if the list is one element long. This check is crucial and is our escape clause from the function. The sum of a list of length 1 is trivial; it is just the number in the list. Second, on line 5 our function calls itself! This is the reason that we call the <code>list_sum</code> algorithm recursive. A recursive function is a function that calls itself.</p>
-<p><code>Figure 4.1</code> shows the series of <strong>recursive calls</strong> that are needed to sum the list <span class="arithmatex">\([1, 3, 5, 7, 9]\)</span>. You should think of this series of calls as a series of simplifications. Each time we make a recursive call we are solving a smaller problem, until we reach the point where the problem cannot get any smaller.</p>
+<p>在这个列表中，有几个关键点需要注意。首先，在第2行，我们检查列表的长度是否为1。这个检查至关重要，是我们从函数中逃逸的条件。长度为1的列表的总和很简单；它只是列表中的那个数字。其次，在第5行，我们的函数调用了自己！这就是我们称 <code>list_sum</code> 算法为递归的原因。递归函数是调用自身的函数。</p>
+<p><code>Figure 4.1</code> 显示了计算列表 [1, 3, 5, 7, 9] 所需的一系列 <strong>递归调用</strong>。你应该把这一系列调用看作是一系列简化。每次我们进行递归调用时，我们在解决一个更小的问题，直到我们达到问题不能再变得更小的点。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/sumlistIn.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/sumlistIn.png" /></a>
-    <figcaption markdown="span"><strong>Figure 4.1:</strong> Series of Recursive Calls Adding a List of Numbers</figcaption>
+    <figcaption markdown="span"><strong>Figure 4.1:</strong> 递归调用序列，计算数字列表的和</figcaption>
 </figure></p>
-<p>When we reach the point where the problem is as simple as it can get, we begin to piece together the solutions of each of the small problems until the initial problem is solved. <code>Figure 4.2</code> shows the additions that are performed as <code>list_sum</code> works its way backward through the series of calls. When <code>list_sum</code> returns from the topmost problem, we have the solution to the whole problem.</p>
+<p>当我们到达问题变得尽可能简单的点时，我们开始将每个小问题的解决方案拼凑在一起，直到最初的问题得到解决。<code>Figure 4.2</code> 显示了在 <code>list_sum</code> 函数通过调用序列向后工作时执行的加法。当 <code>list_sum</code> 从最上层的问题返回时，我们得到了整个问题的解决方案。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/sumlistOut.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/sumlistOut.png" /></a>
-    <figcaption markdown="span"><strong>Figure 4.2:</strong> Series of Recursive Returns from Adding a List of Numbers</figcaption>
+    <figcaption markdown="span"><strong>Figure 4.2:</strong> 递归返回序列，计算数字列表的和</figcaption>
 </figure></p>
 </div>
 <div class="tabbed-block">
@@ -4086,7 +4086,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月10日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月12日</span>
       
         <br>
         创建日期:

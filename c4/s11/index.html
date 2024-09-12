@@ -3977,29 +3977,29 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>In this section we will look at a problem that has relevance to the expanding world of robotics: how do you find your way out of a maze? If you have a Roomba vacuum cleaner for your dorm room (don’t all college students?) you will wish that you could reprogram it using what you have learned in this section. The problem we want to solve is to help our turtle find its way out of a virtual maze. The maze problem has roots as deep as the Greek myth about Theseus, who was sent into a maze to kill the Minotaur. Theseus used a ball of thread to help him find his way back out again once he had finished off the beast. In our problem we will assume that our turtle is dropped down somewhere into the middle of the maze and must find its way out. Look at `Figure 4.12 to get an idea of where we are going in this section.</p>
+<p>在这一部分，我们将讨论一个与不断扩展的机器人世界相关的问题：如何找到迷宫的出口？如果你有一个 Roomba 吸尘器在你的宿舍（难道所有大学生都有吗？），你会希望能使用你在这一部分学到的知识重新编程它。我们要解决的问题是帮助我们的海龟找到迷宫中的出口。迷宫问题的根源可以追溯到希腊神话中的忒修斯，忒修斯被送入迷宫去杀死弥诺陶洛斯。忒修斯使用了一球线团来帮助他在完成任务后找到出路。在我们的问题中，我们假设我们的海龟被丢在迷宫的某个地方，必须找到出口。请查看 <code>Figure 4.12</code> 以了解我们在这一部分要解决的问题。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/maze.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/maze.png" /></a>
-    <figcaption markdown="span"><strong>Figure 4.12:</strong> The Finished Maze Search Program</figcaption>
+    <figcaption markdown="span"><strong>Figure 4.12:</strong> 完成的迷宫搜索程序</figcaption>
 </figure></p>
-<p>To make it easier for us we will assume that our maze is divided up into squares. Each square of the maze is either open or occupied by a section of wall. The turtle can only pass through the open squares of the maze. If the turtle bumps into a wall, it must try a different direction. The turtle will require a systematic procedure to find its way out of the maze. Here is the procedure:</p>
+<p>为了简化问题，我们将假设迷宫被划分为方格。每个方格要么是开放的，要么被墙壁占据。海龟只能通过开放的方格。如果海龟碰到墙壁，它必须尝试不同的方向。海龟需要一个系统的程序来找到迷宫的出口。程序如下：</p>
 <ol>
-<li>From our starting position we will first try going north one square and then recursively try our procedure from there.</li>
-<li>If we are not successful by trying a northern path as the first step then we will take a step to the south and recursively repeat our procedure.</li>
-<li>If south does not work then we will try a step to the West as our first step and recursively apply our procedure.</li>
-<li>If north, south, and west have not been successful then we will apply the procedure recursively from a position one step to our east.</li>
-<li>If none of these directions works then there is no way to get out of the maze and we fail.</li>
+<li>从起始位置开始，我们首先尝试向北走一个方格，然后从那里递归地尝试我们的程序。</li>
+<li>如果我们在第一步尝试北方路径没有成功，那么我们将向南走一步，并递归地重复我们的程序。</li>
+<li>如果南方也没有成功，我们将尝试向西走一步，并递归应用我们的程序。</li>
+<li>如果北方、南方和西方都没有成功，那么我们将从东边的一步位置递归地应用程序。</li>
+<li>如果这些方向都不行，那么迷宫中没有出路，我们就失败了。</li>
 </ol>
-<p>Now that sounds pretty easy, but there are a couple of details to talk about first. Suppose we take our first recursive step by going north. By following our procedure, our next step would also be to the north. But if the north is blocked by a wall, we must look at the next step of the procedure and try going to the south. Unfortunately, that step to the south brings us right back to our original starting place. If we apply the recursive procedure from there, we will just go back one step to the North and be in an infinite loop. So we must have a strategy to remember where we have been. In this case we will assume that we have a bag of bread crumbs we can drop along our way. If we take a step in a certain direction and find that there is a bread crumb already on that square, we know that we should immediately back up and try the next direction in our procedure. As we will see when we look at the code for this algorithm, backing up is as simple as returning from a recursive function call.</p>
-<p>As we do for all recursive algorithms, let us review the base cases. Some of them you may already have guessed based on the description in the previous paragraph. In this algorithm, there are four base cases to consider:</p>
+<p>这听起来很简单，但首先有几个细节需要讨论。假设我们第一次递归步骤是向北走。按照我们的程序，下一步也会向北。但是，如果北方被墙壁挡住，我们必须查看程序的下一步并尝试向南。不幸的是，这一步向南将我们带回到最初的位置。如果我们从那里应用递归程序，我们将返回一步到北方，形成一个无限循环。因此，我们必须有一个策略来记住我们已经去过的地方。在这种情况下，我们假设我们有一袋面包屑可以沿途丢弃。如果我们在某个方向上走了一步，发现那个方格上已经有了面包屑，我们知道我们应该立即退回并尝试程序中的下一个方向。正如我们将看到的，回退就像从递归函数调用中返回一样简单。</p>
+<p>就像我们对所有递归算法所做的那样，让我们回顾基本情况。根据前面的描述，你可能已经猜到了其中的一些。在这个算法中，有四个基本情况需要考虑：</p>
 <ol>
-<li>The turtle has run into a wall. Since the square is occupied by a wall, no further exploration can take place.</li>
-<li>The turtle has found a square that has already been explored. We do not want to continue exploring from this position so we don't get into a loop.</li>
-<li>We have found an outside edge, not occupied by a wall. In other words, we have found an exit from the maze.</li>
-<li>We have explored a square unsuccessfully in all four directions.</li>
+<li>海龟碰到墙壁。由于方格被墙壁占据，不能进行进一步的探索。</li>
+<li>海龟发现了一个已经被探索过的方格。我们不想继续从这个位置进行探索，以免进入循环。</li>
+<li>我们发现了一个未被墙壁占据的外边界。换句话说，我们找到了迷宫的出口。</li>
+<li>我们在四个方向上都未能成功探索某个方格。</li>
 </ol>
-<p>For our program to work we will need to have a way to represent the maze. <code>Figure 4.13</code> is an example of a maze data file.</p>
-<div class="language-text highlight" style="background: #f8f8f8"><span class="filename">**Figure 4.13:** An Example Maze Data File</span><pre style="line-height: 125%;"><span></span><code>++++++++++++++++++++++
+<p>为了使程序正常工作，我们需要一种表示迷宫的方式。<code>Figure 4.13</code> 是一个迷宫数据文件的示例。</p>
+<div class="language-text highlight" style="background: #f8f8f8"><span class="filename">**Figure 4.13:** 迷宫数据文件示例</span><pre style="line-height: 125%;"><span></span><code>++++++++++++++++++++++
 +   +   ++ ++     +   
 + +   +       +++ + ++
 + + +  ++  ++++   + ++
@@ -4011,23 +4011,23 @@
 +                + +++
 ++++++++++++++++++ +++
 </code></pre></div>
-<p>To make this even more interesting we are going to use the <code>turtle</code> module to draw and explore our maze so we can watch this algorithm in action. The <code>Maze</code> object will provide the following methods for us to use in writing our search algorithm:</p>
+<p>为了让这更加有趣，我们将使用 <code>turtle</code> 模块来绘制和探索我们的迷宫，以便我们可以观察这个算法的实际效果。<code>Maze</code> 对象将提供以下方法供我们在编写搜索算法时使用：</p>
 <ul>
-<li><code>__init__</code> Reads in a data file representing a maze, initializes the internal representation of the maze, and finds the starting position for the turtle.</li>
-<li><code>draw_maze</code> Draws the maze in a window on the screen.</li>
-<li><code>update_position</code> Updates the internal representation of the maze and changes the position of the turtle in the window.</li>
-<li><code>is_exit</code> Checks to see if the current position is an exit from the maze.</li>
+<li><code>__init__</code> 读取表示迷宫的数据显示文件，初始化迷宫的内部表示，并找到海龟的起始位置。</li>
+<li><code>draw_maze</code> 在屏幕窗口中绘制迷宫。</li>
+<li><code>update_position</code> 更新迷宫的内部表示，并在窗口中更改海龟的位置。</li>
+<li><code>is_exit</code> 检查当前位置是否是迷宫的出口。</li>
 </ul>
-<p>The <code>Maze</code> class also overloads the index operator <code>[]</code> so that our algorithm can easily access the status of any particular square.</p>
-<p><code>Listing 4.11 &lt;lst_maze_globals&gt;</code> includes the global constants used by the <code>Maze</code> class methods (Listings <code>4.12 &lt;lst_maze_init&gt;</code>--<code>4.15 &lt;lst_maze_aux&gt;</code>) and the <code>search_from</code> function (<code>Listing 4.16 &lt;lst_maze_search&gt;</code>).</p>
-<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">**Listing 4.11:** The Maze Program Global Constants</span><pre style="line-height: 125%;"><span></span><code>START <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;S&quot;</span>
+<p><code>Maze</code> 类还重载了索引操作符 <code>[]</code>，以便我们的算法可以轻松访问任何特定方格的状态。</p>
+<p><code>Listing 4.11</code> 包括了 <code>Maze</code> 类方法（<code>Listings 4.12</code>--<code>4.15</code>）和 <code>search_from</code> 函数（<code>Listing 4.16</code>）使用的全局常量。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">**Listing 4.11:** 迷宫程序全局常量</span><pre style="line-height: 125%;"><span></span><code>START <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;S&quot;</span>
 OBSTACLE <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;+&quot;</span>
 TRIED <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;.&quot;</span>
 DEAD_END <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;-&quot;</span>
 PART_OF_PATH <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;O&quot;</span>
 </code></pre></div>
-<p>The <code>__init__</code> method takes the name of a file as its only parameter. This file is a text file that represents a maze by using “+” characters for walls, spaces for open squares, and the letter “S” to indicate the starting position.</p>
-<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">**Listing 4.12:** The Maze Class Constructor</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Maze</span>:
+<p><code>__init__</code> 方法以文件名作为唯一参数。该文件是一个文本文件，通过使用 “+” 字符表示墙壁，空格表示开放方格，字母 “S” 表示起始位置。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">**Listing 4.12:** 迷宫类构造函数</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Maze</span>:
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>, maze_filename):
         <span style="color: #008000; font-weight: bold">with</span> <span style="color: #008000">open</span>(maze_filename, <span style="color: #BA2121">&quot;r&quot;</span>) <span style="color: #008000; font-weight: bold">as</span> maze_file:
             <span style="color: #008000">self</span><span style="color: #666666">.</span>maze_list <span style="color: #666666">=</span> [
@@ -4054,21 +4054,21 @@ PART_OF_PATH <span style="color: #666666">=</span> <span style="color: #BA2121">
             (<span style="color: #008000">self</span><span style="color: #666666">.</span>rows_in_maze <span style="color: #666666">-</span> <span style="color: #666666">1</span>) <span style="color: #666666">/</span> <span style="color: #666666">2</span> <span style="color: #666666">+</span> <span style="color: #666666">0.5</span>,
         )
 </code></pre></div>
-<p>The internal representation of the maze is a list of lists. Each row of the <code>maze_list</code> instance variable is also a list. This secondary list contains one character per square using the characters described above. For the data file in <code>Figure 13</code> the internal representation looks like the following:</p>
+<p>迷宫的内部表示是一个列表的列表。<code>maze_list</code> 实例变量的每一行也是一个列表。这个二级列表包含每个方格的一个字符，使用上述描述的字符。对于 <code>Figure 13</code> 中的数据文件，内部表示看起来如下：</p>
 <div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>    [  [<span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #666666">...</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>]
-       [<span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #666666">...</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>]
-       [<span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #666666">...</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>]
-       [<span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #666666">...</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>]
-       [<span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #666666">...</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>]
-       [<span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #666666">...</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>]
-       [<span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #666666">...</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>]
-       [<span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #666666">...</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>]
-       [<span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #666666">...</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>]
-       [<span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #666666">...</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>]
-       [<span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #666666">...</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>] ]
+        [<span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #666666">...</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>]
+        [<span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #666666">...</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>]
+        [<span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #666666">...</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>]
+        [<span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #666666">...</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>]
+        [<span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #666666">...</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>]
+        [<span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #666666">...</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>]
+        [<span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #666666">...</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>]
+        [<span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #666666">...</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>]
+        [<span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #666666">...</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>]
+        [<span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #666666">...</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>, <span style="color: #BA2121">&#39;+&#39;</span>] ]
 </code></pre></div>
-<p>The <code>draw_maze</code> method uses this internal representation to draw the initial view of the maze on the screen (<code>Figure 4.12</code>).</p>
-<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">**Listing 4.13:** The Maze Class Drawing Methods</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">draw_maze</span>(<span style="color: #008000">self</span>):
+<p><code>draw_maze</code> 方法使用这种内部表示来绘制迷宫的初始视图在屏幕上（<code>Figure 4.12</code>）。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">**Listing 4.13:** 迷宫类绘图方法</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">draw_maze</span>(<span style="color: #008000">self</span>):
     <span style="color: #008000">self</span><span style="color: #666666">.</span>t<span style="color: #666666">.</span>speed(<span style="color: #666666">10</span>)
     <span style="color: #008000">self</span><span style="color: #666666">.</span>wn<span style="color: #666666">.</span>tracer(<span style="color: #666666">0</span>)
     <span style="color: #008000; font-weight: bold">for</span> y <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>rows_in_maze):
@@ -4085,7 +4085,9 @@ PART_OF_PATH <span style="color: #666666">=</span> <span style="color: #BA2121">
 <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">draw_centered_box</span>(<span style="color: #008000">self</span>, x, y, color):
     <span style="color: #008000">self</span><span style="color: #666666">.</span>t<span style="color: #666666">.</span>up()
     <span style="color: #008000">self</span><span style="color: #666666">.</span>t<span style="color: #666666">.</span>goto(x <span style="color: #666666">-</span> <span style="color: #666666">0.5</span>, y <span style="color: #666666">-</span> <span style="color: #666666">0.5</span>)
-    <span style="color: #008000">self</span><span style="color: #666666">.</span>t<span style="color: #666666">.</span>color(color)
+    <span style="color: #008000">self</span><span style="color: #666666">.</span>t<span style="color: #666666">.</span>color
+
+(color)
     <span style="color: #008000">self</span><span style="color: #666666">.</span>t<span style="color: #666666">.</span>fillcolor(color)
     <span style="color: #008000">self</span><span style="color: #666666">.</span>t<span style="color: #666666">.</span>setheading(<span style="color: #666666">90</span>)
     <span style="color: #008000">self</span><span style="color: #666666">.</span>t<span style="color: #666666">.</span>down()
@@ -4095,8 +4097,8 @@ PART_OF_PATH <span style="color: #666666">=</span> <span style="color: #BA2121">
         <span style="color: #008000">self</span><span style="color: #666666">.</span>t<span style="color: #666666">.</span>right(<span style="color: #666666">90</span>)
     <span style="color: #008000">self</span><span style="color: #666666">.</span>t<span style="color: #666666">.</span>end_fill()
 </code></pre></div>
-<p>The <code>update_position</code> method, as shown in <code>Listing 4.14</code> uses the same internal representation to see if the turtle has run into a wall. It also updates the internal representation with a “.” or “-” to indicate that the turtle has visited a particular square or if the square is part of a dead end. In addition, the <code>update_position</code> method uses two helper methods, <code>move_turtle</code> and <code>drop_bread_crumb</code>, to update the view on the screen.</p>
-<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">**Listing 4.14:** The Maze Class Moving Methods</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">update_position</span>(<span style="color: #008000">self</span>, row, col, val<span style="color: #666666">=</span><span style="color: #008000; font-weight: bold">None</span>):
+<p><code>update_position</code> 方法如 <code>Listing 4.14</code> 所示，使用相同的内部表示来查看海龟是否碰到墙壁。它还用 “.” 或 “-” 更新内部表示，以表示海龟是否访问过某个方格或该方格是否是死胡同。此外，<code>update_position</code> 方法使用两个辅助方法，<code>move_turtle</code> 和 <code>drop_bread_crumb</code>，来更新屏幕上的视图。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">**Listing 4.14:** 迷宫类移动方法</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">update_position</span>(<span style="color: #008000">self</span>, row, col, val<span style="color: #666666">=</span><span style="color: #008000; font-weight: bold">None</span>):
     <span style="color: #008000; font-weight: bold">if</span> val:
         <span style="color: #008000">self</span><span style="color: #666666">.</span>maze_list[row][col] <span style="color: #666666">=</span> val
     <span style="color: #008000">self</span><span style="color: #666666">.</span>move_turtle(col, row)
@@ -4123,8 +4125,8 @@ PART_OF_PATH <span style="color: #666666">=</span> <span style="color: #BA2121">
 <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">drop_bread_crumb</span>(<span style="color: #008000">self</span>, color):
     <span style="color: #008000">self</span><span style="color: #666666">.</span>t<span style="color: #666666">.</span>dot(<span style="color: #666666">10</span>, color)
 </code></pre></div>
-<p>Finally, the <code>is_exit</code> method uses the current position of the turtle to test for an exit condition. An exit condition occurs whenever the turtle has navigated to the edge of the maze, either row zero or column zero, or the far-right column or the bottom row.</p>
-<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">**Listing 4.15:** The Maze Class Auxiliary Methods</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">is_exit</span>(<span style="color: #008000">self</span>, row, col):
+<p>最后，<code>is_exit</code> 方法使用海龟的当前位置来测试是否到达了出口。出口条件发生在海龟到达迷宫的边缘时，即第零行、第零列、最右列或最底行。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">**Listing 4.15:** 迷宫类辅助方法</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">is_exit</span>(<span style="color: #008000">self</span>, row, col):
     <span style="color: #008000; font-weight: bold">return</span> (
         row <span style="color: #666666">==</span> <span style="color: #666666">0</span>
         <span style="color: #AA22FF; font-weight: bold">or</span> row <span style="color: #666666">==</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>rows_in_maze <span style="color: #666666">-</span> <span style="color: #666666">1</span>
@@ -4135,24 +4137,23 @@ PART_OF_PATH <span style="color: #666666">=</span> <span style="color: #BA2121">
 <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__getitem__</span>(<span style="color: #008000">self</span>, idx):
     <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>maze_list[idx]
 </code></pre></div>
-<p>Let’s examine the code for the search function which we call <code>search_from</code>. The code is shown in <code>Listing 4.16</code>. Notice that this function takes three parameters: a <code>Maze</code> object, the starting row, and the starting column. This is important because as a recursive function the search logically starts again with each recursive call.</p>
-<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">**Listing 4.15:** The Maze Class Auxiliary Methods</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">search_from</span>(maze, row, column):
-    <span style="color: #3D7B7B; font-style: italic"># Try each of four directions from this point until we find a way out.</span>
+<p>让我们查看 <code>search_from</code> 函数的代码。该函数的代码显示在 <code>Listing 4.16</code> 中。注意，这个函数接受三个参数：一个 <code>Maze</code> 对象、起始行和起始列。这很重要，因为作为递归函数，搜索逻辑上从每次递归调用中重新开始。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">**Listing 4.16:** search_from 函数</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">search_from</span>(maze, row, column):
+    <span style="color: #3D7B7B; font-style: italic"># 尝试从这个点的四个方向中找到出口</span>
     maze<span style="color: #666666">.</span>update_position(row, column)
-    <span style="color: #3D7B7B; font-style: italic"># Base Case return values:</span>
-    <span style="color: #3D7B7B; font-style: italic">#  1. We have run into an obstacle, return false</span>
+    <span style="color: #3D7B7B; font-style: italic"># 基本情况返回值：</span>
+    <span style="color: #3D7B7B; font-style: italic">#  1. 碰到障碍物，返回 False</span>
     <span style="color: #008000; font-weight: bold">if</span> maze[row][column] <span style="color: #666666">==</span> OBSTACLE:
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">False</span>
-    <span style="color: #3D7B7B; font-style: italic">#  2. We have found an already explored square</span>
+    <span style="color: #3D7B7B; font-style: italic">#  2. 找到已被探索过的方格</span>
     <span style="color: #008000; font-weight: bold">if</span> maze[row][column] <span style="color: #AA22FF; font-weight: bold">in</span> [TRIED, DEAD_END]:
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">False</span>
-    <span style="color: #3D7B7B; font-style: italic"># 3. We have found an exit</span>
+    <span style="color: #3D7B7B; font-style: italic"># 3. 找到一个未被障碍物占据的外边界</span>
     <span style="color: #008000; font-weight: bold">if</span> maze<span style="color: #666666">.</span>is_exit(row, column):
         maze<span style="color: #666666">.</span>update_position(row, column, PART_OF_PATH)
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">True</span>
     maze<span style="color: #666666">.</span>update_position(row, column, TRIED)
-    <span style="color: #3D7B7B; font-style: italic"># Otherwise, use logical short circuiting to try each direction</span>
-    <span style="color: #3D7B7B; font-style: italic"># in turn (if needed)</span>
+    <span style="color: #3D7B7B; font-style: italic"># 否则，使用逻辑短路依次尝试每个方向</span>
     found <span style="color: #666666">=</span> (
         search_from(maze, row <span style="color: #666666">-</span> <span style="color: #666666">1</span>, column)
         <span style="color: #AA22FF; font-weight: bold">or</span> search_from(maze, row <span style="color: #666666">+</span> <span style="color: #666666">1</span>, column)
@@ -4165,9 +4166,9 @@ PART_OF_PATH <span style="color: #666666">=</span> <span style="color: #BA2121">
         maze<span style="color: #666666">.</span>update_position(row, column, DEAD_END)
     <span style="color: #008000; font-weight: bold">return</span> found
 </code></pre></div>
-<p>As you look through the algorithm you will see that the first thing the code does (line 3) is call <code>update_position</code>. This is simply to help you visualize the algorithm so that you can watch exactly how the turtle explores its way through the maze. Next the algorithm checks for the first three of the four base cases: Has the turtle run into a wall (lines 6)? Has the turtle circled back to a square already explored (line 9)? Has the turtle found an exit (line 12)? If none of these conditions is true then we continue the search recursively.</p>
-<p>You will notice that in the recursive step there are four recursive calls to <code>search_from</code>. It is hard to predict how many of these recursive calls will be used since they are all connected by <code>or</code> statements. If the first call to <code>search_from</code> returns <code>True</code> then none of the last three calls would be needed. You can interpret this as meaning that a step to <code>(row - 1, column)</code> (or north if you want to think geographically) is on the path leading out of the maze. If there is not a good path leading out of the maze to the north then the next recursive call is tried, this one to the south. If south fails then try west, and finally east. If all four recursive calls return <code>False</code> then we have found a dead end. You should download or type in the whole program and experiment with it by changing the order of these calls.</p>
-<p>The complete program is shown in <code>ActiveCode 4.11.1 &lt;completemaze&gt;</code>.  This program uses the data file <code>maze2.txt</code> shown below. Note that it is a much more simple example file in that the exit is very close to the starting position of the turtle.</p>
+<p>在查看算法时，你会发现代码的第一步（第3行）是调用 <code>update_position</code>。这只是为了帮助你可视化算法，以便你可以准确地看到海龟如何探索迷宫。接下来，算法检查四个基本情况中的前三个：海龟是否碰到墙壁（第6行）？海龟是否回到了已探索的方格（第9行）？海龟是否找到了出口（第12行）？如果这些条件都不成立，我们将继续递归搜索。</p>
+<p>你会注意到在递归步骤中，有四个递归调用到 <code>search_from</code>。由于这些调用通过 <code>or</code> 语句连接在一起，很难预测会使用多少个递归调用。如果第一个调用 <code>search_from</code> 返回 <code>True</code>，那么其余的三个调用将不会被需要。这意味着，如果有一个有效的路径向 <code>(row - 1, column)</code>（或北方，如果你想以地理方位思考）可以通向迷宫的出口。如果北方没有好的路径，接下来会尝试向南。如果南方失败，则尝试西方，最后尝试东方。如果所有四个递归调用都返回 <code>False</code>，那么我们发现了一个死胡同。你应该下载或输入整个程序并尝试通过更改这些调用的顺序来进行实验。</p>
+<p>完整的程序显示在 <code>ActiveCode 4.11.1 &lt;completemaze&gt;</code> 中。该程序使用数据文件 <code>maze2.txt</code>，如下所示。注意，它是一个更简单的示例文件，因为出口离海龟的起始位置非常近。</p>
 <div class="language-text highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>++++++++++++++++++++++
 +   +   ++ ++        +
     +     ++++++++++
@@ -4180,7 +4181,7 @@ PART_OF_PATH <span style="color: #666666">=</span> <span style="color: #BA2121">
 +++++ +  + + +     + +
 ++++++++++++++++++++++
 </code></pre></div>
-<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 4.11.1 Complete Maze Solver</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">  1</span>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">活动: 4.11.1 完整的迷宫解决器</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">  1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">  2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">  3</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">  4</span>
@@ -4319,7 +4320,8 @@ PART_OF_PATH <span style="color: #666666">=</span> <span style="color: #BA2121">
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">137</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">138</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">139</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">140</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">turtle</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">140</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">141</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">turtle</span>
 
 START <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;S&quot;</span>
 OBSTACLE <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;+&quot;</span>
@@ -4422,25 +4424,26 @@ PART_OF_PATH <span style="color: #666666">=</span> <span style="color: #BA2121">
 
 
 <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">search_from</span>(maze, start_row, start_column):
-    <span style="color: #3D7B7B; font-style: italic"># try each of four directions from this point until we find a way out.</span>
-    <span style="color: #3D7B7B; font-style: italic"># base Case return values:</span>
-    <span style="color: #3D7B7B; font-style: italic">#  1. We have run into an obstacle, return false</span>
+    <span style="color: #3D7B7B; font-style: italic"># 尝试从这个点的四个方向中找到出口</span>
+    <span style="color: #3D7B7B; font-style: italic"># 基本情况返回值：</span>
+    <span style="color: #3D7B7B; font-style: italic">#  1. 碰到障碍物，返回 False</span>
     maze<span style="color: #666666">.</span>update_position(start_row, start_column)
     <span style="color: #008000; font-weight: bold">if</span> maze[start_row][start_column] <span style="color: #666666">==</span> OBSTACLE:
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">False</span>
-    <span style="color: #3D7B7B; font-style: italic">#  2. We have found a square that has already been explored</span>
+    <span style="color: #3D7B7B; font-style: italic">#  2.</span>
+
+ 找到已探索的方格
     <span style="color: #008000; font-weight: bold">if</span> (
         maze[start_row][start_column] <span style="color: #666666">==</span> TRIED
         <span style="color: #AA22FF; font-weight: bold">or</span> maze[start_row][start_column] <span style="color: #666666">==</span> DEAD_END
     ):
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">False</span>
-    <span style="color: #3D7B7B; font-style: italic"># 3. We have found an outside edge not occupied by an obstacle</span>
+    <span style="color: #3D7B7B; font-style: italic"># 3. 找到一个未被障碍物占据的外边界</span>
     <span style="color: #008000; font-weight: bold">if</span> maze<span style="color: #666666">.</span>is_exit(start_row, start_column):
         maze<span style="color: #666666">.</span>update_position(start_row, start_column, PART_OF_PATH)
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">True</span>
     maze<span style="color: #666666">.</span>update_position(start_row, start_column, TRIED)
-    <span style="color: #3D7B7B; font-style: italic"># Otherwise, use logical short circuiting to try each direction</span>
-    <span style="color: #3D7B7B; font-style: italic"># in turn (if needed)</span>
+    <span style="color: #3D7B7B; font-style: italic"># 否则，使用逻辑短路依次尝试每个方向</span>
     found <span style="color: #666666">=</span> (
         search_from(maze, start_row <span style="color: #666666">-</span> <span style="color: #666666">1</span>, start_column)
         <span style="color: #AA22FF; font-weight: bold">or</span> search_from(maze, start_row <span style="color: #666666">+</span> <span style="color: #666666">1</span>, start_column)
@@ -4461,8 +4464,8 @@ my_maze<span style="color: #666666">.</span>update_position(my_maze<span style="
 search_from(my_maze, my_maze<span style="color: #666666">.</span>start_row, my_maze<span style="color: #666666">.</span>start_col)
 </code></pre></div></td></tr></table></div>
 <div class="admonition info">
-<p class="admonition-title">Self Check</p>
-<p>Modify the maze search program so that the calls to <code>search_from</code> are in a different order. Watch the program run. Can you explain why the behavior is different? Can you predict what path the turtle will follow for a given change in order?</p>
+<p class="admonition-title">自我检查</p>
+<p>修改迷宫搜索程序，使得对 <code>search_from</code> 的调用顺序不同。观察程序的运行情况。你能解释为什么行为不同吗？你能预测在给定的调用顺序更改下海龟将遵循什么路径吗？</p>
 </div>
 </div>
 <div class="tabbed-block">
@@ -4962,7 +4965,7 @@ search_from(my_maze, my_maze<span style="color: #666666">.</span>start_row, my_m
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月10日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月12日</span>
       
         <br>
         创建日期:

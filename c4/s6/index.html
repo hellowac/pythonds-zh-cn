@@ -3977,8 +3977,8 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Suppose that instead of concatenating the result of the recursive call to <code>to_str</code> with the string from <code>convert_string</code>, we modified our algorithm to push the strings onto a stack instead of making the recursive call. The code for this modified algorithm is shown in <code>ActiveCode 4.6.1</code>.</p>
-<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 4.6.1 Converting an Integer to a String Using a Stack</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<p>假设我们不是将递归调用 <code>to_str</code> 的结果与 <code>convert_string</code> 中的字符串连接起来，而是修改算法，将字符串推送到栈上，而不是进行递归调用。这个修改后的算法的代码见 <code>ActiveCode 4.6.1</code>。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 4.6.1 使用栈将整数转换为字符串</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
@@ -3994,10 +3994,7 @@
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pythonds3.basic</span> <span style="color: #008000; font-weight: bold">import</span> Stack
-
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pythonds3.basic</span> <span style="color: #008000; font-weight: bold">import</span> Stack
 
 <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">to_str</span>(n, base):
     r_stack <span style="color: #666666">=</span> Stack()
@@ -4013,21 +4010,20 @@
         res <span style="color: #666666">=</span> res <span style="color: #666666">+</span> <span style="color: #008000">str</span>(r_stack<span style="color: #666666">.</span>pop())
     <span style="color: #008000; font-weight: bold">return</span> res
 
-
 <span style="color: #008000">print</span>(to_str(<span style="color: #666666">1453</span>, <span style="color: #666666">16</span>))
 </code></pre></div></td></tr></table></div>
-<p>Each time we make a call to <code>to_str</code>, we push a character on the stack. Returning to the previous example we can see that after the fourth call to <code>to_str</code> the stack would look like <code>Figure 4.5</code>. Notice that now we can simply pop the characters off the stack and concatenate them into the final result, <code>"1010"</code>.</p>
+<p>每次我们调用 <code>to_str</code> 时，我们都会将一个字符推入栈中。返回到之前的例子，我们可以看到，在第四次调用 <code>to_str</code> 后，栈的状态如 <code>Figure 4.5</code> 所示。注意，现在我们可以简单地从栈中弹出字符，并将它们连接成最终结果 <code>"1010"</code>。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/recstack.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/recstack.png" /></a>
-    <figcaption markdown="span"><strong>Figure 4.5:</strong> Strings Placed on the Stack During Conversion</figcaption>
+    <figcaption markdown="span"><strong>Figure 4.5:</strong> 转换过程中放置在栈上的字符串</figcaption>
 </figure></p>
-<p>The previous example gives us some insight into how Python implements a recursive function call. When a function is called in Python, a <strong>stack frame</strong> is allocated to handle the local variables of the function. When the function returns, the return value is left on top of the stack for the calling function to access. <code>Figure 4.6</code> illustrates the call stack after the return statement on line 4.</p>
+<p>前面的例子为我们提供了一些关于 Python 如何实现递归函数调用的见解。当在 Python 中调用一个函数时，会为处理函数的局部变量分配一个 <strong>栈帧</strong>。当函数返回时，返回值会保留在栈顶，以供调用函数访问。<code>Figure 4.6</code> 展示了第 4 行返回语句后的调用栈。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/callstack.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/callstack.png" /></a>
-    <figcaption markdown="span"><strong>Figure 4.6:</strong> Call Stack Generated from <code>to_str(10, 2)</code></figcaption>
+    <figcaption markdown="span"><strong>Figure 4.6:</strong> <code>to_str(10, 2)</code> 生成的调用栈</figcaption>
 </figure></p>
-<p>Notice that the call to <code>to_str(2 // 2, 2)</code> defined in Listing 4.4 leaves a return value of <code>"1"</code> on the stack. This return value is then used in place of the function call (<code>to_str(1, 2)</code>) in the expression <code>"1" + convert_string[2 % 2]</code>, which will leave the string <code>"10"</code> on the top of the stack. In this way, the Python call stack takes the place of the stack we used explicitly in <code>ActiveCode 4.6.1</code>. In our list summing example, you can think of the return value on the stack taking the place of an accumulator variable.</p>
-<p>The stack frames also provide a scope for the variables used by the function. Even though we are calling the same function over and over, each call creates a new scope for the variables that are local to the function.</p>
+<p>注意，调用 <code>to_str(2 // 2, 2)</code>（见 Listing 4.4）会在栈上留下返回值 <code>"1"</code>。然后，这个返回值会在表达式 <code>"1" + convert_string[2 % 2]</code> 中替代函数调用（<code>to_str(1, 2)</code>），这将把字符串 <code>"10"</code> 留在栈顶。这样，Python 的调用栈就取代了我们在 <code>ActiveCode 4.6.1</code> 中显式使用的栈。在我们的列表求和示例中，你可以把栈上的返回值看作是累加器变量。</p>
+<p>栈帧还为函数使用的变量提供了作用域。即使我们一遍遍地调用相同的函数，每次调用都会为函数的局部变量创建一个新的作用域。</p>
 </div>
 <div class="tabbed-block">
 <p>Suppose that instead of concatenating the result of the recursive call to <code>to_str</code> with the string from <code>convert_string</code>, we modified our algorithm to push the strings onto a stack instead of making the recursive call. The code for this modified algorithm is shown in <code>ActiveCode 4.6.1</code>.</p>
@@ -4090,7 +4086,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月10日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月12日</span>
       
         <br>
         创建日期:

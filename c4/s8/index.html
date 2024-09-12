@@ -3977,13 +3977,13 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Another fractal that exhibits the property of self-similarity is the Sierpinski triangle. An example is shown in <code>Figure 4.9</code>. The Sierpinski triangle illustrates a three-way recursive algorithm. The procedure for drawing a Sierpinski triangle by hand is simple. Start with a single large triangle. Divide this large triangle into four new triangles by connecting the midpoint of each side. Ignoring the middle triangle that you just created, apply the same procedure to each of the three corner triangles. Each time you create a new set of triangles, you recursively apply this procedure to the three smaller corner triangles. You can continue to apply this procedure indefinitely if you have a sharp enough pencil. Before you continue reading, you may want to try drawing the Sierpinski triangle yourself, using the method described.</p>
+<p>另一个展示自相似性质的分形是谢尔宾斯基三角形。<code>Figure 4.9</code> 展示了一个例子。谢尔宾斯基三角形展示了一种三重递归算法。手动绘制谢尔宾斯基三角形的方法很简单。首先从一个大三角形开始。通过连接每条边的中点，将这个大三角形划分为四个新三角形。忽略刚刚创建的中间三角形，对其余三个角落的三角形应用相同的方法。每次创建一组新三角形时，你递归地对这三个较小的角落三角形应用这个过程。如果你有足够锋利的铅笔，你可以无限期地应用这个过程。在继续阅读之前，你可能想尝试自己用这种方法绘制谢尔宾斯基三角形。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/sierpinski.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/sierpinski.png" /></a>
-    <figcaption markdown="span"><strong>Figure 4.9:</strong> The Sierpinski Triangle</figcaption>
+    <figcaption markdown="span"><strong>Figure 4.9:</strong> 谢尔宾斯基三角形</figcaption>
 </figure></p>
-<p>Since we can continue to apply the algorithm indefinitely, what is the base case? We will see that the base case is set arbitrarily as the number of times we want to divide the triangle into pieces. Sometimes we call this number the <em>degree</em> of the fractal. Each time we make a recursive call, we subtract 1 from the degree until we reach 0. When we reach a degree of 0, we stop making recursive calls. The code that generated the Sierpinski Triangle in <code>Figure 4.9</code> is shown in <code>ActiveCode 4.8.1</code>.</p>
-<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 4.8.1 Drawing a Sierpinski Triangle</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<p>由于我们可以无限期地应用这个算法，那么基本情况是什么呢？我们会看到，基本情况被任意设置为我们希望将三角形划分为多少次。有时我们称这个数字为<strong>分形的度数</strong>。每次进行递归调用时，我们将度数减 1，直到达到 0。当我们达到度数为 0 时，我们停止递归调用。生成 <code>Figure 4.9</code> 中的谢尔宾斯基三角形的代码见 <code>ActiveCode 4.8.1</code>。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 4.8.1 绘制谢尔宾斯基三角形</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
@@ -4026,13 +4026,7 @@
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">41</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">42</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">43</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">44</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">45</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">46</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">47</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">48</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">49</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">turtle</span>
-
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">44</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">turtle</span>
 
 <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">draw_triangle</span>(points, color, my_turtle):
     my_turtle<span style="color: #666666">.</span>fillcolor(color)
@@ -4045,10 +4039,8 @@
     my_turtle<span style="color: #666666">.</span>goto(points[<span style="color: #666666">0</span>][<span style="color: #666666">0</span>], points[<span style="color: #666666">0</span>][<span style="color: #666666">1</span>])
     my_turtle<span style="color: #666666">.</span>end_fill()
 
-
 <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_mid</span>(p1, p2):
     <span style="color: #008000; font-weight: bold">return</span> ((p1[<span style="color: #666666">0</span>] <span style="color: #666666">+</span> p2[<span style="color: #666666">0</span>]) <span style="color: #666666">/</span> <span style="color: #666666">2</span>, (p1[<span style="color: #666666">1</span>] <span style="color: #666666">+</span> p2[<span style="color: #666666">1</span>]) <span style="color: #666666">/</span> <span style="color: #666666">2</span>)
-
 
 <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">sierpinski</span>(points, degree, my_turtle):
     colormap <span style="color: #666666">=</span> [<span style="color: #BA2121">&quot;blue&quot;</span>, <span style="color: #BA2121">&quot;red&quot;</span>, <span style="color: #BA2121">&quot;green&quot;</span>, <span style="color: #BA2121">&quot;white&quot;</span>, <span style="color: #BA2121">&quot;yellow&quot;</span>, <span style="color: #BA2121">&quot;violet&quot;</span>, <span style="color: #BA2121">&quot;orange&quot;</span>]
@@ -4070,7 +4062,6 @@
             my_turtle,
         )
 
-
 <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">main</span>():
     my_turtle <span style="color: #666666">=</span> turtle<span style="color: #666666">.</span>Turtle()
     my_win <span style="color: #666666">=</span> turtle<span style="color: #666666">.</span>Screen()
@@ -4078,17 +4069,16 @@
     sierpinski(my_points, <span style="color: #666666">5</span>, my_turtle)
     my_win<span style="color: #666666">.</span>exitonclick()
 
-
 main()
 </code></pre></div></td></tr></table></div>
-<p>The program in <code>ActiveCode 4.8.1</code> follows the ideas outlined above. The first thing <code>sierpinski</code> does is draw the outer triangle. Next, there are three recursive calls, one for each of the new corner triangles we get when we connect the midpoints. Once again we make use of the standard <code>turtle</code> module that comes with Python. You can learn all the details of the methods available in the turtle module by using <code>help("turtle")</code> from the Python prompt.</p>
-<p>Look at the code and think about the order in which the triangles will be drawn. While the exact order of the corners depends upon how the initial set is specified, let’s assume that the corners are ordered lower left, top, lower right. Because of the way the <code>sierpinski</code> function calls itself, <code>sierpinski</code> works its way to the smallest allowed triangle in the lower-left corner and then begins to fill out the rest of the triangles working back. Then it fills in the triangles in the top corner by working toward the smallest, topmost triangle. Finally, it fills in the lower-right corner, working its way toward the smallest triangle in the lower right.</p>
-<p>Sometimes it is helpful to think of a recursive algorithm in terms of a diagram of function calls. <code>Figure 4.10</code> shows that the recursive calls are always made going to the left. The active functions are outlined in black, and the inactive function calls are in gray. The farther you go toward the bottom of <code>Figure 4.10</code>, the smaller the triangles. The function finishes drawing one level at a time; once it is finished with the bottom left it moves to the bottom middle, and so on.</p>
+<p><code>ActiveCode 4.8.1</code> 中的程序遵循了上述思想。<code>sierpinski</code> 首先绘制外部三角形。接下来，有三个递归调用，每个角落的三角形都对应一个递归调用。一旦再次使用了标准的 <code>turtle</code> 模块，你可以通过从 Python 提示符使用 <code>help("turtle")</code> 来学习 <code>turtle</code> 模块中的所有方法的详细信息。</p>
+<p>查看代码并思考三角形绘制的顺序。虽然角落的确切顺序取决于初始集合的指定方式，但我们假设角落的顺序是左下、顶部、右下。由于 <code>sierpinski</code> 函数调用自身的方式，<code>sierpinski</code> 会先绘制到最小的左下角三角形，然后开始填充其余的三角形，再返回填充顶部角落的三角形，最后填充右下角，逐渐绘制到右下角的最小三角形。</p>
+<p>有时，用函数调用的图示来思考递归算法是很有帮助的。<code>Figure 4.10</code> 展示了递归调用总是向左进行。活动函数用黑色轮廓显示，非活动函数调用用灰色显示。你越往下看 <code>Figure 4.10</code>，三角形越小。函数每次完成一个级别的绘制；完成左下角后，它会转到左中间，依此类推。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/stCallTree.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/stCallTree.png" /></a>
-    <figcaption markdown="span"><strong>Figure 4.10:</strong> Building a Sierpinski Triangle</figcaption>
+    <figcaption markdown="span"><strong>Figure 4.10:</strong> 构建谢尔宾斯基三角形</figcaption>
 </figure></p>
-<p>The <code>sierpinski</code> function relies heavily on the <code>get_mid</code> function. <code>get_mid</code> takes as arguments two endpoints and returns the point halfway between them. In addition, <code>ActiveCode 4.8.1</code> has a function that draws a filled triangle using the <code>begin_fill</code> and <code>end_fill</code> turtle methods.</p>
+<p><code>sierpinski</code> 函数在很大程度上依赖于 <code>get_mid</code> 函数。<code>get_mid</code> 函数接受两个端点作为参数，并返回它们之间的中点。此外，<code>ActiveCode 4.8.1</code> 中还有一个使用 <code>begin_fill</code> 和 <code>end_fill</code> 方法绘制填充三角形的函数。</p>
 </div>
 <div class="tabbed-block">
 <p>Another fractal that exhibits the property of self-similarity is the Sierpinski triangle. An example is shown in <code>Figure 4.9</code>. The Sierpinski triangle illustrates a three-way recursive algorithm. The procedure for drawing a Sierpinski triangle by hand is simple. Start with a single large triangle. Divide this large triangle into four new triangles by connecting the midpoint of each side. Ignoring the middle triangle that you just created, apply the same procedure to each of the three corner triangles. Each time you create a new set of triangles, you recursively apply this procedure to the three smaller corner triangles. You can continue to apply this procedure indefinitely if you have a sharp enough pencil. Before you continue reading, you may want to try drawing the Sierpinski triangle yourself, using the method described.</p>
@@ -4212,7 +4202,7 @@ main()
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月10日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月12日</span>
       
         <br>
         创建日期:

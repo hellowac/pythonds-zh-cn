@@ -3977,45 +3977,45 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Like robots in Asimov's stories, all recursive algorithms must obey three important laws:</p>
+<p>像阿西莫夫故事中的机器人一样，所有递归算法都必须遵循三个重要的法则：</p>
 <ol>
-<li>A recursive algorithm must have a <strong>base case</strong>.</li>
-<li>A recursive algorithm must change its state and move toward the base case.</li>
-<li>A recursive algorithm must call itself recursively.</li>
+<li>递归算法必须有一个 <strong>基本情况</strong>。</li>
+<li>递归算法必须改变其状态并朝向基本情况前进。</li>
+<li>递归算法必须递归地调用自身。</li>
 </ol>
-<p>Let’s look at each one of these laws in more detail and see how it was used in the <code>list_sum</code> algorithm. First, a base case is the condition that allows the algorithm to stop recursing. A base case is typically a problem that is small enough to solve directly. In the <code>list_sum</code> algorithm the base case is a list of length 1.</p>
-<p>To obey the second law, we must arrange for a change of state that moves the algorithm toward the base case. A change of state means that some data that the algorithm is using is modified. Usually the data that represents our problem gets smaller in some way. In the <code>list_sum</code> algorithm our primary data structure is a list, so we must focus our state-changing efforts on the list. Since the base case is a list of length 1, a natural progression toward the base case is to shorten the list. This is exactly what happens on line 5 of <code>ActiveCode 4.3.2</code> when we call <code>list_sum</code> with a shorter list.</p>
-<p>The final law is that the algorithm must call itself. This is the very definition of recursion. Recursion is a confusing concept to many beginning programmers. As a novice programmer, you have learned that functions are good because you can take a large problem and break it up into smaller problems. The smaller problems can be solved by writing a function to solve each problem. When we talk about recursion it may seem that we are talking ourselves in circles. We have a problem to solve with a function, but that function solves the problem by calling itself! But the logic is not circular at all; the logic of recursion is an elegant expression of solving a problem by breaking it down into a smaller and easier problems.</p>
-<p>In the remainder of this chapter we will look at more examples of recursion. In each case we will focus on designing a solution to a problem by using the three laws of recursion.</p>
+<p>让我们详细看看这些法则，并了解它们在 <code>list_sum</code> 算法中的应用。首先，基本情况是允许算法停止递归的条件。基本情况通常是一个足够小的问题，可以直接解决。在 <code>list_sum</code> 算法中，基本情况是长度为1的列表。</p>
+<p>为了遵守第二条法则，我们必须安排状态的变化，使算法朝向基本情况前进。状态的变化意味着算法使用的一些数据被修改。通常，代表我们问题的数据会以某种方式变小。在 <code>list_sum</code> 算法中，我们的主要数据结构是一个列表，所以我们必须将状态变化的工作集中在列表上。由于基本情况是长度为1的列表，朝向基本情况的自然进展是缩短列表。这正是在 <code>ActiveCode 4.3.2</code> 的第5行发生的，当我们用更短的列表调用 <code>list_sum</code> 时。</p>
+<p>最后的法则是算法必须调用自身。这正是递归的定义。递归对许多初学程序员来说是一个令人困惑的概念。作为初学者，你已经了解到函数很好，因为你可以将一个大问题分解成更小的问题。这些更小的问题可以通过编写函数来解决。当我们谈论递归时，它可能看起来像是在自我循环。我们有一个函数需要解决的问题，但那个函数通过调用自身来解决问题！但逻辑根本不是循环的；递归的逻辑是通过将问题分解成更小、更容易解决的问题来优雅地解决问题。</p>
+<p>在本章的其余部分，我们将查看更多递归的例子。在每种情况下，我们将重点设计一个解决问题的方案，并使用递归的三个法则。</p>
 <div class="admonition info">
-<p class="admonition-title">Self Check</p>
-<p>Q-1: How many recursive calls are made when computing the sum of the list [2, 4, 6, 8, 10]?</p>
+<p class="admonition-title">自测</p>
+<p>Q-1: 计算列表 [2, 4, 6, 8, 10] 的总和时，进行了多少次递归调用？</p>
 <ul>
-<li>answer a: 6</li>
-<li>answer b: 5</li>
-<li>answer c: 4</li>
-<li>answer d: 3</li>
+<li>答案 a: 6</li>
+<li>答案 b: 5</li>
+<li>答案 c: 4</li>
+<li>答案 d: 3</li>
 </ul>
-<p>correct: c</p>
+<p>正确: c</p>
 <ul>
-<li>feedback a: There are only five numbers on the list, the number of recursive calls will not be greater than the size of the list.</li>
-<li>feedback b: The initial call to list_sum is not a recursive call.</li>
-<li>feedback c: the first recursive call passes the list [4, 6, 8, 10], the second [6, 8, 10] and so on until [10].</li>
-<li>feedback d: This would not be enough calls to cover all the numbers on the list</li>
+<li>反馈 a: 列表中只有五个数字，递归调用的次数不会超过列表的大小。</li>
+<li>反馈 b: 初始调用 <code>list_sum</code> 并不是递归调用。</li>
+<li>反馈 c: 第一次递归调用传递列表 [4, 6, 8, 10]，第二次 [6, 8, 10]，以此类推，直到 [10]。</li>
+<li>反馈 d: 这不会覆盖列表中的所有数字，递归调用次数不足。</li>
 </ul>
-<p>Q-2: Suppose you are going to write a recusive function to calculate the factorial of a number.  fact(n) returns n * n-1 * n-2 * ... Where the factorial of zero is defined to be 1.  What would be the most appropriate base case?</p>
+<p>Q-2: 假设你要编写一个递归函数来计算一个数字的阶乘。<code>fact(n)</code> 返回 n * (n-1) * (n-2) * ... 其中零的阶乘定义为1。最合适的基本情况是什么？</p>
 <ul>
-<li>answer a: n == 0</li>
-<li>answer b: n == 1</li>
-<li>answer c: n &gt;= 0</li>
-<li>answer d: n &lt;= 1</li>
+<li>答案 a: n == 0</li>
+<li>答案 b: n == 1</li>
+<li>答案 c: n &gt;= 0</li>
+<li>答案 d: n &lt;= 1</li>
 </ul>
-<p>correct: d</p>
+<p>正确: d</p>
 <ul>
-<li>feedback a:  Although this would work there are better and slightly more efficient choices. since fact(1) and fact(0) are the same.</li>
-<li>feedback b: A good choice, but what happens if you call fact(0)?</li>
-<li>feedback c: This basecase would be true for all numbers greater than zero so fact of any positive number would be 1.</li>
-<li>feedback d: Good, this is the most efficient, and even keeps your program from crashing if you try to compute the factorial of a negative number.</li>
+<li>反馈 a: 虽然这也可以工作，但有更好的、稍微更高效的选择，因为 fact(1) 和 fact(0) 是相同的。</li>
+<li>反馈 b: 一个好的选择，但如果你调用 fact(0) 会发生什么？</li>
+<li>反馈 c: 这个基本情况适用于所有大于零的数字，因此任何正数的阶乘都会是1。</li>
+<li>反馈 d: 很好，这是最有效的，并且即使你尝试计算负数的阶乘也能防止程序崩溃。</li>
 </ul>
 </div>
 </div>
@@ -4070,7 +4070,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月10日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月12日</span>
       
         <br>
         创建日期:
