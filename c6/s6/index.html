@@ -3977,39 +3977,39 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Our second method to represent a tree uses nodes and references. In this case we will define a class that has attributes for the root value as well as the left and right subtrees. Using nodes and references, we might think of the tree as being structured like the one shown in <code>Figure 2</code>. Since this representation more closely follows the object-oriented programming paradigm, we will continue to use this representation for the remainder of the chapter.</p>
+<p>我们第二种表示树的方法使用节点和引用。在这种情况下，我们将定义一个具有根值属性以及左右子树属性的类。使用节点和引用，我们可以将树看作类似于 <code>图 2</code> 所示的结构。由于这种表示方法更符合面向对象编程的范式，我们将在本章的剩余部分继续使用这种表示方法。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/treerecs.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/treerecs.png" /></a>
-    <figcaption markdown="span">Figure 2: A Simple Tree Using a Nodes and References Approach</figcaption>
+    <figcaption markdown="span">图 2: 使用节点和引用方法的简单树</figcaption>
 </figure>   </p>
-<p>We will start out with a simple class definition for the nodes and references approach as shown in <code>Listing 4</code>. The important thing to remember about this representation is that the attributes <code>left_child</code> and <code>right_child</code> will become references to other instances of the <code>BinaryTree</code> class. For example, when we insert a new left child into the tree, we create another instance of <code>BinaryTree</code> and modify <code>self.left_child</code> in the root to reference the new tree.</p>
+<p>我们将从 <code>Listing 4</code> 中展示的简单类定义开始。关于这种表示方法，重要的是要记住，属性 <code>left_child</code> 和 <code>right_child</code> 将成为对其他 <code>BinaryTree</code> 类实例的引用。例如，当我们向树中插入新的左子节点时，我们会创建另一个 <code>BinaryTree</code> 实例，并修改根节点的 <code>self.left_child</code> 以引用新树。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><span class="filename">**Listing 4**</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">BinaryTree</span>:
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>, root_obj):
         <span style="color: #008000">self</span><span style="color: #666666">.</span>key <span style="color: #666666">=</span> root_obj
         <span style="color: #008000">self</span><span style="color: #666666">.</span>left_child <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
         <span style="color: #008000">self</span><span style="color: #666666">.</span>right_child <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
 </code></pre></div>
-<p>Notice that in <code>Listing 4</code>, the constructor function expects to get some kind of object to store in the root. Just as you can store any object you like in a list, the root object of a tree can be a reference to any object. For our early examples, we will store the name of the node as the root value. Using nodes and references to represent the tree in <code>Figure 2</code>, we would create six instances of the <code>BinaryTree</code> class.</p>
-<p>Next let’s look at the functions we need to build the tree beyond the root node. To add a left child to the tree, we will create a new binary tree object and set the <code>left_child</code> attribute of the root to refer to this new object. The code for <code>insert_left</code> is shown in <code>Listing 5</code>.</p>
-<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">**Listing 5**</span><pre style="line-height: 125%;"><span></span><code>    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">insert_left</span>(<span style="color: #008000">self</span>, new_node):
-        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>left_child <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #008000; font-weight: bold">None</span>:
-            <span style="color: #008000">self</span><span style="color: #666666">.</span>left_child <span style="color: #666666">=</span> BinaryTree(new_node)
-        <span style="color: #008000; font-weight: bold">else</span>:
-            new_child <span style="color: #666666">=</span> BinaryTree(new_node)
-            new_child<span style="color: #666666">.</span>left_child <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>left_child
-            <span style="color: #008000">self</span><span style="color: #666666">.</span>left_child <span style="color: #666666">=</span> new_child
+<p>注意，在 <code>Listing 4</code> 中，构造函数期望获得某种对象以存储在根节点中。就像你可以在列表中存储任何对象一样，树的根对象可以是对任何对象的引用。在我们的早期示例中，我们将节点的名称存储为根值。使用节点和引用来表示 <code>图 2</code> 中的树，我们将创建六个 <code>BinaryTree</code> 类的实例。</p>
+<p>接下来，让我们看看我们需要什么函数来构建树的根节点以外的部分。为了向树中添加左子节点，我们将创建一个新的二叉树对象，并将根节点的 <code>left_child</code> 属性设置为指向这个新对象。<code>insert_left</code> 的代码如 <code>Listing 5</code> 所示。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">**Listing 5**</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">insert_left</span>(<span style="color: #008000">self</span>, new_node):
+    <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>left_child <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #008000; font-weight: bold">None</span>:
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>left_child <span style="color: #666666">=</span> BinaryTree(new_node)
+    <span style="color: #008000; font-weight: bold">else</span>:
+        new_child <span style="color: #666666">=</span> BinaryTree(new_node)
+        new_child<span style="color: #666666">.</span>left_child <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>left_child
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>left_child <span style="color: #666666">=</span> new_child
 </code></pre></div>
-<p>We must consider two cases for insertion. The first case is characterized by a node with no existing left child. When there is no left child, simply add a node to the tree. The second case is characterized by a node with an existing left child. In the second case, we insert a node and push the existing child down one level in the tree. The second case is handled by the <code>else</code> statement on line 4 of <code>Listing 5</code>.</p>
-<p>The code for <code>insert_right</code> must consider a symmetric set of cases. There will either be no right child, or we must insert the node between the root and an existing right child. The insertion code is shown in <code>Listing 6</code>.</p>
-<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">**Listing 6**</span><pre style="line-height: 125%;"><span></span><code>    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">insert_right</span>(<span style="color: #008000">self</span>, new_node):
-        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>right_child <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">None</span>:
-            <span style="color: #008000">self</span><span style="color: #666666">.</span>right_child <span style="color: #666666">=</span> BinaryTree(new_node)
-        <span style="color: #008000; font-weight: bold">else</span>:
-            new_child <span style="color: #666666">=</span> BinaryTree(new_node)
-            new_child<span style="color: #666666">.</span>right_child <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>right_child
-            <span style="color: #008000">self</span><span style="color: #666666">.</span>right_child <span style="color: #666666">=</span> new_child
+<p>我们必须考虑两种插入情况。第一种情况是节点没有现有的左子节点。当没有左子节点时，简单地将一个节点添加到树中。第二种情况是节点有一个现有的左子节点。在第二种情况下，我们插入一个新节点，并将现有的子节点向下推一层。第二种情况由 <code>Listing 5</code> 第 4 行的 <code>else</code> 语句处理。</p>
+<p><code>insert_right</code> 的代码必须考虑一组对称的情况。要么没有右子节点，要么我们必须将节点插入到根节点和现有右子节点之间。插入代码如 <code>Listing 6</code> 所示。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">**Listing 6**</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">insert_right</span>(<span style="color: #008000">self</span>, new_node):
+    <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>right_child <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">None</span>:
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>right_child <span style="color: #666666">=</span> BinaryTree(new_node)
+    <span style="color: #008000; font-weight: bold">else</span>:
+        new_child <span style="color: #666666">=</span> BinaryTree(new_node)
+        new_child<span style="color: #666666">.</span>right_child <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>right_child
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>right_child <span style="color: #666666">=</span> new_child
 </code></pre></div>
-<p>To round out the definition for a simple binary tree data structure, we will write accessor methods for the left and right children and for the root values (see <code>Listing 7</code>) .</p>
+<p>为了完成简单二叉树数据结构的定义，我们将编写访问方法，用于获取左子节点和右子节点以及根值（见 <code>Listing 7</code>）。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><span class="filename">**Listing 7**</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_root_val</span>(<span style="color: #008000">self</span>):
     <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>key
 
@@ -4022,8 +4022,8 @@
 <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_right_child</span>(<span style="color: #008000">self</span>):
     <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>right_child
 </code></pre></div>
-<p>Now that we have all the pieces to create and manipulate a binary tree, let’s use them to check on the structure a bit more. Let’s make a simple tree with node a as the root, and add nodes "b" and "c" as children. <code>ActiveCode 1</code> creates the tree and looks at the some of the values stored in <code>key</code>, <code>left_child</code>, and <code>right_child</code>. Notice that both the left and right children of the root are themselves distinct instances of the <code>BinaryTree</code> class. As we said in our original recursive definition for a tree, this allows us to treat any child of a binary tree as a binary tree itself.</p>
-<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 6.6.1 Exercising the Node and Reference Implementation</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<p>现在我们拥有了创建和操作二叉树的所有组件，让我们使用它们进一步检查结构。我们将创建一个以节点 "a" 作为根的简单树，并添加节点 "b" 和 "c" 作为子节点。<code>ActiveCode 1</code> 创建了树，并查看 <code>key</code>、<code>left_child</code> 和 <code>right_child</code> 中存储的一些值。注意，根节点的左右子节点本身都是 <code>BinaryTree</code> 类的不同实例。正如我们在树的原始递归定义中所说的，这使我们能够将任何二叉树的子节点视为二叉树本身。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 6.6.1 练习节点和引用实现</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
@@ -4116,16 +4116,16 @@ a_tree<span style="color: #666666">.</span>get_right_child()<span style="color: 
 <span style="color: #008000">print</span>(a_tree<span style="color: #666666">.</span>get_right_child()<span style="color: #666666">.</span>get_root_val())
 </code></pre></div></td></tr></table></div>
 <div class="admonition info">
-<p class="admonition-title">Self Check</p>
+<p class="admonition-title">自我检查</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">mctree_3</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Write a function <code>build_tree</code> that returns a tree using the nodes and references implementation that looks like this:</p>
+<p>编写一个 <code>build_tree</code> 函数，该函数使用节点和引用实现返回如下树：</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/tree_ex.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/tree_ex.png" /></a>
 </figure></p>
-<details class="- tip">
-<summary>Tip</summary>
+<details class="- 提示">
+<summary>提示</summary>
 <div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">test</span> <span style="color: #008000; font-weight: bold">import</span> testEqual
 
 <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">build_tree</span>():
@@ -4318,7 +4318,7 @@ testEqual(ttree<span style="color: #666666">.</span>get_right_child()<span style
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月11日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月13日</span>
       
         <br>
         创建日期:

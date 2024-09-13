@@ -3982,17 +3982,17 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>We now turn our attention to using a divide and conquer strategy as a way to improve the performance of sorting algorithms. The first algorithm we will study is the <strong>merge sort</strong>. Merge sort is a recursive algorithm that continually splits a list in half. If the list is empty or has one item, it is sorted by definition (the base case). If the list has more than one item, we split the list and recursively invoke a merge sort on both halves. Once the two halves are sorted, the fundamental operation, called a <strong>merge</strong>, is performed. Merging is the process of taking two smaller sorted lists and combining them together into a single sorted new list. <code>Figure 10</code> shows our familiar example list as it is being split by <code>merge_sort</code>. <code>Figure 11</code> shows the simple lists, now sorted, as they are merged back together.</p>
+<p>我们现在转向使用分治策略来提升排序算法的性能。我们将研究的第一个算法是 <strong>归并排序</strong>。归并排序是一种递归算法，它不断将列表一分为二。如果列表为空或只有一个项，则按定义已排序（这是基本情况）。如果列表包含多个项，则将列表分成两半，并递归地对这两半调用归并排序。一旦两半都已排序，就执行一个基本操作，称为 <strong>归并</strong>。归并是将两个已排序的较小列表合并为一个新的已排序列表的过程。<code>图 10</code> 显示了我们熟悉的示例列表在 <code>merge_sort</code> 中被拆分的过程。<code>图 11</code> 显示了这些简单的列表，经过排序后，它们如何被合并回一起。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/mergesortA.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/mergesortA.png" /></a>
-    <figcaption markdown="span">Figure 10: Splitting the List in a Merge Sort</figcaption>
+    <figcaption markdown="span">图 10: 归并排序中的列表拆分</figcaption>
 </figure>   </p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/mergesortB.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/mergesortB.png" /></a>
-    <figcaption markdown="span">Figure 11: Lists as They Are Merged Together</figcaption>
+    <figcaption markdown="span">图 11: 列表在合并后的状态</figcaption>
 </figure>   </p>
-<p>The <code>merge_sort</code> function shown in <code>ActiveCode 1</code> begins by asking the base case question. If the length of the list is less than or equal to one, then we already have a sorted list and no more processing is necessary. If, on the other hand, the length is greater than one, then we use the Python <code>slice</code> operation to extract the left and right halves. It is important to note that the list may not have an even number of items. That does not matter, as the lengths will differ by at most one.</p>
-<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 5.11.1 Merge Sort</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<p><code>merge_sort</code> 函数如 <code>ActiveCode 1</code> 所示，首先提出基本情况的问题。如果列表的长度小于或等于一，则我们已经有一个排序好的列表，无需进一步处理。另一方面，如果长度大于一，则使用 Python 的 <code>slice</code> 操作来提取左半部分和右半部分。需要注意的是，列表的项数可能不是偶数，这并不重要，因为长度最多只会相差一。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">活动: 5.11.1 归并排序</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
@@ -4027,7 +4027,7 @@
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">33</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">34</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">35</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">merge_sort</span>(a_list):
-    <span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;Splitting&quot;</span>, a_list)
+    <span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;拆分&quot;</span>, a_list)
     <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">len</span>(a_list) <span style="color: #666666">&gt;</span> <span style="color: #666666">1</span>:
         mid <span style="color: #666666">=</span> <span style="color: #008000">len</span>(a_list) <span style="color: #666666">//</span> <span style="color: #666666">2</span>
         left_half <span style="color: #666666">=</span> a_list[:mid]
@@ -4055,36 +4055,36 @@
             a_list[k] <span style="color: #666666">=</span> right_half[j]
             j <span style="color: #666666">=</span> j <span style="color: #666666">+</span> <span style="color: #666666">1</span>
             k <span style="color: #666666">=</span> k <span style="color: #666666">+</span> <span style="color: #666666">1</span>
-    <span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;Merging&quot;</span>, a_list)
+    <span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;合并&quot;</span>, a_list)
 
 
 a_list <span style="color: #666666">=</span> [<span style="color: #666666">54</span>, <span style="color: #666666">26</span>, <span style="color: #666666">93</span>, <span style="color: #666666">17</span>, <span style="color: #666666">77</span>, <span style="color: #666666">31</span>, <span style="color: #666666">44</span>, <span style="color: #666666">55</span>, <span style="color: #666666">20</span>]
 merge_sort(a_list)
 <span style="color: #008000">print</span>(a_list)
 </code></pre></div></td></tr></table></div>
-<p>Once the <code>merge_sort</code> function is invoked on the left half and the right half (lines 8–9), it is assumed they are sorted. The rest of the function (lines 11–29) is responsible for merging the two smaller sorted lists into a larger sorted list. Notice that the merge operation places the items back into the original list (<code>a_list</code>) one at a time by repeatedly taking the smallest item from the sorted lists. Note that the condition in line 13 (<code>left_half[i] &lt;= right_half[j]</code>) ensures that the algorithm is stable. A <strong>stable algorithm</strong> maintains the order of duplicate items in a list and is preferred in most cases.</p>
-<p>The <code>merge_sort</code> function has been augmented with a <code>print</code> statement (line 2) to show the contents of the list being sorted at the start of each invocation. There is also a <code>print</code> statement (line 30) to show the merging process. The transcript shows the result of executing the function on our example list. Note that the list with 44, 55, and 20 will not divide evenly. The first split gives <code>[44]</code> and the second gives <code>[55, 20]</code>. It is easy to see how the splitting process eventually yields a list that can be immediately merged with other sorted lists.</p>
+<p>一旦 <code>merge_sort</code> 函数在左半部分和右半部分上被调用（第 8-9 行），它们被假定为已排序。函数的其余部分（第 11-29 行）负责将两个较小的已排序列表合并为一个较大的已排序列表。注意，归并操作将项一个一个地放回到原始列表（<code>a_list</code>）中，通过不断从已排序的列表中取出最小的项。注意第 13 行的条件（<code>left_half[i] &lt;= right_half[j]</code>）确保算法是稳定的。<strong>稳定算法</strong> 维护了列表中重复项的顺序，并且在大多数情况下更为理想。</p>
+<p><code>merge_sort</code> 函数被增强了一个 <code>print</code> 语句（第 2 行）以显示每次调用开始时排序列表的内容。还有一个 <code>print</code> 语句（第 30 行）显示归并过程。下面的输出显示了在我们的示例列表上执行函数的结果。注意，列表中的 44、55 和 20 不会均匀分割。第一次分割得到 <code>[44]</code>，第二次分割得到 <code>[55, 20]</code>。可以很容易地看出，拆分过程最终会产生一个可以立即与其他已排序列表合并的列表。</p>
 <p><div id="merge_anim1" class="">
     <canvas id="merge_anim1_canvas" width="400" height="400" style="border:4px solid blue"></canvas>
     <br>
-    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="merge_anim1_anim = merge_anim_init('merge_anim1')">Initialize</button>
-    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="merge_anim1_anim.run('merge_anim1_anim')">Run</button>
-    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="merge_anim1_anim.stop()">Stop</button> <br>
-    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="merge_anim1_anim.begin()">Beginning</button>
-    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="merge_anim1_anim.forward()">Step Forward</button>
-    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="merge_anim1_anim.backward()">Step Backward</button>
-    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="merge_anim1_anim.end()">End</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="merge_anim1_anim = merge_anim_init('merge_anim1')">初始化</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="merge_anim1_anim.run('merge_anim1_anim')">运行</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="merge_anim1_anim.stop()">停止</button> <br>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="merge_anim1_anim.begin()">开始</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="merge_anim1_anim.forward()">向前一步</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="merge_anim1_anim.backward()">向后一步</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="merge_anim1_anim.end()">结束</button>
     <script>
     merge_anim_init = function(divid)
     {
-       var a = new Animator(new MergeSortModel(), new BarViewer(), divid)
-       a.init()
-       return a
+        var a = new Animator(new MergeSortModel(), new BarViewer(), divid)
+        a.init()
+        return a
     }
     </script>
 </div></p>
-<p>For more detail, CodeLens 6 allows you to step through the algorithm.</p>
-<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Tracing the Merge Sort</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<p>有关更多细节，CodeLens 6 允许您逐步分析算法。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">追踪归并排序</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
@@ -4113,7 +4113,7 @@ merge_sort(a_list)
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">29</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">merge_sort</span>(a_list):
-    <span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;Splitting &quot;</span>,a_list)
+    <span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;拆分 &quot;</span>,a_list)
     <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">len</span>(a_list)<span style="color: #666666">&gt;1</span>:
         mid <span style="color: #666666">=</span> <span style="color: #008000">len</span>(a_list)<span style="color: #666666">//2</span>
         left_half <span style="color: #666666">=</span> a_list[:mid]
@@ -4137,53 +4137,55 @@ merge_sort(a_list)
             a_list[k]<span style="color: #666666">=</span>right_half[j]
             j<span style="color: #666666">=</span>j<span style="color: #666666">+1</span>
             k<span style="color: #666666">=</span>k<span style="color: #666666">+1</span>
-    <span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;Merging &quot;</span>,a_list)
+    <span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;合并 &quot;</span>,a_list)
 a_list <span style="color: #666666">=</span> [<span style="color: #666666">54</span>,<span style="color: #666666">26</span>,<span style="color: #666666">93</span>,<span style="color: #666666">17</span>,<span style="color: #666666">77</span>,<span style="color: #666666">31</span>,<span style="color: #666666">44</span>,<span style="color: #666666">55</span>,<span style="color: #666666">20</span>]
 merge_sort(a_list)
 <span style="color: #008000">print</span>(a_list)
 </code></pre></div></td></tr></table></div>
-<p>In order to analyze the <code>merge_sort</code> function, we need to consider the two distinct processes that make up its implementation. First, the list is split into halves. We already computed (in a binary search) that we can divide a list in half <span class="arithmatex">\(\log{n}\)</span> times where <span class="arithmatex">\(n\)</span> is the length of the list. The second process is the merge. Each item in the list will eventually be processed and placed on the sorted list. So the merge operation which results in a list of size <span class="arithmatex">\(n\)</span> requires <span class="arithmatex">\(n\)</span> operations. The result of this analysis is that <span class="arithmatex">\(\log{n}\)</span> splits, each of which costs <span class="arithmatex">\(n\)</span> for a total of <span class="arithmatex">\(n\log{n}\)</span> operations. A merge sort is an <span class="arithmatex">\(O(n\log{n})\)</span> algorithm.</p>
-<p>Recall that the slicing operator is <span class="arithmatex">\(O(k)\)</span> where <span class="arithmatex">\(k\)</span> is the size of the slice. In order to guarantee that <code>merge_sort</code> will be <span class="arithmatex">\(O(n\log n)\)</span> we will need to remove the slice operator. Again, this is possible if we simply pass the starting and ending indices along with the list when we make the recursive call. We leave this as an exercise.</p>
-<p>It is important to notice that the <code>merge_sort</code> function requires extra space to hold the two halves as they are extracted with the slicing operations. This additional space can be a critical factor if the list is large and can make this sort problematic when working on large data sets.</p>
+<p>要分析 <code>merge_sort</code> 函数，我们需要考虑构成其实现的两个不同过程。首先，列表被分割成两半。我们已经计算过（在二分搜索中）我们可以将列表分割成 <span class="arithmatex">\(\log{n}\)</span> 次，其中 <span class="arithmatex">\(n\)</span> 是列表的长度。第二个过程是归并。列表中的每一项最终都将被处理并放入已排序的列表中。因此，结果为大小 <span class="arithmatex">\(n\)</span> 的列表的归并操作需要 <span class="arithmatex">\(n\)</span> 次操作。分析结果是 <span class="arithmatex">\(\log{n}\)</span> 次分割，每次分割的成本为 <span class="arithmatex">\(n\)</span>，总共需要 <span class="arithmatex">\(n\log{n}\)</span> 次操作。归并排序是一个 <span class="arithmatex">\(O(n\log{n})\)</span> 算法。</p>
+<p>请记住，切片操作的复杂度是 <span class="arithmatex">\(O(k)\)</span>，其中 <span class="arithmatex">\(k\)</span> 是切片的大小。为了确保 <code>merge_sort</code> 的复杂度是 <span class="arithmatex">\(O(n\log n)\)</span>，我们需要移除切片操作。再次地，如果我们在进行递归调用时传递起始和结束索引以及列表，这将是可能的。我们留作练习。</p>
+<p>需要注意的是，<code>merge_sort</code> 函数需要额外的空间来保存提取的两个半部分。对于大型列表来说，这额外的空间可能是一个关键因素，并且在处理大型数据集时可能会使这种排序变得有问题。</p>
 <div class="admonition info">
-<p class="admonition-title">Self Check</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">question_sort_5</label><label for="__tabbed_2_2">question_sort_6</label></div>
+<p class="admonition-title">自我检测</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">question_sort_5</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Given the following list of numbers: <br> [21, 1, 26, 45, 29, 28, 2, 9, 16, 49, 39, 27, 43, 34, 46, 40] <br> which answer illustrates the list to be sorted after 3 recursive calls to mergesort?</p>
+<p>给定以下数字列表： <br> [21, 1, 26, 45, 29, 28, 2, 9, 16, 49, 39, 27, 43, 34, 46, 40] <br> 哪个答案说明了在 3 次递归调用后，归并排序的列表状态？</p>
 <ul>
-<li>answer a: [16, 49, 39, 27, 43, 34, 46, 40]</li>
-<li>answer b: [21,1]</li>
-<li>answer c: [21, 1, 26, 45]</li>
-<li>answer d: [21]</li>
-</ul>
-<p>correct: b</p>
-<ul>
-<li>feedback a: This is the second half of the list.</li>
-<li>feedback b: Yes, mergesort will continue to recursively move toward the beginning of the list until it hits a base case.</li>
-<li>feedback c: Remember mergesort doesn't work on the right half of the list until the left half is completely sorted.</li>
-<li>feedback d: This is the list after 4 recursive calls</li>
-</ul>
-</div>
-<div class="tabbed-block">
-<p>Given the following list of numbers: <br> [21, 1, 26, 45, 29, 28, 2, 9, 16, 49, 39, 27, 43, 34, 46, 40] <br> which answer illustrates the first two lists to be merged?</p>
-<ul>
-<li>answer a: [21, 1] and [26, 45]</li>
-<li>answer b: [[1, 2, 9, 21, 26, 28, 29, 45] and [16, 27, 34, 39, 40, 43, 46, 49]</li>
-<li>answer c: [21] and [1]</li>
-<li>answer d: [9] and [16]</li>
-</ul>
-<p>correct: c</p>
-<ul>
-<li>feedback a: The first two lists merged will be base case lists, we have not yet reached a base case.</li>
-<li>feedback b: These will be the last two lists merged</li>
-<li>feedback c: The lists [21] and [1] are the first two base cases encountered by mergesort and will therefore be the first two lists merged.</li>
-<li>feedback d: Although 9 and 16 are next to each other they are in different halves of the list starting with the first split.</li>
+<li>选项 a: [16, 49, 39, 27, 43, 34, 46, 40]</li>
+<li>选项 b:</li>
 </ul>
 </div>
 </div>
 </div>
 </div>
+<p>[21,1]
+        - 选项 c: [21, 1, 26, 45]
+        - 选项 d: [21]</p>
+<div class="codehilite"><pre><span></span><code>    正确答案: b
+
+    <span class="k">-</span> 反馈 a: 这是列表的第二半部分。
+    <span class="k">-</span> 反馈 b: 是的，归并排序将继续递归地向列表的开始部分移动，直到它遇到基本情况。
+    <span class="k">-</span> 反馈 c: 记住，归并排序在对右半部分进行操作之前，必须先完全排序左半部分。
+    <span class="k">-</span> 反馈 d: 这是 4 次递归调用后的列表状态。
+
+=== &quot;question_sort_6&quot;
+
+    给定以下数字列表： &lt;br&gt; [21, 1, 26, 45, 29, 28, 2, 9, 16, 49, 39, 27, 43, 34, 46, 40] &lt;br&gt; 哪个答案说明了第一个要合并的两个列表？
+
+    <span class="k">-</span> 选项 a: [21, 1] 和 [26, 45]
+    <span class="k">-</span> 选项 b: [1, 2, 9, 21, 26, 28, 29, 45] 和 [16, 27, 34, 39, 40, 43, 46, 49]]
+    <span class="k">-</span> 选项 c: [21] 和 [1]
+    <span class="k">-</span> 选项 d: [9] 和 [16]
+
+    正确答案: c
+
+    <span class="k">-</span> 反馈 a: 第一个要合并的两个列表是基本情况列表，我们还没有达到基本情况。
+    <span class="k">-</span> 反馈 b: 这些将是最后两个合并的列表。
+    <span class="k">-</span> 反馈 c: 列表 [21] 和 [1] 是归并排序遇到的第一个基本情况列表，因此将是第一个合并的列表。
+    <span class="k">-</span> 反馈 d: 尽管 9 和 16 是相邻的，它们处于列表的不同半部分，从第一次分割开始。
+</code></pre></div>
+
 </div>
 <div class="tabbed-block">
 <p>We now turn our attention to using a divide and conquer strategy as a way to improve the performance of sorting algorithms. The first algorithm we will study is the <strong>merge sort</strong>. Merge sort is a recursive algorithm that continually splits a list in half. If the list is empty or has one item, it is sorted by definition (the base case). If the list has more than one item, we split the list and recursively invoke a merge sort on both halves. Once the two halves are sorted, the fundamental operation, called a <strong>merge</strong>, is performed. Merging is the process of taking two smaller sorted lists and combining them together into a single sorted new list. <code>Figure 10</code> shows our familiar example list as it is being split by <code>merge_sort</code>. <code>Figure 11</code> shows the simple lists, now sorted, as they are merged back together.</p>
@@ -4397,7 +4399,7 @@ merge_sort(a_list)
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月11日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月13日</span>
       
         <br>
         创建日期:

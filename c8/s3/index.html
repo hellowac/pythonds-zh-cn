@@ -4071,10 +4071,10 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>One of the most common uses of numerical computing today is in the field of cryptography. Each time you check your bank account, sign on to a secure website to purchase something, or sign on to your computer, you are using cryptography. In a general sense, <em>cryptography</em> is concerned with encrypting and decrypting information that you do not want other people to see. In this section we will look at some functions that are used in everyday cryptographic programming. In practice there may be faster ways to implement these functions, but each of them has an interesting recursive implementation.</p>
-<p>The algorithms in this section make use of Python’s modulo operator (%). Remember that <span class="arithmatex">\(a \% b\)</span>` is what is left over after <span class="arithmatex">\(a\)</span> is divided by <span class="arithmatex">\(b\)</span>, for example <span class="arithmatex">\(10 \% 7 = 3\)</span>. When we compute the result of any mathematical expression modulo 10, the only possible results are 0–9.</p>
-<p>One of the earliest forms of cryptography used only simple modular arithmetic. Take the string <code>"uryybjbeyq"</code>, for example. Can you guess what message is encrypted? <code>Listing lst_enc</code> shows you the function that produced the message. Look at the listing and see if you can figure it out.</p>
-<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing lst_enc</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">encrypt</span>(m):
+<p>今天数值计算最常见的用途之一是加密领域。每次你查看银行账户、登录安全网站进行购买，或登录计算机时，你都在使用加密技术。一般来说，<em>加密</em> 涉及对你不希望其他人看到的信息进行加密和解密。在本节中，我们将探讨一些在日常加密编程中使用的函数。实际上，可能有更快速的方法来实现这些函数，但每个函数都有一个有趣的递归实现。</p>
+<p>本节中的算法利用了 Python 的取模运算符（%）。记住，<span class="arithmatex">\(a \% b\)</span> 是 <span class="arithmatex">\(a\)</span> 除以 <span class="arithmatex">\(b\)</span> 后的余数，例如 <span class="arithmatex">\(10 \% 7 = 3\)</span>。当我们计算任何数学表达式模 10 的结果时，唯一可能的结果是 0 到 9。</p>
+<p>早期的加密形式仅使用简单的模运算。例如，字符串 <code>"uryybjbeyq"</code>。你能猜出加密的消息是什么吗？<code>Listing lst_enc</code> 显示了生成该消息的函数。查看代码，看看你能否找出答案。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing lst_enc</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">encrypt</span>(m):
     s <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;abcdefghijklmnopqrstuvwxyz&quot;</span>
     n <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;&quot;</span>
     <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> m:
@@ -4082,17 +4082,17 @@
         n <span style="color: #666666">=</span> n <span style="color: #666666">+</span> s[j]
     <span style="color: #008000; font-weight: bold">return</span> n
 </code></pre></div>
-<p>The <code>encrypt</code> function illustrates a form of encryption known as the Caesar Cipher. It also goes by the name ROT13, which is a bit more descriptive. <code>encrypt</code> simply takes each letter in the message and adds 13 to its ordinal position in the alphabet. If the position goes past the end of the alphabet, it wraps around. This wraparound function is easily accomplished using the modulo operator. In addition, since there are 26 letters in the alphabet, this function is symmetric. The symmetry allows us to use the function to encrypt and decrypt the same message. If you pass the string <code>"uryybjbeyg"</code> to the <code>encrypt</code> function, it returns <code>"helloworld"</code>.</p>
-<p>Rotations by amounts other than 13 are possible; however, they are not symmetric with respect to encrypting and decrypting. Asymmetry would require us to write a separate decryption algorithm that subtracts the amount to rotate. In that case, we could generalize both the <code>encrypt</code> and <code>decrypt</code> functions to take the amount of rotation as a parameter. In cryptographic terms, the rotation parameter is called the <em>key</em> and would be the number of positions to rotate. Given the message and the key, the encryption and decryption algorithms can do their jobs. <code>Listing lst_dec_key</code> shows the decryption algorithm that takes the amount of rotation as a parameter. As an exercise you should be able to modify <code>Listing lst_enc</code> to accept a parameter that specifies a key.</p>
-<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing lst_dec_key</span><pre style="line-height: 125%;"><span></span><code>   <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">decrypt</span>(m, k):
-       s <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;abcdefghijklmnopqrstuvwxyz&quot;</span>
-       n <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;&quot;</span>
-       <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> m:
-           j <span style="color: #666666">=</span> (s<span style="color: #666666">.</span>find(i) <span style="color: #666666">+</span> <span style="color: #666666">26</span> <span style="color: #666666">-</span> k) <span style="color: #666666">%</span> <span style="color: #666666">26</span>
-           n <span style="color: #666666">=</span> n <span style="color: #666666">+</span> s[j]
-       <span style="color: #008000; font-weight: bold">return</span> n
+<p><code>encrypt</code> 函数演示了一种被称为 Caesar Cipher 的加密形式。它也被称为 ROT13，这更具描述性。<code>encrypt</code> 函数简单地将消息中的每个字母在字母表中的位置加上 13。如果位置超出了字母表的末尾，它会回绕。这个回绕函数可以通过取模运算符轻松实现。此外，由于字母表中有 26 个字母，这个函数是对称的。对称性允许我们使用这个函数加密和解密相同的消息。如果你将字符串 <code>"uryybjbeyg"</code> 传递给 <code>encrypt</code> 函数，它将返回 <code>"helloworld"</code>。</p>
+<p>除了 13 的旋转之外，还可以使用其他旋转量；然而，它们在加密和解密方面并不对称。非对称性要求我们编写一个单独的解密算法，该算法会减去旋转的量。在这种情况下，我们可以将 <code>encrypt</code> 和 <code>decrypt</code> 函数泛化，使其接受旋转量作为参数。在加密术语中，旋转参数称为 <em>key</em>，它表示旋转的位置数。给定消息和密钥，加密和解密算法可以完成它们的工作。<code>Listing lst_dec_key</code> 显示了一个接受旋转量作为参数的解密算法。作为练习，你应该能够修改 <code>Listing lst_enc</code> 以接受指定密钥的参数。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing lst_dec_key</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">decrypt</span>(m, k):
+    s <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;abcdefghijklmnopqrstuvwxyz&quot;</span>
+    n <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;&quot;</span>
+    <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> m:
+        j <span style="color: #666666">=</span> (s<span style="color: #666666">.</span>find(i) <span style="color: #666666">+</span> <span style="color: #666666">26</span> <span style="color: #666666">-</span> k) <span style="color: #666666">%</span> <span style="color: #666666">26</span>
+        n <span style="color: #666666">=</span> n <span style="color: #666666">+</span> s[j]
+    <span style="color: #008000; font-weight: bold">return</span> n
 </code></pre></div>
-<p>Even if you keep the number <code>k</code> from everyone except the person you are sending the message to, this simple form of encryption is not going to stop anyone from stealing your secrets for very long. In the remainder of this section, we will build up to a much more secure form of encryption, the RSA <strong>public key encryption</strong> algorithm.</p>
+<p>即使你将数字 <code>k</code> 隐藏在除了接收消息的人之外的所有人中，这种简单的加密形式仍然不能长时间阻止任何人窃取你的秘密。在本节的剩余部分，我们将介绍一种更安全的加密形式，即 RSA <strong>公钥加密</strong> 算法。</p>
 </div>
 <div class="tabbed-block">
 <p>One of the most common uses of numerical computing today is in the field of cryptography. Each time you check your bank account, sign on to a secure website to purchase something, or sign on to your computer, you are using cryptography. In a general sense, <em>cryptography</em> is concerned with encrypting and decrypting information that you do not want other people to see. In this section we will look at some functions that are used in everyday cryptographic programming. In practice there may be faster ways to implement these functions, but each of them has an interesting recursive implementation.</p>
@@ -4125,11 +4125,11 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">中文</label><label for="__tabbed_2_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>If two numbers, <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span>, give the same remainder when divided by <span class="arithmatex">\(n\)</span>, we say that <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> are “congruent modulo <span class="arithmatex">\(n\)</span>.” In shorthand we write <span class="arithmatex">\(a \equiv~b~\pmod{n}\)</span>. The algorithms in this section make use of three important theorems:</p>
+<p>如果两个数 <span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(b\)</span> 除以 <span class="arithmatex">\(n\)</span> 时余数相同，我们说 <span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(b\)</span> 是“模 <span class="arithmatex">\(n\)</span> 同余的”。简写为 <span class="arithmatex">\(a \equiv b \pmod{n}\)</span>。本节中的算法利用了三个重要的定理：</p>
 <ol>
-<li>If <span class="arithmatex">\(a \equiv b \pmod{n}\)</span> then <span class="arithmatex">\(\forall c, a + c \equiv b + c \pmod{n}\)</span>.</li>
-<li>If <span class="arithmatex">\(a \equiv b \pmod{n}\)</span> then <span class="arithmatex">\(\forall c, ac \equiv bc \pmod{n}\)</span>.</li>
-<li>If <span class="arithmatex">\(a \equiv b \pmod{n}\)</span> then <span class="arithmatex">\(\forall p, p &gt; 0, a^p \equiv b^p \pmod{n}\)</span>.</li>
+<li>如果 <span class="arithmatex">\(a \equiv b \pmod{n}\)</span>，则对任意 <span class="arithmatex">\(c\)</span>，有 <span class="arithmatex">\(a + c \equiv b + c \pmod{n}\)</span>。</li>
+<li>如果 <span class="arithmatex">\(a \equiv b \pmod{n}\)</span>，则对任意 <span class="arithmatex">\(c\)</span>，有 <span class="arithmatex">\(ac \equiv bc \pmod{n}\)</span>。</li>
+<li>如果 <span class="arithmatex">\(a \equiv b \pmod{n}\)</span>，则对任意正整数 <span class="arithmatex">\(p\)</span>，有 <span class="arithmatex">\(a^p \equiv b^p \pmod{n}\)</span>。</li>
 </ol>
 </div>
 <div class="tabbed-block">
@@ -4147,31 +4147,31 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">中文</label><label for="__tabbed_3_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Suppose we wanted to know the last digit of <span class="arithmatex">\(3^{1,254,906}\)</span>. Not only is that a large computation problem, but using Python’s arbitrary-precision integers the number has 598,743 digits! All we want to know is the value of the rightmost digit. There are really two problems here. First, how do we compute <span class="arithmatex">\(x^n\)</span> efficiently? Second, how can we compute <span class="arithmatex">\(x^n \pmod{p}\)</span> without first calculating all 598,743 digits and then looking at the last one?</p>
-<p>The answer to the second question is easy, given the third theorem from above.</p>
+<p>假设我们想知道 <span class="arithmatex">\(3^{1,254,906}\)</span> 的最后一位数字。这不仅是一个大计算问题，而且使用 Python 的任意精度整数，结果有 598,743 位数字！我们只想知道最右边数字的值。这里有两个问题。首先，如何高效地计算 <span class="arithmatex">\(x^n\)</span>？其次，如何在不计算出所有 598,743 位数字后再查看最后一位的情况下计算 <span class="arithmatex">\(x^n \pmod{p}\)</span>？</p>
+<p>对于第二个问题，根据上述第三个定理，答案很简单。</p>
 <ol>
-<li>Initialize result to 1.</li>
+<li>初始化结果为 1。</li>
 <li>
-<p>Repeat <span class="arithmatex">\(n\)</span> times:</p>
-</li>
-<li>
-<p>Multiply result by <span class="arithmatex">\(x\)</span>.</p>
-</li>
-<li>Apply modulo operation to result.</li>
+<p>重复 <span class="arithmatex">\(n\)</span> 次：</p>
+<ol>
+<li>将结果乘以 <span class="arithmatex">\(x\)</span>。</li>
+<li>对结果应用模运算。</li>
 </ol>
-<p>The above approach makes the computation simpler because we are keeping the result smaller rather than following it out to its full precision. However, we can do even better using a recursive approach.</p>
-<p><span class="arithmatex">\(x^n = \begin{cases} (x \cdot x)^{ n/2 } &amp; \text{if} \space  n \space  \text{is even} \\ (x \cdot x^{n-1}) = x \cdot (x \cdot x)^{\lfloor n/2 \rfloor} &amp; \text{if} \space  n \space  \text{is odd} \end{cases} \label{eqn:pow}\)</span></p>
-<p>Remember that for a floating point number <span class="arithmatex">\(n\)</span> the floor operation, <span class="arithmatex">\(\lfloor n \rfloor\)</span>, results in the largest integer smaller than <span class="arithmatex">\(n\)</span>. Python’s integer division operator returns the floor of the result of the division, so we do not need to do anything special in our code to achieve the results we want. The above equation gives us a very nice recursive definition for computing <span class="arithmatex">\(x^n\)</span>. All we need now is a base case. Recall that for any number <span class="arithmatex">\(x\)</span>, <span class="arithmatex">\(x^0 = 1\)</span>. Since we are reducing the size of our exponent in each recursive call, checking for the condition <span class="arithmatex">\(n = 0\)</span> is a good base case.</p>
-<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing lst_pow</span><pre style="line-height: 125%;"><span></span><code>   <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">modexp</span>(x, n, p):
-       <span style="color: #008000; font-weight: bold">if</span> n <span style="color: #666666">==</span> <span style="color: #666666">0</span>:
-           <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">1</span>
-       t <span style="color: #666666">=</span> (x <span style="color: #666666">*</span> x) <span style="color: #666666">%</span> p
-       tmp <span style="color: #666666">=</span> modexp(t, n <span style="color: #666666">//</span> <span style="color: #666666">2</span>, p)
-       <span style="color: #008000; font-weight: bold">if</span> n <span style="color: #666666">%</span> <span style="color: #666666">2</span> <span style="color: #666666">!=</span> <span style="color: #666666">0</span>:
-           tmp <span style="color: #666666">=</span> (tmp <span style="color: #666666">*</span> x) <span style="color: #666666">%</span> p
-       <span style="color: #008000; font-weight: bold">return</span> tmp
+</li>
+</ol>
+<p>这种方法使计算变得更简单，因为我们保持结果较小，而不是将其计算到完整精度。然而，我们可以使用递归方法做得更好。</p>
+<p><span class="arithmatex">\(x^n = \begin{cases} (x \cdot x)^{ n/2 } &amp; \text{如果} \space  n \space  \text{是偶数} \\ (x \cdot x^{n-1}) = x \cdot (x \cdot x)^{\lfloor n/2 \rfloor} &amp; \text{如果} \space  n \space  \text{是奇数} \end{cases}\)</span></p>
+<p>记住，对于一个浮点数 <span class="arithmatex">\(n\)</span>，地板操作 <span class="arithmatex">\(\lfloor n \rfloor\)</span> 结果是小于 <span class="arithmatex">\(n\)</span> 的最大整数。Python 的整数除法运算符返回除法结果的地板值，因此在代码中我们不需要做任何特别的处理来实现我们想要的结果。上面的方程给出了计算 <span class="arithmatex">\(x^n\)</span> 的一个非常好的递归定义。我们现在只需要一个基本情况。回忆一下，对于任何数字 <span class="arithmatex">\(x\)</span>，<span class="arithmatex">\(x^0 = 1\)</span>。由于我们在每次递归调用中减少了指数的大小，因此检查条件 <span class="arithmatex">\(n = 0\)</span> 是一个好的基本情况。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing lst_pow</span><pre style="line-height: 125%;"><span></span><code>    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">modexp</span>(x, n, p):
+        <span style="color: #008000; font-weight: bold">if</span> n <span style="color: #666666">==</span> <span style="color: #666666">0</span>:
+            <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">1</span>
+        t <span style="color: #666666">=</span> (x <span style="color: #666666">*</span> x) <span style="color: #666666">%</span> p
+        tmp <span style="color: #666666">=</span> modexp(t, n <span style="color: #666666">//</span> <span style="color: #666666">2</span>, p)
+        <span style="color: #008000; font-weight: bold">if</span> n <span style="color: #666666">%</span> <span style="color: #666666">2</span> <span style="color: #666666">!=</span> <span style="color: #666666">0</span>:
+            tmp <span style="color: #666666">=</span> (tmp <span style="color: #666666">*</span> x) <span style="color: #666666">%</span> p
+        <span style="color: #008000; font-weight: bold">return</span> tmp
 </code></pre></div>
-<p>Notice that in the above equation both the even and odd cases include a factor of <span class="arithmatex">\((x \cdot x)^{\lfloor n/2 \rfloor}\)</span>, so we compute that unconditionally and store it in the variable <code>tmp</code>. Also note that since we are computing modulo <code>p</code> we still apply the modulo operator at each step of the calculation. The solution in <code>Listing lst_pow</code> keeps the result size small and uses many fewer multiplications than a purely iterative approach.</p>
+<p>注意，在上述方程中，无论是偶数还是奇数情况，都包括了一个因子 <span class="arithmatex">\((x \cdot x)^{\lfloor n/2 \rfloor}\)</span>，因此我们无条件地计算它并将其存储在变量 <code>tmp</code> 中。同时注意，由于我们在计算中应用了模 <span class="arithmatex">\(p\)</span>，因此在每一步计算时仍然应用了模运算。<code>Listing lst_pow</code> 中的解决方案保持了结果的大小较小，并且比纯粹的迭代方法使用了更少的乘法操作。</p>
 </div>
 <div class="tabbed-block">
 <p>Suppose we wanted to know the last digit of <span class="arithmatex">\(3^{1,254,906}\)</span>. Not only is that a large computation problem, but using Python’s arbitrary-precision integers the number has 598,743 digits! All we want to know is the value of the rightmost digit. There are really two problems here. First, how do we compute <span class="arithmatex">\(x^n\)</span> efficiently? Second, how can we compute <span class="arithmatex">\(x^n \pmod{p}\)</span> without first calculating all 598,743 digits and then looking at the last one?</p>
@@ -4207,12 +4207,12 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">中文</label><label for="__tabbed_4_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>A <em>multiplicative inverse</em> of a positive integer <span class="arithmatex">\(x\)</span> modulo <span class="arithmatex">\(m\)</span> is any number <span class="arithmatex">\(a\)</span> such that <span class="arithmatex">\(ax \equiv 1 \pmod{m}\)</span>. For example, let <span class="arithmatex">\(x = 3\)</span>, <span class="arithmatex">\(m = 7\)</span>, and <span class="arithmatex">\(a = 5\)</span>; <span class="arithmatex">\(3 \times 5 = 15\)</span> and <span class="arithmatex">\(15\ \%\ 7 = 1\)</span>, so 5 is a multiplicative inverse of 3 modulo 7.</p>
-<p>The idea of multiplicative inverses in the world of modulo arithmetic may seem very confusing at first. How did we select 5 in the previous example? Is 5 the only multiplicative inverse of 3 modulo 7? Do all numbers <span class="arithmatex">\(a\)</span> have a multiplicative inverse for any given <span class="arithmatex">\(m\)</span>?</p>
-<p>Let’s look at an example that may shed some light on the first question: how did we select 5 as the multiplicative inverse of 3 modulo 7? Look at the following Python session:</p>
+<p>一个正整数 <span class="arithmatex">\(x\)</span> 的 <em>乘法逆元</em> 模 <span class="arithmatex">\(m\)</span> 是任何使得 <span class="arithmatex">\(ax \equiv 1 \pmod{m}\)</span> 的数 <span class="arithmatex">\(a\)</span>。例如，设 <span class="arithmatex">\(x = 3\)</span>，<span class="arithmatex">\(m = 7\)</span>，和 <span class="arithmatex">\(a = 5\)</span>；因为 <span class="arithmatex">\(3 \times 5 = 15\)</span> 且 <span class="arithmatex">\(15 \% 7 = 1\)</span>，所以 5 是 3 模 7 的乘法逆元。</p>
+<p>在模算术中，乘法逆元的概念最初可能看起来非常困惑。我们如何在上面的例子中选择了 5？5 是 3 模 7 唯一的乘法逆元吗？所有的数 <span class="arithmatex">\(a\)</span> 对于任何给定的 <span class="arithmatex">\(m\)</span> 都有乘法逆元吗？</p>
+<p>让我们看一个示例，可能对第一个问题有所启示：我们如何选择 5 作为 3 模 7 的乘法逆元？查看以下 Python 会话：</p>
 <div class="language-pycon highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span><span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">1</span>, <span style="color: #666666">40</span>):
 <span style="color: #000080; font-weight: bold">... </span>   <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">3</span> <span style="color: #666666">*</span> i) <span style="color: #666666">%</span> <span style="color: #666666">7</span> <span style="color: #666666">==</span> <span style="color: #666666">1</span>:
-<span style="color: #000080; font-weight: bold">... </span>       <span style="color: #008000">print</span> i
+<span style="color: #000080; font-weight: bold">... </span>       <span style="color: #008000">print</span>(i)
 <span style="color: #000080; font-weight: bold">...</span>
 <span style="color: #717171">5</span>
 <span style="color: #717171">12</span>
@@ -4220,11 +4220,11 @@
 <span style="color: #717171">26</span>
 <span style="color: #717171">33</span>
 </code></pre></div>
-<p>This little experiment tells us that there are many multiplicative inverses (modulo 7) for <span class="arithmatex">\(x=3\)</span> and <span class="arithmatex">\(m = 7\)</span>, namely <span class="arithmatex">\(5, 12, 19, 26, 33\)</span>, and so on. Do you notice anything interesting about the sequence? Each number in the sequence is two less than a multiple of seven.</p>
-<p>Do all pairs of numbers <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(m\)</span> have a multiplicative inverse? Let’s look at another example. Consider <span class="arithmatex">\(x=4\)</span> and <span class="arithmatex">\(m=8\)</span>. Plugging 4 and 8 into the loop in the previous example gives us no output. If we take out the conditional and print out the results of <span class="arithmatex">\((4 \cdot i)\ \%\ 8\)</span>, we get the sequence <span class="arithmatex">\((0, 4, 0, 4, 0, 4\dots)\)</span>. Here we have a case where the remainder alternates between 0 and 4 repeatedly. Clearly the result is never going to be 1. How can we know that ahead of time?</p>
-<p>The answer is that a number <span class="arithmatex">\(x\)</span> has a multiplicative inverse, modulo <span class="arithmatex">\(m\)</span>, if and only if <span class="arithmatex">\(m\)</span> and <span class="arithmatex">\(x\)</span> are relatively prime. Two numbers are relatively prime if <span class="arithmatex">\(gcd(m,x) = 1\)</span>. Recall that the greatest common divisor (GCD) is the largest integer that divides both numbers. The next question is how can we compute the greatest common divisor for a pair of numbers?</p>
-<p>Given two numbers <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> we can find the GCD by repeatedly subtracting <span class="arithmatex">\(b\)</span> from <span class="arithmatex">\(a\)</span> until <span class="arithmatex">\(a &lt; b\)</span>. When <span class="arithmatex">\(a &lt; b\)</span>, we switch roles for <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span>. At some point <span class="arithmatex">\(a - b\)</span> becomes 0, so we swap <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> one more time. At that point we have $gcd(a, 0) = a`. This algorithm was first described more than 2,000 years ago and is called Euclid’s algorithm.</p>
-<p>In terms of recursive algorithm design, Euclid’s algorithm is very straightforward. The base case is when <span class="arithmatex">\(b = 0\)</span>. There are two possibilities for a recursive call: when <span class="arithmatex">\(a &lt; b\)</span>, we swap <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> and make a recursive call. Otherwise, we can make a recursive call passing <span class="arithmatex">\(a - b\)</span> in place of <span class="arithmatex">\(a\)</span>. Euclid’s algorithm is shown in <code>Listing lst_gcd1</code>.</p>
+<p>这个小实验告诉我们，对于 <span class="arithmatex">\(x=3\)</span> 和 <span class="arithmatex">\(m=7\)</span>，有很多乘法逆元（模 7），即 <span class="arithmatex">\(5, 12, 19, 26, 33\)</span>，等等。你注意到这个序列有什么有趣的地方吗？序列中的每个数字比 7 的倍数小 2。</p>
+<p>所有的数对 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(m\)</span> 都有乘法逆元吗？让我们看另一个示例。考虑 <span class="arithmatex">\(x=4\)</span> 和 <span class="arithmatex">\(m=8\)</span>。将 4 和 8 插入到之前的循环中不会有输出。如果我们去掉条件并打印出 <span class="arithmatex">\((4 \cdot i)\ \% 8\)</span> 的结果，我们得到序列 <span class="arithmatex">\((0, 4, 0, 4, 0, 4 \dots)\)</span>。在这里，余数在 0 和 4 之间交替变化。显然，结果永远不会是 1。我们如何事先知道这一点？</p>
+<p>答案是，一个数 <span class="arithmatex">\(x\)</span> 对于模 <span class="arithmatex">\(m\)</span> 存在乘法逆元，当且仅当 <span class="arithmatex">\(m\)</span> 和 <span class="arithmatex">\(x\)</span> 是互质的。两个数互质的条件是 <span class="arithmatex">\(gcd(m,x) = 1\)</span>。回忆一下，最大公约数（GCD）是能同时整除这两个数的最大整数。下一个问题是我们如何计算两个数的最大公约数？</p>
+<p>给定两个数 <span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(b\)</span>，我们可以通过重复从 <span class="arithmatex">\(a\)</span> 中减去 <span class="arithmatex">\(b\)</span> 直到 <span class="arithmatex">\(a &lt; b\)</span> 来找到 GCD。当 <span class="arithmatex">\(a &lt; b\)</span> 时，我们交换 <span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(b\)</span>。在某个时候 <span class="arithmatex">\(a - b\)</span> 变为 0，因此我们再交换一次 <span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(b\)</span>。此时我们有 <span class="arithmatex">\(gcd(a, 0) = a\)</span>。这个算法在 2000 多年前首次被描述，被称为欧几里得算法。</p>
+<p>在递归算法设计方面，欧几里得算法非常直接。基本情况是 <span class="arithmatex">\(b = 0\)</span>。递归调用有两种可能性：当 <span class="arithmatex">\(a &lt; b\)</span> 时，我们交换 <span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(b\)</span> 并进行递归调用。否则，我们可以进行递归调用，将 <span class="arithmatex">\(a - b\)</span> 作为 <span class="arithmatex">\(a\)</span> 传递。欧几里得算法在 <code>Listing lst_gcd1</code> 中展示了。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing lst_gcd1</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">gcd</span>(a, b):
     <span style="color: #008000; font-weight: bold">if</span> b <span style="color: #666666">==</span> <span style="color: #666666">0</span>:
         <span style="color: #008000; font-weight: bold">return</span> a
@@ -4232,33 +4232,29 @@
         <span style="color: #008000; font-weight: bold">return</span> gcd(b, a)
     <span style="color: #008000; font-weight: bold">return</span> gcd(a <span style="color: #666666">-</span> b, b)
 </code></pre></div>
-<p>Although Euclid’s algorithm is quite easy to understand and program, it is not as efficient as we would like, particularly if <span class="arithmatex">\(a &gt;&gt; b\)</span>. Once again, modular arithmetic comes to our rescue. Notice that the result of the last subtraction (when <span class="arithmatex">\(a - b &lt; b\)</span>) is really the same as the remainder of $a<code>divided by $b$. With that in mind, we can cut out all of the subtractions and combine the swap of $a$ and $b$ in one recursive call. A revised algorithm is shown in</code>Listing lst_gcd2`.</p>
-<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing lst_gcd2</span><pre style="line-height: 125%;"><span></span><code>   <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">gcd</span>(a, b):
-       <span style="color: #008000; font-weight: bold">if</span> b <span style="color: #666666">==</span> <span style="color: #666666">0</span>:
-           <span style="color: #008000; font-weight: bold">return</span> a
-       <span style="color: #008000; font-weight: bold">return</span> gcd(b, a <span style="color: #666666">%</span> b)
+<p>尽管欧几里得算法非常易于理解和编程，但它不是我们希望的那样高效，特别是当 <span class="arithmatex">\(a &gt;&gt; b\)</span> 时。再次，模算术来拯救我们。注意最后一次减法的结果（当 <span class="arithmatex">\(a - b &lt; b\)</span> 时）实际上与 <span class="arithmatex">\(a\)</span> 除以 <span class="arithmatex">\(b\)</span> 的余数相同。考虑到这一点，我们可以去掉所有减法，并在一个递归调用中结合 <span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(b\)</span> 的交换。修订后的算法在 <code>Listing lst_gcd2</code> 中展示了。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing lst_gcd2</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">gcd</span>(a, b):
+    <span style="color: #008000; font-weight: bold">if</span> b <span style="color: #666666">==</span> <span style="color: #666666">0</span>:
+        <span style="color: #008000; font-weight: bold">return</span> a
+    <span style="color: #008000; font-weight: bold">return</span> gcd(b, a <span style="color: #666666">%</span> b)
 </code></pre></div>
-<p>Now that we have a way to know whether two numbers <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(m\)</span> will have a multiplicative inverse, our next task is to write an efficient algorithm to compute the inverse. Suppose that for any pair of numbers <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(y\)</span> we could compute both <span class="arithmatex">\(gcd(x,y)\)</span> and a pair of integers <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> such that <span class="arithmatex">\(d = gcd(x, y) = ax + by\)</span>. For example, <span class="arithmatex">\(1 = gcd(3, 7) = -2 \times 3 + 1 \times 7\)</span>, so here <span class="arithmatex">\(a = -2\)</span> and <span class="arithmatex">\(b = 1\)</span> are possible values for <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span>. Rather than any numbers <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(y\)</span>, let’s use <span class="arithmatex">\(m\)</span> and <span class="arithmatex">\(x\)</span> from our previous examples. Now we have <span class="arithmatex">\(1 = gcd(m, x) = am + bx\)</span>. From the discussion at the beginning of this section we know that <span class="arithmatex">\(bx = 1 \mod{m}\)</span>, so <span class="arithmatex">\(b\)</span> is a multiplicative inverse of <span class="arithmatex">\(x\)</span> modulo <span class="arithmatex">\(m\)</span>.</p>
-<p>We have reduced the problem of computing inverses to the problem of finding integers <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> that satisfy the equation <span class="arithmatex">\(d = gcd(x, y) = ax + by\)</span>. Since we started this problem with the GCD algorithm, we can finish it with an extension of this algorithm as well. We will take two numbers <span class="arithmatex">\(x &gt;= y\)</span> and return a tuple <span class="arithmatex">\((d, a, b)\)</span> such that <span class="arithmatex">\(d = gcd(x, y)\)</span> and <span class="arithmatex">\(d = ax + by\)</span>. The extension to Euclid’s algorithm is shown in <code>Listing lst_gcd3</code>.</p>
+<p>现在我们有了一个方法来确定两个数 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(m\)</span> 是否会有乘法逆元，我们的下一个任务是编写一个高效的算法来计算逆元。假设对于任意一对数 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(y\)</span>，我们可以计算出 <span class="arithmatex">\(gcd(x, y)\)</span> 以及一对整数 <span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(b\)</span>，使得 <span class="arithmatex">\(d = gcd(x, y) = ax + by\)</span>。例如，<span class="arithmatex">\(1 = gcd(3, 7) = -2 \times 3 + 1 \times 7\)</span>，所以这里 <span class="arithmatex">\(a = -2\)</span> 和 <span class="arithmatex">\(b = 1\)</span> 是 <span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(b\)</span> 的可能值。我们不再考虑任意的数 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(y\)</span>，而是使用我们之前的例子中的 <span class="arithmatex">\(m\)</span> 和 <span class="arithmatex">\(x\)</span>。现在我们有 <span class="arithmatex">\(1 = gcd(m, x) = am + bx\)</span>。根据本节开头的讨论，我们知道 <span class="arithmatex">\(bx = 1 \mod{m}\)</span>，因此 <span class="arithmatex">\(b\)</span> 是 <span class="arithmatex">\(x\)</span> 模 <span class="arithmatex">\(m\)</span> 的乘法逆元。</p>
+<p>我们已经将计算逆元的问题简化为寻找满足 <span class="arithmatex">\(d = gcd(x, y) = ax + by\)</span> 的整数 <span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(b\)</span>。由于我们从 GCD 算法开始这个问题，我们也可以通过扩展这个算法来完成它。我们将两个数 <span class="arithmatex">\(x \geq y\)</span> 作为输入，返回一个元组 <span class="arithmatex">\((d, a, b)\)</span>，其中 <span class="arithmatex">\(d = gcd(x, y)\)</span> 且 <span class="arithmatex">\(d = ax + by\)</span>。欧几里得算法的扩展在 <code>Listing lst_gcd3</code> 中展示了。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Listing lst_gcd3</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">4</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">5</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">6</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code>   <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">ext_gcd</span>(x, y):
-       <span style="color: #008000; font-weight: bold">if</span> y <span style="color: #666666">==</span> <span style="color: #666666">0</span>:
-           <span style="color: #008000; font-weight: bold">return</span> (x, <span style="color: #666666">1</span>, <span style="color: #666666">0</span>)
-       <span style="color: #008000; font-weight: bold">else</span>:
-           (d, a, b) <span style="color: #666666">=</span> ext_gcd(y, x <span style="color: #666666">%</span> y)
-           <span style="color: #008000; font-weight: bold">return</span> (d, b, a <span style="color: #666666">-</span> (x <span style="color: #666666">//</span> y) <span style="color: #666666">*</span> b)
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">6</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">ext_gcd</span>(x, y):
+    <span style="color: #008000; font-weight: bold">if</span> y <span style="color: #666666">==</span> <span style="color: #666666">0</span>:
+        <span style="color: #008000; font-weight: bold">return</span> (x, <span style="color: #666666">1</span>, <span style="color: #666666">0</span>)
+    <span style="color: #008000; font-weight: bold">else</span>:
+        (d, a, b) <span style="color: #666666">=</span> ext_gcd(y, x <span style="color: #666666">%</span> y)
+        <span style="color: #008000; font-weight: bold">return</span> (d, b, a <span style="color: #666666">-</span> (x <span style="color: #666666">//</span> y) <span style="color: #666666">*</span> b)
 </code></pre></div></td></tr></table></div>
-<p>Notice that when we get the base case <span class="arithmatex">\(y = 0\)</span>, we return <span class="arithmatex">\(d = x\)</span> just like the original Euclid’s algorithm. However, we return two additional values <span class="arithmatex">\(a =1\)</span> and <span class="arithmatex">\(b = 0\)</span>. Together these three values satisfy the equation <span class="arithmatex">\(d = ax + by\)</span>. If <span class="arithmatex">\(y &gt; 0\)</span>, then we recursively compute values <span class="arithmatex">\((d, a, b)\)</span> such that <span class="arithmatex">\(d = gcd(y, x \mod{y})\)</span> and <span class="arithmatex">\(d = ay + b(x \mod{y})\)</span>. As with the original algorithm, <span class="arithmatex">\(d = gcd(x, y)\)</span>. But what about the other two values, <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span>? We know that <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> must be integers, so let’s call them <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(B\)</span>. Further, we know that <span class="arithmatex">\(d = Ax + By\)</span>. To figure out what <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(B\)</span> should be, let’s rearrange the equation as follows:</p>
+<p>注意，当我们得到基本情况 <span class="arithmatex">\(y = 0\)</span> 时，我们返回 <span class="arithmatex">\(d = x\)</span> 就像原始的欧几里得算法一样。然而，我们还返回两个额外的值 <span class="arithmatex">\(a = 1\)</span> 和 <span class="arithmatex">\(b = 0\)</span>。这三个值一起满足方程 <span class="arithmatex">\(d = ax + by\)</span>。如果 <span class="arithmatex">\(y &gt; 0\)</span>，则我们递归计算值 <span class="arithmatex">\((d, a, b)\)</span>，使得 <span class="arithmatex">\(d = gcd(y, x \mod{y})\)</span> 且 <span class="arithmatex">\(d = ay + b(x \mod{y})\)</span>。与原始算法一样，<span class="arithmatex">\(d = gcd(x, y)\)</span>。但其他两个值 <span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(b\)</span> 呢？我们知道 <span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(b\)</span> 必须是整数，所以我们将它们称为 <span class="arithmatex">\(A\)</span> 和 <span class="arithmatex">\(B\)</span>。进一步地，我们知道 <span class="arithmatex">\(d = Ax + By\)</span>。为了找出 <span class="arithmatex">\(A\)</span> 和 <span class="arithmatex">\(B\)</span> 应该是什么，我们将方程重新排列如下：</p>
 <p><span class="arithmatex">\(\begin{aligned} d = &amp; ay + b(x \mod{y}) \\   = &amp; ay + b(x - \lfloor x / y \rfloor y) \\   = &amp; bx + (a - \lfloor x / y \rfloor b)y\end{aligned}\)</span></p>
-<p>Note the substitution made in the second line, <span class="arithmatex">\(x \mod{y} = x - \lfloor x / y \rfloor\)</span>. This is legal because this is how we would normally calculate the remainder of x / y (<span class="arithmatex">\(x \mod{y}\)</span>). Looking at the rearranged equation, we can see that <span class="arithmatex">\(A = b\)</span> and <span class="arithmatex">\(B = a - \lfloor x / y \rfloor b\)</span>. Notice that this is exactly what line <code>[line:6]</code> does! To check this, note that at each return step in the algorithm the return values satisfy the equation <span class="arithmatex">\(d = ax + by\)</span>. To understand how our extended GCD algorithm works, let’s start with an example: let <span class="arithmatex">\(x = 25\)</span> and <span class="arithmatex">\(y = 9\)</span>. <code>Figure 1</code> illustrates the call and return values for the recursive function.</p>
-<p><figure markdown="span">
-    <a class="glightbox" href="../imgs/gcd-call.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/gcd-call.png" /></a>
-    <figcaption markdown="span">Figure 1: FiguCall Tree for Extended GCD Algorithm</figcaption>
-</figure></p>
+<p>注意第二行中的替代，<span class="arithmatex">\(x \mod{y} = x - \lfloor x / y \rfloor y\)</span>。这是合法的，因为这就是我们通常计算 <span class="arithmatex">\(x / y\)</span> 的余数（<span class="arithmatex">\(x \mod{y}\)</span>）的方法。查看重新排列的方程，我们可以看到 <span class="arithmatex">\(A = b\)</span> 和 <span class="arithmatex">\(B = a - \lfloor x / y \rfloor b\)</span>。注意这正是 <code>[line:6]</code> 行所做的！要检查这一点，请注意在算法的每一步返回值都满足方程 <span class="arithmatex">\(d = ax + by\)</span>。要理解我们的扩展 GCD 算法如何工作，让我们从一个示例开始：设 <span class="arithmatex">\(x = 25\)</span> 和 <span class="arithmatex">\(y = 9\)</span>。<code>Figure 1</code> 说明了递归函数的调用和返回值。</p>
 </div>
 <div class="tabbed-block">
 <p>A <em>multiplicative inverse</em> of a positive integer <span class="arithmatex">\(x\)</span> modulo <span class="arithmatex">\(m\)</span> is any number <span class="arithmatex">\(a\)</span> such that <span class="arithmatex">\(ax \equiv 1 \pmod{m}\)</span>. For example, let <span class="arithmatex">\(x = 3\)</span>, <span class="arithmatex">\(m = 7\)</span>, and <span class="arithmatex">\(a = 5\)</span>; <span class="arithmatex">\(3 \times 5 = 15\)</span> and <span class="arithmatex">\(15\ \%\ 7 = 1\)</span>, so 5 is a multiplicative inverse of 3 modulo 7.</p>
@@ -4321,18 +4317,18 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">中文</label><label for="__tabbed_5_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Now we have all the tools we need to write the RSA encryption algorithm. The <strong>RSA algorithm</strong> is perhaps the easiest to understand of all the public key encryption algorithms. Public key cryptography was invented by Whitfield Diffie and Martin Hellman and independently by Ralph Merkle. The major contribution of public key cryptography was the idea that keys could come in pairs: an encryption key to convert the plaintext message to ciphertext, and a decryption key to convert the ciphertext back to plaintext. The keys only work one way so that a message encrypted with the private key can only be decrypted with the public key, and vice versa.</p>
-<p>RSA gets its security from the difficulty of factoring large numbers. The public and private keys are derived from a pair of large (100–200 digit) prime numbers. Since long integers are native to Python, this is a fun and easy algorithm to implement.</p>
-<p>To generate the two keys, choose two large prime numbers <span class="arithmatex">\(p\)</span> and <span class="arithmatex">\(q\)</span>. Then compute the product</p>
+<p>现在我们有了编写 RSA 加密算法所需的所有工具。<strong>RSA 算法</strong>可能是所有公钥加密算法中最容易理解的一种。公钥密码学由 Whitfield Diffie 和 Martin Hellman 以及 Ralph Merkle 独立发明。公钥密码学的主要贡献是提出了密钥成对的概念：一个加密密钥用于将明文消息转换为密文，另一个解密密钥用于将密文转换回明文。这些密钥只能单向工作，因此用私钥加密的消息只能用公钥解密，反之亦然。</p>
+<p>RSA 的安全性来源于大数因式分解的困难。公钥和私钥是从一对大（100-200 位数字）素数中推导出来的。由于 Python 的长整数类型本身就支持大数，这使得实现这个算法既有趣又容易。</p>
+<p>为了生成这两个密钥，选择两个大素数 <span class="arithmatex">\(p\)</span> 和 <span class="arithmatex">\(q\)</span>。然后计算它们的乘积：</p>
 <p><span class="arithmatex">\(n = p \times q\)</span></p>
-<p>The next step is to randomly choose the encryption key <span class="arithmatex">\(e\)</span> such that <span class="arithmatex">\(e\)</span> and <span class="arithmatex">\((p - 1) \times (q - 1)\)</span> are relatively prime; that is</p>
-<p><span class="arithmatex">\(gcd(e, (p - 1) \times (q-1)) = 1\)</span></p>
-<p>Finally, the decryption key <span class="arithmatex">\(d\)</span> is simply the multiplicative inverse of <span class="arithmatex">\(e\)</span> modulo <span class="arithmatex">\((p - 1) \times (q - 1)\)</span>. For this we can use our extended version of Euclid’s algorithm.</p>
-<p>The numbers <span class="arithmatex">\(e\)</span> and <span class="arithmatex">\(n\)</span> taken together are the public key. The number <span class="arithmatex">\(d\)</span> is the private key. Once we have computed <span class="arithmatex">\(n, e\)</span>, and <span class="arithmatex">\(d\)</span>, the original primes <span class="arithmatex">\(p\)</span> and <span class="arithmatex">\(q\)</span> are no longer needed. However, they should not be revealed.</p>
-<p>To encrypt a message we simply use the equation <span class="arithmatex">\(c = m^e \pmod{n}\)</span>. To decrypt the message we use <span class="arithmatex">\(m = c^d \pmod{n}\)</span>.</p>
-<p>It is easy to see that this works when you remember that <span class="arithmatex">\(d\)</span> is the multiplicative inverse of <span class="arithmatex">\(e \pmod{n}\)</span>.</p>
+<p>下一步是随机选择加密密钥 <span class="arithmatex">\(e\)</span>，使得 <span class="arithmatex">\(e\)</span> 和 <span class="arithmatex">\((p - 1) \times (q - 1)\)</span> 互质，即</p>
+<p><span class="arithmatex">\(gcd(e, (p - 1) \times (q - 1)) = 1\)</span></p>
+<p>最后，解密密钥 <span class="arithmatex">\(d\)</span> 是 <span class="arithmatex">\(e\)</span> 模 <span class="arithmatex">\((p - 1) \times (q - 1)\)</span> 的乘法逆元。为此我们可以使用扩展的欧几里得算法。</p>
+<p>将 <span class="arithmatex">\(e\)</span> 和 <span class="arithmatex">\(n\)</span> 组合起来就是公钥。数字 <span class="arithmatex">\(d\)</span> 是私钥。一旦我们计算出 <span class="arithmatex">\(n, e\)</span> 和 <span class="arithmatex">\(d\)</span>，原始的素数 <span class="arithmatex">\(p\)</span> 和 <span class="arithmatex">\(q\)</span> 就不再需要。然而，它们不应被公开。</p>
+<p>为了加密消息，我们只需使用方程 <span class="arithmatex">\(c = m^e \pmod{n}\)</span>。为了解密消息，我们使用 <span class="arithmatex">\(m = c^d \pmod{n}\)</span>。</p>
+<p>很容易看出，当你记住 <span class="arithmatex">\(d\)</span> 是 <span class="arithmatex">\(e \pmod{n}\)</span> 的乘法逆元时，这些公式是有效的。</p>
 <p><span class="arithmatex">\(\begin{aligned}   c^d &amp; = (m^e)^d  \pmod{n} \\       &amp; = m^{ed}   \pmod{n} \\       &amp; = m^1  \pmod{n} \\       &amp; = m \pmod{n} \end{aligned}\)</span></p>
-<p>Before we turn all these equations into Python code, we need to talk about a couple of other details. First, how do we take a text message like "hello world" and turn it into a number? The easiest way is to simply use the ASCII values associated with each character and concatenate all the numbers together. However, since the decimal versions of the numbers of the ASCII values vary in the number of digits needed to represent them, we will use the hexadecimal numbers where we know very reliably that two hexadecimal digits represent a single byte or character.</p>
+<p>在将这些方程转化为 Python 代码之前，我们需要讨论几个其他细节。首先，我们如何将像“hello world”这样的文本消息转换为数字？最简单的方法是直接使用每个字符的 ASCII 值并将所有数字连接在一起。然而，由于 ASCII 值的十进制表示的位数不一致，我们将使用十六进制数字，在十六进制中，我们可以可靠地知道两个十六进制数字表示一个字节或字符。</p>
 <table>
 <thead>
 <tr>
@@ -4378,11 +4374,11 @@
 </tr>
 </tbody>
 </table>
-<p>Putting all the hexadecimal digits together we could convert that large hex number into a decimal integer:</p>
+<p>将所有十六进制数字合在一起，我们可以将这个大十六进制数字转换为十进制整数：</p>
 <p><span class="arithmatex">\(m = 126207244316550804821666916\)</span></p>
-<p>Python can handle this large number just fine. However, there are two reasons that real programs using RSA encryption break the message up into smaller chunks and encrypt each chunk. The first reason is performance. Even a relatively short email message, say 1k of text, will generate a number with 2,000 to 3,000 digits! If we raise that to a power of <span class="arithmatex">\(d\)</span> which has 10 digits, we are talking about a very long number indeed.</p>
-<p>The second reason for breaking the message into chunks is the restriction that <span class="arithmatex">\(m \le n\)</span>. We must be sure that the message has a unique representation modulo <span class="arithmatex">\(n\)</span>. With binary data, choose the largest power of two that is less than <span class="arithmatex">\(n\)</span>. For example, let’s choose <span class="arithmatex">\(p\)</span> and <span class="arithmatex">\(q\)</span> to be 5563 and 8191. So <span class="arithmatex">\(n = 5563 \times 8191 = 45,566,533\)</span>. To keep the integer value of our chunks less than <span class="arithmatex">\(m\)</span>, we will divide up our word into chunks that use less than the number of bytes needed to represent <span class="arithmatex">\(n\)</span>. This is easy to find in Python using the integer method <code>bit_length</code>. Given the number of bits needed to represent a number, we can divide by eight to find the number of bytes. Since each character in the message can be represented by a single byte, this division tells us the number of bytes we can put in each chunk. Conveniently, this lets us simply break the message up into chunks of <span class="arithmatex">\(n\)</span> characters and convert the hexadecimal representation of each chunk into an integer. For this example we can represent <span class="arithmatex">\(45,566,533\)</span> using 26 bits. Using integer division and dividing by eight tells us that we should break our message into chunks of three characters.</p>
-<p>The characters “h,” “e,” and “l” have the hexadecimal values of <span class="arithmatex">\(68\)</span>, <span class="arithmatex">\(65\)</span>, and <span class="arithmatex">\(6c\)</span>, respectively. Concatenating those together gives us <span class="arithmatex">\(68656c\)</span> and converting that to a decimal gives us <span class="arithmatex">\(6841708\)</span>.</p>
+<p>Python 可以很好地处理这个大数字。然而，真实使用 RSA 加密的程序有两个原因会将消息拆分成较小的块并加密每个块。第一个原因是性能。即使是相对较短的电子邮件消息，例如 1k 的文本，也会生成一个有 2000 到 3000 位数字的数字！如果我们将其提高到 <span class="arithmatex">\(d\)</span> 的 10 位幂，我们谈论的将是一个非常长的数字。</p>
+<p>第二个原因是消息分块的限制，即 <span class="arithmatex">\(m \le n\)</span>。我们必须确保消息在模 <span class="arithmatex">\(n\)</span> 下有唯一的表示。对于二进制数据，选择小于 <span class="arithmatex">\(n\)</span> 的最大二的幂。例如，假设我们选择 <span class="arithmatex">\(p\)</span> 和 <span class="arithmatex">\(q\)</span> 为 5563 和 8191。那么 <span class="arithmatex">\(n = 5563 \times 8191 = 45,566,533\)</span>。为了保持块的整数值小于 <span class="arithmatex">\(n\)</span>，我们将把我们的单词分成少于表示 <span class="arithmatex">\(n\)</span> 所需字节数的块。在 Python 中，这可以通过整数方法 <code>bit_length</code> 容易地找到。给定表示一个数字所需的位数，我们可以除以 8 来找到字节数。由于消息中的每个字符可以用一个字节表示，这种除法告诉我们每个块中可以放入的字节数。方便的是，这让我们可以简单地将消息分成 <span class="arithmatex">\(n\)</span> 个字符的块，并将每个块的十六进制表示转换为一个整数。对于这个示例，我们可以使用 26 位表示 <span class="arithmatex">\(45,566,533\)</span>。使用整数除法并除以 8 告诉我们应该将消息分成三字符的块。</p>
+<p>字符“h”、“e”和“l”的十六进制值分别是 <span class="arithmatex">\(68\)</span>、<span class="arithmatex">\(65\)</span> 和 <span class="arithmatex">\(6c\)</span>。将这些值连接在一起得到 <span class="arithmatex">\(68656c\)</span>，转换为十进制值为 <span class="arithmatex">\(6841708\)</span>。</p>
 <table>
 <thead>
 <tr>
@@ -4401,20 +4397,19 @@
 </tr>
 </tbody>
 </table>
-<p>Note that breaking the message into chunks can be very tricky, in particular when the result of applying the RSA transformation to a chunk produces a number that is less than seven digits long. In this case we need to be careful to add a leading zero to the result when we glue our chunks back together again. You can see how this might happen in <span class="arithmatex">\(m_1\)</span> and <span class="arithmatex">\(m_4\)</span> above.</p>
-<p>Now let’s choose a value for <span class="arithmatex">\(e\)</span>. We can select values randomly and use the GCD algorithm to test them against <span class="arithmatex">\((p - 1) \times (q - 1) = 45552780\)</span>. Remember that we are looking for an <span class="arithmatex">\(e\)</span> that is relatively prime to 45,552,780. The number 1,471 will work nicely for this example.</p>
-<p><span class="arithmatex">\(\begin{aligned}d &amp; = ext\_gcd(45552780, 1471) \\    &amp; = -11705609  \\    &amp; = 45552780-11705609  \\    &amp; = 33847171\end{aligned}\)</span></p>
-<p>Let’s use this information to encrypt the first chunk of our message:</p>
+<p>注意，将消息分成块可能非常棘手，特别是当对一个块应用 RSA 转换时产生的数字少于七位数。在这种情况下，我们需要小心在将块拼接回去时添加前导零。你可以在上面的 <span class="arithmatex">\(m_1\)</span> 和 <span class="arithmatex">\(m_4\)</span> 中看到这可能发生的情况。</p>
+<p>现在让我们选择一个 <span class="arithmatex">\(e\)</span> 的值。我们可以随机选择值并使用 GCD 算法测试它们与 <span class="arithmatex">\((p - 1) \times (q - 1) = 45552780\)</span> 的互质性。记住，我们在寻找一个与 45,552,780 互质的 <span class="arithmatex">\(e\)</span>。在这个示例中，1471 是一个合适的选择。</p>
+<p><span class="arithmatex">\(\begin{aligned}d &amp; = ext\_gcd(45552780, 1471) \\    &amp; = -11705609  \\    &amp; = 45552780 - 11705609  \\    &amp; = 33847171\end{aligned}\)</span></p>
+<p>让我们使用这些信息来加密消息的第一个块：</p>
 <p><span class="arithmatex">\(c = 6841708^{1471} \pmod{45566533} = 16310024\)</span></p>
-<p>To check our work, let’s decrypt <span class="arithmatex">\(c\)</span> to make sure we recover the original value:</p>
+<p>为了验证我们的工作，让我们解密 <span class="arithmatex">\(c\)</span> 以确保恢复原始值：</p>
 <p><span class="arithmatex">\(m = 16310024^{33847171} \pmod{45566533} = 6841708\)</span></p>
-<p>The remaining chunks of the message can be encrypted using the same procedure and sent all together as the encrypted message.</p>
-<p>Finally, let’s look at three Python functions.</p>
+<p>其余的消息块可以使用相同的过程进行加密，并作为加密消息一起发送。</p>
+<p>最后，让我们看一下三个 Python 函数。</p>
 <ul>
-<li><code>gen_keys</code> creates a public and private key, given <span class="arithmatex">\(p\)</span> and <span class="arithmatex">\(q\)</span>.</li>
-<li><code>encrypt</code> takes a message, the public key, and <span class="arithmatex">\(n\)</span> and returns  an encrypted version of the message.</li>
-<li><code>decrypt</code> takes the encrypted message, the private key, and <span class="arithmatex">\(n\)</span> and 
-  returns the original message.</li>
+<li><code>gen_keys</code> 创建一个公钥和一个私钥，给定 <span class="arithmatex">\(p\)</span> 和 <span class="arithmatex">\(q\)</span>。</li>
+<li><code>encrypt</code> 接受一个消息、公钥和 <span class="arithmatex">\(n\)</span>，并返回消息的加密版本。</li>
+<li><code>decrypt</code> 接受加密的消息、私钥和 <span class="arithmatex">\(n\)</span>，并返回原始消息。</li>
 </ul>
 <div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">gen_keys</span>(p, q):
     n <span style="color: #666666">=</span> p <span style="color: #666666">*</span> q
@@ -4445,7 +4440,7 @@
     ]
     <span style="color: #008000; font-weight: bold">return</span> chunks_to_str(plain_chunks, chunk_size)
 </code></pre></div>
-<p>Here is a session that uses these functions to create public and private keys, encrypt, and decrypt as we did in the example above.</p>
+<p>下面是一个会话，使用这些函数创建公钥和私钥，进行加密和解密，如上例所示。</p>
 <div class="language-pycon highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>msg <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;Python&quot;</span>
 <span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>e, d, n <span style="color: #666666">=</span> gen_keys(<span style="color: #666666">5563</span>, <span style="color: #666666">8191</span>)
 <span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span><span style="color: #008000">print</span>(e, d, n)
@@ -4458,8 +4453,8 @@
 <span style="color: #717171">Python</span>
 <span style="color: #000080; font-weight: bold">&gt;&gt;&gt;</span>
 </code></pre></div>
-<p>The last thing to look at is the two helper functions that break our string into chunks and merge chunks into a string (<code>Listing lst_chunk</code>). These functions make use of Python <code>bytearray</code> objects, which allow us to store any string as a sequence of bytes.  This makes it very convenient for us to convert a string to a sequence of hexadecimal digits and allows us to convert a sequence of hexadecimal digits back to a string.</p>
-<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing lst_chunk</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">str_to_chunks</span>(msg, chunk_size):
+<p>最后要查看的是两个辅助函数，这些函数将字符串分成块并将块合并回字符串（<code>Listing lst_chunk</code>）。这些函数利用 Python 的 <code>bytearray</code> 对象，这使我们能够将任何字符串存储为字节序列。这使得将字符串转换为十六进制数字序列非常方便，也允许我们将十六进制数字序列转换回字符串。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing lst_chunk</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">str_to_chunks</span>(msg, chunk_size):
     msg_bytes <span style="color: #666666">=</span> <span style="color: #008000">bytes</span>(msg, <span style="color: #BA2121">&quot;utf-8&quot;</span>)
     hex_str <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;&quot;</span><span style="color: #666666">.</span>join([<span style="color: #BA2121">f&quot;</span><span style="color: #A45A77; font-weight: bold">{</span>b<span style="color: #A45A77; font-weight: bold">:</span><span style="color: #BA2121">02x</span><span style="color: #A45A77; font-weight: bold">}</span><span style="color: #BA2121">&quot;</span> <span style="color: #008000; font-weight: bold">for</span> b <span style="color: #AA22FF; font-weight: bold">in</span> msg_bytes])
     num_chunks <span style="color: #666666">=</span> <span style="color: #008000">len</span>(hex_str) <span style="color: #666666">//</span> chunk_size
@@ -4487,8 +4482,8 @@
     msg_array <span style="color: #666666">=</span> <span style="color: #008000">bytearray</span><span style="color: #666666">.</span>fromhex(hstring)
     <span style="color: #008000; font-weight: bold">return</span> msg_array<span style="color: #666666">.</span>decode(<span style="color: #BA2121">&quot;utf-8&quot;</span>)
 </code></pre></div>
-<p>In <code>Listing lst_chunk</code> we see the procedure for turning a string into a list of chunks. One important thing to note is that we must always make sure that our hexadecimal number corresponds to a character that is exactly two digits long. This means that sometimes we may need to add a leading zero. We can do this easily by using the string formatting expression <code>f"{b:02x}"</code>. This expression creates a string that is exactly two characters long, with a leading zero at the beginning if necessary. Once we have created a single long hexadecimal string out of the entire message, we can then break up that long string into <code>num_chunks</code> chunks of hexadecimal numbers. This is what is happening in the <code>for</code> loop (starting on line 6). Finally, we can transform each hexadecimal number into an integer using the <code>eval</code> function and the list comprehension.</p>
-<p>Transforming the decrypted chunks back to a string is as easy as creating a single long hex string and turning that hexadecimal string into a <code>bytearray</code>. The <code>bytearray</code> has a built-in <code>decode</code> function to turn the <code>bytearray</code> into a string. The only tricky part of this procedure is that after the transformation process the number represented by the chunk may end up significantly smaller than the original. If this is the case we may need to add a leading zero to make sure that all of the chunks are the same length when we concatenate them back together again. The extra zeros are prepended to any chunk by using the string repetition operator in the expression <code>"0" * ((chunk_size) - clen) % 2)</code> where <code>chunk_size</code> represents the number of digits that should be present in the string and <code>clen</code> represents the actual number.</p>
+<p>在 <code>Listing lst_chunk</code> 中，我们看到将字符串转换为块列表的过程。一个重要的注意事项是，我们必须确保我们的十六进制数字对应的字符长度正好为两位。这意味着有时我们可能需要添加一个前导零。我们可以通过使用字符串格式化表达式 <code>f"{b:02x}"</code> 来轻松实现。这种表达式创建了一个正好两位的字符串，如果需要的话，前面会有一个前导零。创建了一个包含整个消息的长十六进制字符串后，我们可以将这个长字符串分成 <code>num_chunks</code> 个十六进制数字块。这就是在 <code>for</code> 循环（从第 6 行开始）中发生的事情。最后，我们可以使用 <code>eval</code> 函数和列表推导式将每个十六进制数字转换为整数。</p>
+<p>将解密后的块转换回字符串就像创建一个长的十六进制字符串并将其转换为 <code>bytearray</code> 一样简单。<code>bytearray</code> 有一个内置的 <code>decode</code> 函数，将 <code>bytearray</code> 转换为字符串。这个过程唯一棘手的部分是，在转换过程中，块所表示的数字可能会比原始数字小得多。如果是这种情况，我们可能需要添加前导零，以确保在将所有块拼接回一起时，所有块的长度都是相同的。额外的零是通过使用字符串重复运算符在表达式 <code>"0" * ((chunk_size) - clen) % 2)</code> 中添加到任何块中的，其中 <code>chunk_size</code> 代表字符串中应有的数字位数，<code>clen</code> 代表实际数字位数。</p>
 </div>
 <div class="tabbed-block">
 <p>Now we have all the tools we need to write the RSA encryption algorithm. The <strong>RSA algorithm</strong> is perhaps the easiest to understand of all the public key encryption algorithms. Public key cryptography was invented by Whitfield Diffie and Martin Hellman and independently by Ralph Merkle. The major contribution of public key cryptography was the idea that keys could come in pairs: an encryption key to convert the plaintext message to ciphertext, and a decryption key to convert the ciphertext back to plaintext. The keys only work one way so that a message encrypted with the private key can only be decrypted with the public key, and vice versa.</p>
@@ -4668,7 +4663,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月12日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月13日</span>
       
         <br>
         创建日期:

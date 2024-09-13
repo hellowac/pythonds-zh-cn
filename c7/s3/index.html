@@ -3977,17 +3977,17 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>The graph abstract data type is defined as a collection of vertices and edges. Vertices may be either connected to each other or isolated. Edges join two vertices and may be weighted.</p>
+<p>图的抽象数据类型被定义为顶点和边的集合。顶点可以彼此连接，也可以是孤立的。边连接两个顶点，并且可能是加权的。</p>
 <ul>
-<li><code>Graph()</code> creates a new empty graph.</li>
-<li><code>add_vertex(vert)</code> adds an instance of <code>Vertex</code> to the graph.</li>
-<li><code>add_edge(from_vert, to_vert)</code> adds a new directed edge to the graph that connects two vertices.</li>
-<li><code>add_edge(from_vert, to_vert, weight)</code> adds a new weighted directed edge to the graph that connects two vertices.</li>
-<li><code>get_vertex(vert_key)</code> finds the vertex in the graph named <code>vert_key</code>.</li>
-<li><code>get_vertices()</code> returns the list of all vertices in the graph.</li>
-<li><code>in</code> returns <code>True</code> for a statement of the form <code>vertex in graph</code> if the given vertex is in the graph, <code>False</code> otherwise.</li>
+<li><code>Graph()</code> 创建一个新的空图。</li>
+<li><code>add_vertex(vert)</code> 向图中添加一个 <code>Vertex</code> 实例。</li>
+<li><code>add_edge(from_vert, to_vert)</code> 向图中添加一条新的有向边，连接两个顶点。</li>
+<li><code>add_edge(from_vert, to_vert, weight)</code> 向图中添加一条新的加权有向边，连接两个顶点。</li>
+<li><code>get_vertex(vert_key)</code> 查找图中名为 <code>vert_key</code> 的顶点。</li>
+<li><code>get_vertices()</code> 返回图中所有顶点的列表。</li>
+<li><code>in</code> 对于形式为 <code>vertex in graph</code> 的语句，如果给定顶点在图中，则返回 <code>True</code>，否则返回 <code>False</code>。</li>
 </ul>
-<p>Now that we have looked at the definition for the graph ADT, there are several ways we can implement it in Python. We will see that there are trade-offs in using different representations to implement the ADT described above. There are two well-known implementations of a graph, the <strong>adjacency matrix</strong> and the <strong>adjacency list</strong>. We will explain both of these options, and then implement one as a Python class.</p>
+<p>现在我们已经了解了图的抽象数据类型的定义，我们可以用几种方式在 Python 中实现它。我们将看到，使用不同的表示方法来实现上述抽象数据类型之间存在权衡。图的两种著名实现方式是 <strong>邻接矩阵</strong> 和 <strong>邻接表</strong>。我们将解释这两种选项，然后作为 Python 类实现其中一种。</p>
 </div>
 <div class="tabbed-block">
 <p>The graph abstract data type is defined as a collection of vertices and edges. Vertices may be either connected to each other or isolated. Edges join two vertices and may be weighted.</p>
@@ -4010,7 +4010,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月12日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月13日</span>
       
         <br>
         创建日期:

@@ -3982,28 +3982,28 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>The <strong>Shell sort</strong>, sometimes called the <em>diminishing increment sort</em>, improves on the insertion sort by breaking the original list into a number of smaller sublists, each of which is sorted using an insertion sort. The unique way that these sublists are chosen is the key to the Shell sort. Instead of breaking the list into sublists of contiguous items, the Shell sort uses an increment <span class="arithmatex">\(i\)</span>, sometimes called the <strong>gap</strong>, to create a sublist by choosing all items that are <span class="arithmatex">\(i\)</span> items apart.</p>
-<p>This can be seen in <code>Figure 6</code>. This list has nine items. If we use an increment of three, there are three sublists, each of which can be sorted by an insertion sort. After completing these sorts, we get the list shown in <code>Figure 7</code>. Although the list shown in <code>Figure 7</code> is not completely sorted, something very interesting has happened. By sorting the sublists, we have moved the items closer to where they actually belong.</p>
+<p><strong>希尔排序</strong>（有时称为 <em>递减增量排序</em>）通过将原始列表分解为多个较小的子列表来改进插入排序，每个子列表都使用插入排序进行排序。这些子列表的独特选择方式是希尔排序的关键。希尔排序不是将列表分解为连续项的子列表，而是使用一个增量 <span class="arithmatex">\(i\)</span>（有时称为 <strong>间隔</strong>），通过选择所有相隔 <span class="arithmatex">\(i\)</span> 项的项来创建子列表。</p>
+<p>这可以在 <code>图 6</code> 中看到。这个列表有九个项。如果我们使用增量三，则会有三个子列表，每个子列表可以通过插入排序进行排序。完成这些排序后，我们得到 <code>图 7</code> 中显示的列表。虽然 <code>图 7</code> 中显示的列表尚未完全排序，但发生了一些非常有趣的事情。通过排序子列表，我们已经将项移动到更接近它们实际位置的地方。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/shellsortA.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/shellsortA.png" /></a>
-    <figcaption markdown="span">Figure 6: A Shell Sort with Increments of Three</figcaption>
+    <figcaption markdown="span">图 6: 增量为三的希尔排序</figcaption>
 </figure>   </p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/shellsortB.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/shellsortB.png" /></a>
-    <figcaption markdown="span">Figure 7: A Shell Sort after Sorting Each Sublist</figcaption>
+    <figcaption markdown="span">图 7: 排序每个子列表后的希尔排序</figcaption>
 </figure></p>
-<p><code>Figure 8</code> shows a final insertion sort using an increment of one—in other words, a standard insertion sort. Note that by performing the earlier sublist sorts, we have now reduced the total number of shifting operations necessary to put the list in its final order. For this case, we need only four more shifts to complete the process.</p>
+<p><code>图 8</code> 显示了使用增量为一的最终插入排序——换句话说，就是标准的插入排序。注意，通过执行早期的子列表排序，我们现在减少了将列表排序到最终顺序所需的总移动操作次数。在这种情况下，我们仅需进行四次额外的移动来完成这个过程。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/shellsortC.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/shellsortC.png" /></a>
-    <figcaption markdown="span">Figure 8: ShellSort: A Final Insertion Sort with Increment of 1</figcaption>
+    <figcaption markdown="span">图 8: 希尔排序：增量为 1 的最终插入排序</figcaption>
 </figure>   </p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/shellsortD.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/shellsortD.png" /></a>
-    <figcaption markdown="span">Figure 9: Initial Sublists for a Shell Sort</figcaption>
+    <figcaption markdown="span">图 9: 希尔排序的初始子列表</figcaption>
 </figure>   </p>
-<p>We said earlier that the way in which the increments are chosen is the unique feature of the Shell sort. The function shown in <code>ActiveCode 1</code> uses a different set of increments. In this case, we begin with <span class="arithmatex">\(\frac {n}{2}\)</span> sublists. On the next pass, <span class="arithmatex">\(\frac {n}{4}\)</span> sublists are sorted. Eventually, a single list is sorted with the basic insertion sort. <code>Figure 9</code> shows the first sublists for our example using this increment.</p>
-<p>The following invocation of the <code>shell_sort</code> function shows the partially sorted lists after each increment, with the final sort being an insertion sort with an increment of one.</p>
-<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 5.10.1 Shell Sort Implementation</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<p>我们之前提到过，增量的选择方式是希尔排序的独特之处。<code>ActiveCode 1</code> 中显示的函数使用了不同的增量集合。在这种情况下，我们从 <span class="arithmatex">\(\frac {n}{2}\)</span> 个子列表开始。在下一次遍历中，排序 <span class="arithmatex">\(\frac {n}{4}\)</span> 个子列表。最终，使用基本的插入排序对单个列表进行排序。<code>图 9</code> 显示了使用此增量的示例中的第一个子列表。</p>
+<p>以下对 <code>shell_sort</code> 函数的调用显示了每次增量后的部分排序列表，最终排序为增量为一的插入排序。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">活动: 5.10.1 希尔排序实现</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
@@ -4028,7 +4028,7 @@
     <span style="color: #008000; font-weight: bold">while</span> sublist_count <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span>:
         <span style="color: #008000; font-weight: bold">for</span> pos_start <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(sublist_count):
             gap_insertion_sort(a_list, pos_start, sublist_count)
-        <span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;After increments of size&quot;</span>, sublist_count, <span style="color: #BA2121">&quot;the list is&quot;</span>, a_list)
+        <span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;增量为&quot;</span>, sublist_count, <span style="color: #BA2121">&quot;后的列表为&quot;</span>, a_list)
         sublist_count <span style="color: #666666">=</span> sublist_count <span style="color: #666666">//</span> <span style="color: #666666">2</span>
 
 <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">gap_insertion_sort</span>(a_list, start, gap):
@@ -4048,24 +4048,24 @@ shell_sort(a_list)
 <p><div id="shell_anim1" class="">
     <canvas id="shell_anim1_canvas" width="400" height="400" style="border:4px solid blue"></canvas>
     <br>
-    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="shell_anim1_anim = shell_anim_init('shell_anim1')">Initialize</button>
-    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="shell_anim1_anim.run('shell_anim1_anim')">Run</button>
-    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="shell_anim1_anim.stop()">Stop</button> <br>
-    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="shell_anim1_anim.begin()">Beginning</button>
-    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="shell_anim1_anim.forward()">Step Forward</button>
-    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="shell_anim1_anim.backward()">Step Backward</button>
-    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="shell_anim1_anim.end()">End</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="shell_anim1_anim = shell_anim_init('shell_anim1')">初始化</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="shell_anim1_anim.run('shell_anim1_anim')">运行</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="shell_anim1_anim.stop()">停止</button> <br>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="shell_anim1_anim.begin()">开始</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="shell_anim1_anim.forward()">向前一步</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="shell_anim1_anim.backward()">向后一步</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="shell_anim1_anim.end()">结束</button>
     <script>
     shell_anim_init = function(divid)
     {
-       var a = new Animator(new ShellSortModel(), new BarViewer(), divid)
-       a.init()
-       return a
+        var a = new Animator(new ShellSortModel(), new BarViewer(), divid)
+        a.init()
+        return a
     }
     </script>
 </div></p>
-<p>For more detail, CodeLens 5 allows you to step through the algorithm.</p>
-<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Tracing the Shell Sort</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<p>有关更多细节，CodeLens 5 允许您逐步分析算法。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">追踪希尔排序</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
@@ -4091,7 +4091,7 @@ shell_sort(a_list)
     <span style="color: #008000; font-weight: bold">while</span> sublist_count <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span>:
         <span style="color: #008000; font-weight: bold">for</span> pos_start <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(sublist_count):
             gap_insertion_sort(a_list, pos_start, sublist_count)
-        <span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;After increments of size&quot;</span>, sublist_count, <span style="color: #BA2121">&quot;the list is&quot;</span>, a_list)
+        <span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;增量为&quot;</span>, sublist_count, <span style="color: #BA2121">&quot;后的列表为&quot;</span>, a_list)
         sublist_count <span style="color: #666666">=</span> sublist_count <span style="color: #666666">//</span> <span style="color: #666666">2</span>
 
 
@@ -4107,26 +4107,30 @@ shell_sort(a_list)
 
 a_list <span style="color: #666666">=</span> [<span style="color: #666666">54</span>, <span style="color: #666666">26</span>, <span style="color: #666666">93</span>, <span style="color: #666666">17</span>, <span style="color: #666666">77</span>, <span style="color: #666666">31</span>, <span style="color: #666666">44</span>, <span style="color: #666666">55</span>, <span style="color: #666666">20</span>]
 shell_sort(a_list)
-<span style="color: #008000">print</span>(alist)
+<span style="color: #008000">print</span>(a_list)
 </code></pre></div></td></tr></table></div>
-<p>At first glance you may think that a Shell sort cannot be better than an insertion sort since it does a complete insertion sort as the last step. It turns out, however, that this final insertion sort does not need to do very many comparisons (or shifts) since the list has been presorted by earlier incremental insertion sorts, as described above. In other words, each pass produces a list that is “more sorted” than the previous one. This makes the final pass very efficient.</p>
-<p>Although a general analysis of the Shell sort is well beyond the scope of this text, we can say that it tends to fall somewhere between <span class="arithmatex">\(O(n)\)</span> and <span class="arithmatex">\(O(n^{2})\)</span>, based on the behavior described above. For the increments shown in <code>Listing 5</code>, the performance is <span class="arithmatex">\(O(n^{2})\)</span>. By changing the increment, for example using <span class="arithmatex">\(2^{k}-1\)</span> (1, 3, 7, 15, 31, and so on), a Shell sort can perform at <span class="arithmatex">\(O(n^{\frac {3}{2}})\)</span>.</p>
+<p>乍一看，你可能会认为希尔排序不可能比插入排序更好，因为它在最后一步执行了完整的插入排序。然而，事实证明，这个最终的插入排序实际上不需要进行很多比较（或移动），因为列表已经通过之前的增量插入排序进行了预排序。换句话说，每次遍历都会产生一个比上一次“更排序”的列表。这使得最终的遍历非常高效。</p>
+<p>虽然希尔排序的一般分析超出了本书的范围，但我们可以说它的复杂度介于 <span class="arithmatex">\(O(n)\)</span> 和 <span class="arithmatex">\(O(n^{2})\)</span> 之间，具体取决于上述描述的行为。对于 <code>Listing 5</code> 中显示的增量，性能是 <span class="arithmatex">\(O(n^{2})\)</span>。通过更改增量，例如使用 <span class="arithmatex">\(2^{k}-1\)</span>（1, 3, 7, 15, 31 等），希尔排序的性能可以达到 <span class="arithmatex">\(O(n^{\frac {3}{2}})\)</span>。</p>
 <div class="admonition info">
-<p class="admonition-title">Self Check</p>
-<p>Given the following list of numbers:  [5, 16, 20, 12, 3, 8, 9, 17, 19, 7]
-Which answer illustrates the contents of the list after all swapping is complete for a gap size of 3?</p>
+<p class="admonition-title">自我检测</p>
+<p>给定以下数字列表：[5, 16, 20, 12, 3, 8, 9, 17, 19, 7]
+哪个答案说明了增量为 3 时，所有交换完成后的列表内容？</p>
 <ul>
-<li>answer a: [5, 3, 8, 7, 16, 19, 9, 17, 20, 12]</li>
-<li>answer b: [3, 7, 5, 8, 9, 12, 19, 16, 20, 17]</li>
-<li>answer c: [3, 5, 7, 8, 9, 12, 16, 17, 19, 20]</li>
-<li>answer d: [5, 16, 20, 3, 8, 12, 9, 17, 20, 7]</li>
-</ul>
-<p>correct: a</p>
-<ul>
-<li>feedback a:  Each group of numbers represented by index positions 3 apart are sorted correctly.</li>
-<li>feedback b:  This solution is for a gap size of two.</li>
-<li>feedback c: This is list completely sorted, you have gone too far.</li>
-<li>feedback d: The gap size of three indicates that the group represented by every third number e.g. 0, 3, 6, 9  and 1, 4, 7 and 2, 5, 8 are sorted not groups of 3.</li>
+<li>选项 a: [5, 3, 8, 7, 16, 19, 9, 17, 20, 12]</li>
+<li>选项 b: [3, 7, 5, 8, 9, 12, 19, 16, 20, 17]</li>
+<li>选项 c: [3, 5, 7, 8, 9, 12, 16, 17, 19, 20]</li>
+<li>
+<p>选项 d: [5, 16, 20, 3, 8, 12, 9, 17, 20, 7]</p>
+</li>
+<li>
+<p>正确答案: a</p>
+</li>
+<li>
+<p>反馈 a: 每组由每隔 3 个位置表示的数字已正确排序。</p>
+</li>
+<li>反馈 b: 这个解决方案适用于增量为 2 的情况。</li>
+<li>反馈 c: 这是完全排序后的列表，你已经排序得太远了。</li>
+<li>反馈 d: 增量为 3 表明每隔 3 个数字的组，如 0, 3, 6, 9 和 1, 4, 7 以及 2, 5, 8 是排序的，而不是每组三个。</li>
 </ul>
 </div>
 </div>
@@ -4287,7 +4291,7 @@ Which answer illustrates the contents of the list after all swapping is complete
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月11日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月13日</span>
       
         <br>
         创建日期:

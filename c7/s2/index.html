@@ -3977,30 +3977,30 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Now that we have looked at an graph, we will more formally define a graph and its components. We already know some of these terms from our discussion of trees.</p>
+<p>现在我们已经了解了图的概念，我们将更正式地定义图及其组成部分。我们从树的讨论中已经知道一些这些术语。</p>
 <dl>
-<dt>Vertex</dt>
-<dd>A <strong>vertex</strong> (also called a <em>node</em>) is a fundamental part of a graph. It can have a name, which we will call the <em>key</em>. A vertex may also have additional information. We will call this additional information the <em>value</em> or the <em>payload</em>.</dd>
-<dt>Edge</dt>
-<dd>An <strong>edge</strong> (also called an <em>arc</em>) is another fundamental part of a graph. An edge connects two vertices to show that there is a relationship between them. Edges may be one-way or two-way. If the edges in a graph are all one-way, we say that the graph is a <strong>directed graph</strong>, or a <strong>digraph</strong>. The class prerequisites graph shown above is clearly a digraph since you must take some classes before others.</dd>
-<dt>Weight</dt>
-<dd>Edges may be <strong>weighted</strong> to show that there is a cost to go from one vertex to another, which we call <strong>edge cost</strong>. For example, in a graph of roads that connect one city to another, the weight on the edge might represent the distance between the two cities.</dd>
+<dt><strong>顶点</strong></dt>
+<dd><strong>顶点</strong>（也称为 <em>节点</em>）是图的一个基本部分。它可以有一个名称，我们称之为 <em>键</em>。顶点还可以有附加的信息。我们将这些附加信息称为 <em>值</em> 或 <em>负载</em>。</dd>
+<dt><strong>边</strong></dt>
+<dd><strong>边</strong>（也称为 <em>弧</em>）是图的另一个基本部分。边连接两个顶点以显示它们之间的关系。边可以是单向的或双向的。如果图中的边都是单向的，我们称该图为 <strong>有向图</strong> 或 <strong>有向图（digraph）</strong>。上面展示的课程先决条件图显然是一个有向图，因为你必须在其他课程之前修一些课程。</dd>
+<dt><strong>权重</strong></dt>
+<dd>边可以是 <strong>加权的</strong>，以显示从一个顶点到另一个顶点的成本，我们称之为 <strong>边成本</strong>。例如，在连接一个城市到另一个城市的道路图中，边上的权重可能表示两个城市之间的距离。</dd>
 </dl>
-<p>With those definitions in hand, we can formally define a graph. A graph can be represented by <span class="arithmatex">\(G\)</span> where <span class="arithmatex">\(G =(V,E)\)</span>. For the graph <span class="arithmatex">\(G\)</span>, <span class="arithmatex">\(V\)</span> is a set of vertices and <span class="arithmatex">\(E\)</span> is a set of edges. Each edge is a tuple <span class="arithmatex">\((v, w)\)</span> where <span class="arithmatex">\(v, w \in V\)</span>. We can add a third component to the edge tuple to represent a weight. A subgraph $s` is a set of edges <span class="arithmatex">\(e\)</span> and vertices <span class="arithmatex">\(v\)</span> such that <span class="arithmatex">\(e \subset E\)</span> and <span class="arithmatex">\(v \subset V\)</span>.</p>
-<p><code>Figure  2</code> shows another example of a simple weighted digraph. Formally we can represent this graph as the set of six vertices:</p>
+<p>有了这些定义，我们可以正式定义一个图。一个图可以用 <span class="arithmatex">\(G\)</span> 表示，其中 <span class="arithmatex">\(G =(V,E)\)</span>。对于图 <span class="arithmatex">\(G\)</span>，<span class="arithmatex">\(V\)</span> 是一个顶点的集合，而 <span class="arithmatex">\(E\)</span> 是一个边的集合。每个边是一个元组 <span class="arithmatex">\((v, w)\)</span>，其中 <span class="arithmatex">\(v, w \in V\)</span>。我们可以在边元组中添加一个第三个组件来表示权重。一个子图 <span class="arithmatex">\(s\)</span> 是一个边集合 <span class="arithmatex">\(e\)</span> 和顶点集合 <span class="arithmatex">\(v\)</span>，使得 <span class="arithmatex">\(e \subset E\)</span> 且 <span class="arithmatex">\(v \subset V\)</span>。</p>
+<p><code>图 2</code> 展示了一个简单的加权有向图的另一个示例。我们可以将这个图正式表示为六个顶点的集合：</p>
 <p><span class="arithmatex">\(V = \left\{ v_0, v_1, v_2, v_3, v_4, v_5 \right\}\)</span></p>
-<p>and the set of nine edges:</p>
+<p>以及九个边的集合：</p>
 <p><span class="arithmatex">\(\begin{align} E = \left\{ \begin{array}{l}(v_0, v_1, 5), (v_1, v_2, 4), (v_2, v_3, 9), \\ (v_3, v_4, 7), (v_4, v_0, 1), (v_0, v_5, 2), \\ (v_5, v_4, 8), (v_3, v_5, 3), (v_5, v_2, 1) \end{array} \right\} \end{align}\)</span></p>
 <p><figure markdown="span">
-<a class="glightbox" href="../imgs/digraph.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/digraph.png" width="300" /></a>
-<figcaption markdown="span">Figure 2: A Simple Example of a Directed Graph</figcaption>
+<a class="glightbox" href="../imgs/digraph.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="图标题" src="../imgs/digraph.png" width="300" /></a>
+<figcaption markdown="span">图 2: 一个简单的有向图示例</figcaption>
 </figure></p>
-<p>The example graph in <code>Figure 2</code> helps illustrate two other key graph terms:</p>
+<p><code>图 2</code> 的示例图帮助说明了另外两个关键的图术语：</p>
 <dl>
-<dt>Path</dt>
-<dd>A <strong>path</strong> in a graph is a sequence of vertices that are connected by edges. Formally we would define a path as <span class="arithmatex">\(w_1, w_2, ..., w_n\)</span> such that <span class="arithmatex">\((w_i, w_{i+1}) \in E\)</span> for all <span class="arithmatex">\(1 \le i \le n-1\)</span>. The unweighted path length is the number of edges in the path, specifically <span class="arithmatex">\(n-1\)</span>. The weighted path length is the sum of the weights of all the edges in the path. For example in <code>Figure 2</code> the path from <span class="arithmatex">\(v_3\)</span> to <span class="arithmatex">\(v_1\)</span> is the sequence of vertices <span class="arithmatex">\((v_3, v_4, v_0, v_1)\)</span>. The edges are <span class="arithmatex">\(\left\{(v_3, v_4, 7), (v_4, v_0, 1), (v_0, v_1, 5) \right\}\)</span>.</dd>
-<dt>Cycle</dt>
-<dd>A <strong>cycle</strong> in a directed graph is a path that starts and ends at the same vertex. For example, in <code>Figure 2</code> the path <span class="arithmatex">\((v_5, v_2, v_3, v_5)\)</span> is a cycle. A graph with no cycles is called an <strong>acyclic graph</strong>. A directed graph with no cycles is called a <strong>directed acyclic graph</strong> or a <strong>DAG</strong>. We will see that we can solve several important problems if the problem can be represented as a DAG.</dd>
+<dt><strong>路径</strong></dt>
+<dd>图中的 <strong>路径</strong> 是一系列通过边连接的顶点。正式地，我们定义路径为 <span class="arithmatex">\(w_1, w_2, ..., w_n\)</span>，使得对于所有 <span class="arithmatex">\(1 \le i \le n-1\)</span>，<span class="arithmatex">\((w_i, w_{i+1}) \in E\)</span>。未加权路径长度是路径中边的数量，具体为 <span class="arithmatex">\(n-1\)</span>。加权路径长度是路径中所有边的权重之和。例如，在 <code>图 2</code> 中，从 <span class="arithmatex">\(v_3\)</span> 到 <span class="arithmatex">\(v_1\)</span> 的路径是顶点序列 <span class="arithmatex">\((v_3, v_4, v_0, v_1)\)</span>。这些边是 <span class="arithmatex">\(\left\{(v_3, v_4, 7), (v_4, v_0, 1), (v_0, v_1, 5) \right\}\)</span>。</dd>
+<dt><strong>环</strong></dt>
+<dd>在有向图中，<strong>环</strong> 是一个以相同顶点开始和结束的路径。例如，在 <code>图 2</code> 中，路径 <span class="arithmatex">\((v_5, v_2, v_3, v_5)\)</span> 是一个环。没有环的图称为 <strong>无环图</strong>。没有环的有向图称为 <strong>有向无环图</strong> 或 <strong>DAG</strong>。我们将看到，如果问题可以表示为 DAG，我们可以解决几个重要的问题。</dd>
 </dl>
 </div>
 <div class="tabbed-block">
@@ -4038,7 +4038,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月12日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月13日</span>
       
         <br>
         创建日期:

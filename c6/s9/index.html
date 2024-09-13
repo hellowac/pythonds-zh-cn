@@ -3977,9 +3977,9 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>In earlier sections you learned about the first in, first out data structure called a queue. One important variation of a queue is called a <strong>priority queue</strong>. A priority queue acts like a queue in that you dequeue an item by removing it from the front. However, in a priority queue the logical order of items inside a queue is determined by their priority. The highest priority items are at the front of the queue and the lowest priority items are at the back. Thus when you enqueue an item on a priority queue, the new item may move all the way to the front. We will see that the priority queue is a useful data structure for some of the graph algorithms we will study in the next chapter.</p>
-<p>You can probably think of a couple of easy ways to implement a priority queue using sorting functions and lists. However, inserting into a list is <span class="arithmatex">\(O(n)\)</span> and sorting a list is <span class="arithmatex">\(O(n \log{n})\)</span>. We can do better. The classic way to implement a priority queue is using a data structure called a <strong>binary heap</strong>. A binary heap will allow us both to enqueue and dequeue items in <span class="arithmatex">\(O(\log{n})\)</span>.</p>
-<p>The binary heap is interesting to study because when we diagram the heap it looks a lot like a tree, but when we implement it we use only a single list as an internal representation. The binary heap has two common variations: the <strong>min heap</strong>, in which the smallest key value is always at the front, and the <strong>max heap</strong>, in which the largest key value is always at the front. In this section we will implement the min heap. We leave a max heap implementation as an exercise.</p>
+<p>在前面的部分中，你了解了先进先出（FIFO）数据结构——队列。一种重要的队列变体称为<strong>优先队列</strong>。优先队列的操作方式类似于队列，你可以通过从前面移除项目来出队。然而，在优先队列中，队列内项目的逻辑顺序是由它们的优先级决定的。最高优先级的项目位于队列的前面，而最低优先级的项目位于队列的后面。因此，当你向优先队列中入队一个项目时，新项目可能会移动到队列的前面。我们将在下一章中看到，优先队列是一些图算法中非常有用的数据结构。</p>
+<p>你可能会想到几种简单的方法来使用排序函数和列表来实现优先队列。然而，将项目插入到列表中的时间复杂度是 <span class="arithmatex">\(O(n)\)</span>，而对列表进行排序的时间复杂度是 <span class="arithmatex">\(O(n \log{n})\)</span>。我们可以做得更好。经典的优先队列实现方式是使用一种数据结构——<strong>二叉堆</strong>。二叉堆允许我们在 <span class="arithmatex">\(O(\log{n})\)</span> 时间内完成入队和出队操作。</p>
+<p>二叉堆之所以有趣，是因为当我们绘制堆的结构图时，它看起来很像一棵树，但在实现时我们只使用一个列表作为内部表示。二叉堆有两个常见的变体：<strong>最小堆</strong>（min heap），其中最小的键值总是位于前面；以及<strong>最大堆</strong>（max heap），其中最大的键值总是位于前面。在这一节中，我们将实现最小堆。最大堆的实现留作练习。</p>
 </div>
 <div class="tabbed-block">
 <p>In earlier sections you learned about the first in, first out data structure called a queue. One important variation of a queue is called a <strong>priority queue</strong>. A priority queue acts like a queue in that you dequeue an item by removing it from the front. However, in a priority queue the logical order of items inside a queue is determined by their priority. The highest priority items are at the front of the queue and the lowest priority items are at the back. Thus when you enqueue an item on a priority queue, the new item may move all the way to the front. We will see that the priority queue is a useful data structure for some of the graph algorithms we will study in the next chapter.</p>
@@ -3994,7 +3994,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月11日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月13日</span>
       
         <br>
         创建日期:

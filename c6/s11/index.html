@@ -4059,12 +4059,12 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>In order to make our heap work efficiently, we will take advantage of the logarithmic nature of the binary tree to represent our heap. In order to guarantee logarithmic performance, we must keep our tree balanced. A balanced binary tree has roughly the same number of nodes in the left and right subtrees of the root. In our heap implementation we keep the tree balanced by creating a <strong>complete binary tree</strong>. A complete binary tree is a tree in which each level has all of its nodes. The exception to this is the bottom level of the tree, which we fill in from left to right. <code>Figure 1</code> shows an example of a complete binary tree.</p>
+<p>为了使我们的堆高效运行，我们将利用二叉树的对数性质来表示堆。为了保证对数性能，我们必须保持树的平衡。一个平衡的二叉树在根的左子树和右子树中大致包含相同数量的节点。在我们的堆实现中，我们通过创建一个<strong>完全二叉树</strong>来保持树的平衡。完全二叉树是指每一层的节点都是满的，唯一的例外是树的底层，我们从左到右填充该层。<code>图 1</code> 显示了一个完全二叉树的示例。</p>
 <p><figure markdown="span">
-    <a class="glightbox" href="../imgs/compTree.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/compTree.png" /></a>
-    <figcaption markdown="span">Figure 1: A Complete Binary Tree</figcaption>
+    <a class="glightbox" href="../imgs/compTree.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="图标题" src="../imgs/compTree.png" /></a>
+    <figcaption markdown="span">图 1: 一个完全二叉树</figcaption>
 </figure></p>
-<p>Another interesting property of a complete tree is that we can represent it using a single list. We do not need to use nodes and references or even lists of lists. Because the tree is complete, the left child of a parent (at position <span class="arithmatex">\(p\)</span>) is the node that is found in position <span class="arithmatex">\(2p + 1\)</span> in the list. Similarly, the right child of the parent is at position <span class="arithmatex">\(2p + 2\)</span> in the list. To find the parent of any node in the tree, we can simply use Python’s integer division. Given that a node is at position <span class="arithmatex">\(n\)</span> in the list, the parent is at position <span class="arithmatex">\((n - 1) // 2<code>.</code>Figure 2\)</span> shows a complete binary tree and also gives the list representation of the tree.  Note the <span class="arithmatex">\(2p + 1\)</span> and <span class="arithmatex">\(2p + 2\)</span> relationship between parent and children. The list representation of the tree, along with the full structure property, allows us to efficiently traverse a complete binary tree using only a few simple mathematical operations. We will see that this also leads to an efficient implementation of our binary heap.</p>
+<p>完全树的另一个有趣的属性是，我们可以使用一个单一的列表来表示它。我们不需要使用节点和引用，甚至不需要使用列表的列表。因为树是完全的，父节点（在位置 <span class="arithmatex">\(p\)</span>）的左子节点在列表中的位置是 <span class="arithmatex">\(2p + 1\)</span>。同样，父节点的右子节点在列表中的位置是 <span class="arithmatex">\(2p + 2\)</span>。要找到树中任何节点的父节点，我们只需使用 Python 的整数除法。给定一个节点在列表中的位置 <span class="arithmatex">\(n\)</span>，父节点的位置是 <span class="arithmatex">\((n - 1) // 2\)</span>。<code>图 2</code> 显示了一个完全二叉树，并给出了树的列表表示。请注意父节点和子节点之间的 <span class="arithmatex">\(2p + 1\)</span> 和 <span class="arithmatex">\(2p + 2\)</span> 的关系。树的列表表示以及完全结构的属性，使我们能够仅使用几个简单的数学操作来高效遍历一个完全二叉树。这也使得我们可以高效实现二叉堆。</p>
 </div>
 <div class="tabbed-block">
 <p>In order to make our heap work efficiently, we will take advantage of the logarithmic nature of the binary tree to represent our heap. In order to guarantee logarithmic performance, we must keep our tree balanced. A balanced binary tree has roughly the same number of nodes in the left and right subtrees of the root. In our heap implementation we keep the tree balanced by creating a <strong>complete binary tree</strong>. A complete binary tree is a tree in which each level has all of its nodes. The exception to this is the bottom level of the tree, which we fill in from left to right. <code>Figure 1</code> shows an example of a complete binary tree.</p>
@@ -4081,10 +4081,10 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">中文</label><label for="__tabbed_2_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>The method that we will use to store items in a heap relies on maintaining the heap order property. The <strong>heap order property</strong> is as follows: in a heap, for every node <span class="arithmatex">\(x\)</span> with parent <span class="arithmatex">\(p\)</span>, the key in <span class="arithmatex">\(p\)</span> is smaller than or equal to the key in <span class="arithmatex">\(x\)</span>. <code>Figure 2</code> also illustrates a complete binary tree that has the heap order property.</p>
+<p>我们将用来存储堆中项目的方法依赖于保持堆的顺序属性。<strong>堆顺序属性</strong>如下：在一个堆中，对于每个节点 <span class="arithmatex">\(x\)</span> 及其父节点 <span class="arithmatex">\(p\)</span>，<span class="arithmatex">\(p\)</span> 中的键值小于或等于 <span class="arithmatex">\(x\)</span> 中的键值。<code>图 2</code> 还展示了一个具有堆顺序属性的完全二叉树。</p>
 <p><figure markdown="span">
-    <a class="glightbox" href="../imgs/heapOrder.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/heapOrder.png" /></a>
-    <figcaption markdown="span">Figure 2: A Complete Binary Tree, along with Its List Representation</figcaption>
+    <a class="glightbox" href="../imgs/heapOrder.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="图标题" src="../imgs/heapOrder.png" /></a>
+    <figcaption markdown="span">图 2: 一个完全二叉树及其列表表示</figcaption>
 </figure></p>
 </div>
 <div class="tabbed-block">
@@ -4101,19 +4101,19 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">中文</label><label for="__tabbed_3_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>We will begin our implementation of a binary heap with the constructor. Since the entire binary heap can be represented by a single list, all the constructor will do is initialize the list. <code>Listing 1</code> shows the Python code for the constructor.</p>
-<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 1</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">BinaryHeap</span>:
+<p>我们将从构造函数开始实现二叉堆。由于整个二叉堆可以用一个单一的列表来表示，因此构造函数只需初始化这个列表。<code>列表 1</code> 显示了构造函数的 Python 代码。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">列表 1</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">BinaryHeap</span>:
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>):
         <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap <span style="color: #666666">=</span> []
 </code></pre></div>
-<p>The next method we will implement is <code>insert</code>. The easiest, and most efficient, way to add an item to a list is to simply append the item to the end of the list. The good news about appending is that it guarantees that we will maintain the complete tree property. The bad news about appending is that we will very likely violate the heap structure property. However, it is possible to write a method that will allow us to regain the heap structure property by comparing the newly added item with its parent. If the newly added item is less than its parent, then we can swap the item with its parent. <code>Figure 2</code> shows the series of swaps needed to percolate the newly added item up to its proper position in the tree.</p>
+<p>接下来我们将实现 <code>insert</code> 方法。向列表中添加项目的最简单和最有效的方法是将项目直接附加到列表末尾。附加操作的好处是，它可以保证我们保持完全树的属性。附加操作的坏处是，我们很可能会破坏堆的结构属性。然而，可以编写一个方法，通过比较新添加的项目与其父节点来恢复堆的结构属性。如果新添加的项目小于其父节点，则可以交换这个项目与其父节点的位置。<code>图 2</code> 显示了将新添加的项目上升到树中适当位置所需的一系列交换操作。</p>
 <p><figure markdown="span">
-    <a class="glightbox" href="../imgs/percUp.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/percUp.png" /></a>
-    <figcaption markdown="span">Figure 2: Percolate the New Node up to Its Proper Position</figcaption>
-</figure>   </p>
-<p>Notice that when we percolate an item up, we are restoring the heap property between the newly added item and the parent. We are also preserving the heap property for any siblings. Of course, if the newly added item is very small, we may still need to swap it up another level. In fact, we may need to keep swapping until we get to the top of the tree. <code>Listing 2</code> shows the <code>_perc_up</code> method, which percolates a new item as far up in the tree as it needs to go to maintain the heap property. We used a leading underscore (<code>_</code>) in  the name of the method as it is an internal operation. The parent of the current node can be computed by subtracting 1 from the index of the current node and dividing the result by 2.</p>
-<p>We are now ready to write the <code>insert</code> method (see <code>Listing 3</code>). Most of the work in the <code>insert</code> method is really done by <code>_perc_up</code>. Once a new item is appended to the tree, <code>_perc_up</code> takes over and positions the new item properly.</p>
-<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 2</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">_perc_up</span>(<span style="color: #008000">self</span>, i):
+    <a class="glightbox" href="../imgs/percUp.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="图标题" src="../imgs/percUp.png" /></a>
+    <figcaption markdown="span">图 2: 将新节点上升到其适当位置</figcaption>
+</figure></p>
+<p>注意，当我们将项目上升时，我们是在恢复新添加的项目与其父节点之间的堆属性。我们也在保持任何兄弟节点的堆属性。当然，如果新添加的项目非常小，我们可能仍需将其上升到另一层。实际上，我们可能需要不断交换直到到达树的顶端。<code>列表 2</code> 显示了 <code>_perc_up</code> 方法，它会将新项目尽可能地上升到保持堆属性的位置。我们在方法名前使用了一个前导下划线 (<code>_</code>)，因为这是一个内部操作。当前节点的父节点可以通过从当前节点的索引中减去 1 并将结果除以 2 来计算。</p>
+<p>现在我们可以编写 <code>insert</code> 方法了（见 <code>列表 3</code>）。<code>insert</code> 方法的大部分工作实际上由 <code>_perc_up</code> 完成。一旦将新项目附加到树中，<code>_perc_up</code> 就会接管并正确定位新项目。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">列表 2</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">_perc_up</span>(<span style="color: #008000">self</span>, i):
     <span style="color: #008000; font-weight: bold">while</span> (i <span style="color: #666666">-</span> <span style="color: #666666">1</span>) <span style="color: #666666">//</span> <span style="color: #666666">2</span> <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>:
         parent_idx <span style="color: #666666">=</span> (i <span style="color: #666666">-</span> <span style="color: #666666">1</span>) <span style="color: #666666">//</span> <span style="color: #666666">2</span>
         <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[i] <span style="color: #666666">&lt;</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[parent_idx]:
@@ -4123,17 +4123,17 @@
             )
         i <span style="color: #666666">=</span> parent_idx
 </code></pre></div>
-<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 3</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">insert</span>(<span style="color: #008000">self</span>, item):
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">列表 3</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">insert</span>(<span style="color: #008000">self</span>, item):
     <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap<span style="color: #666666">.</span>append(item)
     <span style="color: #008000">self</span><span style="color: #666666">.</span>_perc_up(<span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_heap) <span style="color: #666666">-</span> <span style="color: #666666">1</span>)
 </code></pre></div>
-<p>With the <code>insert</code> method properly defined, we can now look at the <code>delete</code> method. Since the heap property requires that the root of the tree be the smallest item in the tree, finding the minimum item is easy. The hard part of <code>delete</code> is restoring full compliance with the heap structure and heap order properties after the root has been removed. We can restore our heap in two steps. First, we will restore the root item by taking the last item in the list and moving it to the root position. Moving the last item maintains our heap structure property. However, we have probably destroyed the heap order property of our binary heap. Second, we will restore the heap order property by pushing the new root node down the tree to its proper position. <code>Figure 3</code> shows the series of swaps needed to move the new root node to its proper position in the heap.</p>
+<p>定义了 <code>insert</code> 方法后，我们现在可以看一下 <code>delete</code> 方法。由于堆属性要求树的根是树中最小的项目，找到最小项很简单。<code>delete</code> 方法的难点在于在根节点被移除后恢复完全符合堆结构和堆顺序属性。我们可以通过两个步骤恢复堆。首先，我们通过将列表中的最后一个项目移到根位置来恢复根节点。移动最后一个项目保持了我们的堆结构属性。然而，我们很可能破坏了二叉堆的堆顺序属性。第二，我们通过将新的根节点向下推到树中的适当位置来恢复堆顺序属性。<code>图 3</code> 显示了将新根节点移动到堆中适当位置所需的一系列交换操作。</p>
 <p><figure markdown="span">
-    <a class="glightbox" href="../imgs/percDown.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/percDown.png" /></a>
-    <figcaption markdown="span">Figure 3: Percolating the Root Node down the Tree</figcaption>
+    <a class="glightbox" href="../imgs/percDown.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="图标题" src="../imgs/percDown.png" /></a>
+    <figcaption markdown="span">图 3: 将根节点向下推到树中</figcaption>
 </figure></p>
-<p>In order to maintain the heap order property, all we need to do is swap the root with its smaller child that is less than the root. After the initial swap, we may repeat the swapping process with a node and its children until the node is swapped into a position on the tree where it is already less than both children. The code for percolating a node down the tree is found in the <code>_perc_down</code> and <code>_get_min_child</code> methods in <code>Listing 4</code>.</p>
-<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 4</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">_perc_down</span>(<span style="color: #008000">self</span>, i):
+<p>为了保持堆顺序属性，我们只需将根节点与其比根节点小的子节点交换。在初始交换后，我们可能需要重复交换过程，将节点与其子节点交换，直到节点交换到树中的位置，在这个位置它已经小于两个子节点。下树节点的代码在 <code>列表 4</code> 中的 <code>_perc_down</code> 和 <code>_get_min_child</code> 方法中。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">列表 4</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">_perc_down</span>(<span style="color: #008000">self</span>, i):
     <span style="color: #008000; font-weight: bold">while</span> <span style="color: #666666">2</span> <span style="color: #666666">*</span> i <span style="color: #666666">+</span> <span style="color: #666666">1</span> <span style="color: #666666">&lt;</span> <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_heap):
         sm_child <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_get_min_child(i)
         <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[i] <span style="color: #666666">&gt;</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[sm_child]:
@@ -4152,15 +4152,15 @@
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">2</span> <span style="color: #666666">*</span> i <span style="color: #666666">+</span> <span style="color: #666666">1</span>
     <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">2</span> <span style="color: #666666">*</span> i <span style="color: #666666">+</span> <span style="color: #666666">2</span>
 </code></pre></div>
-<p>The code for the <code>delete</code> operation is in <code>Listing 5</code>. Note that once again the hard work is handled by a helper function, in this case <code>_perc_down</code>.</p>
-<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 5</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">delete</span>(<span style="color: #008000">self</span>):
+<p><code>delete</code> 操作的代码在 <code>列表 5</code> 中。注意一如既往，艰难的工作是由一个辅助函数 <code>_perc_down</code> 处理的。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">列表 5</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">delete</span>(<span style="color: #008000">self</span>):
     <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[<span style="color: #666666">0</span>], <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[<span style="color: #666666">-1</span>] <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[<span style="color: #666666">-1</span>], <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[<span style="color: #666666">0</span>]
     result <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap<span style="color: #666666">.</span>pop()
     <span style="color: #008000">self</span><span style="color: #666666">.</span>_perc_down(<span style="color: #666666">0</span>)
     <span style="color: #008000; font-weight: bold">return</span> result
 </code></pre></div>
-<p>To finish our discussion of binary heaps, we will look at a method to build an entire heap from a list of keys. The first method you might think of may be like the following. Given a list of keys, you could easily build a heap by inserting each key one at a time. Since you are starting with an empy list, it is sorted and you could use binary search to find the right position to insert the next key at a cost of approximately <span class="arithmatex">\(O(\log{n})\)</span> operations. However, remember that inserting an item in the middle of the list may require <span class="arithmatex">\(O(n)\)</span> operations to shift the rest of the list over to make room for the new key. Therefore, to insert <span class="arithmatex">\(n\)</span> keys into the heap would require a total of <span class="arithmatex">\(O(n \log{n})\)</span> operations. However, if we start with an entire list then we can build the whole heap in <span class="arithmatex">\(O(n)\)</span> operations. <code>Listing 6</code> shows the code to build the entire heap.</p>
-<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 6</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">heapify</span>(<span style="color: #008000">self</span>, not_a_heap):
+<p>为了完成对二叉堆的讨论，我们将看一下从一个键值列表构建整个堆的方法。你可能首先想到的方法是如下的。给定一个键值列表，你可以通过一次插入每个键值来轻松构建堆。由于你是从一个空列表开始的，因此列表是有序的，你可以使用二分查找找到插入下一个键值的位置，成本大约是 <span class="arithmatex">\(O(\log{n})\)</span> 操作。然而，请记住，在列表中间插入一个项目可能需要 <span class="arithmatex">\(O(n)\)</span> 的操作来移动列表的其余部分以为新键值腾出空间。因此，将 <span class="arithmatex">\(n\)</span> 个键值插入堆中总共需要 <span class="arithmatex">\(O(n \log{n})\)</span> 的操作。然而，如果我们从一个完整的列表开始，我们可以在 <span class="arithmatex">\(O(n)\)</span> 操作中构建整个堆。<code>列表 6</code> 显示了构建整个堆的代码。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">列表 6</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">heapify</span>(<span style="color: #008000">self</span>, not_a_heap):
     <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap <span style="color: #666666">=</span> not_a_heap[:]
     i <span style="color: #666666">=</span> <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_heap) <span style="color: #666666">//</span> <span style="color: #666666">2</span> <span style="color: #666666">-</span> <span style="color: #666666">1</span>
     <span style="color: #008000; font-weight: bold">while</span> i <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>:
@@ -4168,16 +4168,16 @@
         i <span style="color: #666666">=</span> i <span style="color: #666666">-</span> <span style="color: #666666">1</span>
 </code></pre></div>
 <p><figure markdown="span">
-    <a class="glightbox" href="../imgs/buildheap.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/buildheap.png" /></a>
-    <figcaption markdown="span">Figure 4: Building a Heap from the List [9, 6, 5, 2, 3]</figcaption>
-</figure>   </p>
-<p><code>Figure 4</code> shows the swaps that the <code>hepify</code> method makes as it moves the nodes in an initial tree of [9, 6, 5, 2, 3] into their proper positions. Although we start out in the middle of the tree and work our way back toward the root, the <code>_perc_down</code> method ensures that the largest child is always moved down the tree. Because the heap is a complete binary tree, any nodes past the halfway point will be leaves and therefore have no children. Notice that when <code>i = 0</code>, we are percolating down from the root of the tree, so this may require multiple swaps. As you can see in the rightmost two trees of <code>Figure 4</code>, first the 9 is moved out of the root position, but after 9 is moved down one level in the tree, <code>_perc_down</code> ensures that we check the next set of children farther down in the tree to ensure that it is pushed as low as it can go. In this case it results in a second swap with 3. Now that 9 has been moved to the lowest level of the tree, no further swapping can be done. It is useful to compare the list representation of this series of swaps with the tree representation shown in <code>Figure 4</code></p>
-<div class="language-pycon highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #717171">start  [9, 6, 5, 2, 3]</span>
+    <a class="glightbox" href="../imgs/buildheap.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="图标题" src="../imgs/buildheap.png" /></a>
+    <figcaption markdown="span">图 4: 从列表 [9, 6, 5, 2, 3] 构建堆</figcaption>
+</figure></p>
+<p><code>图 4</code> 显示了 <code>heapify</code> 方法在将初始树 [9, 6, 5, 2, 3] 的节点移动到其适当位置时所做的交换操作。虽然我们从树的中间开始并向根部推进，<code>_perc_down</code> 方法确保最大子节点始终被向下移动到树中。由于堆是一个完全二叉树，任何经过中点的节点都会是叶子节点，因此没有子节点。注意，当 <code>i = 0</code> 时，我们是从树的根开始向下渗透，因此这可能需要多次交换。正如你在 <code>图 4</code> 的最右边两个树中看到的那样，首先 9 被移动出根位置，但在 9 被移动到树的下一层后，<code>_perc_down</code> 确保我们检查树中更深处的下一组子节点，以确保它被推到尽可能低的位置。在这个例子中，这导致了与 3 的第二次交换。现在 9 已经被移动到树的最低层，不再需要进一步交换。比较这个交换序列的列表表示与 <code>图 4</code> 中显示的树表示是很有用的。</p>
+<div class="language-pycon highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #717171">开始  [9, 6, 5, 2, 3]</span>
 <span style="color: #717171">i = 1  [9, 2, 5, 6, 3]</span>
 <span style="color: #717171">i = 0  [2, 3, 5, 6, 9]</span>
 </code></pre></div>
-<p>The complete binary heap implementation can be seen in ActiveCode 1.</p>
-<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 6.11.3.1 The Complete Binary Heap Example</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<p>完整的二叉堆实现可以在 ActiveCode 1 中看到。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">活动: 6.11.3.1 完整的二叉堆示例</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
@@ -4243,7 +4243,9 @@
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">64</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">65</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">66</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">67</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">BinaryHeap</span>:
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">67</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">68</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">69</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">BinaryHeap</span>:
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>):
         <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap <span style="color: #666666">=</span> []
 
@@ -4258,7 +4260,9 @@
             cur_idx <span style="color: #666666">=</span> parent_idx
 
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">_perc_down</span>(<span style="color: #008000">self</span>, cur_idx):
-        <span style="color: #008000; font-weight: bold">while</span> <span style="color: #666666">2</span> <span style="color: #666666">*</span> cur_idx <span style="color: #666666">+</span> <span style="color: #666666">1</span> <span style="color: #666666">&lt;</span> <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_heap):
+        <span style="color: #008000; font-weight: bold">while</span> <span style="color: #666666">2</span> <span style="color: #666666">*</span>
+
+ cur_idx <span style="color: #666666">+</span> <span style="color: #666666">1</span> <span style="color: #666666">&lt;</span> <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_heap):
             min_child_idx <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_get_min_child(cur_idx)
             <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[cur_idx] <span style="color: #666666">&gt;</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[min_child_idx]:
                 <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[cur_idx], <span style="color: #008000">self</span><span style="color: #666666">.</span>_heap[min_child_idx] <span style="color: #666666">=</span> (
@@ -4311,8 +4315,8 @@ a_heap<span style="color: #666666">.</span>heapify([<span style="color: #666666"
 <span style="color: #008000; font-weight: bold">while</span> <span style="color: #AA22FF; font-weight: bold">not</span> a_heap<span style="color: #666666">.</span>is_empty():
     <span style="color: #008000">print</span>(a_heap<span style="color: #666666">.</span>delete())
 </code></pre></div></td></tr></table></div>
-<p>The assertion that we can build the heap in <span class="arithmatex">\(O(n)\)</span> may seem a bit mysterious at first, and a proof is beyond the scope of this book. However, the key to understanding that you can build the heap in <span class="arithmatex">\(O(n)\)</span> is to remember that the <span class="arithmatex">\(\log{n}\)</span> factor is derived from the height of the tree. For most of the work in <code>heapify</code>, the tree is shorter than <span class="arithmatex">\(\log{n}\)</span>.</p>
-<p>Using the fact that you can build a heap from a list in <span class="arithmatex">\(O(n)\)</span> time, you will construct a sorting algorithm that uses a heap and sorts a list in <span class="arithmatex">\(O(n\log{n})\)</span> as an exercise at the end of this chapter.</p>
+<p>关于我们可以在 <span class="arithmatex">\(O(n)\)</span> 时间内构建堆的断言，乍一看可能有点神秘，且证明超出了本书的范围。然而，理解你可以在 <span class="arithmatex">\(O(n)\)</span> 时间内构建堆的关键是要记住 <span class="arithmatex">\(\log{n}\)</span> 因子来源于树的高度。在 <code>heapify</code> 的大部分工作中，树的高度低于 <span class="arithmatex">\(\log{n}\)</span>。</p>
+<p>利用你可以在 <span class="arithmatex">\(O(n)\)</span> 时间内从列表中构建堆的事实，你将在本章末尾作为练习构建一个使用堆的排序算法，该算法以 <span class="arithmatex">\(O(n \log{n})\)</span> 的时间复杂度对列表进行排序。</p>
 </div>
 <div class="tabbed-block">
 <p>We will begin our implementation of a binary heap with the constructor. Since the entire binary heap can be represented by a single list, all the constructor will do is initialize the list. <code>Listing 1</code> shows the Python code for the constructor.</p>
@@ -4536,7 +4540,7 @@ a_heap<span style="color: #666666">.</span>heapify([<span style="color: #666666"
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月11日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月13日</span>
       
         <br>
         创建日期:

@@ -3982,27 +3982,27 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>The <strong>bubble sort</strong> makes multiple passes through a list. It compares adjacent items and exchanges those that are out of order. Each pass through the list places the next largest value in its proper place. In essence, each item bubbles up to the location where it belongs.</p>
-<p><code>Figure 1</code> shows the first pass of a bubble sort. The shaded items are being compared to see if they are out of order. If there are <span class="arithmatex">\(n\)</span> items in the list, then there are <span class="arithmatex">\(n-1\)</span> pairs of items that need to be compared on the first pass. It is important to note that once the largest value in the list is part of a pair, it will continually be moved along until the pass is complete.</p>
+<p><strong>冒泡排序</strong>通过多次遍历列表来进行排序。它比较相邻的项，并交换那些顺序不对的项。每次遍历列表时，将下一个最大的值放到它正确的位置。实际上，每个项都会“冒泡”到它应该在的位置。</p>
+<p><code>图 1</code> 显示了冒泡排序的第一次遍历。阴影部分的项正在被比较，以查看它们是否顺序错误。如果列表中有 <span class="arithmatex">\(n\)</span> 个项，那么第一次遍历需要比较 <span class="arithmatex">\(n-1\)</span> 对项。需要注意的是，一旦列表中的最大值参与了比较，它将不断被移动，直到遍历完成。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/bubblepass.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/bubblepass.png" /></a>
-    <figcaption markdown="span">Figure 1: Bubble Sort: The First Pass</figcaption>
+    <figcaption markdown="span">图 1: 冒泡排序：第一次遍历</figcaption>
 </figure></p>
-<p>At the start of the second pass, the largest value is now in place. There are <span class="arithmatex">\(n-1\)</span> items left to sort, meaning that there will be <span class="arithmatex">\(n-2\)</span> pairs. Since each pass places the next largest value in place, the total number of passes necessary will be <span class="arithmatex">\(n-1\)</span>. After completing the <span class="arithmatex">\(n-1\)</span> passes, the smallest item must be in the correct position with no further processing required. <code>ActiveCode 1</code> shows the complete <code>bubble_sort</code> function. It takes the list as a parameter and modifies it by exchanging items as necessary.</p>
-<p>The exchange operation, sometimes called a <em>swap</em>, is slightly different in Python than in most other programming languages. Typically, swapping two elements in a list requires a temporary variable (an additional memory location). A code fragment such as</p>
+<p>在第二次遍历开始时，最大的值已经到位。剩下 <span class="arithmatex">\(n-1\)</span> 个项需要排序，这意味着会有 <span class="arithmatex">\(n-2\)</span> 对项进行比较。由于每次遍历都会将下一个最大的值放到正确的位置，因此所需的总遍历次数为 <span class="arithmatex">\(n-1\)</span>。完成 <span class="arithmatex">\(n-1\)</span> 次遍历后，最小的项应该在正确的位置，不需要进一步处理。<code>ActiveCode 1</code> 显示了完整的 <code>bubble_sort</code> 函数。它将列表作为参数，并通过必要的交换来修改它。</p>
+<p>在 Python 中，交换操作有些不同于大多数其他编程语言。通常，在列表中交换两个元素需要一个临时变量（一个额外的内存位置）。例如：</p>
 <div class="language-pycon highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #717171">    temp = a_list[i]</span>
 <span style="color: #717171">    a_list[i] = a_list[j]</span>
 <span style="color: #717171">    a_list[j] = temp</span>
 </code></pre></div>
-<p>will exchange the <span class="arithmatex">\(i\)</span>-th and <span class="arithmatex">\(j\)</span>-th items in the list. Without the temporary storage, one of the values would be overwritten.</p>
-<p>In Python, it is possible to perform simultaneous assignment. The statement <code>a, b = b, a</code> will result in two assignment statements being done at the same time (see <code>Figure 2</code>). Using simultaneous assignment, the exchange operation can be done in one statement.</p>
-<p>Lines 5--7 in <code>ActiveCode 1</code> perform the exchange of the <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\((i+1)\)</span>-th items using the three-step procedure described earlier. Note that we could also have used the simultaneous assignment to swap the items.</p>
+<p>这段代码会交换列表中第 <span class="arithmatex">\(i\)</span> 个和第 <span class="arithmatex">\(j\)</span> 个项。没有临时存储的话，某些值会被覆盖。</p>
+<p>在 Python 中，可以进行同时赋值。语句 <code>a, b = b, a</code> 会同时完成两个赋值操作（见 <code>图 2</code>）。利用同时赋值，可以在一个语句中完成交换操作。</p>
+<p><code>ActiveCode 1</code> 中的第 5-7 行使用前面描述的三步过程进行第 <span class="arithmatex">\(i\)</span> 个和第 <span class="arithmatex">\((i+1)\)</span> 个项的交换。注意，我们也可以使用同时赋值来交换这些项。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/swap.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/swap.png" /></a>
-    <figcaption markdown="span">Figure 2: Exchanging Two Values in Python</figcaption>
+    <figcaption markdown="span">图 2: 在 Python 中交换两个值</figcaption>
 </figure></p>
-<p>The following activecode example shows the complete <code>bubble_sort</code> function working on the list shown above.</p>
-<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 5.7.1 The Bubble Sort Implementation</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<p>以下的 activecode 示例展示了 <code>bubble_sort</code> 函数在上述列表上的工作情况。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">活动: 5.7.1 冒泡排序实现</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
@@ -4026,28 +4026,28 @@ a_list <span style="color: #666666">=</span> [<span style="color: #666666">54</s
 bubble_sort(a_list)
 <span style="color: #008000">print</span>(a_list)
 </code></pre></div></td></tr></table></div>
-<p>The following animation shows <code>bubble_sort</code> in action.</p>
+<p>以下动画展示了 <code>bubble_sort</code> 的执行过程。</p>
 <p><div id="bubble_anim1" class="">
     <canvas id="bubble_anim1_canvas" width="400" height="400" style="border:4px solid blue"></canvas>
     <br>
-    <button onclick="bubble_anim1_anim = bubble_anim_init('bubble_anim1')" style="border: 1px solid black;     background-color: buttonface; padding: 2px;">Initialize</button>
-    <button onclick="bubble_anim1_anim.run('bubble_anim1_anim')" style="border: 1px solid black; background-color: buttonface; padding: 2px;" class="">Run</button>
-    <button onclick="bubble_anim1_anim.stop()" style="border: 1px solid black; background-color: buttonface; padding: 2px;">Stop</button> <br>
-    <button onclick="bubble_anim1_anim.begin()" style="border: 1px solid black; background-color: buttonface; padding: 2px;">Beginning</button>
-    <button onclick="bubble_anim1_anim.forward()" style="border: 1px solid black; background-color: buttonface; padding: 2px;">Step Forward</button>
-    <button onclick="bubble_anim1_anim.backward()" style="border: 1px solid black; background-color: buttonface; padding: 2px;">Step Backward</button>
-    <button onclick="bubble_anim1_anim.end()" style="border: 1px solid black; background-color: buttonface; padding: 2px;">End</button>
+    <button onclick="bubble_anim1_anim = bubble_anim_init('bubble_anim1')" style="border: 1px solid black;     background-color: buttonface; padding: 2px;">初始化</button>
+    <button onclick="bubble_anim1_anim.run('bubble_anim1_anim')" style="border: 1px solid black; background-color: buttonface; padding: 2px;" class="">运行</button>
+    <button onclick="bubble_anim1_anim.stop()" style="border: 1px solid black; background-color: buttonface; padding: 2px;">停止</button> <br>
+    <button onclick="bubble_anim1_anim.begin()" style="border: 1px solid black; background-color: buttonface; padding: 2px;">开始</button>
+    <button onclick="bubble_anim1_anim.forward()" style="border: 1px solid black; background-color: buttonface; padding: 2px;">向前一步</button>
+    <button onclick="bubble_anim1_anim.backward()" style="border: 1px solid black; background-color: buttonface; padding: 2px;">向后一步</button>
+    <button onclick="bubble_anim1_anim.end()" style="border: 1px solid black; background-color: buttonface; padding: 2px;">结束</button>
     <script>
     bubble_anim_init = function(divid)
     {
-       var a = new Animator(new BubbleSortModel(), new BarViewer(), divid)
-       a.init()
-       return a
+        var a = new Animator(new BubbleSortModel(), new BarViewer(), divid)
+        a.init()
+        return a
     }
     </script>
-</div>                   </p>
-<p>For more detail, CodeLens 1 allows you to step through the algorithm.</p>
-<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Tracing the Bubble Sort</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+</div></p>
+<p>有关更多细节，CodeLens 1 允许您逐步分析算法。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">追踪冒泡排序</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
@@ -4071,13 +4071,13 @@ a_list <span style="color: #666666">=</span> [<span style="color: #666666">54</s
 bubble_sort(a_list)
 <span style="color: #008000">print</span>(a_list)
 </code></pre></div></td></tr></table></div>
-<p>To analyze the bubble sort, we should note that regardless of how the items are arranged in the initial list, <span class="arithmatex">\(n - 1\)</span> passes will be made to sort a list of size <span class="arithmatex">\(n\)</span>. <code>Table 1</code> shows the number of comparisons for each pass. The total number of comparisons is the sum of the first <span class="arithmatex">\(n - 1\)</span> integers. Recall that the sum of the first <span class="arithmatex">\(n\)</span> integers is <span class="arithmatex">\(\frac{1}{2}n^{2} + \frac{1}{2}n\)</span>. The sum of the first <span class="arithmatex">\(n - 1\)</span> integers is <span class="arithmatex">\(\frac{1}{2}n^{2} + \frac{1}{2}n - n\)</span>, which is <span class="arithmatex">\(\frac{1}{2}n^{2} - \frac{1}{2}n\)</span>. This is still <span class="arithmatex">\(O(n^{2})\)</span> comparisons. In the best case, if the list is already ordered, no exchanges will be made. However, in the worst case, every comparison will cause an exchange. On average, we exchange half of the time.</p>
-<p><strong>Table 1: Comparisons for Each Pass of Bubble Sort</strong></p>
+<p>为了分析冒泡排序，我们应注意无论初始列表的项如何排列，对大小为 <span class="arithmatex">\(n\)</span> 的列表进行排序都将进行 <span class="arithmatex">\(n - 1\)</span> 次遍历。<code>表 1</code> 显示了每次遍历的比较次数。总的比较次数是前 <span class="arithmatex">\(n - 1\)</span> 个整数的和。回顾一下，前 <span class="arithmatex">\(n\)</span> 个整数的和是 <span class="arithmatex">\(\frac{1}{2}n^{2} + \frac{1}{2}n\)</span>。前 <span class="arithmatex">\(n - 1\)</span> 个整数的和是 <span class="arithmatex">\(\frac{1}{2}n^{2} + \frac{1}{2}n - n\)</span>，即 <span class="arithmatex">\(\frac{1}{2}n^{2} - \frac{1}{2}n\)</span>。这仍然是 <span class="arithmatex">\(O(n^{2})\)</span> 次比较。在最佳情况下，如果列表已经排好序，则不会进行交换。然而，在最坏情况下，每次比较都会导致交换。平均而言，我们会进行一半的交换。</p>
+<p><strong>表 1: 冒泡排序每次遍历的比较次数</strong></p>
 <table>
 <thead>
 <tr>
-<th><strong>Pass</strong></th>
-<th><strong>Comparisons</strong></th>
+<th><strong>遍历</strong></th>
+<th><strong>比较次数</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -4103,8 +4103,8 @@ bubble_sort(a_list)
 </tr>
 </tbody>
 </table>
-<p>A bubble sort is often considered the most inefficient sorting method since it must exchange items before the final location is known. These “wasted” exchange operations are very costly. However, because the bubble sort makes passes through the entire unsorted portion of the list, it has the capability to do something most sorting algorithms cannot. In particular, if during a pass there are no exchanges, then we know that the list must be sorted. A bubble sort can be modified to stop early if it finds that the list has become sorted. This means that for lists that require just a few passes, a bubble sort may have an advantage in that it will recognize the sorted list and stop. <code>ActiveCode 2</code> shows this modification, which is often referred to as the <strong>short bubble</strong>.</p>
-<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 5.7.2 The Short Bubble Sort Implementation</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<p>冒泡排序通常被认为是最低效的排序方法，因为它必须在最终位置确定之前进行交换。这些“浪费”的交换操作是非常昂贵的。然而，由于冒泡排序会遍历整个未排序部分的列表，它有能力做一些大多数排序算法无法做到的事情。特别是，如果在遍历过程中没有进行交换，那么我们知道列表一定是排好序的。冒泡排序可以被修改为在发现列表已经排序时提前停止。这意味着对于只需要少数几次遍历的列表，冒泡排序可能具有优势，因为它会识别已排序的列表并停止。<code>ActiveCode 2</code> 展示了这种修改，通常称为 <strong>短冒泡排序</strong>。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">活动: 5.7.2 短冒泡排序实现</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
@@ -4132,8 +4132,8 @@ a_list <span style="color: #666666">=</span> [<span style="color: #666666">20</s
 bubble_sort_short(a_list)
 <span style="color: #008000">print</span>(a_list)
 </code></pre></div></td></tr></table></div>
-<p>Finally, here is <code>bubble_sort_short</code> in CodeLens (CodeLens 2)..</p>
-<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Tracing the Short Bubble Sort</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<p>最后，<code>bubble_sort_short</code> 在 CodeLens (CodeLens 2) 中的实现如下：</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">追踪短冒泡排序</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
@@ -4146,7 +4146,9 @@ bubble_sort_short(a_list)
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">bubble_sort_short</span>(a_list):
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">bubble_sort_short</span>(a_list):
     <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #008000">len</span>(a_list) <span style="color: #666666">-</span> <span style="color: #666666">1</span>, <span style="color: #666666">0</span>, <span style="color: #666666">-1</span>):
         exchanges <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">False</span>
         <span style="color: #008000; font-weight: bold">for</span> j <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(i):
@@ -4159,24 +4161,26 @@ bubble_sort_short(a_list)
 
 a_list <span style="color: #666666">=</span> [<span style="color: #666666">20</span>, <span style="color: #666666">30</span>, <span style="color: #666666">40</span>, <span style="color: #666666">90</span>, <span style="color: #666666">50</span>, <span style="color: #666666">60</span>, <span style="color: #666666">70</span>, <span style="color: #666666">80</span>, <span style="color: #666666">100</span>, <span style="color: #666666">110</span>]
 bubble_sort_short(a_list)
-<span style="color: #008000">print</span>(a_list)
+<span style="color: #008000">print</span>
+
+(a_list)
 </code></pre></div></td></tr></table></div>
 <div class="admonition info">
-<p class="admonition-title">Self Check</p>
-<p>Suppose you have the following list of numbers to sort: <br>
-[19, 1, 9, 7, 3, 10, 13, 15, 8, 12] which list represents the partially sorted list after three complete passes of bubble sort?</p>
+<p class="admonition-title">自我检测</p>
+<p>假设你有以下数字列表需要排序：<br>
+[19, 1, 9, 7, 3, 10, 13, 15, 8, 12] 哪个列表表示冒泡排序经过三次完整遍历后的部分排序列表？</p>
 <ul>
-<li>answer a: [1, 9, 19, 7, 3, 10, 13, 15, 8, 12]</li>
-<li>answer b: [1, 3, 7, 9, 10, 8, 12, 13, 15, 19]</li>
-<li>answer c: [1, 7, 3, 9, 10, 13, 8, 12, 15, 19]</li>
-<li>answer d: [1, 9, 19, 7, 3, 10, 13, 15, 8, 12]</li>
+<li>选项 a: [1, 9, 19, 7, 3, 10, 13, 15, 8, 12]</li>
+<li>选项 b: [1, 3, 7, 9, 10, 8, 12, 13, 15, 19]</li>
+<li>选项 c: [1, 7, 3, 9, 10, 13, 8, 12, 15, 19]</li>
+<li>选项 d: [1, 9, 19, 7, 3, 10, 13, 15, 8, 12]</li>
 </ul>
-<p>correct: b</p>
+<p>正确答案: b</p>
 <ul>
-<li>feedback a:  This answer represents three swaps.  A pass means that you continue swapping all the way to the end of the list.</li>
-<li>feedback b:  Very Good</li>
-<li>feedback c: A bubble sort contines to swap numbers up to index position passnum.  But remember that passnum starts at the length of the list - 1.</li>
-<li>feedback d: You have been doing an insertion sort, not a bubble sort.</li>
+<li>反馈 a: 这个答案表示了三次交换。一次遍历意味着你会一直交换到列表的末尾。</li>
+<li>反馈 b: 很好</li>
+<li>反馈 c: 冒泡排序会一直交换项直到索引位置 passnum。但记住 passnum 从列表长度减去 1 开始。</li>
+<li>反馈 d: 你在进行插入排序，而不是冒泡排序。</li>
 </ul>
 </div>
 </div>
@@ -4387,7 +4391,7 @@ bubble_sort_short(a_list)
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月11日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月13日</span>
       
         <br>
         创建日期:

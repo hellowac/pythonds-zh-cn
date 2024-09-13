@@ -3977,53 +3977,53 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>For the remainder of this chapter we will turn our attention to some extremely large graphs. The graphs we will use to study some additional algorithms are the graphs produced by the connections between hosts on the internet and the links between web pages. We will begin with web pages.</p>
-<p>Search engines like Google and Bing exploit the fact that the pages on the web form a very large directed graph. To transform the World Wide Web into a graph, we will treat a page as a vertex, and the hyperlinks on the page as edges connecting one vertex to another. <code>Figure 30</code> shows a very small part of the graph produced by following the links from one page to the next, beginning at Luther College’s Computer Science home page. Of course, this graph could be huge, so we have limited it to websites that are no more than 10 links away from the CS home page.</p>
+<p>在本章的剩余部分，我们将关注一些极其庞大的图。我们将使用的图包括互联网上主机之间的连接图和网页之间的链接图。我们将从网页开始。</p>
+<p>搜索引擎如 Google 和 Bing 利用网页形成的巨大有向图。为了将万维网转化为图，我们将每个页面视作一个顶点，页面上的超链接视作连接一个顶点到另一个顶点的边。<code>图 30</code> 显示了从 Luther College 的计算机科学主页开始，按照链接从一个页面到下一个页面所形成的图的一小部分。当然，这个图可能会非常庞大，因此我们限制在离计算机科学主页不超过 10 个链接的网站上。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/cshome.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/cshome.png" /></a>
-    <figcaption markdown="span">Figure 30: The Graph Produced by Links from the Luther Computer Science Home Page</figcaption>
+    <figcaption markdown="span">图 30: 从 Luther 计算机科学主页生成的图</figcaption>
 </figure></p>
-<p>If you study the graph in <code>Figure 30</code> you might make some interesting observations. First you might notice that many of the other websites on the graph are other Luther College websites. Second, you might notice that there are several links to other colleges in Iowa. Third, you might notice that there are several links to other liberal arts colleges. You might conclude from this that there is some underlying structure to the Web that clusters together websites that are similar on some level.</p>
-<p>One graph algorithm that can help find clusters of highly interconnected vertices in a graph is called the <strong>strongly connected components</strong> algorithm, or <strong>SCC</strong>. We formally define a strongly connected component, <span class="arithmatex">\(C\)</span>, of a graph <span class="arithmatex">\(G\)</span>, as the largest subset of vertices $C \subset V<code>such that for every pair of vertices $v, w \in C$ we have a path from $v$ to $w$ and a path from $w$ to $v$.</code>Figure 27` shows a simple graph with three strongly connected components that are identified by the different shaded areas.</p>
+<p>如果你研究 <code>图 30</code>，你可能会发现一些有趣的观察。首先，你可能会注意到图中的许多其他网站都是 Luther College 的网站。其次，你可能会注意到有几个链接指向爱荷华州的其他学院。第三，你可能会发现有几个链接指向其他文理学院。你可能会从中得出结论，网络上存在某种基础结构，将在某些层面上相似的网站聚集在一起。</p>
+<p>一个可以帮助找到图中高度互连顶点群的图算法是 <strong>强连通分量</strong> 算法，或称 <strong>SCC</strong>。我们正式定义图 <span class="arithmatex">\(G\)</span> 的一个强连通分量 <span class="arithmatex">\(C\)</span> 为顶点的最大子集 <span class="arithmatex">\(C \subset V\)</span>，使得对于每一对顶点 <span class="arithmatex">\(v, w \in C\)</span>，都存在从 <span class="arithmatex">\(v\)</span> 到 <span class="arithmatex">\(w\)</span> 的路径以及从 <span class="arithmatex">\(w\)</span> 到 <span class="arithmatex">\(v\)</span> 的路径。<code>图 31</code> 显示了一个简单图，它有三个强连通分量，这些分量由不同的阴影区域标识。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/scc1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/scc1.png" /></a>
-    <figcaption markdown="span">Figure 31: A Directed Graph with Three Strongly Connected Components</figcaption>
+    <figcaption markdown="span">图 31: 一个具有三个强连通分量的有向图</figcaption>
 </figure></p>
-<p>Once the strongly connected components have been identified, we can show a simplified view of the graph by combining all the vertices in one strongly connected component into a single larger vertex. The simplified version of the graph in <code>Figure 31</code> is shown in <code>Figure 32</code>.</p>
+<p>一旦识别出强连通分量，我们可以通过将一个强连通分量中的所有顶点合并为一个更大的顶点来显示图的简化视图。<code>图 31</code> 的简化版本在 <code>图 32</code> 中显示。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/scc2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/scc2.png" /></a>
-    <figcaption markdown="span">Figure 32: The Reduced Graph</figcaption>
+    <figcaption markdown="span">图 32: 简化后的图</figcaption>
 </figure></p>
-<p>Once again we will see that we can create a very powerful and efficient algorithm by making use of a depth-first search. Before we tackle the main SCC algorithm we must look at one other definition. The transposition of a graph <span class="arithmatex">\(G\)</span> is defined as the graph <span class="arithmatex">\(G^T\)</span> where all the edges in the graph have been reversed. That is, if there is a directed edge from node A to node B in the original graph, then <span class="arithmatex">\(G^T\)</span> will contain an edge from node B to node A. <code>Figure 33</code> and <code>Figure 34</code> show a simple graph and its transposition.</p>
+<p>我们将再次看到，通过利用深度优先搜索，我们可以创建一个非常强大且高效的算法。在解决主要的 SCC 算法之前，我们需要查看另一个定义。图 <span class="arithmatex">\(G\)</span> 的转置定义为图 <span class="arithmatex">\(G^T\)</span>，其中所有边的方向都被反转。也就是说，如果原图中存在从节点 A 到节点 B 的有向边，那么 <span class="arithmatex">\(G^T\)</span> 将包含从节点 B 到节点 A 的边。<code>图 33</code> 和 <code>图 34</code> 显示了一个简单图及其转置。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/transpose1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/transpose1.png" /></a>
-    <figcaption markdown="span">Figure 33: A Graph <span class="arithmatex">\(G\)</span></figcaption>
+    <figcaption markdown="span">图 33: 图 <span class="arithmatex">\(G\)</span></figcaption>
 </figure></p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/transpose2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/transpose2.png" /></a>
-    <figcaption markdown="span">Figure 34: The Transposition of <span class="arithmatex">\(G\)</span>, <span class="arithmatex">\(G^T\)</span></figcaption>
+    <figcaption markdown="span">图 34: 图 <span class="arithmatex">\(G\)</span> 的转置 <span class="arithmatex">\(G^T\)</span></figcaption>
 </figure></p>
-<p>Look at the figures again. Notice that the graph in <code>Figure 33</code> has two strongly connected components. Now look at  <code>Figure 34</code>. Notice that it has the same two strongly connected components.</p>
-<p>We can now describe the algorithm to compute the strongly connected components for a graph.</p>
+<p>再看看这些图。注意 <code>图 33</code> 中的图有两个强连通分量。现在看看 <code>图 34</code>。注意它也有相同的两个强连通分量。</p>
+<p>我们现在可以描述计算图的强连通分量的算法。</p>
 <ol>
-<li>Call <code>dfs</code> for the graph <span class="arithmatex">\(G\)</span> to compute the closing times for each vertex.</li>
-<li>Compute <span class="arithmatex">\(G^T\)</span>.</li>
-<li>Call <code>dfs</code> for the graph <span class="arithmatex">\(G^T\)</span> but in the main loop of DFS explore each vertex in decreasing order of closing time.</li>
-<li>Each tree in the forest computed in step 3 is a strongly connected component. Output the vertex IDs for each vertex in each tree in the forest to identify the component.</li>
+<li>对图 <span class="arithmatex">\(G\)</span> 调用 <code>dfs</code> 以计算每个顶点的关闭时间。</li>
+<li>计算 <span class="arithmatex">\(G^T\)</span>。</li>
+<li>对图 <span class="arithmatex">\(G^T\)</span> 调用 <code>dfs</code>，但在 DFS 的主循环中按关闭时间的降序探索每个顶点。</li>
+<li>步骤 3 中计算出的森林中的每棵树是一个强连通分量。输出森林中每棵树的顶点 ID 以标识该分量。</li>
 </ol>
-<p>Let's trace the operation of the steps described above on the example graph in <code>Figure 31</code>. <code>Figure 35</code> shows the starting and closing times computed for the original graph by the DFS algorithm. <code>Figure 36</code> shows the starting and closing times computed by running DFS on the transposed graph.</p>
+<p>让我们跟踪上述步骤在 <code>图 31</code> 中的操作。<code>图 35</code> 显示了原始图中计算出的起始和关闭时间。<code>图 36</code> 显示了对转置图运行 DFS 后计算出的起始和关闭时间。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/scc1a.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/scc1a.png" /></a>
-    <figcaption markdown="span">Figure 35: Finishing Times for the Original Graph <span class="arithmatex">\(G\)</span></figcaption>
+    <figcaption markdown="span">图 35: 原图 <span class="arithmatex">\(G\)</span> 的关闭时间</figcaption>
 </figure></p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/scc1b.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/scc1b.png" /></a>
-    <figcaption markdown="span">Figure 36: Finishing Times for <span class="arithmatex">\(G^T\)</span></figcaption>
+    <figcaption markdown="span">图 36: 图 <span class="arithmatex">\(G^T\)</span> 的关闭时间</figcaption>
 </figure></p>
-<p>Finally, <code>Figure 37</code> shows the forest of three trees produced in step 3 of the strongly connected components algorithm. You will notice that we do not provide you with the Python code for the SCC algorithm; we leave writing this program as an exercise.</p>
+<p>最后，<code>图 37</code> 显示了强连通分量算法步骤 3 中生成的三棵树的森林。请注意，我们没有提供 SCC 算法的 Python 代码；编写这个程序留给读者作为练习。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/sccforest.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/sccforest.png" /></a>
-    <figcaption markdown="span">Figure 37: Strongly Connected Components</figcaption>
+    <figcaption markdown="span">图 37: 强连通分量</figcaption>
 </figure></p>
 </div>
 <div class="tabbed-block">
@@ -4084,7 +4084,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月12日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月13日</span>
       
         <br>
         创建日期:

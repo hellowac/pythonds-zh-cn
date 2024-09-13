@@ -3979,7 +3979,7 @@
 <div class="tabbed-block">
 <ol>
 <li>
-<p>Draw the tree structure resulting from the following set of tree function calls:</p>
+<p><strong>绘制以下树函数调用产生的树结构：</strong></p>
 <div class="language-pycon highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>r <span style="color: #666666">=</span> BinaryTree(<span style="color: #666666">3</span>)
 <span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>insert_left(r, <span style="color: #666666">4</span>)
 <span style="color: #717171">[3, [4, [], []], []]</span>
@@ -3995,51 +3995,89 @@
 </code></pre></div>
 </li>
 <li>
-<p>Trace the algorithm for creating an expression tree for the expression :math:<code>(4 * 8) / 6 - 3</code>.</p>
-</li>
-<li>Consider the following list of integers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]. Show the binary search tree resulting from inserting the integers in the list.</li>
-<li>Consider the following list of integers: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]. Show the binary search tree resulting from inserting the integers in the list.</li>
-<li>Generate a random list of integers. Show the binary heap tree resulting from inserting the integers on the list one at a time.</li>
-<li>Using the list from the previous question, show the binary heap tree resulting from using the list as a parameter to the <code>heapify</code> method. Show both the tree and list form.</li>
-<li>Draw the binary search tree that results from inserting the following keys in the order given: 68, 88, 61, 89, 94, 50, 4, 76, 66, and 82.</li>
-<li>Generate a random list of integers. Draw the binary search tree resulting from inserting the integers on the list.</li>
-<li>Consider the following list of integers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]. Show the binary heap resulting from inserting the integers one at a time.</li>
-<li>Consider the following list of integers: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]. Show the binary heap resulting from inserting the integers one at a time.</li>
-<li>
-<p>Consider the two different techniques we used for implementing traversals of a binary tree. Why must we check before the call to <code>preorder</code> when implementing it as a method, whereas we could check inside the call when implementing it as a function?</p>
+<p><strong>追踪创建表达式树的算法，表达式为 :math:<code>(4 * 8) / 6 - 3</code>。</strong></p>
 </li>
 <li>
-<p>Show the function calls needed to build the following binary tree.</p>
+<p><strong>考虑以下整数列表：[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]。展示插入这些整数后的二叉搜索树。</strong></p>
+</li>
+<li>
+<p><strong>考虑以下整数列表：[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]。展示插入这些整数后的二叉搜索树。</strong></p>
+</li>
+<li>
+<p><strong>生成一个随机整数列表。展示插入这些整数后的二叉堆树。</strong></p>
+</li>
+<li>
+<p><strong>使用上一个问题中的列表，展示使用该列表作为 <code>heapify</code> 方法参数后得到的二叉堆树。展示树的形式和列表形式。</strong></p>
+</li>
+<li>
+<p><strong>绘制以下键按给定顺序插入后的二叉搜索树：68, 88, 61, 89, 94, 50, 4, 76, 66 和 82。</strong></p>
+</li>
+<li>
+<p><strong>生成一个随机整数列表。绘制插入这些整数后的二叉搜索树。</strong></p>
+</li>
+<li>
+<p><strong>考虑以下整数列表：[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]。展示插入这些整数后的二叉堆。</strong></p>
+</li>
+<li>
+<p><strong>考虑以下整数列表：[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]。展示插入这些整数后的二叉堆。</strong></p>
+</li>
+<li>
+<p><strong>考虑我们用于实现二叉树遍历的两种不同技术。为什么在将 <code>preorder</code> 实现为方法时必须在调用之前进行检查，而当将其实现为函数时可以在调用内部进行检查？</strong></p>
+</li>
+<li>
+<p><strong>展示构建以下二叉树所需的函数调用。</strong></p>
 <p><figure markdown="span">
-    <a class="glightbox" href="../imgs/exerTree.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/exerTree.png" /></a>
-</figure>  </p>
+    <a class="glightbox" href="../imgs/exerTree.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="图标题" src="../imgs/exerTree.png" /></a>
+</figure></p>
 </li>
 <li>
-<p>Given the following tree, perform the appropriate rotations to bring it back into balance.</p>
+<p><strong>给定以下树，执行适当的旋转操作使其恢复平衡。</strong></p>
 <p><figure markdown="span">
-    <a class="glightbox" href="../imgs/rotexer1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/rotexer1.png" /></a>
-</figure>  </p>
+    <a class="glightbox" href="../imgs/rotexer1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="图标题" src="../imgs/rotexer1.png" /></a>
+</figure></p>
 </li>
 <li>
-<p>Using the following as a starting point, derive the equation that gives the updated balance factor for node D.</p>
+<p><strong>使用以下内容作为起点，推导出节点 D 更新后的平衡因子的方程。</strong></p>
 <p><figure markdown="span">
-    <a class="glightbox" href="../imgs/bfderive.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/bfderive.png" /></a>
-</figure>  </p>
+    <a class="glightbox" href="../imgs/bfderive.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="图标题" src="../imgs/bfderive.png" /></a>
+</figure></p>
 </li>
 <li>
-<p>Extend the <code>build_parse_tree</code> function to handle mathematical expressions that do not have spaces between every character.</p>
+<p><strong>扩展 <code>build_parse_tree</code> 函数以处理数学表达式中没有每个字符之间的空格的情况。</strong></p>
 </li>
-<li>Modify the <code>build_parse_tree</code> and <code>evaluate</code> functions to handle Boolean statements (<code>and</code>, <code>or</code>, and <code>not</code>). Remember that <code>not</code> is a unary operator, so this will complicate your code somewhat.</li>
-<li>Using the <code>find_successor</code> method, write a non-recursive inorder traversal for a binary search tree.</li>
-<li>A <em>threaded</em> binary tree maintains a reference from each node to its successor. Modify the code for a binary search tree to make it threaded, then write a non-recursive inorder traversal method for the threaded binary search tree.</li>
-<li>Modify our implementation of the binary search tree so that it handles duplicate keys properly. That is, if a key is already in the tree then the new payload should replace the old rather than add another node with the same key.</li>
-<li>Create a binary heap with a limited heap size. In other words, the heap only keeps track of the :math:<code>n</code> most important items. If the heap grows in size to more than :math:<code>n</code> items the least important item is dropped.</li>
-<li>Clean up the <code>print_exp</code> function so that it does not include an extra set of parentheses around each number.</li>
-<li>Using the <code>heapify</code> method, write a sorting function that cansort a list in :math:<code>O(n\log{n})</code> time.</li>
-<li>Write a function that takes a parse tree for a mathematical expression and calculates the derivative of the expression with respect to some variable.</li>
-<li>Implement a binary heap as a max heap.</li>
-<li>Using the <code>BinaryHeap</code> class, implement a new class called <code>PriorityQueue</code>. Your <code>PriorityQueue</code> class should implement the constructor plus the <code>enqueue</code> and <code>dequeue</code> methods.</li>
-<li>Implement the <code>delete</code> method for an AVL tree.</li>
+<li>
+<p><strong>修改 <code>build_parse_tree</code> 和 <code>evaluate</code> 函数以处理布尔语句（<code>and</code>, <code>or</code> 和 <code>not</code>）。请记住，<code>not</code> 是一个一元操作符，因此这会使您的代码变得复杂一些。</strong></p>
+</li>
+<li>
+<p><strong>使用 <code>find_successor</code> 方法，编写一个非递归的二叉搜索树中序遍历。</strong></p>
+</li>
+<li>
+<p><strong>一个 <em>线程化</em> 二叉树为每个节点维护到其后继的引用。修改二叉搜索树的代码以使其成为线程化的，然后为线程化的二叉搜索树编写一个非递归的中序遍历方法。</strong></p>
+</li>
+<li>
+<p><strong>修改我们对二叉搜索树的实现，以正确处理重复的键。也就是说，如果树中已经存在一个键，那么新的负载应该替换旧的负载，而不是添加另一个具有相同键的节点。</strong></p>
+</li>
+<li>
+<p><strong>创建一个具有有限堆大小的二叉堆。换句话说，堆只跟踪最重要的 :math:<code>n</code> 项。如果堆的大小增长到超过 :math:<code>n</code> 项，则最不重要的项将被丢弃。</strong></p>
+</li>
+<li>
+<p><strong>清理 <code>print_exp</code> 函数，以便它不再在每个数字周围包含额外的一对括号。</strong></p>
+</li>
+<li>
+<p><strong>使用 <code>heapify</code> 方法，编写一个排序函数，该函数可以在 :math:<code>O(n\log{n})</code> 时间内对列表进行排序。</strong></p>
+</li>
+<li>
+<p><strong>编写一个函数，该函数接受一个数学表达式的解析树，并计算该表达式相对于某个变量的导数。</strong></p>
+</li>
+<li>
+<p><strong>实现一个作为最大堆的二叉堆。</strong></p>
+</li>
+<li>
+<p><strong>使用 <code>BinaryHeap</code> 类，实现一个名为 <code>PriorityQueue</code> 的新类。您的 <code>PriorityQueue</code> 类应实现构造函数以及 <code>enqueue</code> 和 <code>dequeue</code> 方法。</strong></p>
+</li>
+<li>
+<p><strong>为 AVL 树实现 <code>delete</code> 方法。</strong></p>
+</li>
 </ol>
 </div>
 <div class="tabbed-block">
@@ -4116,7 +4154,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月11日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月13日</span>
       
         <br>
         创建日期:

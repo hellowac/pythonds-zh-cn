@@ -3977,12 +3977,12 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>To represent the knight’s tour problem as a graph we will use the following two ideas: each square on the chessboard can be represented as a node in the graph and each legal move by the knight can be represented as an edge in the graph. <code>Figure 1</code> illustrates the legal moves by a knight and the corresponding edges in a graph.</p>
+<p>为了将骑士巡游问题表示为图，我们将使用以下两个概念：棋盘上的每个方格可以表示为图中的一个节点，而骑士的每一次合法移动可以表示为图中的一条边。<code>图1</code> 说明了骑士的合法移动及其在图中的对应边。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/knightmoves.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/knightmoves.png" /></a>
-    <figcaption markdown="span">Figure 1: Legal Moves for a Knight on Square 12 and the Corresponding Graph</figcaption>
+    <figcaption markdown="span">图1：骑士在第12个方格上的合法移动及对应的图</figcaption>
 </figure></p>
-<p>To build the full graph for an <em>n</em>-by-<em>n</em> board, we can use the Python function shown in <code>Listing 1</code>. The <code>knight_graph</code> function makes one pass over the entire board. At each square on the board the <code>knight_graph</code> function calls a helper, <code>gen_legal_moves</code>, to create a list of legal moves for that position on the board. All legal moves are then converted into edges in the graph. Each location on the board is converted into a linear vertex number similar to the vertex numbers shown in <code>Figure 1</code>.</p>
+<p>要构建一个 <em>n</em> × <em>n</em> 棋盘的完整图，我们可以使用 <code>Listing 1</code> 中显示的 Python 函数。<code>knight_graph</code> 函数对整个棋盘进行一次遍历。在棋盘上的每个方格上，<code>knight_graph</code> 函数调用一个辅助函数 <code>gen_legal_moves</code> 来创建该位置的合法移动列表。所有合法移动随后被转换为图中的边。棋盘上的每个位置都被转换为类似于 <code>图1</code> 中所示的线性顶点编号。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 1</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pythonds3.graphs</span> <span style="color: #008000; font-weight: bold">import</span> Graph
 
 
@@ -3997,28 +3997,28 @@
                 kt_graph<span style="color: #666666">.</span>add_edge(node_id, other_node_id)
     <span style="color: #008000; font-weight: bold">return</span> kt_graph
 </code></pre></div>
-<p>The <code>gen_legal_moves</code> function (<code>Listing 2</code>) takes the position of the knight on the board and generates each of the eight possible moves, making sure those moves are still within the board.</p>
+<p><code>gen_legal_moves</code> 函数 (<code>Listing 2</code>) 获取骑士在棋盘上的位置并生成所有八个可能的移动，确保这些移动仍然在棋盘内。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 2</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">gen_legal_moves</span>(row, col, board_size):
     new_moves <span style="color: #666666">=</span> []
     move_offsets <span style="color: #666666">=</span> [
-        (<span style="color: #666666">-1</span>, <span style="color: #666666">-2</span>),  <span style="color: #3D7B7B; font-style: italic"># left-down-down</span>
-        (<span style="color: #666666">-1</span>, <span style="color: #666666">2</span>),   <span style="color: #3D7B7B; font-style: italic"># left-up-up</span>
-        (<span style="color: #666666">-2</span>, <span style="color: #666666">-1</span>),  <span style="color: #3D7B7B; font-style: italic"># left-left-down</span>
-        (<span style="color: #666666">-2</span>, <span style="color: #666666">1</span>),   <span style="color: #3D7B7B; font-style: italic"># left-left-up</span>
-        (<span style="color: #666666">1</span>, <span style="color: #666666">-2</span>),   <span style="color: #3D7B7B; font-style: italic"># right-down-down</span>
-        (<span style="color: #666666">1</span>, <span style="color: #666666">2</span>),    <span style="color: #3D7B7B; font-style: italic"># right-up-up</span>
-        (<span style="color: #666666">2</span>, <span style="color: #666666">-1</span>),   <span style="color: #3D7B7B; font-style: italic"># right-right-down </span>
-        (<span style="color: #666666">2</span>, <span style="color: #666666">1</span>),    <span style="color: #3D7B7B; font-style: italic"># right-right-up</span>
+        (<span style="color: #666666">-1</span>, <span style="color: #666666">-2</span>),  <span style="color: #3D7B7B; font-style: italic"># 左下下</span>
+        (<span style="color: #666666">-1</span>, <span style="color: #666666">2</span>),   <span style="color: #3D7B7B; font-style: italic"># 左上上</span>
+        (<span style="color: #666666">-2</span>, <span style="color: #666666">-1</span>),  <span style="color: #3D7B7B; font-style: italic"># 左左下</span>
+        (<span style="color: #666666">-2</span>, <span style="color: #666666">1</span>),   <span style="color: #3D7B7B; font-style: italic"># 左左上</span>
+        (<span style="color: #666666">1</span>, <span style="color: #666666">-2</span>),   <span style="color: #3D7B7B; font-style: italic"># 右下下</span>
+        (<span style="color: #666666">1</span>, <span style="color: #666666">2</span>),    <span style="color: #3D7B7B; font-style: italic"># 右上上</span>
+        (<span style="color: #666666">2</span>, <span style="color: #666666">-1</span>),   <span style="color: #3D7B7B; font-style: italic"># 右右下</span>
+        (<span style="color: #666666">2</span>, <span style="color: #666666">1</span>),    <span style="color: #3D7B7B; font-style: italic"># 右右上</span>
     ]
     <span style="color: #008000; font-weight: bold">for</span> r_off, c_off <span style="color: #AA22FF; font-weight: bold">in</span> move_offsets:
         <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">0</span> <span style="color: #666666">&lt;=</span> row <span style="color: #666666">+</span> r_off <span style="color: #666666">&lt;</span> board_size <span style="color: #AA22FF; font-weight: bold">and</span> <span style="color: #666666">0</span> <span style="color: #666666">&lt;=</span> col <span style="color: #666666">+</span> c_off <span style="color: #666666">&lt;</span> board_size:
             new_moves<span style="color: #666666">.</span>append((row <span style="color: #666666">+</span> r_off, col <span style="color: #666666">+</span> c_off))
     <span style="color: #008000; font-weight: bold">return</span> new_moves
 </code></pre></div>
-<p><code>Figure 2</code> shows the complete graph of possible moves on an <span class="arithmatex">\(8 \times 8\)</span> board. There are exactly 336 edges in the graph. Notice that the vertices corresponding to the edges of the board have fewer connections (legal moves) than the vertices in the middle of the board. Once again we can see how sparse the graph is. If the graph was fully connected there would be 4,096 edges. Since there are only 336 edges, the adjacency matrix would be only 8.2 percent full.</p>
+<p><code>图2</code> 显示了一个 <span class="arithmatex">\(8 \times 8\)</span> 棋盘上所有可能的骑士移动的完整图。图中总共有336条边。注意，棋盘边缘上的顶点比棋盘中间的顶点有更少的连接（合法移动）。再次可以看到图的稀疏性。如果图是完全连接的，将有4096条边。由于只有336条边，邻接矩阵将仅有8.2%的填充率。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/bigknight.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/bigknight.png" /></a>
-    <figcaption markdown="span">Figure 2: All Legal Moves for a Knight on an :math:<code>8 \times 8</code> Chessboard</figcaption>
+    <figcaption markdown="span">图2：骑士在 <span class="arithmatex">\(8 \times 8\)</span> 棋盘上的所有合法移动</figcaption>
 </figure></p>
 </div>
 <div class="tabbed-block">
@@ -4074,7 +4074,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月12日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月13日</span>
       
         <br>
         创建日期:

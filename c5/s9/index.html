@@ -3982,21 +3982,21 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>The <strong>insertion sort</strong>, although still <span class="arithmatex">\(O(n^{2})\)</span>, works in a slightly different way. It always maintains a sorted sublist in the lower positions of the list. Each new item is then inserted back into the previous sublist such that the sorted sublist is one item larger. <code>Figure 4</code> shows the insertion sorting process. The shaded items represent the ordered sublists as the algorithm makes each pass.</p>
+<p><strong>插入排序</strong>虽然仍然是 <span class="arithmatex">\(O(n^{2})\)</span>，但其工作方式略有不同。它始终保持列表中较低位置的已排序子列表。每次新项插入到之前的已排序子列表中，使得已排序子列表增加一个项。<code>图 4</code> 展示了插入排序的过程。阴影部分表示算法每次遍历时的已排序子列表。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/insertionsort.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/insertionsort.png" /></a>
-    <figcaption markdown="span">Figure 4: Insertion Sort: Complete</figcaption>
+    <figcaption markdown="span">图 4: 插入排序：完整排序</figcaption>
 </figure></p>
-<p>We begin by assuming that a list with one item (position <span class="arithmatex">\(0\)</span>) is already sorted. On each pass, one for each item 1 through <span class="arithmatex">\(n-1\)</span>, the current item is checked against those in the already sorted sublist. As we look back into the already sorted sublist, we shift those items that are greater to the right. When we reach a smaller item or the end of the sublist, the current item can be inserted.</p>
-<p><code>Figure 5</code> shows the fifth pass in detail. At this point in the algorithm, here is a sorted sublist of five items: 17, 26, 54, 77, and 93. We want to insert 31 back into the already sorted items. The first comparison against 93 causes 93 to be shifted to the right. 77 and 54 are also shifted. When the item 26 is encountered, the shifting process stops and 31 is placed in the open position. Now we have a sorted sublist of six items.</p>
+<p>我们从假设一个包含一个项（位置 <span class="arithmatex">\(0\)</span>）的列表已经排序开始。在每次遍历中（每个项 1 到 <span class="arithmatex">\(n-1\)</span>），当前项会与已排序子列表中的项进行比较。当我们回顾已排序子列表时，将大于当前项的项向右移动。当遇到较小的项或子列表的末尾时，可以将当前项插入。</p>
+<p><code>图 5</code> 详细展示了第五次遍历。在算法的这个点上，有一个已排序的五项子列表：17, 26, 54, 77 和 93。我们希望将 31 插入到已排序项中。第一次与 93 的比较会将 93 向右移动。77 和 54 也会被移动。当遇到项 26 时，移动过程停止，31 被放置在空位置。现在我们有了一个包含六项的已排序子列表。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/insertionpass.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/insertionpass.png" /></a>
-    <figcaption markdown="span">Figure 5: Insertion Sort: Fifth Pass of the Sort</figcaption>
-</figure>   </p>
-<p>The implementation of <code>insertion_sort</code> (<code>ActiveCode 1</code>) shows that there are again <span class="arithmatex">\(n-1\)</span> passes to sort <span class="arithmatex">\(n\)</span> items. The iteration starts at position 1 and moves through position <span class="arithmatex">\(n-1\)</span>, as these are the items that need to be inserted back into the sorted sublists. Line 8 performs the shift operation that moves a value up one position in the list, making room behind it for the insertion. Remember that this is not a complete exchange as was performed in the previous algorithms.</p>
-<p>The maximum number of comparisons for an insertion sort is the sum of the first <span class="arithmatex">\(n-1\)</span> integers. Again, this is <span class="arithmatex">\(O(n^{2})\)</span>. However, in the best case, only one comparison needs to be done on each pass. This would be the case for an already sorted list.</p>
-<p>One note about shifting versus exchanging is also important. In general, a shift operation requires approximately a third of the processing work of an exchange since only one assignment is performed. In benchmark studies, insertion sort will show very good performance.</p>
-<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 5.9.1 Insertion Sort</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+    <figcaption markdown="span">图 5: 插入排序：第五次排序</figcaption>
+</figure></p>
+<p><code>insertion_sort</code> 的实现（<code>ActiveCode 1</code>）显示了排序 <span class="arithmatex">\(n\)</span> 个项需要再次 <span class="arithmatex">\(n-1\)</span> 次遍历。迭代从位置 1 开始，移动到位置 <span class="arithmatex">\(n-1\)</span>，因为这些项需要插入到已排序的子列表中。第 8 行执行了将值上移一个位置的移动操作，为插入腾出空间。记住，这不是像之前的算法那样的完全交换。</p>
+<p>插入排序的最大比较次数是前 <span class="arithmatex">\(n-1\)</span> 个整数的和。这个复杂度同样是 <span class="arithmatex">\(O(n^{2})\)</span>。然而，在最佳情况下，每次遍历只需要一次比较。这对于已排序的列表来说是成立的。</p>
+<p>关于移动操作与交换操作的一个注意点也很重要。一般来说，移动操作的处理工作量大约是交换操作的三分之一，因为只执行了一次赋值。在基准测试中，插入排序通常会显示出非常好的性能。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">活动: 5.9.1 插入排序</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
@@ -4027,24 +4027,24 @@ insertion_sort(a_list)
 <p><div id="insertion_anim1" class="">
     <canvas id="insertion_anim1_canvas" width="400" height="400" style="border:4px solid blue"></canvas>
     <br>
-    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="insertion_anim1_anim = insertion_anim_init('insertion_anim1')">Initialize</button>
-    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="insertion_anim1_anim.run('insertion_anim1_anim')">Run</button>
-    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="insertion_anim1_anim.stop()">Stop</button> <br>
-    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="insertion_anim1_anim.begin()">Beginning</button>
-    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="insertion_anim1_anim.forward()">Step Forward</button>
-    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="insertion_anim1_anim.backward()">Step Backward</button>
-    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="insertion_anim1_anim.end()">End</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="insertion_anim1_anim = insertion_anim_init('insertion_anim1')">初始化</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="insertion_anim1_anim.run('insertion_anim1_anim')">运行</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="insertion_anim1_anim.stop()">停止</button> <br>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="insertion_anim1_anim.begin()">开始</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="insertion_anim1_anim.forward()">向前一步</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="insertion_anim1_anim.backward()">向后一步</button>
+    <button style="border: 1px solid black; background-color: buttonface; padding: 2px;" onclick="insertion_anim1_anim.end()">结束</button>
     <script>
     insertion_anim_init = function(divid)
     {
-       var a = new Animator(new InsertionSortModel(), new BarViewer(), divid)
-       a.init()
-       return a
+        var a = new Animator(new InsertionSortModel(), new BarViewer(), divid)
+        a.init()
+        return a
     }
     </script>
 </div></p>
-<p>For more detail, CodeLens 4 allows you to step through the algorithm.</p>
-<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Tracing the Insertion Sort</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<p>有关更多细节，CodeLens 4 允许您逐步分析算法。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">追踪插入排序</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
@@ -4073,25 +4073,25 @@ insertion_sort(a_list)
 <span style="color: #008000">print</span>(a_list)
 </code></pre></div></td></tr></table></div>
 <div class="admonition info">
-<p class="admonition-title">Self Check</p>
-<p>Suppose you have the following list of numbers to sort: <br>
-[15, 5, 4, 18, 12, 19, 14, 10, 8, 20] which list represents the partially sorted list after three complete passes of insertion sort?</p>
+<p class="admonition-title">自我检测</p>
+<p>假设你有以下数字列表需要排序：<br>
+[15, 5, 4, 18, 12, 19, 14, 10, 8, 20] 哪个列表表示插入排序经过三次完整遍历后的部分排序列表？</p>
 <ul>
-<li>answer a: [4, 5, 12, 15, 14, 10, 8, 18, 19, 20]</li>
-<li>answer b: [15, 5, 4, 10, 12, 8, 14, 18, 19, 20]</li>
-<li>answer c: [4, 5, 15, 18, 12, 19, 14, 10, 8, 20]</li>
+<li>选项 a: [4, 5, 12, 15, 14, 10, 8, 18, 19, 20]</li>
+<li>选项 b: [15, 5, 4, 10, 12, 8, 14, 18, 19, 20]</li>
+<li>选项 c: [4, 5, 15, 18, 12, 19, 14, 10, 8, 20]</li>
 <li>
-<p>answer d: [15, 5, 4, 18, 12, 19, 14, 8, 10, 20]</p>
+<p>选项 d: [15, 5, 4, 18, 12, 19, 14, 8, 10, 20]</p>
 </li>
 <li>
-<p>correct: c</p>
+<p>正确答案: c</p>
 </li>
 <li>
-<p>feedback a: This is a bubble sort.</p>
+<p>反馈 a: 这是冒泡排序的结果。</p>
 </li>
-<li>feedback b:  This is the result of selection sort.</li>
-<li>feedback c: Insertion sort works at the start of the list.  Each pass produces a longer sorted list.</li>
-<li>feedback d: Insertion sort works on the front of the list not the end.</li>
+<li>反馈 b: 这是选择排序的结果。</li>
+<li>反馈 c: 插入排序在列表的开始处进行操作。每次遍历产生一个更长的已排序列表。</li>
+<li>反馈 d: 插入排序在列表的前端进行操作，而不是在末尾。</li>
 </ul>
 </div>
 </div>
@@ -4217,7 +4217,7 @@ insertion_sort(a_list)
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月11日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月13日</span>
       
         <br>
         创建日期:

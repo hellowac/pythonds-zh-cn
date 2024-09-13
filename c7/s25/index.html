@@ -3979,13 +3979,13 @@
 <div class="tabbed-block">
 <ol>
 <li>
-<p>Draw the graph corresponding to the following adjacency matrix.</p>
+<p>画出以下邻接矩阵对应的图。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/adjMatEX.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/adjMatEX.png" /></a>
 </figure></p>
 </li>
 <li>
-<p>Draw the graph corresponding to the following list of edges.</p>
+<p>画出以下边列表对应的图。</p>
 <table>
 <thead>
 <tr>
@@ -4044,67 +4044,91 @@
 </table>
 </li>
 <li>
-<p>Ignoring the weights, perform a breadth-first search on the graph drawn for question 1 or 2.</p>
+<p>忽略权重，对问题 1 或 2 中绘制的图执行广度优先搜索。</p>
 <ul>
-<li>answer a: O(n)</li>
-<li>answer b: O(n<sup>2</sup>)</li>
-<li>answer c: O(1)</li>
-<li>answer d: O(n<sup>3</sup>)</li>
+<li>答案 a: O(n)</li>
+<li>答案 b: O(n<sup>2</sup>)</li>
+<li>答案 c: O(1)</li>
+<li>答案 d: O(n<sup>3</sup>)</li>
 </ul>
-<p>correct: b</p>
+<p>正确答案: b</p>
 <ul>
-<li>feedback a: O(n) would suggest that there is no nesting. There are several nested for loops.</li>
-<li>feedback b: Correct. The two consecutively nested for loops would dictate that this is in the realm of O(n<sup>2</sup>).</li>
-<li>feedback c: O(1) would suggest that the function is constant. Since there are multiple for loops intertwined, it is not in constant time.</li>
-<li>feedback d: O(n<sup>3</sup>) would suggest that there are three consecutively nested for loops. There are only two.</li>
-</ul>
-</li>
-<li>
-<p>What is the Big-O running time of the <code>build_graph</code> function?</p>
-<p>shortanswer:: BigO</p>
-</li>
-<li>
-<p>Derive the Big-O running time for the topological sort algorithm.</p>
-<p>shortanswer:: BigOTwo</p>
-</li>
-<li>
-<p>Derive the Big-O running time for the strongly connected components algorithm.</p>
-</li>
-<li>Show each step in applying Dijkstra’s algorithm to the graph drawn for question 1 or 2.</li>
-<li>Using Prim’s algorithm, find the minimum weight spanning tree for the graph drawn for question 1 or 2.</li>
-<li>Draw a dependency graph illustrating the steps needed to send an email. Perform a topological sort on your graph.</li>
-<li>Express branching factor <span class="arithmatex">\(k\)</span> as a function of the board size <span class="arithmatex">\(n\)</span>.</li>
-<li>
-<p>Derive an expression for the base of the exponent used in expressing the  running time of the knights tour.</p>
-<p>shortanswer:: DFS</p>
-</li>
-<li>
-<p>Explain why the general DFS algorithm is not suitable for solving  the knight's tour problem.</p>
-<ul>
-<li>answer a: O(1)</li>
-<li>answer b: O(n<sup>3</sup>) </li>
-<li>answer c: O(n)</li>
-<li>answer d: O(n<sup>2</sup>)</li>
-</ul>
-<p>correct: d</p>
-<ul>
-<li>feedback a: O(1) would mean that the algorithm runs in constant time. This isn't true because there are several comparisons happening in the algorithm.</li>
-<li>feedback b: O(n<sup>3</sup>) suggests that there are three consecutively nested loops. If you look at the example algorithm, it is obvious that there are not three nested loops.</li>
-<li>feedback c: O(n) is linear time. The time it takes for this program to run doesn't grow linearly.</li>
-<li>feedback d: Correct. Since you are not only comparing the weight of a branch but also if the branch has already been connected to, this would make the Big-O of the algorithm O(n<sup>2</sup>)</li>
+<li>反馈 a: O(n) 表示没有嵌套。实际上有几个嵌套的 for 循环。</li>
+<li>反馈 b: 正确。两个连续嵌套的 for 循环使得时间复杂度为 O(n<sup>2</sup>)。</li>
+<li>反馈 c: O(1) 表示函数运行时间是常量。由于有多个交织的 for 循环，这不是常量时间。</li>
+<li>反馈 d: O(n<sup>3</sup>) 表示有三个连续嵌套的 for 循环。实际上只有两个嵌套循环。</li>
 </ul>
 </li>
 <li>
-<p>What is the Big-O running time for Prim’s minimum  spanning tree algorithm?</p>
+<p><code>build_graph</code> 函数的时间复杂度是多少？</p>
+<p>短答: BigO</p>
 </li>
-<li>Modify the depth-first search function to produce a topological sort.</li>
-<li>Modify the depth-first search to produce strongly connected components.</li>
-<li>Write the <code>transpose</code> method for the <code>Graph</code> class.</li>
-<li>Using breadth-first search write an algorithm that can determine the shortest path from each vertex to every other vertex. This is called the “all pairs shortest path problem.”</li>
-<li>Using breadth-first search revise the maze program from the Chapter 4 (Recursion) to find the shortest path out of a maze.</li>
-<li>Write a program to solve the following problem: you have two jugs, a 4-gallon and a 3-gallon. Neither of the jugs has any markings. There is a pump that can be used to fill the jugs with water. How can you get exactly two gallons of water in the 4-gallon jug?</li>
-<li>Generalize the problem above so that the parameters to your solution include the size of each jug and the final amount of water to be left in the larger jug.</li>
-<li>Write a program that solves the following problem: three missionaries and three cannibals come to a river and find a boat that holds two people. Everyone must get across the river to continue on the journey. However, if the cannibals ever outnumber the missionaries on either bank, the missionaries will be eaten. Find a series of crossings that will get everyone safely to the other side of the river.</li>
+<li>
+<p>推导拓扑排序算法的时间复杂度。</p>
+<p>短答: BigOTwo</p>
+</li>
+<li>
+<p>推导强连通分量算法的时间复杂度。</p>
+</li>
+<li>
+<p>展示应用 Dijkstra 算法到问题 1 或 2 中绘制的图的每一步。</p>
+</li>
+<li>
+<p>使用 Prim 算法找到问题 1 或 2 中绘制图的最小权重生成树。</p>
+</li>
+<li>
+<p>绘制一个依赖图，展示发送电子邮件所需的步骤。对你的图进行拓扑排序。</p>
+</li>
+<li>
+<p>将分支因子 <span class="arithmatex">\(k\)</span> 表示为棋盘大小 <span class="arithmatex">\(n\)</span> 的函数。</p>
+</li>
+<li>
+<p>推导表达骑士巡游问题运行时间的指数基数的表达式。</p>
+<p>短答: DFS</p>
+</li>
+<li>
+<p>解释为什么通用 DFS 算法不适合解决骑士巡游问题。</p>
+<ul>
+<li>答案 a: O(1)</li>
+<li>答案 b: O(n<sup>3</sup>)</li>
+<li>答案 c: O(n)</li>
+<li>答案 d: O(n<sup>2</sup>)</li>
+</ul>
+<p>正确答案: d</p>
+<ul>
+<li>反馈 a: O(1) 意味着算法在常量时间内运行。这不正确，因为算法中有多个比较操作。</li>
+<li>反馈 b: O(n<sup>3</sup>) 表示有三个连续的嵌套循环。实际例子中并没有三个嵌套的循环。</li>
+<li>反馈 c: O(n) 是线性时间。这个程序运行的时间不会线性增长。</li>
+<li>反馈 d: 正确。由于不仅需要比较分支的权重，还需要检查分支是否已经连接，因此算法的时间复杂度是 O(n<sup>2</sup>)。</li>
+</ul>
+</li>
+<li>
+<p>Prim 算法的最小生成树的时间复杂度是多少？</p>
+</li>
+<li>
+<p>修改深度优先搜索函数以生成拓扑排序。</p>
+</li>
+<li>
+<p>修改深度优先搜索以生成强连通分量。</p>
+</li>
+<li>
+<p>为 <code>Graph</code> 类编写 <code>transpose</code> 方法。</p>
+</li>
+<li>
+<p>使用广度优先搜索编写一个算法，确定从每个顶点到所有其他顶点的最短路径。这被称为“所有对最短路径问题”。</p>
+</li>
+<li>
+<p>使用广度优先搜索修改第 4 章（递归）的迷宫程序，以找到迷宫的最短路径。</p>
+</li>
+<li>
+<p>编写一个程序解决以下问题：你有两个水壶，一个 4 加仑，一个 3 加仑。两个水壶上没有标记。一个泵可以用来装水。你如何在 4 加仑的水壶中得到正好 2 加仑的水？</p>
+</li>
+<li>
+<p>将上述问题进行概括，使得解决方案的参数包括每个水壶的大小和要在大水壶中留下的最终水量。</p>
+</li>
+<li>
+<p>编写一个程序解决以下问题：三名传教士和三名食人族来到一条河边，发现一只可以容纳两人的小船。每个人都必须过河才能继续旅程。然而，如果食人族在任何一岸上的数量超过传教士，传教士将被吃掉。找出一系列过河的步骤，使得每个人安全到达河的另一边。</p>
+</li>
 </ol>
 </div>
 <div class="tabbed-block">
@@ -4246,7 +4270,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月12日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月13日</span>
       
         <br>
         创建日期:

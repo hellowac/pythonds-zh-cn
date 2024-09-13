@@ -3977,9 +3977,9 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Using dictionaries, it is easy to implement the adjacency list in Python. In our implementation of the graph abstract data type we will create two classes:</p>
-<p><code>Vertex</code>, which will represent each vertex in the graph (see <code>Listing 1</code>) and <code>Graph</code>, which holds the master list of vertices (see <code>Listing 2</code>).</p>
-<p>Each <code>Vertex</code> uses a dictionary to keep track of the vertices to which it is connected and the weight of each edge. This dictionary is called <code>neighbors</code>. The listing below shows the code for the <code>Vertex</code> class. The constructor simply initializes the <code>key</code>, which will typically be a string, and the <code>neighbors</code> dictionary. The <code>set_neighbor</code> method is used to add a connection from this vertex to another. The <code>get_neighbors</code> method returns all of the vertices in the adjacency list, as represented by the <code>neighbors</code> instance variable. The <code>get_neighbor</code> method returns the weight of the edge from this vertex to the vertex passed as a parameter.</p>
+<p>使用字典实现邻接表在 Python 中非常简单。在我们实现的图抽象数据类型中，我们将创建两个类：</p>
+<p><code>Vertex</code> 类，表示图中的每个顶点（见 <code>Listing 1</code>），以及 <code>Graph</code> 类，保存顶点的主列表（见 <code>Listing 2</code>）。</p>
+<p>每个 <code>Vertex</code> 使用字典来跟踪与之连接的顶点和每条边的权重。这个字典叫做 <code>neighbors</code>。以下是 <code>Vertex</code> 类的代码。构造函数仅初始化 <code>key</code>（通常是一个字符串）和 <code>neighbors</code> 字典。<code>set_neighbor</code> 方法用于添加从该顶点到另一个顶点的连接。<code>get_neighbors</code> 方法返回邻接表中所有顶点，即 <code>neighbors</code> 实例变量所表示的内容。<code>get_neighbor</code> 方法返回从该顶点到传递参数的顶点的边的权重。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 1</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Vertex</span>:
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>, key):
         <span style="color: #008000">self</span><span style="color: #666666">.</span>key <span style="color: #666666">=</span> key
@@ -4007,7 +4007,7 @@
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_key</span>(<span style="color: #008000">self</span>):
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>key
 </code></pre></div>
-<p>The <code>Graph</code> class, shown in the next listing, contains a dictionary that maps vertex names to vertex objects. In <code>Figure 4</code> this dictionary object is represented by the shaded gray box. <code>Graph</code> also provides methods for adding vertices to a graph and connecting one vertex to another. The <code>get_vertices</code> method returns the names of all of the vertices in the graph. In addition, we have implemented the <code>__iter__</code> method to make it easy to iterate over all the vertex objects in a particular graph. Together, the two methods allow you to iterate over the vertices in a graph by name, or by the objects themselves.</p>
+<p><code>Graph</code> 类（见下一个清单）包含一个字典，将顶点名称映射到顶点对象。在 <code>Figure 4</code> 中，这个字典对象由阴影灰色框表示。<code>Graph</code> 类还提供了添加顶点到图中和连接一个顶点到另一个顶点的方法。<code>get_vertices</code> 方法返回图中所有顶点的名称。此外，我们实现了 <code>__iter__</code> 方法，使得可以轻松遍历特定图中的所有顶点对象。这两个方法使您可以按名称或对象本身遍历图中的顶点。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 2</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Graph</span>:
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>):
         <span style="color: #008000">self</span><span style="color: #666666">.</span>vertices <span style="color: #666666">=</span> {}
@@ -4034,7 +4034,7 @@
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__iter__</span>(<span style="color: #008000">self</span>):
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">iter</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>vertices<span style="color: #666666">.</span>values())
 </code></pre></div>
-<p>Using the <code>Graph</code> and <code>Vertex</code> classes just defined, the following Python session creates the graph in <code>Figure 2</code>. First we create six vertices numbered 0 through 5. Then we display the vertex dictionary. Notice that for each key 0 through 5 we have created an instance of a <code>Vertex</code>. Next, we add the edges that connect the vertices together. Finally, a nested loop verifies that each edge in the graph is properly stored. You should check the output of the edge list at the end of this session against <code>Figure 2</code>.</p>
+<p>使用刚刚定义的 <code>Graph</code> 和 <code>Vertex</code> 类，以下 Python 会话创建了 <code>Figure 2</code> 中的图。首先，我们创建了六个编号从 0 到 5 的顶点。然后我们显示了顶点字典。注意到对于每个键 0 到 5，我们都创建了一个 <code>Vertex</code> 实例。接着，我们添加连接这些顶点的边。最后，一个嵌套循环验证图中每条边是否正确存储。您应该将该会话末尾的边列表输出与 <code>Figure 2</code> 进行对比。</p>
 <div class="language-pycon highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>g <span style="color: #666666">=</span> Graph()
 <span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span><span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">6</span>):
 <span style="color: #000080; font-weight: bold">... </span>    g<span style="color: #666666">.</span>set_vertex(i)
@@ -4051,7 +4051,7 @@
 <span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span>g<span style="color: #666666">.</span>add_edge(<span style="color: #666666">5</span>, <span style="color: #666666">2</span>, <span style="color: #666666">1</span>)
 <span style="color: #000080; font-weight: bold">&gt;&gt;&gt; </span><span style="color: #008000; font-weight: bold">for</span> v <span style="color: #AA22FF; font-weight: bold">in</span> g:
 <span style="color: #000080; font-weight: bold">... </span>    <span style="color: #008000; font-weight: bold">for</span> w <span style="color: #AA22FF; font-weight: bold">in</span> v<span style="color: #666666">.</span>get_neighbors():
-<span style="color: #000080; font-weight: bold">... </span>        <span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;f({v.get_key()}, {w.get_key()})&quot;</span>)
+<span style="color: #000080; font-weight: bold">... </span>        <span style="color: #008000">print</span>(<span style="color: #BA2121">f&quot;(</span><span style="color: #A45A77; font-weight: bold">{</span>v<span style="color: #666666">.</span>get_key()<span style="color: #A45A77; font-weight: bold">}</span><span style="color: #BA2121">, </span><span style="color: #A45A77; font-weight: bold">{</span>w<span style="color: #666666">.</span>get_key()<span style="color: #A45A77; font-weight: bold">}</span><span style="color: #BA2121">)&quot;</span>)
 <span style="color: #000080; font-weight: bold">...</span>
 <span style="color: #717171">(0, 1)</span>
 <span style="color: #717171">(0, 5)</span>
@@ -4160,7 +4160,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月12日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月13日</span>
       
         <br>
         创建日期:

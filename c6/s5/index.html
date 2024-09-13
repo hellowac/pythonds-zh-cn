@@ -3977,39 +3977,35 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>In a tree represented by a list of lists, we will begin with Python’s list data structure and write the functions defined above. Although writing the interface as a set of operations on a list is a bit different from the other abstract data types we have implemented, it is interesting to do so because it provides us with a simple recursive data structure that we can look at and examine directly. In a list of lists tree, we will store the value of the root node as the first element of the list. The second element of the list will itself be a list that represents the left subtree. The third element of the list will be another list that represents the right subtree. To illustrate this storage technique, let’s look at an example. <code>Figure 1</code> shows a simple tree and the corresponding list implementation.</p>
-<p><figure markdown="span">
-    <a class="glightbox" href="../imgs/smalltree.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/smalltree.png" /></a>
-    <figcaption markdown="span">Figure 1: A Small Tree</figcaption>
-</figure></p>
+<p>在用列表的列表表示树时，我们将从 Python 的列表数据结构开始，并编写上述定义的函数。虽然将接口编写为对列表的操作有点不同于我们实现的其他抽象数据类型，但这样做很有趣，因为它为我们提供了一个简单的递归数据结构，我们可以直接查看和研究。在列表的列表树中，我们将把根节点的值存储为列表的第一个元素。列表的第二个元素将是一个表示左子树的列表。列表的第三个元素将是另一个表示右子树的列表。为了说明这种存储技术，让我们看一个例子。<code>图 1</code> 显示了一个简单的树及其对应的列表实现。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>my_tree <span style="color: #666666">=</span> [
-    <span style="color: #BA2121">&quot;a&quot;</span>,  <span style="color: #3D7B7B; font-style: italic"># root</span>
-        [<span style="color: #BA2121">&quot;b&quot;</span>,  <span style="color: #3D7B7B; font-style: italic"># left subtree</span>
+    <span style="color: #BA2121">&quot;a&quot;</span>,  <span style="color: #3D7B7B; font-style: italic"># 根节点</span>
+        [<span style="color: #BA2121">&quot;b&quot;</span>,  <span style="color: #3D7B7B; font-style: italic"># 左子树</span>
             [<span style="color: #BA2121">&quot;d&quot;</span>, [], []],
             [<span style="color: #BA2121">&quot;e&quot;</span>, [], []]
         ],
-        [<span style="color: #BA2121">&quot;c&quot;</span>,  <span style="color: #3D7B7B; font-style: italic"># right subtree</span>
+        [<span style="color: #BA2121">&quot;c&quot;</span>,  <span style="color: #3D7B7B; font-style: italic"># 右子树</span>
             [<span style="color: #BA2121">&quot;f&quot;</span>, [], []], 
             []
         ],
     ]
 </code></pre></div>
-<p>Notice that we can access subtrees of the list using standard list indexing. The root of the tree is <code>my_tree[0]</code>, the left subtree of the root is <code>my_tree[1]</code>, and the right subtree is <code>my_tree[2]</code>. <code>ActiveCode 1</code> illustrates creating a simple tree using a list. Once the tree is constructed, we can access the root and the left and right subtrees. One very nice property of this list of lists approach is that the structure of a list representing a subtree adheres to the structure defined for a tree; the structure itself is recursive! A subtree that has a root value and two empty lists is a leaf node. Another nice feature of the list of lists approach is that it generalizes to a tree that has many subtrees. In the case where the tree is more than a binary tree, another subtree is just another list.</p>
-<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 6.5.1 Using Indexing to Access Subtrees</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
+<p>注意，我们可以使用标准列表索引访问子树。树的根是 <code>my_tree[0]</code>，根的左子树是 <code>my_tree[1]</code>，右子树是 <code>my_tree[2]</code>。<code>ActiveCode 1</code> 演示了如何使用列表创建一个简单的树。一旦树被构造，我们可以访问根节点以及左子树和右子树。这个列表的列表方法的一个非常好的特性是，表示子树的列表结构符合树的定义；结构本身是递归的！一个具有根值和两个空列表的子树是一个叶子节点。列表的列表方法的另一个好处是，它可以推广到具有多个子树的树。在树不是二叉树的情况下，另一个子树只是另一个列表。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 6.5.1 使用索引访问子树</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">4</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">5</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code>my_tree <span style="color: #666666">=</span> [<span style="color: #BA2121">&quot;a&quot;</span>, [<span style="color: #BA2121">&quot;b&quot;</span>, [<span style="color: #BA2121">&quot;d&quot;</span>, [], []], [<span style="color: #BA2121">&quot;e&quot;</span>, [], []]], [<span style="color: #BA2121">&quot;c&quot;</span>, [<span style="color: #BA2121">&quot;f&quot;</span>, [], []], []]]
 <span style="color: #008000">print</span>(my_tree)
-<span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;left subtree = &quot;</span>, my_tree[<span style="color: #666666">1</span>])
-<span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;root = &quot;</span>, my_tree[<span style="color: #666666">0</span>])
-<span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;right subtree = &quot;</span>, my_tree[<span style="color: #666666">2</span>])
+<span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;左子树 = &quot;</span>, my_tree[<span style="color: #666666">1</span>])
+<span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;根节点 = &quot;</span>, my_tree[<span style="color: #666666">0</span>])
+<span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;右子树 = &quot;</span>, my_tree[<span style="color: #666666">2</span>])
 </code></pre></div></td></tr></table></div>
-<p>Let’s formalize this definition of the tree data structure by providing some functions that make it easy for us to use lists as trees. Note that we are not going to define a binary tree class. The functions we will write will just help us manipulate a standard list as though we are working with a tree.</p>
-<div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">make_binary_tree</span>(root):
-        <span style="color: #008000; font-weight: bold">return</span> [root, [], []]
+<p>让我们通过提供一些函数来正式化树数据结构的定义，这些函数使我们能够方便地将列表用作树。请注意，我们不会定义一个二叉树类。我们编写的函数只是帮助我们将标准列表作为树进行操作。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">make_binary_tree</span>(root):
+    <span style="color: #008000; font-weight: bold">return</span> [root, [], []]
 </code></pre></div>
-<p>The <code>make_binary_tree</code> function simply constructs a list with a root node and two empty sublists for the children. To add a left subtree to the root of a tree, we need to insert a new list into the second position of the root list. We must be careful, however. If the list already has something in the second position, we need to keep track of it and push it down the tree as the left child of the list we are adding. <code>Listing 1</code> shows the Python code for inserting a left child.</p>
+<p><code>make_binary_tree</code> 函数只是构造一个具有根节点和两个空子列表的列表。为了向树的根节点添加左子树，我们需要将一个新列表插入到根列表的第二个位置。然而，我们必须小心。如果列表中已经在第二个位置有东西，我们需要跟踪它，并将其作为我们正在添加的列表的左子节点推下树。<code>Listing 1</code> 显示了插入左子节点的 Python 代码。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><span class="filename">**Listing 1**</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">insert_left</span>(root, new_child):
     old_child <span style="color: #666666">=</span> root<span style="color: #666666">.</span>pop(<span style="color: #666666">1</span>)
     <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">len</span>(old_child) <span style="color: #666666">&gt;</span> <span style="color: #666666">1</span>:
@@ -4018,16 +4014,16 @@
         root<span style="color: #666666">.</span>insert(<span style="color: #666666">1</span>, [new_child, [], []])
     <span style="color: #008000; font-weight: bold">return</span> root
 </code></pre></div>
-<p>Notice that to insert a left child, we first obtain the (possibly empty) list that corresponds to the current left child. We then add the new left child, installing the old left child as the left child of the new one. This allows us to splice a new node into the tree at any position. The code for <code>insert_right</code> is similar to <code>insert_left</code> and is shown in <code>Listing 2</code>.</p>
-<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">**Listing 2**</span><pre style="line-height: 125%;"><span></span><code>    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">insert_right</span>(root, new_child):
-        old_child <span style="color: #666666">=</span> root<span style="color: #666666">.</span>pop(<span style="color: #666666">2</span>)
-        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">len</span>(old_child) <span style="color: #666666">&gt;</span> <span style="color: #666666">1</span>:
-            root<span style="color: #666666">.</span>insert(<span style="color: #666666">2</span>, [new_child, [], old_child])
-        <span style="color: #008000; font-weight: bold">else</span>:
-            root<span style="color: #666666">.</span>insert(<span style="color: #666666">2</span>, [new_child, [], []])
-        <span style="color: #008000; font-weight: bold">return</span> root
+<p>注意，为了插入左子节点，我们首先获取对应于当前左子节点的（可能为空的）列表。然后我们添加新的左子节点，将旧的左子节点安装为新节点的左子节点。这允许我们将新节点拼接到树中的任何位置。<code>insert_right</code> 的代码与 <code>insert_left</code> 类似，如 <code>Listing 2</code> 所示。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">**Listing 2**</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">insert_right</span>(root, new_child):
+    old_child <span style="color: #666666">=</span> root<span style="color: #666666">.</span>pop(<span style="color: #666666">2</span>)
+    <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">len</span>(old_child) <span style="color: #666666">&gt;</span> <span style="color: #666666">1</span>:
+        root<span style="color: #666666">.</span>insert(<span style="color: #666666">2</span>, [new_child, [], old_child])
+    <span style="color: #008000; font-weight: bold">else</span>:
+        root<span style="color: #666666">.</span>insert(<span style="color: #666666">2</span>, [new_child, [], []])
+    <span style="color: #008000; font-weight: bold">return</span> root
 </code></pre></div>
-<p>To round out this set of tree-making functions, let’s write a couple of access functions for getting and setting the root value, as well as getting the left or right subtrees. These functions can be seen in <code>Listing 3</code>.</p>
+<p>为了完成这组创建树的函数，让我们编写几个访问函数，用于获取和设置根值，以及获取左子树或右子树。这些函数可以在 <code>Listing 3</code> 中看到。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><span class="filename">**Listing 3**</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_root_val</span>(root):
     <span style="color: #008000; font-weight: bold">return</span> root[<span style="color: #666666">0</span>]
 
@@ -4043,8 +4039,8 @@
 <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_right_child</span>(root):
     <span style="color: #008000; font-weight: bold">return</span> root[<span style="color: #666666">2</span>]
 </code></pre></div>
-<p><code>ActiveCode 2</code> makes use of the tree functions we have just written. You should try it out for yourself. One of the exercises at the end of this chapter asks you to draw the tree structure resulting from this set of calls.</p>
-<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 6.5.2 A Python Session to Illustrate Basic Tree Functions</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<p><code>ActiveCode 2</code> 使用了我们刚刚编写的树函数。你应该亲自试一下。章节末尾的一个练习要求你绘制这组调用所产生的树结构。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 6.5.2 一个 Python 会话来演示基本树函数</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
@@ -4147,35 +4143,35 @@ insert_left(left_child, <span style="color: #666666">11</span>)
 <span style="color: #008000">print</span>(get_right_child(get_right_child(a_tree)))
 </code></pre></div></td></tr></table></div>
 <div class="admonition info">
-<p class="admonition-title">Self Check</p>
+<p class="admonition-title">自我检查</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">mctree_1</label><label for="__tabbed_2_2">mctree_2</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Given the following statments:</p>
+<p>给定以下语句：</p>
 <div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>x <span style="color: #666666">=</span> make_binary_tree(<span style="color: #BA2121">&quot;a&quot;</span>)
 insert_left(x, <span style="color: #BA2121">&quot;b&quot;</span>)
 insert_right(x, <span style="color: #BA2121">&quot;c&quot;</span>)
 insert_right(get_right_child(x), <span style="color: #BA2121">&quot;d&quot;</span>)
 insert_left(get_right_child(get_right_child(x)), <span style="color: #BA2121">&quot;e&quot;</span>)
 </code></pre></div>
-<p>Which of the answers is the correct representation of the tree?</p>
-<p>answer a: ["a", ["b", [], []], ["c", [], ["d", [], []]]]
-answer b: ["a", ["c", [], ["d", ["e", [], []], []]], ["b", [], []]]
-answer c: ["a", ["b", [], []], ["c", [], ["d", ["e", [], []], []]]]
-answer d: ["a", ["b", [], ["d", ["e", [], []], []]], ["c", [], []]]</p>
-<p>correct: c</p>
-<p>feedback a: Not quite, this tree is missing the "e" node.
-feedback b: This is close, but if you carefully you will see that the left and right children of the root are swapped.
-feedback c: Very good
-feedback d: This is close, but the left and right child names have been swapped along with the underlying structures.</p>
+<p>下面哪个答案是正确的树表示？</p>
+<p>选项 a: ["a", ["b", [], []], ["c", [], ["d", [], []]]]
+选项 b: ["a", ["c", [], ["d", ["e", [], []], []]], ["b", [], []]]
+选项 c: ["a", ["b", [], []], ["c", [], ["d", ["e", [], []], []]]]
+选项 d: ["a", ["b", [], ["d", ["e", [], []], []]], ["c", [], []]]</p>
+<p>正确答案: c</p>
+<p>反馈 a: 不完全正确，这棵树缺少 "e" 节点。
+反馈 b: 这很接近，但仔细看看，你会发现根的左子节点和右子节点被交换了。
+反馈 c: 很好
+反馈 d: 这很接近，但左右子节点名称和底层结构被交换了。</p>
 </div>
 <div class="tabbed-block">
-<p>Write a function <code>build_tree</code> that returns a tree using the list of lists functions that looks like this:</p>
+<p>编写一个 <code>build_tree</code> 函数，该函数使用列表的列表函数返回如下树：</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/tree_ex.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/tree_ex.png" /></a>
 </figure></p>
-<details class="- tip">
-<summary>Tip</summary>
+<details class="- 提示">
+<summary>提示</summary>
 <div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">test</span> <span style="color: #008000; font-weight: bold">import</span> testEqual
 
 <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">build_tree</span>():
@@ -4416,7 +4412,7 @@ testEqual(get_root_val(get_right_child(get_right_child(ttree))), <span style="co
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月11日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月13日</span>
       
         <br>
         创建日期:

@@ -3977,12 +3977,12 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Now that we have demonstrated that keeping an AVL tree in balance is going to be a big performance improvement, let's look at how we will augment the procedure to insert a new key into the tree. Since all new keys are inserted into the tree as leaf nodes and we know that the balance factor for a new leaf is zero, there are no new requirements for the node that has just been inserted. But once the new leaf is added, we must update the balance factor of its parent. How this new leaf affects the parent’s balance factor depends on whether the leaf node is a left child or a right child. If the new node is a right child, the balance factor of the parent will be reduced by one. If the new node is a left child, then the balance factor of the parent will be increased by one. This rule can be applied recursively to the grandparent of the new node, and possibly to every ancestor, all the way up to the root of the tree. Since this is a recursive procedure, let's examine the two base cases for updating balance factors:</p>
+<p>现在我们已经演示了保持 AVL 树平衡将大大提高性能，让我们看看如何扩展插入新键的过程。由于所有新键都作为叶节点插入树中，我们知道新叶的平衡因子为零，因此对刚插入的节点没有新的要求。但一旦新叶被添加，我们必须更新其父节点的平衡因子。新叶对父节点平衡因子的影响取决于叶节点是左孩子还是右孩子。如果新节点是右孩子，父节点的平衡因子将减少 1。如果新节点是左孩子，则父节点的平衡因子将增加 1。这个规则可以递归应用于新节点的祖父节点，并可能应用于每个祖先，一直到树的根节点。由于这是一个递归过程，让我们检查更新平衡因子的两个基本情况：</p>
 <ul>
-<li>The recursive call has reached the root of the tree.</li>
-<li>The balance factor of the parent has been adjusted to zero. You should convince yourself that once a subtree has a balance factor of zero, then the balance of its ancestor nodes does not change.</li>
+<li>递归调用已到达树的根节点。</li>
+<li>父节点的平衡因子已调整为零。你应该确认，一旦子树的平衡因子为零，那么其祖先节点的平衡状态不会改变。</li>
 </ul>
-<p>We will implement the AVL tree as a subclass of <code>BinarySearchTree</code>. To begin, we will override the <code>_put</code> method and write a new <code>update_balance</code> helper method. These methods are shown in <code>Listing 1</code>. You will notice that the definition for <code>_put</code> is exactly the same as in simple binary search trees except for the addition of the calls to <code>update_balance</code> on lines 9 and 17.</p>
+<p>我们将实现 AVL 树作为 <code>BinarySearchTree</code> 的子类。首先，我们将重写 <code>_put</code> 方法，并编写一个新的 <code>update_balance</code> 辅助方法。这些方法见 <code>Listing 1</code>。你会注意到，<code>_put</code> 的定义与简单的二叉搜索树完全相同，只是在第 9 行和第 17 行添加了对 <code>update_balance</code> 的调用。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 1</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">_put</span>(<span style="color: #008000">self</span>, key, value, current_node):
     <span style="color: #008000; font-weight: bold">if</span> key <span style="color: #666666">&lt;</span> current_node<span style="color: #666666">.</span>key:
         <span style="color: #008000; font-weight: bold">if</span> current_node<span style="color: #666666">.</span>left_child:
@@ -4014,33 +4014,33 @@
         <span style="color: #008000; font-weight: bold">if</span> node<span style="color: #666666">.</span>parent<span style="color: #666666">.</span>balance_factor <span style="color: #666666">!=</span> <span style="color: #666666">0</span>:
             <span style="color: #008000">self</span><span style="color: #666666">.</span>update_balance(node<span style="color: #666666">.</span>parent)
 </code></pre></div>
-<p>The new <code>update_balance</code> method is where most of the work is done. This implements the recursive procedure we just described. It first checks to see if the current node is out of balance enough to require rebalancing (line 20). If that is the case then the rebalancing is done and no further updating to parents is required. If the current node does not require rebalancing then the balance factor of the parent is adjusted. If the balance factor of the parent is nonzero then the algorithm continues to work its way up the tree toward the root by recursively calling <code>update_balance</code> on the parent.</p>
-<p>When a rebalancing of the tree is necessary, how do we do it? Efficient rebalancing is the key to making the AVL Tree work well without sacrificing performance. In order to bring an AVL Tree back into balance, we will perform one or more <strong>rotations</strong> on the tree.</p>
-<p>To understand what a rotation is, let's look at a very simple example. Consider the tree in the left half of <code>Figure 3</code>. This tree is out of balance with a balance factor of -2. To bring this tree into balance we will use a left rotation around the subtree rooted at node A.</p>
+<p>新的 <code>update_balance</code> 方法是大部分工作的核心。它实现了我们刚才描述的递归过程。首先检查当前节点是否不平衡到需要重新平衡（第 20 行）。如果是这种情况，则进行重新平衡，不需要进一步更新父节点。如果当前节点不需要重新平衡，则调整父节点的平衡因子。如果父节点的平衡因子非零，则算法继续递归地调用 <code>update_balance</code> 来更新树中向上的节点，直到根节点。</p>
+<p>当需要对树进行重新平衡时，我们怎么做呢？高效的重新平衡是使 AVL 树正常工作而不牺牲性能的关键。为了将 AVL 树重新平衡，我们将对树执行一个或多个<strong>旋转</strong>操作。</p>
+<p>要理解旋转是什么，让我们看看一个非常简单的例子。考虑 <code>Figure 3</code> 左侧的树。这个树不平衡，平衡因子为 -2。为了将这棵树平衡过来，我们将围绕节点 A 的子树进行左旋转。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/simpleunbalanced.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/simpleunbalanced.png" /></a>
-    <figcaption markdown="span">Figure 3: Transforming an Unbalanced Tree Using a Left Rotation</figcaption>
-</figure>    </p>
-<p>To perform a left rotation we essentially do the following:</p>
+    <figcaption markdown="span">Figure 3: 使用左旋转转换不平衡树</figcaption>
+</figure></p>
+<p>进行左旋转的基本步骤如下：</p>
 <ol>
-<li>Promote the right child (B) to be the root of the subtree.</li>
-<li>Move the old root (A) to be the left child of the new root.</li>
-<li>If new root (B) already has a left child, then make it the right child of the new left child (A). Note: since the new root (B) was the right child of A, the right child of A is guaranteed to be empty at this point. This allows us to add a new node as the right child without any further consideration.</li>
+<li>提升右孩子（B）为子树的根。</li>
+<li>将旧根（A）移动到新根的左孩子。</li>
+<li>如果新根（B）已经有左孩子，则将其设置为新左孩子（A）的右孩子。注意：由于新根（B）是 A 的右孩子，因此 A 的右孩子在此时必定为空。这允许我们添加一个新节点作为右孩子，而不需要进一步考虑。</li>
 </ol>
-<p>While this procedure is fairly easy in concept, the details of the code are a bit tricky since we need to move things around in just the right order so that all properties of a binary search tree are preserved. Furthermore, we need to make sure to update all of the parent pointers appropriately.</p>
-<p>Let's look at a slightly more complicated tree to illustrate the right rotation. The left side of <code>Figure 4</code> shows a tree that is left-heavy and with a balance factor of 2 at the root.</p>
+<p>虽然这个过程在概念上比较简单，但代码的细节有点复杂，因为我们需要按正确的顺序移动所有内容，以确保二叉搜索树的所有属性都得到保留。此外，我们需要确保适当地更新所有父指针。</p>
+<p>让我们看一个稍微复杂的树来说明右旋转。<code>Figure 4</code> 的左侧展示了一个左重且根节点的平衡因子为 2 的树。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/rightrotate1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/rightrotate1.png" /></a>
-    <figcaption markdown="span">Figure 4: Transforming an Unbalanced Tree Using a Right Rotation</figcaption>
-</figure> </p>
-<p>To perform a right rotation we essentially do the following:</p>
+    <figcaption markdown="span">Figure 4: 使用右旋转转换不平衡树</figcaption>
+</figure></p>
+<p>进行右旋转的基本步骤如下：</p>
 <ol>
-<li>Promote the left child (C) to be the root of the subtree.</li>
-<li>Move the old root (E) to be the right child of the new root.</li>
-<li>If the new root (C) already has a right child (D) then make it the left child of the new right child (E). Note: since the new root (C) was the left child of E, the left child of E is guaranteed to be empty at this point. This allows us to add a new node as the left child without any further consideration.</li>
+<li>提升左孩子（C）为子树的根。</li>
+<li>将旧根（E）移动到新根的右孩子。</li>
+<li>如果新根（C）已经有右孩子（D），则将其设置为新右孩子（E）的左孩子。注意：由于新根（C）是 E 的左孩子，因此 E 的左孩子在此时必定为空。这允许我们添加一个新节点作为左孩子，而不需要进一步考虑。</li>
 </ol>
-<p>Now that you have seen the rotations and have the basic idea of how a rotation works let us look at the code. <code>Listing 2</code> shows the code for the left rotation (the <code>rotate_right</code> method is symmetrical to <code>rotate_left</code> so we will leave it to you to study the code for <code>rotate_right</code>). In line 2 we create a temporary variable to keep track of the new root of the subtree. As we said before, the new root is the right child of the previous root. Now that a reference to the right child has been stored in this temporary variable, we replace the right child of the old root with the left child of the new.</p>
-<p>The next step is to adjust the parent pointers of the two nodes. If <code>new_root</code> has a left child then the new parent of the left child becomes the old root. The parent of the new root is set to the parent of the old root. If the old root was the root of the entire tree then we must set the root of the tree to point to this new root. Otherwise, if the old root is a left child then we change the parent of the left child to point to the new root; otherwise we change the parent of the right child to point to the new root. (lines 10-13). Finally we set the parent of the old root to be the new root. This is a lot of complicated bookkeeping, so we encourage you to trace through this function while looking at <code>Figure 3</code>.</p>
+<p>现在你已经了解了旋转的基本概念，接下来我们来看代码。<code>Listing 2</code> 展示了左旋转的代码（<code>rotate_right</code> 方法与 <code>rotate_left</code> 对称，因此我们将留给你研究 <code>rotate_right</code> 的代码）。在第 2 行，我们创建了一个临时变量来跟踪子树的新根。如前所述，新根是之前根的右孩子。现在已经将右孩子的引用存储在这个临时变量中，我们将旧根的右孩子替换为新根的左孩子。</p>
+<p>下一步是调整两个节点的父指针。如果 <code>new_root</code> 有左孩子，则新左孩子的父节点变为旧根。新根的父节点设置为旧根的父节点。如果旧根是整棵树的根，则我们必须将树的根指针设置为这个新根。否则，如果旧根是左孩子，则我们将左孩子的父节点更改为新根；否则，我们将右孩子的父节点更改为新根（第 10-13 行）。最后，我们将旧根的父节点设置为新根。这是复杂的记账工作，因此我们鼓励你在查看 <code>Figure 3</code> 的同时跟踪这个函数。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 2</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">rotate_left</span>(<span style="color: #008000">self</span>, rotation_root):
     new_root <span style="color: #666666">=</span> rotation_root<span style="color: #666666">.</span>right_child
     rotation_root<span style="color: #666666">.</span>right_child <span style="color: #666666">=</span> new_root<span style="color: #666666">.</span>left_child
@@ -4061,50 +4061,51 @@
     )
     new_root<span style="color: #666666">.</span>balance_factor <span style="color: #666666">=</span> (
         new_root<span style="color: #666666">.</span>balance_factor <span style="color: #666666">+</span> <span style="color: #666666">1</span> <span style="color: #666666">+</span> <span style="color: #008000">max</span>(rotation_root<span style="color: #666666">.</span>balance_factor, <span style="color: #666666">0</span>)
-    )             
+    )
 </code></pre></div>
-<p>Finally, lines 16-21 require some explanation. In these lines we update the balance factors of the old and the new root. Since all the other moves involve moving entire subtrees, the balance factors of all other nodes are unaffected by the rotation. But how can we update the balance factors without completely recalculating the heights of the new subtrees? <code>Figure 5</code> and the following derivation should convince you that these lines are correct.</p>
+<p>最后，第 16-21 行需要一些解释。在这些行中，我们更新了旧根和新根的平衡因子。由于所有其他移动涉及整个子树的移动，因此所有其他节点的平衡因子都不会受到旋转的影响。但我们如何在不完全重新计算新子树高度的情况下更新平衡因子？<code>Figure 5</code> 和下面的推导应该能让你相信这些行是正确的。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/bfderive.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/bfderive.png" /></a>
-    <figcaption markdown="span">Figure 5: A Left Rotation</figcaption>
-</figure>    </p>
-<p><code>Figure 5</code> shows a left rotation. B and D are the pivotal nodes and A, C, E are their subtrees. Let <span class="arithmatex">\(h_x\)</span> denote the height of a particular subtree rooted at node <span class="arithmatex">\(x\)</span>. By definition we know the following:</p>
+    <figcaption markdown="span">Figure 5: 左旋转</figcaption>
+</figure></p>
+<p><code>Figure 5</code> 展示了左旋转。B 和 D 是关键节点，A、C、E 是它们的子树。令 <span class="arithmatex">\(h_x\)</span> 表示以节点 <span class="arithmatex">\(x\)</span> 为根的子树的高度。根据定义，我们知道以下内容：</p>
 <p><span class="arithmatex">\(\begin{align} new\_bal(B) &amp;= h_A - h_C \\ old\_bal(B) &amp;= h_A - h_D \end{align}\)</span></p>
-<p>But we know that the old height of D can also be given by <span class="arithmatex">\(1 + max(h_C, h_E)\)</span>, that is, the height of D is one more than the maximum height of its two children. Remember that <span class="arithmatex">\(h_C\)</span> and <span class="arithmatex">\(h_E\)</span> have not changed. So, let us substitute that in to the second equation, which gives us </p>
+<p>但我们知道 D 的旧高度也可以表示为 <span class="arithmatex">\(1 + max(h_C, h_E)\)</span>，即 D 的高度比其两个孩子的最大高度多一。记住，<span class="arithmatex">\(h_C\)</span> 和 <span class="arithmatex">\(h_E\)</span> 没有变化。因此，让我们将其代入第二个方程，得到：</p>
 <p><span class="arithmatex">\(old\_bal(B) = h_A - (1 + max(h_C,h_E))\)</span> </p>
-<p>and then subtract the two equations. The following steps do the subtraction and use some algebra to simplify the equation for <span class="arithmatex">\(new\_bal(B)\)</span>.</p>
-<p><span class="arithmatex">\(\begin{align} new\_bal(B) - old\_bal(B) &amp;= h_A - h_C - (h_A - (1 + max(h_C,h_E))) \\ new\_bal(B) - old\_bal(B) &amp;= h_A - h_C - h_A + (1 + max(h_C,h_E)) \\ new\_bal(B) - old\_bal(B) &amp;= h_A  - h_A + 1 + max(h_C,h_E) - h_C  \\ new\_bal(B) - old\_bal(B) &amp;=  1 + max(h_C,h_E) - h_C \end{align}\)</span></p>
-<p>Next we will move <span class="arithmatex">\(old\_bal(B)\)</span> to the right-hand side of the equation and make use of the fact that <span class="arithmatex">\(max(a,b)-c = max(a-c, b-c)\)</span>.</p>
+<p>然后减去两个方程。以下步骤进行减法，并使用一些代数简化 <span class="arithmatex">\(new\_bal(B)\)</span> 的方程。</p>
+<p>$\begin{align} new_bal(B) - old_bal(B) &amp;= h_A - h_C - (h_A - (1 + max(h_C,h_E))) \ new_bal(B) - old_bal(B) &amp;=</p>
+<p>h_A - h_C - h_A + (1 + max(h_C,h_E)) \ new_bal(B) - old_bal(B) &amp;= h_A  - h_A + 1 + max(h_C,h_E) - h_C  \ new_bal(B) - old_bal(B) &amp;=  1 + max(h_C,h_E) - h_C \end{align}$</p>
+<p>接下来我们将 <span class="arithmatex">\(old\_bal(B)\)</span> 移到方程的右侧，并利用 <span class="arithmatex">\(max(a,b)-c = max(a-c, b-c)\)</span>。</p>
 <p><span class="arithmatex">\(new\_bal(B) = old\_bal(B) + 1 + max(h_C - h_C ,h_E - h_C)\)</span></p>
-<p>But <span class="arithmatex">\(h_E - h_C\)</span> is the same as <span class="arithmatex">\(-old\_bal(D)\)</span>. So we can use another identity that says <span class="arithmatex">\(max(-a,-b) = -min(a,b)\)</span>. So we can finish our derivation of <span class="arithmatex">\(new\_bal(B)\)</span> with the following steps:</p>
+<p>但 <span class="arithmatex">\(h_E - h_C\)</span> 与 <span class="arithmatex">\(-old\_bal(D)\)</span> 相同。所以我们可以使用另一个恒等式 <span class="arithmatex">\(max(-a,-b) = -min(a,b)\)</span>。所以我们可以使用以下步骤完成 <span class="arithmatex">\(new\_bal(B)\)</span> 的推导：</p>
 <p><span class="arithmatex">\(\begin{align} new\_bal(B) &amp;= old\_bal(B) + 1 + max(0 , -old\_bal(D)) \\ new\_bal(B) &amp;= old\_bal(B) + 1 - min(0 , old\_bal(D)) \end{align}\)</span></p>
-<p>Now we have all of the parts in terms that we readily know. If we remember that B is <code>rotation_root</code> and D is <code>new_root</code> then we can see this corresponds exactly to the statement on lines 16-18 in <code>Listing 2</code>, or:</p>
+<p>现在我们已经将所有部分转换为已知的形式。如果我们记住 B 是 <code>rotation_root</code>，而 D 是 <code>new_root</code>，那么我们可以看到这正好对应于 <code>Listing 2</code> 第 16-18 行的声明，即：</p>
 <div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>rotation_root<span style="color: #666666">.</span>balance_factor <span style="color: #666666">=</span> (
     rotation_root<span style="color: #666666">.</span>balance_factor <span style="color: #666666">+</span> <span style="color: #666666">1</span> <span style="color: #666666">-</span> <span style="color: #008000">min</span>(new_root<span style="color: #666666">.</span>balance_factor, <span style="color: #666666">0</span>)
 )
 </code></pre></div>
-<p>A similar derivation gives us the equation for the updated node D as well as the balance factors after a right rotation. We leave these as an exercise for you.</p>
-<p>Now you might think that we are done. We know how to do our left and right rotations, and we know when we should do a left or right rotation.  But take a look at <code>Figure 6</code>. Since node A has a balance factor of -2 we should do a left rotation. But what happens when we do the left rotation around A?</p>
+<p>类似的推导也可以给出右旋转后的节点 D 的平衡因子的方程。我们留给你作为练习。</p>
+<p>现在你可能认为我们已经完成了。我们知道如何进行左旋转和右旋转，也知道何时进行左旋转或右旋转。但看看 <code>Figure 6</code>。由于节点 A 的平衡因子为 -2，我们应该进行左旋转。但当我们在 A 周围进行左旋转时会发生什么呢？</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/hardunbalanced.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/hardunbalanced.png" /></a>
-    <figcaption markdown="span">Figure 6: An Unbalanced Tree that is More Difficult to Balance</figcaption>
-</figure>    </p>
-<p><code>Figure 7 &lt;fig_badrotate&gt;</code> shows us that after the left rotation we are now out of balance the other way. If we do a right rotation to correct the situation we are right back where we started.</p>
+    <figcaption markdown="span">Figure 6: 更难平衡的一个不平衡树</figcaption>
+</figure></p>
+<p><code>Figure 7 &lt;fig_badrotate&gt;</code> 向我们展示了，在左旋转之后，我们现在在另一个方向上不平衡。如果我们进行右旋转来纠正这种情况，我们将重新回到原点。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/badrotate.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/badrotate.png" /></a>
-    <figcaption markdown="span">Figure 7: After a Left Rotation the Tree is Out of Balance in the Other Direction</figcaption>
-</figure>    </p>
-<p>To correct this problem we must use the following set of rules:</p>
+    <figcaption markdown="span">Figure 7: 左旋转后树在另一个方向上不平衡</figcaption>
+</figure></p>
+<p>为了解决这个问题，我们必须使用以下规则集：</p>
 <ol>
-<li>If a subtree needs a left rotation to bring it into balance, first check the balance factor of the right child. If the right child is left-heavy, then do a right rotation on right child followed by the original left rotation.</li>
-<li>If a subtree needs a right rotation to bring it into balance, first check the balance factor of the left child. If the left child is right-heavy, then do a left rotation on the left child followed by the original right rotation.</li>
+<li>如果子树需要左旋转来使其平衡，首先检查右孩子的平衡因子。如果右孩子是左重的，则在右孩子上先进行右旋转，然后再进行原始的左旋转。</li>
+<li>如果子树需要右旋转来使其平衡，首先检查左孩子的平衡因子。如果左孩子是右重的，则在左孩子上先进行左旋转，然后再进行原始的右旋转。</li>
 </ol>
-<p><code>Figure 8</code> shows how these rules solve the dilemma we encountered in <code>Figure 6</code> and <code>Figure 7</code>. Starting with a right rotation around node C puts the tree in a position where the left rotation around A brings the entire subtree back into balance.</p>
+<p><code>Figure 8</code> 展示了这些规则如何解决 <code>Figure 6</code> 和 <code>Figure 7</code> 中遇到的困境。首先在节点 C 上进行右旋转，将树放置在一个位置，在 A 上进行左旋转将整个子树重新平衡。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/rotatelr.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/rotatelr.png" /></a>
-    <figcaption markdown="span">Figure 8: A Right Rotation Followed by a Left Rotation</figcaption>
-</figure>    </p>
-<p>The code that implements these rules can be found in our <code>rebalance</code> method, which is shown in <code>Listing 3</code>. Rule number 1 from above is implemented by the <code>if</code> statement starting on line 2. Rule number 2 is implemented by the <code>elif</code> statement starting on line 8.</p>
+    <figcaption markdown="span">Figure 8: 右旋转后跟左旋转</figcaption>
+</figure></p>
+<p>实现这些规则的代码可以在我们的 <code>rebalance</code> 方法中找到，如 <code>Listing 3</code> 所示。上面的规则第 1 条由第 2 行开始的 <code>if</code> 语句实现。规则第 2 条由第 8 行开始的 <code>elif</code> 语句实现。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Listing 3</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
@@ -4131,9 +4132,9 @@
         <span style="color: #008000; font-weight: bold">else</span>:
             <span style="color: #008000">self</span><span style="color: #666666">.</span>rotate_right(node)
 </code></pre></div></td></tr></table></div>
-<p>The <code>discussion questions</code> provide you the opportunity to rebalance a tree that requires a left rotation followed by a right. In addition the discussion questions provide you with the opportunity to rebalance some trees that are a little more complex than the tree in <code>Figure 8</code>.</p>
-<p>By keeping the tree in balance at all times, we can ensure that the <code>get</code> method will run in order <span class="arithmatex">\(O(log_2(n))\)</span> time. But the question is at what cost to our <code>put</code> method? Let us break this down into the operations performed by <code>put</code>. Since a new node is inserted as a leaf, updating the balance factors of all the parents will require a maximum of <span class="arithmatex">\(log_2(n)\)</span> operations, one for each level of the tree. If a subtree is found to be out of balance, a maximum of two rotations are required to bring the tree back into balance. But each of the rotations works in <span class="arithmatex">\(O(1)\)</span> time, so even our <code>put</code> operation remains <span class="arithmatex">\(O(log_2(n))\)</span>.</p>
-<p>At this point we have implemented a functional AVL tree, unless you need the ability to delete a node. We leave the deletion of the node and subsequent updating and rebalancing as an exercise for you.</p>
+<p><code>discussion questions</code> 让你有机会对需要先进行左旋转后进行右旋转的树进行重新平衡。此外，讨论问题还提供了机会对比 <code>Figure 8</code> 中的树进行一些更复杂的重新平衡。</p>
+<p>通过始终保持树的平衡，我们可以确保 <code>get</code> 方法的运行时间为 <span class="arithmatex">\(O(\log_2(n))\)</span>。但问题是我们的 <code>put</code> 方法的代价是多少？让我们分解 <code>put</code> 执行的操作。由于新节点作为叶子节点插入，更新所有父节点的平衡因子将需要最多 <span class="arithmatex">\(log_2(n)\)</span> 次操作，每个树的层级一次。如果发现子树不平衡，则需要最多两个旋转来将树重新平衡。但每次旋转的时间复杂度是 <span class="arithmatex">\(O(1)\)</span>，因此即使是 <code>put</code> 操作也保持在 <span class="arithmatex">\(O(\log_2(n))\)</span>。</p>
+<p>此时，我们已经实现了一个功能完整的 AVL 树，除非你需要删除节点的能力。我们将节点的删除及其后续的更新和重新平衡留给你作为练习。</p>
 </div>
 <div class="tabbed-block">
 <p>Now that we have demonstrated that keeping an AVL tree in balance is going to be a big performance improvement, let's look at how we will augment the procedure to insert a new key into the tree. Since all new keys are inserted into the tree as leaf nodes and we know that the balance factor for a new leaf is zero, there are no new requirements for the node that has just been inserted. But once the new leaf is added, we must update the balance factor of its parent. How this new leaf affects the parent’s balance factor depends on whether the leaf node is a left child or a right child. If the new node is a right child, the balance factor of the parent will be reduced by one. If the new node is a left child, then the balance factor of the parent will be increased by one. This rule can be applied recursively to the grandparent of the new node, and possibly to every ancestor, all the way up to the root of the tree. Since this is a recursive procedure, let's examine the two base cases for updating balance factors:</p>
@@ -4302,7 +4303,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月11日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月13日</span>
       
         <br>
         创建日期:

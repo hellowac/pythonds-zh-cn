@@ -3977,9 +3977,9 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>The search algorithm we will use to solve the knight’s tour problem is called <strong>depth-first search</strong> (<strong>DFS</strong>).  Whereas the breadth-first search algorithm builds a search tree one level at a time, a depth-first search creates a search tree by exploring one branch of the tree as deeply as possible. In this section we will look at two algorithms that implement a depth-first search. The first algorithm we will look at specifically solves the knight’s tour problem by explicitly forbidding a node to be visited more than once. The second implementation is more general, but allows nodes to be visited more than once as the tree is constructed. The second version is used in subsequent sections to develop additional graph algorithms.</p>
-<p>The depth-first exploration of the graph is exactly what we need in order to find a path through 64 vertices (one for each square on the chessboard) and 63 edges. We will see that when the depth-first search algorithm finds a dead end (a place in the graph where there are no more moves possible) it backs up the tree to the next deepest vertex that allows it to make a legal move.</p>
-<p>The <code>knight_tour</code> function shown in <code>Listing 3</code> takes four parameters: <code>n</code>, the current depth in the search tree; <code>path</code>, a list of vertices visited up to this point; <code>u</code>, the vertex in the graph we wish to explore; and <code>limit</code>, the number of nodes in the path. The <code>knight_tour</code> function is recursive. When the <code>knight_tour</code> function is called, it first checks the base case condition. If we have a path that contains 64 vertices, we return from <code>knight_tour</code> with a status of <code>True</code>, indicating that we have found a successful tour. If the path is not long enough, we continue to explore one level deeper by choosing a new vertex to explore and calling <code>knight_tour</code> recursively for that vertex.</p>
+<p>我们将使用的搜索算法来解决骑士巡游问题叫做 <strong>深度优先搜索</strong> (<strong>DFS</strong>)。与广度优先搜索算法逐层构建搜索树不同，深度优先搜索通过尽可能深地探索树的一个分支来创建搜索树。在这一部分，我们将查看两个实现深度优先搜索的算法。第一个算法专门通过明确禁止一个节点被访问多次来解决骑士巡游问题。第二个实现更为通用，但允许在构建树时节点被访问多次。第二个版本将在后续部分用于开发额外的图算法。</p>
+<p>深度优先遍历图正是我们需要的，以找到一个经过64个顶点（每个方格一个）和63条边的路径。我们将看到，当深度优先搜索算法遇到死胡同时（图中没有更多的合法移动），它会回溯到下一个允许合法移动的最深顶点。</p>
+<p><code>Listing 3</code> 中显示的 <code>knight_tour</code> 函数有四个参数：<code>n</code>，当前在搜索树中的深度；<code>path</code>，到目前为止访问过的顶点列表；<code>u</code>，我们希望探索的图中的顶点；以及 <code>limit</code>，路径中的节点数量。<code>knight_tour</code> 函数是递归的。当 <code>knight_tour</code> 函数被调用时，它首先检查基准条件。如果路径中包含64个顶点，我们从 <code>knight_tour</code> 函数返回 <code>True</code>，表示我们找到了一条成功的巡游路径。如果路径不够长，我们继续深入探索一个新的顶点，并对该顶点递归调用 <code>knight_tour</code>。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 3</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pythonds3.graphs</span> <span style="color: #008000; font-weight: bold">import</span> Graph
 
 
@@ -3994,52 +3994,52 @@
             <span style="color: #008000; font-weight: bold">if</span> neighbors[i]<span style="color: #666666">.</span>color <span style="color: #666666">==</span> <span style="color: #BA2121">&quot;white&quot;</span>:
                 done <span style="color: #666666">=</span> knight_tour(n <span style="color: #666666">+</span> <span style="color: #666666">1</span>, path, neighbors[i], limit)
             i <span style="color: #666666">=</span> i <span style="color: #666666">+</span> <span style="color: #666666">1</span>
-        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #AA22FF; font-weight: bold">not</span> done:  <span style="color: #3D7B7B; font-style: italic"># prepare to backtrack</span>
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #AA22FF; font-weight: bold">not</span> done:  <span style="color: #3D7B7B; font-style: italic"># 准备回溯</span>
             path<span style="color: #666666">.</span>pop()
             u<span style="color: #666666">.</span>color <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;white&quot;</span>
     <span style="color: #008000; font-weight: bold">else</span>:
         done <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">True</span>
     <span style="color: #008000; font-weight: bold">return</span> done
 </code></pre></div>
-<p>DFS also uses colors to keep track of which vertices in the graph have been visited. Unvisited vertices are colored white, and visited vertices are colored gray. If all neighbors of a particular vertex have been explored and we have not yet reached our goal length of 64 vertices, we have reached a dead end and must backtrack. Backtracking happens when we return from <code>knight_tour</code> with a status of <code>False</code>. In the breadth-first search we used a queue to keep track of which vertex to visit next. Since depth-first search is recursive, we are implicitly using a stack to help us with our backtracking. When we return from a call to <code>knight_tour</code> with a status of <code>False</code>, in line 11,  we remain inside the <code>while</code> loop and look at the next vertex in <code>neighbors</code>.</p>
-<p>Let's look at a simple example of <code>knight_tour</code> (<code>Listing 3</code>) in action. You can refer to the figures below to follow the steps of the search. For this example we will assume that the call to the <code>get_neighbors</code> method on line 6 orders the nodes in alphabetical order. We begin by calling <code>knight_tour(0, path, A, 6)</code>.</p>
+<p>DFS 也使用颜色来跟踪图中哪些顶点已被访问。未访问的顶点被标记为白色，已访问的顶点被标记为灰色。如果某个顶点的所有邻居都已被探索，并且我们还未达到目标长度64个顶点，则我们遇到死胡同，必须回溯。回溯发生在我们从 <code>knight_tour</code> 函数返回 <code>False</code> 时。在广度优先搜索中，我们使用队列来跟踪下一个要访问的顶点。由于深度优先搜索是递归的，我们隐式地使用栈来帮助回溯。当我们从 <code>knight_tour</code> 函数返回 <code>False</code> 时，我们仍停留在 <code>while</code> 循环中，查看 <code>neighbors</code> 中的下一个顶点。</p>
+<p>让我们看一个简单的 <code>knight_tour</code> (<code>Listing 3</code>) 的实际示例。您可以参考下面的图形来跟踪搜索步骤。对于这个示例，我们将假设在第6行上调用 <code>get_neighbors</code> 方法时，节点按字母顺序排列。我们开始时调用 <code>knight_tour(0, path, A, 6)</code>。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/ktdfsa.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/ktdfsa.png" /></a>
-    <figcaption markdown="span">Figure 3: Start with Node A</figcaption>
+    <figcaption markdown="span">图3：从节点 A 开始</figcaption>
 </figure></p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/ktdfsb.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/ktdfsb.png" /></a>
-    <figcaption markdown="span">Figure 4: Explore B</figcaption>
+    <figcaption markdown="span">图4：探索 B</figcaption>
 </figure></p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/ktdfsc.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/ktdfsc.png" /></a>
-    <figcaption markdown="span">Figure 5: Node C is a Dead End</figcaption>
+    <figcaption markdown="span">图5：节点 C 是死胡同</figcaption>
 </figure></p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/ktdfsd.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/ktdfsd.png" /></a>
-    <figcaption markdown="span">Figure 6: Backtrack to B</figcaption>
+    <figcaption markdown="span">图6：回溯到 B</figcaption>
 </figure></p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/ktdfse.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/ktdfse.png" /></a>
-    <figcaption markdown="span">Figure 7: Explore D</figcaption>
+    <figcaption markdown="span">图7：探索 D</figcaption>
 </figure></p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/ktdfsf.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/ktdfsf.png" /></a>
-    <figcaption markdown="span">Figure 8: Explore E</figcaption>
+    <figcaption markdown="span">图8：探索 E</figcaption>
 </figure></p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/ktdfsg.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/ktdfsg.png" /></a>
-    <figcaption markdown="span">Figure 9: Explore F</figcaption>
+    <figcaption markdown="span">图9：探索 F</figcaption>
 </figure></p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/ktdfsh.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/ktdfsh.png" /></a>
-    <figcaption markdown="span">Figure 10: Finish</figcaption>
+    <figcaption markdown="span">图10：完成</figcaption>
 </figure></p>
-<p><code>knight_tour</code> starts with node A in <code>Figure 3</code>. The nodes adjacent to A are B and D. Since B is before D alphabetically, DFS selects B to expand next as shown in <code>Figure 4</code>. Exploring B happens when <code>knight_tour</code> is called recursively. B is adjacent to C and D, so <code>knight_tour</code> elects to explore C next. However, as you can see in <code>Figure 5</code> node C is a dead end with no adjacent white nodes. At this point we change the color of node C back to white. The call to <code>knight_tour</code> returns a value of <code>False</code>. The return from the recursive call effectively backtracks the search to vertex B (see <code>Figure 6</code>). The next vertex on the list to explore is vertex D, so <code>knight_tour</code> makes a recursive call moving to node D (see <code>Figure 7</code>). From vertex D on, <code>knight_tour</code> can continue to make recursive calls until we get to node C again (see <code>Figure 8</code>, <code>Figure 9</code>, and  <code>Figure 10</code>).  However, this time when we get to node C the test <code>n &lt; limit</code> fails so we know that we have exhausted all the nodes in the graph. At this point we can return <code>True</code> to indicate that we have made a successful tour of the graph. When we return the list, <code>path</code> has the values <code>[A, B, D, E, F, C]</code>, which is the order we need to traverse the graph to visit each node exactly once.</p>
-<p><code>Figure 11</code> shows you what a complete tour around an <span class="arithmatex">\(8 \times 8\)</span> board looks like. There are many possible tours; some are symmetric. With some modification you can make circular tours that start and end at the same square.</p>
+<p><code>knight_tour</code> 从 <code>图3</code> 中的节点 A 开始。A 的邻居是 B 和 D。由于 B 在字母表中位于 D 之前，DFS 选择 B 进行扩展，如 <code>图4</code> 所示。探索 B 发生在递归调用 <code>knight_tour</code> 时。B 的邻居是 C 和 D，因此 <code>knight_tour</code> 选择下一个探索 C。然而，如 <code>图5</code> 所示，节点 C 是死胡同，没有邻接的白色节点。此时我们将节点 C 的颜色恢复为白色。对 <code>knight_tour</code> 的调用返回 <code>False</code>。从递归调用的返回实际上将搜索回溯到顶点 B（见 <code>图6</code>）。列表中下一个要探索的顶点是 D，因此 <code>knight_tour</code> 递归调用移动到节点 D（见 <code>图7</code>）。从顶点 D 开始，<code>knight_tour</code> 可以继续进行递归调用，直到再次到达节点 C（见 <code>图8</code>、<code>图9</code> 和 <code>图10</code>）。但是，这次当我们到达节点 C 时，测试 <code>n &lt; limit</code> 失败，因此我们知道图中的所有节点都已被耗尽。此时我们可以返回 <code>True</code>，表示我们成功完成了图的巡游。当我们返回列表时，<code>path</code> 包含值 <code>[A, B, D, E, F, C]</code>，这是我们需要遍历图的顺序，以确保每个节点只访问一次。</p>
+<p><code>图11</code> 显示了一个完整的 <span class="arithmatex">\(8 \times 8\)</span> 棋盘上的巡游图样。有许多可能的巡游路径，有些是对称的。通过一些修改，您可以创建以相同方格开始和结束的圆形巡游。 </p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/completeTour.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/completeTour.png" /></a>
-    <figcaption markdown="span">Figure 11: A Complete Tour of the Board Found by <code>knight_tour</code></figcaption>
+    <figcaption markdown="span">图11：由 <code>knight_tour</code> 找到的棋盘完整巡游路径</figcaption>
 </figure></p>
 </div>
 <div class="tabbed-block">
@@ -4116,7 +4116,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月12日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月13日</span>
       
         <br>
         创建日期:

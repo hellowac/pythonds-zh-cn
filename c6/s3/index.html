@@ -3977,58 +3977,61 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Now that we have looked at examples of trees, we will formally define a tree and its components.</p>
-<dl>
-<dt>Node</dt>
-<dd>A <strong>node</strong> is a fundamental part of a tree. It can have a name, which we call the <em>key</em>. A node may also have additional information. We call this additional information the <em>value</em> or <em>payload</em>. While the payload information is not central to many tree algorithms, it is often critical in applications that make use of trees.</dd>
-<dt>Edge</dt>
-<dd>An <strong>edge</strong> is another fundamental part of a tree. An edge connects two
-nodes to show that there is a relationship between them. Every node
-(except the root) is connected by exactly one incoming edge from
-another node. Each node may have several outgoing edges.</dd>
-<dt>Root</dt>
-<dd>The <strong>root</strong> of the tree is the only node in the tree that has no
-incoming edges. In <code>Figure 2</code>, / is the root of the tree.</dd>
-<dt>Path</dt>
-<dd>A <strong>path</strong> is an ordered list of nodes that are connected by edges, for
-example,
-Mammalia <span class="arithmatex">\(\rightarrow\)</span> Carnivora <span class="arithmatex">\(\rightarrow\)</span> Felidae <span class="arithmatex">\(\rightarrow\)</span> <em>Felis</em> <span class="arithmatex">\(\rightarrow\)</span> <em>catus</em>
-is a path.</dd>
-<dt>Children</dt>
-<dd>The set of nodes that have incoming edges from the same
-node are said to be the <strong>children</strong> of that node. In <code>Figure 2</code>,
-nodes log/, spool/, and yp/ are the children of node var/.</dd>
-<dt>Parent</dt>
-<dd>A node is the <strong>parent</strong> of all the nodes it connects to with outgoing edges. In <code>Figure 2</code> the node var/ is the parent of nodes log/, spool/, and yp/.</dd>
-<dt>Sibling</dt>
-<dd>Nodes in the tree that are children of the same parent are said to be <strong>siblings</strong>. The nodes etc/ and usr/ are siblings in the file system tree shown in <code>Figure 2</code>.</dd>
-<dt>Subtree</dt>
-<dd>A <strong>subtree</strong> is a set of nodes and edges comprised of a parent and allthe descendants of that parent.</dd>
-<dt>Leaf Node</dt>
-<dd>A <strong>leaf node</strong> is a node that has no children. For example, Human and
-Chimpanzee are leaf nodes in <code>Figure 1</code>.</dd>
-<dt>Level</dt>
-<dd>The <strong>level</strong> of a node <span class="arithmatex">\(n\)</span> is the number of edges on the path from the root node to <span class="arithmatex">\(n\)</span>. For example, the level of the Felis node in <code>Figure 1</code> is five. By definition, the level of the root node is zero.</dd>
-<dt>Height</dt>
-<dd>The <strong>height</strong> of a tree is equal to the maximum level of any node in the tree. The height of the tree in <code>Figure 2</code> is two.</dd>
-</dl>
-<p>With the basic vocabulary now defined, we can move on to a formal definition of a tree. In fact, we will provide two definitions of a tree. One definition involves nodes and edges. The second definition, which will prove to be very useful, is a recursive definition.</p>
-<p><em>Definition One:</em> A tree consists of a set of nodes and a set of edges that connect pairs of nodes. A tree has the following properties:</p>
+<p>现在我们已经看过树的例子，接下来我们将正式定义树及其组成部分。</p>
 <ul>
-<li>One node of the tree is designated as the root node.</li>
-<li>Every node <span class="arithmatex">\(n\)</span>, except the root node, is connected by an edge from exactly one other node <span class="arithmatex">\(p\)</span>, where <span class="arithmatex">\(p\)</span> is the parent of <span class="arithmatex">\(n\)</span>.</li>
-<li>A unique path traverses from the root to each node.</li>
-<li>If each node in the tree has a maximum of two children, we say that the tree is a <strong>binary tree</strong>.</li>
+<li>
+<p><strong>节点</strong>：<strong>节点</strong>是树的基本部分。它可以有一个名称，我们称之为<em>键</em>。节点还可以有附加信息。我们称这些附加信息为<em>值</em>或<em>有效负载</em>。虽然有效负载信息对许多树算法并不是核心的，但在使用树的应用程序中，它通常是至关重要的。</p>
+</li>
+<li>
+<p><strong>边</strong>：<strong>边</strong>是树的另一个基本部分。边连接两个节点，表示它们之间存在关系。每个节点（根节点除外）由一个来自另一个节点的入边连接。每个节点可能有多个出边。</p>
+</li>
+<li>
+<p><strong>根</strong>：树的<strong>根</strong>是树中唯一一个没有入边的节点。在<code>图 2</code>中，根节点是 /。</p>
+</li>
+<li>
+<p><strong>路径</strong>：<strong>路径</strong>是由边连接的节点的有序列表，例如，
+  Mammalia <span class="arithmatex">\(\rightarrow\)</span> Carnivora <span class="arithmatex">\(\rightarrow\)</span> Felidae <span class="arithmatex">\(\rightarrow\)</span> <em>Felis</em> <span class="arithmatex">\(\rightarrow\)</span> <em>catus</em>
+  是一条路径。</p>
+</li>
+<li>
+<p><strong>子节点</strong>：从同一个节点有入边的节点集合被称为该节点的<strong>子节点</strong>。在<code>图 2</code>中，节点 log/、spool/ 和 yp/ 是节点 var/ 的子节点。</p>
+</li>
+<li>
+<p><strong>父节点</strong>：一个节点是所有与它通过出边连接的节点的<strong>父节点</strong>。在<code>图 2</code>中，节点 var/ 是节点 log/、spool/ 和 yp/ 的父节点。</p>
+</li>
+<li>
+<p><strong>兄弟节点</strong>：树中同一个父节点的子节点被称为<strong>兄弟节点</strong>。在<code>图 2</code>中，节点 etc/ 和 usr/ 是文件系统树中的兄弟节点。</p>
+</li>
+<li>
+<p><strong>子树</strong>：<strong>子树</strong>是由一个父节点及其所有后代节点和边组成的节点和边的集合。</p>
+</li>
+<li>
+<p><strong>叶子节点</strong>：<strong>叶子节点</strong>是没有子节点的节点。例如，人类和黑猩猩在<code>图 1</code>中是叶子节点。</p>
+</li>
+<li>
+<p><strong>层级</strong>：节点 <span class="arithmatex">\(n\)</span> 的<strong>层级</strong>是从根节点到 <span class="arithmatex">\(n\)</span> 的路径上边的数量。例如，<code>图 1</code> 中 Felis 节点的层级是五。根据定义，根节点的层级为零。</p>
+</li>
+<li>
+<p><strong>高度</strong>：树的<strong>高度</strong>等于树中任何节点的最大层级。在<code>图 2</code>中，树的高度为二。</p>
+</li>
 </ul>
-<p><code>Figure 3</code> illustrates a tree that fits definition one. The arrowheads on the edges indicate the direction of the connection.</p>
+<p>定义了基本词汇后，我们可以继续对树进行正式的定义。实际上，我们将提供两个定义。第一个定义涉及节点和边。第二个定义将非常有用，是一个递归定义。</p>
+<p><strong>定义一</strong>：树由一组节点和一组连接节点对的边组成。树具有以下属性：</p>
+<ul>
+<li>树中的一个节点被指定为根节点。</li>
+<li>每个节点 <span class="arithmatex">\(n\)</span>（根节点除外）由来自一个其他节点 <span class="arithmatex">\(p\)</span> 的边连接，其中 <span class="arithmatex">\(p\)</span> 是 <span class="arithmatex">\(n\)</span> 的父节点。</li>
+<li>从根节点到每个节点都有一条唯一的路径。</li>
+<li>如果树中的每个节点最多有两个子节点，则我们称该树为<strong>二叉树</strong>。</li>
+</ul>
+<p><code>图 3</code> 说明了符合定义一的树。边上的箭头指示连接的方向。</p>
 <p><figure markdown="span">
-    <a class="glightbox" href="../imgs/treedef1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/treedef1.png" /></a>
-    <figcaption markdown="span">Figure 3: A Tree Consisting of a Set of Nodes and Edges</figcaption>
+   <a class="glightbox" href="../imgs/treedef1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="图标题" src="../imgs/treedef1.png" /></a>
+   <figcaption markdown="span">图 3: 由一组节点和边组成的树</figcaption>
 </figure></p>
-<p><em>Definition Two:</em> A tree is either empty or consists of a root and zero or more subtrees, each of which is also a tree. The root of each subtree is connected to the root of the parent tree by an edge. <code>Figure 4</code> illustrates this recursive definition of a tree. Using the recursive definition of a tree, we know that the tree in <code>Figure 4</code> has at least four nodes since each of the triangles representing a subtree must have a root. It may have many more nodes than that, but we do not know unless we look deeper into the tree.</p>
+<p><strong>定义二</strong>：树要么为空，要么由一个根节点和零个或多个子树组成，每个子树也是一棵树。每个子树的根节点通过一条边连接到父树的根节点。<code>图 4</code> 说明了这种树的递归定义。使用递归定义，我们知道 <code>图 4</code> 中的树至少有四个节点，因为每个表示子树的三角形都必须有一个根节点。它可能还有更多节点，但我们不能确定，除非我们深入查看树的内部。</p>
 <p><figure markdown="span">
-    <a class="glightbox" href="../imgs/TreeDefRecursive.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/TreeDefRecursive.png" /></a>
-    <figcaption markdown="span">Figure 4: A Recursive Definition of a Tree</figcaption>
+   <a class="glightbox" href="../imgs/TreeDefRecursive.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="图标题" src="../imgs/TreeDefRecursive.png" /></a>
+   <figcaption markdown="span">图 4: 树的递归定义</figcaption>
 </figure></p>
 </div>
 <div class="tabbed-block">
@@ -4094,7 +4097,7 @@ Chimpanzee are leaf nodes in <code>Figure 1</code>.</dd>
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月11日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月13日</span>
       
         <br>
         创建日期:

@@ -3977,7 +3977,7 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>The general running time for depth-first search is as follows. The loops in <code>dfs</code> both run in <span class="arithmatex">\(O(|V|)\)</span>, not counting what happens in <code>dfs_visit</code>, since they are executed once for each vertex in the graph. In <code>dfs_visit</code> the loop is executed once for each edge in the adjacency list of the current vertex. Since <code>dfs_visit</code> is only called recursively if the vertex is white, the loop will execute a maximum of once for every edge in the graph, or <span class="arithmatex">\(O(|E|)\)</span>. Therefore, the total time for depth-first search is <span class="arithmatex">\(O(|V| + |E|)\)</span>.</p>
+<p>深度优先搜索的总体运行时间如下。<code>dfs</code> 中的两个循环都在 <span class="arithmatex">\(O(|V|)\)</span> 时间内运行，不包括 <code>dfs_visit</code> 中的操作，因为它们对图中的每个顶点执行一次。在 <code>dfs_visit</code> 中，循环对当前顶点的邻接列表中的每条边执行一次。由于 <code>dfs_visit</code> 只有在顶点是白色时才会被递归调用，因此循环最多会对图中的每条边执行一次，即 <span class="arithmatex">\(O(|E|)\)</span>。因此，深度优先搜索的总时间复杂度为 <span class="arithmatex">\(O(|V| + |E|)\)</span>。</p>
 </div>
 <div class="tabbed-block">
 <p>The general running time for depth-first search is as follows. The loops in <code>dfs</code> both run in <span class="arithmatex">\(O(|V|)\)</span>, not counting what happens in <code>dfs_visit</code>, since they are executed once for each vertex in the graph. In <code>dfs_visit</code> the loop is executed once for each edge in the adjacency list of the current vertex. Since <code>dfs_visit</code> is only called recursively if the vertex is white, the loop will execute a maximum of once for every edge in the graph, or <span class="arithmatex">\(O(|E|)\)</span>. Therefore, the total time for depth-first search is <span class="arithmatex">\(O(|V| + |E|)\)</span>.</p>
@@ -3990,7 +3990,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月12日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月13日</span>
       
         <br>
         创建日期:

@@ -3977,13 +3977,13 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>One of the easiest ways to implement a graph is to use a two-dimensional matrix. In this matrix implementation, each of the rows and columns represents a vertex in the graph. The value that is stored in the cell at the intersection of row <span class="arithmatex">\(v\)</span> and column <span class="arithmatex">\(w\)</span> indicates if there is an edge from vertex <span class="arithmatex">\(v\)</span> to vertex <span class="arithmatex">\(w\)</span>. When two vertices are connected by an edge, we say that they are <strong>adjacent</strong>. <code>Figure 3</code> illustrates the adjacency matrix for the graph in <code>Figure 2</code>. The value in each cell represents the weight of the edge from vertex <span class="arithmatex">\(v\)</span> to vertex <span class="arithmatex">\(w\)</span>.</p>
+<p>实现图的一种最简单方法是使用二维矩阵。在这种矩阵实现中，每一行和每一列都表示图中的一个顶点。存储在行 <span class="arithmatex">\(v\)</span> 和列 <span class="arithmatex">\(w\)</span> 交叉处的单元格中的值表示是否存在从顶点 <span class="arithmatex">\(v\)</span> 到顶点 <span class="arithmatex">\(w\)</span> 的边。当两个顶点由一条边连接时，我们说它们是 <strong>相邻</strong> 的。<code>Figure 3</code> 说明了 <code>Figure 2</code> 图的邻接矩阵。每个单元格中的值表示从顶点 <span class="arithmatex">\(v\)</span> 到顶点 <span class="arithmatex">\(w\)</span> 的边的权重。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/adjMat.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/adjMat.png" width="300" /></a>
-    <figcaption markdown="span">Figure 3: An Adjacency Matrix Representation for a Graph </figcaption>
+    <figcaption markdown="span">Figure 3: 图的邻接矩阵表示</figcaption>
 </figure></p>
-<p>The advantage of the adjacency matrix is that it is simple, and for small graphs it is easy to see which nodes are connected to other nodes. However, otice that most of the cells in the matrix are empty; we can say that this matrix is <em>sparse</em>. A matrix is not a very efficient way to store sparse data. In fact, in Python you must go out of your way to even create a matrix structure like the one in <code>Figure 3</code>.</p>
-<p>The adjacency matrix is a good implementation for a graph when the number of edges is large. But what do we mean by large? How many edges would be needed to fill the matrix? Since there is one row and one column for every vertex in the graph, the number of edges required to fill the matrix is <span class="arithmatex">\(|V|^2\)</span>. A matrix is full when every vertex is connected to every other vertex. There are few real problems that approach this sort of connectivity. The problems we will look at in this chapter all involve graphs that are sparsely connected.</p>
+<p>邻接矩阵的优点是它简单，对于小型图，易于查看哪些节点连接到其他节点。然而，注意到矩阵中的大多数单元格是空的；我们可以说这个矩阵是 <em>稀疏的</em>。矩阵不是存储稀疏数据的高效方式。实际上，在 Python 中，你必须特别创建像 <code>Figure 3</code> 中的矩阵结构。</p>
+<p>邻接矩阵在边的数量很大时是图的一个很好的实现。但什么是“很大”？填满矩阵需要多少条边？由于图中每个顶点都有一行和一列，因此填满矩阵所需的边数是 <span class="arithmatex">\(|V|^2\)</span>。当每个顶点都与每个其他顶点连接时，矩阵是满的。实际上，很少有实际问题接近这种连接性。本章中我们将讨论的所有问题都涉及稀疏连接的图。</p>
 </div>
 <div class="tabbed-block">
 <p>One of the easiest ways to implement a graph is to use a two-dimensional matrix. In this matrix implementation, each of the rows and columns represents a vertex in the graph. The value that is stored in the cell at the intersection of row <span class="arithmatex">\(v\)</span> and column <span class="arithmatex">\(w\)</span> indicates if there is an edge from vertex <span class="arithmatex">\(v\)</span> to vertex <span class="arithmatex">\(w\)</span>. When two vertices are connected by an edge, we say that they are <strong>adjacent</strong>. <code>Figure 3</code> illustrates the adjacency matrix for the graph in <code>Figure 2</code>. The value in each cell represents the weight of the edge from vertex <span class="arithmatex">\(v\)</span> to vertex <span class="arithmatex">\(w\)</span>.</p>
@@ -4002,7 +4002,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月12日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月13日</span>
       
         <br>
         创建日期:

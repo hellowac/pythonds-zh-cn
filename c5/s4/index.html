@@ -4029,13 +4029,13 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>It is possible to take greater advantage of the ordered list if we are clever with our comparisons. In the sequential search, when we compare against the first item, there are at most :math:<code>n-1</code> more items to look through if the first item is not what we are looking for. Instead of searching the list in sequence, a <strong>binary search</strong> will start by examining the middle item. If that item is the one we are searching for, we are done. If it is not the correct item, we can use the ordered nature of the list to eliminate half of the remaining items. If the item we are searching for is greater than the middle item, we know that the entire first (left) half of the list as well as the middle item can be eliminated from further consideration. The item, if it is in the list, must be in the second (right) half.</p>
-<p>We can then repeat the process with the left half. Start at the middle item and compare it against what we are looking for. Again, we either find it or split the list in half, therefore eliminating another large part of our possible search space. <code>Figure 3</code> shows how this algorithm can quickly find the value 54. The complete function is shown in <code>CodeLens 3</code>.</p>
+<p>如果我们巧妙地进行比较，就可以更好地利用有序列表。在顺序搜索中，当我们与第一个项进行比较时，最多还有 <span class="arithmatex">\(n-1\)</span> 个项需要查找，如果第一个项不是我们要找的项。那么，<strong>二分搜索</strong>将从中间项开始进行检查。如果该项正是我们要找的项，那么搜索结束。如果它不是正确的项，我们可以利用列表的有序性来消除一半的剩余项。如果我们要找的项大于中间项，那么整个左半部分（包括中间项）都可以从进一步的考虑中排除。如果我们要找的项在列表中，它一定在右半部分。</p>
+<p>接下来我们可以对右半部分重复这个过程。先从中间项开始，将它与我们要找的项进行比较。同样地，我们要么找到它，要么再次将列表一分为二，从而排除一大部分可能的搜索范围。<code>图3</code> 展示了这个算法如何快速找到值 54。完整的函数如 <code>CodeLens 3</code> 所示。</p>
 <p><figure markdown="span">
-    <a class="glightbox" href="../imgs/binsearch.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/binsearch.png" /></a>
-    <figcaption markdown="span">Figure 3: Binary Search of an Ordered List of Integers</figcaption>
+    <a class="glightbox" href="../imgs/binsearch.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="图片标题" src="../imgs/binsearch.png" /></a>
+    <figcaption markdown="span">图3: 有序整数列表的二分搜索</figcaption>
 </figure></p>
-<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: CodeLens Binary Search of an Ordered List (search3)</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">活动: CodeLens 有序列表的二分搜索 (search3)</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
@@ -4075,8 +4075,8 @@ test_list <span style="color: #666666">=</span> [<span style="color: #666666">0<
 <span style="color: #008000">print</span>(binary_search(test_list, <span style="color: #666666">3</span>))
 <span style="color: #008000">print</span>(binary_search(test_list, <span style="color: #666666">13</span>))
 </code></pre></div></td></tr></table></div>
-<p>Before we move on to the analysis, we should note that this algorithm is a great example of a divide and conquer strategy. <em>Divide and conquer</em> means that we divide the problem into smaller pieces, solve the smaller pieces in some way, and then reassemble the whole problem to get the result. When we perform a binary search of a list, we first check the middle item. If the item we are searching for is less than the middle item, we can simply perform a binary search of the left half of the original list. Likewise, if the item is greater, we can perform a binary search of the right half. Either way, this is a recursive call to the binary search function passing a smaller list. <code>CodeLens 4</code> shows this recursive version.</p>
-<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: CodeLens A Binary Search--Recursive Version (search4)</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<p>在进行分析之前，我们应该注意到这个算法是“分而治之”策略的一个极好例子。“分而治之”意味着我们将问题分解为更小的部分，以某种方式解决这些小部分，然后将整个问题重新组合起来得到结果。当我们对列表执行二分搜索时，首先检查中间项。如果我们要找的项小于中间项，我们可以简单地对原列表的左半部分执行二分搜索。同样地，如果该项更大，我们可以对右半部分进行二分搜索。无论哪种情况，这都是对二分搜索函数的递归调用，传递的是一个更小的列表。<code>CodeLens 4</code> 显示了递归版本的二分搜索。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">活动: CodeLens 二分搜索--递归版本 (search4)</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
@@ -4110,7 +4110,7 @@ test_list <span style="color: #666666">=</span> [<span style="color: #666666">0<
 </code></pre></div></td></tr></table></div>
 </div>
 <div class="tabbed-block">
-<p>It is possible to take greater advantage of the ordered list if we are clever with our comparisons. In the sequential search, when we compare against the first item, there are at most :math:<code>n-1</code> more items to look through if the first item is not what we are looking for. Instead of searching the list in sequence, a <strong>binary search</strong> will start by examining the middle item. If that item is the one we are searching for, we are done. If it is not the correct item, we can use the ordered nature of the list to eliminate half of the remaining items. If the item we are searching for is greater than the middle item, we know that the entire first (left) half of the list as well as the middle item can be eliminated from further consideration. The item, if it is in the list, must be in the second (right) half.</p>
+<p>It is possible to take greater advantage of the ordered list if we are clever with our comparisons. In the sequential search, when we compare against the first item, there are at most <span class="arithmatex">\(n-1\)</span> more items to look through if the first item is not what we are looking for. Instead of searching the list in sequence, a <strong>binary search</strong> will start by examining the middle item. If that item is the one we are searching for, we are done. If it is not the correct item, we can use the ordered nature of the list to eliminate half of the remaining items. If the item we are searching for is greater than the middle item, we know that the entire first (left) half of the list as well as the middle item can be eliminated from further consideration. The item, if it is in the list, must be in the second (right) half.</p>
 <p>We can then repeat the process with the left half. Start at the middle item and compare it against what we are looking for. Again, we either find it or split the list in half, therefore eliminating another large part of our possible search space. <code>Figure 3</code> shows how this algorithm can quickly find the value 54. The complete function is shown in <code>CodeLens 3</code>.</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/binsearch.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/binsearch.png" /></a>
@@ -4196,10 +4196,85 @@ test_list <span style="color: #666666">=</span> [<span style="color: #666666">0<
 <p><strong>5.4.1. Analysis of Binary Search</strong></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">中文</label><label for="__tabbed_2_2">英文</label></div>
 <div class="tabbed-content">
-<div class="tabbed-block"></div>
-<div class="tabbed-block"></div>
+<div class="tabbed-block">
+<p>为了分析二分搜索算法，我们需要记住每次比较都会排除大约一半的剩余项。那么，这个算法最多需要多少次比较来检查整个列表呢？如果我们从 <span class="arithmatex">\(n\)</span> 个项开始，第一次比较后大约还剩下 <span class="arithmatex">\(\frac{n}{2}\)</span> 个项。第二次比较后，大约还剩下 <span class="arithmatex">\(\frac{n}{4}\)</span> 个项。接着是 <span class="arithmatex">\(\frac{n}{8}\)</span>，<span class="arithmatex">\(\frac{n}{16}\)</span>，依此类推。我们能将列表分割多少次呢？<code>表3</code> 帮助我们找到答案。</p>
+<p><strong>表3：二分搜索的表格分析</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>比较次数</strong></th>
+<th><strong>剩余项的近似数量</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><span class="arithmatex">\(\frac {n}{2}\)</span></td>
+</tr>
+<tr>
+<td>2</td>
+<td><span class="arithmatex">\(\frac {n}{4}\)</span></td>
+</tr>
+<tr>
+<td>3</td>
+<td><span class="arithmatex">\(\frac {n}{8}\)</span></td>
+</tr>
+<tr>
+<td>...</td>
+<td></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(i\)</span></td>
+<td><span class="arithmatex">\(\frac {n}{2^i}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>当我们将列表分割足够多次时，最终会剩下一个项。这个项要么是我们要找的，要么不是。不管是哪种情况，我们的搜索都结束了。达到这个点所需的比较次数是 <span class="arithmatex">\(i\)</span>，满足 <span class="arithmatex">\(\frac {n}{2^i} = 1\)</span>。解出 <span class="arithmatex">\(i\)</span> 可以得到 <span class="arithmatex">\(i = \log{n}\)</span>。因此，最大比较次数是相对于列表项数的对数，也就是说，二分搜索的时间复杂度是 <span class="arithmatex">\(O(\log{n})\)</span>。</p>
+<p>还有一个需要解决的分析问题。在上面的递归解决方案中，递归调用</p>
+<p><code>binary_search_rec(a_list[:midpoint], item)</code></p>
+<p>使用了切片操作符来创建列表的左半部分并将其传递给下一个调用（右半部分也是如此）。我们之前的分析假设切片操作是常数时间的。但实际上在 Python 中，它的时间复杂度是 <span class="arithmatex">\(O(k)\)</span>。这意味着使用切片的二分搜索不会严格在对数时间内运行。不过，这可以通过传递列表及其起始和结束索引来解决。这些索引可以像 <code>列表3</code> 中那样计算。我们将这个实现留作练习。</p>
+<p>尽管二分搜索通常比顺序搜索更好，但需要注意的是，对于较小的 <span class="arithmatex">\(n\)</span> 值，排序的额外开销可能不值得。事实上，我们应该总是考虑排序是否成本效益高。如果我们可以排序一次并多次搜索，排序的成本就不那么显著了。然而，对于大型列表，哪怕只排序一次，其成本可能也会非常高，以至于从一开始就执行顺序搜索可能是最好的选择。</p>
+<div class="admonition info">
+<p class="admonition-title">自检</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Q 3</label><label for="__tabbed_3_2">Q 4</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>假设你有如下排序列表 [3, 5, 6, 8, 11, 12, 14, 15, 17, 18]，并使用递归二分搜索算法。以下哪组数字正确显示了查找键值 8 的比较顺序？</p>
+<ul>
+<li>答案 a: 11, 5, 6, 8</li>
+<li>答案 b: 12, 6, 11, 8</li>
+<li>答案 c: 3, 5, 6, 8</li>
+<li>答案 d: 18, 12, 6, 8</li>
+</ul>
+<p>正确答案: b</p>
+<ul>
+<li>反馈 a: 你可能犯了“差一”错误。记住列表的第一个位置是索引 0。</li>
+<li>反馈 b: 二分搜索从中间开始，每次将列表对半分。</li>
+<li>反馈 c: 二分搜索不会从开头开始顺序搜索，而是从中间开始，每次比较后将列表对半分。</li>
+<li>反馈 d: 你似乎是从末尾开始并每次将列表对半分。</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p>假设你有如下排序列表 [3, 5, 6, 8, 11, 12, 14, 15, 17, 18]，并使用递归二分搜索算法。以下哪组数字正确显示了查找键值 16 的比较顺序？</p>
+<ul>
+<li>答案 a: 11, 14, 17</li>
+<li>答案 b: 18, 17, 15</li>
+<li>答案 c: 14, 17, 15</li>
+<li>答案 d: 12, 17, 15</li>
+</ul>
+<p>正确答案: d</p>
+<ul>
+<li>反馈 a: 你可能犯了“差一”错误。记住列表的第一个位置是索引 0。</li>
+<li>反馈 b: 记住二分搜索从中间开始并每次将列表对半分。</li>
+<li>反馈 c: 你可能有点偏差了，请注意你是否使用整数运算正确计算了中点。</li>
+<li>反馈 d: 二分搜索从中间开始，每次将列表对半分。当列表为空时，搜索结束。</li>
+</ul>
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="tabbed-block">
 <p>To analyze the binary search algorithm, we need to recall that each comparison eliminates about half of the remaining items from consideration. What is the maximum number of comparisons this algorithm will require to check the entire list? If we start with <span class="arithmatex">\(n\)</span> items, about <span class="arithmatex">\(\frac{n}{2}\)</span> items will be left after the first comparison. After the second comparison, there will be about <span class="arithmatex">\(\frac{n}{4}\)</span>. Then <span class="arithmatex">\(\frac{n}{8}\)</span>, <span class="arithmatex">\(\frac{n}{16}\)</span>, and so on. How many times can we split the list? <code>Table 3</code> helps us to see the answer.</p>
 <p><strong>Table 3: Tabular Analysis for a Binary Search</strong></p>
 <table>
@@ -4239,7 +4314,7 @@ test_list <span style="color: #666666">=</span> [<span style="color: #666666">0<
 <p>Even though a binary search is generally better than a sequential search, it is important to note that for small values of <span class="arithmatex">\(n\)</span>, the additional cost of sorting is probably not worth it. In fact, we should always consider whether it is cost effective to take on the extra work of sorting to gain searching benefits. If we can sort once and then search many times, the cost of the sort is not so significant. However, for large lists, sorting even once can be so expensive that simply performing a sequential search from the start may be the best choice.</p>
 <div class="admonition info">
 <p class="admonition-title">Self Check</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Q 3</label><label for="__tabbed_3_2">Q 4</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Q 3</label><label for="__tabbed_4_2">Q 4</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Suppose you have the following sorted list [3, 5, 6, 8, 11, 12, 14, 15, 17, 18] and are using the recursive binary search algorithm.  Which group of numbers correctly shows the sequence of comparisons used to find the key 8.</p>
@@ -4276,13 +4351,16 @@ test_list <span style="color: #666666">=</span> [<span style="color: #666666">0<
 </div>
 </div>
 </div>
+</div>
+</div>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月10日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月13日</span>
       
         <br>
         创建日期:

@@ -3977,24 +3977,22 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Before we proceed any further let's look at the result of enforcing this new balance factor requirement. Our claim is that by ensuring that a tree always has a balance factor of -1, 0, or 1 we can get better Big-O performance of key operations. Let us start by thinking about how this balance condition changes the worst-case tree. There are two possibilities to consider, a left-heavy tree and a right-heavy tree. If we consider trees of heights 0, 1, 2, and 3, <code>Figure 2</code> illustrates the most unbalanced left-heavy tree possible under the new rules.</p>
+<p>在我们继续之前，让我们看看强制执行这个新平衡因子要求的结果。我们的观点是，通过确保树始终保持平衡因子在 -1、0 或 1 范围内，我们可以获得更好的 Big-O 性能。让我们首先考虑这种平衡条件如何改变最坏情况的树。我们需要考虑两种可能性：左重树和右重树。如果我们考虑高度为 0、1、2 和 3 的树，<code>Figure 2</code> 展示了在新规则下最不平衡的左重树。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/worstAVL.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/worstAVL.png" /></a>
-    <figcaption markdown="span">Figure 2: Worst-Case Left-Heavy AVL Trees</figcaption>
-</figure>     </p>
-<p>Looking at the total number of nodes in the tree we see that for a tree of height 0 there is 1 node, for a tree of height 1 there is <span class="arithmatex">\(1 + 1 = 2\)</span> nodes, for a tree of height 2 there are <span class="arithmatex">\(1 + 1 + 2 = 4\)</span>, and for a tree of height 3 there are <span class="arithmatex">\(1 + 2 + 4 = 7\)</span>. More generally the pattern we see for the number of nodes in a tree of height <span class="arithmatex">\(h\)</span> (<span class="arithmatex">\(N_h\)</span>) is:</p>
+    <figcaption markdown="span">Figure 2: 最坏情况下的左重 AVL 树</figcaption>
+</figure></p>
+<p>查看树中的节点总数，我们可以看到，对于高度为 0 的树，有 1 个节点；对于高度为 1 的树，有 <span class="arithmatex">\(1 + 1 = 2\)</span> 个节点；对于高度为 2 的树，有 <span class="arithmatex">\(1 + 1 + 2 = 4\)</span> 个节点；对于高度为 3 的树，有 <span class="arithmatex">\(1 + 2 + 4 = 7\)</span> 个节点。更一般地，对于高度为 <span class="arithmatex">\(h\)</span> 的树，节点数（<span class="arithmatex">\(N_h\)</span>）的模式是：</p>
 <p><span class="arithmatex">\(N_h = 1 + N_{h-1} + N_{h-2}\)</span></p>
-<p>This recurrence may look familiar to you because it is very similar to the Fibonacci sequence. We can use this fact to derive a formula for the height of an AVL tree given the number of nodes in the tree. Recall that for the Fibonacci sequence the <span class="arithmatex">\(i^{th}\)</span> Fibonacci number is given by:</p>
+<p>这个递推公式可能对你来说很熟悉，因为它与斐波那契数列非常相似。我们可以利用这个事实推导出一个公式，用于根据树中节点的数量来计算 AVL 树的高度。回忆一下，对于斐波那契数列，第 <span class="arithmatex">\(i\)</span> 个斐波那契数由以下公式给出：</p>
 <p><span class="arithmatex">\(\begin{align} F_0 &amp; = 0 \\ F_1 &amp; = 1 \\ F_i &amp; = F_{i-1} + F_{i-2}  \text{ for all } i \ge 2 \end{align}\)</span></p>
-<p>An important mathematical result is that as the numbers of the Fibonacci sequence get larger and larger the ratio of <span class="arithmatex">\(F_i / F_{i-1}\)</span> becomes closer and closer to approximating the golden ratio <span class="arithmatex">\(\Phi\)</span> which is defined as <span class="arithmatex">\(\Phi = \frac{1 + \sqrt{5}}{2}\)</span>. You can consult a math text if you want to see a derivation of the previous equation. We will simply use this equation to approximate <span class="arithmatex">\(F_i\)</span> as <span class="arithmatex">\(F_i = \Phi^i/\sqrt{5}\)</span>. If we make use of this approximation we can rewrite the equation for <span class="arithmatex">\(N_h\)</span> as:</p>
+<p>一个重要的数学结果是，当斐波那契数变得越来越大时，<span class="arithmatex">\(F_i / F_{i-1}\)</span> 的比例越来越接近黄金比例 <span class="arithmatex">\(\Phi\)</span>，其定义为 <span class="arithmatex">\(\Phi = \frac{1 + \sqrt{5}}{2}\)</span>。如果你想查看前述方程的推导，可以参考数学教材。我们将简单地使用这个方程来近似 <span class="arithmatex">\(F_i\)</span> 为 <span class="arithmatex">\(F_i = \Phi^i / \sqrt{5}\)</span>。如果我们利用这个近似值，可以将 <span class="arithmatex">\(N_h\)</span> 的方程重写为：</p>
 <p><span class="arithmatex">\(N_h = F_{h+3} - 1, h \ge 1\)</span></p>
-<p>By replacing the Fibonacci reference with its golden ratio approximation
-we get: </p>
+<p>通过将斐波那契数列的引用替换为其黄金比例近似值，我们得到：</p>
 <p><span class="arithmatex">\(N_h = \frac{\Phi^{h+2}}{\sqrt{5}} - 1\)</span></p>
-<p>If we rearrange the terms, take the base 2 log of both sides, and
-then solve for <span class="arithmatex">\(h\)</span>, we get the following derivation:</p>
+<p>如果我们重新排列项，对两边取对数，并解出 <span class="arithmatex">\(h\)</span>，我们得到以下推导：</p>
 <p><span class="arithmatex">\(\begin{align}\log{N_h+1} &amp;  = (h+2)\log{\Phi} - \frac{1}{2} \log{5} \\ h &amp; = \frac{\log{(N_h+1)} - 2 \log{\Phi} + \frac{1}{2} \log{5}}{\log{\Phi}} \\ h &amp;  = 1.44 \log{N_h}\end{align}\)</span></p>
-<p>This derivation shows us that at any time the height of our AVL tree is equal to a constant (1.44) times the log of the number of nodes in the tree. This is great news for searching our AVL tree because it limits the search to <span class="arithmatex">\(O(\log{n})\)</span>.</p>
+<p>这个推导告诉我们，在任何时候，我们的 AVL 树的高度等于常数（1.44）乘以树中节点数量的对数。这对于搜索我们的 AVL 树是好消息，因为它将搜索限制在 <span class="arithmatex">\(O(\log{n})\)</span>。</p>
 </div>
 <div class="tabbed-block">
 <p>Before we proceed any further let's look at the result of enforcing this new balance factor requirement. Our claim is that by ensuring that a tree always has a balance factor of -1, 0, or 1 we can get better Big-O performance of key operations. Let us start by thinking about how this balance condition changes the worst-case tree. There are two possibilities to consider, a left-heavy tree and a right-heavy tree. If we consider trees of heights 0, 1, 2, and 3, <code>Figure 2</code> illustrates the most unbalanced left-heavy tree possible under the new rules.</p>
@@ -4024,7 +4022,7 @@ then solve for <span class="arithmatex">\(h\)</span>, we get the following deriv
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月11日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月13日</span>
       
         <br>
         创建日期:

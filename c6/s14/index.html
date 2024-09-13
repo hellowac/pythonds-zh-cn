@@ -3977,13 +3977,13 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">中文</label><label for="__tabbed_1_2">英文</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>A binary search tree (BST) relies on the property that keys that are less than the parent are found in the left subtree, and keys that are greater than the parent are found in the right subtree. We will call this the <strong>BST property</strong>. As we implement the <code>Map</code> interface as described above, the BST property will guide our implementation. <code>Figure 1</code> illustrates this property of a binary search tree, showing the keys without any associated values. Notice that the property holds for each parent and child. All of the keys in the left subtree are less than the key in the root. All of the keys in the right subtree are greater than the root.</p>
+<p>二叉搜索树（BST）依赖于以下属性：小于父节点的键位于左子树中，大于父节点的键位于右子树中。我们称之为 <strong>BST 属性</strong>。在实现上述 <code>Map</code> 接口时，BST 属性将指导我们的实现。<code>Figure 1</code> 说明了二叉搜索树的这一属性，显示了不带任何关联值的键。请注意，该属性在每个父节点和子节点之间都成立。所有左子树中的键都小于根节点中的键。所有右子树中的键都大于根节点中的键。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/simpleBST.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/simpleBST.png" /></a>
-    <figcaption markdown="span">Figure 1: A Simple Binary Search Tree</figcaption>
+    <figcaption markdown="span">Figure 1: 简单的二叉搜索树</figcaption>
 </figure>  </p>
-<p>Now that you know what a binary search tree is, we will look at how a binary search tree is constructed. The search tree in <code>Figure 1</code> represents the nodes that exist after we have inserted the following keys in the order shown: <span class="arithmatex">\(70, 31, 93, 94, 14, 23, 73\)</span>. Since 70 was the first key inserted into the tree, it is the root. Next, 31 is less than 70, so it becomes the left child of 70. Next, 93 is greater than 70, so it becomes the right child of 70. Now we have two levels of the tree filled, so the next key is going to be the left or right child of either 31 or 93. Since 94 is greater than 70 and 93, it becomes the right child of 93. Similarly 14 is less than 70 and 31, so it becomes the left child of 31. 23 is also less than 31, so it must be in the left subtree of 31. However, it is greater than 14, so it becomes the right child of 14.</p>
-<p>To implement the binary search tree, we will use the nodes and references approach similar to the one we used to implement the linked list and the expression tree. However, because we must be able create and work with a binary search tree that is empty, our implementation will use two classes. The first class we will call <code>BinarySearchTree</code>, and the second class we will call <code>TreeNode</code>. The <code>BinarySearchTree</code> class has a reference to the <code>TreeNode</code> that is the root of the binary search tree. In most cases the external methods defined in the outer class simply check to see if the tree is empty. If there are nodes in the tree, the request is just passed on to a private method defined in the <code>BinarySearchTree</code> class that takes the root as a parameter. In the case where the tree is empty or we want to delete the key at the root of the tree, we must take special action. The code for the <code>BinarySearchTree</code> class constructor along with a few other miscellaneous methods is shown in <code>Listing 1</code>.</p>
+<p>现在你已经了解了二叉搜索树，我们将研究如何构建一个二叉搜索树。<code>Figure 1</code> 中的搜索树代表了我们按以下顺序插入键后的节点：<span class="arithmatex">\(70, 31, 93, 94, 14, 23, 73\)</span>。由于 70 是第一个插入树中的键，它是根节点。接着，31 小于 70，所以它成为 70 的左子节点。然后，93 大于 70，因此它成为 70 的右子节点。现在树已经填充了两个层级，因此下一个键将成为 31 或 93 的左或右子节点。由于 94 大于 70 和 93，它成为 93 的右子节点。同样，14 小于 70 和 31，所以它成为 31 的左子节点。23 也小于 31，因此它必须在 31 的左子树中。然而，它大于 14，所以它成为 14 的右子节点。</p>
+<p>为了实现二叉搜索树，我们将使用类似于实现链表和表达式树时使用的节点和引用的方法。然而，由于我们必须能够创建和处理一个空的二叉搜索树，我们的实现将使用两个类。第一个类我们称之为 <code>BinarySearchTree</code>，第二个类我们称之为 <code>TreeNode</code>。<code>BinarySearchTree</code> 类有一个指向二叉搜索树根节点的 <code>TreeNode</code> 引用。在大多数情况下，外部类中定义的方法只是检查树是否为空。如果树中有节点，则请求会传递给 <code>BinarySearchTree</code> 类中定义的一个私有方法，该方法以根节点作为参数。在树为空或我们想删除根节点的键的情况下，我们必须采取特殊措施。<code>BinarySearchTree</code> 类构造函数及其他一些杂项方法的代码显示在 <code>Listing 1</code> 中。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 1</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">BinarySearchTree</span>:
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>):
         <span style="color: #008000">self</span><span style="color: #666666">.</span>root <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
@@ -3995,8 +3995,8 @@
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__iter__</span>(<span style="color: #008000">self</span>):
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>root<span style="color: #666666">.</span><span style="color: #0000FF">__iter__</span>()
 </code></pre></div>
-<p>The <code>TreeNode</code> class provides many helper methods that make the work done in the <code>BinarySearchTree</code> class methods much easier. The constructor for a <code>TreeNode</code>, along with these helper methods, is shown in <code>Listing 2</code>. As you can see in the listing many of these helper methods help to classify a node according to its own position as a child (left or right) and the kind of children the node has. The <code>TreeNode</code> class will also explicitly keep track of the parent as an attribute of each node. You will see why this is important when we discuss the implementation for the <code>del</code> operator.</p>
-<p>Another interesting aspect of the implementation of <code>TreeNode</code> in <code>Listing 2</code> is that we use Python’s optional parameters. Optional parameters make it easy for us to create a <code>TreeNode</code> under several different circumstances. Sometimes we will want to construct a new <code>TreeNode</code> that already has both a parent and a child (e.g. left) and in that case we can pass <code>parent</code> and <code>left_child</code> as parameters. At other times we will just create a <code>TreeNode</code> with the key-value pair, and we will not pass any parameters for <code>parent</code> or <code>child</code>. In this case, the default values of the optional parameters are used.</p>
+<p><code>TreeNode</code> 类提供了许多帮助方法，使得 <code>BinarySearchTree</code> 类方法中的工作变得更加容易。<code>TreeNode</code> 的构造函数以及这些帮助方法显示在 <code>Listing 2</code> 中。如列表所示，这些帮助方法有助于根据节点的位置（左或右子节点）以及节点的子节点类型对节点进行分类。<code>TreeNode</code> 类还将明确跟踪每个节点的父节点。你会在我们讨论 <code>del</code> 运算符的实现时看到这点的重要性。</p>
+<p><code>Listing 2</code> 中 <code>TreeNode</code> 的另一个有趣方面是我们使用了 Python 的可选参数。可选参数使我们能够在多种情况下创建 <code>TreeNode</code>。有时我们需要构造一个已经有父节点和子节点（例如左子节点）的新 <code>TreeNode</code>，在这种情况下，我们可以将 <code>parent</code> 和 <code>left_child</code> 作为参数传递。其他时候，我们只需创建一个带有键值对的 <code>TreeNode</code>，而不传递任何 <code>parent</code> 或 <code>child</code> 参数。在这种情况下，将使用可选参数的默认值。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 2</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">TreeNode</span>:
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>, key, value, left<span style="color: #666666">=</span><span style="color: #008000; font-weight: bold">None</span>, right<span style="color: #666666">=</span><span style="color: #008000; font-weight: bold">None</span>, parent<span style="color: #666666">=</span><span style="color: #008000; font-weight: bold">None</span>):
         <span style="color: #008000">self</span><span style="color: #666666">.</span>key <span style="color: #666666">=</span> key
@@ -4033,14 +4033,14 @@
         <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>right_child:
             <span style="color: #008000">self</span><span style="color: #666666">.</span>right_child<span style="color: #666666">.</span>parent <span style="color: #666666">=</span> <span style="color: #008000">self</span>
 </code></pre></div>
-<p>Now that we have the <code>BinarySearchTree</code> shell and the <code>TreeNode</code>, it is time to write the <code>put</code> method that will allow us to build our binary search tree. The <code>put</code> method is a method of the <code>BinarySearchTree</code> class. This method will check to see if the tree already has a root. If there is not a root, then <code>put</code> will create a new <code>TreeNode</code> and install it as the root of the tree. If a root node is already in place, then <code>put</code> calls the private recursive helper method <code>_put</code> to search the tree according to the following algorithm:</p>
+<p>现在我们已经有了 <code>BinarySearchTree</code> 外壳和 <code>TreeNode</code>，接下来是编写 <code>put</code> 方法，它将允许我们构建二叉搜索树。<code>put</code> 方法是 <code>BinarySearchTree</code> 类的一个方法。该方法将检查树是否已有根节点。如果没有根节点，则 <code>put</code> 将创建一个新的 <code>TreeNode</code> 并将其安装为树的根节点。如果已经有根节点，则 <code>put</code> 调用私有递归辅助方法 <code>_put</code>，按照以下算法搜索树：</p>
 <ul>
-<li>Starting at the root of the tree, search the binary tree comparing the new key to the key in the current node. If the new key is less than the current node, search the left subtree. If the new key is greater than the current node, search the right subtree.</li>
-<li>When there is no left or right child to search, we have found the position in the tree where the new node should be installed.</li>
-<li>To add a node to the tree, create a new <code>TreeNode</code> object and insert the object at the point discovered in the previous step.</li>
+<li>从树的根节点开始，比较新键与当前节点的键。如果新键小于当前节点的键，则搜索左子树。如果新键大于当前节点的键，则搜索右子树。</li>
+<li>当没有左或右子节点可以搜索时，我们就找到了树中应该安装新节点的位置。</li>
+<li>要将节点添加到树中，创建一个新的 <code>TreeNode</code> 对象，并将该对象插入到前一步骤中发现的位置。</li>
 </ul>
-<p><code>Listing 3</code> shows the Python code for inserting a new node in the tree. The <code>_put</code> method is written recursively following the steps outlined above. Notice that when a new child is inserted into the tree, the <code>current_node</code> is passed to the new tree as the parent.</p>
-<p>One important problem with our implementation of insertion is that duplicate keys are not handled properly. As our tree is implemented, a duplicate key will create a new node with the same key value in the right subtree of the node having the original key. The result of this is that the node with the new key will never be found during a search. A better way to handle the insertion of a duplicate key is for the value associated with the new key to replace the old value. We leave fixing this bug as an exercise for you.</p>
+<p><code>Listing 3</code> 显示了将新节点插入树中的 Python 代码。<code>_put</code> 方法是递归编写的，遵循上述步骤。请注意，当新子节点插入树中时，<code>current_node</code> 被传递给新树作为父节点。</p>
+<p>我们实现插入的一个重要问题是重复的键没有得到正确处理。由于我们的树实现，重复的键将创建一个具有相同键值的新节点，该节点位于具有原始键的节点的右子树中。这导致新键的节点在搜索过程中永远找不到。处理重复键的更好方法是将与新键相关联的值替换旧值。我们将修复此错误留给你作为练习。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 3</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">put</span>(<span style="color: #008000">self</span>, key, value):
     <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>root:
         <span style="color: #008000">self</span><span style="color: #666666">.</span>_put(key, value, <span style="color: #008000">self</span><span style="color: #666666">.</span>root)
@@ -4060,18 +4060,18 @@
         <span style="color: #008000; font-weight: bold">else</span>:
             current_node<span style="color: #666666">.</span>right_child <span style="color: #666666">=</span> TreeNode(key, value, parent<span style="color: #666666">=</span>current_node)
 </code></pre></div>
-<p>With the <code>put</code> method defined, we can easily overload the <code>[]</code> operator for assignment by having the <code>__setitem__</code> method call the <code>put</code> method (see <code>Listing 4</code>). This allows us to write Python statements like <code>my_zip_tree['Plymouth'] = 55446</code>, just like a Python dictionary.</p>
+<p>定义了 <code>put</code> 方法后，我们可以通过让 <code>__setitem__</code> 方法调用 <code>put</code> 方法来轻松重载 <code>[]</code> 运算符（见 <code>Listing 4</code>）。这使我们可以像 Python 字典一样编写 Python 语句，例如 <code>my_zip_tree['Plymouth'] = 55446</code>。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 4</span><pre style="line-height: 125%;"><span></span><code>    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__setitem__</span>(<span style="color: #008000">self</span>, key, value):
         <span style="color: #008000">self</span><span style="color: #666666">.</span>put(key, value)
 </code></pre></div>
-<p><code>Figure 2</code> illustrates the process for inserting a new node into a binary search tree. The lightly shaded nodes indicate the nodes that were visited during the insertion process.</p>
+<p><code>Figure 2</code> 说明了将新节点插入二叉搜索树的过程。浅色节点表示在插入过程中访问的节点。</p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/bstput.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/bstput.png" /></a>
-    <figcaption markdown="span">Figure 2: Inserting a Node with Key = 19</figcaption>
+    <figcaption markdown="span">Figure 2: 插入键为 19 的节点</figcaption>
 </figure>  </p>
 <div class="admonition info">
-<p class="admonition-title">Self Check</p>
-<p>Which of the trees shows a correct binary search tree given that the keys were inserted in the following order 5, 30, 2, 40, 25, 4.</p>
+<p class="admonition-title">自我检查</p>
+<p>下列树中哪一棵是正确的二叉搜索树，前提是键按照以下顺序插入：5, 30, 2, 40, 25, 4。</p>
 <ul>
 <li>answer_a: <a class="glightbox" href="../imgs/bintree_a.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="../imgs/bintree_a.png"></a></li>
 <li>answer_b: <a class="glightbox" href="../imgs/bintree_b.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="../imgs/bintree_b.png"></a></li>
@@ -4079,13 +4079,14 @@
 </ul>
 <p>correct: b</p>
 <ul>
-<li>feedback a: Remember, starting at the root keys less than the root must be in the left subtree, while keys greater than the root go in the right subtree.</li>
-<li>feedback b: good job.</li>
-<li>feedback c: This looks like a binary tree that satisfies the full tree property needed for a heap.</li>
+<li>feedback a: 记住，从根节点开始，键小于根节点的必须在左子树中，而大于根节点的键则在右子树中。</li>
+<li>feedback b: 做得好。</li>
+<li>feedback c: 这看起来像是满足堆所需的完整树属性的二叉树。</li>
 </ul>
 </div>
-<p>Once the tree is constructed, the next task is to implement the retrieval of a value for a given key. The <code>get</code> method is even easier than the <code>put</code> method because it simply searches the tree recursively until it gets to a non-matching leaf node or finds a matching key. When a matching key is found, the value stored in the payload of the node is returned.</p>
-<p><code>Listing 5</code> shows the code for <code>get</code> and <code>_get</code>. The search code in the <code>_get</code> method uses the same logic for choosing the left or right child as the <code>_put</code> method. Notice that the <code>_get</code> method returns a <code>TreeNode</code> to <code>get</code>, this allows <code>_get</code> to be used as a flexible helper method for other <code>BinarySearchTree</code> methods that may need to make use of other data from the <code>TreeNode</code> besides the payload.</p>
+<p>树构建完成后，接下来的任务是实现对给定键值的检索。<code>get</code></p>
+<p>方法比 <code>put</code> 方法更简单，因为它只是递归地搜索树，直到到达不匹配的叶节点或找到匹配的键。当找到匹配的键时，返回存储在节点负载中的值。</p>
+<p><code>Listing 5</code> 显示了 <code>get</code> 和 <code>_get</code> 的代码。<code>_get</code> 方法中的搜索代码使用与 <code>_put</code> 方法相同的逻辑来选择左或右子节点。请注意，<code>_get</code> 方法返回一个 <code>TreeNode</code> 给 <code>get</code>，这使得 <code>_get</code> 可以作为其他 <code>BinarySearchTree</code> 方法的灵活辅助方法，这些方法可能需要使用 <code>TreeNode</code> 的其他数据，而不仅仅是负载。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 5</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get</span>(<span style="color: #008000">self</span>, key):
     <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>root:
         result <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_get(key, <span style="color: #008000">self</span><span style="color: #666666">.</span>root)
@@ -4103,16 +4104,16 @@
     <span style="color: #008000; font-weight: bold">else</span>:
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_get(key, current_node<span style="color: #666666">.</span>right_child)
 </code></pre></div>
-<p>By implementing the <code>__getitem__</code> method we can write a Python statement that looks just like we are accessing a dictionary, when in fact we are using a binary search tree, for example <code>z = my_zip_tree["Fargo"]</code>.  As you can see in <code>Listing 6</code>, all the <code>__getitem__</code> method does is call <code>get</code>.</p>
+<p>通过实现 <code>__getitem__</code> 方法，我们可以编写一个看起来像是在访问字典的 Python 语句，但实际上我们在使用一个二叉搜索树，例如 <code>z = my_zip_tree["Fargo"]</code>。正如 <code>Listing 6</code> 中所示，<code>__getitem__</code> 方法只调用 <code>get</code>。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 6</span><pre style="line-height: 125%;"><span></span><code>    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__getitem__</span>(<span style="color: #008000">self</span>, key):
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>get(key)
 </code></pre></div>
-<p>Using <code>get</code>, we can implement the <code>in</code> operation by writing a <code>__contains__</code> method for the <code>BinarySearchTree</code>. The <code>__contains__</code> method will simply call <code>get</code> and return <code>True</code> if <code>get</code> returns a value, or <code>False</code> if it returns <code>None</code>. The code for <code>__contains__</code> is shown in <code>Listing 7</code>.</p>
+<p>使用 <code>get</code>，我们可以通过为 <code>BinarySearchTree</code> 编写 <code>__contains__</code> 方法来实现 <code>in</code> 操作。<code>__contains__</code> 方法将简单地调用 <code>get</code> 并返回 <code>True</code> 如果 <code>get</code> 返回值，或者返回 <code>False</code> 如果 <code>get</code> 返回 <code>None</code>。<code>__contains__</code> 的代码显示在 <code>Listing 7</code> 中。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 7</span><pre style="line-height: 125%;"><span></span><code>    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__contains__</span>(<span style="color: #008000">self</span>, key):
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">bool</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>_get(key, <span style="color: #008000">self</span><span style="color: #666666">.</span>root))
 </code></pre></div>
-<p>Recall that <code>__contains__</code> overloads the <code>in</code> operator and allows us to write statements such as <code>"Northfield" in my_zip_tree</code>.</p>
-<p>Finally, we turn our attention to the most challenging operation on the binary search tree, the deletion of a key (see <code>Listing 8</code>). The first task is to find the node to delete by searching the tree. If the tree has more than one node we search using the <code>_get</code> method to find the <code>TreeNode</code> that needs to be removed. If the tree only has a single node, that means we are removing the root of the tree, but we still must check to make sure the key of the root matches the key that is to be deleted. In either case if the key is not found the <code>del</code> operator raises an error.</p>
+<p>请记住，<code>__contains__</code> 重载了 <code>in</code> 运算符，允许我们编写诸如 <code>"Northfield" in my_zip_tree</code> 这样的语句。</p>
+<p>最后，我们将关注二叉搜索树上最具挑战性的操作——键的删除（见 <code>Listing 8</code>）。首先的任务是通过搜索树找到要删除的节点。如果树中有多个节点，我们使用 <code>_get</code> 方法来找到需要删除的 <code>TreeNode</code>。如果树中只有一个节点，这意味着我们要删除树的根节点，但我们仍然必须检查根节点的键是否与要删除的键匹配。在这两种情况下，如果未找到键，<code>del</code> 运算符将引发错误。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 8</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">delete</span>(<span style="color: #008000">self</span>, key):
     <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>size <span style="color: #666666">&gt;</span> <span style="color: #666666">1</span>:
         node_to_remove <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>_get(key, <span style="color: #008000">self</span><span style="color: #666666">.</span>root)
@@ -4127,40 +4128,36 @@
     <span style="color: #008000; font-weight: bold">else</span>:
         <span style="color: #008000; font-weight: bold">raise</span> <span style="color: #CB3F38; font-weight: bold">KeyError</span>(<span style="color: #BA2121">&quot;Error, key not in tree&quot;</span>)
 </code></pre></div>
-<p>Once we’ve found the node containing the key we want to delete, there are three cases that we must consider:</p>
+<p>找到包含要删除的键的节点后，我们必须考虑三种情况：</p>
 <ol>
-<li>The node to be deleted has no children (see <code>Figure 3</code>).</li>
-<li>The node to be deleted has only one child (see <code>Figure 4</code>).</li>
-<li>The node to be deleted has two children (see <code>Figure 5</code>).</li>
+<li>要删除的节点没有子节点（见 <code>Figure 3</code>）。</li>
+<li>要删除的节点只有一个子节点（见 <code>Figure 4</code>）。</li>
+<li>要删除的节点有两个子节点（见 <code>Figure 5</code>）。</li>
 </ol>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/bstdel1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/bstdel1.png" /></a>
-    <figcaption markdown="span">Figure 3: Deleting Node 16, a Node without Children</figcaption>
+    <figcaption markdown="span">Figure 3: 删除没有子节点的节点 16</figcaption>
 </figure>  </p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/bstdel2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/bstdel2.png" /></a>
-    <figcaption markdown="span">Figure 4: Deleting Node 25, a Node That Has a Single Child</figcaption>
+    <figcaption markdown="span">Figure 4: 删除有一个子节点的节点 25</figcaption>
 </figure>  </p>
 <p><figure markdown="span">
     <a class="glightbox" href="../imgs/bstdel3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../imgs/bstdel3.png" /></a>
-    <figcaption markdown="span">Figure 5: Deleting Node 5, a Node with Two Children</figcaption>
+    <figcaption markdown="span">Figure 5: 删除有两个子节点的节点 5</figcaption>
 </figure>  </p>
-<p>The first case is straightforward. If the current node has no children, all we need to do is delete the node and remove the reference to this node in the parent. The code for this case is shown in <code>Listing 9</code>.</p>
+<p>第一种情况很简单。如果当前节点没有子节点，我们只需要删除该节点并在父节点中删除对该节点的引用。这种情况的代码显示在 <code>Listing 9</code> 中。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 9</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">if</span> current_node<span style="color: #666666">.</span>is_leaf():
     <span style="color: #008000; font-weight: bold">if</span> current_node <span style="color: #666666">==</span> current_node<span style="color: #666666">.</span>parent<span style="color: #666666">.</span>left_child:
         current_node<span style="color: #666666">.</span>parent<span style="color: #666666">.</span>left_child <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
     <span style="color: #008000; font-weight: bold">else</span>:
         current_node<span style="color: #666666">.</span>parent<span style="color: #666666">.</span>right_child <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
 </code></pre></div>
-<p>The second case is only slightly more complicated. If a node has only a single child, then we can simply promote the child to take the place of its parent. The code for this case is shown in <code>Listing 10</code>. As you look at this code, you will see that there are six cases to consider. Since the cases are symmetric with respect to either having a left or right child, we will just discuss the case where the current node has a left child. The decision proceeds as follows:</p>
+<p>第二种情况稍微复杂一些。如果一个节点只有一个子节点，我们可以简单地提升该子节点以取代其父节点。该情况的代码显示在 <code>Listing 10</code> 中。查看这段代码，你会发现有六种情况需要考虑。由于这些情况是关于是否有左子节点或右子节点的对称情况，我们将只讨论当前节点有左子节点的情况。决策过程如下：</p>
 <ol>
-<li>If the current node is a left child, then we only need to update the parent reference of the left child to point to the parent of the current node, and then update the left child reference of the parent to point to the current node’s left child.</li>
-<li>
-<p>If the current node is a right child, then we only need to update the parent reference of the left child to point to the parent of the current node, and then update the right child reference of the parent to point to the current node’s left child.</p>
-</li>
-<li>
-<p>If the current node has no parent, it must be the root. In this case we will just replace the <code>key</code>, <code>value</code>, <code>left_child</code>, and <code>right_child</code> data by calling the <code>replace_value</code> method on the root</p>
-</li>
+<li>如果当前节点是左子节点，则只需将左子节点的父节点引用更新为指向当前节点的父节点，然后更新父节点的左子节点引用为指向当前节点的左子节点。</li>
+<li>如果当前节点是右子节点，则只需将左子节点的父节点引用更新为指向当前节点的父节点，然后更新父节点的右子节点引用为指向当前节点的左子节点。</li>
+<li>如果当前节点没有父节点，则它必须是根节点。在这种情况下，我们将通过调用根节点上的 <code>replace_value</code> 方法来替换 <code>key</code>、<code>value</code>、<code>left_child</code> 和 <code>right_child</code> 数据。</li>
 </ol>
 <div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 10</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">else</span>:  <span style="color: #3D7B7B; font-style: italic"># removing a node with one child</span>
     <span style="color: #008000; font-weight: bold">if</span> current_node<span style="color: #666666">.</span>get_left_child():
@@ -4192,22 +4189,22 @@
                 current_node<span style="color: #666666">.</span>right_child<span style="color: #666666">.</span>right_child,
             )
 </code></pre></div>
-<p>The third case is the most difficult case to handle. If a node has two children, then it is unlikely that we can simply promote one of them to take the node’s place. We can, however, search the tree for a node that can be used to replace the one scheduled for deletion. What we need is a node that will preserve the binary search tree relationships for both of the existing left and right subtrees. The node that will do this is the node that has the next-largest key in the tree. We call this node the <strong>successor</strong>, and we will look at a way to find the successor shortly. The successor is guaranteed to have no more than one child, so we know how to remove it using the two cases for deletion that we have already implemented. Once the successor has been removed, we simply put it in the tree in place of the node to be deleted. The code  to handle the third case is shown in <code>Listing 11</code>.</p>
-<p>In <code>Listing 11</code> we make use of the helper methods <code>find_successor</code> and <code>splice_out</code> to find and remove the successor. The reason we use <code>splice_out</code> is that it goes directly to the node we want to splice out and makes the right changes. We could call <code>delete</code> recursively, but then we would waste time searching again for the key node.</p>
-<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 11</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">elif</span> current_node<span style="color: #666666">.</span>has_children():  <span style="color: #3D7B7B; font-style: italic"># removing a node with two children</span>
+<p>第三种情况是最复杂的。如果一个节点有两个子节点，那么简单地提升其中一个节点来代替待删除的节点通常是不够的。我们需要在树中寻找一个可以替代待删除节点的节点，这个节点需要保持现有左右子树的二叉搜索树关系。这个节点是树中具有下一个最大键的节点。我们称这个节点为 <strong>后继节点</strong>，稍后我们将讨论如何找到后继节点。后继节点保证最多只有一个子节点，因此我们可以使用已经实现的删除两种情况来删除它。一旦后继节点被删除，我们只需将其放回树中以取代待删除的节点。处理第三种情况的代码见 <code>Listing 11</code>。</p>
+<p>在 <code>Listing 11</code> 中，我们使用了辅助方法 <code>find_successor</code> 和 <code>splice_out</code> 来找到和删除后继节点。我们使用 <code>splice_out</code> 是因为它直接处理我们要移除的节点并做出相应的修改。我们也可以递归调用 <code>delete</code>，但这样会浪费时间重新查找键节点。</p>
+<div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 11</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">elif</span> current_node<span style="color: #666666">.</span>has_children():  <span style="color: #3D7B7B; font-style: italic"># 删除有两个子节点的节点</span>
     successor <span style="color: #666666">=</span> current_node<span style="color: #666666">.</span>find_successor()
     successor<span style="color: #666666">.</span>splice_out()
     current_node<span style="color: #666666">.</span>key <span style="color: #666666">=</span> successor<span style="color: #666666">.</span>key
     current_node<span style="color: #666666">.</span>value <span style="color: #666666">=</span> successor<span style="color: #666666">.</span>value
 </code></pre></div>
-<p>The code to find the successor is shown below (see <code>Listing 12</code>) and as you can see is a method of the <code>TreeNode</code> class. This code makes use of the same properties of binary search trees that cause an inorder traversal to print out the nodes in the tree from smallest to largest. There are three cases to consider when looking for the successor:</p>
+<p>下面的代码显示了找到后继节点的方法（见 <code>Listing 12</code>），它是 <code>TreeNode</code> 类中的一个方法。这个代码利用了二叉搜索树的属性，使得中序遍历可以按从最小到最大的顺序打印出树中的节点。查找后继节点时有三种情况需要考虑：</p>
 <ol>
-<li>If the node has a right child, then the successor is the smallest key in the right subtree.</li>
-<li>If the node has no right child and is the left child of its parent, then the parent is the successor.</li>
-<li>If the node is the right child of its parent, and itself has no right child, then the successor to this node is the successor of its parent, excluding this node.</li>
+<li>如果节点有右子节点，则后继节点是右子树中的最小键。</li>
+<li>如果节点没有右子节点且是其父节点的左子节点，则父节点是后继节点。</li>
+<li>如果节点是其父节点的右子节点，并且自身没有右子节点，则该节点的后继节点是其父节点的后继节点，排除该节点。</li>
 </ol>
-<p>The first condition is the only one that matters for us when deleting a node from a binary search tree. However, the <code>find_successor</code> method has other uses that we will explore in the exercises at the end of this chapter.</p>
-<p>The <code>find_min</code> method is called to find the minimum key in a subtree. You should convince yourself that the minimum value key in any binary search tree is the leftmost child of the tree. Therefore the <code>find_min</code> method simply follows the <code>left_child</code> references in each node of the subtree until it reaches a node that does not have a left child.</p>
+<p>对于我们在删除二叉搜索树中的节点时，只有第一种情况是重要的。然而，<code>find_successor</code> 方法还有其他用途，我们将在本章末尾的练习中探讨。</p>
+<p><code>find_min</code> 方法被调用来查找子树中的最小键。你应该确认任何二叉搜索树中最小的键值就是树的最左子节点。因此，<code>find_min</code> 方法简单地沿着子树中每个节点的 <code>left_child</code> 引用，直到到达没有左子节点的节点。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 12</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">find_successor</span>(<span style="color: #008000">self</span>):
     successor <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
     <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>right_child:
@@ -4248,13 +4245,13 @@
                 <span style="color: #008000">self</span><span style="color: #666666">.</span>parent<span style="color: #666666">.</span>right_child <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>right_child
             <span style="color: #008000">self</span><span style="color: #666666">.</span>right_child<span style="color: #666666">.</span>parent <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>parent
 </code></pre></div>
-<p>We can implement the <code>del</code> operator by writing a <code>__delete__</code> method for the <code>BinarySearchTree</code> as shown in <code>Listing 13</code>. It is a wrapper method that allows us to remove a key from the map by writing <code>del my_zip_tree["NYC"]</code>.</p>
+<p>我们可以通过为 <code>BinarySearchTree</code> 编写 <code>__delete__</code> 方法来实现 <code>del</code> 运算符，如 <code>Listing 13</code> 所示。这是一个包装方法，允许我们通过编写 <code>del my_zip_tree["NYC"]</code> 从映射中删除一个键。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><span class="filename">Listing 13</span><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__delitem__</span>(<span style="color: #008000">self</span>, key):
     <span style="color: #008000">self</span><span style="color: #666666">.</span>delete(key)
 </code></pre></div>
-<p>We need to look at one last interface method for the binary search tree. Suppose that we would like to simply iterate over all the keys in the tree in order. This is definitely something we have done with dictionaries, so why not trees? You already know how to traverse a binary tree in order, using the <code>inorder</code> traversal algorithm. However, writing an iterator requires a bit more work since an iterator should return only one node each time the iterator is called.</p>
-<p>Python provides us with a very powerful function to use when creating an iterator. The function is called <code>yield</code>. <code>yield</code> is similar to <code>return</code> in that it returns a value to the caller. However, <code>yield</code> also takes the additional step of freezing the state of the function so that the next time the function is called it continues executing from the exact point it left off earlier. Functions that create objects that can be iterated are called <em>generator functions</em>.</p>
-<p>The code for an <code>inorder</code> iterator of a binary tree is shown in the next listing. Look at this code carefully; at first glance you might think that the code is not recursive. However, remember that <code>__iter__</code> overrides the <code>for ... in</code> operation for iteration, so it really is recursive! Because it is recursive over <code>TreeNode</code> instances, the <code>__iter__</code> method is defined in the <code>TreeNode</code> class.</p>
+<p>我们还需要查看二叉搜索树的最后一个接口方法。假设我们想要按顺序遍历树中的所有键。这在字典中我们已经做过了，那么为什么不在树中做呢？你已经知道如何使用中序遍历算法遍历二叉树。然而，编写一个迭代器需要更多的工作，因为一个迭代器每次调用时只返回一个节点。</p>
+<p>Python 提供了一个非常强大的函数来创建迭代器。这个函数叫做 <code>yield</code>。<code>yield</code> 类似于 <code>return</code>，它将一个值返回给调用者。然而，<code>yield</code> 还会冻结函数的状态，以便下次调用函数时可以从中断的地方继续执行。创建可以被迭代的对象的函数称为 <em>生成器函数</em>。</p>
+<p>二叉树中序迭代器的代码如下所示。仔细查看这段代码；乍一看，你可能认为这段代码不是递归的。然而，记住 <code>__iter__</code> 重载了 <code>for ... in</code> 操作，因此它确实是递归的！由于它是对 <code>TreeNode</code> 实例的递归，因此 <code>__iter__</code> 方法定义在 <code>TreeNode</code> 类中。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__iter__</span>(<span style="color: #008000">self</span>):
     <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span>:
         <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>left_child:
@@ -4265,7 +4262,7 @@
             <span style="color: #008000; font-weight: bold">for</span> elem <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>right_child:
                 <span style="color: #008000; font-weight: bold">yield</span> elem
 </code></pre></div>
-<p>At this point you may want to download the entire file containing the full version of the <code>BinarySearchTree</code> and <code>TreeNode</code> classes.</p>
+<p>此时，你可能会想下载包含 <code>BinarySearchTree</code> 和 <code>TreeNode</code> 类完整版本的整个文件。</p>
 <div class="language-python highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Activity: 6.14.2 ActiveCode</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">  1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">  2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">  3</span>
@@ -5470,7 +5467,7 @@ my_tree<span style="color: #666666">.</span>delete(<span style="color: #BA2121">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月11日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月13日</span>
       
         <br>
         创建日期:
